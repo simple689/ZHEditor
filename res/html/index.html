@@ -11,7 +11,10 @@
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
 
-    <div name="dropBox" id="dropBox">
+    <ul>
+      <li><div name="dropBox" id="dropBox"/></li>
+      <li><div name="editBox" id="editBox"/></li>
+    </ul>
 
     <script>
     // 拖拽的目标对象 document 监听drop 并防止浏览器打开客户端的图片
@@ -43,7 +46,6 @@
       e.stopPropagation();  
       e.preventDefault();  
       handleFiles(e.dataTransfer.files);
-      submit.disabled = false;  
     };
 
     function handleFiles(files) {  
@@ -70,22 +72,50 @@
           // <input id="File1" type="file" value="" name ="file"/ >
           var input = document.createElement("input");  
           input.classList.add("obj");  
-          dropBox.appendChild(input);  
+          editBox.appendChild(input);  
 
           var reader = new FileReader();
           reader.onload = function () {
-            console.log(reader.result);
+            // console.log(reader.result);
             var jsonStr = reader.result;
-            // input.value = jsonStr;
-            // input.value = file;
-            input.value = "aa";
-            // var objs = eval('(' + jsonstr + ')');
-            // for(var j = 0;j<objs.length;j++){
-            //   alert(objs[j].id);
-            //   alert(objs[j].name);
+            input.value = jsonStr;
+
+            isJson = function(obj){
+              var isjson = typeof(obj) == "object" && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length;
+              isjson = !isjson;
+              console.log(isjson);
+              return isjson;
+            }
+            if (!isJson(jsonStr)) return;
+
+            var jsonObj = eval('(' + jsonStr + ')');
+            console.log(jsonObj);
+            // for (var j = 0; j < jsonObj.length; j++) {
+            //   alert(jsonObj[j].id);
+            //   alert(jsonObj[j].name);
             // }
+            for (var o in jsonObj) {  
+              console.log(o);
+              console.log(jsonObj[o]);
+              console.log(typeof(jsonObj[o]));
+              if (typeof(jsonObj[o]) == "object") {
+                for (var o1 in jsonObj[o]) {  
+                  console.log(o1);
+                  console.log(jsonObj[o][o1]);
+                }
+              }
+            }
           }
-          reader.readAsDataURL(file);
+          reader.readAsText(file);
+
+          // var minSize = 10;
+          // var maxSize = 600;
+          // input.style.width = minSize + "px";
+          // input.style.height = minSize + "px";
+          // console.log(input.scrollWidth);
+          // console.log(input.scrollHeight);
+          // input.style.width = ((input.scrollWidth < maxSize)?input.scrollWidth:maxSize) + "px";
+          // input.style.height = ((input.scrollHeight < maxSize)?input.scrollHeight:maxSize) + "px";
         }
     }
     </script>

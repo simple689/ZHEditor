@@ -1,0 +1,26 @@
+{
+    "_version":"20171012",
+    "_libUnitMap_Group":{
+        "$c":"_libUnitMap_Group",
+        "_libUnitMap":[
+            {
+                "$c":"_libUnitMap_0",
+                "$cid":0,
+                "_unitId":"test",
+                "_rot":{
+                    "x":0.0000,
+                    "y":0.0000,
+                    "z":0.0000
+                },
+                "traceTypeGroup":{
+                    "$c":"traceTypeGroup",
+                    "_traceType":1,
+                    "_libExtTraceDiyID_Row":{
+                        "$current":1,
+                        "_libExtTraceDiyID":"test"
+                    }
+                }
+            }
+        ]
+    }
+}

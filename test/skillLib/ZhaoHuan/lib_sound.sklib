@@ -1,0 +1,23 @@
+{
+    "_version":"20171012",
+    "_unitIDSearch_Row":{
+        "$current":1,
+        "_unitIDSearch":""
+    },
+    "_libUnitMap_Group":{
+        "$c":"_libUnitMap_Group",
+        "_libUnitMap":[
+            {
+                "$c":"_libUnitMap_0",
+                "$cid":0,
+                "_unitId_0":"test",
+                "_soundKeys":"",
+                "_baseVolume":100,
+                "_baseDelay":"",
+                "_isBaseFadeEnable":false,
+                "_baseFadeValue":100,
+                "_soundPosType":0
+            }
+        ]
+    }
+}

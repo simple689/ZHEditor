@@ -5,10 +5,25 @@ body {
 }
 
 #dropBox {
-    border:3px dashed silver;
+    border: 3px dashed silver;
     padding: 10px;
     margin: 10px;
     width: 1050px;
-    min-width:300px;
+    min-width: 300px;
     min-height: 300px;
+}
+
+#editBox {
+    border: 1px solid silver;
+    padding: 10px;
+    margin: 10px;
+    width: auto;
+    height: auto;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: auto;
+    height: auto;
 }

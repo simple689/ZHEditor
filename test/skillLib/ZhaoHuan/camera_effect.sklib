@@ -1,0 +1,37 @@
+{
+    "_version":"20171012",
+    "_unitIDSearch_Row":{
+        "$current":1,
+        "_unitIDSearch":""
+    },
+    "_libUnitMap_Group":{
+        "$c":"_libUnitMap_Group",
+        "_libUnitMap":[
+            {
+                "$c":"_libUnitMap_0",
+                "$cid":0,
+                "_unitId_0":"test",
+                "effectTypeGroup":{
+                    "$c":"effectTypeGroup",
+                    "_effectType":0
+                }
+            },
+            {
+                "$c":"_libUnitMap_1",
+                "$cid":1,
+                "_unitId_1":"id_test",
+                "effectTypeGroup":{
+                    "$c":"effectTypeGroup",
+                    "_effectType":2,
+                    "_duration":5,
+                    "_effectPos":{
+                        "x":0.0000,
+                        "y":0.0000,
+                        "z":0.0000
+                    },
+                    "_isFullScreen":true
+                }
+            }
+        ]
+    }
+}

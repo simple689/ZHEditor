@@ -1,0 +1,32 @@
+{
+    "_version":"20171012",
+    "_unitIDSearch_Row":{
+        "$current":1,
+        "_unitIDSearch":""
+    },
+    "_libUnitMap_Group":{
+        "$c":"_libUnitMap_Group",
+        "_libUnitMap":[
+            {
+                "$c":"_libUnitMap_0",
+                "$cid":0,
+                "_unitId_0":"test",
+                "playTypeGroup":{
+                    "$c":"playTypeGroup",
+                    "_playType":0
+                },
+                "_soundStart":60,
+                "_soundEnd":0,
+                "_baseVolume":100,
+                "_baseDelay":0,
+                "_isBaseFadeEnable":false,
+                "_baseFadeValue":100,
+                "_baseLimitType":0,
+                "deadTypeGroup":{
+                    "$c":"deadTypeGroup",
+                    "_deadType":0
+                }
+            }
+        ]
+    }
+}

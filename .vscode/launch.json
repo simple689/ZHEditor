@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "ZH 编辑器",
             "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "C:/Users/Teddy/AppData/Roaming/npm/electron.cmd",
+            "runtimeExecutable": "C:/Users/simpl/AppData/Roaming/npm/electron.cmd",
             "program": "${workspaceRoot}/src/ZHMain.js"
         }
     ]

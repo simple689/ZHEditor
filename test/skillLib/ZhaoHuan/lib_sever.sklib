@@ -1,0 +1,21 @@
+{
+    "_version":"20171012",
+    "_unitIDSearch_Row":{
+        "$current":1,
+        "_unitIDSearch":""
+    },
+    "_libUnitMap_Group":{
+        "$c":"_libUnitMap_Group",
+        "_libUnitMap":[
+            {
+                "$c":"_libUnitMap_0",
+                "$cid":0,
+                "_unitId_0":"test",
+                "contentTypeGroup":{
+                    "$c":"contentTypeGroup",
+                    "_contentType":0
+                }
+            }
+        ]
+    }
+}
