@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ZH 编辑器",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "C:/Users/Teddy/AppData/Roaming/npm/electron.cmd",
+            "program": "${workspaceRoot}/src/ZHMain.js"
+        }
+    ]
+}

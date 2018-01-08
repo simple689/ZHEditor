@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="../css/index.css" type="text/css" />
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+
+    <div name="dropBox" id="dropBox">
+
+    <script>
+    // 拖拽的目标对象 document 监听drop 并防止浏览器打开客户端的图片
+    document.ondragover = function (e) {
+      e.preventDefault(); // 只有在ondragover中阻止默认行为才能触发 ondrop 而不是 ondragleave
+    };
+    document.ondrop = function (e) {
+      e.preventDefault(); // 阻止 document.ondrop的默认行为 *** 在新窗口中打开拖进的图片
+    };
+    dropBox.ondragover = function (e) {
+      e.stopPropagation();  
+      e.preventDefault();
+    };
+    dropBox.ondragenter = function (e) {
+      dropBox.style.borderColor = 'gray';  
+      dropBox.style.backgroundColor = 'white';  
+      e.stopPropagation();  
+      e.preventDefault();
+    };
+    dropBox.ondragleave = function (e) {
+      dropBox.style.borderColor = 'silver';  
+      dropBox.style.backgroundColor = 'transparent';  
+      e.stopPropagation();  
+      e.preventDefault(); 
+    };
+    dropBox.ondrop = function (e) {
+      dropBox.style.borderColor = 'silver';  
+      dropBox.style.backgroundColor = 'transparent';  
+      e.stopPropagation();  
+      e.preventDefault();  
+      handleFiles(e.dataTransfer.files);
+      submit.disabled = false;  
+    };
+
+    function handleFiles(files) {  
+      for (var i = 0; i < files.length; i++) {  
+        var file = files[i];  
+        reader(file);
+      }  
+    }  
+     
+    function reader(file) {
+        if (file.type.match(/image*/)) {  
+          var img = document.createElement("img");  
+          img.classList.add("obj");  
+          img.file = file;  
+          dropBox.appendChild(img);  
+          
+          var reader = new FileReader();  
+          reader.onload = function () {
+            console.log(reader.result);
+            img.src = reader.result;
+          }
+          reader.readAsDataURL(file);  
+        } else {
+          // <input id="File1" type="file" value="" name ="file"/ >
+          var input = document.createElement("input");  
+          input.classList.add("obj");  
+          dropBox.appendChild(input);  
+
+          var reader = new FileReader();
+          reader.onload = function () {
+            console.log(reader.result);
+            var jsonStr = reader.result;
+            // input.value = jsonStr;
+            // input.value = file;
+            input.value = "aa";
+            // var objs = eval('(' + jsonstr + ')');
+            // for(var j = 0;j<objs.length;j++){
+            //   alert(objs[j].id);
+            //   alert(objs[j].name);
+            // }
+          }
+          reader.readAsDataURL(file);
+        }
+    }
+    </script>
+  </body>
+</html>
