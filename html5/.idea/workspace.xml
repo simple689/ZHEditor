@@ -20,8 +20,8 @@
       <file leaf-file-name="editorDock.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/editor/editorDock.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+            <state relative-caret-position="547">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -30,23 +30,23 @@
       <file leaf-file-name="editorPanelFileBrowser.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/editor/panelExtend/editorPanelFileBrowser.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+            <state relative-caret-position="300">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editorDock.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="editorDock.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/editor/main/editorDock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="34" selection-end-column="6" />
+            <state relative-caret-position="522">
+              <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editorPanelFixedTop.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="editorPanelFixedTop.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/editor/panelFixed/editorPanelFixedTop.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            <state relative-caret-position="450">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#iframe#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#iframe#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -158,7 +158,6 @@
         <option value="$PROJECT_DIR$/js/editorDock.js" />
         <option value="$PROJECT_DIR$/html/editorDock.html" />
         <option value="$PROJECT_DIR$/js/dsxDockFloatPro.js" />
-        <option value="F:/html5/dsxDockFloatPro/dsxDockFloatProDemo/demo/JavaScriptDockFloatIFrameDemo.html" />
         <option value="$PROJECT_DIR$/html/editor/panel/editorPanelFixedRight.html" />
         <option value="$PROJECT_DIR$/html/editor/panel/editorPanelFixedLeft.html" />
         <option value="$PROJECT_DIR$/html/editor/panel/editorPanelFixedCenter.html" />
@@ -175,9 +174,10 @@
         <option value="$PROJECT_DIR$/html/editor/panelFixed/editorPanelFixedRight.html" />
         <option value="$PROJECT_DIR$/html/editor/panelFixed/editorPanelFixedLeft.html" />
         <option value="$PROJECT_DIR$/html/editor/panelFixed/editorPanelFixedBottom.html" />
-        <option value="$PROJECT_DIR$/html/editor/main/editorDock.html" />
-        <option value="$PROJECT_DIR$/css/editor/editorDock.css" />
         <option value="$PROJECT_DIR$/html/editor/panelFixed/editorPanelFixedTop.html" />
+        <option value="$PROJECT_DIR$/css/editor/editorDock.css" />
+        <option value="F:/html5/dsxDockFloatPro/dsxDockFloatProDemo/demo/JavaScriptDockFloatIFrameDemo.html" />
+        <option value="$PROJECT_DIR$/html/editor/main/editorDock.html" />
       </list>
     </option>
   </component>
@@ -187,7 +187,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="136" />
     <option name="y" value="153" />
     <option name="width" value="1400" />
@@ -330,12 +330,12 @@
       <workItem from="1515467436699" duration="5930000" />
       <workItem from="1515473841229" duration="11141000" />
       <workItem from="1515550021828" duration="8772000" />
-      <workItem from="1515566189063" duration="1198000" />
+      <workItem from="1515566189063" duration="3087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27041000" />
+    <option name="totallyTimeSpent" value="28930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -347,7 +347,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.4879227" order="0" side_tool="false" content_ui="combo" />
@@ -478,13 +478,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="32" column="2430" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/html5/dsxDockFloatPro/dsxDockFloatProDemo/demo/JavaScriptDockFloatIFrameDemo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="140" lean-forward="true" selection-start-line="0" selection-start-column="140" selection-end-line="0" selection-end-column="140" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -492,6 +486,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -520,22 +515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/editor/panelExtend/editorPanelFileBrowser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/editor/panelExtend/editorPanelFileEditor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="9" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -579,34 +558,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/editor/panelFixed/editorPanelFixedTop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/editor/panelExtend/editorPanelFileEditor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/editor/editorDock.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        <state relative-caret-position="547">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/editor/panelExtend/editorPanelFileBrowser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/html5/dsxDockFloatPro/dsxDockFloatProDemo/demo/JavaScriptDockFloatIFrameDemo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="134" lean-forward="false" selection-start-line="6" selection-start-column="123" selection-end-line="6" selection-end-column="134" />
+          <folding>
+            <element signature="n#STYLE#0;n#iframe#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/editor/main/editorDock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="34" selection-end-column="6" />
+        <state relative-caret-position="522">
+          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/editor/panelFixed/editorPanelFixedTop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#iframe#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
