@@ -1,0 +1,31 @@
+{
+    "_version":"20171012",
+    "_libUnitMap_Group":{
+        "$c":"_libUnitMap_Group",
+        "_libUnitMap":[
+            {
+                "$c":"_libUnitMap_0",
+                "$cid":0,
+                "_unitId":"play_ocne",
+                "_soundLevel":1,
+                "_randomVolumeMax":100,
+                "_randomVolumeMin":1,
+                "_baseDelay":0,
+                "_isBaseFade":false,
+                "_baseFadeValue":33,
+                "soundPosTypeGroup":{
+                    "$c":"soundPosTypeGroup",
+                    "_soundPosType":1
+                },
+                "baseLimitTypeGroup":{
+                    "$c":"baseLimitTypeGroup",
+                    "_baseLimitType":0
+                },
+                "deadTypeGroup":{
+                    "$c":"deadTypeGroup",
+                    "_deadType":0
+                }
+            }
+        ]
+    }
+}

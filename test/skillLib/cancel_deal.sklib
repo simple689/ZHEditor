@@ -1,0 +1,15 @@
+{
+    "_version":"20171012",
+    "_libUnitMap_Group":{
+        "$c":"_libUnitMap_Group",
+        "_libUnitMap":[
+            {
+                "$c":"_libUnitMap_0",
+                "$cid":0,
+                "_unitId":"recruit",
+                "_selfType":1,
+                "_childType":0
+            }
+        ]
+    }
+}
