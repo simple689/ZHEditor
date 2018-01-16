@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/tab.css" afterPath="$PROJECT_DIR$/css/editor/tab.css" />
+      <change beforePath="$PROJECT_DIR$/css/editor/tab.css" afterPath="$PROJECT_DIR$/css/editor/tab.css" />
       <change beforePath="$PROJECT_DIR$/html/editor.html" afterPath="$PROJECT_DIR$/html/editor.html" />
-      <change beforePath="$PROJECT_DIR$/html/editor/main/editorDock.html" afterPath="$PROJECT_DIR$/html/editor/main/editorDock.html" />
       <change beforePath="$PROJECT_DIR$/html/editor/panel/editorPanelView.html" afterPath="$PROJECT_DIR$/html/editor/panel/editorPanelView.html" />
-      <change beforePath="$PROJECT_DIR$/js/editor/dsxDockFloatPro.js" afterPath="$PROJECT_DIR$/js/editor/dsxDockFloatPro.js" />
-      <change beforePath="$PROJECT_DIR$/js/editor/editorDock.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/tab.js" afterPath="$PROJECT_DIR$/js/editor/tab.js" />
-      <change beforePath="$PROJECT_DIR$/../src/ZHMenu.js" afterPath="$PROJECT_DIR$/../src/ZHMenu.js" />
-      <change beforePath="$PROJECT_DIR$/../src/ZHMenuTemplate.js" afterPath="$PROJECT_DIR$/../src/ZHMenuTemplate.js" />
-      <change beforePath="$PROJECT_DIR$/../src/ZHWindow.js" afterPath="$PROJECT_DIR$/../src/ZHWindow.js" />
+      <change beforePath="$PROJECT_DIR$/js/editor/tab.js" afterPath="$PROJECT_DIR$/js/editor/tab.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,8 +26,8 @@
             <file leaf-file-name="editorPanelView.html" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/html/editor/panel/editorPanelView.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="675">
-                    <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+                  <state relative-caret-position="550">
+                    <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
                     <folding />
                   </state>
                 </provider>
@@ -62,21 +56,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tab.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tab.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/editor/tab.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+            <state relative-caret-position="466">
+              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tab.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tab.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/editor/tab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="-550">
+              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -106,12 +100,26 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>centerdiv</find>
-      <find>tabBlock-tab</find>
       <find>createDSXDFUtil</find>
       <find>DSXDFUtil</find>
       <find>(Demo)</find>
       <find>Demo</find>
+      <find>var TabBlock \= \{\n    s\: \{\n        animLen\: 200\n    \}\,\n\n    init\: function\(\) \{\n        TabBlock\.bindUIActions\(\)\;\n        TabBlock\.hideInactive\(\)\;\n    \}\,\n\n    bindUIActions\: function\(\) \{\n        \$\(\'\.tabBlock\-tabs\'\)\.on\(\'click\'\, \'\.tabBlock\-tab\'\, function\(\)\{\n            TabBlock\.switchTab\(\$\(this\)\)\;\n        \}\)\;\n    \}\,\n\n    hideInactive\: function\(\) \{\n        var \$tabBlocks \= \$\(\'\.tabBlock\'\)\;\n\n        \$tabBlocks\.each\(function\(i\) \{\n            var\n                \$tabBlock \= \$\(\$tabBlocks\[i\]\)\,\n                \$panes \= \$tabBlock\.find\(\'\.tabBlock\-pane\'\)\,\n                \$activeTab \= \$tabBlock\.find\(\'\.tabBlock\-tab\.is\-active\'\)\;\n\n            \$panes\.hide\(\)\;\n            \$\(\$panes\[\$activeTab\.index\(\)\]\)\.show\(\)\;\n        \}\)\;\n    \}\,\n\n    switchTab\: function\(\$tab\) \{\n        var \$context \= \$tab\.closest\(\'\.tabBlock\'\)\;\n\n        if \(\!\$tab\.hasClass\(\'is\-active\'\)\) \{\n            \$tab\.siblings\(\)\.removeClass\(\'is\-active\'\)\;\n            \$tab\.addClass\(\'is\-active\'\)\;\n\n            TabBlock\.showPane\(\$tab\.index\(\)\, \$context\)\;\n        \}\n    \}\,\n\n    showPane\: function\(i\, \$context\) \{\n        var \$panes \= \$context\.find\(\'\.tabBlock\-pane\'\)\;\n\n        \/\/ Normally I\'d frown at using jQuery over CSS animations\, but we can\'t transition between unspecified variable heights\, right\? If you know a better way\, I\'d love a read it in the comments or on Twitter \@johndjameson\n        \$panes\.slideUp\(TabBlock\.s\.animLen\)\;\n        \$\(\$panes\[i\]\)\.slideDown\(TabBlock\.s\.animLen\)\;\n    \}\n\}\;\n\n\$\(function\(\) \{\n    TabBlock\.init\(\)\;\n\}\)\;</find>
+      <find>tabBlock-tabs</find>
+      <find>tabBlock-tab</find>
+      <find>is-active</find>
+      <find>tabBlock-content</find>
+      <find>tabBlock-pane</find>
+      <find>last-child</find>
     </findStrings>
+    <replaceStrings>
+      <replace>tabBlock_tabs</replace>
+      <replace>tabBlock_tab</replace>
+      <replace>is_active</replace>
+      <replace>tabBlock_content</replace>
+      <replace>tabBlock_pane</replace>
+      <replace>last_child</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -156,9 +164,9 @@
         <option value="$PROJECT_DIR$/html/editor.html" />
         <option value="$PROJECT_DIR$/html/editor/main/editorDock.html" />
         <option value="$PROJECT_DIR$/js/editor/dsxDockFloatPro.js" />
+        <option value="$PROJECT_DIR$/js/editor/tab.js" />
         <option value="$PROJECT_DIR$/html/editor/panel/editorPanelView.html" />
         <option value="$PROJECT_DIR$/css/editor/tab.css" />
-        <option value="$PROJECT_DIR$/js/editor/tab.js" />
       </list>
     </option>
   </component>
@@ -306,12 +314,12 @@
       <workItem from="1515735973512" duration="843000" />
       <workItem from="1515752526640" duration="619000" />
       <workItem from="1515982612757" duration="11185000" />
-      <workItem from="1516106689647" duration="534000" />
+      <workItem from="1516106689647" duration="783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53325000" />
+    <option name="totallyTimeSpent" value="53574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -541,14 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/editor/panel/editorPanelView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/editor.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -557,18 +557,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/editor/tab.css">
+    <entry file="file://$PROJECT_DIR$/js/editor/tab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        <state relative-caret-position="-550">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/editor/tab.js">
+    <entry file="file://$PROJECT_DIR$/css/editor/tab.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="466">
+          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/editor/panel/editorPanelView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
           <folding />
         </state>
       </provider>

@@ -1,4 +1,4 @@
-.group::after, .tabBlock-tabs::after {
+.group::after, .tabBlock_tabs::after {
     clear: both;
     content: "";
     display: table;
@@ -34,7 +34,7 @@ ol, ul {
     margin-left: 1.25rem;
 }
 
-.unstyledList, .tabBlock-tabs {
+.unstyledList, .tabBlock_tabs {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -44,7 +44,7 @@ ol, ul {
     margin: 0 0 2.5rem;
 }
 
-.tabBlock-tab {
+.tabBlock_tab {
     background-color: white;
     border-color: #d8d8d8;
     border-left-style: solid;
@@ -60,10 +60,10 @@ ol, ul {
     -webkit-transition: 0.1s ease-in-out;
     transition: 0.1s ease-in-out;
 }
-.tabBlock-tab:last-of-type {
+.tabBlock_tab:last-of-type {
     border-right-style: solid;
 }
-.tabBlock-tab::before, .tabBlock-tab::after {
+.tabBlock_tab::before, .tabBlock_tab::after {
     content: "";
     display: block;
     height: 4px;
@@ -71,42 +71,42 @@ ol, ul {
     -webkit-transition: 0.1s ease-in-out;
     transition: 0.1s ease-in-out;
 }
-.tabBlock-tab::before {
+.tabBlock_tab::before {
     background-color: #b5a8c5;
     left: -2px;
     right: -2px;
     top: -2px;
 }
-.tabBlock-tab::after {
+.tabBlock_tab::after {
     background-color: transparent;
     bottom: -2px;
     left: 0;
     right: 0;
 }
 @media screen and (min-width: 700px) {
-    .tabBlock-tab {
+    .tabBlock_tab {
         padding-left: 2.5rem;
         padding-right: 2.5rem;
     }
 }
-.tabBlock-tab.is-active {
+.tabBlock_tab.is_active {
     position: relative;
     color: #975997;
     z-index: 1;
 }
-.tabBlock-tab.is-active::before {
+.tabBlock_tab.is_active::before {
     background-color: #975997;
 }
-.tabBlock-tab.is-active::after {
+.tabBlock_tab.is_active::after {
     background-color: white;
 }
 
-.tabBlock-content {
+.tabBlock_content {
     background-color: white;
     border: 2px solid #d8d8d8;
     padding: 1.25rem;
 }
 
-.tabBlock-pane > :last-child {
+.tabBlock_pane > :last-child {
     margin-bottom: 0;
 }
