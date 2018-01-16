@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../../css/editor/editorDock.css">
+    <link rel="stylesheet" href="../../../css/editor/tab.css">
+
+    <script src='../../../js/jquery-1.8.1.js'></script>
+    <script src="../../../js/editor/tab.js"></script>
 </head>
 <body>
-top <br />
-<hr />
-<input type="button" value="Show Panel A", onclick="ShowDFWA(true)"/>
-<input type="button" value="Hide Panel A", onclick="ShowDFWA(false)"/>
+<figure class="tabBlock">
+    <ul class="tabBlock-tabs">
+        <li class="tabBlock-tab is-active">Tab 1<button >close</button></li>
+        <li class="tabBlock-tab">Tab 2<button >close</button></li>
+    </ul>
+    <div class="tabBlock-content">
+        <div class="tabBlock-pane">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit..</p>
+        </div>
+        <div class="tabBlock-pane">
+            <ul>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Nemo optio iste labore similique?</li>
+            </ul>
+        </div>
+    </div>
+</figure>
 </body>
 </html>

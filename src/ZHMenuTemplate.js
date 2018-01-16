@@ -1,8 +1,15 @@
+exports.getTemplateEmpty = getTemplateEmpty;
 exports.getTemplate = getTemplate;
+
+function getTemplateEmpty () {
+  return templateEmpty;
+}
 
 function getTemplate () {
   return template;
 }
+
+var templateEmpty = [];
 
 var template = [
   {

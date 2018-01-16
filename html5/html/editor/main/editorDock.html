@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>编辑器</title>
     <link rel="stylesheet" href="../../../css/editor/editorDock.css">
+    <link rel="manifest" href="../../../config/site.webmanifest">
 
     <script type="text/javascript" src="../../../js/jquery-1.8.1.js"></script>
     <script type="text/javascript" src="../../../js/editor/dsxDockFloatPro.js"></script>
@@ -22,7 +23,7 @@
 
             view = dock.createDFPanel("视图");
             view.addContentDiv(document.getElementById("panelView"), 0);
-            view.initLayout(150,300,400,200,DSXDFPanel.dockTop);
+            view.initLayout(0,0,600,600,DSXDFPanel.dockTop);
 
             fileBrowser = dock.createDFPanel("文件浏览器");
             fileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
