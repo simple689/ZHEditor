@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="29bb71cc-5fa4-4c99-8a4c-e72c2be69ee9" name="html5" url="http://localhost:63342/html5">
+        <fileTransfer port="0" mountedRoot="F:\Electron\apache-tomcat-8.5.15-windows-x64\webapps\html5" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -14,18 +14,20 @@ var _menu = require('./ZHMenu')
 function init () {
   const screen = electron.screen
   var size = screen.getPrimaryDisplay().workAreaSize;
-  var width = 600;
-  var widthSide = 5;
+  // var width = 600;
+  // var widthSide = 5;
   // window = new BrowserWindow({width: width + widthSide, height: size.height, x: size.width - width, y : 0, show: false})
   // window = new BrowserWindow({width: 1280, height: 720, show: false})
   window = new BrowserWindow({width: size.width, height: size.height, show: false})
 
   window.loadURL(url.format({
-    pathname: path.join(__dirname + '/../res/html', 'index.html'),
+    // pathname: path.join(__dirname + '/../res/html', 'index.html'),
+    pathname: path.join(__dirname + '/../html5/html/editor/main', 'editorDock.html'),
     protocol: 'file:',
     slashes: true
   }))
   // window.loadURL('https://github.com');
+  window.loadURL('http://localhost:63342/html5/html/editor/main/editorDock.html?_ijt=obb1da55edbdidrvgctqtrtjdt');
 
   window.webContents.openDevTools()
 
@@ -36,17 +38,6 @@ function init () {
   _menu.init();
   
   window.show();
-
-  // const dialog = electron.dialog;
-  // console.log(dialog.showMessageBox());
-
-  // window.webContents.on('did-finish-load', ()=>{
-  //   let code = `var dropBox = document.getElementById("dropBox");
-  //   dropBox.addEventListener("click",function(){alert("clicked!");});
-            
-  //   dropbox.addEventListener("dragenter", function(){alert("clicked!"), false);   `;
-  //           window.webContents.executeJavaScript(code);
-  // });
 }
 
 function activate () {

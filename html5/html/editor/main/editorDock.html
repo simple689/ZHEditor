@@ -5,7 +5,7 @@
     <title>编辑器</title>
     <link rel="stylesheet" href="../../../css/editor/editorDock.css">
 
-    <script type="text/javascript" src="../../../js/jquery.js"></script>
+    <script type="text/javascript" src="../../../js/jquery-1.8.1.js"></script>
     <script type="text/javascript" src="../../../js/editor/dsxDockFloatPro.js"></script>
     <script type="text/javascript">
         var dock;
@@ -16,16 +16,16 @@
         }
         function initDock() {
             dock = DSXDFUtil.createDSXDFUtil();
-            dock.addFixedPanel(document.getElementById("panelFixedTop"), DSXDFUtil.fixedTop);
             dock.addFixedPanel(document.getElementById("panelFixedCenter"), DSXDFUtil.fixedCenter);
+            dock.addFixedPanel(document.getElementById("panelFixedTop"), DSXDFUtil.fixedTop);
             dock.addFixedPanel(document.getElementById("panelFixedBottom"), DSXDFUtil.fixedBottom);
 
             view = dock.createDFPanel("视图");
-            view.addContentDiv(document.getElementById("editorPanelView"), 0);
+            view.addContentDiv(document.getElementById("panelView"), 0);
             view.initLayout(150,300,400,200,DSXDFPanel.dockTop);
 
             fileBrowser = dock.createDFPanel("文件浏览器");
-            fileBrowser.addContentDiv(document.getElementById("panelFloatFileBrowser"), 0);
+            fileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
             fileBrowser.initLayout(150,300,400,200,DSXDFPanel.dockBottom);
         }
     </script>
@@ -40,16 +40,15 @@
     <object type="text/html" data="../panel/editorPanelFixedBottom.html"></object>
 </div>
 
-<div class="dockFloat" id="editorPanelView"></div>
-<div class="dockFloat" id="panelFloatFileBrowser"></div>
+<div class="dockFloat" id="panelView"></div>
+<div class="dockFloat" id="panelFileBrowser"></div>
 
-consol.log("6");
 <script type="text/javascript">
-    $(document).ready(function(){
-        alert(6);
-        $('#editorPanelView').load('../panel/editorPanelView.html');
-        $('#panelFloatFileBrowser').load('../panel/editorPanelFileBrowser.html');
-    })
+$(document).ready(function(){
+console.log("689");
+$('#panelView').load('../panel/editorPanelView.html');
+$('#panelFileBrowser').load('../panel/editorPanelFileBrowser.html');
+})
 </script>
 </body>
 </html>
