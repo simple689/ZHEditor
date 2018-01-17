@@ -10,15 +10,20 @@ function initDock() {
 
     panelView = dock.createDFPanel("视图");
     panelView.addContentDiv(document.getElementById("panelView"), 0);
-    panelView.initLayout(0,0,600,600,DSXDFPanel.dockTop);
 
     panelFileBrowser = dock.createDFPanel("文件浏览器");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
-    panelFileBrowser.initLayout(150,300,400,200,DSXDFPanel.dockBottom);
+
+    initLayout();
 }
 
 function setVisible(panel, sch) {
     panel.setVisible(sch);
+}
+
+function initLayout() {
+    panelView.initLayout(0,0,600,600,DSXDFPanel.dockTop);
+    panelFileBrowser.initLayout(150,300,400,200,DSXDFPanel.dockBottom);
 }
 
 // exe

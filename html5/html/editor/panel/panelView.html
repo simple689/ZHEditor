@@ -2,23 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../css/editor/dock.css">
-    <link rel="stylesheet" href="../../../css/util/tab.css">
+    <link rel="stylesheet" href="../../../css/editor/dock/dock.css">
+    <link rel="stylesheet" href="../../../css/editor/widget/widgetTab.css">
 
     <script src='../../../js/util/jquery-1.8.1.js'></script>
-    <script src="../../../js/util/tab.js"></script>
+    <script src="../../../js/editor/widget/widgetTab.js"></script>
+    <script src="../../../js/editor/panel/panelView.js"></script>
 </head>
 <body>
-<figure class="tabBlock">
-    <ul class="tabBlock_tabs" id="tabBlock_tabs">
-        <li class="tabBlock_tab is_active">Tab 1<button >close</button></li>
-        <li class="tabBlock_tab" id="editBox">Tab 2<button >close</button></li>
+<figure class="widgetTab">
+    <ul class="widgetTabTitleGroup" id="widgetTabTitleGroup">
+        <li class="widgetTabTitle isActive" id="widgetTabTitleHome">首页</li>
     </ul>
-    <div class="tabBlock_content">
-        <div class="tabBlock_pane" id="tabBlock_pane">
+    <div class="widgetTabContentGroup" id="widgetTabContentGroup">
+        <div class="widgetTabContent" id="widgetTabContentHome">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit..</p>
-        </div>
-        <div class="tabBlock_pane">
             <ul>
                 <li>Lorem ipsum dolor sit amet.</li>
                 <li>Nemo optio iste labore similique?</li>
@@ -26,19 +24,5 @@
         </div>
     </div>
 </figure>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        console.log("689");
-        var li = document.createElement("li");
-        li.classList.add("tabBlock_tab");
-        li.innerHTML="php";
-        tabBlock_tabs.appendChild(li);
-
-        var input = document.createElement("input");
-        input.classList.add("obj");
-        tabBlock_pane.appendChild(input);
-    })
-</script>
 </body>
 </html>
