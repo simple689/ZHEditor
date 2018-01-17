@@ -2667,7 +2667,7 @@ jQuery.event = {
 			handler.guid = jQuery.guid++;
 		}
 
-		// Init the element's event structure and main handler, if this is the first
+		// Init the element's event structure and dock handler, if this is the first
 		events = elemData.events;
 		if ( !events ) {
 			elemData.events = events = {};
@@ -5992,7 +5992,7 @@ jQuery.buildFragment = function( args, context, scripts ) {
 	context = !context.nodeType && context[0] || context;
 	context = context.ownerDocument || context;
 
-	// Only cache "small" (1/2 KB) HTML strings that are associated with the main document
+	// Only cache "small" (1/2 KB) HTML strings that are associated with the dock document
 	// Cloning options loses the selected state, so don't cache them
 	// IE 6 doesn't like it when you put <object> or <embed> elements in a fragment
 	// Also, WebKit does not clone 'checked' attributes on cloneNode, so don't cache

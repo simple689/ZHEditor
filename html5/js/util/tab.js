@@ -49,5 +49,6 @@ var TabBlock = {
 };
 
 $(function() {
+    console.log("1");
     TabBlock.init();
 });
