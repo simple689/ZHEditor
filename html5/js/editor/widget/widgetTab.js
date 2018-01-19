@@ -2,16 +2,27 @@ var widgetTabController = {
     slideSpeed: 200,
 
     init: function() {
-        utilLogController.logFunc(arguments.callee.toString());
+        logController.logFunc(arguments.callee.toString());
         var eventList = new Array();
         eventList.push(widgetTabController.bindUIAction);
         eventList.push(widgetTabController.hideInactive);
 
-        widgetTabController.titleGroupEvent(eventList);
+        widgetTabController.tabEvent(eventList);
+    },
+
+    tabEvent: function(eventList) {
+        logController.logFunc(arguments.callee.toString());
+        var tabList = document.getElementsByClassName("widgetTab");
+        var $tabList = $(tabList);
+        $tabList.each(function(i) {
+            var $tabItem = $($tabList[i]);
+
+            console.log($tabItem);
+        })
     },
 
     titleGroupEvent: function(eventList) {
-        utilLogController.logFunc(arguments.callee.toString());
+        logController.logFunc(arguments.callee.toString());
         var titleGroupList = document.getElementsByClassName("widgetTabTitleGroup");
         var $titleGroupList = $(titleGroupList);
         $titleGroupList.each(function(i) {
@@ -23,28 +34,17 @@ var widgetTabController = {
                 eventItem && eventItem($titleGroupItem);
             })
         })
-
-        // var i;
-        // for (i = 0; i < titleGroupList.length; i++) {
-        //     var $titleGroupItem = $(titleGroupList[i]);
-        //
-        //     var j;
-        //     for (j = 0; j < eventList.length; j++) {
-        //         var event = eventList[i];
-        //         event && event($titleGroupItem);
-        //     }
-        // }
     },
 
     bindUIAction: function(titleGroupItem) {
-        utilLogController.logFunc(arguments.callee.toString());
+        logController.logFunc(arguments.callee.toString());
         titleGroupItem.on("click", '.widgetTabTitle', function() {
             widgetTabController.switchTab($(this));
         });
     },
 
     hideInactive: function(titleGroupItem) {
-        utilLogController.logFunc(arguments.callee.toString());
+        logController.logFunc(arguments.callee.toString());
         var $widgetTab = $('.widgetTab');
         $widgetTab.each(function(i) {
             var
@@ -58,7 +58,7 @@ var widgetTabController = {
     },
 
     switchTab: function($tab) {
-        utilLogController.logFunc(arguments.callee.toString());
+        logController.logFunc(arguments.callee.toString());
         var $context = $tab.closest('.widgetTab');
 
         if (!$tab.hasClass('isActive')) {
@@ -82,7 +82,7 @@ var widgetTabController = {
     // },
 
     showPane: function(i, $context) {
-        utilLogController.logFunc(arguments.callee.toString());
+        logController.logFunc(arguments.callee.toString());
         var $panes = $context.find('.widgetTabContent');
         // Normally I'd frown at using jQuery over CSS animations, but we can't transition between unspecified variable heights, right? If you know a better way, I'd love a read it in the comments or on Twitter @johndjameson
         $panes.slideUp(widgetTabController.slideSpeed);
@@ -93,6 +93,6 @@ var widgetTabController = {
 // exe
 //========
 $(function() {
-    utilLogController.logFunc(arguments.callee.toString());
+    logController.logFunc(arguments.callee.toString());
     widgetTabController.init();
 });

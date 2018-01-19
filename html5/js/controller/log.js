@@ -1,4 +1,4 @@
-var utilLogController = {
+var logController = {
     logFunc: function(str) {
         var regular = /function\s*(\w*)/i;
         var matches = regular.exec(str);
