@@ -8,12 +8,15 @@ function appendWidgetTab() {
     li.classList.add("widgetTabTitle");
     // li.classList.add("isActive");
     li.innerHTML="new";
-    widgetTabTitleGroup.appendChild(li);
+    li.id="aaa";
+    widgetTabTitleGroup_root.appendChild(li);
 
     var div = document.createElement("div");
     div.classList.add("widgetTabContent");
     div.innerHTML="new";
-    widgetTabContentGroup.appendChild(div);
+    widgetTabTitleGroup_root.appendChild(div);
+
+    // widgetTab.switchTab2();
 }
 
 // exe

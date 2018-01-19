@@ -6,23 +6,41 @@
     <link rel="stylesheet" href="../../../css/editor/widget/widgetTab.css">
 
     <script src='../../../js/util/jquery-1.8.1.js'></script>
+    <script src="../../../js/util/utilLog.js"></script>
     <script src="../../../js/editor/widget/widgetTab.js"></script>
     <script src="../../../js/editor/panel/panelView.js"></script>
 </head>
 <body>
-<figure class="widgetTab">
-    <ul class="widgetTabTitleGroup" id="widgetTabTitleGroup">
+<figure class="widgetTab" id="widgetTab_root">
+    <ul class="widgetTabTitleGroup" id="widgetTabTitleGroup_root">
         <li class="widgetTabTitle isActive" id="widgetTabTitleHome">首页</li>
     </ul>
     <div class="widgetTabContentGroup" id="widgetTabContentGroup">
         <div class="widgetTabContent" id="widgetTabContentHome">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit..</p>
+
+            <figure class="widgetTab" id="widgetTab_root1">
+            <ul class="widgetTabTitleGroup" id="widgetTabTitleGroup_root1">
+                <li class="widgetTabTitle isActive" id="widgetTabTitleHom1e">首页</li>
+            </ul>
+            <div class="widgetTabContentGroup" id="widgetTabContentGroup1">
+                <div class="widgetTabContent" id="widgetTabContentHome1">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit..</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Nemo optio iste labore similique?</li>
+                    </ul>
+                </div>
+            </div>
+            </figure>
+
             <ul>
                 <li>Lorem ipsum dolor sit amet.</li>
                 <li>Nemo optio iste labore similique?</li>
             </ul>
         </div>
     </div>
+
 </figure>
 </body>
 </html>
