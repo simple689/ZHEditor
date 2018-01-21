@@ -8,8 +8,8 @@ var logController = {
             console.debug(str);
         }
     },
-    log: function(str) {
-        console.log(str);
+    log: function(...args) {
+        console.log(args);
     },
     logDebug: function(str) {
         console.debug(str);

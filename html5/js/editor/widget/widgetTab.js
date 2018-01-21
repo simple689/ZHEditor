@@ -15,13 +15,41 @@ var widgetTabController = {
         var tabList = document.getElementsByClassName("widgetTab");
         var $tabList = $(tabList);
         $tabList.each(function(i) {
-            var $tabItem = $($tabList[i]);
+            var $tabItem = $(tabList[i]);
 
-            console.log($tabItem);
+            var childList = $tabItem.context.childNodes;
+            var $childList = $(childList);
+            $childList.each(function(j) {
+                var $childItem = $(childList[j]);
+                if ($childItem.context.className == "widgetTabTitleGroup") {
+                    logController.log("widgetTabTitleGroup = %d", i);
+                    widgetTabController.titleGroupEvent($childItem, eventList);
+                } else if ($childItem.context.className == "widgetTabContentGroup") {
+                    logController.log("widgetTabContentGroup = %d", i);
+                    widgetTabController.titleGroupEvent($childItem, eventList);
+                }
+            })
         })
     },
 
-    titleGroupEvent: function(eventList) {
+    titleGroupEvent: function(eventItem, eventList) {
+        logController.logFunc(arguments.callee.toString());
+        var childList = eventItem.context.childNodes;
+        var $childList = $(childList);
+        $childList.each(function(i) {
+            var $childItem = $(childList[i]);
+            if ($childItem.context.className == "widgetTabTitle") {
+                logController.log("widgetTabTitle = %d", i);
+
+                // $eventList.each(function(j) {
+                //     var eventItem = eventList[j];
+                //     eventItem && eventItem($titleGroupItem);
+                // })
+            }
+        })
+    },
+
+    contentGroupEvent: function(eventItem, eventList) {
         logController.logFunc(arguments.callee.toString());
         var titleGroupList = document.getElementsByClassName("widgetTabTitleGroup");
         var $titleGroupList = $(titleGroupList);
