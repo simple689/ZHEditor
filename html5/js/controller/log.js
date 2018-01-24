@@ -9,19 +9,19 @@ var logController = {
         }
     },
     log: function(...args) {
-        console.log(args);
+        console.log(...args);
     },
-    logDebug: function(str) {
-        console.debug(str);
+    logDebug: function(...args) {
+        console.debug(...args);
     },
-    logInfo: function(str) {
-        console.info(str);
+    logInfo: function(...args) {
+        console.info(...args);
     },
-    logWarn: function(str) {
-        console.warn(str);
+    logWarn: function(...args) {
+        console.warn(...args);
     },
-    logError: function(str) {
-        console.error(str);
+    logError: function(...args) {
+        console.error(...args);
     },
 };
 
