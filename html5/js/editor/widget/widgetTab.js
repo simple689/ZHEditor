@@ -2,7 +2,7 @@ var widgetTabController = {
     name: "widgetTabController",
     slideSpeed: 200,
 
-    init: function() {
+    init: function () {
         logController.log(this.name, "->", arguments.callee.name);
 
         var eventList = new Array();
@@ -11,19 +11,19 @@ var widgetTabController = {
         widgetTabController.tabEvent(eventList);
     },
 
-    tabEvent: function(eventList) {
+    tabEvent: function (eventList) {
         logController.log(this.name, "->", arguments.callee.name);
 
         var tabList = document.getElementsByClassName("widgetTab");
         var $tabList = $(tabList);
-        $tabList.each(function(tabIndex) {
+        $tabList.each(function (tabIndex) {
             var $tabItem = $(tabList[tabIndex]);
 
             var childList = $tabItem.context.childNodes;
             var $childList = $(childList);
             var ulTitleGroup = null;
             var divContentGroup = null;
-            $childList.each(function(childIndex) {
+            $childList.each(function (childIndex) {
                 var $childItem = $(childList[childIndex]);
                 if ($childItem.is("ul") && $childItem.hasClass("widgetTabTitleGroup")) {
                     logController.log("ul.widgetTabTitleGroup = %d", tabIndex);
@@ -35,36 +35,36 @@ var widgetTabController = {
             })
             widgetTabController.titleGroupEvent(ulTitleGroup, divContentGroup, eventList);
             widgetTabController.contentGroupEvent(ulTitleGroup, divContentGroup, eventList);
+            // eventList.each(function(eventIndex) {
+            //     logController.log("eventList = %d", eventIndex);
+            //     var eventItem = eventList[eventIndex];
+            //     eventItem && eventItem($childItem);
+            // })
         })
     },
 
-    titleGroupEvent: function(ulTitleGroup, divContentGroup, eventList) {
+    titleGroupEvent: function (ulTitleGroup, divContentGroup, eventList) {
         logController.log(this.name, "->", arguments.callee.name);
 
         var childList = ulTitleGroup.context.childNodes;
         var $childList = $(childList);
-        $childList.each(function(childIndex) {
+        $childList.each(function (childIndex) {
             var $childItem = $(childList[childIndex]);
             if ($childItem.hasClass("widgetTabTitle")) {
                 logController.log("widgetTabTitle = %d", $childItem.index());
 
-                // eventList.each(function(eventIndex) {
-                //     logController.log("eventList = %d", eventIndex);
-                //     var eventItem = eventList[eventIndex];
-                //     eventItem && eventItem($childItem);
-                // })
                 var event = eventList["bindUIAction"];
                 event && event($childItem)
             }
         })
     },
 
-    contentGroupEvent: function(ulTitleGroup, divContentGroup, eventList) {
+    contentGroupEvent: function (ulTitleGroup, divContentGroup, eventList) {
         logController.log(this.name, "->", arguments.callee.name);
 
         var childList = divContentGroup.context.childNodes;
         var $childList = $(childList);
-        $childList.each(function(childIndex) {
+        $childList.each(function (childIndex) {
             var $childItem = $(childList[childIndex]);
             if ($childItem.hasClass("widgetTabContent")) {
                 logController.log("widgetTabContent = %d", $childItem.index());
@@ -75,15 +75,15 @@ var widgetTabController = {
         })
     },
 
-    bindUIAction: function(titleItem) {
+    bindUIAction: function (titleItem) {
         logController.log(this.name, "->", arguments.callee.name);
 
-        titleItem.on("click", function() {
-            widgetTabController.switchTab($(this));
+        titleItem.on("click", function () {
+            widgetTabController.switchTitle($(this));
         });
     },
 
-    hideInactive: function(titleItem, contentItem) {
+    hideInactive: function (titleItem, contentItem) {
         logController.log(this.name, "->", arguments.callee.name);
 
         var $titleItem = $(titleItem);
@@ -94,30 +94,60 @@ var widgetTabController = {
         }
     },
 
-    switchTab: function($tab) {
-        // logController.log(this.name, "->", arguments.callee.name);
-        // var $context = $tab.closest('.widgetTab');
-        //
-        // if (!$tab.hasClass('isActive')) {
-        //     $tab.siblings().removeClass('isActive');
-        //     $tab.addClass('isActive');
-        //
-        //     widgetTabController.showPane($tab.index(), $context);
-        // }
+    switchTitle: function (titleItem) {
+        logController.log(this.name, "->", arguments.callee.name);
+
+        var tabItem = titleItem.closest('.widgetTab');
+        if (tabItem.length > 0) {
+            tabItem = tabItem[0];
+        }
+
+        if (!titleItem.hasClass('isActive')) {
+            titleItem.siblings().removeClass('isActive');
+            titleItem.addClass('isActive');
+
+            widgetTabController.showContent(titleItem.index(), $(tabItem));
+        }
     },
 
-    showPane: function(i, $context) {
-        // logController.log(this.name, "->", arguments.callee.name);
-        // var $panes = $context.find('.widgetTabContent');
-        // // Normally I'd frown at using jQuery over CSS animations, but we can't transition between unspecified variable heights, right? If you know a better way, I'd love a read it in the comments or on Twitter @johndjameson
-        // $panes.slideUp(widgetTabController.slideSpeed);
-        // $($panes[i]).slideDown(widgetTabController.slideSpeed);
-    }
+    showContent: function (index, tabItem) {
+        logController.log(this.name, "->", arguments.callee.name);
+        var childList = tabItem.context.childNodes;
+        var $childList = $(childList);
+        var divContentGroup = null;
+        $childList.each(function (childIndex) {
+            var $childItem = $(childList[childIndex]);
+            if ($childItem.is("div") && $childItem.hasClass("widgetTabContentGroup")) {
+                divContentGroup = $childItem;
+
+                var contentGroupChildList = divContentGroup.context.childNodes;
+                var $contentGroupChildList = $(contentGroupChildList);
+                $contentGroupChildList.each(function (contentGroupChildIndex) {
+                    var $contentGroupChildItem = $(contentGroupChildList[contentGroupChildIndex]);
+
+                    if ($contentGroupChildItem.hasClass("widgetTabContent")) {
+                        logController.log("widgetTabContent = %d", $contentGroupChildItem.index());
+
+                        if ($contentGroupChildItem.index() == index) {
+                            $contentGroupChildItem.slideDown(widgetTabController.slideSpeed);
+                        } else {
+                            $contentGroupChildItem.slideUp(widgetTabController.slideSpeed);
+                        }
+                        // eventList.each(function(eventIndex) {
+                        //     logController.log("eventList = %d", eventIndex);
+                        //     var eventItem = eventList[eventIndex];
+                        //     eventItem && eventItem($childItem);
+                        // })
+                    }
+                })
+            }
+        })
+    },
 };
 
 // exe
 //========
-$(function() {
+$(function () {
     logController.log("[widgetTabController]");
     widgetTabController.init();
 });
