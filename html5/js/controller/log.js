@@ -1,13 +1,4 @@
 var logController = {
-    logFunc: function(str) {
-        var regular = /function\s*(\w*)/i;
-        var matches = regular.exec(str);
-        if (matches[1].length) {
-            console.debug(matches[1]);
-        } else {
-            console.debug(str);
-        }
-    },
     log: function(...args) {
         console.log(...args);
     },
@@ -22,6 +13,15 @@ var logController = {
     },
     logError: function(...args) {
         console.error(...args);
+    },
+    logFunc: function(str) {
+        var regular = /function\s*(\w*)/i;
+        var matches = regular.exec(str);
+        if (matches[1].length) {
+            console.debug(matches[1]);
+        } else {
+            console.debug(str);
+        }
     },
 };
 
