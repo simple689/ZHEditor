@@ -22,12 +22,11 @@ function init () {
 
   window.loadURL(url.format({
     // pathname: path.join(__dirname + '/../res/html', 'index.html'),
-    pathname: path.join(__dirname + '/../html5/html/editor/main', 'editorDock.html'),
+    pathname: path.join(__dirname + '/../html5/html/editor/dock', 'dock.html'),
     protocol: 'file:',
     slashes: true
   }))
   // window.loadURL('https://github.com');
-  window.loadURL('http://localhost:63342/html5/html/editor/main/editorDock.html?_ijt=obb1da55edbdidrvgctqtrtjdt');
 
   // window.webContents.openDevTools()
 
