@@ -24,6 +24,7 @@ function appendWidgetTab() {
 $(document).ready(function(){
     console.log("[panelView]");
 
+    widgetTabController.init();
     // appendWidgetTab();
 
     // var input = document.createElement("input");

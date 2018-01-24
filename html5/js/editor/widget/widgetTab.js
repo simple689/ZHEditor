@@ -35,11 +35,6 @@ var widgetTabController = {
             })
             widgetTabController.titleGroupEvent(ulTitleGroup, divContentGroup, eventList);
             widgetTabController.contentGroupEvent(ulTitleGroup, divContentGroup, eventList);
-            // eventList.each(function(eventIndex) {
-            //     logController.log("eventList = %d", eventIndex);
-            //     var eventItem = eventList[eventIndex];
-            //     eventItem && eventItem($childItem);
-            // })
         })
     },
 
@@ -112,6 +107,7 @@ var widgetTabController = {
 
     showContent: function (index, tabItem) {
         logController.log(this.name, "->", arguments.callee.name);
+        
         var childList = tabItem.context.childNodes;
         var $childList = $(childList);
         var divContentGroup = null;
@@ -144,10 +140,3 @@ var widgetTabController = {
         })
     },
 };
-
-// exe
-//========
-$(function () {
-    logController.log("[widgetTabController]");
-    widgetTabController.init();
-});

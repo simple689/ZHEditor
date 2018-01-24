@@ -24,8 +24,8 @@
             <file leaf-file-name="panelView.html" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/html/editor/panel/panelView.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="565">
-                    <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+                  <state relative-caret-position="315">
+                    <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -66,8 +66,8 @@
       <file leaf-file-name="panelView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/editor/panel/panelView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="16" selection-end-column="49" />
+            <state relative-caret-position="568">
+              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -76,8 +76,8 @@
       <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/editor/widget/widgetTab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+            <state relative-caret-position="250">
+              <caret line="109" column="8" lean-forward="false" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -244,9 +244,9 @@
         <option value="$PROJECT_DIR$/js/util/util.js" />
         <option value="$PROJECT_DIR$/js/util/utilLog.js" />
         <option value="$PROJECT_DIR$/js/controller/log.js" />
+        <option value="$PROJECT_DIR$/html/editor/panel/panelView.html" />
         <option value="$PROJECT_DIR$/js/editor/panel/panelView.js" />
         <option value="$PROJECT_DIR$/js/editor/widget/widgetTab.js" />
-        <option value="$PROJECT_DIR$/html/editor/panel/panelView.html" />
       </list>
     </option>
   </component>
@@ -442,12 +442,12 @@
       <workItem from="1516178835822" duration="8123000" />
       <workItem from="1516329655975" duration="17707000" />
       <workItem from="1516625131482" duration="1203000" />
-      <workItem from="1516759024438" duration="12678000" />
+      <workItem from="1516759024438" duration="12980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98050000" />
+    <option name="totallyTimeSpent" value="98352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -737,26 +737,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/editor/panel/panelView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/editor/panel/panelView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="16" selection-end-column="49" />
+        <state relative-caret-position="568">
+          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/editor/widget/widgetTab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/editor/panel/panelView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        <state relative-caret-position="250">
+          <caret line="109" column="8" lean-forward="false" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
           <folding />
         </state>
       </provider>
