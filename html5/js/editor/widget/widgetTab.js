@@ -82,10 +82,9 @@ var widgetTabController = {
         logController.log(this.name, "->", arguments.callee.name);
 
         var $titleItem = $(titleItem);
+        contentItem.hide();
         if ($titleItem.hasClass("isActive")) {
             contentItem.show();
-        } else {
-            contentItem.hide();
         }
     },
 
@@ -107,7 +106,7 @@ var widgetTabController = {
 
     showContent: function (index, tabItem) {
         logController.log(this.name, "->", arguments.callee.name);
-        
+
         var childList = tabItem.context.childNodes;
         var $childList = $(childList);
         var divContentGroup = null;

@@ -21,11 +21,21 @@
       <content type="file-editors">
         <state>
           <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="panelView.html" pinned="false" current-in-tab="true">
+            <file leaf-file-name="panelView.html" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/html/editor/panel/panelView.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="315">
-                    <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+                  <state relative-caret-position="215">
+                    <caret line="18" column="69" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="69" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/js/editor/widget/widgetTab.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="525">
+                    <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -44,7 +54,7 @@
       <file leaf-file-name="dock.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/editor/dock/dock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
+            <state relative-caret-position="0">
               <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -63,21 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="panelView.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="panelView.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/editor/panel/panelView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/editor/widget/widgetTab.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="109" column="8" lean-forward="false" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
+            <state relative-caret-position="475">
+              <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -245,8 +245,8 @@
         <option value="$PROJECT_DIR$/js/util/utilLog.js" />
         <option value="$PROJECT_DIR$/js/controller/log.js" />
         <option value="$PROJECT_DIR$/html/editor/panel/panelView.html" />
-        <option value="$PROJECT_DIR$/js/editor/panel/panelView.js" />
         <option value="$PROJECT_DIR$/js/editor/widget/widgetTab.js" />
+        <option value="$PROJECT_DIR$/js/editor/panel/panelView.js" />
       </list>
     </option>
   </component>
@@ -384,18 +384,18 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Electron\ZHEditor\html5\html\editor\main" />
+      <recent name="F:\Electron\ZHEditor\html5\html\editor" />
+      <recent name="F:\Electron\ZHEditor\html5\html\editor\panelExtend" />
+      <recent name="F:\Electron\ZHEditor\html5\html\editor\panel" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Electron\ZHEditor\html5\js\Controller" />
       <recent name="F:\Electron\ZHEditor\html5\js\editor\widget" />
       <recent name="F:\Electron\ZHEditor\html5\css\editor\widget" />
       <recent name="F:\Electron\ZHEditor\html5\css\editor\dock" />
       <recent name="F:\Electron\ZHEditor\html5\js\editor\dock" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Electron\ZHEditor\html5\html\editor\main" />
-      <recent name="F:\Electron\ZHEditor\html5\html\editor" />
-      <recent name="F:\Electron\ZHEditor\html5\html\editor\panelExtend" />
-      <recent name="F:\Electron\ZHEditor\html5\html\editor\panel" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -442,12 +442,12 @@
       <workItem from="1516178835822" duration="8123000" />
       <workItem from="1516329655975" duration="17707000" />
       <workItem from="1516625131482" duration="1203000" />
-      <workItem from="1516759024438" duration="12980000" />
+      <workItem from="1516759024438" duration="14435000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98352000" />
+    <option name="totallyTimeSpent" value="99807000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -697,7 +697,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/editor/dock/dock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
+        <state relative-caret-position="0">
           <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -739,24 +739,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/editor/panel/panelView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/editor/panel/panelView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        <state relative-caret-position="215">
+          <caret line="18" column="69" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/editor/widget/widgetTab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="109" column="8" lean-forward="false" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
+        <state relative-caret-position="525">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/editor/panel/panelView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
           <folding />
         </state>
       </provider>

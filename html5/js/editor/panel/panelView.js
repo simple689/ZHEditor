@@ -1,22 +1,18 @@
 var lastActiveTitleId = "widgetTabContentHome";
 
 function appendWidgetTab() {
-    // var lastActiveLi = document.getElementById(lastActiveTitleId);
-    // // lastActiveLi.remove("isActive");
-    //
-    // var li = document.createElement("li");
-    // li.classList.add("widgetTabTitle");
-    // // li.classList.add("isActive");
-    // li.innerHTML="new";
-    // li.id="aaa";
-    // widgetTabTitleGroup_root.appendChild(li);
-    //
-    // var div = document.createElement("div");
-    // div.classList.add("widgetTabContent");
-    // div.innerHTML="new";
-    // widgetTabTitleGroup_root.appendChild(div);
+    var li = document.createElement("li");
+    li.classList.add("widgetTabTitle");
+    li.innerHTML="new";
+    li.id="new";
+    widgetTabTitleGroup_root.appendChild(li);
 
-    // widgetTab.switchTab2();
+    var div = document.createElement("div");
+    div.classList.add("widgetTabContent");
+    div.innerHTML="new";
+    widgetTabContentGroup_root.appendChild(div);
+
+    widgetTabController.switchTitle($(li));
 }
 
 // exe
@@ -24,8 +20,8 @@ function appendWidgetTab() {
 $(document).ready(function(){
     console.log("[panelView]");
 
+    appendWidgetTab();
     widgetTabController.init();
-    // appendWidgetTab();
 
     // var input = document.createElement("input");
     // input.classList.add("obj");
