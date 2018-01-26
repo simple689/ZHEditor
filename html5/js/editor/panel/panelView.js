@@ -1,5 +1,3 @@
-var lastActiveTitleId = "widgetTabContentHome";
-
 function appendWidgetTab() {
     var li = document.createElement("li");
     li.classList.add("widgetTabTitle");

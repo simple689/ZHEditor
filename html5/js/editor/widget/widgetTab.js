@@ -137,5 +137,5 @@ var widgetTabController = {
                 })
             }
         })
-    },
+    }
 };
