@@ -10,28 +10,10 @@
     box-sizing: border-box;
 }
 
-body {
-    color: #222222;
-    font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    line-height: 1;
-    margin: 0 auto;
-    max-width: 50px;
-    padding: 0;
-}
 @media screen and (min-width: 10px) {
     body {
         font-size: 16px;
     }
-}
-
-p, ol, ul {
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-ol, ul {
-    padding: 0;
-    margin-left: 0;
 }
 
 .unstyledList, .widgetTabTitleGroup {
@@ -42,6 +24,8 @@ ol, ul {
 
 .widgetTab {
     margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .widgetTabTitle {

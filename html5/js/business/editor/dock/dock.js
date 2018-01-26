@@ -26,7 +26,7 @@ function setVisible(panel, sch) {
 }
 
 function initLayout() {
-    panelTest.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
+    panelTest.initLayout(0,0,60,600,DSXDFPanel.dockLeft);
     panelView.initLayout(0,0,600,600,DSXDFPanel.dockTop);
     panelFileBrowser.initLayout(150,300,400,200,DSXDFPanel.dockBottom);
 }

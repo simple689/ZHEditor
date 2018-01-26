@@ -57,6 +57,7 @@ var widgetDropController = {
     },
 
     readFile: function (file) {
+        alert("a");
         if (file.type.match(/image*/)) {
             var img = document.createElement("img");
             img.classList.add("obj");
