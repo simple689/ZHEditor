@@ -2,33 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/common/base.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelState.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelTest.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelView.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/editor/dock/dock.css" afterPath="$PROJECT_DIR$/css/widget/widgetDock.css" />
-      <change beforePath="$PROJECT_DIR$/css/editor/widget/widgetDrop.css" afterPath="$PROJECT_DIR$/css/widget/widgetDrop.css" />
-      <change beforePath="$PROJECT_DIR$/css/editor/widget/widgetTab.css" afterPath="$PROJECT_DIR$/css/widget/widgetTab.css" />
-      <change beforePath="$PROJECT_DIR$/html/editor/dock/dock.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelFileBrowser.html" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelFileBrowser.html" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelFileEditor.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelFixedBottom.html" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelFileEditor.html" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelFixedTop.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelMenu.html" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelTest.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelToolBar.html" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelToolBar.html" />
-      <change beforePath="$PROJECT_DIR$/html/editor/panel/panelView.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/tmp/editor.html" afterPath="$PROJECT_DIR$/html/tmp/editor.html" />
-      <change beforePath="$PROJECT_DIR$/js/controller/log.js" afterPath="$PROJECT_DIR$/js/common/logController.js" />
-      <change beforePath="$PROJECT_DIR$/js/editor/dock/dock.js" afterPath="$PROJECT_DIR$/js/business/editor/dock/dock.js" />
-      <change beforePath="$PROJECT_DIR$/js/editor/panel/panelTest.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelTest.js" />
-      <change beforePath="$PROJECT_DIR$/js/editor/panel/panelView.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelView.js" />
-      <change beforePath="$PROJECT_DIR$/js/editor/widget/widgetDrop.js" afterPath="$PROJECT_DIR$/js/widget/widgetDrop.js" />
-      <change beforePath="$PROJECT_DIR$/js/editor/widget/widgetTab.js" afterPath="$PROJECT_DIR$/js/widget/widgetTab.js" />
-      <change beforePath="$PROJECT_DIR$/js/util/dsxDockFloatPro.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock.js" />
-      <change beforePath="$PROJECT_DIR$/js/util/jquery-1.8.1.js" afterPath="$PROJECT_DIR$/js/util/jquery.js" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/panel/panelView.html" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelView.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,11 +21,11 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="panelView.html" pinned="false" current-in-tab="false">
+            <file leaf-file-name="panelView.html" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/html/business/editor/panel/panelView.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="200">
-                    <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+                  <state relative-caret-position="464">
+                    <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
                     <folding />
                   </state>
                 </provider>
@@ -65,7 +41,7 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="base.css" pinned="false" current-in-tab="true">
+            <file leaf-file-name="base.css" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/css/common/base.css">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="525">
@@ -85,12 +61,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dock.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dock.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="27" column="59" lean-forward="false" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+            <state relative-caret-position="668">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#object#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#object#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -129,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetTab.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="widgetTab.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/widget/widgetTab.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1257">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="325">
+              <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -283,13 +260,13 @@
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" />
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelState.html" />
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelToolBar.html" />
-        <option value="$PROJECT_DIR$/html/business/editor/panel/panelView.html" />
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelTest.html" />
         <option value="$PROJECT_DIR$/css/widget/widgetDock.css" />
         <option value="$PROJECT_DIR$/css/widget/widgetTab.css" />
         <option value="$PROJECT_DIR$/css/common/base.css" />
         <option value="$PROJECT_DIR$/css/widget/widgetDrop.css" />
         <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
+        <option value="$PROJECT_DIR$/html/business/editor/panel/panelView.html" />
       </list>
     </option>
   </component>
@@ -465,12 +442,12 @@
       <workItem from="1516759024438" duration="15737000" />
       <workItem from="1516799853714" duration="1970000" />
       <workItem from="1516881807648" duration="5239000" />
-      <workItem from="1516947803265" duration="3553000" />
+      <workItem from="1516947803265" duration="4642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111871000" />
+    <option name="totallyTimeSpent" value="112960000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -761,42 +738,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/panel/panelView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/panel/panelTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/widget/widgetDock.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/widget/widgetTab.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1257">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/common/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -809,15 +754,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/common/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/business/editor/panel/panelTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="27" column="59" lean-forward="false" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+        <state relative-caret-position="668">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#object#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#object#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/business/editor/panel/panelView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/widget/widgetTab.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
