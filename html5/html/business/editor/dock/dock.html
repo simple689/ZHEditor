@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="../../../../css/common/base.css">
     <!-- [css] widget -->
     <link rel="stylesheet" href="../../../../css/widget/widgetDock.css">
-    <link rel="stylesheet" href="../../../../css/widget/widgetTab.css">
-    <link rel="stylesheet" href="../../../../css/widget/widgetDrop.css">
     <!-- [css] business -->
     <!-- [css] util -->
     <script src="../../../../js/util/jquery.js"></script>
@@ -18,11 +16,8 @@
     <script src="../../../../js/common/logController.js"></script>
     <!-- [js] widget -->
     <script src="../../../../js/widget/widgetDock.js"></script>
-    <script src="../../../../js/widget/widgetTab.js"></script>
-    <script src="../../../../js/widget/widgetDrop.js"></script>
     <!-- [js] business -->
     <script src="../../../../js/business/editor/dock/dock.js"></script>
-    <script src="../../../../js/business/editor/panel/panelView.js"></script>
 </head>
 <body onload = "initDock()">
 <div class="panelFixed" id="panelFixedTop" style="height:77px;">
@@ -35,8 +30,13 @@
     <object type="text/html" data="../panel/panelState.html"></object>
 </div>
 
-<div class="panelFloat" id="panelTest"></div>
-<div class="panelFloat" id="panelView"></div>
-<div class="panelFloat" id="panelFileBrowser"></div>
+<div class="panelFloat" id="panelTest">
+</div>
+<div class="panelFloat" id="panelView">
+    <object type="text/html" data="../panel/panelView.html"></object>
+</div>
+<div class="panelFloat" id="panelFileBrowser">
+    <object type="text/html" data="../panel/panelFileBrowser.html"></object>
+</div>
 </body>
 </html>

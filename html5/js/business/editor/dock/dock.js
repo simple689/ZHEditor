@@ -21,22 +21,22 @@ function initDock() {
     initLayout();
 }
 
-function setVisible(panel, sch) {
-    panel.setVisible(sch);
-}
-
 function initLayout() {
     panelTest.initLayout(0,0,60,600,DSXDFPanel.dockLeft);
     panelView.initLayout(0,0,600,600,DSXDFPanel.dockTop);
     panelFileBrowser.initLayout(150,300,400,200,DSXDFPanel.dockBottom);
 }
 
+function setVisible(panel, sch) {
+    panel.setVisible(sch);
+}
+
 // exe
 //========
 $(document).ready(function(){
-    console.log("[editorDock]");
+    console.log("[dock] start");
 
-    $('#panelView').load('../panel/panelView.html');
     $('#panelTest').load('../panel/panelTest.html');
-    $('#panelFileBrowser').load('../panel/panelFileBrowser.html');
+
+    console.log("[dock] end");
 })

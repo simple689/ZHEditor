@@ -16,12 +16,14 @@ function appendWidgetTab() {
 // exe
 //========
 $(document).ready(function(){
-    console.log("[panelView]");
+    console.log("[panelView] start");
 
-    appendWidgetTab();
+    // appendWidgetTab();
     widgetTabController.init();
+    widgetDropController.init();
 
     // var input = document.createElement("input");
     // input.classList.add("obj");
     // widgetTabContentHome.appendChild(input);
+    console.log("[panelView] end");
 })
