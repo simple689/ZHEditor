@@ -18,7 +18,7 @@ function appendWidgetTab() {
 $(document).ready(function(){
     console.log("[panelView] start");
 
-    // appendWidgetTab();
+    appendWidgetTab();
     widgetTabController.init();
     widgetDropController.init();
 

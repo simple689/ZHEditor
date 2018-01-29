@@ -36,7 +36,9 @@ function setVisible(panel, sch) {
 $(document).ready(function(){
     console.log("[dock] start");
 
+    $('#panelView').load('../panel/panelView.html');
     $('#panelTest').load('../panel/panelTest.html');
+    $('#panelFileBrowser').load('../panel/panelFileBrowser.html');
 
     console.log("[dock] end");
 })
