@@ -1,10 +1,9 @@
+var panelTestController = {
+    name: "panelTestController",
 
-// exe
-//========
-$(document).ready(function(){
-    console.log("[panelTest] start");
+    init: function () {
+        logController.log(this.name, "->", arguments.callee.name);
 
-    widgetDropController.init();
-
-    console.log("[panelTest] end");
-})
+        widgetDropController.init(this);
+    }
+};
