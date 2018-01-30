@@ -2,7 +2,7 @@ var widgetTabController = {
     name: "widgetTabController",
     slideSpeed: 200,
 
-    init: function () {
+    init: function (d) {
         logController.log(this.name, "->", arguments.callee.name);
 
         var eventList = new Array();

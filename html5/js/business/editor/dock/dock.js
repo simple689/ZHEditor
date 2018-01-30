@@ -1,6 +1,7 @@
 var dock;
 var panelTest;
 var panelView;
+var panelFileEditor;
 var panelFileBrowser;
 
 function initDock() {
@@ -15,6 +16,9 @@ function initDock() {
     panelView = dock.createDFPanel("视图");
     panelView.addContentDiv(document.getElementById("panelView"), 0);
 
+    panelFileEditor = dock.createDFPanel("文件编辑");
+    panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"), 0);
+
     panelFileBrowser = dock.createDFPanel("文件浏览器");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
 
@@ -22,9 +26,10 @@ function initDock() {
 }
 
 function initLayout() {
-    panelTest.initLayout(0,0,60,600,DSXDFPanel.dockLeft);
-    panelView.initLayout(0,0,600,600,DSXDFPanel.dockTop);
-    panelFileBrowser.initLayout(150,300,400,200,DSXDFPanel.dockBottom);
+    panelTest.initLayout(0,0,300,300,DSXDFPanel.dockRight);
+    panelFileBrowser.initLayout(0,0,300,300,DSXDFPanel.dockBottom);
+    panelView.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
+    panelFileEditor.initLayout(0,0,2000,2000,DSXDFPanel.dockLeft);
 }
 
 function setVisible(panel, sch) {
@@ -51,6 +56,9 @@ $(document).ready(function(){
     });
     $('#panelView').load("../panel/panelView.html", function() {
         panelViewController.init();
+    });
+    $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
+        panelFileEditorController.init();
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function() {
         panelFileBrowserController.init();
