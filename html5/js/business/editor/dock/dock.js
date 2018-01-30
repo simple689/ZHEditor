@@ -36,13 +36,25 @@ function setVisible(panel, sch) {
 $(document).ready(function(){
     console.log("[dock] start");
 
+    $('#panelFixedTop').load("../panel/panelMenu.html", function() {
+        $('#panelToolBar').load("../panel/panelToolBar.html", function() {
+            panelMenuController.init();
+            panelToolBarController.init();
+        });
+    });
+    $('#panelFixedBottom').load("../panel/panelState.html", function() {
+        panelStateController.init();
+    });
+
     $('#panelTest').load("../panel/panelTest.html", function() {
         panelTestController.init();
     });
     $('#panelView').load("../panel/panelView.html", function() {
         panelViewController.init();
     });
-    $('#panelFileBrowser').load("../panel/panelFileBrowser.html");
+    $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function() {
+        panelFileBrowserController.init();
+    });
 
     console.log("[dock] end");
 })
