@@ -148,13 +148,13 @@ _$m8._$2M = function (_$sF) {
     }
 };
 _$m8._$2O = function (_$sF) {
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         return _$sF.width;
     }
     return parseInt(_$sF.style.width);
 };
 _$m8._$2h = function (_$sF) {
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         return _$sF.height;
     }
     return parseInt(_$sF.style.height);
@@ -170,7 +170,7 @@ _$m8._$6j = function (_$sF, _$sH, _$sK) {
 };
 _$m8._$6n = function (_$sF, _$dq, _$cM) {
     if (isNaN(_$cM)) return;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         _$sF.width = _$dq;
         _$sF.height = _$cM;
     } else {
@@ -1898,7 +1898,7 @@ _$E.prototype._$0c = function (_$88) {
     if (!this._$iZ) return;
     if (this._$hA == null) {
         var _$t5 = "div";
-        if (widgetDockController.isCanvas) _$t5 = "canvas";
+        if (widgetDockController.isHasCanvasContext) _$t5 = "canvas";
         this._$hA = _$m8._$0z(_$t5, widgetDockController.rootDivId);
         this._$hA.style.border = "0px solid";
         this._$hA.style.zIndex = 7890;
@@ -2646,7 +2646,7 @@ _$E.prototype._$qF = function (_$a0) {
     }
 };
 _$E.prototype.addFixedPanel = function (element, type) {
-    if (widgetDockController.browserType == browserType.IE && widgetDockController._$jK <= 7) {
+    if (widgetDockController.browserType == browserType.IE && widgetDockController.ieVersion <= 7) {
         this._$iZ = true;
     } else if (element instanceof HTMLIFrameElement) {
         if (widgetDockController._$06(element.id)) {
@@ -3369,7 +3369,7 @@ function _$N() {
     this._$ka = 0;
     this._$hH = null;
     this._$hj = null;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
     } else {
@@ -4271,7 +4271,7 @@ function _$6R() {
     this._$js = 1;
     this._$ke = null;
     this._$hi = null;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
     } else {
@@ -5573,7 +5573,7 @@ _$K.prototype._$7v = function (_$a0) {
     var _$tc = _$m8._$2k(this._$he);
     var _$tn = _$m8._$2M(this._$he);
     this._$hC[1] = _$a0._$h8;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         _$m8._$6j(_$a0._$h8, 3 + _$tc, 3 + _$tn);
         _$a0._$h8.width = this._$hh.width - 6;
     } else _$m8._$6e(_$a0._$h8, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._$h8.style.height));
@@ -5828,7 +5828,7 @@ function _$6A(_$a7) {
     this._$hL;
     this._$ld = null;
     this._$l5 = null;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         this._$h8 = _$m8._$0z("canvas", _$a7);
     } else {
         this._$h8 = _$m8._$0z("div", _$a7);
@@ -5882,7 +5882,7 @@ _$6A.prototype._$25 = function (rc) {
     if (this._$h8 != null) {
         rc.left = _$m8._$2k(this._$h8);
         rc.top = _$m8._$2M(this._$h8);
-        if (widgetDockController.isCanvas) {
+        if (widgetDockController.isHasCanvasContext) {
             rc.right = rc.left + this._$h8.width;
             rc.bottom = rc.top + this._$h8.height;
         } else {
@@ -5928,7 +5928,7 @@ _$6A.prototype._$mw = function (e) {
         this._$mJ.y = _$m8._$2M(this._$h8);
         this._$mK.x = this._$mJ.x;
         this._$mK.y = this._$mJ.y;
-        if (widgetDockController.isCanvas) {
+        if (widgetDockController.isHasCanvasContext) {
             this._$mK.width = this._$h8.width;
             this._$mK.height = this._$h8.height;
         } else {
@@ -6034,7 +6034,7 @@ _$6A.prototype._$f4 = function (pt) {
     var rt = new AlignSize();
     rt.x = _$m8._$2k(this._$h8);
     rt.y = _$m8._$2M(this._$h8);
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         rt.width = this._$h8.width;
         rt.height = this._$h8.height;
     } else {
@@ -6062,7 +6062,7 @@ _$J.prototype.getWindowRect = function (_$qb) {
     if (this._$he != null) {
         _$qb.left = _$m8._$2k(this._$he);
         _$qb.top = _$m8._$2M(this._$he);
-        if (widgetDockController.isCanvas) {
+        if (widgetDockController.isHasCanvasContext) {
             _$qb.right = this._$he.width + _$qb.left;
             _$qb.bottom = this._$he.height + _$qb.top;
         } else {
@@ -6075,7 +6075,7 @@ _$J.prototype._$36 = function (iX, iY) {
     var _$eu = _$m8._$2k(this._$he);
     var _$gC = _$m8._$2M(this._$he);
     var width, height;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         width = this._$he.width;
         height = this._$he.height;
     } else {
@@ -6223,7 +6223,7 @@ _$J.prototype._$n = function (_$b9) {
 };
 _$J.prototype._$6p = function (_$cS, _$do, _$dq, _$cM) {
     _$m8._$6j(this._$he, _$cS, _$do);
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         this._$he.width = _$dq;
         this._$he.height = _$cM;
     } else {
@@ -6251,7 +6251,7 @@ _$J.prototype._$01 = function () {
         if (!_$ps._$iX) {
             this._$lq.x = _$m8._$2k(this._$he);
             this._$lq.y = _$m8._$2M(this._$he);
-            if (widgetDockController.isCanvas) {
+            if (widgetDockController.isHasCanvasContext) {
                 this._$ln.width = this._$he.width;
                 this._$ln.height = this._$he.height;
             } else {
@@ -6302,10 +6302,6 @@ DSXDFPanel._$5m = 0x04;
 DSXDFPanel._$r = 0x08;
 
 function widgetDockController() {
-    this.version = "5.1";
-};
-widgetDockController.getVersion = function () {
-    return this.version;
 };
 
 var browserType = {
@@ -6315,28 +6311,96 @@ var browserType = {
     Safari: 3,
     Opera: 4
 }
-
-widgetDockController._$kN = new Array();
-widgetDockController._$iU = true;
-widgetDockController._$0R = 0;
-widgetDockController._$0T = 1;
-widgetDockController._$0S = 2;
-widgetDockController.rootDivId = "";
+widgetDockController.controller = null;
 widgetDockController.browserType = browserType.IE;
-widgetDockController.isCanvas = true;
-widgetDockController._$3s = 0;
-widgetDockController._$1E = 1;
-widgetDockController._$I = 2;
-widgetDockController._$5V = 3;
-widgetDockController._$4F = 4;
+widgetDockController.rootDivId = "";
+widgetDockController.window = null;
+widgetDockController.isHasCanvasContext = true;
 widgetDockController.fixedLeft = 0;
 widgetDockController.fixedTop = 1;
 widgetDockController.fixedRight = 2;
 widgetDockController.fixedBottom = 3;
 widgetDockController.fixedCenter = 4;
-widgetDockController.controller = null;
-widgetDockController.window = null;
+widgetDockController._$kN = new Array();
+widgetDockController._$iU = true;
+widgetDockController._$0R = 0;
+widgetDockController._$0T = 1;
+widgetDockController._$0S = 2;
+widgetDockController._$3s = 0;
+widgetDockController._$1E = 1;
+widgetDockController._$I = 2;
+widgetDockController._$5V = 3;
+widgetDockController._$4F = 4;
 
+
+widgetDockController.createWidgetDock = function () {
+    if (widgetDockController.controller != null) return widgetDockController.controller;
+    widgetDockController.controller = new widgetDockController();
+
+    var strUserAgent = navigator.userAgent;
+    if (strUserAgent.indexOf("MSIE") != "-1") {
+        widgetDockController.browserType = browserType.IE;
+        widgetDockController.ieVersion = 9;
+        var index = strUserAgent.indexOf("MSIE") + 4;
+        var str = strUserAgent.slice(index, strUserAgent.length);
+        index = str.indexOf(".");
+        if (index >= 0) {
+            str = str.substr(0, index);
+            widgetDockController.ieVersion = parseInt(str);
+        }
+    } else if (strUserAgent.indexOf("Firefox") != "-1") {
+        widgetDockController.browserType = browserType.Firefox;
+    } else if (strUserAgent.indexOf("Chrome") != "-1") {
+        widgetDockController.browserType = browserType.Chrome;
+    } else if (strUserAgent.indexOf("Safari") != "-1") {
+        widgetDockController.browserType = browserType.Safari;
+    } else if (strUserAgent.indexOf("Opera") != "-1") {
+        widgetDockController.browserType = browserType.Opera;
+    }
+
+    var elementDiv = document.createElement("div");
+    document.body.appendChild(elementDiv);
+    elementDiv.id = "widgetDock";
+    widgetDockController.rootDivId = elementDiv.id;
+
+    widgetDockController.setStyle();
+
+    if (widgetDockController.window == null) {
+        widgetDockController.window = new widgetDockWindow(null, "MainWindow");
+        if (widgetDockController.browserType == browserType.IE && widgetDockController.ieVersion <= 8) {
+            document.body.attachEvent("onmousedown", mouseDown);
+            document.body.attachEvent("onmouseup", mouseUp);
+            document.body.attachEvent("onmousemove", mouseMove);
+        } else {
+            document.body.addEventListener("mousedown", mouseDown, true);
+            document.body.addEventListener("mouseup", mouseUp, true);
+            document.body.addEventListener("mousemove", mouseMove, true);
+        }
+    }
+
+    widgetDockController.isHasCanvasContext = !!document.createElement('canvas').getContext;
+    widgetDockController.dir = "";
+    if (!widgetDockController.isHasCanvasContext) {
+        var elementList = document.getElementsByTagName('script');
+        if (elementList != null) {
+            var len = elementList.length;
+            var i;
+            for (i = 0; i < len; i++) {
+                var str = elementList[i].src;
+                var index = str.indexOf("widgetDock.js");
+                if (index >= 0) {
+                    widgetDockController.dir = str.substr(0, index);
+                    break;
+                }
+            }
+        }
+    }
+    return widgetDockController.controller;
+};
+widgetDockController.setStyle = function () {
+    document.body.scroll = "no";
+    document.body.style.overflow = 'hidden';
+};
 function mouseDown(e) {
     if (e == null) {
         e = window.event;
@@ -6344,7 +6408,6 @@ function mouseDown(e) {
     if (widgetDockController.window == null) return;
     widgetDockController.window.mouseDown(e);
 };
-
 function mouseUp(e) {
     if (e == null) {
         e = window.event;
@@ -6363,11 +6426,12 @@ function mouseUp(e) {
         }
     }
 };
-
 function mouseMove(e) {
     if (e == null) {
         e = window.event;
     }
+    if (widgetDockController.window == null) return;
+    widgetDockController.window.mouseMove(e);
     var x, y;
     x = e.x;
     y = e.y;
@@ -6379,12 +6443,14 @@ function mouseMove(e) {
             div.innerHTML = "x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " source: " + e.target;
         }
     }
-    if (widgetDockController.window == null) return;
-    widgetDockController.window.mouseMove(e);
+};
+widgetDockController.prototype.addFixedPanel = function (element, type) {
+    widgetDockController.window.addFixedPanel(element, type);
 };
 
+
 widgetDockController._$fQ = function (_$9E) {
-    if ((_$9E != 0 && widgetDockController.browserType != browserType.IE) || (widgetDockController.browserType == browserType.IE && widgetDockController._$jK >= 9 && _$9E != 0)) {
+    if ((_$9E != 0 && widgetDockController.browserType != browserType.IE) || (widgetDockController.browserType == browserType.IE && widgetDockController.ieVersion >= 9 && _$9E != 0)) {
         return false;
     }
     return true;
@@ -6412,75 +6478,6 @@ widgetDockController.prototype.loadStatesFromKey = function (key) {
             widgetDockController.window._$3Y(pin);
         }
     }
-};
-widgetDockController.prototype.addFixedPanel = function (element, type) {
-    widgetDockController.window.addFixedPanel(element, type);
-};
-
-widgetDockController.createWidgetDock = function () {
-    if (widgetDockController.controller != null) return widgetDockController.controller;
-    widgetDockController.controller = new widgetDockController();
-    var elementDiv = document.createElement("div");
-    document.body.appendChild(elementDiv);
-    elementDiv.id = "widgetDock";
-    widgetDockController.rootDivId = elementDiv.id;
-
-    var strUserAgent = navigator.userAgent;
-    logController.log(strUserAgent);
-    if (strUserAgent.indexOf("MSIE") != "-1") {
-        widgetDockController.browserType = browserType.IE;
-        widgetDockController._$jK = 9;
-        var index = strUserAgent.indexOf("MSIE") + 4;
-        var str = strUserAgent.slice(index, strUserAgent.length);
-        index = str.indexOf(".");
-        if (index >= 0) {
-            str = str.substr(0, index);
-            widgetDockController._$jK = parseInt(str);
-        }
-    } else if (strUserAgent.indexOf("Firefox") != "-1") {
-        widgetDockController.browserType = browserType.Firefox;
-    } else if (strUserAgent.indexOf("Chrome") != "-1") {
-        widgetDockController.browserType = browserType.Chrome;
-    } else if (strUserAgent.indexOf("Safari") != "-1") {
-        widgetDockController.browserType = browserType.Safari;
-    } else if (strUserAgent.indexOf("Opera") != "-1") {
-        widgetDockController.browserType = browserType.Opera;
-    }
-    widgetDockController.setStyle();
-    if (widgetDockController.window == null) {
-        widgetDockController.window = new widgetDockWindow(null, "MainWindow");
-        if (widgetDockController.browserType == browserType.IE && widgetDockController._$jK <= 8) {
-            document.body.attachEvent("onmousedown", mouseDown);
-            document.body.attachEvent("onmouseup", mouseUp);
-            document.body.attachEvent("onmousemove", mouseMove);
-        } else {
-            document.body.addEventListener("mousedown", mouseDown, true);
-            document.body.addEventListener("mouseup", mouseUp, true);
-            document.body.addEventListener("mousemove", mouseMove, true);
-        }
-    }
-    widgetDockController.isCanvas = !!document.createElement('canvas').getContext;
-    widgetDockController.dir = "";
-    if (!widgetDockController.isCanvas) {
-        var elementList = document.getElementsByTagName('script');
-        if (elementList != null) {
-            var len = elementList.length;
-            var i;
-            for (i = 0; i < len; i++) {
-                var src = elementList[i].src;
-                var index = src.indexOf("widgetDock.js");
-                if (index >= 0) {
-                    widgetDockController.dir = src.substr(0, index);
-                    break;
-                }
-            }
-        }
-    }
-    return widgetDockController.controller;
-};
-widgetDockController.setStyle = function () {
-    document.body.scroll = "no";
-    document.body.style.overflow = 'hidden';
 };
 
 widgetDockController._$06 = function (fID) {
@@ -6517,7 +6514,7 @@ widgetDockController.initIFrame = function (fID) {
     } finally {
         var s = 0;
     }
-    if ((vf.contentWindow.attachEvent != null) && widgetDockController._$jK >= 7 && widgetDockController._$jK <= 8) {
+    if ((vf.contentWindow.attachEvent != null) && widgetDockController.ieVersion >= 7 && widgetDockController.ieVersion <= 8) {
         var vro = vf.contentWindow.document;
         vro.attachEvent("onmousedown", mouseDown);
         vro.attachEvent("onmouseup", mouseUp);
@@ -6565,7 +6562,7 @@ function _$1l() {
     this._$hV = null;
     this._$hb = null;
     this._$hj = null;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
     } else {
@@ -6594,7 +6591,7 @@ _$1l.prototype._$6o = function (_$cS, _$do, _$dq, _$cM) {
 };
 _$1l.prototype.setVisible = function (_$8e) {
     _$m8._$39(this._$h8, _$8e);
-    if (!widgetDockController.isCanvas) {
+    if (!widgetDockController.isHasCanvasContext) {
         _$m8._$39(this._$h9, _$8e);
         _$m8._$39(this._$hV, _$8e);
         _$m8._$39(this._$hb, _$8e);
@@ -6874,7 +6871,7 @@ _$1l.prototype._$nL = function (_$82, ix, iy, _$dq, _$cM, g, _$7Y) {
     var _$9k = "";
 };
 _$1l.prototype._$qJ = function () {
-    if (!widgetDockController.isCanvas && this._$hV == null) {
+    if (!widgetDockController.isHasCanvasContext && this._$hV == null) {
         this._$hV = _$m8._$0t("div", this._$h8);
         this._$hW = new Image();
         this._$hW.src = widgetDockController.dir + "img/pinned.gif";
@@ -7273,7 +7270,7 @@ function _$G() {
     this._$kf = _$G._$51;
     this._$hj = null;
     this._$bi = null;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
         this._$h8.style.backgroundColor = 'ButtonFace';
@@ -7475,7 +7472,7 @@ _$G.prototype.Add = function (_$mO) {
     }
     var s = _$mO._$hy._$cb();
     var tab = new _$O(0, 0, s);
-    if (!widgetDockController.isCanvas) {
+    if (!widgetDockController.isHasCanvasContext) {
         tab._$h9 = _$m8._$0t("div", this._$h8);
         tab._$h9._$4u = this;
         tab._$h9.onmousedown = _$G._$14;
@@ -7493,7 +7490,7 @@ _$G.prototype._$3 = function (_$mO, _$cN) {
     }
     var s = _$mO._$hy._$cb();
     var tab = new _$O(0, 0, s);
-    if (!widgetDockController.isCanvas) {
+    if (!widgetDockController.isHasCanvasContext) {
         tab._$h9 = _$m8._$0t("div", this._$h8);
         tab._$h9._$4u = this;
         tab._$h9.onmousedown = _$G._$14;
@@ -7825,7 +7822,7 @@ function _$6C(_$dn, _$b8) {
     this._$ik = false;
     this._$hj = null;
     this._$ig = false;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
         this._$h8.style.border = "0px solid";
@@ -8553,7 +8550,7 @@ _$1e.prototype.add = function (s, _$a0) {
 _$1e.prototype.addContentDiv = function (_$a0, _$a8) {
     this._$hg = _$a0;
     _$a0.style.position = "absolute";
-    if (widgetDockController.browserType == browserType.IE && widgetDockController._$jK <= 7) {
+    if (widgetDockController.browserType == browserType.IE && widgetDockController.ieVersion <= 7) {
         this.hasOutIFrame();
         return;
     }
@@ -10630,7 +10627,7 @@ _$1e.prototype._$0c = function (_$88) {
     if (!this._$iZ) return;
     if (this._$hA == null) {
         var _$t5 = "div";
-        if (widgetDockController.isCanvas) _$t5 = "div";
+        if (widgetDockController.isHasCanvasContext) _$t5 = "div";
         this._$hA = _$m8._$0z(_$t5, widgetDockController.rootDivId);
         this._$hA.style.border = "0px solid";
         this._$hA.style.zIndex = 7890;
@@ -11497,7 +11494,7 @@ _$58.prototype._$8 = function (_$mO) {
     var _$ol = new _$O(0, 0, _$mO._$hy._$cb());
     _$ol._$mO = _$mO;
     this._$hU._$b(_$ol);
-    if (!widgetDockController.isCanvas) {
+    if (!widgetDockController.isHasCanvasContext) {
         _$ol._$h9 = _$m8._$0t("div", this._$h8);
         _$ol._$h9._$4A = this;
         _$ol._$h9.onmousedown = _$6R._$14;
@@ -11602,7 +11599,7 @@ _$59.prototype._$6o = function (_$cS, _$do, _$dq, _$cM) {
     var _$d5 = this._$jY;
     _$m8._$6j(this._$lc._$h8, _$cS, _$do);
     var canvas = this._$lc._$h8;
-    if (widgetDockController.isCanvas) {
+    if (widgetDockController.isHasCanvasContext) {
         canvas.width = _$dq;
         canvas.height = _$cM;
     } else {
