@@ -6332,7 +6332,6 @@ widgetDockController._$I = 2;
 widgetDockController._$5V = 3;
 widgetDockController._$4F = 4;
 
-
 widgetDockController.createWidgetDock = function () {
     if (widgetDockController.controller != null) return widgetDockController.controller;
     widgetDockController.controller = new widgetDockController();
@@ -6420,7 +6419,7 @@ function mouseUp(e) {
     var div = document.getElementById("widgetDockMessageId");
     if (div != null) {
         if (widgetDockController.browserType == browserType.IE) {
-            div.innerHTML = "UP x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " Offset Y " + e._$me + " source: " + e.srcElement;
+            div.innerHTML = "UP x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " Offset Y " + e.offsetY + " source: " + e.srcElement;
         } else {
             div.innerHTML = "UP x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " source: " + e.target;
         }
@@ -6438,7 +6437,7 @@ function mouseMove(e) {
     var div = document.getElementById("widgetDockMessageId");
     if (div != null) {
         if (widgetDockController.browserType == browserType.IE) {
-            div.innerHTML = "x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " Offset Y " + e._$me + " source: " + e.srcElement;
+            div.innerHTML = "x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " Offset Y " + e.offsetY + " source: " + e.srcElement;
         } else {
             div.innerHTML = "x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " source: " + e.target;
         }
@@ -8930,6 +8929,9 @@ _$1e.prototype._$rq = function (_$7U) {
 _$1e.prototype._$5u = function () {
 };
 _$1e._$e4 = 0;
+var _$t9 = null;
+_$b1._$b0(widgetDockWindow, _$1e);
+
 _$1e.prototype._$4R = function (_$pD) {
     return this._$kH._$sa(this, _$pD);
 };
@@ -9966,8 +9968,6 @@ _$1e.prototype._$T = function () {
 };
 _$1e.prototype._$1p = function (_$86) {
 };
-_$1e.prototype._$1r = function (_$cI, _$cL, _$cS, _$do, _$dq, _$cM) {
-};
 _$1e.prototype.initLayout = function (_$cS, _$do, _$dq, _$cM, _$aO) {
     this.setSize(_$dq, _$cM);
     this.setLocation(_$cS, _$do);
@@ -10491,8 +10491,6 @@ _$1e.prototype._$3a = function () {
     if (_$1e._$iA) return;
     _$1e._$iA = true;
 };
-_$1e.prototype._$mk = function (Ae) {
-};
 _$1e.prototype._$0A = function (_$n3, _$ne, _$9b, _$oT) {
     var _$pW = _$n3._$oV;
     var _$pu = null;
@@ -10568,9 +10566,6 @@ _$1e.prototype._$3x = function () {
     }
     return false;
 };
-_$1e.prototype._$fP = function () {
-    return _$3x();
-};
 _$1e.prototype._$bR = function () {
     if (!_$fN()) return null;
     return _$kB._$bP();
@@ -10642,7 +10637,6 @@ _$1e.prototype._$0c = function (_$88) {
     }
 };
 
-var _$t9 = null;
 
 function widgetDockWindow(_$np, title) {
     widgetDockWindow.baseConstructor.call(this, _$np, title);
@@ -10656,8 +10650,15 @@ function widgetDockWindow(_$np, title) {
     this._$3C();
     this._$jO = 4;
 };
-_$b1._$b0(widgetDockWindow, _$1e);
+
+
+widgetDockWindow.prototype.addFixedPanel = function (element, type) {
+    element.style.position = "absolute";
+    this._$nN.addFixedPanel(element, type);
+};
 widgetDockWindow._$hK = null;
+
+
 widgetDockWindow.prototype.mouseMove = function (e) {
     if (widgetDockWindow._$hK != null) {
         widgetDockWindow._$hK._$ms(e);
@@ -10764,6 +10765,7 @@ widgetDockWindow.prototype.getWindowRect = function (rc) {
 function _$7g() {
     _$t9._$my();
 };
+
 widgetDockWindow.prototype._$3C = function () {
     window.onresize = _$7g;
     var rect = new Rect();
@@ -10853,10 +10855,6 @@ widgetDockWindow.prototype._$my = function (e) {
         }
     }
     this._$nN._$mB(d.width, d.height);
-};
-widgetDockWindow.prototype.addFixedPanel = function (element, type) {
-    element.style.position = "absolute";
-    this._$nN.addFixedPanel(element, type);
 };
 widgetDockWindow.prototype._$qF = function (_$a0) {
     this._$nN._$qF(_$a0);
@@ -11012,7 +11010,8 @@ widgetDockWindow.prototype._$1O = function (_$mO, _$qY, _$nO, _$dA, _$dC, _$nP, 
 function _$4d() {
     _$4d.baseConstructor.call(this);
     this._$kY = null;
-};_$b1._$b0(_$4d, _$1l);
+};
+_$b1._$b0(_$4d, _$1l);
 _$4d.prototype._$ru = function (_$n8) {
     this._$kY = _$n8;
 };
