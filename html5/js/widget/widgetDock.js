@@ -309,56 +309,56 @@ _$m8._$2D = function (e, pt) {
 
 function _$D() {
     this._$jq = this._$jk = 10;
-    this._$jp = 0;
+    this.panelNum = 0;
     this.panelList = new Array(this._$jq);
 };_$D.prototype._$b = function (_$nu) {
-    this.panelList[this._$jp] = _$nu;
-    this._$jp++;
-    if (this._$jp == this._$jq) {
-        var _$oR = new Array(this._$jp + this._$jk);
+    this.panelList[this.panelNum] = _$nu;
+    this.panelNum++;
+    if (this.panelNum == this._$jq) {
+        var _$oR = new Array(this.panelNum + this._$jk);
         var i;
-        for (i = 0; i < this._$jp; i++) _$oR[i] = this.panelList[i];
+        for (i = 0; i < this.panelNum; i++) _$oR[i] = this.panelList[i];
         this.panelList = _$oR;
         this._$jq += this._$jk;
     }
 };
 _$D.prototype._$5G = function (_$cN) {
-    if (this._$jp == 0 || _$cN > (this._$jp - 1)) return;
+    if (this.panelNum == 0 || _$cN > (this.panelNum - 1)) return;
     var i;
-    for (i = _$cN; i < this._$jp - 1; i++) {
+    for (i = _$cN; i < this.panelNum - 1; i++) {
         this.panelList[i] = this.panelList[i + 1];
     }
-    this._$jp -= 1;
+    this.panelNum -= 1;
 };
 _$D.prototype._$4 = function (_$nu, _$cN) {
-    if (_$cN > this._$jp) return false;
-    if (_$cN == this._$jp) {
+    if (_$cN > this.panelNum) return false;
+    if (_$cN == this.panelNum) {
         this._$b(_$nu);
         return true;
     }
-    this._$jp++;
+    this.panelNum++;
     var i;
-    if (this._$jp == this._$jq) {
-        var _$oS = new Array(this._$jp + this._$jk);
+    if (this.panelNum == this._$jq) {
+        var _$oS = new Array(this.panelNum + this._$jk);
         for (i = 0; i < _$cN; i++) {
             _$oR[i] = this.panelList[i];
         }
-        for (i = _$cN; i < this._$jp; i++) _$oR[i + 1] = this.panelList[i];
+        for (i = _$cN; i < this.panelNum; i++) _$oR[i + 1] = this.panelList[i];
         _$oR[_$cN] = _$nu;
         this.panelList = _$oR;
         this._$jq += this._$jk;
     } else {
-        for (i = this._$jp - 1; i > _$cN; i--) this.panelList[i] = this.panelList[i - 1];
+        for (i = this.panelNum - 1; i > _$cN; i--) this.panelList[i] = this.panelList[i - 1];
         this.panelList[_$cN] = _$nu;
     }
     return true;
 };
-_$D.prototype._$28 = function () {
-    return this._$jp;
+_$D.prototype.getPanelNum = function () {
+    return this.panelNum;
 };
 _$D.prototype._$5R = function () {
     this._$jq = this._$jk = 10;
-    this._$jp = 0;
+    this.panelNum = 0;
     this.panelList = new Array(this._$jq);
 };
 
@@ -395,7 +395,7 @@ function _$6P() {
 
 function _$0O() {
     this._$aO = 0;
-    this._$hx = new _$D();
+    this.subPattern = new _$D();
 };
 
 function _$5h() {
@@ -443,23 +443,23 @@ _$F.prototype._$1L = function () {
     if (this._$pr == null && this._$od == null && !this._$8y) return this;
     return null;
 };
-_$F.prototype._$5w = function (_$n8, _$99) {
+_$F.prototype._$5w = function (mainPattern, _$99) {
     if (this._$oy != null) {
         if (this._$oy._$kG != null) {
             this._$oy._$kG._$5E(this._$oy);
         }
-        this._$oy._$kG = _$n8;
-        _$n8.Add(this._$oy);
+        this._$oy._$kG = mainPattern;
+        mainPattern.Add(this._$oy);
     }
     if (this._$od != null && !this._$od._$8y) {
-        this._$od._$5w(_$n8, _$99);
+        this._$od._$5w(mainPattern, _$99);
     }
     if (this._$pr != null && !this._$pr._$8y) {
-        this._$pr._$5w(_$n8, _$99);
+        this._$pr._$5w(mainPattern, _$99);
     } else if ((this._$pr == null) && (this._$pr == null) && !this._$8y && (this._$of != null)) {
         this._$of._$kA = this;
         this._$of._$j0 = _$99;
-        this._$of._$kB = _$n8;
+        this._$of._$kB = mainPattern;
         if (this._$o5 != null && this._$o5._$i6.length > 1) {
             if (this._$l1 == null) this._$l1 = new Array(0);
             var _$e1 = this._$o5._$i6.length;
@@ -469,7 +469,7 @@ _$F.prototype._$5w = function (_$n8, _$99) {
                 var _$ol = new _$57();
                 _$nQ._$j0 = _$99;
                 _$ol._$mO = _$nQ;
-                _$nQ._$kB = _$n8;
+                _$nQ._$kB = mainPattern;
                 this._$l1.push(_$ol);
                 _$nQ._$kA = this;
             }
@@ -633,7 +633,7 @@ _$F.prototype._$6Z = function (_$nl) {
         }
     }
 };
-_$F.prototype._$6m = function (_$cN, _$n8) {
+_$F.prototype._$6m = function (_$cN, mainPattern) {
     if (this._$l1 == null || this._$l1.length == 0) return;
     var _$gi = this._$l1.length;
     var _$pN;
@@ -641,8 +641,8 @@ _$F.prototype._$6m = function (_$cN, _$n8) {
     for (i = 0; i < _$gi; i++) {
         _$pN = this._$l1[i]._$mO;
         if (_$pN != null) {
-            if (_$pN._$kB == _$n8) _$pN._$jr = _$cN;
-            if (_$pN._$l7 == _$n8) _$pN._$k4 = _$cN;
+            if (_$pN._$kB == mainPattern) _$pN._$jr = _$cN;
+            if (_$pN._$l7 == mainPattern) _$pN._$k4 = _$cN;
         }
     }
 };
@@ -975,18 +975,18 @@ _$F.prototype._$03 = function (_$mX, _$pC, _$nz, _$dk, _$oQ) {
         var _$gT = _$q7.top;
         var _$qh = new Rect();
         this._$of._$hy._$2P(_$qh);
-        if (this._$of._$jm >= floatPanel._$0) {
+        if (this._$of._$jm >= widgetDockFloatPanel._$0) {
             if (this._$of._$kH._$jv == widgetDockController._$0R || this._$of._$j0 == _$E._$3k || this._$of._$j0 == _$E._$3l) {
                 _$q7.top = _$qh.bottom;
             } else {
                 _$q7.left = _$qh.right;
             }
         } else {
-            if (this._$of._$jm == floatPanel._$3Q) {
+            if (this._$of._$jm == widgetDockFloatPanel._$3Q) {
                 _$q7.left = _$qh.right;
-            } else if (this._$of._$jm == floatPanel._$6K) {
+            } else if (this._$of._$jm == widgetDockFloatPanel._$6K) {
                 _$q7.top = _$qh.bottom;
-            } else if (this._$of._$jm == floatPanel._$5j) _$q7.right = _$qh.left; else _$q7.bottom = _$qh.top;
+            } else if (this._$of._$jm == widgetDockFloatPanel._$5j) _$q7.right = _$qh.left; else _$q7.bottom = _$qh.top;
         }
         if (_$qh.left != 0 || _$qh.right != 0 || _$qh.top != 0 || _$qh.bottom != 0) {
             if (_$E._$5f(_$qh, _$pC) && (this._$of == null || (this._$of != null && !this._$of._$iq)) && (_$mX._$kx == null || (_$mX._$kx != null && !_$mX._$kx._$iq))) {
@@ -1083,7 +1083,7 @@ function _$E(_$7R) {
     this._$it = true;
     this._$is = false;
     this._$iW = false;
-    this._$lj = new Array(4);
+    this.subPatternList = new Array(4);
     this._$lo = null;
     this._$je = 0;
     this._$jg = null;
@@ -1098,7 +1098,7 @@ function _$E(_$7R) {
     this._$jF = new Array(4);
     var k;
     for (k = 0; k < 4; k++) {
-        this._$lj[k] = new _$0O();
+        this.subPatternList[k] = new _$0O();
         this._$lm[k] = new _$5h();
         this._$jF[k] = 0;
         this._$hC[k] = null;
@@ -1167,10 +1167,10 @@ _$E.prototype._$4b = function (_$mO) {
     var _$ps = null;
     var i;
     for (i = 0; i < 4; i++) {
-        var _$e1 = this._$lj[i]._$hx._$28();
+        var _$e1 = this.subPatternList[i].subPattern.getPanelNum();
         var j;
         for (j = 0; j < _$e1; j++) {
-            _$ps = this._$lj[i]._$hx.panelList[j];
+            _$ps = this.subPatternList[i].subPattern.panelList[j];
             var _$8G = this._$4a(_$ps._$kI, _$mO);
             if (_$8G) return;
         }
@@ -1196,8 +1196,8 @@ _$E.prototype._$4a = function (_$mS, _$mO) {
         _$mS._$fG = _$mO._$k6;
         _$mS._$aS = 0;
         _$mS._$aS |= _$mO._$kc << 12;
-        if (_$mO._$id) _$mS._$aS |= floatPanel._$B;
-        if (_$mO._$iv) _$mS._$aS |= floatPanel._$2T;
+        if (_$mO._$id) _$mS._$aS |= widgetDockFloatPanel._$B;
+        if (_$mO._$iv) _$mS._$aS |= widgetDockFloatPanel._$2T;
         var b = _$mO._$iR;
         _$mS._$90 = false;
         if (b) {
@@ -1225,37 +1225,37 @@ _$E.prototype._$4a = function (_$mS, _$mO) {
                     _$ol._$pA = _$mO._$lt;
                     _$ol._$rM = _$mO._$lK.cx;
                     _$ol._$rN = _$mO._$lK.cy;
-                    _$ol._$aP = floatPanel._$1D;
-                    if (_$mO._$kB == this) _$ol._$aP |= floatPanel._$1A;
-                    if (_$mO._$k0 == floatPanel._$6W) {
-                        _$ol._$aP |= floatPanel._$1C;
-                        _$ol._$aP &= ~floatPanel._$1D;
+                    _$ol._$aP = widgetDockFloatPanel._$1D;
+                    if (_$mO._$kB == this) _$ol._$aP |= widgetDockFloatPanel._$1A;
+                    if (_$mO._$k0 == widgetDockFloatPanel._$6W) {
+                        _$ol._$aP |= widgetDockFloatPanel._$1C;
+                        _$ol._$aP &= ~widgetDockFloatPanel._$1D;
                     }
                     _$ol._$aP |= _$mO._$kc << 12;
-                    if (_$mO._$id) _$ol._$aP |= floatPanel._$B;
+                    if (_$mO._$id) _$ol._$aP |= widgetDockFloatPanel._$B;
                     if (_$mO._$kj < 0) _$mO._$kj = 0;
                     _$ol._$aP |= _$mO._$kj << 7;
-                    if (_$mO._$iv) _$ol._$aP |= floatPanel._$2T;
-                    if (_$mO._$k0 != floatPanel._$4C) _$ol._$aP |= floatPanel._$2U;
+                    if (_$mO._$iv) _$ol._$aP |= widgetDockFloatPanel._$2T;
+                    if (_$mO._$k0 != widgetDockFloatPanel._$4C) _$ol._$aP |= widgetDockFloatPanel._$2U;
                     return true;
                 }
             }
         } else {
             if (_$mS._$of == _$mO && _$mO != null) {
-                var _$aS = floatPanel._$1D;
-                if (_$mO._$kB == this) _$aS |= floatPanel._$1A;
-                if (_$mO._$k0 == floatPanel._$6W) {
-                    _$aS |= floatPanel._$1C;
-                    _$aS &= ~floatPanel._$1D;
+                var _$aS = widgetDockFloatPanel._$1D;
+                if (_$mO._$kB == this) _$aS |= widgetDockFloatPanel._$1A;
+                if (_$mO._$k0 == widgetDockFloatPanel._$6W) {
+                    _$aS |= widgetDockFloatPanel._$1C;
+                    _$aS &= ~widgetDockFloatPanel._$1D;
                 }
                 if (_$mO._$iv) {
-                    _$aS |= floatPanel._$2T;
+                    _$aS |= widgetDockFloatPanel._$2T;
                 }
                 _$aS |= _$mO._$kc << 12;
-                if (_$mO._$id) _$aS |= floatPanel._$B;
+                if (_$mO._$id) _$aS |= widgetDockFloatPanel._$B;
                 if (_$mO._$kj < 0) _$mO._$kj = 0;
                 _$aS |= _$mO._$kj << 7;
-                if (_$mO._$k0 != floatPanel._$4C) _$aS |= floatPanel._$2U;
+                if (_$mO._$k0 != widgetDockFloatPanel._$4C) _$aS |= widgetDockFloatPanel._$2U;
                 _$mS._$e(_$mO._$c3(), _$aS, _$mO._$lt, _$mO._$lK.cx, _$mO._$lK.cy);
                 return true;
             }
@@ -1283,11 +1283,11 @@ _$E.prototype._$6E = function (_$9f, _$cB, _$cQ, _$d8) {
         var _$e1;
         var _$9l = _$9f;
         while (_$e6 != 0) {
-            _$e1 = this._$lj[_$9l]._$hx._$28();
+            _$e1 = this.subPatternList[_$9l].subPattern.getPanelNum();
             var j;
             for (j = _$e1 - 1; j >= 0; j--) {
-                _$pU = this._$lj[_$9l]._$hx.panelList[j];
-                if (_$9l == _$E._$3k || _$9l == _$E._$3l) _$dM = _$pU.rect.right - _$pU.rect.left - 2 * _$0N._$kt; else _$dM = _$pU.rect.bottom - _$pU.rect.top - 2 * _$0N._$kt;
+                _$pU = this.subPatternList[_$9l].subPattern.panelList[j];
+                if (_$9l == _$E._$3k || _$9l == _$E._$3l) _$dM = _$pU.rect.right - _$pU.rect.left - 2 * widgetDockPanel._$kt; else _$dM = _$pU.rect.bottom - _$pU.rect.top - 2 * widgetDockPanel._$kt;
                 if (_$pU._$iX && _$pU._$k9 == 0 && (_$dM != 0)) {
                     if (_$cB > 0) {
                         if (_$dM > _$e6) _$dM = _$e6;
@@ -1366,11 +1366,11 @@ _$E.prototype._$72 = function (_$mS) {
     }
 };
 _$E.prototype._$2F = function (_$cD, _$nx) {
-    var _$e1 = this._$lj[_$cD]._$hx._$28();
+    var _$e1 = this.subPatternList[_$cD].subPattern.getPanelNum();
     var _$ps;
     var i;
     for (i = 0; i < _$e1; i++) {
-        _$ps = this._$lj[_$cD]._$hx.panelList[i];
+        _$ps = this.subPatternList[_$cD].subPattern.panelList[i];
         if (_$ps == _$nx) {
             return i;
         }
@@ -1388,8 +1388,8 @@ _$E.prototype._$5H = function (_$n5, _$ng) {
         return;
     }
     if (_$n5._$jr < 0) return;
-    if (this._$lj[_$n5._$j0]._$hx._$28() < 1) return;
-    var _$ps = this._$lj[_$n5._$j0]._$hx.panelList[_$n5._$jr];
+    if (this.subPatternList[_$n5._$j0].subPattern.getPanelNum() < 1) return;
+    var _$ps = this.subPatternList[_$n5._$j0].subPattern.panelList[_$n5._$jr];
     if (_$n5._$kA._$8y) return;
     var _$qs = new Rect();
     var _$qu = new Rect();
@@ -1439,7 +1439,7 @@ _$E.prototype._$55 = function (_$mS, _$n5, _$sg, _$99, _$dg) {
     if (_$dg < 0) return;
     var _$st = _$mS;
     if (_$st == null) return;
-    var _$pj = this._$lj[_$99]._$hx.panelList[_$dg];
+    var _$pj = this.subPatternList[_$99].subPattern.panelList[_$dg];
     var _$gs;
     if (_$n5 != null) _$gs = _$mS._$56(_$n5); else _$gs = _$mS._$56(_$sg);
     if (_$gs > 0) {
@@ -1455,16 +1455,16 @@ _$E.prototype._$55 = function (_$mS, _$n5, _$sg, _$99, _$dg) {
             }
         }
         var _$pU;
-        this._$lj[_$99]._$hx.panelList[_$dg]._$kI = null;
-        this._$lj[_$99]._$hx._$5G(_$dg);
+        this.subPatternList[_$99].subPattern.panelList[_$dg]._$kI = null;
+        this.subPatternList[_$99].subPattern._$5G(_$dg);
         var i;
-        for (i = _$dg; i < this._$lj[_$99]._$hx._$28(); i++) {
-            _$pU = this._$lj[_$99]._$hx.panelList[i];
+        for (i = _$dg; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+            _$pU = this.subPatternList[_$99].subPattern.panelList[i];
             var pb = _$pU._$kI;
             this._$6m(pb, i);
         }
         var _$oF;
-        if (_$dg == 0) _$oF = null; else _$oF = this._$lj[_$99]._$hx.panelList[_$dg - 1];
+        if (_$dg == 0) _$oF = null; else _$oF = this.subPatternList[_$99].subPattern.panelList[_$dg - 1];
         if (_$99 == _$E._$3k || _$99 == _$E._$3l) {
             this._$5L(_$E._$3m, _$pj, _$oF);
             this._$5L(_$E._$3j, _$pj, _$oF);
@@ -1476,7 +1476,7 @@ _$E.prototype._$55 = function (_$mS, _$n5, _$sg, _$99, _$dg) {
 };
 _$E.prototype._$54 = function (_$mS, _$99, _$9e) {
     var _$nQ = _$mS._$of;
-    var _$pj = this._$lj[_$99]._$hx.panelList[_$9e];
+    var _$pj = this.subPatternList[_$99].subPattern.panelList[_$9e];
     _$mS._$56(null);
     _$nQ._$kA = _$mS;
     _$53(_$nQ);
@@ -1499,15 +1499,15 @@ _$E.prototype._$6m = function (_$mS, _$cN) {
 _$E.prototype._$5L = function (_$99, _$n0, _$nk) {
     var _$ps;
     var i;
-    for (i = 0; i < this._$lj[_$99]._$hx._$28(); i++) {
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+    for (i = 0; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         if (_$ps._$kR == _$n0) _$ps._$kR = _$nk;
         if (_$ps._$l8 == _$n0) _$ps._$l8 = _$nk;
     }
 };
 _$E.prototype._$2j = function (_$99) {
-    var _$eY = this._$lj[_$99]._$hx._$28();
-    if (_$eY == 0) return null; else return this._$lj[_$99]._$hx.panelList[_$eY - 1];
+    var _$eY = this.subPatternList[_$99].subPattern.getPanelNum();
+    if (_$eY == 0) return null; else return this.subPatternList[_$99].subPattern.panelList[_$eY - 1];
 };
 _$E.prototype._$19 = function (_$mS, _$99, _$9e) {
     var _$ps = null;
@@ -1516,11 +1516,11 @@ _$E.prototype._$19 = function (_$mS, _$99, _$9e) {
     var _$qu = new Rect();
     var _$8U = true;
     if (_$mS._$oV == null) {
-        _$ps = new _$0N();
+        _$ps = new widgetDockPanel();
         if (_$9e != 0xffffffff) {
             _$8T = true;
             if (_$9e > 0) {
-                _$nm = this._$lj[_$99]._$hx.panelList[_$9e - 1];
+                _$nm = this.subPatternList[_$99].subPattern.panelList[_$9e - 1];
                 _$ps._$kR = _$nm._$kR;
                 _$ps._$l8 = _$nm._$l8;
             } else {
@@ -1535,22 +1535,22 @@ _$E.prototype._$19 = function (_$mS, _$99, _$9e) {
                 _$ps._$kR = this._$2j(_$E._$3k);
                 _$ps._$l8 = this._$2j(_$E._$3l);
             }
-            _$9e = this._$lj[_$99]._$hx._$28();
+            _$9e = this.subPatternList[_$99].subPattern.getPanelNum();
         }
         _$ps._$kI = _$mS;
         _$ps._$ah(this, _$99);
         _$E._$6l(_$qu);
-        this._$lj[_$99]._$hx._$4(_$ps, _$9e);
+        this.subPatternList[_$99].subPattern._$4(_$ps, _$9e);
         this._$6m(_$mS, _$9e);
         var _$pU;
         var i;
-        for (i = _$9e + 1; i < this._$lj[_$99]._$hx._$28(); i++) {
-            _$pU = this._$lj[_$99]._$hx.panelList[i];
+        for (i = _$9e + 1; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+            _$pU = this.subPatternList[_$99].subPattern.panelList[i];
             this._$6m(_$pU._$kI, i);
         }
     } else {
         this._$6m(_$mS, _$9e);
-        _$ps = this._$lj[_$99]._$hx.panelList[_$9e];
+        _$ps = this.subPatternList[_$99].subPattern.panelList[_$9e];
         if (_$ps._$05()) {
             _$ps._$ah(this, _$99);
             _$E._$6l(_$qu);
@@ -1584,8 +1584,8 @@ _$E.prototype._$19 = function (_$mS, _$99, _$9e) {
             iw = _$ps.rect.right - _$ps.rect.left;
             ih = _$ps.rect.bottom - _$ps.rect.top;
         } else {
-            iw = floatPanel._$lL.cx;
-            ih = floatPanel._$lL.cy;
+            iw = widgetDockFloatPanel._$lL.cx;
+            ih = widgetDockFloatPanel._$lL.cy;
         }
         this._$4m(_$ps, _$99, _$9e, true, iw, ih, _$mS, true);
     }
@@ -1614,7 +1614,7 @@ _$E.prototype._$4m = function (_$ps, _$99, _$9e, _$7Q, _$d2, _$d0, _$mS, _$83) {
         var _$9r;
         var _$gK, _$el, _$dt;
         if (_$83 && _$ps != null && (_$ps instanceof _$6R) && !(_$ps instanceof _$58)) {
-            if ((_$9e - 1) >= 0) _$oB = this._$lj[_$99]._$hx.panelList[_$9e - 1];
+            if ((_$9e - 1) >= 0) _$oB = this.subPatternList[_$99].subPattern.panelList[_$9e - 1];
             ior = this._$2I(_$99, _$oB);
             if (!_$9t) _$9r = _$E._$3m; else _$9r = _$E._$3k;
             ilt = this._$2I(_$9r, _$ps._$kR);
@@ -1685,7 +1685,7 @@ _$E.prototype._$4m = function (_$ps, _$99, _$9e, _$7Q, _$d2, _$d0, _$mS, _$83) {
                 }
             }
         }
-        if ((_$9e - 1) >= 0) _$oB = this._$lj[_$99]._$hx.panelList[_$9e - 1];
+        if ((_$9e - 1) >= 0) _$oB = this.subPatternList[_$99].subPattern.panelList[_$9e - 1];
         ior = this._$2I(_$99, _$oB);
         if (!_$9t) _$9r = _$E._$3m; else _$9r = _$E._$3k;
         ilt = this._$2I(_$9r, _$ps._$kR);
@@ -1771,13 +1771,13 @@ _$E.prototype._$6O = function (_$n5) {
     _$ps.rect.left = _$ps.rect.top = 0;
     _$ps.rect.right = _$n5._$lJ.cx;
     _$ps.rect.bottom = _$n5._$lJ.cy;
-    _$n5._$jr = this._$lj[_$gl]._$hx._$28();
+    _$n5._$jr = this.subPatternList[_$gl].subPattern.getPanelNum();
     _$ps._$kI = _$o6;
-    this._$lj[_$gl]._$hx._$4(_$ps, _$n5._$jr);
+    this.subPatternList[_$gl].subPattern._$4(_$ps, _$n5._$jr);
     var _$pU;
     var i;
-    for (i = _$n5._$jr + 1; i < this._$lj[_$gl]._$hx._$28(); i++) {
-        _$pU = this._$lj[_$gl]._$hx.panelList[i];
+    for (i = _$n5._$jr + 1; i < this.subPatternList[_$gl].subPattern.getPanelNum(); i++) {
+        _$pU = this.subPatternList[_$gl].subPattern.panelList[i];
         _$6m(_$pU._$kI, i);
     }
 };
@@ -1798,7 +1798,7 @@ _$E.prototype._$18 = function (_$n5, _$oP) {
         if (_$n5._$jr != 0xffffffff) {
             _$8T = true;
             if (_$n5._$jr > 0) {
-                _$nm = this._$lj[_$gl]._$hx.panelList[_$n5._$jr - 1];
+                _$nm = this.subPatternList[_$gl].subPattern.panelList[_$n5._$jr - 1];
                 _$ps._$kR = _$nm._$kR;
                 _$ps._$l8 = _$nm._$l8;
             } else {
@@ -1813,16 +1813,16 @@ _$E.prototype._$18 = function (_$n5, _$oP) {
                 _$ps._$kR = this._$2j(_$E._$3k);
                 _$ps._$l8 = this._$2j(_$E._$3l);
             }
-            _$n5._$jr = this._$lj[_$gl]._$hx._$28();
+            _$n5._$jr = this.subPatternList[_$gl].subPattern.getPanelNum();
         }
         _$ps._$kI = _$o6;
         _$ps._$ah(this, _$n5._$j0);
         _$E._$6l(_$qu);
-        this._$lj[_$gl]._$hx._$4(_$ps, _$n5._$jr);
+        this.subPatternList[_$gl].subPattern._$4(_$ps, _$n5._$jr);
         var _$pU;
         var i;
-        for (i = _$n5._$jr + 1; i < this._$lj[_$gl]._$hx._$28(); i++) {
-            _$pU = this._$lj[_$gl]._$hx.panelList[i];
+        for (i = _$n5._$jr + 1; i < this.subPatternList[_$gl].subPattern.getPanelNum(); i++) {
+            _$pU = this.subPatternList[_$gl].subPattern.panelList[i];
             this._$6m(_$pU._$kI, i);
         }
     } else {
@@ -1831,7 +1831,7 @@ _$E.prototype._$18 = function (_$n5, _$oP) {
             return;
         }
         _$n5._$kA._$of = _$n5;
-        _$ps = this._$lj[_$gl]._$hx.panelList[_$n5._$jr];
+        _$ps = this.subPatternList[_$gl].subPattern.panelList[_$n5._$jr];
         if (_$ps._$05()) {
             _$ps._$ah(this, _$n5._$j0);
             _$E._$6l(_$qu);
@@ -1885,8 +1885,8 @@ _$E.prototype._$18 = function (_$n5, _$oP) {
 };
 _$E.prototype._$W = function (_$99, _$ni, _$nm, _$81) {
     var s;
-    for (s = 0; s < this._$lj[_$99]._$hx._$28(); s++) {
-        var _$pU = this._$lj[_$99]._$hx.panelList[s];
+    for (s = 0; s < this.subPatternList[_$99].subPattern.getPanelNum(); s++) {
+        var _$pU = this.subPatternList[_$99].subPattern.panelList[s];
         if (_$81 && _$pU._$kR == _$nm) {
             _$pU._$kR = _$ni;
         } else if (!_$81 && _$pU._$l8 == _$nm) {
@@ -1926,7 +1926,7 @@ _$E.prototype._$h = function () {
 _$E.prototype._$5F = function () {
     var i;
     for (i = 0; i < 4; i++) {
-        this._$lj[i]._$hx._$5R();
+        this.subPatternList[i].subPattern._$5R();
     }
 };
 _$E.prototype._$k = function (_$mV, _$cu) {
@@ -2002,8 +2002,8 @@ _$E.prototype._$4j = function (_$mS, _$ct, _$9c) {
 _$E.prototype._$4n = function (_$99, _$dg, _$cY) {
     var _$ps;
     var i;
-    for (i = _$dg; i < this._$lj[_$99]._$hx._$28(); i++) {
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+    for (i = _$dg; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         _$ps._$4i(this, _$99, _$dg, _$cY);
     }
 };
@@ -2011,7 +2011,7 @@ _$E.prototype._$4o = function (_$99, _$dg, _$cG, _$cY) {
     var _$ps;
     var i;
     for (i = _$dg; i <= _$cG; i++) {
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         _$ps._$4i(this, _$99, _$dg, _$cY);
     }
 };
@@ -2023,8 +2023,8 @@ _$E.prototype._$2K = function (_$99, _$9a) {
     var _$ps;
     var _$q7 = new Rect();
     var i;
-    for (i = 0; i < this._$lj[_$99]._$hx._$28(); i++) {
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+    for (i = 0; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         if (_$ps._$iX) {
             _$ps._$le._$25(_$q7);
             if (_$9a == _$E._$3S) _$ex = _$q7.left; else if (_$9a == _$E._$5k) _$ex = _$q7.right; else if (_$9a == _$E._$6M) {
@@ -2050,7 +2050,7 @@ _$E.prototype._$6v = function (_$mS, _$q1, _$9c) {
         var _$qt = new Rect();
         if (b1 && b2) {
             if (((_$mS._$9y % 2) == 0 && (_$9c % 2) == 0) || (((_$mS._$9y + 1) % 2) == 0 && (_$9c + 1) % 2 == 0)) {
-                if ((_$9c == _$E._$3T) || (_$9c == _$E._$5l)) _$gD = _$E._$2A(_$q1) - _$0N._$kt; else _$gD = _$E._$2z(_$q1) - _$0N._$kt;
+                if ((_$9c == _$E._$3T) || (_$9c == _$E._$5l)) _$gD = _$E._$2A(_$q1) - widgetDockPanel._$kt; else _$gD = _$E._$2z(_$q1) - widgetDockPanel._$kt;
                 var id2 = (_$gD / (1 + _$mS._$br));
                 var id1 = _$gD - id2;
                 id1 = parseInt(id1);
@@ -2061,14 +2061,14 @@ _$E.prototype._$6v = function (_$mS, _$q1, _$9c) {
                     rc1.right = rc1.left + id1;
                     rc2.left = rc2.right - id2;
                     _$qt.left = rc1.right;
-                    _$qt.right = _$qt.left + _$0N._$kt;
+                    _$qt.right = _$qt.left + widgetDockPanel._$kt;
                     _$qt.top = _$q1.top;
                     _$qt.bottom = _$q1.bottom;
                 } else {
                     rc1.bottom = rc1.top + id1;
                     rc2.top = rc2.bottom - id2;
                     _$qt.top = rc1.bottom;
-                    _$qt.bottom = _$qt.top + _$0N._$kt;
+                    _$qt.bottom = _$qt.top + widgetDockPanel._$kt;
                     _$qt.left = _$q1.left;
                     _$qt.right = _$q1.right;
                 }
@@ -2084,7 +2084,7 @@ _$E.prototype._$6v = function (_$mS, _$q1, _$9c) {
                     _$qt.left = _$q1.left;
                     _$qt.right = _$q1.right;
                     _$qt.top = rc1.bottom;
-                    _$qt.bottom = _$qt.top + _$0N._$kt;
+                    _$qt.bottom = _$qt.top + widgetDockPanel._$kt;
                 } else {
                     rc1.top = _$q1.top;
                     rc1.bottom = _$q1.bottom;
@@ -2093,7 +2093,7 @@ _$E.prototype._$6v = function (_$mS, _$q1, _$9c) {
                     _$qt.top = _$q1.top;
                     _$qt.bottom = _$q1.bottom;
                     _$qt.left = rc1.right;
-                    _$qt.right = _$qt.left + _$0N._$kt;
+                    _$qt.right = _$qt.left + widgetDockPanel._$kt;
                 }
                 if (pd1[0] != null) this._$6v(pd1[0], rc1, _$9c);
                 if (pd2[0] != null) this._$6v(pd2[0], rc2, _$9c);
@@ -2178,8 +2178,8 @@ _$E.prototype._$6x = function (_$99, _$cT, _$cU) {
     var _$9p = 0;
     this.getWindowRect(_$qb);
     var i;
-    for (i = 0; i < this._$lj[_$99]._$hx._$28(); i++) {
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+    for (i = 0; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         var _$dX = new Array(1);
         _$dX[0] = 0;
         _$ps._$6u(this, _$qb, _$99, _$cT, _$cU, _$dX);
@@ -2187,13 +2187,13 @@ _$E.prototype._$6x = function (_$99, _$cT, _$cU) {
     }
 };
 _$E.prototype._$2J = function (_$99, _$cv, _$cE) {
-    var _$e1 = this._$lj[_$99]._$hx._$28();
+    var _$e1 = this.subPatternList[_$99].subPattern.getPanelNum();
     if (_$cE == 0xffffffff || _$cE > _$e1) _$cE = _$e1;
     var _$ps;
     var ire = 0;
     var i;
     for (i = _$cv; i < _$cE; i++) {
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         if (_$ps._$iX) {
             if (_$99 == _$E._$3k || _$99 == _$E._$3l) ire += _$E._$2A(_$ps.rect); else ire += _$E._$2z(_$ps.rect);
             ire += _$ps._$cf();
@@ -2206,8 +2206,8 @@ _$E.prototype._$2I = function (_$99, _$nd) {
     if (_$nd == null) return ire;
     var _$ps;
     var i;
-    for (i = 0; i < this._$lj[_$99]._$hx._$28(); i++) {
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+    for (i = 0; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         if (_$ps._$iX) {
             if (_$99 == _$E._$3k || _$99 == _$E._$3l) ire += _$E._$2A(_$ps.rect); else ire += _$E._$2z(_$ps.rect);
             ire += _$ps._$le._$cf();
@@ -2262,7 +2262,7 @@ _$E.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, _$pC) {
             _$mX._$j2 = 0xff;
             return false;
         } else {
-            if ((_$mX._$kx._$jy != floatPanel._$0X) || (_$mX._$kx._$kA._$o5 == null) || (_$mX._$kx._$kA._$o5 != null && _$mX._$kx._$kA._$o5._$i6.length < 2)) {
+            if ((_$mX._$kx._$jy != widgetDockFloatPanel._$0X) || (_$mX._$kx._$kA._$o5 == null) || (_$mX._$kx._$kA._$o5 != null && _$mX._$kx._$kA._$o5._$i6.length < 2)) {
                 _$mX._$j1 = 0xff;
                 return true;
             } else {
@@ -2391,7 +2391,7 @@ _$E.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     return _$mX._$j1;
 };
 _$E.prototype._$02 = function (_$mX, _$99, _$pC, _$nz, _$dk, _$oQ, _$d1) {
-    if (this._$lj[_$99] == null) {
+    if (this.subPatternList[_$99] == null) {
         return 0xff;
     }
     var _$ps;
@@ -2399,11 +2399,11 @@ _$E.prototype._$02 = function (_$mX, _$99, _$pC, _$nz, _$dk, _$oQ, _$d1) {
     var _$9z = 0xff;
     _$oQ[0] = null;
     var _$fZ = new Array(1);
-    var _$e1 = this._$lj[_$99]._$hx._$28();
+    var _$e1 = this.subPatternList[_$99].subPattern.getPanelNum();
     var i;
     for (i = 0; i < _$e1; i++) {
         _$d1[0] = -1;
-        _$ps = this._$lj[_$99]._$hx.panelList[i];
+        _$ps = this.subPatternList[_$99].subPattern.panelList[i];
         if (_$ps._$iX) {
             _$9z = _$ps._$03(this, _$mX, _$pC, _$nz, _$dk, _$oQ, _$fZ);
             if ((((_$9z + 1) % 2) == 0 && _$9z != 0xff) || _$fZ[0] >= 1) {
@@ -2416,7 +2416,7 @@ _$E.prototype._$02 = function (_$mX, _$99, _$pC, _$nz, _$dk, _$oQ, _$d1) {
                     var j;
                     var _$8G = false;
                     for (j = i + 1; j < _$e1; j++) {
-                        var _$oG = this._$lj[_$99]._$hx.panelList[j];
+                        var _$oG = this.subPatternList[_$99].subPattern.panelList[j];
                         if (_$oG._$iX) {
                             _$ps = _$oG;
                             _$8G = true;
@@ -2547,44 +2547,44 @@ _$E._$5r = function (_$cr, _$qf) {
     _$qf.top += _$pL.y;
     _$qf.bottom += _$pL.y;
 };
-_$E.prototype._$1P = function (_$mO, _$df, _$sh, _$n8, _$cD, _$dg, _$mS, _$nr) {
+_$E.prototype._$1P = function (_$mO, _$df, _$sh, mainPattern, _$cD, _$dg, _$mS, _$nr) {
     var _$ps;
     _$mS[0] = _$mS[1] = null;
     var _$eQ = new Array(1);
     var i;
     for (i = 0; i < 4; i++) {
-        var _$e1 = this._$lj[i]._$hx._$28();
+        var _$e1 = this.subPatternList[i].subPattern.getPanelNum();
         var j;
         for (j = 0; j < _$e1; j++) {
-            _$ps = this._$lj[i]._$hx.panelList[j];
+            _$ps = this.subPatternList[i].subPattern.panelList[j];
             var _$pO = this._$1J(_$mO, _$sh, _$ps._$kI, _$eQ, _$nr);
             if (_$pO != null && _$ps._$k9 == _$df) {
                 if (_$df != 0) {
                     _$cD[0] = i;
                     _$dg[0] = j;
                     _$mS[0] = _$pO;
-                    _$n8[0] = this;
+                    mainPattern[0] = this;
                     return _$eQ[0];
                 }
-                if ((_$eQ[0] & floatPanel._$1A) > 0) {
+                if ((_$eQ[0] & widgetDockFloatPanel._$1A) > 0) {
                     _$cD[0] = i;
                     _$dg[0] = j;
                     _$mS[0] = _$pO;
-                    _$n8[0] = this;
+                    mainPattern[0] = this;
                 } else {
                     _$cD[1] = i;
                     _$dg[1] = j;
                     _$mS[1] = _$pO;
-                    _$n8[1] = this;
+                    mainPattern[1] = this;
                 }
-                this._$1O(_$mO, _$sh, _$mS, _$cD, _$dg, _$n8, _$eQ);
-                return _$eQ[0] & floatPanel._$1D;
+                this._$1O(_$mO, _$sh, _$mS, _$cD, _$dg, mainPattern, _$eQ);
+                return _$eQ[0] & widgetDockFloatPanel._$1D;
             }
         }
     }
-    if (_$df != 0) return _$eQ[0] & floatPanel._$1D;
-    this._$1O(_$mO, _$sh, _$mS, _$cD, _$dg, _$n8, _$eQ);
-    return _$eQ[0] & floatPanel._$1D;
+    if (_$df != 0) return _$eQ[0] & widgetDockFloatPanel._$1D;
+    this._$1O(_$mO, _$sh, _$mS, _$cD, _$dg, mainPattern, _$eQ);
+    return _$eQ[0] & widgetDockFloatPanel._$1D;
 };
 _$E.prototype._$1O = function (_$mO, _$qY, _$nO, _$dA, _$dC, _$nP, _$cX) {
     _$mO._$l0._$1O(_$mO, _$qY, _$nO, _$dA, _$dC, _$nP, _$cX);
@@ -2819,7 +2819,7 @@ _$E.prototype._$41 = function (_$na) {
         } else {
         }
         for (i = 0; i < _$gh; i++) {
-            var _$ee = this._$lj[i]._$hx._$28();
+            var _$ee = this.subPatternList[i].subPattern.getPanelNum();
             var _$gl;
             var _$8S;
             if (i == 0 || i == 2) {
@@ -2833,7 +2833,7 @@ _$E.prototype._$41 = function (_$na) {
             if (this._$ii) {
                 var j;
                 for (j = 0; j < 2; j++) {
-                    var _$fH = this._$lm[_$gl + 2 * j]._$i0._$28();
+                    var _$fH = this._$lm[_$gl + 2 * j]._$i0.getPanelNum();
                     var k;
                     for (k = 0; k < _$fH; k++) {
                         _$pf = this._$lm[_$gl + 2 * j]._$i0.panelList[k];
@@ -2843,40 +2843,40 @@ _$E.prototype._$41 = function (_$na) {
             }
         }
         for (i = 0; i < _$gh; i++) {
-            var _$e1 = this._$lm[i]._$i0._$28();
-            var _$e3 = this._$lj[i]._$hx._$28();
+            var _$e1 = this._$lm[i]._$i0.getPanelNum();
+            var _$e3 = this.subPatternList[i].subPattern.getPanelNum();
             var j;
             for (j = 0; j < _$e1; j++) {
                 var _$pf = this._$lm[i]._$i0.panelList[j];
                 _$pf._$eq = _$e3;
                 var _$ps = null;
-                if (_$pf._$g6 == 0) _$ps = new _$0N(); else if (_$pf._$g6 == 1) _$ps = new _$6R(); else _$ps = new _$4c();
+                if (_$pf._$g6 == 0) _$ps = new widgetDockPanel(); else if (_$pf._$g6 == 1) _$ps = new _$6R(); else _$ps = new _$4c();
                 _$pf._$o2 = _$ps;
                 _$ps.rect.left = _$ps.rect.top = 0;
                 _$ps.rect.right = _$pf._$gK;
                 _$ps.rect.bottom = _$pf._$el;
                 _$ps._$iX = false;
                 _$ps._$kI = _$pf._$kI;
-                this._$lj[i]._$hx._$4(_$ps, _$e3);
+                this.subPatternList[i].subPattern._$4(_$ps, _$e3);
                 _$e3++;
             }
         }
         for (i = 0; i < _$gh; i++) {
-            var _$e1 = this._$lm[i]._$i0._$28();
+            var _$e1 = this._$lm[i]._$i0.getPanelNum();
             var _$ou, _$p6;
             if (i == 0 || i == 2) {
-                _$ou = this._$lj[1];
-                _$p6 = this._$lj[3];
+                _$ou = this.subPatternList[1];
+                _$p6 = this.subPatternList[3];
             } else {
-                _$ou = this._$lj[0];
-                _$p6 = this._$lj[2];
+                _$ou = this.subPatternList[0];
+                _$p6 = this.subPatternList[2];
             }
             if (this._$ii) {
                 var j;
                 for (j = 0; j < _$e1; j++) {
                     var _$pf = this._$lm[i]._$i0.panelList[j];
-                    if (_$pf._$eF != -1) _$pf._$o2._$kR = _$ou._$hx.panelList[_$pf._$eF]; else _$pf._$o2._$kR = null;
-                    if (_$pf._$fB != -1) _$pf._$o2._$l8 = _$p6._$hx.panelList[_$pf._$fB]; else _$pf._$o2._$l8 = null;
+                    if (_$pf._$eF != -1) _$pf._$o2._$kR = _$ou.subPattern.panelList[_$pf._$eF]; else _$pf._$o2._$kR = null;
+                    if (_$pf._$fB != -1) _$pf._$o2._$l8 = _$p6.subPattern.panelList[_$pf._$fB]; else _$pf._$o2._$l8 = null;
                 }
             }
         }
@@ -2888,8 +2888,8 @@ _$E.prototype._$0b = function (_$ns, _$cC, _$nt) {
     var _$dD = new Array(4);
     var i;
     var _$e9 = _$cC;
-    for (i = 0; i < _$e9; i++) _$dD[i] = this._$lj[i]._$hx._$28();
-    var _$fz = _$nt._$28();
+    for (i = 0; i < _$e9; i++) _$dD[i] = this.subPatternList[i].subPattern.getPanelNum();
+    var _$fz = _$nt.getPanelNum();
     var nn;
     for (nn = 0; nn < _$fz; nn++) {
         var _$si = _$nt.panelList[nn].getTitle();
@@ -2898,11 +2898,11 @@ _$E.prototype._$0b = function (_$ns, _$cC, _$nt) {
             if (_$8G) break;
             var s;
             for (s = _$dH[i]; s < _$dD[i]; s++) {
-                var pbf = this._$1N(_$si, this._$lj[i]._$hx.panelList[s]._$kI);
+                var pbf = this._$1N(_$si, this.subPatternList[i].subPattern.panelList[s]._$kI);
                 if (pbf != null) {
                     _$8G = true;
                     this._$55(pbf, null, _$si, i, s);
-                    _$dD[i] = this._$lj[i]._$hx._$28();
+                    _$dD[i] = this.subPatternList[i].subPattern.getPanelNum();
                     break;
                 }
             }
@@ -2933,8 +2933,8 @@ _$E.prototype._$78 = function (_$cD, _$cZ, _$81, _$84) {
     var _$py, _$oC;
     _$py = this._$lm[_$cD];
     _$oC = this._$lm[_$cZ];
-    var _$e1 = _$py._$i0._$28();
-    var _$eY = _$oC._$i0._$28();
+    var _$e1 = _$py._$i0.getPanelNum();
+    var _$eY = _$oC._$i0.getPanelNum();
     var _$eq, _$eZ;
     _$eq = 0;
     _$eZ = -1;
@@ -3067,12 +3067,12 @@ _$E.prototype._$rA = function (_$r4) {
 _$E.prototype._$8 = function (_$99, _$mO, _$7V) {
     var _$g1 = 0xFFFFFFFF;
     if (_$7V) _$g1 = 0; else if (this._$lk[_$99] == null) {
-        var _$e1 = this._$lj[_$99]._$hx._$28();
+        var _$e1 = this.subPatternList[_$99].subPattern.getPanelNum();
         alert("Sd");
         var _$ps;
         var i;
         for (i = 0; i < _$e1; i++) {
-            _$ps = this._$lj[_$99]._$hx.panelList[i];
+            _$ps = this.subPatternList[_$99].subPattern.panelList[i];
             if (_$ps._$k9 == 0) {
                 _$g1 = i;
                 break;
@@ -3136,15 +3136,15 @@ _$E.prototype._$5M = function (_$99, _$mO) {
     var _$pU;
     var _$pj = this._$lk[_$99];
     this._$lk[_$99] = null;
-    this._$lj[_$99]._$hx._$5G(_$g1);
+    this.subPatternList[_$99].subPattern._$5G(_$g1);
     var i;
-    for (i = _$g1; i < this._$lj[_$99]._$hx._$28(); i++) {
-        _$pU = this._$lj[_$99]._$hx.panelList[i];
+    for (i = _$g1; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+        _$pU = this.subPatternList[_$99].subPattern.panelList[i];
         var pb = _$pU._$kI;
         this._$6m(pb, i);
     }
     var _$oF;
-    if (_$g1 == 0) _$oF = null; else _$oF = this._$lj[_$99]._$hx.panelList[_$g1 - 1];
+    if (_$g1 == 0) _$oF = null; else _$oF = this.subPatternList[_$99].subPattern.panelList[_$g1 - 1];
     if (_$99 == _$E._$3k || _$99 == _$E._$3l) {
         this._$5L(_$E._$3m, _$pj, _$oF);
         this._$5L(_$E._$3j, _$pj, _$oF);
@@ -3170,7 +3170,7 @@ _$E.prototype._$9 = function (_$99, _$dg, iWH) {
         if (_$dg != 0xffffffff) {
             _$8T = true;
             if (_$dg > 0) {
-                _$nm = this._$lj[_$99]._$hx.panelList[_$dg - 1];
+                _$nm = this.subPatternList[_$99].subPattern.panelList[_$dg - 1];
                 _$ps._$kR = _$nm._$kR;
                 _$ps._$l8 = _$nm._$l8;
             } else {
@@ -3185,15 +3185,15 @@ _$E.prototype._$9 = function (_$99, _$dg, iWH) {
                 _$ps._$kR = this._$2j(_$E._$3k);
                 _$ps._$l8 = this._$2j(_$E._$3l);
             }
-            _$dg = this._$lj[_$99]._$hx._$28();
+            _$dg = this.subPatternList[_$99].subPattern.getPanelNum();
         }
         _$ps._$kI = null;
         _$ps._$ah(this, _$99);
-        this._$lj[_$99]._$hx._$4(_$ps, _$dg);
+        this.subPatternList[_$99].subPattern._$4(_$ps, _$dg);
         var _$pU;
         var i;
-        for (i = _$dg + 1; i < this._$lj[_$99]._$hx._$28(); i++) {
-            _$pU = this._$lj[_$99]._$hx.panelList[i];
+        for (i = _$dg + 1; i < this.subPatternList[_$99].subPattern.getPanelNum(); i++) {
+            _$pU = this.subPatternList[_$99].subPattern.panelList[i];
             this._$6m(_$pU._$kI, i);
         }
     } else {
@@ -3231,7 +3231,7 @@ _$E.prototype._$5N = function () {
     }
 };
 _$E.prototype._$6t = function (_$mO) {
-    if (_$mO._$kj > floatPanel._$q) this._$lk[_$mO._$j0]._$5b(_$mO); else {
+    if (_$mO._$kj > widgetDockFloatPanel._$q) this._$lk[_$mO._$j0]._$5b(_$mO); else {
         this._$lk[_$mO._$kj]._$5b(_$mO);
     }
 };
@@ -3242,7 +3242,7 @@ _$E.prototype._$0f = function (_$nF, _$nU, _$nz) {
     var _$ot = null;
     var _$p5 = null;
     if (_$nF._$ka > 0 && _$nF._$ka != 0xffffffff) {
-        _$nm = this._$lj[_$nU[0]]._$hx.panelList[_$nF._$ka - 1];
+        _$nm = this.subPatternList[_$nU[0]].subPattern.panelList[_$nF._$ka - 1];
         _$ot = _$nm._$kR;
         _$p5 = _$nm._$l8;
     }
@@ -3602,7 +3602,7 @@ _$N.prototype._$1Q = function () {
     this._$kG._$sb(this);
 };
 _$N.prototype._$sb = function () {
-    var _$e1 = this._$kG._$lj[this._$j1]._$hx._$28();
+    var _$e1 = this._$kG.subPatternList[this._$j1].subPattern.getPanelNum();
     var _$ps;
     var _$pv = new Array(1);
     var _$95 = new Array(1);
@@ -3736,14 +3736,14 @@ _$N.prototype._$25 = function (rc) {
     }
 };
 _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
-    var _$e1 = this._$kG._$lj[this._$j1]._$hx._$28();
+    var _$e1 = this._$kG.subPatternList[this._$j1].subPattern.getPanelNum();
     var _$ps;
     _$nC[0] = null;
     _$89[0] = true;
     var _$f2;
     var i;
     for (i = _$e1 - 1; i >= 0; i--) {
-        _$ps = this._$kG._$lj[this._$j1]._$hx.panelList[i];
+        _$ps = this._$kG.subPatternList[this._$j1].subPattern.panelList[i];
         if (_$ps._$iX) {
             if (_$ps._$le == this) {
                 this._$ka = i;
@@ -3812,26 +3812,26 @@ _$N.prototype._$qJ = function () {
     }
 };
 
-function _$0N() {
+function widgetDockPanel() {
     this._$le = null;
     this._$kI = null;
     this._$kR;
     this._$l8;
     this._$iX;
     this.rect = new Rect();
-    this._$km = _$0N._$kt;
+    this._$km = widgetDockPanel._$kt;
     this._$k9 = 0;
-};_$0N._$kt = _$E._$5Z;
-_$0N._$iD = false;
-_$0N._$6g = function (iWH) {
+};widgetDockPanel._$kt = _$E._$5Z;
+widgetDockPanel._$iD = false;
+widgetDockPanel._$6g = function (iWH) {
     if (_$iD) return;
     if (iWH < 0) iWH = 0;
-    _$0N._$kt = iWH;
+    widgetDockPanel._$kt = iWH;
 };
-_$0N.prototype._$cf = function () {
+widgetDockPanel.prototype._$cf = function () {
     return this._$km;
 };
-_$0N.prototype._$3E = function (_$p9, _$pC, _$de) {
+widgetDockPanel.prototype._$3E = function (_$p9, _$pC, _$de) {
     var _$9z = _$E._$m(_$p9, _$pC);
     _$de[0] = 0;
     if (_$9z != 0xff) {
@@ -3853,13 +3853,13 @@ _$0N.prototype._$3E = function (_$p9, _$pC, _$de) {
     }
     return _$9z;
 };
-_$0N.prototype._$ah = function (_$ax, _$99) {
+widgetDockPanel.prototype._$ah = function (_$ax, _$99) {
     this._$le = new _$N();
     this._$le._$j1 = _$99;
     this._$le._$rh(_$ax);
     this._$le._$rG(this._$km);
 };
-_$0N.prototype._$qI = function () {
+widgetDockPanel.prototype._$qI = function () {
     if (this._$le != null) {
         if (this._$le._$kG != null) {
             this._$le._$kG._$5E(this._$le);
@@ -3869,13 +3869,13 @@ _$0N.prototype._$qI = function () {
     }
     this._$iX = false;
 };
-_$0N.prototype._$05 = function () {
+widgetDockPanel.prototype._$05 = function () {
     return this._$kI._$05();
 };
-_$0N.prototype._$qy = function (wnd, rc) {
+widgetDockPanel.prototype._$qy = function (wnd, rc) {
     wnd._$6q(rc);
 };
-_$0N.prototype._$2B = function (_$mO, pRC) {
+widgetDockPanel.prototype._$2B = function (_$mO, pRC) {
     if (_$mO._$kA._$8y) {
         pRC.left = 0;
         pRC.top = 0;
@@ -3885,7 +3885,7 @@ _$0N.prototype._$2B = function (_$mO, pRC) {
     }
     _$mO._$25(pRC);
 };
-_$0N.prototype._$6u = function (_$ax, _$qb, _$99, _$cT, _$cU, _$cA) {
+widgetDockPanel.prototype._$6u = function (_$ax, _$qb, _$99, _$cT, _$cU, _$cA) {
     if (this._$iX) {
         var ilt, irb;
         var _$dW;
@@ -3930,7 +3930,7 @@ _$0N.prototype._$6u = function (_$ax, _$qb, _$99, _$cT, _$cU, _$cA) {
         }
     }
 };
-_$0N.prototype._$5q = function () {
+widgetDockPanel.prototype._$5q = function () {
     var pd1 = new Array(1);
     var pd2 = new Array(1);
     var rc1 = new Rect();
@@ -3959,21 +3959,21 @@ _$0N.prototype._$5q = function () {
         }
     }
 };
-_$0N.prototype._$03 = function (_$n8, _$mX, _$pC, _$nz, _$dk, _$oQ, _$de) {
+widgetDockPanel.prototype._$03 = function (mainPattern, _$mX, _$pC, _$nz, _$dk, _$oQ, _$de) {
     _$de[0] = 0;
     if (_$mX._$it) {
         return this._$kI._$03(_$mX, _$pC, _$nz, _$dk, _$oQ);
     } else {
         var _$qu = new Rect();
         _$qu.setRect(rect);
-        _$n8._$5r(_$n8._$hh, _$qu);
+        mainPattern._$5r(mainPattern._$hh, _$qu);
         var _$9z = _$3E(_$qu, _$pC, _$de);
         _$mX._$kn = rect.right - rect.left;
         _$mX._$kq = rect.bottom - rect.top;
         return _$9z;
     }
 };
-_$0N.prototype._$53 = function (_$mS) {
+widgetDockPanel.prototype._$53 = function (_$mS) {
     var _$oV = _$mS._$oV;
     if (_$oV == null) {
         return true;
@@ -3995,10 +3995,10 @@ _$0N.prototype._$53 = function (_$mS) {
     }
     return false;
 };
-_$0N.prototype._$5K = function (_$mO) {
+widgetDockPanel.prototype._$5K = function (_$mO) {
     return _$mO._$kA._$5K(_$mO);
 };
-_$0N.prototype._$f = function (_$n8, _$mS, prc) {
+widgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
     var _$qs = new Rect();
     var _$qu = new Rect();
     _$qu.setRect(prc);
@@ -4018,15 +4018,15 @@ _$0N.prototype._$f = function (_$n8, _$mS, prc) {
                 var _$gc;
                 _$pu._$22(_$qs);
                 if (_$oV._$9y == _$E._$3m || _$oV._$9y == _$E._$3j) {
-                    _$gc = _$E._$2z(_$qu) + _$0N._$kt;
+                    _$gc = _$E._$2z(_$qu) + widgetDockPanel._$kt;
                     if (pme._$9j == _$E._$3j) {
                         _$qs.bottom += _$gc;
                     } else _$qs.top -= _$gc;
-                    _$n8._$6v(pme._$oV, _$qs, _$E._$6N);
+                    mainPattern._$6v(pme._$oV, _$qs, _$E._$6N);
                 } else {
-                    _$gc = _$E._$2A(_$qu) + _$0N._$kt;
+                    _$gc = _$E._$2A(_$qu) + widgetDockPanel._$kt;
                     if (pme._$9j == _$E._$3l) _$qs.right += _$gc; else _$qs.left -= _$gc;
-                    _$n8._$6v(pme._$oV, _$qs, _$E._$3T);
+                    mainPattern._$6v(pme._$oV, _$qs, _$E._$3T);
                 }
                 break;
             }
@@ -4040,7 +4040,7 @@ _$0N.prototype._$f = function (_$n8, _$mS, prc) {
     }
     return _$8V;
 };
-_$0N.prototype._$6 = function (_$n8, _$mS) {
+widgetDockPanel.prototype._$6 = function (mainPattern, _$mS) {
     var pme = _$mS;
     var _$oV = pme._$oV;
     if (_$oV == null) return;
@@ -4061,13 +4061,13 @@ _$0N.prototype._$6 = function (_$n8, _$mS) {
             var rc = new Rect();
             _$pu._$22(rc);
             _$oV._$oy = new _$N();
-            _$oV._$oy._$rG(_$0N._$kt);
-            _$oV._$oy._$rh(_$n8);
+            _$oV._$oy._$rG(widgetDockPanel._$kt);
+            _$oV._$oy._$rh(mainPattern);
             _$oV._$oy._$iI = true;
             _$oV._$oy._$j1 = _$9o;
             _$oV._$oy._$kE = _$oV;
-            _$n8._$6v(_$pu._$oV, rc, 0);
-            _$n8._$6v(_$pu._$oV, rc, 1);
+            mainPattern._$6v(_$pu._$oV, rc, 0);
+            mainPattern._$6v(_$pu._$oV, rc, 1);
             break;
         }
         pme = _$oV;
@@ -4075,13 +4075,13 @@ _$0N.prototype._$6 = function (_$n8, _$mS) {
         if (_$oV == null) return;
     }
 };
-_$0N.prototype._$7 = function (_$n8, _$n5) {
+widgetDockPanel.prototype._$7 = function (mainPattern, _$n5) {
     var pme = _$n5._$kA;
-    this._$6(_$n8, pme);
+    this._$6(mainPattern, pme);
 };
-_$0N.prototype._$4i = function (_$n8, _$99, _$dg, _$cY) {
+widgetDockPanel.prototype._$4i = function (mainPattern, _$99, _$dg, _$cY) {
     if (this._$iX) {
-        this._$4j(_$n8, _$cY, _$99);
+        this._$4j(mainPattern, _$cY, _$99);
         if (_$99 == _$E._$3l) {
             this.rect.left -= _$cY;
             this.rect.right -= _$cY;
@@ -4100,14 +4100,14 @@ _$0N.prototype._$4i = function (_$n8, _$99, _$dg, _$cY) {
         this._$le._$4q(_$gz);
     }
 };
-_$0N.prototype._$6v = function (_$ax, _$9c, _$cA) {
+widgetDockPanel.prototype._$6v = function (_$ax, _$9c, _$cA) {
     _$cA[0] = 0;
     _$ax._$6v(this._$kI, this.rect, _$9c);
 };
-_$0N.prototype._$4j = function (_$n8, _$cY, _$99) {
-    _$n8._$4j(this._$kI, _$cY, _$99);
+widgetDockPanel.prototype._$4j = function (mainPattern, _$cY, _$99) {
+    mainPattern._$4j(this._$kI, _$cY, _$99);
 };
-_$0N.prototype._$0e = function (_$mS) {
+widgetDockPanel.prototype._$0e = function (_$mS) {
     if (_$mS == null) return false;
     if (_$mS._$of != null) return true;
     if (_$mS._$od == null && _$mS._$pr == null && _$mS._$l1 != null) {
@@ -4129,7 +4129,7 @@ _$0N.prototype._$0e = function (_$mS) {
     if (_$mS._$pr != null) b = this._$0e(_$mS._$pr);
     return b;
 };
-_$0N.prototype.initPanelLayout = function (_$n8, layout, index, _$eF, _$fB) {
+widgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index, _$eF, _$fB) {
     if (!this._$0e(this._$kI)) {
         return index;
     }
@@ -4138,18 +4138,18 @@ _$0N.prototype.initPanelLayout = function (_$n8, layout, index, _$eF, _$fB) {
     layout.addContent(this.rect.bottom - this.rect.top);
     var _$aR = -1;
     if (this._$kR != null) {
-        _$aR = _$n8._$2F(_$eF, this._$kR);
-        if (_$n8._$lk[_$eF] != null) {
-            var _$fp = _$n8._$2F(_$eF, _$n8._$lk[_$eF]);
+        _$aR = mainPattern._$2F(_$eF, this._$kR);
+        if (mainPattern._$lk[_$eF] != null) {
+            var _$fp = mainPattern._$2F(_$eF, mainPattern._$lk[_$eF]);
             if (_$aR > _$fp) _$aR--;
         }
     }
     layout.addContent(_$aR);
     _$aR = -1;
     if (this._$l8 != null) {
-        _$aR = _$n8._$2F(_$fB, this._$l8);
-        if (_$n8._$lk[_$fB] != null) {
-            var _$fp = _$n8._$2F(_$eF, _$n8._$lk[_$fB]);
+        _$aR = mainPattern._$2F(_$fB, this._$l8);
+        if (mainPattern._$lk[_$fB] != null) {
+            var _$fp = mainPattern._$2F(_$eF, mainPattern._$lk[_$fB]);
             if (_$aR > _$fp) _$aR--;
         }
     }
@@ -4157,11 +4157,11 @@ _$0N.prototype.initPanelLayout = function (_$n8, layout, index, _$eF, _$fB) {
     this._$66(layout);
     var _$nT = this._$kI;
     layout.addContent("ROOTBLOCK");
-    this.initPanelInfoLayout(_$n8, layout, _$nT);
+    this.initPanelInfoLayout(mainPattern, layout, _$nT);
     index++;
     return index;
 };
-_$0N.prototype._$63 = function (_$n8, layout, _$mS, _$aP) {
+widgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS, _$aP) {
     {
         var _$7D = null;
         if (_$mS._$l1 != null && _$mS._$l1.length >= 1) {
@@ -4186,20 +4186,20 @@ _$0N.prototype._$63 = function (_$n8, layout, _$mS, _$aP) {
                 if (_$7D[i]._$mO != null) {
                     sTitle = _$7D[i]._$mO.getTitle();
                     var bvi = _$7D[i]._$mO._$fT();
-                    if (bvi) _$aS |= floatPanel._$1D;
-                    if (_$7D[i]._$mO._$kB == _$n8) {
-                        _$aS |= floatPanel._$1A;
+                    if (bvi) _$aS |= widgetDockFloatPanel._$1D;
+                    if (_$7D[i]._$mO._$kB == mainPattern) {
+                        _$aS |= widgetDockFloatPanel._$1A;
                     }
-                    if (_$7D[i]._$mO._$k0 == floatPanel._$6W) _$aS |= floatPanel._$1C;
-                    if (_$7D[i]._$mO._$k0 != floatPanel._$4C) _$aS |= floatPanel._$2U;
-                    if (_$7D[i]._$mO._$iv) _$aS |= floatPanel._$2T;
+                    if (_$7D[i]._$mO._$k0 == widgetDockFloatPanel._$6W) _$aS |= widgetDockFloatPanel._$1C;
+                    if (_$7D[i]._$mO._$k0 != widgetDockFloatPanel._$4C) _$aS |= widgetDockFloatPanel._$2U;
+                    if (_$7D[i]._$mO._$iv) _$aS |= widgetDockFloatPanel._$2T;
                     _$aS |= ((_$7D[i]._$mO._$kc & 0xF) << 12);
                     _$aS |= ((_$7D[i]._$mO._$kj & 0x7) << 7);
-                    if (_$7D[i]._$mO._$id) _$aS |= floatPanel._$B;
+                    if (_$7D[i]._$mO._$id) _$aS |= widgetDockFloatPanel._$B;
                     _$aS |= ((_$7D[i]._$mO._$jm & 0x07) << 17);
                 } else {
                     sTitle = _$mS._$sl;
-                    _$aS |= (floatPanel._$1D | floatPanel._$1A);
+                    _$aS |= (widgetDockFloatPanel._$1D | widgetDockFloatPanel._$1A);
                 }
             }
             var _$8Q = false;
@@ -4213,10 +4213,10 @@ _$0N.prototype._$63 = function (_$n8, layout, _$mS, _$aP) {
                     }
                 }
             }
-            if (_$8Q) _$aS |= floatPanel._$1B; else _$aS &= ~floatPanel._$1B;
+            if (_$8Q) _$aS |= widgetDockFloatPanel._$1B; else _$aS &= ~widgetDockFloatPanel._$1B;
             layout.addContent(sTitle);
             layout.addContent(_$aS);
-            if (_$n8._$ii) {
+            if (mainPattern._$ii) {
                 if (_$7D[i]._$mO != null) {
                     layout.addContent(_$7D[i]._$mO._$lt.x);
                     layout.addContent(_$7D[i]._$mO._$lt.y);
@@ -4233,7 +4233,7 @@ _$0N.prototype._$63 = function (_$n8, layout, _$mS, _$aP) {
         }
     }
 };
-_$0N.prototype.initPanelInfoLayout = function (_$n8, layout, _$mS) {
+widgetDockPanel.prototype.initPanelInfoLayout = function (mainPattern, layout, _$mS) {
     layout.addContent(_$mS._$br * 1000);
     var _$aS = new Array(1);
     _$aS[0] = _$mS._$9j;
@@ -4243,22 +4243,22 @@ _$0N.prototype.initPanelInfoLayout = function (_$n8, layout, _$mS) {
     if (_$mS._$od != null || _$mS._$pr != null) {
         if (_$mS._$od != null) {
             layout.addContent("LEFTBLOCK");
-            this.initPanelInfoLayout(_$n8, layout, _$mS._$od);
+            this.initPanelInfoLayout(mainPattern, layout, _$mS._$od);
         } else {
             layout.addContent("LEFTNONE");
         }
         if (_$mS._$pr != null) {
             layout.addContent("RIGHTBLOCK");
-            this.initPanelInfoLayout(_$n8, layout, _$mS._$pr);
+            this.initPanelInfoLayout(mainPattern, layout, _$mS._$pr);
         } else layout.addContent("RIGHTNONE");
     } else {
         layout.addContent("LEFTNONE");
         layout.addContent("RIGHTNONE");
-        this._$63(_$n8, layout, _$mS, _$aS);
+        this._$63(mainPattern, layout, _$mS, _$aS);
     }
     layout.addContent(_$aS[0]);
 };
-_$0N.prototype._$66 = function (layout) {
+widgetDockPanel.prototype._$66 = function (layout) {
     layout.addContent(0);
 };
 
@@ -4279,9 +4279,9 @@ function _$6R() {
     }
     this._$3I();
     this._$h8.style.backgroundColor = 'ButtonFace';
-};_$b1._$b0(_$6R, _$0N);
+};_$b1._$b0(_$6R, widgetDockPanel);
 _$6R.prototype._$nJ = function (g) {
-    _$0N.prototype._$nJ.call(this, g);
+    widgetDockPanel.prototype._$nJ.call(this, g);
     var rc = _$bC();
     _$nK(g, rc);
     _$4S(g);
@@ -4395,7 +4395,7 @@ _$6R.prototype._$35 = function () {
     if (this._$kI._$od != null) return false;
     return true;
 };
-_$6R.prototype._$03 = function (_$n8, _$mX, _$pC, _$nz, _$dk, _$oQ, _$de) {
+_$6R.prototype._$03 = function (mainPattern, _$mX, _$pC, _$nz, _$dk, _$oQ, _$de) {
     var _$n6 = _$mX._$kx;
     var _$8G = _$1I(_$n6);
     _$de[0] = 0;
@@ -4440,7 +4440,7 @@ _$6R.prototype._$6v = function (_$ax, _$9c, _$cA) {
     this._$qJ();
     var _$8j = new _$D();
     this._$2l(_$8j, null);
-    var _$e1 = _$8j._$28();
+    var _$e1 = _$8j.getPanelNum();
     var _$q7 = new Rect();
     var _$eq = new Array(1);
     _$eq[0] = -1;
@@ -4524,7 +4524,7 @@ _$6R.prototype._$6v = function (_$ax, _$9c, _$cA) {
         }
     }
 };
-_$6R.prototype._$4j = function (_$n8, _$cY, _$99) {
+_$6R.prototype._$4j = function (mainPattern, _$cY, _$99) {
     if (this._$iX) {
         var plt = new Align();
         var _$qu = new Rect();
@@ -4592,7 +4592,7 @@ _$6R.prototype._$11 = function (_$mZ) {
 };
 _$6R.prototype._$qI = function () {
     if (this._$je != null) {
-        _$0N.prototype._$qI.call(this);
+        widgetDockPanel.prototype._$qI.call(this);
         this._$je = null;
         this._$iy = false;
     }
@@ -4604,7 +4604,7 @@ _$6R.prototype._$53 = function (_$mS) {
     } else if (this._$kI._$pr == null && this._$kI._$pr == null && this._$kI._$of == null) return true;
     return false;
 };
-_$6R.prototype._$f = function (_$n8, _$mS, pRC) {
+_$6R.prototype._$f = function (mainPattern, _$mS, pRC) {
     if (this._$kI == _$mS) return true;
     var _$pN = _$kI;
     var _$8g = true;
@@ -4624,7 +4624,7 @@ _$6R.prototype._$f = function (_$n8, _$mS, pRC) {
         var _$e1, _$er;
         var _$8j = new _$D();
         _$er = _$2l(_$8j, _$mS._$of);
-        _$e1 = _$8j._$28();
+        _$e1 = _$8j.getPanelNum();
         _$mS._$8y = true;
         var _$9y;
         if (this._$le != null) _$9y = this._$le._$j1; else _$9y = _$mS._$of._$lf._$j1;
@@ -4637,7 +4637,7 @@ _$6R.prototype._$f = function (_$n8, _$mS, pRC) {
         this._$04(_$9t, _$8j, _$8D, _$gE, iid, imo);
         var _$ow = _$8j.panelList[_$er];
         _$8j._$5G(_$er);
-        var _$g2 = _$2m(_$8j, 0, _$8j._$28(), _$9t);
+        var _$g2 = _$2m(_$8j, 0, _$8j.getPanelNum(), _$9t);
         var _$fW = new Array(1);
         if ((_$9t && (_$ow.size.cy >= (rect.bottom - rect.top))) || (!_$9t && (_$ow.size.cx >= (rect.right - rect.left)))) {
             if (_$9t && (_$g2 < _$ow.size.cy)) {
@@ -4646,10 +4646,10 @@ _$6R.prototype._$f = function (_$n8, _$mS, pRC) {
                 _$fW[0] = _$g2 - _$ow.size.cx;
             }
         }
-        var _$eL = _$2H(_$8j, 0, _$8j._$28(), false);
+        var _$eL = _$2H(_$8j, 0, _$8j.getPanelNum(), false);
         if ((_$9t && (_$eL <= (this.rect.right - this.rect.left))) || (!_$9t && (_$eL <= (this.rect.bottom - this.rect.top)))) {
             var j;
-            for (j = 0; j < _$8j._$28(); j++) {
+            for (j = 0; j < _$8j.getPanelNum(); j++) {
                 var _$ol = _$8j.panelList[j];
                 var _$ov = _$ol._$nQ;
                 _$ov._$5S();
@@ -4659,11 +4659,11 @@ _$6R.prototype._$f = function (_$n8, _$mS, pRC) {
             return _$8g;
         }
         if (_$8D[0]) {
-            var _$eP = this._$2s(_$8j, 0, _$8j._$28());
+            var _$eP = this._$2s(_$8j, 0, _$8j.getPanelNum());
             if ((_$9t && (_$eP <= (this.rect.right - this.rect.left))) || (!_$9t && (_$eP <= (this.rect.bottom - this.rect.top)))) {
                 var _$mI = new _$D();
                 this._$2t(_$8j, 0, _$mI);
-                _$e1 = _$mI._$28();
+                _$e1 = _$mI.getPanelNum();
                 var _$gu = 0;
                 _$sM;
                 var k;
@@ -4699,9 +4699,9 @@ _$6R.prototype._$f = function (_$n8, _$mS, pRC) {
 _$6R.prototype._$2H = function (d) {
     var _$8j = new _$D();
     _$2l(_$8j, null);
-    d.width = _$2H(_$8j, 0, _$8j._$28(), false);
+    d.width = _$2H(_$8j, 0, _$8j.getPanelNum(), false);
     d.height = 0;
-    var _$e1 = _$8j._$28();
+    var _$e1 = _$8j.getPanelNum();
     if (_$e1 > 0) {
         var _$ol = _$8j.panelList[_$e1 - 1];
         var rc = _$ol._$nQ._$bC();
@@ -4771,7 +4771,7 @@ _$6R.prototype._$2l = function (_$nR, _$mO) {
     }
     return _$er;
 };
-_$6R.prototype._$7 = function (_$n8, _$mO) {
+_$6R.prototype._$7 = function (mainPattern, _$mO) {
     if (_$mO._$c2() != this._$je) {
         this._$je.add(_$mO);
     }
@@ -4783,7 +4783,7 @@ _$6R.prototype._$7 = function (_$n8, _$mO) {
     var _$ol = null;
     _$mO._$jW = _$1d._$jX;
     _$1d._$jX += 1;
-    var _$e1 = _$nR._$28();
+    var _$e1 = _$nR.getPanelNum();
     var _$8D = new Array(1);
     _$8D[0] = false;
     var _$gE = new Array(1);
@@ -4800,7 +4800,7 @@ _$6R.prototype._$7 = function (_$n8, _$mO) {
     var _$eI = 0;
     _$eI = _$mO._$2o(_$9t);
     if (_$8D[0] || (_$9t && ((this.rect.right - this.rect.left) < (_$gE[0] + _$eI))) || (!_$9t && ((this.rect.bottom - this.rect.top) < (_$gE[0] + _$eI)))) {
-        var _$eP = this._$2s(_$nR, 0, _$nR._$28());
+        var _$eP = this._$2s(_$nR, 0, _$nR.getPanelNum());
         if ((_$9t && ((this.rect.right - this.rect.left) >= _$eP)) || (!_$9t && ((this.rect.bottom - this.rect.top) >= _$eP))) {
             var _$mI = new _$D();
             this._$2t(_$nR, 0, _$mI);
@@ -4872,7 +4872,7 @@ _$6R.prototype._$7 = function (_$n8, _$mO) {
             if (!_$9t) _$gD = this.rect.bottom - this.rect.top;
             var _$rK = (_$gD - _$dN);
             var _$dZ = new Array(1);
-            this._$5c(_$nR, 0, 0, _$nR._$28(), _$mI, _$rK, _$9t, _$gD, 0, _$dZ);
+            this._$5c(_$nR, 0, 0, _$nR.getPanelNum(), _$mI, _$rK, _$9t, _$gD, 0, _$dZ);
             _$dZ[0] = this._$0m(_$9t, _$dZ[0]);
             if (_$dZ[0] != 0) {
                 var _$e5 = this._$le._$kG._$2F(this._$le._$j1, this);
@@ -4962,14 +4962,14 @@ _$6R.prototype._$2s = function (_$8j, _$cv, _$cE) {
     return _$gD;
 };
 _$6R.prototype._$2t = function (_$8j, _$dS, _$mI) {
-    var _$e1 = _$8j._$28();
+    var _$e1 = _$8j.getPanelNum();
     var _$fi;
     var bin;
     var i;
     var j;
     var _$ol, _$oJ;
     for (i = _$dS; i < _$e1; i++) {
-        _$fi = _$mI._$28();
+        _$fi = _$mI.getPanelNum();
         bin = false;
         _$ol = _$8j.panelList[i];
         for (j = 0; j < _$fi; j++) {
@@ -4990,7 +4990,7 @@ _$6R.prototype._$5c = function (_$8j, _$cx, _$cw, _$cF, _$mI, _$rJ, _$9t, _$gD, 
     var _$oJ;
     var _$ol;
     var szs = new _$5Y();
-    var _$e1 = _$mI._$28();
+    var _$e1 = _$mI.getPanelNum();
     var _$ov = null;
     var _$eM = 0;
     var _$dX;
@@ -5120,7 +5120,7 @@ _$6R.prototype._$6w = function (_$8j, _$rJ, _$dB) {
     var _$ol;
     _$dB[0] = 0;
     var _$ov;
-    var _$e1 = _$8j._$28();
+    var _$e1 = _$8j.getPanelNum();
     var _$mI = new _$D();
     this._$2t(_$8j, 0, _$mI);
     var _$q7 = new Rect();
@@ -5221,7 +5221,7 @@ _$6R.prototype._$6w = function (_$8j, _$rJ, _$dB) {
         }
         _$mI._$5R();
         this._$2t(_$8j, _$gw, _$mI);
-        _$e1 = _$mI._$28();
+        _$e1 = _$mI.getPanelNum();
         this._$js = _$go;
     } else {
         _$g4 = 0;
@@ -5243,7 +5243,7 @@ _$6R.prototype._$6w = function (_$8j, _$rJ, _$dB) {
         _$gp += _$ke[i];
     }
     var _$eX = new Array(1);
-    this._$5c(_$8j, 0, _$gw, _$8j._$28(), _$mI, _$rJ, _$9t, _$gD, _$g4, _$eX);
+    this._$5c(_$8j, 0, _$gw, _$8j.getPanelNum(), _$mI, _$rJ, _$9t, _$gD, _$g4, _$eX);
     this._$ke[_$go - 1] = _$eX[0];
     _$gp += _$eX[0];
     if (_$9t) _$dB[0] = _$gp - (this.rect.bottom - this.rect.top); else _$dB[0] = _$gp - (this.rect.right - this.rect.left);
@@ -5264,7 +5264,7 @@ _$6R.prototype._$04 = function (_$9t, _$8j, _$8i, _$dL, _$dF, _$dG) {
     _$8i[0] = false;
     _$dL[0] = 0;
     var i;
-    var _$e1 = _$8j._$28();
+    var _$e1 = _$8j.getPanelNum();
     var _$ol;
     var _$q7 = new Rect();
     for (i = 0; i < _$e1; i++) {
@@ -5299,13 +5299,13 @@ _$6R.prototype._$g = function (_$8h, _$cP, _$8c, _$pC) {
     _$E._$6a(this._$je, _$pH);
     var _$dR = this._$2s(_$8h, 0, _$cP);
     var _$dQ = this._$2H(_$8h, 0, _$cP, false);
-    var _$e1 = _$8h._$28();
+    var _$e1 = _$8h.getPanelNum();
     var _$dy = this._$2s(_$8h, _$cP, _$e1);
     var _$dx = this._$2H(_$8h, _$cP, _$e1, false);
     var _$oL = _$dR;
     var _$oM = _$dQ;
     var _$dP = this._$2H(_$8h, 0, _$cP, true);
-    var _$dw = this._$2H(_$8h, _$cP, _$8h._$28(), true);
+    var _$dw = this._$2H(_$8h, _$cP, _$8h.getPanelNum(), true);
     var _$dO, _$dv;
     var _$or = _$8h.panelList[_$cP];
     var _$qk = new Rect();
@@ -5356,16 +5356,16 @@ _$6R.prototype._$g = function (_$8h, _$cP, _$8c, _$pC) {
     }
     if (_$8f) {
         var _$eX = new Array(1);
-        this._$5c(_$8w, 0, 0, _$8w._$28(), _$8A, _$dO, _$8c, _$dT, 0, _$eX);
+        this._$5c(_$8w, 0, 0, _$8w.getPanelNum(), _$8A, _$dO, _$8c, _$dT, 0, _$eX);
         var _$eW = _$eX[0];
-        this._$5c(_$7x, _$dT, 0, _$7x._$28(), _$7y, _$dv, _$8c, _$dz, 0, _$eX);
+        this._$5c(_$7x, _$dT, 0, _$7x.getPanelNum(), _$7y, _$dv, _$8c, _$dz, 0, _$eX);
         if (_$eX[0] > _$eW) _$eW = _$eX[0];
         var _$e7 = this._$0m(_$8c, _$eW);
         if (_$e7 != 0) {
             var _$e5 = this._$le._$kG._$2F(this._$le._$j1, this);
             this._$le._$kG._$5p(this, _$e5, this._$le._$j1, _$e7);
         }
-        for (i = 0; i < _$8h._$28(); i++) {
+        for (i = 0; i < _$8h.getPanelNum(); i++) {
             _$or = _$8h.panelList[i];
             _$ov = _$or._$nQ;
             _$ov._$5n(_$8c, 0, _$eW);
@@ -5493,20 +5493,20 @@ _$6R.prototype._$c = function (_$mO, _$mR) {
 };
 _$6R.prototype._$ah = function (_$ax, _$99) {
     this._$km = 0;
-    _$0N.prototype._$ah.call(this, _$ax, _$99);
+    widgetDockPanel.prototype._$ah.call(this, _$ax, _$99);
 };
 _$6R.prototype._$7n = function (_$q0) {
     if (this._$je != null) this._$je.add(_$q0);
 };
-_$6R.prototype._$rw = function (_$n8) {
+_$6R.prototype._$rw = function (mainPattern) {
     if (this._$je != null) {
     }
 };
 _$6R.prototype._$66 = function (layout) {
 };
-_$6R.prototype._$63 = function (_$n8, layout, _$mS, _$aP) {
+_$6R.prototype._$63 = function (mainPattern, layout, _$mS, _$aP) {
 };
-_$6R.prototype.initPanelInfoLayout = function (_$n8, layout, _$mS) {
+_$6R.prototype.initPanelInfoLayout = function (mainPattern, layout, _$mS) {
 };
 
 function _$K(_$7R) {
@@ -5631,7 +5631,7 @@ _$K.prototype._$10 = function () {
 };
 _$K.prototype._$01 = function () {
     if (this._$it) {
-        var _$ps = this._$lj[0]._$hx.panelList[0];
+        var _$ps = this.subPatternList[0].subPattern.panelList[0];
         if (!_$ps._$iX) {
             _$lq = _$he._$bZ();
             _$ln = _$he._$c8();
@@ -5721,9 +5721,9 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
         if (this._$kX != null) this._$kX._$qJ();
     }
     var _$cp = 0;
-    var _$e1 = this._$lj[0]._$hx._$28();
+    var _$e1 = this.subPatternList[0].subPattern.getPanelNum();
     if (_$e1 == 1) {
-        var _$ps = this._$lj[0]._$hx.panelList[0];
+        var _$ps = this.subPatternList[0].subPattern.panelList[0];
         if (_$ps._$le != null) {
             _$ps._$le.setSize(0, 0);
         }
@@ -5748,9 +5748,9 @@ _$K.prototype._$l = function (_$mO) {
 _$K.prototype._$4s = function (_$mO, _$8e) {
     var _$e1 = 0;
     var _$nT = null;
-    var _$fY = this._$lj[0]._$hx._$28();
+    var _$fY = this.subPatternList[0].subPattern.getPanelNum();
     if (_$fY < 1) return false;
-    _$nT = this._$lj[0]._$hx.panelList[0]._$kI;
+    _$nT = this.subPatternList[0].subPattern.panelList[0]._$kI;
     _$e1 = _$nT._$4s(_$mO, _$8e);
     if (_$e1 < 2) return false;
     return true;
@@ -5758,18 +5758,18 @@ _$K.prototype._$4s = function (_$mO, _$8e) {
 _$K.prototype._$bP = function () {
     var _$e1 = 0;
     var _$nT = null;
-    var _$fY = this._$lj[0]._$hx._$28();
+    var _$fY = this.subPatternList[0].subPattern.getPanelNum();
     if (_$fY < 1) return null;
     var _$oq = new _$D();
-    _$nT = this._$lj[0]._$hx.panelList[0]._$kI;
+    _$nT = this.subPatternList[0].subPattern.panelList[0]._$kI;
     _$nT._$2Q(_$oq);
-    var _$at = new Array(_$oq._$28());
+    var _$at = new Array(_$oq.getPanelNum());
     var i;
-    for (i = 0; i < _$oq._$28(); i++) _$at[i] = _$oq.panelList[i];
+    for (i = 0; i < _$oq.getPanelNum(); i++) _$at[i] = _$oq.panelList[i];
     return _$at;
 };
 _$K.prototype._$3G = function (_$nc, _$mX, _$n1) {
-    var _$ps = this._$lj[0]._$hx.panelList[0];
+    var _$ps = this.subPatternList[0].subPattern.panelList[0];
     var _$pp = _$ps._$kI;
     var _$8E = false;
     if (_$mX._$j1 == _$E._$3m || _$mX._$j1 == _$E._$3k) _$8E = true;
@@ -5779,7 +5779,7 @@ _$K.prototype._$3G = function (_$nc, _$mX, _$n1) {
     _$nc._$6m(0, this);
 };
 _$K.prototype._$1g = function (_$mX, _$n1) {
-    var _$ps = this._$lj[0]._$hx.panelList[0];
+    var _$ps = this.subPatternList[0].subPattern.panelList[0];
     var _$pp = _$ps._$kI;
     _$mX._$kx._$jr = 0;
     var _$8E = false;
@@ -5792,9 +5792,9 @@ _$K.prototype._$1g = function (_$mX, _$n1) {
 };
 _$K.prototype._$53 = function (_$n5) {
     _$E.prototype._$53.call(this, _$n5);
-    var _$e1 = this._$lj[0]._$hx._$28();
+    var _$e1 = this.subPatternList[0].subPattern.getPanelNum();
     if (_$e1 > 0) {
-        var _$ps = this._$lj[0]._$hx.panelList[0];
+        var _$ps = this.subPatternList[0].subPattern.panelList[0];
         if (_$ps._$kI._$od == null && _$ps._$kI._$pr == null && _$ps._$kI._$of == null && (_$ps._$kI._$l1 == null || (_$ps._$kI._$l1 != null && _$ps._$kI._$l1.length < 1))) {
             _$e1 = _$K._$kL.length;
             var i;
@@ -6098,7 +6098,7 @@ _$J.prototype.Add = function (com) {
     if (!_$8G) {
         this._$ha.push(com);
     }
-    if (com instanceof floatPanel) {
+    if (com instanceof widgetDockFloatPanel) {
         com._$6i(this._$jO + 1);
     } else {
         com._$6i(this._$jO + 2);
@@ -6131,7 +6131,7 @@ _$J.prototype._$74 = function () {
             var _$e0 = this._$ha.length;
             var i;
             for (i = 0; i < _$e0; i++) {
-                if (this._$ha[i] instanceof floatPanel) {
+                if (this._$ha[i] instanceof widgetDockFloatPanel) {
                     this._$ha[i]._$6i(this._$jO + 1);
                 } else {
                     this._$ha[i]._$6i(this._$jO + 2);
@@ -6247,7 +6247,7 @@ _$J.prototype._$10 = function () {
 };
 _$J.prototype._$01 = function () {
     if (this._$it) {
-        var _$ps = this._$lj[0]._$hx.panelList[0];
+        var _$ps = this.subPatternList[0].subPattern.panelList[0];
         if (!_$ps._$iX) {
             this._$lq.x = _$m8._$2k(this._$he);
             this._$lq.y = _$m8._$2M(this._$he);
@@ -6272,14 +6272,14 @@ function _$52(sch) {
 };
 _$b1._$b0(_$52, _$E);
 _$52.prototype.Add = function (com) {
-    if (com instanceof floatPanel) {
+    if (com instanceof widgetDockFloatPanel) {
         com._$6i(2);
     } else {
         com._$6i(3);
     }
 };
 _$52.prototype._$d = function (com) {
-    if (com instanceof floatPanel) {
+    if (com instanceof widgetDockFloatPanel) {
         com._$6i(2);
     } else {
         com._$6i(3);
@@ -6447,17 +6447,7 @@ widgetDockController.prototype.addFixedPanel = function (element, type) {
     widgetDockController.window.addFixedPanel(element, type);
 };
 widgetDockController.prototype.createFloatPanel = function (title) {
-    return new floatPanel(widgetDockController.window, title);
-};
-
-widgetDockController._$fQ = function (_$9E) {
-    if ((_$9E != 0 && widgetDockController.browserType != browserType.IE) || (widgetDockController.browserType == browserType.IE && widgetDockController.ieVersion >= 9 && _$9E != 0)) {
-        return false;
-    }
-    return true;
-};
-widgetDockController._$6s = function (_$88) {
-    if (widgetDockController._$iU) widgetDockController.window._$6s(_$88);
+    return new widgetDockFloatPanel(widgetDockController.window, title);
 };
 widgetDockController.prototype.saveStatesIntoKey = function (key) {
     var layout = new Layout();
@@ -6477,6 +6467,17 @@ widgetDockController.prototype.loadStatesFromKey = function (key) {
         }
     }
 };
+
+widgetDockController._$fQ = function (_$9E) {
+    if ((_$9E != 0 && widgetDockController.browserType != browserType.IE) || (widgetDockController.browserType == browserType.IE && widgetDockController.ieVersion >= 9 && _$9E != 0)) {
+        return false;
+    }
+    return true;
+};
+widgetDockController._$6s = function (_$88) {
+    if (widgetDockController._$iU) widgetDockController.window._$6s(_$88);
+};
+
 
 widgetDockController._$06 = function (fID) {
     var va = widgetDockController._$kN;
@@ -6681,7 +6682,7 @@ _$1l.prototype._$a = function (tab) {
 _$1l.prototype._$0Y = function (_$mS) {
     var _$7E = new _$D();
     _$mS._$2Q(_$7E);
-    var ic = _$7E._$28();
+    var ic = _$7E.getPanelNum();
     var _$p3 = new Array(ic);
     var _$gJ = 0;
     var i;
@@ -6759,8 +6760,8 @@ _$1l.prototype.mouseMove = function (e) {
         if (!this._$bi._$fR()) {
             return;
         }
-        if (this._$bi._$k0 == floatPanel._$6W) return;
-        if ((this._$bi._$k0 != floatPanel._$4C && _$E._$5f(this._$lA, _$a5)) || (_$E._$5f(this._$lw, _$a5))) {
+        if (this._$bi._$k0 == widgetDockFloatPanel._$6W) return;
+        if ((this._$bi._$k0 != widgetDockFloatPanel._$4C && _$E._$5f(this._$lA, _$a5)) || (_$E._$5f(this._$lw, _$a5))) {
             this._$h8.style.cursor = "default";
         } else {
             this._$h8.style.cursor = "move";
@@ -6777,11 +6778,11 @@ _$1l.prototype._$mj = function (pt) {
     var _$a5 = new Align();
     _$a5.x = pt.x - _$9P;
     _$a5.y = pt.y - _$9Q;
-    if (this._$bi._$k0 != floatPanel._$4C && _$E._$5f(this._$lA, _$a5)) {
+    if (this._$bi._$k0 != widgetDockFloatPanel._$4C && _$E._$5f(this._$lA, _$a5)) {
         this._$bi._$0h();
         return -1;
     }
-    if ((this._$bi != null) && (this._$bi._$k0 == floatPanel._$6W)) {
+    if ((this._$bi != null) && (this._$bi._$k0 == widgetDockFloatPanel._$6W)) {
         if (!_$E._$5f(this._$lw, _$a5)) return -1;
     }
     if (_$E._$5f(this._$lw, _$a5)) {
@@ -6791,7 +6792,7 @@ _$1l.prototype._$mj = function (pt) {
     if (!this._$bi._$fR()) {
         return -2;
     }
-    floatPanel._$jy = floatPanel._$0V;
+    widgetDockFloatPanel._$jy = widgetDockFloatPanel._$0V;
     return this._$bi._$4R(pt);
 };
 _$1l.prototype._$ms = function (e) {
@@ -6819,7 +6820,7 @@ _$1l.prototype._$cb = function () {
 };
 _$1l.prototype._$c6 = function () {
     if (this._$bi == null) return null;
-    if (this._$bi._$jm == floatPanel._$0) {
+    if (this._$bi._$jm == widgetDockFloatPanel._$0) {
         if (this._$bi._$kH._$jv == widgetDockController._$0R) {
             _$1l._$j5.width = 130;
             _$1l._$j5.height = this._$bi._$jA;
@@ -6839,7 +6840,7 @@ _$1l.prototype._$c6 = function () {
             }
         }
     } else {
-        if (this._$bi._$jm == floatPanel._$3Q || this._$bi._$jm == floatPanel._$5j) {
+        if (this._$bi._$jm == widgetDockFloatPanel._$3Q || this._$bi._$jm == widgetDockFloatPanel._$5j) {
             _$1l._$j5.width = this._$bi._$jA;
             _$1l._$j5.height = 130;
         } else {
@@ -6898,23 +6899,23 @@ _$1l.prototype._$qJ = function () {
     var _$8u = true;
     var _$96 = this._$6z();
     if (this._$bi._$kH._$jv == widgetDockController._$0T) {
-        if ((this._$bi._$jm >= floatPanel._$0) && _$96) _$8u = true; else _$8u = false;
+        if ((this._$bi._$jm >= widgetDockFloatPanel._$0) && _$96) _$8u = true; else _$8u = false;
     }
     var _$ea = this._$bi._$j0;
-    if (this._$bi._$jm < floatPanel._$0) {
+    if (this._$bi._$jm < widgetDockFloatPanel._$0) {
         _$ea = this._$bi._$jm;
-        if (_$ea == floatPanel._$3Q || _$ea == floatPanel._$5j) {
-            _$ea = floatPanel._$6K;
-        } else _$ea = floatPanel._$3Q;
+        if (_$ea == widgetDockFloatPanel._$3Q || _$ea == widgetDockFloatPanel._$5j) {
+            _$ea = widgetDockFloatPanel._$6K;
+        } else _$ea = widgetDockFloatPanel._$3Q;
     }
     var _$8K = false;
-    if (this._$bi._$jm >= floatPanel._$0 && (this._$bi._$kH._$jv == widgetDockController._$0R || _$96)) {
+    if (this._$bi._$jm >= widgetDockFloatPanel._$0 && (this._$bi._$kH._$jv == widgetDockController._$0R || _$96)) {
         _$8K = true;
-    } else if (_$ea == floatPanel._$3Q || _$ea == floatPanel._$5j) _$8K = true;
+    } else if (_$ea == widgetDockFloatPanel._$3Q || _$ea == widgetDockFloatPanel._$5j) _$8K = true;
     if (_$8K) {
         _$em = ih;
         _$fu = ih - 3;
-        if (this._$bi._$k0 == floatPanel._$4C) _$fu = 0;
+        if (this._$bi._$k0 == widgetDockFloatPanel._$4C) _$fu = 0;
         if (!this._$bi._$cn()) _$em = 0;
         if (_$8u) this._$aF(iw, ih, _$96, _$ea); else {
             var _$9Z = _$6V._$bF("ToolBar.background");
@@ -6940,7 +6941,7 @@ _$1l.prototype._$qJ = function () {
         var _$fk = si.width;
         var _$fj = si.height;
         var _$fK = 0;
-        if (_$bi._$k0 == floatPanel._$4C) _$fu = 0;
+        if (_$bi._$k0 == widgetDockFloatPanel._$4C) _$fu = 0;
         if (!_$bi._$cn()) _$em = 0;
         _$fK = (_$em + _$fu);
         if (_$em != 0 && _$fu != 0) _$fK += _$1l._$4Y; else if (_$em == 0) _$fK += 2;
@@ -7027,7 +7028,7 @@ _$1l.prototype._$6z = function () {
         var ino = 0;
         var i;
         for (i = 0; i < _$ew; i++) {
-            if (_$a6[i] instanceof floatPanel) {
+            if (_$a6[i] instanceof widgetDockFloatPanel) {
                 if (_$a6[i]._$fT()) ino++;
                 if (ino > 1) {
                     _$96 = false;
@@ -7060,7 +7061,7 @@ _$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
                 _$em = ih;
                 _$fK += ih;
             }
-            if (this._$bi._$S() && this._$bi._$k0 != floatPanel._$4C) {
+            if (this._$bi._$S() && this._$bi._$k0 != widgetDockFloatPanel._$4C) {
                 _$fK += ih - 3;
                 if (_$em != 0) {
                     _$fK += _$1l._$4Y;
@@ -7147,7 +7148,7 @@ _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
         _$m8._$6j(this._$hV, _$pc.left, _$pc.top);
         _$m8._$6n(this._$hV, _$pc.right - _$pc.left, _$pc.bottom - _$pc.top);
         _$m8._$6j(this._$hV.childNodes[0], 0, 0);
-        if (_$d6 == floatPanel._$6W) {
+        if (_$d6 == widgetDockFloatPanel._$6W) {
             this._$hW.src = widgetDockController.dir + "img/unpinned.gif";
         } else {
             this._$hW.src = widgetDockController.dir + "img/pinned.gif";
@@ -7159,7 +7160,7 @@ _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
     } else {
         this._$hj._$s1 = 'buttonText';
     }
-    if (_$d6 == floatPanel._$6W) {
+    if (_$d6 == widgetDockFloatPanel._$6W) {
         _$gQ -= 1;
         _$gO = _$gL - (_$pc.right - _$pc.left) / 2;
         if (_$pc != null) {
@@ -7175,7 +7176,7 @@ _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
                 _$m8._$1q(_$gO + _$gD, _$gQ - iha, _$gO + _$gv, _$gQ - iha, this._$hj);
             }
         }
-    } else if (_$d6 == floatPanel._$4Z) {
+    } else if (_$d6 == widgetDockFloatPanel._$4Z) {
         _$gO = _$gL - iw / 2;
         _$gV = _$gQ + (_$pc.bottom - _$pc.top) / 2;
         if ((_$7J && widgetDockController._$l3 != null) || (!_$7J && widgetDockController._$l4 != null)) {
@@ -7194,7 +7195,7 @@ _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
 _$1l.prototype._$aE = function (_$cS, _$do, _$dq, _$cM, _$gf) {
     var _$el;
     var _$8v = false;
-    if (this._$bi == null) _$8v = true; else if (this._$bi._$jm >= floatPanel._$0) {
+    if (this._$bi == null) _$8v = true; else if (this._$bi._$jm >= widgetDockFloatPanel._$0) {
         if ((this._$bi._$kH._$jv == widgetDockController._$0R) || (this._$bi._$kB != null && !_$bi._$kB._$ii)) _$8v = true;
     }
     if (_$8v || (_$gf == _$E._$3k) || (_$gf == _$E._$3l)) {
@@ -7385,7 +7386,7 @@ _$G.prototype._$21 = function () {
     return _$aQ;
 };
 _$G.prototype._$5K = function (_$mO) {
-    if (_$mO._$jm != floatPanel._$q) {
+    if (_$mO._$jm != widgetDockFloatPanel._$q) {
         _$mO._$5O(this);
     } else {
         if (_$mO._$hy._$hf != null) {
@@ -7625,7 +7626,7 @@ _$G.prototype._$V = function (_$cN) {
         this._$bi = tab._$mO;
         var rc = new Rect();
         this._$kE._$of._$25(rc);
-        if (this._$kE._$of._$jm == floatPanel._$q) {
+        if (this._$kE._$of._$jm == widgetDockFloatPanel._$q) {
             this._$kE._$of._$qC(this._$kE._$of._$hy._$hf);
             this._$kE._$of._$fc(this._$kE._$of._$hy, _$x._$60);
         }
@@ -7633,7 +7634,7 @@ _$G.prototype._$V = function (_$cN) {
         this._$kE._$of._$bf(false);
         tab._$mO._$39(true);
         tab._$mO._$bf(true);
-        if (!(tab._$mO._$jm == floatPanel._$q)) {
+        if (!(tab._$mO._$jm == widgetDockFloatPanel._$q)) {
             tab._$mO._$hz = this;
         } else {
             tab._$mO._$hy._$a(this);
@@ -7650,7 +7651,7 @@ _$G.prototype._$V = function (_$cN) {
 _$G.prototype._$37 = function (e) {
     var _$pL = new Align();
     _$m8._$2D(e, _$pL);
-    floatPanel._$jy = floatPanel._$0X;
+    widgetDockFloatPanel._$jy = widgetDockFloatPanel._$0X;
     this._$bi._$lf._$iC = true;
     return this._$bi._$4R(_$pL);
 };
@@ -7917,7 +7918,7 @@ _$L.prototype._$67 = function (_$9g, _$nA, _$97) {
     this._$ho._$69(_$9g, _$nA, _$97);
 };
 
-function floatPanel(window, _$qX) {
+function widgetDockFloatPanel(window, _$qX) {
     this._$iN = false;
     this._$jz = -1;
     this._$kz = new _$L();
@@ -7930,7 +7931,7 @@ function floatPanel(window, _$qX) {
     this._$iL = false;
     this._$lF = _$qX;
     this._$hE = null;
-    this._$jm = floatPanel._$0;
+    this._$jm = widgetDockFloatPanel._$0;
     this._$jA = _$1l._$0U;
     this._$iG = false;
     this._$iP = false;
@@ -7977,8 +7978,8 @@ function floatPanel(window, _$qX) {
     this._$kc;
     this._$id = true;
     this._$jx;
-    this._$jN = floatPanel._$48;
-    this._$kj = floatPanel._$0;
+    this._$jN = widgetDockFloatPanel._$48;
+    this._$kj = widgetDockFloatPanel._$0;
     this._$j4;
     this._$lJ;
     this._$kB;
@@ -7989,109 +7990,109 @@ function floatPanel(window, _$qX) {
     this._$hw = null;
     this._$lD;
     this._$lN;
-    this._$k0 = floatPanel._$4Z;
+    this._$k0 = widgetDockFloatPanel._$4Z;
     this._$jt = 0;
     this._$hz = null;
-    if (window == null) this._$jw = floatPanel._$4B; else {
-        this._$jw = floatPanel._$4W;
+    if (window == null) this._$jw = widgetDockFloatPanel._$4B; else {
+        this._$jw = widgetDockFloatPanel._$4W;
         this._$l0 = window;
     }
-    if (window != null) this._$f6(window._$nN, _$qX);
+    if (window != null) this._$f6(window.mainPattern, _$qX);
     this._$jE = 0;
-    if (floatPanel._$kw == null) floatPanel._$kw = new _$D();
-    floatPanel._$kw._$b(this);
-};floatPanel._$0K = 1;
-floatPanel._$0Q = 0x02;
-floatPanel._$0M = 0x04;
-floatPanel._$0I = 0x08;
-floatPanel._$iH = false;
-floatPanel._$0J = 0;
-floatPanel._$0P = 1;
-floatPanel._$0L = 2;
-floatPanel._$0H = 3;
-floatPanel._$1F = 4;
-floatPanel._$3Q = 0;
-floatPanel._$6K = 1;
-floatPanel._$5j = 2;
-floatPanel._$q = 3;
-floatPanel._$0 = 7;
-floatPanel._$48 = 0;
-floatPanel._$46 = 1;
-floatPanel._$47 = 2;
-floatPanel._$4C = 0;
-floatPanel._$4Z = 1;
-floatPanel._$6W = 2;
-floatPanel._$0V = 0;
-floatPanel._$0X = 1;
-floatPanel._$0W = 2;
-floatPanel._$1D = 0x01;
-floatPanel._$1A = 0x02;
-floatPanel._$1B = 0x04;
-floatPanel._$1C = 0x08;
-floatPanel._$2T = 0x10;
-floatPanel._$2U = 0x20;
-floatPanel._$6X = 0x380;
-floatPanel._$3t = 0xc00;
-floatPanel._$4X = 0xF000;
-floatPanel._$B = 0x10000;
-floatPanel._$C = 0xE0000;
-floatPanel._$75 = 0;
-floatPanel._$2Y = 1;
-floatPanel._$2X = 2;
-floatPanel._$2W = 3;
-floatPanel._$lU = null;
-floatPanel._$lV = null;
-floatPanel._$lY = null;
-floatPanel._$lR = null;
-floatPanel._$lS = null;
-floatPanel._$lT = null;
-floatPanel._$lW = null;
-floatPanel._$lX = null;
-floatPanel._$hP = null;
-floatPanel._$hQ = null;
-floatPanel._$hT = null;
-floatPanel._$hM = null;
-floatPanel._$hN = null;
-floatPanel._$hO = null;
-floatPanel._$hR = null;
-floatPanel._$hS = null;
-floatPanel._$1H = 4;
-floatPanel._$iA = false;
-floatPanel._$jy = 0;
-floatPanel._$iY = false;
-floatPanel._$jB = 0;
-floatPanel._$im = true;
-floatPanel._$k2 = 0;
-floatPanel._$k3 = 0;
-floatPanel._$lL = new _$5Y();
-floatPanel._$4B = 0;
-floatPanel._$1G = 1;
-floatPanel._$4W = 2;
-floatPanel._$kw = null;
-floatPanel._$ie = false;
-floatPanel._$lr = new Align();
-floatPanel._$cj = new Rect();
-floatPanel._$h5 = null;
-floatPanel.prototype._$7h = function () {
+    if (widgetDockFloatPanel._$kw == null) widgetDockFloatPanel._$kw = new _$D();
+    widgetDockFloatPanel._$kw._$b(this);
+};widgetDockFloatPanel._$0K = 1;
+widgetDockFloatPanel._$0Q = 0x02;
+widgetDockFloatPanel._$0M = 0x04;
+widgetDockFloatPanel._$0I = 0x08;
+widgetDockFloatPanel._$iH = false;
+widgetDockFloatPanel._$0J = 0;
+widgetDockFloatPanel._$0P = 1;
+widgetDockFloatPanel._$0L = 2;
+widgetDockFloatPanel._$0H = 3;
+widgetDockFloatPanel._$1F = 4;
+widgetDockFloatPanel._$3Q = 0;
+widgetDockFloatPanel._$6K = 1;
+widgetDockFloatPanel._$5j = 2;
+widgetDockFloatPanel._$q = 3;
+widgetDockFloatPanel._$0 = 7;
+widgetDockFloatPanel._$48 = 0;
+widgetDockFloatPanel._$46 = 1;
+widgetDockFloatPanel._$47 = 2;
+widgetDockFloatPanel._$4C = 0;
+widgetDockFloatPanel._$4Z = 1;
+widgetDockFloatPanel._$6W = 2;
+widgetDockFloatPanel._$0V = 0;
+widgetDockFloatPanel._$0X = 1;
+widgetDockFloatPanel._$0W = 2;
+widgetDockFloatPanel._$1D = 0x01;
+widgetDockFloatPanel._$1A = 0x02;
+widgetDockFloatPanel._$1B = 0x04;
+widgetDockFloatPanel._$1C = 0x08;
+widgetDockFloatPanel._$2T = 0x10;
+widgetDockFloatPanel._$2U = 0x20;
+widgetDockFloatPanel._$6X = 0x380;
+widgetDockFloatPanel._$3t = 0xc00;
+widgetDockFloatPanel._$4X = 0xF000;
+widgetDockFloatPanel._$B = 0x10000;
+widgetDockFloatPanel._$C = 0xE0000;
+widgetDockFloatPanel._$75 = 0;
+widgetDockFloatPanel._$2Y = 1;
+widgetDockFloatPanel._$2X = 2;
+widgetDockFloatPanel._$2W = 3;
+widgetDockFloatPanel._$lU = null;
+widgetDockFloatPanel._$lV = null;
+widgetDockFloatPanel._$lY = null;
+widgetDockFloatPanel._$lR = null;
+widgetDockFloatPanel._$lS = null;
+widgetDockFloatPanel._$lT = null;
+widgetDockFloatPanel._$lW = null;
+widgetDockFloatPanel._$lX = null;
+widgetDockFloatPanel._$hP = null;
+widgetDockFloatPanel._$hQ = null;
+widgetDockFloatPanel._$hT = null;
+widgetDockFloatPanel._$hM = null;
+widgetDockFloatPanel._$hN = null;
+widgetDockFloatPanel._$hO = null;
+widgetDockFloatPanel._$hR = null;
+widgetDockFloatPanel._$hS = null;
+widgetDockFloatPanel._$1H = 4;
+widgetDockFloatPanel._$iA = false;
+widgetDockFloatPanel._$jy = 0;
+widgetDockFloatPanel._$iY = false;
+widgetDockFloatPanel._$jB = 0;
+widgetDockFloatPanel._$im = true;
+widgetDockFloatPanel._$k2 = 0;
+widgetDockFloatPanel._$k3 = 0;
+widgetDockFloatPanel._$lL = new _$5Y();
+widgetDockFloatPanel._$4B = 0;
+widgetDockFloatPanel._$1G = 1;
+widgetDockFloatPanel._$4W = 2;
+widgetDockFloatPanel._$kw = null;
+widgetDockFloatPanel._$ie = false;
+widgetDockFloatPanel._$lr = new Align();
+widgetDockFloatPanel._$cj = new Rect();
+widgetDockFloatPanel._$h5 = null;
+widgetDockFloatPanel.prototype._$7h = function () {
 };
-floatPanel.prototype._$7i = function () {
+widgetDockFloatPanel.prototype._$7i = function () {
 };
-floatPanel.prototype._$fO = function () {
+widgetDockFloatPanel.prototype._$fO = function () {
     return false;
 };
-floatPanel.prototype.hasOutIFrame = function () {
+widgetDockFloatPanel.prototype.hasOutIFrame = function () {
     this._$iZ = true;
 };
-floatPanel.prototype._$f7 = function () {
+widgetDockFloatPanel.prototype._$f7 = function () {
     if (this._$i8 == null) {
         this._$i8 = new Array();
         this._$hw = new Array();
     }
     this._$kc = 0xffff;
-    this._$k0 = floatPanel._$4Z;
-    this._$kj = floatPanel._$0;
+    this._$k0 = widgetDockFloatPanel._$4Z;
+    this._$kj = widgetDockFloatPanel._$0;
     this._$iv = true;
-    this._$jN = floatPanel._$48;
+    this._$jN = widgetDockFloatPanel._$48;
     this._$iS = false;
     this._$iF = false;
     this._$lt = new Align();
@@ -8099,7 +8100,7 @@ floatPanel.prototype._$f7 = function () {
     this._$lJ = new _$5Y();
     this._$lI = new _$5Y();
     this._$lx = new Rect();
-    floatPanel._$lL = new _$5Y();
+    widgetDockFloatPanel._$lL = new _$5Y();
     this._$ly = new Rect();
     this._$ls = new Align();
     this._$lD = new Rect();
@@ -8126,45 +8127,45 @@ floatPanel.prototype._$f7 = function () {
     this._$kA = null;
     this._$jr = 0xffffffff;
 };
-floatPanel.prototype._$f6 = function (_$nS, _$qX) {
+widgetDockFloatPanel.prototype._$f6 = function (_$nS, _$qX) {
     this._$lF = _$qX;
     this._$3a();
-    if (this._$jw == floatPanel._$4B) return;
+    if (this._$jw == widgetDockFloatPanel._$4B) return;
     this._$kH = _$nS;
     this._$f7();
     this._$39(true);
     this._$7q();
     this._$hy._$rC(_$qX);
 };
-floatPanel.prototype._$fS = function () {
+widgetDockFloatPanel.prototype._$fS = function () {
     return true;
 };
-floatPanel.prototype._$rr = function (img) {
+widgetDockFloatPanel.prototype._$rr = function (img) {
     _$hE = img;
-    if (this._$k0 == floatPanel._$6W && _$kH != null) {
+    if (this._$k0 == widgetDockFloatPanel._$6W && _$kH != null) {
         this._$kH._$5A(0);
     } else if (this._$kA != null && this._$kA._$o5 != null) {
         this._$kA._$o5._$5z();
     }
 };
-floatPanel.prototype._$bV = function () {
+widgetDockFloatPanel.prototype._$bV = function () {
     if (this._$fT()) return _$75;
-    if (_$k0 == floatPanel._$6W) return floatPanel._$2Y;
+    if (_$k0 == widgetDockFloatPanel._$6W) return widgetDockFloatPanel._$2Y;
     if (_$kA != null && _$kA._$o5 != null) {
         if (_$kA._$o5._$3x(this)) return _$2X;
     }
     return _$2W;
 };
-floatPanel.prototype._$rm = function (_$8a) {
+widgetDockFloatPanel.prototype._$rm = function (_$8a) {
     _$iq = _$8a;
 };
-floatPanel.prototype._$bO = function () {
+widgetDockFloatPanel.prototype._$bO = function () {
     return _$iq;
 };
-floatPanel.prototype._$c4 = function () {
+widgetDockFloatPanel.prototype._$c4 = function () {
     return _$k0;
 };
-floatPanel.prototype._$ry = function (_$d6) {
+widgetDockFloatPanel.prototype._$ry = function (_$d6) {
     if (!_$S() || _$k0 == _$d6) {
         return;
     }
@@ -8173,10 +8174,10 @@ floatPanel.prototype._$ry = function (_$d6) {
         return;
     }
     var bvi = this._$fT();
-    if (_$d6 == floatPanel._$4Z || _$d6 == floatPanel._$6W) {
-        if ((this._$k0 == floatPanel._$4Z && bvi) || this._$k0 == floatPanel._$6W) this._$0h(); else if (this._$k0 == floatPanel._$4C && _$d6 == floatPanel._$6W) {
+    if (_$d6 == widgetDockFloatPanel._$4Z || _$d6 == widgetDockFloatPanel._$6W) {
+        if ((this._$k0 == widgetDockFloatPanel._$4Z && bvi) || this._$k0 == widgetDockFloatPanel._$6W) this._$0h(); else if (this._$k0 == widgetDockFloatPanel._$4C && _$d6 == widgetDockFloatPanel._$6W) {
             if (bvi) {
-                this._$k0 = floatPanel._$4Z;
+                this._$k0 = widgetDockFloatPanel._$4Z;
                 this._$0h();
             } else {
                 this._$iP = true;
@@ -8186,13 +8187,13 @@ floatPanel.prototype._$ry = function (_$d6) {
         this._$k0 = _$d6;
         _$qJ();
     } else {
-        if (_$k0 == floatPanel._$6W) {
+        if (_$k0 == widgetDockFloatPanel._$6W) {
             _$39(false);
             _$kH._$5M(_$j0, this);
             _$kH._$5A(0);
             widgetDockController._$8l._$5N();
             this._$iP = false;
-            this._$k0 = floatPanel._$4Z;
+            this._$k0 = widgetDockFloatPanel._$4Z;
             setVisible(true);
             this._$iP = true;
         }
@@ -8200,11 +8201,11 @@ floatPanel.prototype._$ry = function (_$d6) {
         _$qJ();
     }
 };
-floatPanel.prototype._$9W = function () {
+widgetDockFloatPanel.prototype._$9W = function () {
     this._$f7();
 };
-floatPanel.prototype.unload = function (_$80) {
-    if (_$k0 == floatPanel._$6W) {
+widgetDockFloatPanel.prototype.unload = function (_$80) {
+    if (_$k0 == widgetDockFloatPanel._$6W) {
         _$kH._$5N();
         this._$0h();
     }
@@ -8229,14 +8230,14 @@ floatPanel.prototype.unload = function (_$80) {
     }
     _$f7();
     if (!_$80) {
-        var _$e1 = floatPanel._$kw._$28();
+        var _$e1 = widgetDockFloatPanel._$kw.getPanelNum();
         var i;
         for (i = 0; i < _$e1; i++) {
-            if (floatPanel._$kw.panelList[i] == this) floatPanel._$kw._$5G(i);
+            if (widgetDockFloatPanel._$kw.panelList[i] == this) widgetDockFloatPanel._$kw._$5G(i);
         }
     }
 };
-floatPanel.prototype._$r9 = function (_$9R) {
+widgetDockFloatPanel.prototype._$r9 = function (_$9R) {
     if (this._$hy != null) {
         this._$hy._$rp(_$9R);
         this._$hy._$qJ();
@@ -8245,60 +8246,60 @@ floatPanel.prototype._$r9 = function (_$9R) {
         this._$kA._$o5._$5z();
     }
 };
-floatPanel.prototype._$bW = function () {
+widgetDockFloatPanel.prototype._$bW = function () {
     return this._$hE;
 };
-floatPanel.prototype._$rl = function (_$7T) {
+widgetDockFloatPanel.prototype._$rl = function (_$7T) {
     this._$iv = _$7T;
 };
-floatPanel.prototype._$rx = function (_$qY) {
+widgetDockFloatPanel.prototype._$rx = function (_$qY) {
     this._$lF = _$qY;
 };
-floatPanel.prototype._$c3 = function () {
+widgetDockFloatPanel.prototype._$c3 = function () {
     return this._$lF;
 };
-floatPanel.prototype.getTitle = function () {
+widgetDockFloatPanel.prototype.getTitle = function () {
     if (this._$lF != null && this._$lF.length > 0) return this._$lF; else return _$hy._$cb();
 };
-floatPanel.prototype.setInitialLayoutReference = function (_$mO) {
+widgetDockFloatPanel.prototype.setInitialLayoutReference = function (_$mO) {
     if (_$mO != this) this._$l9 = _$mO;
 };
-floatPanel.prototype._$rt = function (mgr) {
+widgetDockFloatPanel.prototype._$rt = function (mgr) {
 };
-floatPanel.prototype._$1f = function (_$og, _$qX) {
-    if (_$og == null) this._$jw = floatPanel._$4B; else this._$jw = _$1G;
+widgetDockFloatPanel.prototype._$1f = function (_$og, _$qX) {
+    if (_$og == null) this._$jw = widgetDockFloatPanel._$4B; else this._$jw = _$1G;
     this._$f6(_$og._$8l, _$qX);
     this._$jE = 0;
-    if (floatPanel._$kw == null) floatPanel._$kw = new _$D();
-    floatPanel._$kw._$b(this);
+    if (widgetDockFloatPanel._$kw == null) widgetDockFloatPanel._$kw = new _$D();
+    widgetDockFloatPanel._$kw._$b(this);
 };
-floatPanel.prototype._$mq = function () {
+widgetDockFloatPanel.prototype._$mq = function () {
     _$kH._$1(this);
 };
-floatPanel.prototype._$7q = function () {
+widgetDockFloatPanel.prototype._$7q = function () {
     this._$hy = new _$1l();
     this._$hy._$rn(this);
-    this._$fc(this._$hy, floatPanel._$6K);
+    this._$fc(this._$hy, widgetDockFloatPanel._$6K);
     {
         this._$hy._$rE(this._$hy._$cb());
     }
 };
-floatPanel.prototype._$1j = function (_$99) {
+widgetDockFloatPanel.prototype._$1j = function (_$99) {
     if (_$99 == _$0P || _$99 == _$0H) return true;
     return false;
 };
-floatPanel.prototype._$r6 = function (_$7J, _$8d) {
-    if (this._$k0 == floatPanel._$6W) return;
-    if (this._$jw == floatPanel._$4B) return;
+widgetDockFloatPanel.prototype._$r6 = function (_$7J, _$8d) {
+    if (this._$k0 == widgetDockFloatPanel._$6W) return;
+    if (this._$jw == widgetDockFloatPanel._$4B) return;
     if (_$7J == false) {
     } else {
     }
     if (_$7J && this._$kB != null && !this._$kB._$ii) {
-        if (this._$jw != floatPanel._$4W) {
+        if (this._$jw != widgetDockFloatPanel._$4W) {
         }
     }
     this._$hy._$r6(_$7J);
-    if (_$7J && this._$jw == floatPanel._$4W && !this._$kB._$ii) {
+    if (_$7J && this._$jw == widgetDockFloatPanel._$4W && !this._$kB._$ii) {
         if (!this._$kB._$ii) {
         }
     }
@@ -8307,17 +8308,17 @@ floatPanel.prototype._$r6 = function (_$7J, _$8d) {
         }
     }
 };
-floatPanel.prototype._$ag = function (_$n8) {
-    return new _$0N();
+widgetDockFloatPanel.prototype._$ag = function (mainPattern) {
+    return new widgetDockPanel();
 };
-floatPanel.prototype._$69 = function (_$9g, _$nA, _$97) {
+widgetDockFloatPanel.prototype._$69 = function (_$9g, _$nA, _$97) {
     this._$lf._$j1 = _$9g;
     if (_$nA != null) {
         this._$lf._$ky = _$nA._$kA;
         this._$lf._$j2 = _$97;
     } else this._$lf._$ky = null;
 };
-floatPanel.prototype._$2w = function (_$nz, _$dk, _$p8, _$8b) {
+widgetDockFloatPanel.prototype._$2w = function (_$nz, _$dk, _$p8, _$8b) {
     var _$fl = _$nz.cx;
     var _$fm = _$nz.cy;
     if (this._$lf._$j1 == _$E._$3m || this._$lf._$j1 == _$E._$3j) {
@@ -8341,13 +8342,13 @@ floatPanel.prototype._$2w = function (_$nz, _$dk, _$p8, _$8b) {
         this._$lf._$kn = this._$lf._$kn + _$fl;
     }
 };
-floatPanel.prototype._$mw = function (pt) {
+widgetDockFloatPanel.prototype._$mw = function (pt) {
     var _$pL = _$c0();
     _$pL.x = _$pL.x + pt.x;
     _$pL.y = _$pL.y + pt.y;
     _$4R(_$pL);
 };
-floatPanel.prototype._$rC = function (_$qX) {
+widgetDockFloatPanel.prototype._$rC = function (_$qX) {
     _$hy._$rC(_$qX);
     if (_$kA != null && _$kA._$o5 != null && _$kA._$o5._$i6.length > 1) {
         _$kA._$o5._$4J(this, _$qX);
@@ -8358,41 +8359,41 @@ floatPanel.prototype._$rC = function (_$qX) {
         _$kH._$lk[_$fs]._$4J(this, _$qX);
     }
 };
-floatPanel.prototype._$cb = function () {
+widgetDockFloatPanel.prototype._$cb = function () {
     return this._$hy._$cb();
 };
-floatPanel.prototype._$rF = function (_$di) {
+widgetDockFloatPanel.prototype._$rF = function (_$di) {
     var _$fg = this._$kj;
     var bre = false;
-    if (_$fg != _$di && _$k0 == floatPanel._$6W) {
+    if (_$fg != _$di && _$k0 == widgetDockFloatPanel._$6W) {
         _$0h();
         bre = true;
     }
     if (_$di < 0 || _$di > _$q) {
         this._$kj = _$0;
     } else this._$kj = _$di;
-    if (_$fg != this._$kj && bre && _$k0 == floatPanel._$4Z) {
+    if (_$fg != this._$kj && bre && _$k0 == widgetDockFloatPanel._$4Z) {
         _$0h();
     }
 };
-floatPanel.prototype._$cd = function () {
+widgetDockFloatPanel.prototype._$cd = function () {
     return this._$kj;
 };
-floatPanel.prototype._$rs = function (_$cO) {
+widgetDockFloatPanel.prototype._$rs = function (_$cO) {
     if (_$cO < 0) _$cO = 0;
     if (_$cO > 2) _$cO = 2;
     _$jN = _$cO;
 };
-floatPanel.prototype._$bY = function () {
+widgetDockFloatPanel.prototype._$bY = function () {
     return _$jN;
 };
-floatPanel.prototype._$ms = function (pt) {
+widgetDockFloatPanel.prototype._$ms = function (pt) {
     var _$pL = _$c0();
     _$pL.x = _$pL.x + pt.x;
     _$pL.y = _$pL.y + pt.y;
     _$4i(_$pL);
 };
-floatPanel.prototype._$bf = function (_$88) {
+widgetDockFloatPanel.prototype._$bf = function (_$88) {
     if (!this._$io) return;
     var ar = this._$i8;
     var _$gi = ar.length;
@@ -8402,7 +8403,7 @@ floatPanel.prototype._$bf = function (_$88) {
         tmp(_$88);
     }
 };
-floatPanel.prototype._$be = function (_$cD) {
+widgetDockFloatPanel.prototype._$be = function (_$cD) {
     var ar = this._$hw;
     var _$gi = ar.length;
     var i;
@@ -8411,7 +8412,7 @@ floatPanel.prototype._$be = function (_$cD) {
         tmp(_$cD);
     }
 };
-floatPanel.prototype._$R = function (_$pC, _$99, _$nz) {
+widgetDockFloatPanel.prototype._$R = function (_$pC, _$99, _$nz) {
     this._$lf._$j0 = this._$j0;
     this._$lf._$jr = this._$jr;
     this._$lf._$kA = this._$kA;
@@ -8419,14 +8420,14 @@ floatPanel.prototype._$R = function (_$pC, _$99, _$nz) {
     this._$lf._$kx = this;
     this._$lf._$ir = this._$ir;
     if (!this._$Q()) this._$lf._$it = true; else this._$lf._$it = false;
-    if (!this._$S() || floatPanel._$jy != floatPanel._$0W) {
+    if (!this._$S() || widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) {
         this._$25(this._$lf._$lC);
     } else {
         this._$kB.getWindowRect(this._$lf._$lC);
     }
     var _$og = null;
     var _$oh = null;
-    if (this._$jw == floatPanel._$4W) _$oh = this._$l0._$2i(); else _$oh = _$6B._$kL;
+    if (this._$jw == widgetDockFloatPanel._$4W) _$oh = this._$l0._$2i(); else _$oh = _$6B._$kL;
     var _$e1 = _$oh.length;
     var _$qj = new Rect();
     var _$8R;
@@ -8434,7 +8435,7 @@ floatPanel.prototype._$R = function (_$pC, _$99, _$nz) {
     var i;
     for (i = 0; i < _$e1; i++) {
         var pmi;
-        if (this._$jw == floatPanel._$4W) pmi = _$oh[i]; else pmi = _$6B._$kL[i]._$hJ;
+        if (this._$jw == widgetDockFloatPanel._$4W) pmi = _$oh[i]; else pmi = _$6B._$kL[i]._$hJ;
         if (pmi._$bG() == null) continue;
         pmi.getWindowRect(_$qj);
         _$8R = false;
@@ -8443,14 +8444,14 @@ floatPanel.prototype._$R = function (_$pC, _$99, _$nz) {
             if (_$8R) {
             }
         } else {
-            floatPanel._$cj.setRect(_$qj);
-            floatPanel._$cj.left -= _$E._$A;
-            floatPanel._$cj.right += _$E._$A;
-            floatPanel._$cj.top -= _$E._$A;
-            floatPanel._$cj.bottom += _$E._$A;
-            _$8R = _$E._$5f(floatPanel._$cj, _$pC);
+            widgetDockFloatPanel._$cj.setRect(_$qj);
+            widgetDockFloatPanel._$cj.left -= _$E._$A;
+            widgetDockFloatPanel._$cj.right += _$E._$A;
+            widgetDockFloatPanel._$cj.top -= _$E._$A;
+            widgetDockFloatPanel._$cj.bottom += _$E._$A;
+            _$8R = _$E._$5f(widgetDockFloatPanel._$cj, _$pC);
             if (_$8R) {
-                if ((pmi == this._$kB) && floatPanel._$iY) {
+                if ((pmi == this._$kB) && widgetDockFloatPanel._$iY) {
                     _$og = null;
                     _$99[0] = 0xff;
                     this._$lf._$j1 = 0xff;
@@ -8478,7 +8479,7 @@ floatPanel.prototype._$R = function (_$pC, _$99, _$nz) {
     }
     return _$og;
 };
-floatPanel.prototype._$39 = function (_$88) {
+widgetDockFloatPanel.prototype._$39 = function (_$88) {
     if (this._$hy != null) {
         this._$hy.setVisible(_$88);
     }
@@ -8491,13 +8492,13 @@ floatPanel.prototype._$39 = function (_$88) {
     }
     _$m8._$39(this._$hg, _$88);
 };
-floatPanel.prototype._$fR = function () {
+widgetDockFloatPanel.prototype._$fR = function () {
     if (this._$kc == 0 && !this._$id) {
         return false;
     }
     return true;
 };
-floatPanel.prototype._$ro = function (_$7W) {
+widgetDockFloatPanel.prototype._$ro = function (_$7W) {
     this._$id = _$7W;
     if (!this._$id && this._$kB != null && !this._$kB._$ii) {
         if (this._$kc != 0) {
@@ -8506,10 +8507,10 @@ floatPanel.prototype._$ro = function (_$7W) {
         }
     }
 };
-floatPanel.prototype._$bQ = function () {
+widgetDockFloatPanel.prototype._$bQ = function () {
     return this._$id;
 };
-floatPanel.prototype._$ra = function (iHW) {
+widgetDockFloatPanel.prototype._$ra = function (iHW) {
     if (iHW < 0) iHW = 0;
     this._$jA = iHW;
     if (this._$kA != null && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1 && this._$kA._$o5._$bi == this) {
@@ -8520,15 +8521,15 @@ floatPanel.prototype._$ra = function (iHW) {
         if (this._$hy._$hf != null) this._$hy._$hf._$aw();
     } else this._$aw();
 };
-floatPanel.prototype._$bD = function () {
+widgetDockFloatPanel.prototype._$bD = function () {
     return this._$jA;
 };
-floatPanel.prototype._$rk = function (_$di) {
+widgetDockFloatPanel.prototype._$rk = function (_$di) {
     if (this._$kA != null && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1 && this._$kA._$o5._$bi == this) {
         if (_$di != this._$jm && _$jm == _$q) {
             _$qC(_$hy._$hf);
-            this._$fc(_$kA._$o5, floatPanel._$q);
-        } else if (_$di == floatPanel._$q) {
+            this._$fc(_$kA._$o5, widgetDockFloatPanel._$q);
+        } else if (_$di == widgetDockFloatPanel._$q) {
             this._$jm = _$di;
             this._$5(_$kA._$o5);
         }
@@ -8536,15 +8537,15 @@ floatPanel.prototype._$rk = function (_$di) {
     this._$jm = _$di;
     this._$qz(-1);
 };
-floatPanel.prototype._$bN = function () {
+widgetDockFloatPanel.prototype._$bN = function () {
     return this._$jm;
 };
-floatPanel.prototype._$fc = function (_$a0, _$gf) {
+widgetDockFloatPanel.prototype._$fc = function (_$a0, _$gf) {
 };
-floatPanel.prototype.add = function (s, _$a0) {
+widgetDockFloatPanel.prototype.add = function (s, _$a0) {
     return _$a0;
 };
-floatPanel.prototype.addContentDiv = function (_$a0, _$a8) {
+widgetDockFloatPanel.prototype.addContentDiv = function (_$a0, _$a8) {
     this._$hg = _$a0;
     _$a0.style.position = "absolute";
     if (widgetDockController.browserType == browserType.IE && widgetDockController.ieVersion <= 7) {
@@ -8557,7 +8558,7 @@ floatPanel.prototype.addContentDiv = function (_$a0, _$a8) {
         }
     }
 };
-floatPanel.prototype._$6p = function (_$cS, _$do, _$dq, _$cM) {
+widgetDockFloatPanel.prototype._$6p = function (_$cS, _$do, _$dq, _$cM) {
     {
         this._$sL();
     }
@@ -8571,17 +8572,17 @@ floatPanel.prototype._$6p = function (_$cS, _$do, _$dq, _$cM) {
     this._$hq = _$cM;
     this._$qK();
 };
-floatPanel.prototype._$6q = function (_$q4) {
+widgetDockFloatPanel.prototype._$6q = function (_$q4) {
     this._$6p(_$q4.left, _$q4.top, _$E._$2A(_$q4), _$E._$2z(_$q4));
 };
-floatPanel.prototype.setVisible = function (_$88) {
-    if (this._$jw == floatPanel._$4B) {
+widgetDockFloatPanel.prototype.setVisible = function (_$88) {
+    if (this._$jw == widgetDockFloatPanel._$4B) {
         this._$39(_$88);
         return;
     }
     this._$kH._$rB(this, _$88);
 };
-floatPanel.prototype._$rB = function (_$88) {
+widgetDockFloatPanel.prototype._$rB = function (_$88) {
     var _$rW = "";
     if (!this._$iF) {
         this._$39(_$88);
@@ -8590,9 +8591,9 @@ floatPanel.prototype._$rB = function (_$88) {
     if (_$88) {
         if (!this._$fT()) {
             this._$39(true);
-            if (this._$k0 == floatPanel._$6W) {
+            if (this._$k0 == widgetDockFloatPanel._$6W) {
                 if (this._$kH != null) {
-                    this._$l0._$nN._$6t(this);
+                    this._$l0.mainPattern._$6t(this);
                 }
                 return;
             }
@@ -8625,7 +8626,7 @@ floatPanel.prototype._$rB = function (_$88) {
             if (this._$kA == null || this._$kA._$o5 == null || this._$kA._$o5._$i6.length <= 1) return;
             this._$kA._$o5._$6b(this);
         } else {
-            if (this._$k0 == floatPanel._$6W) {
+            if (this._$k0 == widgetDockFloatPanel._$6W) {
                 this._$kH._$5N();
                 return;
             }
@@ -8639,13 +8640,13 @@ floatPanel.prototype._$rB = function (_$88) {
     }
     this._$bf(_$88);
 };
-floatPanel.prototype._$S = function () {
+widgetDockFloatPanel.prototype._$S = function () {
     return true;
 };
-floatPanel.prototype._$18 = function () {
+widgetDockFloatPanel.prototype._$18 = function () {
     this._$kH._$s7(this);
 };
-floatPanel.prototype._$s7 = function () {
+widgetDockFloatPanel.prototype._$s7 = function () {
     if (!this._$S()) {
         if (!this._$ir) return;
     }
@@ -8670,17 +8671,17 @@ floatPanel.prototype._$s7 = function () {
     var rc = new Rect();
     this._$39(false);
     this._$d(this._$kB);
-    if (this._$kB != null && this._$kB._$ii) this._$be(this._$j0); else this._$be(floatPanel._$1F);
+    if (this._$kB != null && this._$kB._$ii) this._$be(this._$j0); else this._$be(widgetDockFloatPanel._$1F);
     this._$39(true);
     if (!_$8s) this._$kB._$18(this, null);
     this._$kH._$1(this);
 };
-floatPanel.prototype._$d = function (_$n8) {
-    _$n8._$d(this);
+widgetDockFloatPanel.prototype._$d = function (mainPattern) {
+    mainPattern._$d(this);
 };
-floatPanel.prototype._$Z = function () {
+widgetDockFloatPanel.prototype._$Z = function () {
     if (this._$kW == null) {
-        if (this._$jw == floatPanel._$4W) {
+        if (this._$jw == widgetDockFloatPanel._$4W) {
             this._$kW = new _$J(false);
         } else {
             this._$kW = new _$K(false);
@@ -8692,12 +8693,12 @@ floatPanel.prototype._$Z = function () {
     }
     this._$kW._$n(this);
 };
-floatPanel.prototype._$1R = function () {
+widgetDockFloatPanel.prototype._$1R = function () {
     this._$kH._$s8(this);
 };
-floatPanel.prototype._$5v = function () {
+widgetDockFloatPanel.prototype._$5v = function () {
 };
-floatPanel.prototype._$s8 = function () {
+widgetDockFloatPanel.prototype._$s8 = function () {
     var rc = new Rect();
     rc.left = this._$lt.x;
     rc.top = this._$lt.y;
@@ -8705,7 +8706,7 @@ floatPanel.prototype._$s8 = function () {
     rc.bottom = rc.top + this._$lK.cy;
     if (this._$kB != null && this._$S()) {
         var _$aQ = null;
-        if (floatPanel._$jy == floatPanel._$0V && this._$kA._$o5 != null && (this._$kA._$o5._$i6.length > 1)) {
+        if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0V && this._$kA._$o5 != null && (this._$kA._$o5._$i6.length > 1)) {
             _$aQ = this._$kA._$o5._$21();
         } else {
             _$aQ = new Array(1);
@@ -8749,7 +8750,7 @@ floatPanel.prototype._$s8 = function () {
                         _$aQ[i]._$j0 = _$9C;
                         _$aQ[i]._$jr = _$gy;
                         if (_$aQ[i]._$kB != null) {
-                            if (floatPanel._$jy != floatPanel._$0X) _$aQ[i]._$io = false;
+                            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0X) _$aQ[i]._$io = false;
                             _$aQ[i]._$kB._$5H(_$aQ[i], null);
                             _$aQ[i]._$io = true;
                         }
@@ -8764,7 +8765,7 @@ floatPanel.prototype._$s8 = function () {
         this._$1S();
         return;
     }
-    this._$be(floatPanel._$1F);
+    this._$be(widgetDockFloatPanel._$1F);
     this._$ir = true;
     if (this._$iP && !this._$S()) {
         this._$k4 = this._$jr;
@@ -8792,16 +8793,16 @@ floatPanel.prototype._$s8 = function () {
         this._$qz(-1);
     }
 };
-floatPanel.prototype._$31 = function (_$pC) {
+widgetDockFloatPanel.prototype._$31 = function (_$pC) {
     return this._$kA._$31(this, _$pC);
 };
-floatPanel.prototype._$3y = function () {
+widgetDockFloatPanel.prototype._$3y = function () {
     if (this._$ia && !this._$ir) {
         this._$ia = false;
         this._$1m(this._$ia);
     }
 };
-floatPanel.prototype._$6F = function () {
+widgetDockFloatPanel.prototype._$6F = function () {
     if (this._$j3 <= 3 && !this._$1k(this._$l7, this._$j3)) return;
     if ((this._$l7 != null) && (!this._$l7._$ii) && (!this._$id)) return;
     var _$pR = null;
@@ -8826,13 +8827,13 @@ floatPanel.prototype._$6F = function () {
     this._$18();
     this._$qz(-1);
 };
-floatPanel.prototype._$1m = function (_$7J) {
+widgetDockFloatPanel.prototype._$1m = function (_$7J) {
 };
-floatPanel.prototype._$4L = function () {
+widgetDockFloatPanel.prototype._$4L = function () {
     _$5d();
 };
-floatPanel.prototype._$5d = function () {
-    if (_$k0 == floatPanel._$6W) return;
+widgetDockFloatPanel.prototype._$5d = function () {
+    if (_$k0 == widgetDockFloatPanel._$6W) return;
     _$7h();
     if (!_$S()) {
         if (!_$ir) {
@@ -8883,9 +8884,9 @@ floatPanel.prototype._$5d = function () {
         _$6F();
     }
 };
-floatPanel.prototype._$9X = function () {
-    if (this._$k0 == floatPanel._$6W) {
-        this._$l0._$nN._$5N();
+widgetDockFloatPanel.prototype._$9X = function () {
+    if (this._$k0 == widgetDockFloatPanel._$6W) {
+        this._$l0.mainPattern._$5N();
         this._$bf(false);
         return true;
     }
@@ -8895,51 +8896,51 @@ floatPanel.prototype._$9X = function () {
     this._$bf(false);
     return true;
 };
-floatPanel.prototype._$0h = function () {
-    if (this._$k0 == floatPanel._$4Z) {
-        if (this._$k0 == floatPanel._$6W) {
+widgetDockFloatPanel.prototype._$0h = function () {
+    if (this._$k0 == widgetDockFloatPanel._$4Z) {
+        if (this._$k0 == widgetDockFloatPanel._$6W) {
             widgetDockController._$8l._$5N();
         }
         this._$kB._$5H(this, null);
         this._$39(false);
         this._$iP = false;
-        this._$k0 = floatPanel._$6W;
+        this._$k0 = widgetDockFloatPanel._$6W;
         this._$bf(false);
-        if (this._$kj > floatPanel._$q) this._$kH._$8(this._$j0, this, true); else this._$kH._$8(this._$kj, this, true);
+        if (this._$kj > widgetDockFloatPanel._$q) this._$kH._$8(this._$j0, this, true); else this._$kH._$8(this._$kj, this, true);
         this._$kH._$5A(0);
         this._$qz(-1);
     } else {
         this._$39(false);
-        if (this._$kj <= floatPanel._$q) this._$kH._$5M(this._$kj, this); else this._$kH._$5M(this._$j0, this);
+        if (this._$kj <= widgetDockFloatPanel._$q) this._$kH._$5M(this._$kj, this); else this._$kH._$5M(this._$j0, this);
         this._$kH._$5A(0);
-        this._$l0._$nN._$5N();
+        this._$l0.mainPattern._$5N();
         this._$iP = false;
-        this._$k0 = floatPanel._$4Z;
+        this._$k0 = widgetDockFloatPanel._$4Z;
         this.setVisible(true);
     }
 };
-floatPanel.prototype._$cn = function () {
+widgetDockFloatPanel.prototype._$cn = function () {
     return this._$iw;
 };
-floatPanel.prototype._$rq = function (_$7U) {
+widgetDockFloatPanel.prototype._$rq = function (_$7U) {
     this._$iw = _$7U;
 };
-floatPanel.prototype._$5u = function () {
+widgetDockFloatPanel.prototype._$5u = function () {
 };
-floatPanel._$e4 = 0;
+widgetDockFloatPanel._$e4 = 0;
 var _$t9 = null;
-_$b1._$b0(widgetDockWindow, floatPanel);
+_$b1._$b0(widgetDockWindow, widgetDockFloatPanel);
 
-floatPanel.prototype._$4R = function (_$pD) {
+widgetDockFloatPanel.prototype._$4R = function (_$pD) {
     return this._$kH._$sa(this, _$pD);
 };
-floatPanel.prototype._$sa = function (_$pD) {
-    floatPanel._$ie = false;
+widgetDockFloatPanel.prototype._$sa = function (_$pD) {
+    widgetDockFloatPanel._$ie = false;
     this._$lf._$j1 = 0xff;
     this._$lf._$ij = false;
     this._$im = true;
     if (this._$kB != null && this._$kB._$ii) {
-        if ((floatPanel._$jy == floatPanel._$0V) && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
+        if ((widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0V) && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
             var _$f8;
             var _$p4 = this._$kA._$o5._$21();
             _$f8 = _$p4.length;
@@ -8960,18 +8961,18 @@ floatPanel.prototype._$sa = function (_$pD) {
             }
         }
     }
-    floatPanel._$iY = false;
+    widgetDockFloatPanel._$iY = false;
     if (this._$kB != null && !this._$kB._$ii) {
         if (this._$kB._$it) {
-            if (floatPanel._$jy == floatPanel._$0X) floatPanel._$iY = !this._$kB._$4s(null, false); else if (floatPanel._$jy == floatPanel._$0V) floatPanel._$iY = !this._$kB._$4s(null, true); else if (floatPanel._$jy == floatPanel._$0W) floatPanel._$iY = true;
+            if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0X) widgetDockFloatPanel._$iY = !this._$kB._$4s(null, false); else if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0V) widgetDockFloatPanel._$iY = !this._$kB._$4s(null, true); else if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0W) widgetDockFloatPanel._$iY = true;
         }
     }
-    if (this._$kB != null && !this._$kB._$ii && !this._$S()) floatPanel._$iY = true;
+    if (this._$kB != null && !this._$kB._$ii && !this._$S()) widgetDockFloatPanel._$iY = true;
     this._$25(this._$lx);
-    if (floatPanel._$iY) {
-        if (floatPanel._$jy == floatPanel._$0W) {
-            floatPanel._$k2 = this._$lK.cx;
-            floatPanel._$k3 = this._$lK.cy;
+    if (widgetDockFloatPanel._$iY) {
+        if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0W) {
+            widgetDockFloatPanel._$k2 = this._$lK.cx;
+            widgetDockFloatPanel._$k3 = this._$lK.cy;
         }
         {
             if (this._$kB != null) {
@@ -8990,31 +8991,31 @@ floatPanel.prototype._$sa = function (_$pD) {
     this._$3B();
     this._$4I();
     this._$ih = false;
-    floatPanel._$lL.cx = this._$lJ.cx;
-    floatPanel._$lL.cy = this._$lJ.cy;
+    widgetDockFloatPanel._$lL.cx = this._$lJ.cx;
+    widgetDockFloatPanel._$lL.cy = this._$lJ.cy;
     this._$iL = false;
     this._$iG = false;
     return 0;
 };
-floatPanel.prototype._$4I = function () {
+widgetDockFloatPanel.prototype._$4I = function () {
 };
-floatPanel.prototype._$15 = function (_$ts, _$h1) {
+widgetDockFloatPanel.prototype._$15 = function (_$ts, _$h1) {
     _$jG = 0;
     return _$jG;
 };
-floatPanel.prototype._$mf = function () {
-    floatPanel._$ie = true;
-    this._$4i(floatPanel._$lr);
+widgetDockFloatPanel.prototype._$mf = function () {
+    widgetDockFloatPanel._$ie = true;
+    this._$4i(widgetDockFloatPanel._$lr);
 };
-floatPanel.prototype._$mg = function () {
-    floatPanel._$ie = false;
-    this._$4i(floatPanel._$lr);
+widgetDockFloatPanel.prototype._$mg = function () {
+    widgetDockFloatPanel._$ie = false;
+    this._$4i(widgetDockFloatPanel._$lr);
 };
-floatPanel.prototype._$4i = function (pt) {
-    floatPanel._$lr.x = pt.x;
-    floatPanel._$lr.y = pt.y;
+widgetDockFloatPanel.prototype._$4i = function (pt) {
+    widgetDockFloatPanel._$lr.x = pt.x;
+    widgetDockFloatPanel._$lr.y = pt.y;
     this._$iL = true;
-    if (this._$jw == floatPanel._$4W) {
+    if (this._$jw == widgetDockFloatPanel._$4W) {
         var rcb = new Rect();
         this._$l0.getWindowRect(rcb);
         if (!_$E._$5f(rcb, pt)) return;
@@ -9023,8 +9024,8 @@ floatPanel.prototype._$4i = function (pt) {
     var _$8s = false;
     this._$lf._$ij = false;
     this._$lf._$iC = false;
-    this._$lf._$kM = this._$R(pt, this._$lN, floatPanel._$lL);
-    if (floatPanel._$ie) {
+    this._$lf._$kM = this._$R(pt, this._$lN, widgetDockFloatPanel._$lL);
+    if (widgetDockFloatPanel._$ie) {
         this._$lN[0] = 0xff;
         this._$lf._$j1 = 0xff;
     }
@@ -9035,7 +9036,7 @@ floatPanel.prototype._$4i = function (pt) {
     if (this._$S() && this._$lN[0] <= 7) {
         var i = 0;
         var _$f8;
-        if ((floatPanel._$jy == floatPanel._$0V) && (this._$kA._$o5 != null) && this._$kA._$o5._$i6.length > 1) {
+        if ((widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0V) && (this._$kA._$o5 != null) && this._$kA._$o5._$i6.length > 1) {
             var _$p4 = this._$kA._$o5._$21();
             _$f8 = _$p4.length;
             for (i = 0; i < _$f8; i++) {
@@ -9045,15 +9046,15 @@ floatPanel.prototype._$4i = function (pt) {
                 this._$lN[0] = 8;
             }
         } else {
-            if (floatPanel._$jy != floatPanel._$0W) {
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) {
                 if (!this._$1k(this._$lf._$kM, this._$lf._$j1)) {
                     this._$lN[0] = 8;
                 }
             } else {
                 var _$7F = new _$D();
-                var pbk = (this._$kB._$lj[0]._$hx.panelList[0])._$kI;
+                var pbk = (this._$kB.subPatternList[0].subPattern.panelList[0])._$kI;
                 pbk._$2Q(_$7F);
-                var ic = _$7F._$28();
+                var ic = _$7F.getPanelNum();
                 for (i = 0; i < ic; i++) {
                     if (_$7F.panelList[i]._$1k(this._$lf._$kM, this._$lN[0])) break;
                 }
@@ -9089,13 +9090,13 @@ floatPanel.prototype._$4i = function (pt) {
     } else {
         if (this._$S()) {
             if (this._$lf._$iM && this._$lf._$ka >= 0 && this._$lf._$kM != null) {
-                var _$e1 = this._$lf._$kM._$lj[this._$lN[0]]._$hx._$28();
+                var _$e1 = this._$lf._$kM.subPatternList[this._$lN[0]].subPattern.getPanelNum();
                 var _$g5 = this._$lf._$ka - 1;
                 if (_$g5 < _$e1) {
                     var _$pY = null;
                     var k;
                     for (k = 0; k <= _$g5; k++) {
-                        _$pY = this._$lf._$kM._$lj[this._$lN[0]]._$hx.panelList[_$g5 - k];
+                        _$pY = this._$lf._$kM.subPatternList[this._$lN[0]].subPattern.panelList[_$g5 - k];
                         if (_$pY._$iX) break;
                         _$pY = null;
                     }
@@ -9109,13 +9110,13 @@ floatPanel.prototype._$4i = function (pt) {
                         rca.top += this._$lf._$kM._$jF[1];
                         rca.bottom -= this._$lf._$kM._$jF[3];
                     }
-                    if (this._$lN[0] == floatPanel._$0J || this._$lN[0] == floatPanel._$0L) {
-                        floatPanel._$lL.cy = rca.bottom - rca.top;
+                    if (this._$lN[0] == widgetDockFloatPanel._$0J || this._$lN[0] == widgetDockFloatPanel._$0L) {
+                        widgetDockFloatPanel._$lL.cy = rca.bottom - rca.top;
                         pt.x = 0;
                         pt.y = rca.top;
                         this._$lf._$kq = pt.y;
                     } else {
-                        floatPanel._$lL.cx = rca.right - rca.left;
+                        widgetDockFloatPanel._$lL.cx = rca.right - rca.left;
                         pt.x = rca.left;
                         pt.y = 0;
                         this._$lf._$kn = pt.x;
@@ -9125,14 +9126,14 @@ floatPanel.prototype._$4i = function (pt) {
             this._$lx.left = this._$lf._$kn;
             this._$lx.top = this._$lf._$kq;
         } else {
-            this._$lx.left = pt.x - floatPanel._$lL.cx * this._$ko / this._$kp;
-            this._$lx.top = pt.y - floatPanel._$lL.cy * this._$ks / this._$kr;
+            this._$lx.left = pt.x - widgetDockFloatPanel._$lL.cx * this._$ko / this._$kp;
+            this._$lx.top = pt.y - widgetDockFloatPanel._$lL.cy * this._$ks / this._$kr;
         }
-        this._$lx.right = this._$lx.left + floatPanel._$lL.cx;
-        this._$lx.bottom = this._$lx.top + floatPanel._$lL.cy;
+        this._$lx.right = this._$lx.left + widgetDockFloatPanel._$lL.cx;
+        this._$lx.bottom = this._$lx.top + widgetDockFloatPanel._$lL.cy;
         _$8s = true;
     }
-    if (floatPanel._$jy == floatPanel._$0X) {
+    if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0X) {
         if (this._$lf._$iC) {
             this._$T();
             return;
@@ -9140,7 +9141,7 @@ floatPanel.prototype._$4i = function (pt) {
             this._$3A();
         }
     }
-    if (this._$jw == floatPanel._$4W) {
+    if (this._$jw == widgetDockFloatPanel._$4W) {
         this._$4l(_$8s);
         return;
     }
@@ -9160,31 +9161,31 @@ floatPanel.prototype._$4i = function (pt) {
         }
     }
 };
-floatPanel.prototype._$4l = function (_$8s) {
-    floatPanel._$hT._$ri(_$8s, this._$id);
-    floatPanel._$hM._$ri(_$8s, this._$id);
-    floatPanel._$hP._$ri(_$8s, this._$id);
-    floatPanel._$hQ._$ri(_$8s, this._$id);
+widgetDockFloatPanel.prototype._$4l = function (_$8s) {
+    widgetDockFloatPanel._$hT._$ri(_$8s, this._$id);
+    widgetDockFloatPanel._$hM._$ri(_$8s, this._$id);
+    widgetDockFloatPanel._$hP._$ri(_$8s, this._$id);
+    widgetDockFloatPanel._$hQ._$ri(_$8s, this._$id);
     var pt = new Align();
     pt.x = this._$lx.left;
     pt.y = this._$lx.top;
     this._$m5(pt.x, pt.y, this._$lx.right - this._$lx.left, this._$lx.bottom - this._$lx.top);
     if ((this._$lD.right - this._$lD.left) != (this._$lx.right - this._$lx.left)) {
-        floatPanel._$hT._$sL();
-        floatPanel._$hM._$sL();
+        widgetDockFloatPanel._$hT._$sL();
+        widgetDockFloatPanel._$hM._$sL();
     }
     if ((this._$lD.bottom - this._$lD.top) != (this._$lx.bottom - this._$lx.top)) {
-        floatPanel._$hP._$sL();
-        floatPanel._$hQ._$sL();
+        widgetDockFloatPanel._$hP._$sL();
+        widgetDockFloatPanel._$hQ._$sL();
     }
 };
-floatPanel.prototype._$2Q = function (_$mY, _$nh, _$85, _$7O) {
+widgetDockFloatPanel.prototype._$2Q = function (_$mY, _$nh, _$85, _$7O) {
     var _$7F = new _$D();
     var com = _$mY._$bE();
     var _$sx;
     var i;
     for (i = 0; i < com.length; i++) {
-        if (com[i] instanceof floatPanel) {
+        if (com[i] instanceof widgetDockFloatPanel) {
             _$sx = com[i];
             if (!_$sx._$kA._$8y) {
                 if (_$sx._$kA._$o5 != null && _$sx._$kA._$o5._$i6.length >= 1) {
@@ -9217,7 +9218,7 @@ floatPanel.prototype._$2Q = function (_$mY, _$nh, _$85, _$7O) {
             }
         }
     }
-    var _$e1 = _$7F._$28();
+    var _$e1 = _$7F.getPanelNum();
     if (!_$mY._$ii && !_$nh._$ii) {
         var i;
         for (i = 0; i < _$e1; i++) {
@@ -9251,28 +9252,28 @@ floatPanel.prototype._$2Q = function (_$mY, _$nh, _$85, _$7O) {
         }
     } else {
     }
-    _$mY._$lj[0]._$hx.panelList[0]._$iX = false;
+    _$mY.subPatternList[0].subPattern.panelList[0]._$iX = false;
     _$mY._$01();
     return _$7F;
 };
-floatPanel.prototype._$33 = function (_$mY, _$nh) {
+widgetDockFloatPanel.prototype._$33 = function (_$mY, _$nh) {
     if (_$mY._$ii) return null;
     var _$oE = new _$F();
-    var _$oK = _$mY._$lj[0]._$hx.panelList[0]._$kI;
+    var _$oK = _$mY.subPatternList[0].subPattern.panelList[0]._$kI;
     _$oE._$5J(_$oK);
     var _$7F;
     _$7F = this._$2Q(_$mY, _$nh, false, false);
     if (!_$nh._$ii && this._$lf._$iM) {
         _$oE._$5w(_$nh, 0);
     } else _$oE._$5w(_$nh, this._$lf._$j1);
-    var _$e1 = _$7F._$28();
+    var _$e1 = _$7F.getPanelNum();
     var i;
     for (i = 0; i < _$e1; i++) {
         if (_$7F.panelList[i] != this) _$7F.panelList[i]._$qz(-1);
     }
     return _$oE;
 };
-floatPanel.prototype._$30 = function (_$mX) {
+widgetDockFloatPanel.prototype._$30 = function (_$mX) {
     this._$lf._$j1 = _$mX._$j1;
     this._$lf._$ka = _$mX._$ka;
     this._$kB._$5H(this, _$mX._$kM);
@@ -9302,7 +9303,7 @@ floatPanel.prototype._$30 = function (_$mX) {
     }
     _$mX._$ka = this._$lf._$ka;
 };
-floatPanel.prototype._$5P = function (_$aQ) {
+widgetDockFloatPanel.prototype._$5P = function (_$aQ) {
     var _$fI = 0;
     var _$91 = new Array(_$aQ.length);
     while (_$fI < _$aQ.length) {
@@ -9316,14 +9317,14 @@ floatPanel.prototype._$5P = function (_$aQ) {
         }
     }
 };
-floatPanel.prototype._$77 = function () {
+widgetDockFloatPanel.prototype._$77 = function () {
     var _$qr = widgetDockController._$lB;
     if (this._$lt.y < _$qr.y) this._$lt.y = _$qr.y;
     if ((this._$lt.x + 15) > (_$qr.x + _$qr.width)) this._$lt.x = _$qr.x + _$qr.width - 15;
     if ((this._$lt.y + 15) > (_$qr.y + _$qr.height)) this._$lt.y = _$qr.y + _$qr.height - 15;
     if ((this._$lt.x + this._$lK.cx - 15) < _$qr.x) this._$lt.x = _$qr.x + 15 - this._$lK.cx;
 };
-floatPanel.prototype._$73 = function (_$nn, _$nG) {
+widgetDockFloatPanel.prototype._$73 = function (_$nn, _$nG) {
     var _$pW = _$nG._$oV;
     var _$pu = _$nn;
     var pb = _$nG;
@@ -9344,7 +9345,7 @@ floatPanel.prototype._$73 = function (_$nn, _$nG) {
         if (_$pW._$br < 0.01) _$pW._$br = 0.01;
     }
 };
-floatPanel.prototype._$1x = function (pt) {
+widgetDockFloatPanel.prototype._$1x = function (pt) {
     this._$7i();
     var _$cp = 0;
     this._$T();
@@ -9358,15 +9359,15 @@ floatPanel.prototype._$1x = function (pt) {
     var _$f8 = 0;
     if ((this._$lf._$j1 != 0xff) && (this._$lf._$j1 < 4)) {
         var _$nZ = this;
-        if (floatPanel._$jy != floatPanel._$0W) {
-            this._$lJ.cx = floatPanel._$lL.cx;
-            this._$lJ.cy = floatPanel._$lL.cy;
+        if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) {
+            this._$lJ.cx = widgetDockFloatPanel._$lL.cx;
+            this._$lJ.cy = widgetDockFloatPanel._$lL.cy;
         }
         if ((this._$j0 == this._$lf._$j1) && (this._$jr == this._$lf._$ka) && (this._$kA == this._$lf._$ky) && this._$lf._$j2 == 0xff) return;
         var _$8t = false;
         var _$aQ = null;
         var pb = null;
-        if (floatPanel._$jy == floatPanel._$0V && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
+        if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0V && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
             _$8t = true;
             var _$p4 = this._$kA._$o5._$21();
             _$aQ = new Array(_$p4.length);
@@ -9426,17 +9427,17 @@ floatPanel.prototype._$1x = function (pt) {
                 }
             }
         } else {
-            if (floatPanel._$jy != floatPanel._$0W) {
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) {
                 if (!this._$1k(this._$lf._$kM, this._$lf._$j1)) return;
                 _$aQ = new Array(1);
                 _$aQ[0] = this;
                 this._$30(this._$lf);
             } else {
                 var _$7F = new _$D();
-                var pbk = this._$kB._$lj[0]._$hx.panelList[0]._$kI;
+                var pbk = this._$kB.subPatternList[0].subPattern.panelList[0]._$kI;
                 pbk._$2Q(_$7F);
                 var i;
-                var ic = _$7F._$28();
+                var ic = _$7F.getPanelNum();
                 var _$oX = new Array(ic);
                 _$aQ = new Array(ic);
                 _$9q = new Array(ic);
@@ -9467,7 +9468,7 @@ floatPanel.prototype._$1x = function (pt) {
                     _$o1._$l(null);
                 } else {
                     var _$7H = this._$2Q(this._$kB, this._$lf._$kM, true, true);
-                    var ino = _$7H._$28();
+                    var ino = _$7H.getPanelNum();
                     _$aQ = new Array(ino);
                     for (i = 0; i < ino; i++) {
                         _$aQ[i] = _$7H.panelList[i];
@@ -9485,7 +9486,7 @@ floatPanel.prototype._$1x = function (pt) {
                 }
             }
         }
-        if (floatPanel._$jy != floatPanel._$0W && _$nZ != null) {
+        if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W && _$nZ != null) {
             _$nZ._$j0 = this._$lf._$j1;
             _$nZ._$jr = this._$lf._$ka;
         }
@@ -9503,14 +9504,14 @@ floatPanel.prototype._$1x = function (pt) {
                 }
                 if (_$aQ[i]._$kB != null && _$aQ[i]._$kB._$ii) {
                     _$aQ[i]._$be(_$aQ[i]._$j0);
-                } else _$aQ[i]._$be(floatPanel._$1F);
+                } else _$aQ[i]._$be(widgetDockFloatPanel._$1F);
             }
             this._$r6(true, true);
             return;
         }
         if (this._$lf._$ky != null) {
             _$nZ._$jr = this._$lf._$ky._$of._$jr;
-            if (floatPanel._$jy != floatPanel._$0W) pb = new _$F();
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) pb = new _$F();
             if (_$8t) {
                 pb._$0w(_$aQ, _$f8, _$nZ, this._$lf._$kM);
                 var k;
@@ -9520,28 +9521,28 @@ floatPanel.prototype._$1x = function (pt) {
                     _$aQ[k]._$kB = this._$lf._$kM;
                 }
             } else {
-                if (floatPanel._$jy != floatPanel._$0W) pb._$of = _$nZ;
+                if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) pb._$of = _$nZ;
             }
             pb._$8y = true;
             var _$pW = this._$lf._$ky._$oV;
             var _$p2 = new Array(1);
             _$nZ._$0A(this._$lf._$ky, pb, this._$lf._$j2, _$p2);
             var _$pu = _$p2[0];
-            if (floatPanel._$jy != floatPanel._$0W) _$nZ._$kA = pb;
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) _$nZ._$kA = pb;
             _$pW = pb._$oV;
             _$nZ._$73(_$pu, pb);
         } else {
-            if (floatPanel._$jy != floatPanel._$0W && _$nZ != null) _$nZ._$kA = null;
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W && _$nZ != null) _$nZ._$kA = null;
         }
         if (!this._$lf._$kM._$ii) {
             this._$lf._$kM.Add(this);
         }
-        if (floatPanel._$jy != floatPanel._$0W && _$nZ != null) _$nZ._$j0 = this._$lf._$j1;
+        if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W && _$nZ != null) _$nZ._$j0 = this._$lf._$j1;
         if (!this._$lf._$kM._$ii && this._$lf._$iM) {
-            if (floatPanel._$jy != floatPanel._$0W) this._$lf._$kM._$1g(this._$lf, this._$lJ); else this._$lf._$kM._$3G(pb, this._$lf, this._$lJ);
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) this._$lf._$kM._$1g(this._$lf, this._$lJ); else this._$lf._$kM._$3G(pb, this._$lf, this._$lJ);
         }
         if (this._$lf._$ky == null) {
-            if (floatPanel._$jy != floatPanel._$0W) {
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) {
                 if (_$nZ != null) {
                     _$nZ._$kB = this._$lf._$kM;
                     if (_$nZ != this) {
@@ -9558,7 +9559,7 @@ floatPanel.prototype._$1x = function (pt) {
                             if (_$aQ[i]._$kH._$jv != widgetDockController._$0R) {
                                 _$aQ[i]._$qz(-1);
                             }
-                            if (_$aQ[i]._$kB != null && _$aQ[i]._$kB._$ii) _$aQ[i]._$be(_$aQ[i]._$j0); else _$aQ[i]._$be(floatPanel._$1F);
+                            if (_$aQ[i]._$kB != null && _$aQ[i]._$kB._$ii) _$aQ[i]._$be(_$aQ[i]._$j0); else _$aQ[i]._$be(widgetDockFloatPanel._$1F);
                         }
                     }
                 }
@@ -9568,12 +9569,12 @@ floatPanel.prototype._$1x = function (pt) {
                 var k;
                 for (k = 0; k < _$f8; k++) {
                     if (_$aQ[k] != this) {
-                        if (_$aQ[k]._$kB != null && _$aQ[k]._$kB._$ii) _$aQ[k]._$be(_$aQ[k]._$j0); else _$aQ[k]._$be(floatPanel._$1F);
+                        if (_$aQ[k]._$kB != null && _$aQ[k]._$kB._$ii) _$aQ[k]._$be(_$aQ[k]._$j0); else _$aQ[k]._$be(widgetDockFloatPanel._$1F);
                     }
                 }
             }
         } else {
-            if (floatPanel._$jy != floatPanel._$0W) {
+            if (widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0W) {
                 _$nZ._$kB = this._$lf._$kM;
                 this._$lf._$kM._$18(_$nZ, null);
             } else {
@@ -9584,7 +9585,7 @@ floatPanel.prototype._$1x = function (pt) {
             this._$lf._$kM._$7p();
         }
         if (_$nZ != null) {
-            if (this._$lf._$kM != null && this._$lf._$kM._$ii) _$nZ._$be(this._$lf._$j1); else _$nZ._$be(floatPanel._$1F);
+            if (this._$lf._$kM != null && this._$lf._$kM._$ii) _$nZ._$be(this._$lf._$j1); else _$nZ._$be(widgetDockFloatPanel._$1F);
             _$nZ._$qz(-1);
             if (this._$lf._$kM != null) {
             }
@@ -9596,7 +9597,7 @@ floatPanel.prototype._$1x = function (pt) {
     } else {
         this._$lt.x = this._$lx.left;
         this._$lt.y = this._$lx.top;
-        if (!this._$kB._$ii && floatPanel._$iY) {
+        if (!this._$kB._$ii && widgetDockFloatPanel._$iY) {
             this._$1S();
         } else {
             var _$8F = this._$ir;
@@ -9604,7 +9605,7 @@ floatPanel.prototype._$1x = function (pt) {
             var _$en = 0;
             var _$gF;
             _$f8 = 0;
-            if (this._$kA._$o5 != null && floatPanel._$jy != floatPanel._$0X) _$p0 = this._$kA._$o5._$21();
+            if (this._$kA._$o5 != null && widgetDockFloatPanel._$jy != widgetDockFloatPanel._$0X) _$p0 = this._$kA._$o5._$21();
             if (_$p0 == null || _$p0.length == 0) {
                 _$p0 = new Array(1);
                 _$p0[0] = this;
@@ -9645,7 +9646,7 @@ floatPanel.prototype._$1x = function (pt) {
             }
             _$nY._$kW = null;
             _$nY._$1R();
-            if (floatPanel._$jy == floatPanel._$0V) {
+            if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0V) {
                 if (_$aQ != null) {
                     _$nY._$kA._$o(_$aQ, _$f8, _$nY, _$nY._$kB);
                     for (i = 0; i < _$f8; i++) {
@@ -9656,7 +9657,7 @@ floatPanel.prototype._$1x = function (pt) {
                         if (_$aQ[i] != this && _$aQ[i]._$kH._$jv != widgetDockController._$0R) {
                             _$aQ[i]._$qz(-1);
                         }
-                        if (_$aQ[i] != this) _$aQ[i]._$be(floatPanel._$1F);
+                        if (_$aQ[i] != this) _$aQ[i]._$be(widgetDockFloatPanel._$1F);
                     }
                 }
             }
@@ -9672,21 +9673,21 @@ floatPanel.prototype._$1x = function (pt) {
         }
     }
 };
-floatPanel.prototype._$qz = function (_$9d) {
+widgetDockFloatPanel.prototype._$qz = function (_$9d) {
     var kst = "";
     var _$f1 = -1;
-    if (this._$jm >= floatPanel._$0) {
+    if (this._$jm >= widgetDockFloatPanel._$0) {
         if (this._$kB != null && this._$kB._$ii && this._$kH._$jv != widgetDockController._$0R) {
             if ((this._$j0 == _$E._$3k) || (this._$j0 == _$E._$3l)) {
-                this._$fc(this._$hy, floatPanel._$6K);
-                _$f1 = floatPanel._$6K;
+                this._$fc(this._$hy, widgetDockFloatPanel._$6K);
+                _$f1 = widgetDockFloatPanel._$6K;
             } else {
-                this._$fc(this._$hy, floatPanel._$3Q);
-                _$f1 = floatPanel._$3Q;
+                this._$fc(this._$hy, widgetDockFloatPanel._$3Q);
+                _$f1 = widgetDockFloatPanel._$3Q;
             }
         } else {
-            this._$fc(this._$hy, floatPanel._$6K);
-            _$f1 = floatPanel._$6K;
+            this._$fc(this._$hy, widgetDockFloatPanel._$6K);
+            _$f1 = widgetDockFloatPanel._$6K;
         }
     } else {
         var _$8o = false;
@@ -9694,18 +9695,18 @@ floatPanel.prototype._$qz = function (_$9d) {
         if (!_$8o) _$qC(this._$hy); else {
         }
         if (this._$jm == _$3Q) {
-            this._$fc(this._$hy, floatPanel._$3Q);
-            _$f1 = floatPanel._$3Q;
-        } else if (this._$jm == floatPanel._$5j) {
-            this._$fc(this._$hy, floatPanel._$5j);
-            _$f1 = floatPanel._$5j;
-        } else if (this._$jm == floatPanel._$6K) {
-            this._$fc(this._$hy, floatPanel._$6K);
-            _$f1 = floatPanel._$6K;
+            this._$fc(this._$hy, widgetDockFloatPanel._$3Q);
+            _$f1 = widgetDockFloatPanel._$3Q;
+        } else if (this._$jm == widgetDockFloatPanel._$5j) {
+            this._$fc(this._$hy, widgetDockFloatPanel._$5j);
+            _$f1 = widgetDockFloatPanel._$5j;
+        } else if (this._$jm == widgetDockFloatPanel._$6K) {
+            this._$fc(this._$hy, widgetDockFloatPanel._$6K);
+            _$f1 = widgetDockFloatPanel._$6K;
         } else {
             if (!_$8o) {
-                this._$fc(this._$hy, floatPanel._$q);
-                _$f1 = floatPanel._$q;
+                this._$fc(this._$hy, widgetDockFloatPanel._$q);
+                _$f1 = widgetDockFloatPanel._$q;
             } else {
             }
         }
@@ -9716,13 +9717,13 @@ floatPanel.prototype._$qz = function (_$9d) {
     }
     this._$sL();
 };
-floatPanel.prototype._$bA = function (_$dq, _$cM, _$rL, _$8K) {
+widgetDockFloatPanel.prototype._$bA = function (_$dq, _$cM, _$rL, _$8K) {
     if (_$dq < 40) _$dq = 40;
     if (_$cM < 40) _$cM = 40;
     _$rL.cx = _$dq;
     _$rL.cy = _$cM;
 };
-floatPanel.prototype._$6c = function (_$99) {
+widgetDockFloatPanel.prototype._$6c = function (_$99) {
     if ((_$99 <= 3) && (_$99 != 0xff)) {
         if (((this._$kc >> _$99) & 0x01) == 1) {
             return _$99;
@@ -9737,9 +9738,9 @@ floatPanel.prototype._$6c = function (_$99) {
     }
     return 0xff;
 };
-floatPanel.prototype._$5 = function (_$n2) {
-    if (this._$jm != floatPanel._$q) {
-        this._$fc(_$n2, floatPanel._$q);
+widgetDockFloatPanel.prototype._$5 = function (_$n2) {
+    if (this._$jm != widgetDockFloatPanel._$q) {
+        this._$fc(_$n2, widgetDockFloatPanel._$q);
     } else {
         this._$hy._$a(_$n2);
     }
@@ -9749,39 +9750,39 @@ floatPanel.prototype._$5 = function (_$n2) {
     }
     this._$qK();
 };
-floatPanel.prototype._$5O = function (_$n2) {
+widgetDockFloatPanel.prototype._$5O = function (_$n2) {
     this._$hz = null;
     this._$qK();
 };
-floatPanel.prototype._$1k = function (_$n8, _$99) {
-    if (_$n8 != null && _$n8._$ii && (_$99 > 3)) return false;
-    if (_$n8 != null && (_$99 <= 3) && (_$99 != 0xff)) {
-        if (_$n8._$ii && (((this._$kc >> _$99) & 0x01) == 1)) return true; else if (!_$n8._$ii && this._$id) return true;
+widgetDockFloatPanel.prototype._$1k = function (mainPattern, _$99) {
+    if (mainPattern != null && mainPattern._$ii && (_$99 > 3)) return false;
+    if (mainPattern != null && (_$99 <= 3) && (_$99 != 0xff)) {
+        if (mainPattern._$ii && (((this._$kc >> _$99) & 0x01) == 1)) return true; else if (!mainPattern._$ii && this._$id) return true;
         return false;
     } else if (_$99 > 3) {
         if (this._$id) return false;
     }
     return true;
 };
-floatPanel.prototype._$aA = function (_$az) {
+widgetDockFloatPanel.prototype._$aA = function (_$az) {
     if ((_$az <= 3) && (((this._$kc >> _$az) & 0x01) == 1)) return true;
     return false;
 };
-floatPanel.prototype._$bL = function () {
+widgetDockFloatPanel.prototype._$bL = function () {
     if (_$kB != null && _$kB._$ii) return _$j0;
     return _$1F;
 };
-floatPanel.prototype._$fN = function () {
+widgetDockFloatPanel.prototype._$fN = function () {
     if (this._$kB != null && this._$kB._$ii) return false;
     return true;
 };
-floatPanel.prototype._$3A = function () {
-    if (this._$jw == floatPanel._$4W) {
-        if (floatPanel._$hT != null) return;
-        if (floatPanel._$hT == null) floatPanel._$hT = new _$6C(1, this);
-        if (floatPanel._$hP == null) floatPanel._$hP = new _$6C(0, this);
-        if (floatPanel._$hQ == null) floatPanel._$hQ = new _$6C(2, this);
-        if (floatPanel._$hM == null) floatPanel._$hM = new _$6C(3, this);
+widgetDockFloatPanel.prototype._$3A = function () {
+    if (this._$jw == widgetDockFloatPanel._$4W) {
+        if (widgetDockFloatPanel._$hT != null) return;
+        if (widgetDockFloatPanel._$hT == null) widgetDockFloatPanel._$hT = new _$6C(1, this);
+        if (widgetDockFloatPanel._$hP == null) widgetDockFloatPanel._$hP = new _$6C(0, this);
+        if (widgetDockFloatPanel._$hQ == null) widgetDockFloatPanel._$hQ = new _$6C(2, this);
+        if (widgetDockFloatPanel._$hM == null) widgetDockFloatPanel._$hM = new _$6C(3, this);
         return;
     }
     if (this._$lY == null) {
@@ -9797,12 +9798,12 @@ floatPanel.prototype._$3A = function () {
         this._$lV.setVisible(true);
     }
 };
-floatPanel.prototype._$3B = function () {
+widgetDockFloatPanel.prototype._$3B = function () {
     this._$lf._$ij = false;
-    if (floatPanel._$jy == floatPanel._$0X) return;
+    if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0X) return;
     this._$3A();
 };
-floatPanel.prototype._$m6 = function (_$cS, _$do, _$dq, _$cM) {
+widgetDockFloatPanel.prototype._$m6 = function (_$cS, _$do, _$dq, _$cM) {
     this._$lY._$r8(_$cS + _$1H, _$do, _$dq - (2 * _$1H), _$1H);
     if (!_$lf._$ij) {
         _$lU._$r8(_$cS, _$do, _$1H, _$cM);
@@ -9863,143 +9864,143 @@ floatPanel.prototype._$m6 = function (_$cS, _$do, _$dq, _$cM) {
         _$lR._$r8(_$cS + _$1H + _$gr, _$do + _$cM - _$1H, _$gt - _$1H, _$1H);
     }
 };
-floatPanel.prototype._$5D = function (p) {
+widgetDockFloatPanel.prototype._$5D = function (p) {
     _$m8._$5I(widgetDockController.rootDivId, p._$h8);
 };
-floatPanel.prototype._$m5 = function (_$cS, _$do, _$dq, _$cM) {
-    floatPanel._$hT._$r8(_$cS + floatPanel._$1H, _$do, _$dq - (2 * floatPanel._$1H), floatPanel._$1H);
+widgetDockFloatPanel.prototype._$m5 = function (_$cS, _$do, _$dq, _$cM) {
+    widgetDockFloatPanel._$hT._$r8(_$cS + widgetDockFloatPanel._$1H, _$do, _$dq - (2 * widgetDockFloatPanel._$1H), widgetDockFloatPanel._$1H);
     if (!this._$lf._$ij) {
-        floatPanel._$hP._$r8(_$cS, _$do, floatPanel._$1H, _$cM);
-        floatPanel._$hQ._$r8(_$cS + _$dq - floatPanel._$1H, _$do, floatPanel._$1H, _$cM);
-        floatPanel._$hM._$r8(_$cS + floatPanel._$1H, _$do + _$cM - floatPanel._$1H, _$dq - (2 * floatPanel._$1H), floatPanel._$1H);
-        floatPanel._$hT._$qJ();
-        floatPanel._$hP._$qJ();
-        floatPanel._$hQ._$qJ();
-        floatPanel._$hM._$qJ();
+        widgetDockFloatPanel._$hP._$r8(_$cS, _$do, widgetDockFloatPanel._$1H, _$cM);
+        widgetDockFloatPanel._$hQ._$r8(_$cS + _$dq - widgetDockFloatPanel._$1H, _$do, widgetDockFloatPanel._$1H, _$cM);
+        widgetDockFloatPanel._$hM._$r8(_$cS + widgetDockFloatPanel._$1H, _$do + _$cM - widgetDockFloatPanel._$1H, _$dq - (2 * widgetDockFloatPanel._$1H), widgetDockFloatPanel._$1H);
+        widgetDockFloatPanel._$hT._$qJ();
+        widgetDockFloatPanel._$hP._$qJ();
+        widgetDockFloatPanel._$hQ._$qJ();
+        widgetDockFloatPanel._$hM._$qJ();
         var _$eq;
-        if (floatPanel._$hR != null) {
-            this._$5D(floatPanel._$hR);
-            floatPanel._$hR = null;
+        if (widgetDockFloatPanel._$hR != null) {
+            this._$5D(widgetDockFloatPanel._$hR);
+            widgetDockFloatPanel._$hR = null;
         }
-        if (floatPanel._$hS != null) {
-            this._$5D(floatPanel._$hS);
-            floatPanel._$hS = null;
+        if (widgetDockFloatPanel._$hS != null) {
+            this._$5D(widgetDockFloatPanel._$hS);
+            widgetDockFloatPanel._$hS = null;
         }
-        if (floatPanel._$hN != null) {
-            this._$5D(floatPanel._$hN);
-            floatPanel._$hN = null;
+        if (widgetDockFloatPanel._$hN != null) {
+            this._$5D(widgetDockFloatPanel._$hN);
+            widgetDockFloatPanel._$hN = null;
         }
-        if (floatPanel._$hO != null) {
-            this._$5D(floatPanel._$hO);
-            floatPanel._$hO = null;
+        if (widgetDockFloatPanel._$hO != null) {
+            this._$5D(widgetDockFloatPanel._$hO);
+            widgetDockFloatPanel._$hO = null;
         }
     } else {
-        if (floatPanel._$hN == null) {
-            floatPanel._$hN = new _$6C(3, this);
-            floatPanel._$hO = new _$6C(3, this);
-            floatPanel._$hR = new _$6C(4, this);
-            floatPanel._$hS = new _$6C(5, this);
-            floatPanel._$hN._$ri(true);
-            floatPanel._$hO._$ri(true);
-            floatPanel._$hR._$ri(true);
-            floatPanel._$hS._$ri(true);
-            floatPanel._$hN._$qJ();
-            floatPanel._$hO._$qJ();
-            floatPanel._$hR._$qJ();
-            floatPanel._$hS._$qJ();
+        if (widgetDockFloatPanel._$hN == null) {
+            widgetDockFloatPanel._$hN = new _$6C(3, this);
+            widgetDockFloatPanel._$hO = new _$6C(3, this);
+            widgetDockFloatPanel._$hR = new _$6C(4, this);
+            widgetDockFloatPanel._$hS = new _$6C(5, this);
+            widgetDockFloatPanel._$hN._$ri(true);
+            widgetDockFloatPanel._$hO._$ri(true);
+            widgetDockFloatPanel._$hR._$ri(true);
+            widgetDockFloatPanel._$hS._$ri(true);
+            widgetDockFloatPanel._$hN._$qJ();
+            widgetDockFloatPanel._$hO._$qJ();
+            widgetDockFloatPanel._$hR._$qJ();
+            widgetDockFloatPanel._$hS._$qJ();
         }
-        var _$gq = _$G._$6J - floatPanel._$1H;
+        var _$gq = _$G._$6J - widgetDockFloatPanel._$1H;
         var _$gr = 10;
         var _$gt = 40;
         if (_$dq < 50) {
             _$gr = _$dq / 6;
             _$gt = (4 * _$dq) / 6;
         }
-        if (_$cM < (_$G._$6J - floatPanel._$1H)) {
+        if (_$cM < (_$G._$6J - widgetDockFloatPanel._$1H)) {
             _$gq = 0;
         }
         _$cM -= 3;
-        floatPanel._$hP._$r8(_$cS, _$do, floatPanel._$1H, _$cM - _$gq);
-        floatPanel._$hQ._$r8(_$cS + _$dq - floatPanel._$1H, _$do, floatPanel._$1H, _$cM - _$gq);
-        floatPanel._$hN._$r8(_$cS + floatPanel._$1H, _$do + _$cM - _$gq - floatPanel._$1H, _$gr, floatPanel._$1H);
-        floatPanel._$hR._$r8(_$cS + _$gr + floatPanel._$1H, _$do + _$cM - _$gq - floatPanel._$1H, floatPanel._$1H, _$gq + floatPanel._$1H - 1);
-        floatPanel._$hS._$r8(_$cS + _$gr + _$gt - floatPanel._$1H, _$do + _$cM - _$gq - floatPanel._$1H, floatPanel._$1H, _$gq + floatPanel._$1H - 1);
-        floatPanel._$hO._$r8(_$cS + _$gr + _$gt, _$do + _$cM - _$gq - floatPanel._$1H, _$dq - _$gr - _$gt - 1, floatPanel._$1H);
-        floatPanel._$hM._$r8(_$cS + floatPanel._$1H + _$gr, _$do + _$cM - floatPanel._$1H, _$gt - floatPanel._$1H, floatPanel._$1H);
+        widgetDockFloatPanel._$hP._$r8(_$cS, _$do, widgetDockFloatPanel._$1H, _$cM - _$gq);
+        widgetDockFloatPanel._$hQ._$r8(_$cS + _$dq - widgetDockFloatPanel._$1H, _$do, widgetDockFloatPanel._$1H, _$cM - _$gq);
+        widgetDockFloatPanel._$hN._$r8(_$cS + widgetDockFloatPanel._$1H, _$do + _$cM - _$gq - widgetDockFloatPanel._$1H, _$gr, widgetDockFloatPanel._$1H);
+        widgetDockFloatPanel._$hR._$r8(_$cS + _$gr + widgetDockFloatPanel._$1H, _$do + _$cM - _$gq - widgetDockFloatPanel._$1H, widgetDockFloatPanel._$1H, _$gq + widgetDockFloatPanel._$1H - 1);
+        widgetDockFloatPanel._$hS._$r8(_$cS + _$gr + _$gt - widgetDockFloatPanel._$1H, _$do + _$cM - _$gq - widgetDockFloatPanel._$1H, widgetDockFloatPanel._$1H, _$gq + widgetDockFloatPanel._$1H - 1);
+        widgetDockFloatPanel._$hO._$r8(_$cS + _$gr + _$gt, _$do + _$cM - _$gq - widgetDockFloatPanel._$1H, _$dq - _$gr - _$gt - 1, widgetDockFloatPanel._$1H);
+        widgetDockFloatPanel._$hM._$r8(_$cS + widgetDockFloatPanel._$1H + _$gr, _$do + _$cM - widgetDockFloatPanel._$1H, _$gt - widgetDockFloatPanel._$1H, widgetDockFloatPanel._$1H);
     }
 };
-floatPanel.prototype._$T = function () {
+widgetDockFloatPanel.prototype._$T = function () {
     this._$1p(true);
-    if (floatPanel._$jy == floatPanel._$0W) {
-        this._$lK.cx = floatPanel._$k2;
-        this._$lK.cy = floatPanel._$k3;
+    if (widgetDockFloatPanel._$jy == widgetDockFloatPanel._$0W) {
+        this._$lK.cx = widgetDockFloatPanel._$k2;
+        this._$lK.cy = widgetDockFloatPanel._$k3;
     }
     if (this._$jf != null) {
         this._$jf = null;
     }
-    if (floatPanel._$hT != null) this._$5D(floatPanel._$hT);
-    if (floatPanel._$hM != null) this._$5D(floatPanel._$hM);
-    if (floatPanel._$hP != null) this._$5D(floatPanel._$hP);
-    if (floatPanel._$hQ != null) this._$5D(floatPanel._$hQ);
-    if (floatPanel._$hR != null) this._$5D(floatPanel._$hR);
-    if (floatPanel._$hS != null) this._$5D(floatPanel._$hS);
-    if (floatPanel._$hN != null) this._$5D(floatPanel._$hN);
-    if (floatPanel._$hO != null) this._$5D(floatPanel._$hO);
-    if (this._$jw == floatPanel._$4W) {
+    if (widgetDockFloatPanel._$hT != null) this._$5D(widgetDockFloatPanel._$hT);
+    if (widgetDockFloatPanel._$hM != null) this._$5D(widgetDockFloatPanel._$hM);
+    if (widgetDockFloatPanel._$hP != null) this._$5D(widgetDockFloatPanel._$hP);
+    if (widgetDockFloatPanel._$hQ != null) this._$5D(widgetDockFloatPanel._$hQ);
+    if (widgetDockFloatPanel._$hR != null) this._$5D(widgetDockFloatPanel._$hR);
+    if (widgetDockFloatPanel._$hS != null) this._$5D(widgetDockFloatPanel._$hS);
+    if (widgetDockFloatPanel._$hN != null) this._$5D(widgetDockFloatPanel._$hN);
+    if (widgetDockFloatPanel._$hO != null) this._$5D(widgetDockFloatPanel._$hO);
+    if (this._$jw == widgetDockFloatPanel._$4W) {
     }
-    floatPanel._$lY = null;
-    floatPanel._$lR = null;
-    floatPanel._$lU = null;
-    floatPanel._$lV = null;
-    floatPanel._$lW = null;
-    floatPanel._$lX = null;
-    floatPanel._$lS = null;
-    floatPanel._$lT = null;
-    floatPanel._$hT = null;
-    floatPanel._$hM = null;
-    floatPanel._$hP = null;
-    floatPanel._$hQ = null;
-    floatPanel._$hR = null;
-    floatPanel._$hS = null;
-    floatPanel._$hN = null;
-    floatPanel._$hO = null;
+    widgetDockFloatPanel._$lY = null;
+    widgetDockFloatPanel._$lR = null;
+    widgetDockFloatPanel._$lU = null;
+    widgetDockFloatPanel._$lV = null;
+    widgetDockFloatPanel._$lW = null;
+    widgetDockFloatPanel._$lX = null;
+    widgetDockFloatPanel._$lS = null;
+    widgetDockFloatPanel._$lT = null;
+    widgetDockFloatPanel._$hT = null;
+    widgetDockFloatPanel._$hM = null;
+    widgetDockFloatPanel._$hP = null;
+    widgetDockFloatPanel._$hQ = null;
+    widgetDockFloatPanel._$hR = null;
+    widgetDockFloatPanel._$hS = null;
+    widgetDockFloatPanel._$hN = null;
+    widgetDockFloatPanel._$hO = null;
 };
-floatPanel.prototype._$1p = function (_$86) {
+widgetDockFloatPanel.prototype._$1p = function (_$86) {
 };
-floatPanel.prototype.initLayout = function (_$cS, _$do, _$dq, _$cM, _$aO) {
+widgetDockFloatPanel.prototype.initLayout = function (_$cS, _$do, _$dq, _$cM, _$aO) {
     this.setSize(_$dq, _$cM);
     this.setLocation(_$cS, _$do);
     if (this._$iN) {
         this._$hy._$h8.style.visibility = "visible";
     }
-    if (this._$jw == floatPanel._$4B) return;
+    if (this._$jw == widgetDockFloatPanel._$4B) return;
     if (this._$iF) return;
-    var ic = floatPanel._$kw._$28();
+    var ic = widgetDockFloatPanel._$kw.getPanelNum();
     var _$8G = false;
     var i;
     for (i = 0; i < ic; i++) {
-        if (floatPanel._$kw.panelList[i] == this) {
+        if (widgetDockFloatPanel._$kw.panelList[i] == this) {
             _$8G = true;
             break;
         }
     }
     if (!_$8G) {
-        floatPanel._$kw._$b(this);
+        widgetDockFloatPanel._$kw._$b(this);
     }
     var _$sk = this.getTitle();
     this._$5U(_$aO, _$sk);
     this._$iF = true;
     this._$sL();
-    ic = floatPanel._$kw._$28();
+    ic = widgetDockFloatPanel._$kw.getPanelNum();
     for (i = 0; i < ic; i++) {
-        var df = floatPanel._$kw.panelList[i];
+        var df = widgetDockFloatPanel._$kw.panelList[i];
         if ((!df._$iF) && df.getTitle() == _$sk) {
-            floatPanel._$kw._$5G(i);
+            widgetDockFloatPanel._$kw._$5G(i);
             break;
         }
     }
 };
-floatPanel.prototype._$ay = function () {
+widgetDockFloatPanel.prototype._$ay = function () {
     if (!this._$iF) return false;
     if (!this._$fT()) return false;
     if (!this._$S()) {
@@ -10007,7 +10008,7 @@ floatPanel.prototype._$ay = function () {
             this._$6F();
         }
     } else {
-        if (this._$k0 == floatPanel._$6W) {
+        if (this._$k0 == widgetDockFloatPanel._$6W) {
             this._$0h();
         }
         if (this._$kB != null && !this._$kB._$ii) {
@@ -10016,21 +10017,21 @@ floatPanel.prototype._$ay = function () {
     }
     return true;
 };
-floatPanel.prototype._$bh = function () {
+widgetDockFloatPanel.prototype._$bh = function () {
     if (!this._$iF) return false;
     if (!this._$fT()) return false;
     var kst = "";
     if (!this._$S()) {
         if (!this._$ir && this._$id) this._$1R();
     } else {
-        if (this._$k0 == floatPanel._$6W) {
+        if (this._$k0 == widgetDockFloatPanel._$6W) {
             this._$0h();
         }
         if (this._$kB != null && this._$kB._$ii) this._$6F();
     }
     return true;
 };
-floatPanel.prototype._$16 = function (_$aO) {
+widgetDockFloatPanel.prototype._$16 = function (_$aO) {
     if (!this._$fT()) {
         _$ir = false;
         _$lf._$iM = true;
@@ -10075,10 +10076,10 @@ floatPanel.prototype._$16 = function (_$aO) {
     _$qz(-1);
     return 0;
 };
-floatPanel.prototype._$1i = function () {
+widgetDockFloatPanel.prototype._$1i = function () {
     _$16(_$lf._$j1);
 };
-floatPanel.prototype._$f5 = function () {
+widgetDockFloatPanel.prototype._$f5 = function () {
     var rc = new Rect();
     var d = this._$c8();
     this._$lJ.cx = d.width;
@@ -10088,10 +10089,10 @@ floatPanel.prototype._$f5 = function () {
         this._$lK.cy = 150;
     }
 };
-floatPanel.prototype._$Q = function () {
+widgetDockFloatPanel.prototype._$Q = function () {
     return false;
 };
-floatPanel.prototype._$1Q = function () {
+widgetDockFloatPanel.prototype._$1Q = function () {
     if (this._$lJ.cx <= 0 || this._$lJ.cy <= 0) {
         this._$lJ.cx = this._$cg();
         this._$lJ.cy = this._$bU();
@@ -10106,25 +10107,25 @@ floatPanel.prototype._$1Q = function () {
     }
     return 0;
 };
-floatPanel.prototype._$qG = function () {
+widgetDockFloatPanel.prototype._$qG = function () {
     this._$kB._$5E(this);
 };
-floatPanel.prototype._$0C = function () {
+widgetDockFloatPanel.prototype._$0C = function () {
     var _$9u;
-    if (this._$kj <= floatPanel._$q) _$9u = this._$kj; else _$9u = this._$j0;
+    if (this._$kj <= widgetDockFloatPanel._$q) _$9u = this._$kj; else _$9u = this._$j0;
     this._$kH._$8(_$9u, this, true);
     this._$kH._$5A(0);
-    this._$k0 = floatPanel._$6W;
+    this._$k0 = widgetDockFloatPanel._$6W;
     var _$ps = null;
-    var _$e1 = this._$kB._$lj[_$9u]._$hx._$28();
+    var _$e1 = this._$kB.subPatternList[_$9u].subPattern.getPanelNum();
     if (_$e1 > 0 && this._$jr >= 0 && this._$jr < _$e1) {
-        _$ps = this._$kB._$lj[_$9u]._$hx.panelList[this._$jr];
+        _$ps = this._$kB.subPatternList[_$9u].subPattern.panelList[this._$jr];
     }
     var ih, iw;
     if (_$ps != null) {
         iw = _$ps.rect.right - _$ps.rect.left;
         ih = _$ps.rect.bottom - _$ps.rect.top;
-        if (this._$kj <= floatPanel._$q) {
+        if (this._$kj <= widgetDockFloatPanel._$q) {
             if (this._$1j(_$j0) && !this._$1j(_$9u)) {
                 iw = 200;
             } else if (!this._$1j(_$j0) && this._$1j(_$9u)) {
@@ -10135,7 +10136,7 @@ floatPanel.prototype._$0C = function () {
         iw = ih = 200;
     }
 };
-floatPanel.prototype._$bC = function () {
+widgetDockFloatPanel.prototype._$bC = function () {
     var rc = new AlignSize();
     rc.x = this._$hr;
     rc.y = this._$hs;
@@ -10143,33 +10144,33 @@ floatPanel.prototype._$bC = function () {
     rc.height = this._$hq;
     return rc;
 };
-floatPanel.prototype._$cg = function () {
+widgetDockFloatPanel.prototype._$cg = function () {
     return this._$ht;
 };
-floatPanel.prototype._$bU = function () {
+widgetDockFloatPanel.prototype._$bU = function () {
     return this._$hq;
 };
-floatPanel.prototype._$c8 = function () {
+widgetDockFloatPanel.prototype._$c8 = function () {
     var d = new Size();
     d.width = this._$ht;
     d.height = this._$hq;
     return d;
 };
-floatPanel.prototype._$25 = function (rc) {
+widgetDockFloatPanel.prototype._$25 = function (rc) {
     rc.left = this._$hr;
     rc.top = this._$hs;
     rc.right = this._$ht + this._$hr;
     rc.bottom = this._$hq + this._$hs;
 };
-floatPanel.prototype.setSize = function (_$gK, _$el) {
+widgetDockFloatPanel.prototype.setSize = function (_$gK, _$el) {
     this._$ht = _$gK;
     this._$hq = _$el;
 };
-floatPanel.prototype.setLocation = function (_$eu, _$gC) {
+widgetDockFloatPanel.prototype.setLocation = function (_$eu, _$gC) {
     this._$hr = _$eu;
     this._$hs = _$gC;
 };
-floatPanel.prototype._$5U = function (_$cD, _$sf) {
+widgetDockFloatPanel.prototype._$5U = function (_$cD, _$sf) {
     var _$fU = new Array(2);
     var _$g1 = new Array(2);
     var _$7B = new Array(2);
@@ -10206,14 +10207,14 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
             _$q9.y = this._$lt.y;
             _$q9.height = _$eg[1];
         }
-        if ((_$oW[0]._$aP & floatPanel._$2T) != 0) this._$iv = true; else this._$iv = false;
-        if ((_$oW[0]._$aP & floatPanel._$2U) == 0) this._$k0 = floatPanel._$4C;
-        this._$kj = ((floatPanel._$6X & _$oW[0]._$aP) >> 7);
+        if ((_$oW[0]._$aP & widgetDockFloatPanel._$2T) != 0) this._$iv = true; else this._$iv = false;
+        if ((_$oW[0]._$aP & widgetDockFloatPanel._$2U) == 0) this._$k0 = widgetDockFloatPanel._$4C;
+        this._$kj = ((widgetDockFloatPanel._$6X & _$oW[0]._$aP) >> 7);
         if (this._$kj < 0) this._$kj = 0;
-        if (this._$kj > floatPanel._$0) this._$kj = floatPanel._$0;
-        this._$kc = (floatPanel._$4X & _$oW[0]._$aP) >> 12;
-        if ((_$oW[0]._$aP & floatPanel._$B) != 0) this._$id = true; else this._$id = false;
-        this._$jm = (floatPanel._$C & _$oW[0]._$aP) >> 17;
+        if (this._$kj > widgetDockFloatPanel._$0) this._$kj = widgetDockFloatPanel._$0;
+        this._$kc = (widgetDockFloatPanel._$4X & _$oW[0]._$aP) >> 12;
+        if ((_$oW[0]._$aP & widgetDockFloatPanel._$B) != 0) this._$id = true; else this._$id = false;
+        this._$jm = (widgetDockFloatPanel._$C & _$oW[0]._$aP) >> 17;
     }
     var _$pR = null;
     if (_$7B[0] == null && _$7B[1] == null) {
@@ -10253,7 +10254,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
             this._$39(true);
         }
         this._$lf._$j1 = _$cD;
-        if (this._$jw == floatPanel._$4W) {
+        if (this._$jw == widgetDockFloatPanel._$4W) {
             _$pR = _$J._$0x(_$q9);
         } else _$pR = _$K._$0y(_$q9);
         if (_$cD >= 0 && _$cD <= 3) {
@@ -10280,7 +10281,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
         var _$e5;
         if (_$7B[0] == null) _$e5 = 1; else _$e5 = 0;
         if (_$7C[_$e5]._$ii) {
-            if (this._$jw == floatPanel._$4W) {
+            if (this._$jw == widgetDockFloatPanel._$4W) {
                 _$7C[_$e5 ^ 0x01] = _$J._$0x(_$q9);
             } else _$7C[_$e5 ^ 0x01] = _$K._$0y(_$q9);
             _$fU[_$e5 ^ 0x01] = 0;
@@ -10304,7 +10305,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
                         this._$j0 = _$fU[0];
                         this._$kA = _$7B[0];
                         _$7C[0]._$53(this);
-                        if (_$cD >= floatPanel._$1F) _$cD = floatPanel._$0J;
+                        if (_$cD >= widgetDockFloatPanel._$1F) _$cD = widgetDockFloatPanel._$0J;
                         _$g1[0] = -1;
                         _$fU[0] = _$cD;
                         _$7B[0] = null;
@@ -10353,7 +10354,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
                     }
                 }
             } else {
-                if (_$fU[1] < floatPanel._$1F) {
+                if (_$fU[1] < widgetDockFloatPanel._$1F) {
                     if (!this._$1k(this._$kH, _$fU[1])) {
                         var bys = 0xff;
                         bys = this._$6c(bys);
@@ -10403,7 +10404,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
         this._$f5();
     }
     if (_$8M) {
-        if (this._$k0 == floatPanel._$6W) {
+        if (this._$k0 == widgetDockFloatPanel._$6W) {
             _$9K = 0;
         }
         if (!this._$fT()) {
@@ -10411,7 +10412,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
             _$8M = false;
         }
     }
-    if (!_$8M && this._$k0 == floatPanel._$6W) this._$k0 = floatPanel._$4Z;
+    if (!_$8M && this._$k0 == widgetDockFloatPanel._$6W) this._$k0 = widgetDockFloatPanel._$4Z;
     this._$lf._$j1 = _$fU[0];
     this._$qz(-1);
     if (_$9K > 0) {
@@ -10419,12 +10420,12 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
         this._$qJ();
     } else if (_$8M) {
         if (this._$kA == null) {
-            this._$k0 = floatPanel._$4Z;
+            this._$k0 = widgetDockFloatPanel._$4Z;
             this._$kB._$6O(this);
             this._$kA._$8y = true;
             this._$kH._$d(this);
             this._$39(false);
-            this._$k0 = floatPanel._$6W;
+            this._$k0 = widgetDockFloatPanel._$6W;
         }
         this._$0C();
         this._$ir = false;
@@ -10435,7 +10436,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
             var i;
             for (i = 0; i < this._$kA._$l1.length; i++) {
                 var _$ol = this._$kA._$l1[i];
-                if (_$ol._$mO == this && ((_$ol._$aP & floatPanel._$1B) > 0)) {
+                if (_$ol._$mO == this && ((_$ol._$aP & widgetDockFloatPanel._$1B) > 0)) {
                     _$8G = true;
                 }
             }
@@ -10452,7 +10453,7 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
                 var i;
                 for (i = 0; i < this._$kA._$l1.length; i++) {
                     var _$o9 = this._$kA._$l1[i];
-                    if (_$o9._$mO == this && (_$o9._$aP & floatPanel._$1C) != 0) {
+                    if (_$o9._$mO == this && (_$o9._$aP & widgetDockFloatPanel._$1C) != 0) {
                         _$8G = true;
                         break;
                     }
@@ -10477,19 +10478,19 @@ floatPanel.prototype._$5U = function (_$cD, _$sf) {
     this._$Y(this._$l7, this._$j3, this._$k4);
     this._$Y(this._$kB, this._$j0, this._$jr);
 };
-floatPanel.prototype._$1S = function () {
+widgetDockFloatPanel.prototype._$1S = function () {
     var ps = new Align();
     ps.x = this._$lx.left;
     ps.y = this._$lx.top;
-    if (this._$jw == floatPanel._$4W) {
+    if (this._$jw == widgetDockFloatPanel._$4W) {
     }
     this._$kB._$6p(ps.x, ps.y, _$E._$2A(this._$lx), _$E._$2z(this._$lx));
 };
-floatPanel.prototype._$3a = function () {
-    if (floatPanel._$iA) return;
-    floatPanel._$iA = true;
+widgetDockFloatPanel.prototype._$3a = function () {
+    if (widgetDockFloatPanel._$iA) return;
+    widgetDockFloatPanel._$iA = true;
 };
-floatPanel.prototype._$0A = function (_$n3, _$ne, _$9b, _$oT) {
+widgetDockFloatPanel.prototype._$0A = function (_$n3, _$ne, _$9b, _$oT) {
     var _$pW = _$n3._$oV;
     var _$pu = null;
     var pb = _$ne;
@@ -10527,9 +10528,9 @@ floatPanel.prototype._$0A = function (_$n3, _$ne, _$9b, _$oT) {
     if (_$9b == _$E._$3m) _$pu._$9j = _$E._$3j; else if (_$9b == _$E._$3j) _$pu._$9j = _$E._$3m; else if (_$9b == _$E._$3k) _$pu._$9j = _$E._$3l; else _$pu._$9j = _$E._$3k;
     if (_$oT != null) _$oT[0] = _$pu;
 };
-floatPanel.prototype._$Y = function (_$n8, _$cD, _$dg) {
-    if (_$n8 != null && _$n8._$ii && _$dg >= 0 && _$dg != 0xffffffff) {
-        var _$ps = _$n8._$lj[_$cD]._$hx.panelList[_$dg];
+widgetDockFloatPanel.prototype._$Y = function (mainPattern, _$cD, _$dg) {
+    if (mainPattern != null && mainPattern._$ii && _$dg >= 0 && _$dg != 0xffffffff) {
+        var _$ps = mainPattern.subPatternList[_$cD].subPattern.panelList[_$dg];
         var _$eG, _$fC;
         var _$fq, _$fr;
         _$fq = -1;
@@ -10542,21 +10543,21 @@ floatPanel.prototype._$Y = function (_$n8, _$cD, _$dg) {
             _$9n = _$E._$3k;
             _$9v = _$E._$3l;
         }
-        if (_$ps._$kR == null) _$eG = -1; else _$eG = _$n8._$2F(_$9n, _$ps._$kR);
-        if (_$ps._$l8 == null) _$fC = -1; else _$fC = _$n8._$2F(_$9v, _$ps._$l8);
-        if (this._$kH._$lk[_$9n] != null) _$fq = _$n8._$2F(_$9n, this._$kH._$lk[_$9n]);
-        if (this._$kH._$lk[_$9v] != null) _$fr = _$n8._$2F(_$9v, this._$kH._$lk[_$9v]);
+        if (_$ps._$kR == null) _$eG = -1; else _$eG = mainPattern._$2F(_$9n, _$ps._$kR);
+        if (_$ps._$l8 == null) _$fC = -1; else _$fC = mainPattern._$2F(_$9v, _$ps._$l8);
+        if (this._$kH._$lk[_$9n] != null) _$fq = mainPattern._$2F(_$9n, this._$kH._$lk[_$9n]);
+        if (this._$kH._$lk[_$9v] != null) _$fr = mainPattern._$2F(_$9v, this._$kH._$lk[_$9v]);
         if (_$fq >= 0 && _$eG < _$fq) {
-            _$n8._$j(_$9n);
+            mainPattern._$j(_$9n);
         }
         if (_$fr >= 0 && _$fC < _$fr) {
-            _$n8._$j(_$9v);
+            mainPattern._$j(_$9v);
         }
         if (this._$kH._$lk[_$cD] != null) {
         }
     }
 };
-floatPanel.prototype._$3x = function () {
+widgetDockFloatPanel.prototype._$3x = function () {
     if (_$kA != null && _$kA._$o5 != null) {
         if (_$kA._$o5._$3x(this)) {
             return true;
@@ -10564,18 +10565,18 @@ floatPanel.prototype._$3x = function () {
     }
     return false;
 };
-floatPanel.prototype._$bR = function () {
+widgetDockFloatPanel.prototype._$bR = function () {
     if (!_$fN()) return null;
     return _$kB._$bP();
 };
-floatPanel.prototype._$fT = function () {
+widgetDockFloatPanel.prototype._$fT = function () {
     if (this._$hy == null) return true;
     if (this._$hy._$h8.style.visibility == "visible") return true;
     return false;
 };
-floatPanel.prototype._$sL = function () {
+widgetDockFloatPanel.prototype._$sL = function () {
 };
-floatPanel.prototype._$6i = function (_$cR) {
+widgetDockFloatPanel.prototype._$6i = function (_$cR) {
     if (this._$hy != null) {
         _$m8._$6i(this._$hy._$h8, _$cR);
     }
@@ -10586,11 +10587,11 @@ floatPanel.prototype._$6i = function (_$cR) {
         _$m8._$6i(this._$hz._$h8, _$cR);
     }
 };
-floatPanel.prototype._$qK = function () {
+widgetDockFloatPanel.prototype._$qK = function () {
     if (this._$hy == null) return;
     var left, top, width, height;
     var _$tj = this._$hy._$c6();
-    if (this._$jz == floatPanel._$6K) {
+    if (this._$jz == widgetDockFloatPanel._$6K) {
         left = this._$hr;
         top = this._$hs + _$tj.height;
         width = this._$ht;
@@ -10614,9 +10615,9 @@ floatPanel.prototype._$qK = function () {
         _$m8._$6e(this._$hA, this._$hr, this._$hs, this._$ht, this._$hq);
     }
 };
-floatPanel.prototype._$qJ = function () {
+widgetDockFloatPanel.prototype._$qJ = function () {
 };
-floatPanel.prototype._$0c = function (_$88) {
+widgetDockFloatPanel.prototype._$0c = function (_$88) {
     if (!this._$iZ) return;
     if (this._$hA == null) {
         var _$t5 = "div";
@@ -10642,7 +10643,7 @@ function widgetDockWindow(window, title) {
     this._$kL = new Array();
     this.cx;
     this.cy;
-    this._$nN = new _$52(true);
+    this.mainPattern = new _$52(true);
     this._$lm = new Array(4);
     _$t9 = this;
     this._$3C();
@@ -10651,7 +10652,7 @@ function widgetDockWindow(window, title) {
 
 widgetDockWindow.prototype.addFixedPanel = function (element, type) {
     element.style.position = "absolute";
-    this._$nN.addFixedPanel(element, type);
+    this.mainPattern.addFixedPanel(element, type);
 };
 widgetDockWindow._$hK = null;
 
@@ -10660,11 +10661,11 @@ widgetDockWindow.prototype.mouseMove = function (e) {
     if (widgetDockWindow._$hK != null) {
         widgetDockWindow._$hK._$ms(e);
     } else {
-        this._$nN._$0a(e);
+        this.mainPattern._$0a(e);
     }
 };
 widgetDockWindow.prototype.mouseDown = function (e) {
-    this._$nN._$09(e);
+    this.mainPattern._$09(e);
     var pt = new Align();
     _$m8._$2D(e, pt);
     var _$e0 = this._$kL.length;
@@ -10693,37 +10694,37 @@ widgetDockWindow.prototype.mouseUp = function (e) {
     }
 };
 widgetDockWindow.prototype._$rv = function (sID) {
-    var ic = floatPanel._$kw._$28();
+    var ic = widgetDockFloatPanel._$kw.getPanelNum();
     var i;
     for (i = 0; i < ic; i++) {
-        var _$sR = floatPanel._$kw.panelList[i]._$hg;
+        var _$sR = widgetDockFloatPanel._$kw.panelList[i]._$hg;
         if (_$sR != null && _$sR.id == sID) {
-            floatPanel._$kw.panelList[i].hasOutIFrame(true);
+            widgetDockFloatPanel._$kw.panelList[i].hasOutIFrame(true);
             return true;
         }
     }
     return false;
 };
 widgetDockWindow.prototype._$6s = function (_$88) {
-    var ic = floatPanel._$kw._$28();
+    var ic = widgetDockFloatPanel._$kw.getPanelNum();
     var i;
     for (i = 0; i < ic; i++) {
-        if (floatPanel._$kw.panelList[i] != this) floatPanel._$kw.panelList[i]._$0c(_$88);
+        if (widgetDockFloatPanel._$kw.panelList[i] != this) widgetDockFloatPanel._$kw.panelList[i]._$0c(_$88);
     }
-    this._$nN._$0c(_$88);
+    this.mainPattern._$0c(_$88);
 };
 widgetDockWindow.prototype._$0g = function () {
-    var _$nR = floatPanel._$kw;
+    var _$nR = widgetDockFloatPanel._$kw;
     var _$e1 = 0;
     if (_$nR == null) return;
-    _$e1 = _$nR._$28();
+    _$e1 = _$nR.getPanelNum();
     var i;
     for (i = _$e1 - 1; i >= 0; i--) {
         if (_$nR.panelList[i] != this) {
             _$nR.panelList[i]._$0g();
         }
     }
-    this._$nN._$5F();
+    this.mainPattern._$5F();
     if (this._$kL != null) {
         _$e1 = _$K._$kL.length;
         for (i = 0; i < _$e1; i++) {
@@ -10731,10 +10732,10 @@ widgetDockWindow.prototype._$0g = function () {
         }
         this._$kL.length = 0;
     }
-    this._$nN._$3z();
+    this.mainPattern._$3z();
     var vrc = new Rect();
     this.getWindowRect(vrc);
-    this._$nN.setSize(vrc.right - vrc.left, vrc.bottom - vrc.top);
+    this.mainPattern.setSize(vrc.right - vrc.left, vrc.bottom - vrc.top);
     this._$my(null);
 };
 widgetDockWindow.prototype._$2i = function () {
@@ -10767,31 +10768,31 @@ widgetDockWindow.prototype._$3C = function () {
     window.onresize = _$7g;
     var rect = new Rect();
     this.getWindowRect(rect);
-    this._$nN.setSize(rect.right - rect.left, rect.bottom - rect.top);
+    this.mainPattern.setSize(rect.right - rect.left, rect.bottom - rect.top);
     var i;
     for (i = 0; i < 4; i++) {
         this._$lm[i] = new _$5h();
     }
-    this._$nN._$jv = 0;
+    this.mainPattern._$jv = 0;
 };
-widgetDockWindow.prototype._$ml = function (_$n8) {
+widgetDockWindow.prototype._$ml = function (mainPattern) {
     var _$e1 = this._$kL.length;
     var i;
     for (i = 0; i < _$e1; i++) {
-        if (this._$kL[i] == _$n8) {
+        if (this._$kL[i] == mainPattern) {
             this._$kL.splice(i, 1);
             break;
         }
     }
-    this._$kL.splice(0, 0, _$n8);
-    _$n8._$6r(this._$jO);
+    this._$kL.splice(0, 0, mainPattern);
+    mainPattern._$6r(this._$jO);
     this._$jO += 3;
 };
-widgetDockWindow.prototype._$mm = function (_$n8) {
+widgetDockWindow.prototype._$mm = function (mainPattern) {
     var _$e1 = this._$kL.length;
     var i;
     for (i = 0; i < _$e1; i++) {
-        if (this._$kL[i] == _$n8) {
+        if (this._$kL[i] == mainPattern) {
             var j;
             for (j = 0; j < i; j++) {
                 this._$kL[j]._$X(-3);
@@ -10800,7 +10801,7 @@ widgetDockWindow.prototype._$mm = function (_$n8) {
             if (this._$kL.length > 0) {
                 this._$jO = this._$kL[0]._$jO + 3;
             } else {
-                this._$jO = _$n8._$jO;
+                this._$jO = mainPattern._$jO;
             }
             break;
         }
@@ -10826,35 +10827,35 @@ widgetDockWindow.prototype._$my = function (e) {
     rc.height = ih;
     var i;
     for (i = 0; i < 2; i++) {
-        if (this._$nN._$hC != null) {
-            if (this._$nN._$hC[2 * i + 1] != null) {
+        if (this.mainPattern._$hC != null) {
+            if (this.mainPattern._$hC[2 * i + 1] != null) {
                 if (i == 0) {
-                    rc.y = this._$nN._$jF[2 * i + 1];
-                    _$m8._$6e(this._$nN._$hC[2 * i + 1], 0, 0, d.width, this._$nN._$jF[2 * i + 1]);
+                    rc.y = this.mainPattern._$jF[2 * i + 1];
+                    _$m8._$6e(this.mainPattern._$hC[2 * i + 1], 0, 0, d.width, this.mainPattern._$jF[2 * i + 1]);
                 } else {
-                    _$m8._$6e(this._$nN._$hC[2 * i + 1], 0, d.height - this._$nN._$jF[2 * i + 1], d.width, this._$nN._$jF[2 * i + 1]);
+                    _$m8._$6e(this.mainPattern._$hC[2 * i + 1], 0, d.height - this.mainPattern._$jF[2 * i + 1], d.width, this.mainPattern._$jF[2 * i + 1]);
                 }
-                rc.height -= this._$nN._$jF[2 * i + 1];
+                rc.height -= this.mainPattern._$jF[2 * i + 1];
             }
         }
     }
     for (i = 0; i < 2; i++) {
-        if (this._$nN._$hC != null) {
-            if (this._$nN._$hC[2 * i] != null && d.height > 0) {
-                rc.width = this._$nN._$jF[2 * i];
+        if (this.mainPattern._$hC != null) {
+            if (this.mainPattern._$hC[2 * i] != null && d.height > 0) {
+                rc.width = this.mainPattern._$jF[2 * i];
                 if (i == 0) {
                     rc.x = 0;
                 } else {
                     rc.x = d.width - rc.width;
                 }
-                _$m8._$6e(this._$nN._$hC[2 * i], rc.x, rc.y, rc.width, rc.height);
+                _$m8._$6e(this.mainPattern._$hC[2 * i], rc.x, rc.y, rc.width, rc.height);
             }
         }
     }
-    this._$nN._$mB(d.width, d.height);
+    this.mainPattern._$mB(d.width, d.height);
 };
 widgetDockWindow.prototype._$qF = function (_$a0) {
-    this._$nN._$qF(_$a0);
+    this.mainPattern._$qF(_$a0);
 };
 widgetDockWindow.prototype._$3Y = function (p) {
     var s = 1;
@@ -10864,18 +10865,18 @@ widgetDockWindow.prototype._$3Y = function (p) {
     var _$s5 = p._$qw();
     var _$dH = new Array(4);
     var i;
-    for (i = 0; i < 4; i++) _$dH[i] = this._$nN._$lj[i]._$hx._$28();
-    this._$nN._$41(p);
+    for (i = 0; i < 4; i++) _$dH[i] = this.mainPattern.subPatternList[i].subPattern.getPanelNum();
+    this.mainPattern._$41(p);
     var _$ph = new _$D();
-    if (floatPanel._$kw != null) {
-        var _$f9 = floatPanel._$kw._$28();
+    if (widgetDockFloatPanel._$kw != null) {
+        var _$f9 = widgetDockFloatPanel._$kw.getPanelNum();
         var j;
         for (j = 0; j < _$f9; j++) {
-            var dfw = floatPanel._$kw.panelList[j];
-            if (dfw._$iF) _$ph._$b(floatPanel._$kw.panelList[j]);
+            var dfw = widgetDockFloatPanel._$kw.panelList[j];
+            if (dfw._$iF) _$ph._$b(widgetDockFloatPanel._$kw.panelList[j]);
         }
     }
-    this._$nN._$0b(_$dH, 4, _$ph);
+    this.mainPattern._$0b(_$dH, 4, _$ph);
     var _$rS = p._$qw();
     var _$e2 = parseInt(p._$qw());
     var _$e1 = _$e2;
@@ -10886,19 +10887,19 @@ widgetDockWindow.prototype._$3Y = function (p) {
         this._$kL.push(_$ox);
         _$aj._$b(_$ox);
     }
-    var ino = _$ph._$28();
+    var ino = _$ph.getPanelNum();
     for (i = 0; i < ino; i++) {
         var _$si = _$ph.panelList[i]._$c3();
-        _$e1 = _$aj._$28();
+        _$e1 = _$aj.getPanelNum();
         var j;
         for (j = 0; j < _$e1; j++) {
-            var _$fY = _$aj.panelList[j]._$lj[0]._$hx._$28();
+            var _$fY = _$aj.panelList[j].subPatternList[0].subPattern.getPanelNum();
             if (_$fY == 1) {
                 var mi = _$aj.panelList[j];
-                var _$nT = this._$nN._$1N(_$si, mi._$lj[0]._$hx.panelList[0]._$kI);
+                var _$nT = this.mainPattern._$1N(_$si, mi.subPatternList[0].subPattern.panelList[0]._$kI);
                 if (_$nT != null) {
                     _$aj.panelList[j]._$53(_$nT, null, _$si, 0, 0);
-                    _$fY = _$aj.panelList[j]._$lj[0]._$hx._$28();
+                    _$fY = _$aj.panelList[j].subPatternList[0].subPattern.getPanelNum();
                     if (_$fY == 0) {
                         _$oh = this._$kL;
                         _$e1 = _$oh.length;
@@ -10935,24 +10936,24 @@ widgetDockWindow.prototype.initLayout = function (layout) {
             _$eF = 0;
             _$fB = 2;
         }
-        var panelNum = this._$nN._$lj[i]._$hx._$28();
-        var _$ps;
+        var panelNum = this.mainPattern.subPatternList[i].subPattern.getPanelNum();
+        var panel;
         var index = 0;
         var j;
         for (j = 0; j < panelNum; j++) {
-            _$ps = this._$nN._$lj[i]._$hx.panelList[j];
-            index = _$ps.initPanelLayout(this._$nN, layout, index, _$eF, _$fB);
+            panel = this.mainPattern.subPatternList[i].subPattern.panelList[j];
+            index = panel.initPanelLayout(this.mainPattern, layout, index, _$eF, _$fB);
         }
         layout.addContent("SECTIONNONE");
     }
     layout.addContent("MINIFRAMES");
     var _$e1 = this._$kL.length;
-    var _$ps;
+    var panel;
     var ino = 0;
-    var _$g3;
+    var panelNum;
     for (i = 0; i < _$e1; i++) {
-        _$g3 = this._$kL[i]._$lj[0]._$hx._$28();
-        if (_$g3 == 1) {
+        panelNum = this._$kL[i].subPatternList[0].subPattern.getPanelNum();
+        if (panelNum == 1) {
             ino++;
         }
     }
@@ -10960,16 +10961,16 @@ widgetDockWindow.prototype.initLayout = function (layout) {
     _$eF = 1;
     _$fB = 3;
     for (i = 0; i < _$e1; i++) {
-        _$g3 = this._$kL[i]._$lj[0]._$hx._$28();
-        if (_$g3 == 1) {
+        panelNum = this._$kL[i].subPatternList[0].subPattern.getPanelNum();
+        if (panelNum == 1) {
             var _$og = this._$kL[i];
             _$og.getWindowRect(rc);
             layout.addContent(rc.left);
             layout.addContent(rc.top);
             layout.addContent(rc.right);
             layout.addContent(rc.bottom);
-            _$ps = _$og._$lj[0]._$hx.panelList[0];
-            _$ps.initPanelLayout(_$og, layout, 0, _$eF, _$fB);
+            panel = _$og.subPatternList[0].subPattern.panelList[0];
+            panel.initPanelLayout(_$og, layout, 0, _$eF, _$fB);
             layout.addContent("SECTIONNONE");
         }
     }
@@ -10982,12 +10983,12 @@ widgetDockWindow.prototype._$1O = function (_$mO, _$qY, _$nO, _$dA, _$dC, _$nP, 
     var i;
     for (i = 0; i < ino; i++) {
         _$og = this._$kL[i];
-        _$e1 = _$og._$lj[0]._$hx._$28();
+        _$e1 = _$og.subPatternList[0].subPattern.getPanelNum();
         if (_$e1 == 1) {
-            var _$ps = _$og._$lj[0]._$hx.panelList[0];
-            var _$pO = this._$nN._$1J(_$mO, _$qY, _$ps._$kI, _$cX, null);
+            var _$ps = _$og.subPatternList[0].subPattern.panelList[0];
+            var _$pO = this.mainPattern._$1J(_$mO, _$qY, _$ps._$kI, _$cX, null);
             if (_$pO != null) {
-                if ((_$cX[0] & floatPanel._$1A) > 0) {
+                if ((_$cX[0] & widgetDockFloatPanel._$1A) > 0) {
                     _$nO[0] = _$pO;
                     _$nP[0] = _$og;
                     _$dA[0] = 0;
@@ -11009,8 +11010,8 @@ function _$4d() {
     this._$kY = null;
 };
 _$b1._$b0(_$4d, _$1l);
-_$4d.prototype._$ru = function (_$n8) {
-    this._$kY = _$n8;
+_$4d.prototype._$ru = function (mainPattern) {
+    this._$kY = mainPattern;
 };
 _$4d.prototype.setVisible = function () {
 };
@@ -11024,7 +11025,7 @@ _$4d.prototype._$6i = function (_$cR) {
 };
 _$4d.prototype._$mj = function (pts) {
     var _$po;
-    _$po = this._$kY._$lj[0]._$hx.panelList[0]._$kI;
+    _$po = this._$kY.subPatternList[0].subPattern.panelList[0]._$kI;
     var _$9P = _$m8._$2k(this._$h8);
     var _$9Q = _$m8._$2M(this._$h8);
     var pt = new Align();
@@ -11033,7 +11034,7 @@ _$4d.prototype._$mj = function (pts) {
     if (_$E._$5f(this._$lw, pt)) {
         var _$7E = new _$D();
         _$po._$2Q(_$7E);
-        var _$e1 = _$7E._$28();
+        var _$e1 = _$7E.getPanelNum();
         var i;
         for (i = 0; i < _$e1; i++) {
             var dfw = _$7E.panelList[i];
@@ -11045,7 +11046,7 @@ _$4d.prototype._$mj = function (pts) {
     }
     var _$oe = _$po._$1L();
     this._$bi = _$oe._$of;
-    floatPanel._$jy = floatPanel._$0W;
+    widgetDockFloatPanel._$jy = widgetDockFloatPanel._$0W;
     return this._$bi._$4R(pts);
 };
 _$4d.prototype._$c6 = function () {
@@ -11065,11 +11066,11 @@ _$4d.prototype._$qJ = function () {
     var _$pN = this._$bi;
     this._$bi = null;
     this._$nL(true, rc.left, rc.top, rc.right - rc.left, vh, true);
-    this._$aE(rc.left, rc.top, rc.right - rc.left, vh, floatPanel._$3Q);
+    this._$aE(rc.left, rc.top, rc.right - rc.left, vh, widgetDockFloatPanel._$3Q);
     this._$bi = _$pN;
 };
 _$4d.prototype._$4L = function () {
-    var _$po = _$kY._$lj[0]._$hx.panelList[0]._$kI;
+    var _$po = _$kY.subPatternList[0].subPattern.panelList[0]._$kI;
     this._$0Y(_$po);
 };
 
@@ -11118,7 +11119,7 @@ _$58.prototype._$3w = function (pt) {
     _$E._$6a(this._$je, pt);
     var rc = new Rect();
     var _$es;
-    var _$e1 = this._$hU._$28();
+    var _$e1 = this._$hU.getPanelNum();
     if (_$e1 >= 1) {
         _$es = _$e1 - 1;
         if (this._$le._$j1 == _$E._$3k || _$le._$j1 == _$E._$3l) {
@@ -11170,7 +11171,7 @@ _$58.prototype._$6Q = function (_$mO) {
     _$mO._$kH._$4T(null);
     this._$5M(_$mO);
     _$mO._$kH._$5M(_$le._$j1, _$mO);
-    _$mO._$k0 = floatPanel._$4Z;
+    _$mO._$k0 = widgetDockFloatPanel._$4Z;
     _$mO.setVisible(true);
     this._$jZ = -1;
 };
@@ -11192,7 +11193,7 @@ _$58.prototype._$3u = function (pt, _$mO) {
     } else if (_$th == _$E._$3k) {
         ptc.x -= 1;
     } else ptc.x += 1;
-    var _$e1 = this._$hU._$28();
+    var _$e1 = this._$hU.getPanelNum();
     var i;
     for (i = 0; i < _$e1; i++) {
         var _$pE = this._$hU.panelList[i];
@@ -11220,14 +11221,14 @@ _$58.prototype._$08 = function (pt, _$7X) {
     rc.bottom = rc.bottom - rc.top;
     rc.left = 0;
     rc.top = 0;
-    var _$e1 = this._$hU._$28();
+    var _$e1 = this._$hU.getPanelNum();
     var bin = false;
     var i;
     for (i = 0; i < _$e1; i++) {
         var _$pE = this._$hU.panelList[i];
         var _$8O = false;
         var _$9J = true;
-        if ((_$pE._$mO._$jN == floatPanel._$48 && !_$7X) || (_$pE._$mO._$jN == floatPanel._$46 && _$7X)) _$9J = false;
+        if ((_$pE._$mO._$jN == widgetDockFloatPanel._$48 && !_$7X) || (_$pE._$mO._$jN == widgetDockFloatPanel._$46 && _$7X)) _$9J = false;
         if (_$E._$5f(rc, ptc)) {
             if (_$E._$l2 != null) {
                 if (_$E._$l2._$kx == _$pE._$mO) {
@@ -11275,7 +11276,7 @@ _$58.prototype._$4Q = function (pt) {
 };
 _$58.prototype._$4S = function () {
     var _$cD = this._$le._$j1;
-    var _$e1 = this._$hU._$28();
+    var _$e1 = this._$hU.getPanelNum();
     var _$pE;
     var rc = new Rect();
     var _$qa = new Rect();
@@ -11402,7 +11403,7 @@ _$58.prototype._$4S = function () {
         }
     }
 };
-_$58.prototype._$03 = function (_$n8, _$mX, _$pC, _$nz, _$dk, _$oQ, _$de) {
+_$58.prototype._$03 = function (mainPattern, _$mX, _$pC, _$nz, _$dk, _$oQ, _$de) {
     _$de[0] = 0;
     _$oQ[0] = null;
     {
@@ -11458,10 +11459,10 @@ _$58.prototype._$5b = function (_$mO) {
     _$og._$6k(_$ft);
     _$og._$6o(rc.left, rc.top, (rc.right - rc.left), (rc.bottom - rc.top));
     _$og.setVisible(true);
-    _$mO._$l0._$nN._$4T(_$og);
+    _$mO._$l0.mainPattern._$4T(_$og);
 };
 _$58.prototype._$0s = function () {
-    var iNo = this._$hU._$28();
+    var iNo = this._$hU.getPanelNum();
     if (iNo > 0) {
         var _$oU = new Array();
         var i;
@@ -11474,7 +11475,7 @@ _$58.prototype._$0s = function () {
     return null;
 };
 _$58.prototype._$4J = function (_$mO, _$sc) {
-    var _$e1 = _$hU._$28();
+    var _$e1 = _$hU.getPanelNum();
     var i;
     for (i = 0; i < _$e1; i++) {
         if (_$mO == _$hU.panelList[i]._$mO) {
@@ -11500,7 +11501,7 @@ _$58.prototype._$8 = function (_$mO) {
     this._$qJ();
 };
 _$58.prototype._$5M = function (_$mO) {
-    var _$e1 = this._$hU._$28();
+    var _$e1 = this._$hU.getPanelNum();
     var i;
     for (i = 0; i < _$e1; i++) {
         if (_$mO == this._$hU.panelList[i]._$mO) {
@@ -11514,7 +11515,7 @@ _$58.prototype._$5M = function (_$mO) {
     }
     this._$5A();
     this._$qJ();
-    return this._$hU._$28();
+    return this._$hU.getPanelNum();
 };
 _$58.prototype._$5A = function () {
     var _$qp = new Rect();
@@ -11548,7 +11549,7 @@ _$58.prototype._$5B = function (_$d4) {
     d.width -= 2;
     if (d.width < 0) d.width = 0;
     var ft = null;
-    var _$gi = this._$hU._$28();
+    var _$gi = this._$hU.getPanelNum();
     var _$fv = _$d4;
     var tab = null;
     var dt = new Size();
@@ -11647,7 +11648,7 @@ _$59.prototype._$0a = function (e) {
             var vd = new Date();
             var _$sW = (vd.getTime() - this._$hk) / 1000;
             if (_$sW > 2) {
-                this._$kx._$l0._$nN._$4T(null);
+                this._$kx._$l0.mainPattern._$4T(null);
             }
         }
     }
@@ -11660,7 +11661,7 @@ _$59.prototype._$0a = function (e) {
             this._$iJ = true;
         } else {
             this._$iJ = false;
-            this._$kx._$l0._$nN._$4T(null);
+            this._$kx._$l0.mainPattern._$4T(null);
         }
     }
 };
