@@ -88,7 +88,7 @@ _$m8._$0z = function (_$aT, _$av) {
     var _$m9 = document.createElement(_$aT);
     document.getElementById(_$av).appendChild(_$m9);
     _$m9.style.position = "absolute";
-    if (widgetDockController.browserType == 1 || widgetDockController.browserType == 2) {
+    if (widgetDockController.browserType == browserType.Firefox || widgetDockController.browserType == browserType.Chrome) {
         _$m9.style.left = 0;
         _$m9.style.top = 0;
     } else {
@@ -107,7 +107,7 @@ _$m8._$0t = function (_$aT, _$qU) {
     var _$m9 = document.createElement(_$aT);
     _$qU.appendChild(_$m9);
     _$m9.style.position = "absolute";
-    if (widgetDockController.browserType == 1 || widgetDockController.browserType == 2) {
+    if (widgetDockController.browserType == browserType.Firefox || widgetDockController.browserType == browserType.Chrome) {
         _$m9.style.left = 0;
         _$m9.style.top = 0;
     } else {
@@ -134,14 +134,14 @@ _$m8._$5I = function (_$av, _$aU) {
     if (par != null) par.removeChild(_$aU);
 };
 _$m8._$2k = function (_$sF) {
-    if (widgetDockController.browserType == 1 || widgetDockController.browserType == 2) {
+    if (widgetDockController.browserType == browserType.Firefox || widgetDockController.browserType == browserType.Chrome) {
         return parseInt(_$sF.style.left);
     } else {
         return _$sF.style.pixelLeft;
     }
 };
 _$m8._$2M = function (_$sF) {
-    if (widgetDockController.browserType == 1 || widgetDockController.browserType == 2) {
+    if (widgetDockController.browserType == browserType.Firefox || widgetDockController.browserType == browserType.Chrome) {
         return parseInt(_$sF.style.top);
     } else {
         return _$sF.style.pixelTop;
@@ -160,7 +160,7 @@ _$m8._$2h = function (_$sF) {
     return parseInt(_$sF.style.height);
 };
 _$m8._$6j = function (_$sF, _$sH, _$sK) {
-    if (widgetDockController.browserType == 1 || widgetDockController.browserType == 2) {
+    if (widgetDockController.browserType == browserType.Firefox || widgetDockController.browserType == browserType.Chrome) {
         _$sF.style.left = _$sH + "px";
         _$sF.style.top = _$sK + "px";
     } else {
@@ -181,7 +181,7 @@ _$m8._$6n = function (_$sF, _$dq, _$cM) {
 
 _$m8._$6e = function (element, left, top, width, height) {
     if (isNaN(height)) return;
-    if (widgetDockController.browserType == 1 || widgetDockController.browserType == 2) {
+    if (widgetDockController.browserType == browserType.Firefox || widgetDockController.browserType == browserType.Chrome) {
         element.style.left = left + "px";
         element.style.top = top + "px";
     } else {
@@ -290,7 +290,7 @@ _$m8._$2D = function (e, pt) {
     }
     if (vme != undefined) {
         var bsp = false;
-        if (widgetDockController.browserType == 0) {
+        if (widgetDockController.browserType == browserType.IE) {
             var vs = e.srcElement.toString();
             if (vs.indexOf("HTMLHtmlElement") >= 0) {
                 bsp = true;
@@ -2650,7 +2650,7 @@ _$E.prototype._$qF = function (_$a0) {
     }
 };
 _$E.prototype.addFixedPanel = function (element, type) {
-    if (widgetDockController.browserType == 0 && widgetDockController._$jK <= 7) {
+    if (widgetDockController.browserType == browserType.IE && widgetDockController._$jK <= 7) {
         this._$iZ = true;
     } else if ((!widgetDockController._$iu) && element instanceof HTMLIFrameElement) {
         if (widgetDockController._$06(element.id)) {
@@ -3389,14 +3389,16 @@ function _$N() {
     if (e == null) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) e.target._$4y._$mw(e); else e.srcElement._$4y._$mw(e);
+    if (widgetDockController.browserType == browserType.Firefox) e.target._$4y._$mw(e);
+    else e.srcElement._$4y._$mw(e);
     return false;
 };
 _$N._$4g = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) e.target._$4y._$mu(e); else e.srcElement._$4y._$mu(e);
+    if (widgetDockController.browserType == browserType.Firefox) e.target._$4y.mouseMove(e);
+    else e.srcElement._$4y.mouseMove(e);
 };
 _$N._$mh = function (e) {
     return false;
@@ -3425,7 +3427,7 @@ _$N.prototype._$mw = function (e) {
     }
     return false;
 };
-_$N.prototype._$mx = function (e) {
+_$N.prototype.mouseUp = function (e) {
     if (!this._$iG) return;
     widgetDockController._$6s(false);
     this._$1x();
@@ -3471,8 +3473,9 @@ _$N.prototype._$9N = function () {
         _$T();
     }
 };
-_$N.prototype._$mu = function () {
-    if (this._$j1 == _$E._$3k || this._$j1 == _$E._$3l) this._$h8.style.cursor = "e-resize"; else this._$h8.style.cursor = "n-resize"
+_$N.prototype.mouseMove = function () {
+    if (this._$j1 == _$E._$3k || this._$j1 == _$E._$3l) this._$h8.style.cursor = "e-resize";
+    else this._$h8.style.cursor = "n-resize"
 };
 _$N.prototype._$rh = function (_$og) {
     this._$kG = _$og;
@@ -3794,7 +3797,7 @@ _$N.prototype._$qJ = function () {
         this._$hj._$s1 = 'black';
         _$m8._$1q(iw - 1, 0, iw - 1, ih, this._$hj);
         this._$hj.fillStyle = 'ButtonFace';
-        if (widgetDockController.browserType == 4) {
+        if (widgetDockController.browserType == browserType.Opera) {
             this._$hj.fillStyle = 'white';
         }
         this._$hj.fillRect(1, 0, iw - 3, ih);
@@ -3806,7 +3809,7 @@ _$N.prototype._$qJ = function () {
         this._$hj._$s1 = 'black';
         _$m8._$1q(0, ih - 1, iw, ih - 1, this._$hj);
         this._$hj.fillStyle = 'ButtonFace';
-        if (widgetDockController.browserType == 4) {
+        if (widgetDockController.browserType == browserType.Opera) {
             this._$hj.fillStyle = 'white';
         }
         this._$hj.fillRect(0, 1, iw, ih - 3);
@@ -4310,16 +4313,15 @@ _$6R._$4h = function (e) {
     if (e == null || e == undefined) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) e.target._$4A._$mw(e); else e.srcElement._$4A._$mw(e);
+    if (widgetDockController.browserType == browserType.Firefox) e.target._$4A._$mw(e); else e.srcElement._$4A._$mw(e);
     return false;
 };
 _$6R._$4g = function (e) {
     if (e == null || e == undefined) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) e.target._$4A._$mu(e); else {
-        e.srcElement._$4A._$mu(e);
-    }
+    if (widgetDockController.browserType == browserType.Firefox) e.target._$4A.mouseMove(e);
+    else e.srcElement._$4A.mouseMove(e);
 };
 _$6R._$mh = function (e) {
     return false;
@@ -5856,23 +5858,23 @@ _$6A._$4h = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) e.target._$4x._$mw(e); else e.srcElement._$4x._$mw(e);
+    if (widgetDockController.browserType == browserType.Firefox) e.target._$4x._$mw(e); else e.srcElement._$4x._$mw(e);
     return false;
 };
 _$6A._$4g = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) {
-        e.target._$4x._$mu(e);
+    if (widgetDockController.browserType == browserType.Firefox) {
+        e.target._$4x.mouseMove(e);
     } else {
-        e.srcElement._$4x._$mu(e);
+        e.srcElement._$4x.mouseMove(e);
     }
 };
 _$6A._$mh = function (e) {
     return false;
 };
-_$6A.prototype._$mx = function (e) {
+_$6A.prototype.mouseUp = function (e) {
     widgetDockController._$6s(false);
     this._$il = false;
 };
@@ -5895,7 +5897,7 @@ _$6A.prototype._$25 = function (rc) {
 };
 _$6A.prototype._$mz = function (e) {
 };
-_$6A.prototype._$mu = function (e) {
+_$6A.prototype.mouseMove = function (e) {
     var pt = new Align();
     _$m8._$2D(e, pt);
     if (!this._$il) this._$f4(pt);
@@ -6309,6 +6311,15 @@ function widgetDockController() {
 widgetDockController.getVersion = function () {
     return this.version;
 };
+
+var browserType = {
+    IE: 0,
+    Firefox: 1,
+    Chrome: 2,
+    Safari: 3,
+    Opera: 4
+}
+
 widgetDockController._$kN = new Array();
 widgetDockController._$iu = false;
 widgetDockController._$iU = true;
@@ -6316,7 +6327,7 @@ widgetDockController._$0R = 0;
 widgetDockController._$0T = 1;
 widgetDockController._$0S = 2;
 widgetDockController.rootDivId = "";
-widgetDockController.browserType = 0;
+widgetDockController.browserType = browserType.IE;
 widgetDockController.isCanvas = true;
 widgetDockController._$3s = 0;
 widgetDockController._$1E = 1;
@@ -6332,63 +6343,59 @@ widgetDockController.controller = null;
 widgetDockController.window = null;
 
 function mouseDown(e) {
-    var vp = widgetDockController.window;
-    if (vp != null) {
-        if (e == null) {
-            e = window.event;
-        }
-        vp._$mr(e);
-        return false;
-    }
-};
-
-function mouseUp(e) {
-    var vp = widgetDockController.window;
-    if (vp == null) return;
     if (e == null) {
         e = window.event;
     }
-    vp._$mx(e);
+    if (widgetDockController.window == null) return;
+    widgetDockController.window.mouseDown(e);
+};
+
+function mouseUp(e) {
+    if (e == null) {
+        e = window.event;
+    }
+    if (widgetDockController.window == null) return;
+    widgetDockController.window.mouseUp(e);
     var x, y;
     x = e.x;
     y = e.y;
-    var div = document.getElementById("messageiddsx");
+    var div = document.getElementById("widgetDockMessageId");
     if (div != null) {
-        if (widgetDockController.browserType == 0) div.innerHTML = "UP x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " Offset Y " + e._$me + " source: " + e.srcElement; else {
+        if (widgetDockController.browserType == browserType.IE) {
+            div.innerHTML = "UP x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " Offset Y " + e._$me + " source: " + e.srcElement;
+        } else {
             div.innerHTML = "UP x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " source: " + e.target;
         }
     }
 };
 
 function mouseMove(e) {
-    var vp = widgetDockController.window;
-    var x, y;
     if (e == null) {
         e = window.event;
     }
+    var x, y;
     x = e.x;
     y = e.y;
-    var div = document.getElementById("messageiddsx");
+    var div = document.getElementById("widgetDockMessageId");
     if (div != null) {
-        if (widgetDockController.browserType == 0) {
+        if (widgetDockController.browserType == browserType.IE) {
             div.innerHTML = "x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " Offset Y " + e._$me + " source: " + e.srcElement;
         } else {
             div.innerHTML = "x: " + x + " y: " + y + " Client X" + e.clientX + " Client Y " + e.clientY + " source: " + e.target;
         }
     }
-    if (vp != null) vp._$mu(e);
-    return false;
-};widgetDockController._$fQ = function (_$9E) {
-    if ((_$9E != 0 && !widgetDockController._$iu && widgetDockController.browserType != 0) || (_$9E != 1 && widgetDockController._$iu) || (widgetDockController.browserType == 0 && widgetDockController._$jK >= 9 && _$9E != 0)) {
+    if (widgetDockController.window == null) return;
+    widgetDockController.window.mouseMove(e);
+};
+
+widgetDockController._$fQ = function (_$9E) {
+    if ((_$9E != 0 && !widgetDockController._$iu && widgetDockController.browserType != browserType.IE) || (_$9E != 1 && widgetDockController._$iu) || (widgetDockController.browserType == browserType.IE && widgetDockController._$jK >= 9 && _$9E != 0)) {
         return false;
     }
     return true;
 };
 widgetDockController.prototype.createDFPanel = function (_$9L, _$as) {
     return new _$1e(widgetDockController.window, _$9L);
-};
-widgetDockController.prototype._$9V = function () {
-    widgetDockController.window._$0g();
 };
 widgetDockController._$6s = function (_$88) {
     if (widgetDockController._$iU) widgetDockController.window._$6s(_$88);
@@ -6418,13 +6425,14 @@ widgetDockController.prototype.addFixedPanel = function (element, type) {
 widgetDockController.createWidgetDock = function () {
     if (widgetDockController.controller != null) return widgetDockController.controller;
     widgetDockController.controller = new widgetDockController();
-    var userAgent = navigator.userAgent;
     var div = document.createElement("div");
     document.body.appendChild(div);
     div.id = "widgetDock";
-    if (userAgent.indexOf("Firefox") != "-1") widgetDockController.browserType = 1;
+
+    // Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+    var userAgent = navigator.userAgent;
     if (userAgent.indexOf("MSIE") != "-1") {
-        widgetDockController.browserType = 0;
+        widgetDockController.browserType = browserType.IE;
         widgetDockController._$jK = 9;
         var k = userAgent.indexOf("MSIE") + 4;
         var _$rY = userAgent.slice(k, userAgent.length);
@@ -6433,10 +6441,15 @@ widgetDockController.createWidgetDock = function () {
             _$rY = _$rY.substr(0, k);
             widgetDockController._$jK = parseInt(_$rY);
         }
+    } else if (userAgent.indexOf("Firefox") != "-1"){
+        widgetDockController.browserType = browserType.Firefox;
+    } else if (userAgent.indexOf("Chrome") != "-1") {
+        widgetDockController.browserType = browserType.Chrome;
+    } else if (userAgent.indexOf("Safari") != "-1") {
+        widgetDockController.browserType = browserType.Safari;
+    } else if (userAgent.indexOf("Opera") != "-1") {
+        widgetDockController.browserType = browserType.Opera;
     }
-    if (userAgent.indexOf("Chrome") != "-1") widgetDockController.browserType = 2;
-    else if (userAgent.indexOf("Safari") != "-1") widgetDockController.browserType = 3;
-    else if (userAgent.indexOf("Opera") != "-1") widgetDockController.browserType = 4;
     widgetDockController.rootDivId = div.id;
     widgetDockController.setStyle();
     if (widgetDockController.window == null) {
@@ -6446,7 +6459,7 @@ widgetDockController.createWidgetDock = function () {
             document.body.onmousemove = mouseMove;
             document.body.onmouseup = mouseUp;
         } else {
-            if (widgetDockController.browserType == 0 && widgetDockController._$jK <= 8) {
+            if (widgetDockController.browserType == browserType.IE && widgetDockController._$jK <= 8) {
                 document.body.attachEvent("onmousedown", mouseDown);
                 document.body.attachEvent("onmouseup", mouseUp);
                 document.body.attachEvent("onmousemove", mouseMove);
@@ -6460,15 +6473,15 @@ widgetDockController.createWidgetDock = function () {
     widgetDockController.isCanvas = !!document.createElement('canvas').getContext;
     widgetDockController.dir = "";
     if (!widgetDockController.isCanvas) {
-        var _$tf = document.getElementsByTagName('script');
-        if (_$tf != null) {
-            var _$td = _$tf.length;
+        var elementList = document.getElementsByTagName('script');
+        if (elementList != null) {
+            var len = elementList.length;
             var i;
-            for (i = 0; i < _$td; i++) {
-                var _$tg = _$tf[i].src;
-                var _$sR = _$tg.indexOf("widgetDock.js");
-                if (_$sR >= 0) {
-                    widgetDockController.dir = _$tg.substr(0, _$sR);
+            for (i = 0; i < len; i++) {
+                var src = elementList[i].src;
+                var index = src.indexOf("widgetDock.js");
+                if (index >= 0) {
+                    widgetDockController.dir = src.substr(0, index);
                     break;
                 }
             }
@@ -6625,14 +6638,15 @@ _$1l._$4h = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) e.target._$4t._$mw(e); else e.srcElement._$4t._$mw(e);
+    if (widgetDockController.browserType == browserType.Firefox) e.target._$4t._$mw(e); else e.srcElement._$4t._$mw(e);
     return false;
 };
 _$1l._$4g = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (widgetDockController.browserType == 1) e.target._$4t._$mu(e); else e.srcElement._$4t._$mu(e);
+    if (widgetDockController.browserType == browserType.Firefox) e.target._$4t.mouseMove(e);
+    else e.srcElement._$4t.mouseMove(e);
     return false;
 };
 _$1l._$mh = function (e) {
@@ -6670,7 +6684,7 @@ _$1l.prototype._$2P = function (rc) {
     rc.right = rc.left + _$m8._$2O(this._$h8);
     rc.bottom = rc.top + _$m8._$2h(this._$h8);
 };
-_$1l.prototype._$mx = function (e) {
+_$1l.prototype.mouseUp = function (e) {
     if (!this._$fT()) return;
     if (!this._$iO) return;
     if (!widgetDockController._$fQ(e.button)) {
@@ -6756,7 +6770,7 @@ _$1l.prototype._$mo = function (e) {
         _$bi._$mg();
     }
 };
-_$1l.prototype._$mu = function (e) {
+_$1l.prototype.mouseMove = function (e) {
     if (!this._$iO) {
         var _$9P = _$m8._$2k(this._$h8);
         var _$9Q = _$m8._$2M(this._$h8);
@@ -6871,13 +6885,13 @@ _$1l.prototype._$nL = function (_$82, ix, iy, _$dq, _$cM, g, _$7Y) {
     }
     if (this._$i9) {
         this._$hj.fillStyle = 'ActiveCaption';
-        if (widgetDockController.browserType == 4) {
+        if (widgetDockController.browserType == browserType.Opera) {
             this._$hj.fillStyle = '#d0d0d0';
         }
         this._$hj.fillRect(ix, iy, _$dq, _$cM);
     } else {
         this._$hj.fillStyle = 'InactiveCaption';
-        if (widgetDockController.browserType == 4) {
+        if (widgetDockController.browserType == browserType.Opera) {
             this._$hj.fillStyle = '#d0d0d0';
         }
         this._$hj.fillRect(ix, iy, _$dq, _$cM);
@@ -7097,7 +7111,7 @@ _$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
         if (this._$hj != null) {
             this._$hj.font = this._$bS();
             this._$hj.fillStyle = 'buttonText';
-            if (widgetDockController.browserType == 4) {
+            if (widgetDockController.browserType == browserType.Opera) {
                 this._$hj.fillStyle = 'black';
             }
             this._$hj.fillText(_$rX, 2, _$gP + 4);
@@ -7244,7 +7258,7 @@ _$1l.prototype._$aE = function (_$cS, _$do, _$dq, _$cM, _$gf) {
     _$m8._$1q(_$cS, _$do + _$el - 1, _$cS + _$el - 1, _$do + _$el - 1, this._$hj);
     _$m8._$1q(_$cS + _$el - 1, _$do, _$cS + _$el - 1, _$do + _$el - 1, this._$hj);
     this._$hj.fillStyle = 'ButtonFace';
-    if (widgetDockController.browserType == 4) {
+    if (widgetDockController.browserType == browserType.Opera) {
         this._$hj.fillStyle = 'white';
     }
     this._$hj.fillRect(_$cS + 1, _$do + 1, _$el - 3, _$el - 3);
@@ -7316,7 +7330,7 @@ _$G._$13 = function (e) {
     return false;
 };
 _$G._$4h = function (e) {
-    if (widgetDockController.browserType == 1) {
+    if (widgetDockController.browserType == browserType.Firefox) {
         e.target._$4u._$mw(e);
     } else {
         if (e == null || e == undefined) {
@@ -7327,13 +7341,13 @@ _$G._$4h = function (e) {
     return false;
 };
 _$G._$4g = function (e) {
-    if (widgetDockController.browserType == 1) {
-        e.target._$4u._$mu(e);
+    if (widgetDockController.browserType == browserType.Firefox) {
+        e.target._$4u.mouseMove(e);
     } else {
         if (e == null || e == undefined) {
             e = window.event;
         }
-        e.srcElement._$4u._$mu(e);
+        e.srcElement._$4u.mouseMove(e);
     }
 };
 _$G._$mh = function (e) {
@@ -7363,7 +7377,7 @@ _$G.prototype._$5Q = function (_$al, _$cS, _$do, _$dq, _$cM) {
         }
     }
 };
-_$G.prototype._$mu = function (e) {
+_$G.prototype.mouseMove = function (e) {
     if (this._$iO) this._$ms(e); else {
         if (this._$0i(e) >= 0) {
             this._$h8.style.cursor = "move";
@@ -7379,7 +7393,7 @@ _$G.prototype._$mw = function (e) {
     this._$5e(e);
     return false;
 };
-_$G.prototype._$mx = function (e) {
+_$G.prototype.mouseUp = function (e) {
     if (!this._$fT()) return;
     if (!this._$iO) return;
     widgetDockController._$6s(false);
@@ -8564,7 +8578,7 @@ _$1e.prototype.add = function (s, _$a0) {
 _$1e.prototype.addContentDiv = function (_$a0, _$a8) {
     this._$hg = _$a0;
     _$a0.style.position = "absolute";
-    if (widgetDockController.browserType == 0 && widgetDockController._$jK <= 7) {
+    if (widgetDockController.browserType == browserType.IE && widgetDockController._$jK <= 7) {
         this.hasOutIFrame();
         return;
     }
@@ -10672,14 +10686,14 @@ function widgetDockWindow(_$np, title) {
 };
 _$b1._$b0(widgetDockWindow, _$1e);
 widgetDockWindow._$hK = null;
-widgetDockWindow.prototype._$mu = function (e) {
+widgetDockWindow.prototype.mouseMove = function (e) {
     if (widgetDockWindow._$hK != null) {
         widgetDockWindow._$hK._$ms(e);
     } else {
         this._$nN._$0a(e);
     }
 };
-widgetDockWindow.prototype._$mr = function (e) {
+widgetDockWindow.prototype.mouseDown = function (e) {
     this._$nN._$09(e);
     var pt = new Align();
     _$m8._$2D(e, pt);
@@ -10702,9 +10716,9 @@ widgetDockWindow.prototype._$mr = function (e) {
         }
     }
 };
-widgetDockWindow.prototype._$mx = function (e) {
+widgetDockWindow.prototype.mouseUp = function (e) {
     if (widgetDockWindow._$hK != null) {
-        widgetDockWindow._$hK._$mx(e);
+        widgetDockWindow._$hK.mouseUp(e);
         widgetDockWindow._$hK = null;
     }
 };
@@ -11104,7 +11118,7 @@ _$58._$in = false;
 _$58._$h6 = null;
 _$58._$lu = new Align();
 _$58._$2V = 24;
-_$58.prototype._$mu = function (e) {
+_$58.prototype.mouseMove = function (e) {
     var pt = new Align();
     _$m8._$2D(e, pt);
     this._$4Q(pt);
@@ -11376,7 +11390,7 @@ _$58.prototype._$4S = function () {
             _$ep = rc.top + (rc.bottom - rc.top - _$O._$jL) / 2;
             this._$hj.font = this._$bS();
             this._$hj.fillStyle = 'menuText';
-            if (widgetDockController.browserType == 4) {
+            if (widgetDockController.browserType == browserType.Opera) {
                 this._$hj.fillStyle = 'black';
             }
             this._$hj.fillText(_$pE._$qV, rc.left, (rc.bottom - rc.top) / 2 + rc.top + 4);
@@ -11410,7 +11424,7 @@ _$58.prototype._$4S = function () {
             _$ep = rc.right - _$O._$jL;
             this._$hj.font = this._$bS();
             this._$hj.fillStyle = 'menuText';
-            if (widgetDockController.browserType == 4) {
+            if (widgetDockController.browserType == browserType.Opera) {
                 this._$hj.fillStyle = 'black';
             }
             this._$hj.fillText(_$pE._$qV, rc.left, (rc.bottom - rc.top) / 2 + rc.top + 4);
