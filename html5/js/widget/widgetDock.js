@@ -1901,7 +1901,7 @@ _$E.prototype._$0c = function (_$88) {
     if (this._$hA == null) {
         var _$t5 = "div";
         if (widgetDockController._$iT) _$t5 = "canvas";
-        this._$hA = _$m8._$0z(_$t5, widgetDockController._$hv);
+        this._$hA = _$m8._$0z(_$t5, widgetDockController.rootDivId);
         this._$hA.style.border = "0px solid";
         this._$hA.style.zIndex = 7890;
     }
@@ -2651,7 +2651,7 @@ _$E.prototype._$7r = function (_$a0, _$a8) {
     if (widgetDockController._$ji == 0 && widgetDockController._$jK <= 7) {
         this._$iZ = true;
     } else if ((!widgetDockController._$iu) && _$a0 instanceof HTMLIFrameElement) {
-        if (widgetDockController._$06(_$a0.id)) {
+        if (widgetDockController._$06(_$a0.rootDivId)) {
             this._$iZ = true;
         }
     }
@@ -3372,10 +3372,10 @@ function _$N() {
     this._$hH = null;
     this._$hj = null;
     if (widgetDockController._$iT) {
-        this._$h8 = _$m8._$0z("canvas", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
     } else {
-        this._$h8 = _$m8._$0z("div", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("div", widgetDockController.rootDivId);
         this._$h8.style.border = "1px solid";
     }
     _$m8._$6n(this._$h8, this._$km, this._$km);
@@ -3593,7 +3593,7 @@ _$N.prototype._$1x = function () {
 _$N.prototype._$ap = function () {
     this._$kG._$5E(this);
     if (this._$h8 != null) {
-        _$m8._$5I(widgetDockController._$hv, this._$h8);
+        _$m8._$5I(widgetDockController.rootDivId, this._$h8);
     }
     this._$h8 = null;
 };
@@ -4271,10 +4271,10 @@ function _$6R() {
     this._$ke = null;
     this._$hi = null;
     if (widgetDockController._$iT) {
-        this._$h8 = _$m8._$0z("canvas", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
     } else {
-        this._$h8 = _$m8._$0z("div", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("div", widgetDockController.rootDivId);
     }
     this._$3I();
     this._$h8.style.backgroundColor = 'ButtonFace';
@@ -5740,7 +5740,7 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
 };
 _$K.prototype._$l = function (_$mO) {
     if (!this._$4s(_$mO, true)) {
-        if (this._$hC[1] != null) _$m8._$5I(widgetDockController._$hv, this._$hC[1]);
+        if (this._$hC[1] != null) _$m8._$5I(widgetDockController.rootDivId, this._$hC[1]);
         this._$qF(this._$hC[1]);
         this._$5E(this._$kX);
     }
@@ -6185,7 +6185,7 @@ _$J.prototype._$n = function (_$b9) {
     }
     if (this._$he == null || (this._$he != null && !this._$fT())) {
         if (this._$kV == null) this._$kV = _$b9._$kH;
-        this._$0v(widgetDockController._$hv);
+        this._$0v(widgetDockController.rootDivId);
         _$8q = true;
         this._$74();
     }
@@ -6233,14 +6233,14 @@ _$J.prototype._$6p = function (_$cS, _$do, _$dq, _$cM) {
     this._$mC(_$cS + this._$jF[0], _$do, _$dq - this._$jF[0] - this._$jF[2], _$cM);
 };
 _$J.prototype._$10 = function () {
-    _$m8._$5I(widgetDockController._$hv, this._$he);
+    _$m8._$5I(widgetDockController.rootDivId, this._$he);
     this._$he = null;
     this._$kF._$mm(this);
     var cnt = this._$ha.length;
     var i;
     for (i = 0; i < cnt; i++) {
         if ((this._$ha[i] instanceof _$N) || (this._$ha[i] instanceof _$1l)) {
-            _$m8._$5I(widgetDockController._$hv, this._$ha[i]._$h8);
+            _$m8._$5I(widgetDockController.rootDivId, this._$ha[i]._$h8);
         }
     }
     this._$hC[1] = null;
@@ -6314,7 +6314,7 @@ widgetDockController._$iU = true;
 widgetDockController._$0R = 0;
 widgetDockController._$0T = 1;
 widgetDockController._$0S = 2;
-widgetDockController._$hv = "";
+widgetDockController.rootDivId = "";
 widgetDockController._$ji = 0;
 widgetDockController._$iT = true;
 widgetDockController._$3s = 0;
@@ -6327,7 +6327,7 @@ widgetDockController.fixedTop = 1;
 widgetDockController.fixedRight = 2;
 widgetDockController.fixedBottom = 3;
 widgetDockController.fixedCenter = 4;
-widgetDockController._$j9 = null;
+widgetDockController.controller = null;
 widgetDockController._$kZ = null;
 
 function _$7j(e) {
@@ -6415,28 +6415,28 @@ widgetDockController.prototype.addFixedPanel = function (_$sP, _$ti) {
 };
 
 widgetDockController.createWidgetDock = function () {
-    if (widgetDockController._$j9 != null) return widgetDockController._$j9;
-    widgetDockController._$j9 = new widgetDockController();
-    var _$sD = navigator.userAgent;
-    var _$t4 = document.createElement("div");
-    document.body.appendChild(_$t4);
-    _$t4.id = "dsx_dummyid";
-    if (_$sD.indexOf("Firefox") != "-1") widgetDockController._$ji = 1;
-    if (_$sD.indexOf("MSIE") != "-1") {
+    if (widgetDockController.controller != null) return widgetDockController.controller;
+    widgetDockController.controller = new widgetDockController();
+    var userAgent = navigator.userAgent;
+    var div = document.createElement("div");
+    document.body.appendChild(div);
+    div.rootDivId = "widgetDock";
+    if (userAgent.indexOf("Firefox") != "-1") widgetDockController._$ji = 1;
+    if (userAgent.indexOf("MSIE") != "-1") {
         widgetDockController._$ji = 0;
         widgetDockController._$jK = 9;
-        var k = _$sD.indexOf("MSIE") + 4;
-        var _$rY = _$sD.slice(k, _$sD.length);
+        var k = userAgent.indexOf("MSIE") + 4;
+        var _$rY = userAgent.slice(k, userAgent.length);
         k = _$rY.indexOf(".");
         if (k >= 0) {
             _$rY = _$rY.substr(0, k);
             widgetDockController._$jK = parseInt(_$rY);
         }
     }
-    if (_$sD.indexOf("Chrome") != "-1") widgetDockController._$ji = 2; else if (_$sD.indexOf("Safari") != "-1") widgetDockController._$ji = 3; else if (_$sD.indexOf("Opera") != "-1") {
-        widgetDockController._$ji = 4;
-    }
-    widgetDockController._$hv = _$t4.id;
+    if (userAgent.indexOf("Chrome") != "-1") widgetDockController._$ji = 2;
+    else if (userAgent.indexOf("Safari") != "-1") widgetDockController._$ji = 3;
+    else if (userAgent.indexOf("Opera") != "-1") widgetDockController._$ji = 4;
+    widgetDockController.rootDivId = div.rootDivId;
     widgetDockController._$mb();
     if (widgetDockController._$kZ == null) {
         widgetDockController._$kZ = new _$1b(null, "MyWindow");
@@ -6474,7 +6474,7 @@ widgetDockController.createWidgetDock = function () {
             }
         }
     }
-    return widgetDockController._$j9;
+    return widgetDockController.controller;
 };
 widgetDockController._$06 = function (fID) {
     var va = widgetDockController._$kN;
@@ -6489,7 +6489,7 @@ widgetDockController._$06 = function (fID) {
     return false;
 };
 widgetDockController.initIFrame = function (fID) {
-    if (widgetDockController._$j9 == null) widgetDockController.createWidgetDock();
+    if (widgetDockController.controller == null) widgetDockController.createWidgetDock();
     var vf = document.getElementById(fID);
     try {
         vf.contentWindow.document._$m7 = vf;
@@ -6578,10 +6578,10 @@ function _$1l() {
     this._$hb = null;
     this._$hj = null;
     if (widgetDockController._$iT) {
-        this._$h8 = _$m8._$0z("canvas", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
     } else {
-        this._$h8 = _$m8._$0z("div", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("div", widgetDockController.rootDivId);
         this._$h8.style.background = 'ButtonFace';
         this._$h9 = _$m8._$0t("div", this._$h8);
         this._$h9.style.font = this._$hB;
@@ -7285,11 +7285,11 @@ function _$G() {
     this._$hj = null;
     this._$bi = null;
     if (widgetDockController._$iT) {
-        this._$h8 = _$m8._$0z("canvas", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
         this._$h8.style.backgroundColor = 'ButtonFace';
     } else {
-        this._$h8 = _$m8._$0z("div", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("div", widgetDockController.rootDivId);
         this._$h8.style.backgroundColor = 'ActiveCaption';
         this._$h8.style.border = "0px solid";
         this._$hI = _$m8._$0t("div", this._$h8);
@@ -7460,7 +7460,7 @@ _$G.prototype._$5K = function (_$mO) {
         }
         this._$i6.splice(0, this._$i6.length);
         this.setVisible(false);
-        _$m8._$5I(widgetDockController._$hv, this._$h8);
+        _$m8._$5I(widgetDockController.rootDivId, this._$h8);
         if (_$gi == 0) return false;
     }
     this._$5z();
@@ -7837,11 +7837,11 @@ function _$6C(_$dn, _$b8) {
     this._$hj = null;
     this._$ig = false;
     if (widgetDockController._$iT) {
-        this._$h8 = _$m8._$0z("canvas", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("canvas", widgetDockController.rootDivId);
         this._$hj = this._$h8.getContext("2d");
         this._$h8.style.border = "0px solid";
     } else {
-        this._$h8 = _$m8._$0z("div", widgetDockController._$hv);
+        this._$h8 = _$m8._$0z("div", widgetDockController.rootDivId);
         this._$h8.style.border = "1px solid";
     }
     _$m8._$6i(this._$h8, _$b8._$l0._$jO);
@@ -8569,7 +8569,7 @@ _$1e.prototype.addContentDiv = function (_$a0, _$a8) {
         return;
     }
     if ((!widgetDockController._$iu) && _$a0 instanceof HTMLIFrameElement) {
-        if (widgetDockController._$06(_$a0.id)) {
+        if (widgetDockController._$06(_$a0.rootDivId)) {
             this.hasOutIFrame();
         }
     }
@@ -9878,7 +9878,7 @@ _$1e.prototype._$m6 = function (_$cS, _$do, _$dq, _$cM) {
     }
 };
 _$1e.prototype._$5D = function (p) {
-    _$m8._$5I(widgetDockController._$hv, p._$h8);
+    _$m8._$5I(widgetDockController.rootDivId, p._$h8);
 };
 _$1e.prototype._$m5 = function (_$cS, _$do, _$dq, _$cM) {
     _$1e._$hT._$r8(_$cS + _$1e._$1H, _$do, _$dq - (2 * _$1e._$1H), _$1e._$1H);
@@ -10641,7 +10641,7 @@ _$1e.prototype._$0c = function (_$88) {
     if (this._$hA == null) {
         var _$t5 = "div";
         if (widgetDockController._$iT) _$t5 = "div";
-        this._$hA = _$m8._$0z(_$t5, widgetDockController._$hv);
+        this._$hA = _$m8._$0z(_$t5, widgetDockController.rootDivId);
         this._$hA.style.border = "0px solid";
         this._$hA.style.zIndex = 7890;
     }
@@ -10712,7 +10712,7 @@ _$1b.prototype._$rv = function (sID) {
     var i;
     for (i = 0; i < ic; i++) {
         var _$sR = _$1e._$kw.panelList[i]._$hg;
-        if (_$sR != null && _$sR.id == sID) {
+        if (_$sR != null && _$sR.rootDivId == sID) {
             _$1e._$kw.panelList[i].hasOutIFrame(true);
             return true;
         }
@@ -11593,7 +11593,7 @@ function _$59() {
     this._$kx = null;
     this._$la = null;
     this._$lc = null;
-    this._$lc = new _$6A(widgetDockController._$hv);
+    this._$lc = new _$6A(widgetDockController.rootDivId);
     this._$lc._$l5 = this;
     this._$hu = new Date();
     this._$hk = this._$hu.getTime();
@@ -11652,7 +11652,7 @@ _$59.prototype._$au = function () {
     this._$kx._$39(false);
     this._$kx._$bf(false);
     this._$kx._$kH.Add(this._$kx);
-    _$m8._$5I(widgetDockController._$hv, this._$lc._$h8);
+    _$m8._$5I(widgetDockController.rootDivId, this._$lc._$h8);
 };
 _$59.prototype._$0a = function (e) {
     if (this._$iJ) return;

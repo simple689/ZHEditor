@@ -5,7 +5,7 @@ var panelFileEditor;
 var panelFileBrowser;
 var dockLayoutKey = "dockLayout";
 
-function initDock() {
+function initWidgetDock() {
     dock = widgetDockController.createWidgetDock();
     dock.addFixedPanel(document.getElementById("panelFixedCenter"), widgetDockController.fixedCenter);
     dock.addFixedPanel(document.getElementById("panelFixedTop"), widgetDockController.fixedTop);
