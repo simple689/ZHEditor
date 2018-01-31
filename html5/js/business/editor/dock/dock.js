@@ -11,16 +11,16 @@ function initWidgetDock() {
     dock.addFixedPanel(document.getElementById("panelFixedTop"), widgetDockController.fixedTop);
     dock.addFixedPanel(document.getElementById("panelFixedBottom"), widgetDockController.fixedBottom);
 
-    panelTest = dock.createDFPanel("测试");
+    panelTest = dock.createFloatPanel("测试");
     panelTest.addContentDiv(document.getElementById("panelTest"), 0);
 
-    panelView = dock.createDFPanel("视图");
+    panelView = dock.createFloatPanel("视图");
     panelView.addContentDiv(document.getElementById("panelView"), 0);
 
-    panelFileEditor = dock.createDFPanel("文件编辑");
+    panelFileEditor = dock.createFloatPanel("文件编辑");
     panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"), 0);
 
-    panelFileBrowser = dock.createDFPanel("文件浏览器");
+    panelFileBrowser = dock.createFloatPanel("文件浏览器");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
 
     initLayout();
