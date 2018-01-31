@@ -2651,7 +2651,7 @@ _$E.prototype._$7r = function (_$a0, _$a8) {
     if (widgetDockController._$ji == 0 && widgetDockController._$jK <= 7) {
         this._$iZ = true;
     } else if ((!widgetDockController._$iu) && _$a0 instanceof HTMLIFrameElement) {
-        if (widgetDockController._$06(_$a0.rootDivId)) {
+        if (widgetDockController._$06(_$a0.id)) {
             this._$iZ = true;
         }
     }
@@ -6420,7 +6420,7 @@ widgetDockController.createWidgetDock = function () {
     var userAgent = navigator.userAgent;
     var div = document.createElement("div");
     document.body.appendChild(div);
-    div.rootDivId = "widgetDock";
+    div.id = "widgetDock";
     if (userAgent.indexOf("Firefox") != "-1") widgetDockController._$ji = 1;
     if (userAgent.indexOf("MSIE") != "-1") {
         widgetDockController._$ji = 0;
@@ -6436,7 +6436,7 @@ widgetDockController.createWidgetDock = function () {
     if (userAgent.indexOf("Chrome") != "-1") widgetDockController._$ji = 2;
     else if (userAgent.indexOf("Safari") != "-1") widgetDockController._$ji = 3;
     else if (userAgent.indexOf("Opera") != "-1") widgetDockController._$ji = 4;
-    widgetDockController.rootDivId = div.rootDivId;
+    widgetDockController.rootDivId = div.id;
     widgetDockController._$mb();
     if (widgetDockController._$kZ == null) {
         widgetDockController._$kZ = new _$1b(null, "MyWindow");
@@ -8569,7 +8569,7 @@ _$1e.prototype.addContentDiv = function (_$a0, _$a8) {
         return;
     }
     if ((!widgetDockController._$iu) && _$a0 instanceof HTMLIFrameElement) {
-        if (widgetDockController._$06(_$a0.rootDivId)) {
+        if (widgetDockController._$06(_$a0.id)) {
             this.hasOutIFrame();
         }
     }
@@ -10712,7 +10712,7 @@ _$1b.prototype._$rv = function (sID) {
     var i;
     for (i = 0; i < ic; i++) {
         var _$sR = _$1e._$kw.panelList[i]._$hg;
-        if (_$sR != null && _$sR.rootDivId == sID) {
+        if (_$sR != null && _$sR.id == sID) {
             _$1e._$kw.panelList[i].hasOutIFrame(true);
             return true;
         }
