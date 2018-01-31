@@ -178,17 +178,18 @@ _$m8._$6n = function (_$sF, _$dq, _$cM) {
         _$sF.style.height = _$cM + "px";
     }
 };
-_$m8._$6e = function (_$sG, _$cS, _$do, _$dq, _$cM) {
-    if (isNaN(_$cM)) return;
+
+_$m8._$6e = function (element, left, top, width, height) {
+    if (isNaN(height)) return;
     if (widgetDockController.browserType == 1 || widgetDockController.browserType == 2) {
-        _$sG.style.left = _$cS + "px";
-        _$sG.style.top = _$do + "px";
+        element.style.left = left + "px";
+        element.style.top = top + "px";
     } else {
-        _$sG.style.pixelLeft = _$cS;
-        _$sG.style.pixelTop = _$do;
+        element.style.pixelLeft = left;
+        element.style.pixelTop = top;
     }
-    _$sG.style.width = _$dq + "px";
-    _$sG.style.height = _$cM + "px";
+    element.style.width = width + "px";
+    element.style.height = height + "px";
 };
 _$m8._$4r = function (_$sF) {
     _$sF.style.zIndex = _$m8._$ku;
@@ -1107,8 +1108,8 @@ function _$E(_$7R) {
         this._$hC[k] = null;
     }
     this._$lz = new Rect();
-    this._$jo = 0;
-    this._$jn = 0;
+    this.width = 0;
+    this.height = 0;
     this._$ii = _$7R;
     _$E._$6l(this._$lz);
     this._$jg = null;
@@ -1154,8 +1155,8 @@ _$E._$l2 = null;
 _$E._$k1 = 0;
 _$E._$ib = true;
 _$E.prototype._$3z = function () {
-    this._$jo = 0;
-    this._$jn = 0;
+    this.width = 0;
+    this.height = 0;
     this._$lz.left = -4000;
     this._$lz.right = -4000;
     this._$iW = false;
@@ -1266,9 +1267,10 @@ _$E.prototype._$4a = function (_$mS, _$mO) {
     }
     return false;
 };
-_$E.prototype._$6f = function (_$dn, _$a0, _$cS, _$do, _$dq, _$cM) {
-    this._$hC[_$dn] = _$a0;
-    _$m8._$6e(_$a0, _$cS, _$do, _$dq, _$cM);
+
+_$E.prototype._$6f = function (_$dn, element, left, top, width, height) {
+    this._$hC[_$dn] = element;
+    _$m8._$6e(element, left, top, width, height);
     this._$5z();
 };
 _$E.prototype._$01 = function () {
@@ -1310,26 +1312,26 @@ _$E.prototype._$6E = function (_$9f, _$cB, _$cQ, _$d8) {
         }
     }
 };
-_$E.prototype._$6h = function (iw, ih) {
-    this._$jo = iw;
-    this._$jn = ih;
+_$E.prototype.setSize = function (iw, ih) {
+    this.width = iw;
+    this.height = ih;
 };
 _$E.prototype._$mB = function (iw, ih) {
-    var _$gK, _$el;
-    _$el = ih;
-    _$gK = iw;
-    if ((this._$jo == 0) && (this._$jn == 0)) {
-        this._$jo = _$gK;
-        this._$jn = _$el;
+    var width, height;
+    height = ih;
+    width = iw;
+    if ((this.width == 0) && (this.height == 0)) {
+        this.width = width;
+        this.height = height;
         return 1;
     }
-    if (this._$jo != _$gK) {
-        this._$4n(_$E._$3l, 0, this._$jo - _$gK);
+    if (this.width != width) {
+        this._$4n(_$E._$3l, 0, this.width - width);
         this._$6x(_$E._$3m, -32767, 32767);
         this._$6x(_$E._$3j, -32767, 32767);
     }
-    if (this._$jn != _$el) {
-        this._$4n(_$E._$3j, 0, this._$jn - _$el);
+    if (this.height != height) {
+        this._$4n(_$E._$3j, 0, this.height - height);
         this._$6x(_$E._$3k, -32767, 32767);
         this._$6x(_$E._$3l, -32767, 32767);
     }
@@ -1350,8 +1352,8 @@ _$E.prototype._$mB = function (iw, ih) {
         _$qu.top += _$ev[0];
         _$qu.bottom += _$fM[0];
     }
-    this._$jo = _$gK;
-    this._$jn = _$el;
+    this.width = width;
+    this.height = height;
     this._$lz.setRect(_$qu);
     if (this._$jg != null) {
         var _$sY = this._$jg;
@@ -1595,7 +1597,7 @@ _$E.prototype._$19 = function (_$mS, _$99, _$9e) {
 _$E.prototype._$4m = function (_$ps, _$99, _$9e, _$7Q, _$d2, _$d0, _$mS, _$83) {
     {
         var _$qb = new Rect();
-        this._$27(_$qb);
+        this.getWindowRect(_$qb);
         var ilt, irb;
         var ior;
         var _$oB = null;
@@ -1653,9 +1655,9 @@ _$E.prototype._$4m = function (_$ps, _$99, _$9e, _$7Q, _$d2, _$d0, _$mS, _$83) {
             return;
         }
         if (this._$lz.right == -4000 && this._$lz.left == -4000) {
-            this._$27(this._$lz);
-            this._$jo = this._$lz.right - this._$lz.left;
-            this._$jn = this._$lz.bottom - this._$lz.top;
+            this.getWindowRect(this._$lz);
+            this.width = this._$lz.right - this._$lz.left;
+            this.height = this._$lz.bottom - this._$lz.top;
         }
         var _$fJ;
         var _$ev = new Array(1);
@@ -2020,7 +2022,7 @@ _$E.prototype._$4o = function (_$99, _$dg, _$cG, _$cY) {
 _$E.prototype._$2K = function (_$99, _$9a) {
     var _$ex;
     var _$qb = new Rect();
-    this._$27(_$qb);
+    this.getWindowRect(_$qb);
     if (_$9a == _$E._$3S) _$ex = _$qb.right - this._$jF[2]; else if (_$9a == _$E._$5k) _$ex = _$qb.left + this._$jF[0]; else if (_$9a == _$E._$6M) _$ex = _$qb.bottom - this._$jF[3]; else _$ex = _$qb.top + this._$jF[1];
     var _$ps;
     var _$q7 = new Rect();
@@ -2117,7 +2119,7 @@ _$E.prototype._$6v = function (_$mS, _$q1, _$9c) {
 _$E._$5y = function (_$cm, _$q6) {
     _$E._$6o(_$cm, null, _$q6.left, _$q6.top, _$E._$2A(_$q6), _$E._$2z(_$q6), 0);
 };
-_$E.prototype._$27 = function (_$qb) {
+_$E.prototype.getWindowRect = function (rect) {
     if (!this._$iW) {
         this._$iW = true;
     }
@@ -2133,10 +2135,10 @@ _$E.prototype._$27 = function (_$qb) {
         iw = document.body.clientWidth;
         ih = document.body.clientHeight;
     }
-    _$qb.right = iw;
-    _$qb.left = 0;
-    _$qb.bottom = ih;
-    _$qb.top = 0;
+    rect.right = iw;
+    rect.left = 0;
+    rect.bottom = ih;
+    rect.top = 0;
 };
 _$E.prototype._$5p = function (_$ps, _$dg, _$99, _$dX) {
     if (_$dX != 0) {
@@ -2178,7 +2180,7 @@ _$E.prototype._$6x = function (_$99, _$cT, _$cU) {
     var _$qb = new Rect();
     var _$qt = new Rect();
     var _$9p = 0;
-    this._$27(_$qb);
+    this.getWindowRect(_$qb);
     var i;
     for (i = 0; i < this._$lj[_$99]._$hx._$28(); i++) {
         _$ps = this._$lj[_$99]._$hx.panelList[i];
@@ -2305,7 +2307,7 @@ _$E.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, _$pC) {
 _$E.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     if (!this._$is) return 0xff;
     var _$qf = new Rect();
-    this._$27(_$qf);
+    this.getWindowRect(_$qf);
     _$qf.right = _$qf.right - _$qf.top;
     _$qf.bottom = _$qf.bottom - _$qf.top;
     _$qf.left = 0;
@@ -2655,38 +2657,38 @@ _$E.prototype.addFixedPanel = function (element, type) {
             this._$iZ = true;
         }
     }
-    var _$eu, _$gC, _$gK, _$el;
+    var _$eu, _$gC, width, height;
     var rc = new Rect();
-    this._$27(rc);
+    this.getWindowRect(rc);
     if (type == _$E._$3o) {
         this._$rb(element);
         return;
     } else if (type == _$E._$3p) {
         _$eu = 0;
         _$gC = this._$jF[1];
-        _$el = rc.bottom - rc.top - (this._$jF[1] + this._$jF[3]);
-        _$gK = element.style.width;
-        _$gK = parseInt(_$gK, "px");
-        this._$6f(0, element, _$eu, _$gC, _$gK, _$el);
+        height = rc.bottom - rc.top - (this._$jF[1] + this._$jF[3]);
+        width = element.style.width;
+        width = parseInt(width, "px");
+        this._$6f(0, element, _$eu, _$gC, width, height);
     } else if (type == _$E._$3q) {
-        _$gK = element.style.width;
-        _$gK = parseInt(_$gK, "px");
-        _$eu = this._$lz.right - _$gK;
-        this._$6f(2, element, _$eu, this._$jF[1], _$gK, rc.bottom - rc.top - this._$jF[1] - this._$jF[3]);
+        width = element.style.width;
+        width = parseInt(width, "px");
+        _$eu = this._$lz.right - width;
+        this._$6f(2, element, _$eu, this._$jF[1], width, rc.bottom - rc.top - this._$jF[1] - this._$jF[3]);
     } else if (type == _$E._$3r) {
-        _$el = element.style.height;
-        _$el = parseInt(_$el, "px");
-        this._$6f(1, element, 0, 0, rc.right - rc.left, _$el);
+        height = element.style.height;
+        height = parseInt(height, "px");
+        this._$6f(1, element, 0, 0, rc.right - rc.left, height);
     } else if (type == _$E._$3n) {
-        _$el = element.style.height;
-        _$el = parseInt(_$el, "px");
-        this._$6f(3, element, 0, rc.bottom - rc.top - _$el, rc.right - rc.left, _$el);
+        height = element.style.height;
+        height = parseInt(height, "px");
+        this._$6f(3, element, 0, rc.bottom - rc.top - height, rc.right - rc.left, height);
         if (this._$hC[_$E._$3p] != null) {
             var _$sQ = this._$hC[_$E._$3p];
             var left = _$m8._$2k(_$sQ);
             var top = _$m8._$2M(_$sQ);
             var width = parseInt(_$sQ.style.width, "px");
-            var height = parseInt(_$sQ.style.height, "px") - _$el;
+            var height = parseInt(_$sQ.style.height, "px") - height;
             _$m8._$6e(_$sQ, left, top, width, height);
         }
         if (this._$hC[_$E._$3q] != null) {
@@ -2694,7 +2696,7 @@ _$E.prototype.addFixedPanel = function (element, type) {
             var left = _$m8._$2k(_$sQ);
             var top = _$m8._$2M(_$sQ);
             var width = parseInt(_$sQ.style.width, "px");
-            var height = parseInt(_$sQ.style.height, "px") - _$el;
+            var height = parseInt(_$sQ.style.height, "px") - height;
             _$m8._$6e(_$sQ, left, top, width, height);
         }
     }
@@ -5656,7 +5658,7 @@ _$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     _$nz.cx = _$gK;
     _$nz.cy = _$el;
     if (!this._$1h(_$mX, _$nz, _$gK, _$el, _$qe, _$pC)) return _$mX._$j1;
-    this._$27(_$qf);
+    this.getWindowRect(_$qf);
     _$qf.left += this._$jF[0];
     _$qf.right -= this._$jF[2];
     _$qf.top += this._$jF[1];
@@ -6058,7 +6060,7 @@ function _$J(_$7R) {
     this._$kS;
     this._$kF = null;
 };_$b1._$b0(_$J, _$K);
-_$J.prototype._$27 = function (_$qb) {
+_$J.prototype.getWindowRect = function (_$qb) {
     if (this._$he != null) {
         _$qb.left = _$m8._$2k(this._$he);
         _$qb.top = _$m8._$2M(this._$he);
@@ -8437,7 +8439,7 @@ _$1e.prototype._$R = function (_$pC, _$99, _$nz) {
     if (!this._$S() || _$1e._$jy != _$1e._$0W) {
         this._$25(this._$lf._$lC);
     } else {
-        this._$kB._$27(this._$lf._$lC);
+        this._$kB.getWindowRect(this._$lf._$lC);
     }
     var _$og = null;
     var _$oh = null;
@@ -8451,7 +8453,7 @@ _$1e.prototype._$R = function (_$pC, _$99, _$nz) {
         var pmi;
         if (this._$jw == _$1e._$4W) pmi = _$oh[i]; else pmi = _$6B._$kL[i]._$hJ;
         if (pmi._$bG() == null) continue;
-        pmi._$27(_$qj);
+        pmi.getWindowRect(_$qj);
         _$8R = false;
         if (!pmi._$it) {
             _$8R = _$E._$5f(_$qj, _$pC);
@@ -8886,7 +8888,7 @@ _$1e.prototype._$5d = function () {
                 _$39(true);
                 _$kH._$1(this);
                 if (_$l7 != null && !_$l7._$ii) {
-                    this._$kW._$27(rc);
+                    this._$kW.getWindowRect(rc);
                     _$lt.x = rc.left;
                     _$lt.y = rc.top;
                 }
@@ -8987,7 +8989,7 @@ _$1e.prototype._$sa = function (_$pD) {
         }
         {
             if (this._$kB != null) {
-                this._$kB._$27(this._$lx);
+                this._$kB.getWindowRect(this._$lx);
             }
             this._$lK.cx = _$E._$2A(this._$lx);
             this._$lK.cy = _$E._$2z(this._$lx);
@@ -9115,7 +9117,7 @@ _$1e.prototype._$4i = function (pt) {
                     if (_$pY != null) {
                         rca.setRect(_$pY.rect);
                     } else {
-                        this._$lf._$kM._$27(rca);
+                        this._$lf._$kM.getWindowRect(rca);
                         rca.left += this._$lf._$kM._$jF[0];
                         rca.right -= this._$lf._$kM._$jF[2];
                         rca.top += this._$lf._$kM._$jF[1];
@@ -10607,24 +10609,25 @@ _$1e.prototype._$6i = function (_$cR) {
 };
 _$1e.prototype._$qK = function () {
     if (this._$hy == null) return;
-    var _$t0, _$t1, _$t2, _$sZ;
+    var left, top, width, height;
     var _$tj = this._$hy._$c6();
     if (this._$jz == _$1e._$6K) {
-        _$t0 = this._$hr;
-        _$t1 = this._$hs + _$tj.height;
-        _$t2 = this._$ht;
-        _$sZ = this._$hq - _$tj.height;
+        left = this._$hr;
+        top = this._$hs + _$tj.height;
+        width = this._$ht;
+        height = this._$hq - _$tj.height;
         var _$aC = _$tj.height;
         if (_$aC > this._$hq) _$aC = this._$hq;
         this._$hy._$6o(this._$hr, this._$hs, this._$ht, _$aC);
     }
     if (this._$hz != null) {
         this._$hz._$6o(this._$hr, this._$hs + this._$hq - _$G._$6J, this._$ht, _$G._$6J);
-        _$sZ -= _$G._$6J;
+        height -= _$G._$6J;
     }
-    if (_$sZ < 0) _$sZ = 0;
-    if (_$t2 < 0) _$t2 = 0;
-    if (this._$hg != null) _$m8._$6e(this._$hg, _$t0, _$t1, _$t2, _$sZ);
+    if (height < 0) height = 0;
+    if (width < 0) width = 0;
+
+    if (this._$hg != null) _$m8._$6e(this._$hg, left, top, width, height);
     if (this._$hz != null && this._$hz._$bj == this) {
         this._$hz._$5Q(this, this._$hr, this._$hs, this._$ht, this._$hq);
     }
@@ -10747,7 +10750,7 @@ widgetDockWindow.prototype._$0g = function () {
     this._$nN._$3z();
     var vrc = new Rect();
     this.getWindowRect(vrc);
-    this._$nN._$6h(vrc.right - vrc.left, vrc.bottom - vrc.top);
+    this._$nN.setSize(vrc.right - vrc.left, vrc.bottom - vrc.top);
     this._$my(null);
 };
 widgetDockWindow.prototype._$2i = function () {
@@ -10774,11 +10777,12 @@ widgetDockWindow.prototype.getWindowRect = function (rc) {
 
 function _$7g() {
     _$t9._$my();
-};widgetDockWindow.prototype._$3C = function () {
+};
+widgetDockWindow.prototype._$3C = function () {
     window.onresize = _$7g;
-    var vrc = new Rect();
-    this.getWindowRect(vrc);
-    this._$nN._$6h(vrc.right - vrc.left, vrc.bottom - vrc.top);
+    var rect = new Rect();
+    this.getWindowRect(rect);
+    this._$nN.setSize(rect.right - rect.left, rect.bottom - rect.top);
     var i;
     for (i = 0; i < 4; i++) {
         this._$lm[i] = new _$5h();
@@ -10978,7 +10982,7 @@ widgetDockWindow.prototype.initLayout = function (layout) {
         _$g3 = this._$kL[i]._$lj[0]._$hx._$28();
         if (_$g3 == 1) {
             var _$og = this._$kL[i];
-            _$og._$27(rc);
+            _$og.getWindowRect(rc);
             layout.addContent(rc.left);
             layout.addContent(rc.top);
             layout.addContent(rc.right);
