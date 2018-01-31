@@ -3,12 +3,13 @@ var panelTest;
 var panelView;
 var panelFileEditor;
 var panelFileBrowser;
+var dockLayoutKey = "dockLayout";
 
 function initDock() {
-    dock = DSXDFUtil.createDSXDFUtil();
-    dock.addFixedPanel(document.getElementById("panelFixedCenter"), DSXDFUtil.fixedCenter);
-    dock.addFixedPanel(document.getElementById("panelFixedTop"), DSXDFUtil.fixedTop);
-    dock.addFixedPanel(document.getElementById("panelFixedBottom"), DSXDFUtil.fixedBottom);
+    dock = widgetDockController.createWidgetDock();
+    dock.addFixedPanel(document.getElementById("panelFixedCenter"), widgetDockController.fixedCenter);
+    dock.addFixedPanel(document.getElementById("panelFixedTop"), widgetDockController.fixedTop);
+    dock.addFixedPanel(document.getElementById("panelFixedBottom"), widgetDockController.fixedBottom);
 
     panelTest = dock.createDFPanel("测试");
     panelTest.addContentDiv(document.getElementById("panelTest"), 0);
@@ -23,6 +24,7 @@ function initDock() {
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
 
     initLayout();
+    loadLayout();
 }
 
 function initLayout() {
@@ -30,6 +32,21 @@ function initLayout() {
     panelFileBrowser.initLayout(0,0,300,300,DSXDFPanel.dockBottom);
     panelView.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
     panelFileEditor.initLayout(0,0,2000,2000,DSXDFPanel.dockLeft);
+}
+
+function loadLayout() {
+    // var dockLayoutStr = "a";
+    var sessionStorage = window['sessionStorage'];
+    if (sessionStorage != null) {
+        // sessionStorage.setItem(dockLayoutKey, dockLayoutStr);
+    }
+    dock.loadStatesFromKey(dockLayoutKey);
+}
+
+function saveLayout() {
+    dock.saveStatesIntoKey(dockLayoutKey);
+    // var sessionStorage = window['sessionStorage'];
+    // alert(sessionStorage.getItem(dockLayoutKey));
 }
 
 function setVisible(panel, sch) {
