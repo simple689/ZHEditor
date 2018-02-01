@@ -2,7 +2,6 @@ function Align() {
     this.x = 0;
     this.y = 0;
 };
-
 function Rect() {
     this.left = 0;
     this.top = 0;
@@ -15,17 +14,14 @@ Rect.prototype.setRect = function (_rect) {
     this.right = _rect.right;
     this.bottom = _rect.bottom;
 };
-
 function _$5Y() {
     this.cx = 0;
     this.cy = 0;
 };
-
 function Size() {
     this.width = 0;
     this.height = 0;
 };
-
 function AlignSize() {
     this.x = 0;
     this.y = 0;
