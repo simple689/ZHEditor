@@ -12,16 +12,16 @@ function initWidgetDock() {
     dock.addFixedPanel(document.getElementById("panelFixedBottom"), widgetDockController.fixedBottom);
 
     panelTest = dock.createFloatPanel("测试");
-    panelTest.addContentDiv(document.getElementById("panelTest"), 0);
+    panelTest.addElement(document.getElementById("panelTest"));
 
-    panelView = dock.createFloatPanel("视图");
-    panelView.addContentDiv(document.getElementById("panelView"), 0);
-
-    panelFileEditor = dock.createFloatPanel("文件编辑");
-    panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"), 0);
-
-    panelFileBrowser = dock.createFloatPanel("文件浏览器");
-    panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
+    // panelView = dock.createFloatPanel("视图");
+    // panelView.addElement(document.getElementById("panelView"));
+    //
+    // panelFileEditor = dock.createFloatPanel("文件编辑");
+    // panelFileEditor.addElement(document.getElementById("panelFileEditor"));
+    //
+    // panelFileBrowser = dock.createFloatPanel("文件浏览器");
+    // panelFileBrowser.addElement(document.getElementById("panelFileBrowser"));
 
     initLayout();
     loadLayout();
@@ -29,9 +29,9 @@ function initWidgetDock() {
 
 function initLayout() {
     panelTest.initLayout(0,0,300,300,DSXDFPanel.dockRight);
-    panelFileBrowser.initLayout(0,0,300,300,DSXDFPanel.dockBottom);
-    panelView.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
-    panelFileEditor.initLayout(0,0,2000,2000,DSXDFPanel.dockLeft);
+    // panelFileBrowser.initLayout(0,0,300,300,DSXDFPanel.dockBottom);
+    // panelView.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
+    // panelFileEditor.initLayout(0,0,2000,2000,DSXDFPanel.dockLeft);
 }
 
 function loadLayout() {
@@ -71,15 +71,15 @@ $(document).ready(function(){
     $('#panelTest').load("../panel/panelTest.html", function() {
         panelTestController.init();
     });
-    $('#panelView').load("../panel/panelView.html", function() {
-        panelViewController.init();
-    });
-    $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-        panelFileEditorController.init();
-    });
-    $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function() {
-        panelFileBrowserController.init();
-    });
+    // $('#panelView').load("../panel/panelView.html", function() {
+    //     panelViewController.init();
+    // });
+    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
+    //     panelFileEditorController.init();
+    // });
+    // $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function() {
+    //     panelFileBrowserController.init();
+    // });
 
     console.log("[dock] end");
 })
