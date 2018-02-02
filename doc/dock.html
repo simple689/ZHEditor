@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>编辑器</title>
+    <!-- [config] -->
+    <!--<link rel="manifest" href="../../../../config/site.webmanifest">-->
+    <!-- [css] util -->
+    <!-- [css] common -->
+    <link rel="stylesheet" href="../../../../css/common/base.css"/>
+    <!-- [css] widget -->
+    <link rel="stylesheet" href="../../../../css/widget/widgetDock.css"/>
+    <link rel="stylesheet" href="../../../../css/widget/widgetTab.css"/>
+    <link rel="stylesheet" href="../../../../css/widget/widgetDrop.css"/>
+    <!-- [css] business -->
+    <!-- [js] util -->
+    <script src="../../../../js/util/jquery.js"></script>
+    <!-- [js] common -->
+    <script src="../../../../js/common/log.js"></script>
+    <!-- [js] widget -->
+    <script src="../../../../js/widget/widgetDock.js"></script>
+    <script src="../../../../js/widget/widgetTab.js"></script>
+    <script src="../../../../js/widget/widgetDrop.js"></script>
+    <!-- [js] business -->
+    <script src="../../../../js/business/editor/dock/dock.js"></script>
+    <script src="../../../../js/business/editor/panel/panelMenu.js"></script>
+    <script src="../../../../js/business/editor/panel/panelToolBar.js"></script>
+    <script src="../../../../js/business/editor/panel/panelState.js"></script>
+    <script src="../../../../js/business/editor/panel/panelTest.js"></script>
+    <script src="../../../../js/business/editor/panel/panelView.js"></script>
+    <script src="../../../../js/business/editor/panel/panelFileEditor.js"></script>
+    <script src="../../../../js/business/editor/panel/panelFileBrowser.js"></script>
+</head>
+<body onload="initWidgetDock()" style="overflow: hidden;">
+<div class="panelFixed" id="panelFixedTop" style="height: 60px; position: absolute; left: 0px; top: 0px; width: 929px;">
+    <div id="panelMenu" style="height: 30px; background: #888888">
+        menu
+    </div>
+    <div id="panelToolBar">
+        <div style="height: 30px; background: #777777">
+            toolBar
+        </div>
+    </div>
+</div>
+<div class="panelFixed" id="panelFixedCenter"
+     style="position: absolute; left: 623px; top: 60px; width: 0px; height: 541px;"></div>
+<div class="panelFixed" id="panelFixedBottom"
+     style="height: 20px; position: absolute; left: 0px; top: 907px; width: 929px;">
+    <div style="height: 20px; background: #888888">
+        state
+    </div>
+</div>
+<div class="panelFloat" id="panelTest"
+     style="position: absolute; left: 629px; top: 78px; width: 300px; height: 829px; overflow: auto; visibility: visible; z-index: 2;">
+    <ul>
+        <li>
+            <div class="widgetDrop dropBox" id="widgetDrop_root"></div>
+        </li>
+        <li>
+            <div id="editBox"></div>
+            <button onclick="saveLayout()">saveLayout</button>
+        </li>
+    </ul>
+</div>
+<div class="panelFloat" id="panelView"
+     style="position: absolute; left: 0px; top: 78px; width: 600px; height: 523px; overflow: auto; visibility: visible; z-index: 2;">
+    view
+</div>
+<div class="panelFloat" id="panelFileEditor"
+     style="position: absolute; left: 606px; top: 78px; width: 11px; height: 523px; overflow: auto; visibility: visible; z-index: 2;">
+    <div class="widgetDrop">
+        <figure class="widgetTab" id="widgetTab_root">
+            <ul class="widgetTabTitleGroup" id="widgetTabTitleGroup_root">
+                <li class="widgetTabTitle isActive" id="widgetTabTitle_root">首页</li>
+            </ul>
+            <div class="widgetTabContentGroup" id="widgetTabContentGroup_root">
+                <div class="widgetTabContent" id="widgetTabContent_root" style="display: block;">
+                    <p>首页</p>
+                    <figure class="widgetTab" id="widgetTab_sub">
+                        <ul class="widgetTabTitleGroup" id="widgetTabTitleGroup_sub">
+                            <li class="widgetTabTitle isActive">222</li>
+                            <li class="widgetTabTitle">333</li>
+                        </ul>
+                        <div class="widgetTabContentGroup" id="widgetTabContentGroup_sub">
+                            <div class="widgetTabContent" style="display: block;">
+                                <p>222</p></div>
+                            <div class="widgetTabContent" style="display: none;">
+                                <p>333</p></div>
+                        </div>
+                    </figure>
+                </div>
+                <div class="widgetTabContent" style="display: none;">
+                    <p>111</p></div>
+            </div>
+        </figure>
+    </div>
+</div>
+<div class="panelFloat" id="panelFileBrowser"
+     style="position: absolute; left: 0px; top: 625px; width: 623px; height: 282px; overflow: auto; visibility: visible; z-index: 2;">
+    browser
+</div>
+<div id="widgetDock">
+    <canvas width="300" height="18"
+            style="position: absolute; left: 629px; top: 60px; visibility: visible; z-index: 2;"></canvas>
+    <canvas width="600" height="18"
+            style="position: absolute; left: 0px; top: 60px; visibility: visible; z-index: 2;"></canvas>
+    <canvas width="11" height="18"
+            style="position: absolute; left: 606px; top: 60px; visibility: visible; z-index: 2;"></canvas>
+    <canvas width="623" height="18"
+            style="position: absolute; left: 0px; top: 607px; visibility: visible; z-index: 2;"></canvas>
+    <canvas width="6" height="847"
+            style="position: absolute; left: 623px; top: 60px; visibility: visible; z-index: 3;"></canvas>
+    <canvas width="623" height="6"
+            style="position: absolute; left: 0px; top: 601px; visibility: visible; z-index: 3;"></canvas>
+    <canvas width="6" height="541"
+            style="position: absolute; left: 600px; top: 60px; visibility: visible; z-index: 3;"></canvas>
+    <canvas width="6" height="541"
+            style="position: absolute; left: 617px; top: 60px; visibility: visible; z-index: 3;"></canvas>
+</div>
+</body>
+</html>
