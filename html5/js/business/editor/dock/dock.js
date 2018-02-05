@@ -6,20 +6,19 @@ var panelFileBrowser;
 var dockLayoutKey = "dockLayout";
 
 function initWidgetDock() {
-    dock = widgetDockController.createWidgetDock();
-    dock.addFixedPanel(document.getElementById("panelFixedCenter"), widgetDockController.fixedCenter);
-    dock.addFixedPanel(document.getElementById("panelFixedTop"), widgetDockController.fixedTop);
-    dock.addFixedPanel(document.getElementById("panelFixedBottom"), widgetDockController.fixedBottom);
-
+    dock = WidgetDockController.init();
+    dock.addFixedPanel(document.getElementById("panelFixedCenter"), EnumFixedType.Center);
+    dock.addFixedPanel(document.getElementById("panelFixedTop"), EnumFixedType.Top);
+    dock.addFixedPanel(document.getElementById("panelFixedBottom"), EnumFixedType.Bottom);
     panelTest = dock.createFloatPanel("测试");
     panelTest.addContentDiv(document.getElementById("panelTest"), 0);
 
-    panelView = dock.createFloatPanel("视图");
-    panelView.addContentDiv(document.getElementById("panelView"), 0);
+    // panelView = dock.createFloatPanel("视图");
+    // panelView.addContentDiv(document.getElementById("panelView"), 0);
 
-    panelFileEditor = dock.createFloatPanel("文件编辑");
-    panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"), 0);
-
+    // panelFileEditor = dock.createFloatPanel("文件编辑");
+    // panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"), 0);
+    //
     panelFileBrowser = dock.createFloatPanel("文件浏览器");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
 
@@ -30,8 +29,8 @@ function initWidgetDock() {
 function initLayout() {
     panelTest.initLayout(0,0,300,300,DSXDFPanel.dockRight);
     panelFileBrowser.initLayout(0,0,300,300,DSXDFPanel.dockBottom);
-    panelView.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
-    panelFileEditor.initLayout(0,0,2000,2000,DSXDFPanel.dockLeft);
+    // panelView.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
+    // panelFileEditor.initLayout(0,0,2000,2000,DSXDFPanel.dockLeft);
 }
 
 function loadLayout() {
@@ -71,12 +70,12 @@ $(document).ready(function(){
     $('#panelTest').load("../panel/panelTest.html", function() {
         panelTestController.init();
     });
-    $('#panelView').load("../panel/panelView.html", function() {
-        panelViewController.init();
-    });
-    $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-        panelFileEditorController.init();
-    });
+    // $('#panelView').load("../panel/panelView.html", function() {
+    //     panelViewController.init();
+    // });
+    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
+    //     panelFileEditorController.init();
+    // });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function() {
         panelFileBrowserController.init();
     });
