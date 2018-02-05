@@ -7,39 +7,43 @@ var dockLayoutKey = "dockLayout";
 
 function initWidgetDock() {
     dock = WidgetDockController.init();
-    dock.addFixedPanel(document.getElementById("panelFixedCenter"), EnumFixedType.Center);
-    dock.addFixedPanel(document.getElementById("panelFixedTop"), EnumFixedType.Top);
-    dock.addFixedPanel(document.getElementById("panelFixedBottom"), EnumFixedType.Bottom);
+    dock.addFixedPanel(document.getElementById("panelFixedCenter"), EnumPanelPositionType.Center);
+    dock.addFixedPanel(document.getElementById("panelFixedTop"), EnumPanelPositionType.Top);
+    dock.addFixedPanel(document.getElementById("panelFixedBottom"), EnumPanelPositionType.Bottom);
     panelTest = dock.createFloatPanel("测试");
-    panelTest.addContentDiv(document.getElementById("panelTest"), 0);
+    panelTest.addContentDiv(document.getElementById("panelTest"));
 
     // panelView = dock.createFloatPanel("视图");
-    // panelView.addContentDiv(document.getElementById("panelView"), 0);
+    // panelView.addContentDiv(document.getElementById("panelView"));
 
     // panelFileEditor = dock.createFloatPanel("文件编辑");
-    // panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"), 0);
+    // panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"));
     //
     panelFileBrowser = dock.createFloatPanel("文件浏览器");
-    panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"), 0);
+    panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
 
-    initLayout();
     loadLayout();
 }
 
 function initLayout() {
-    panelTest.initLayout(0,0,300,300,DSXDFPanel.dockRight);
-    panelFileBrowser.initLayout(0,0,300,300,DSXDFPanel.dockBottom);
-    // panelView.initLayout(0,0,600,600,DSXDFPanel.dockLeft);
-    // panelFileEditor.initLayout(0,0,2000,2000,DSXDFPanel.dockLeft);
+    panelTest.initLayout(0,0,300,300,EnumPanelPositionType.Right);
+    panelFileBrowser.initLayout(0,0,300,300,EnumPanelPositionType.Bottom);
+    // panelView.initLayout(0,0,600,600,EnumPanelPositionType.Left);
+    // panelFileEditor.initLayout(0,0,2000,2000,EnumPanelPositionType.Left);
 }
 
 function loadLayout() {
-    // var dockLayoutStr = "a";
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
         // sessionStorage.setItem(dockLayoutKey, dockLayoutStr);
+        var item = sessionStorage.getItem(dockLayoutKey);
+        if (item != null) {
+            dock.loadStatesFromKey(dockLayoutKey);
+        } else {
+            initLayout();
+        }
     }
-    dock.loadStatesFromKey(dockLayoutKey);
+
 }
 
 function saveLayout() {
