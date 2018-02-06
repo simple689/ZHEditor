@@ -1,10 +1,3 @@
-function _$17() {
-};
-_$17.prototype._$2G = function (_$nz, _$dk, _$p8, _$8b) {
-};
-_$17.prototype._$67 = function (_$9g, _$nB, _$97) {
-};
-
 function _$5g() {
 };
 
@@ -5374,7 +5367,7 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
         if (_$ps._$le != null) {
             _$ps._$le.setSize(0, 0);
         }
-        var rc = new _$5g();
+        var rc = new WidgetDockRect();
         rc.left = _$eu;
         rc.top = _$gC;
         rc.right = _$eu + iw;
@@ -7552,8 +7545,6 @@ _$6C.prototype._$qJ = function () {
         }
     }
 };
-
-_$L.prototype = new _$17;
 
 function _$L() {
 };
