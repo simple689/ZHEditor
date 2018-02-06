@@ -37,11 +37,11 @@ function loadLayout() {
     if (sessionStorage != null) {
         // sessionStorage.setItem(dockLayoutKey, dockLayoutStr);
         var item = sessionStorage.getItem(dockLayoutKey);
-        if (item != null) {
-            dock.loadStatesFromKey(dockLayoutKey);
-        } else {
+        // if (item != null) {
+        //     dock.loadStatesFromKey(dockLayoutKey);
+        // } else {
             initLayout();
-        }
+        // }
     }
 
 }
