@@ -1,0 +1,44 @@
+WidgetDockController
+|—— _instance
+|—— _browserType
+|—— _elementRootId
+|—— _windowMain
+|—— mouseDown
+|—— mouseUp
+|—— mouseMove
+|—— _isHasCanvasContext
+|—— _dir
+|—— addFixedPanel -》 _windowMain.addFixedPanel
+			|—— _patternMain【WidgetDockPatternMain】【WidgetDockPatternBase】.addFixedPanel -》 Center -》 _elementWithCenter【真正的数据】
+													       Left -》 _elementWithType【真正的数据】
+													       Right -》 _elementWithType【真正的数据】
+													       Top -》 _elementWithType【真正的数据】
+													       Bottom -》 _elementWithType【真正的数据】
+|—— createFloatPanel -》 new WidgetDockFloatPanel -》 _floatPanelController.addFloatPanel -》 _floatPanelController._panelList【真正的数据】
+
+
+
+
+
+
+
+
+WidgetDockPatternMain
+
+WidgetDockPatternBase
+|—— _elementWithCenter【真正的数据】
+|—— _elementWithType【真正的数据】
+
+
+WidgetDockFloatPanel 
+|—— _windowMain
+|—— _title
+|—— _patternMain
+|—— _floatPanelController
+|—— addContentDiv -》 _element【真正的数据】
+|—— _element【真正的数据】
+|—— initLayout -》 _element【真正的数据】
+
+
+WidgetDockFloatPanelController
+|—— _panelList【真正的数据】
