@@ -19,8 +19,9 @@ WidgetDockController._$5V = 3;
 WidgetDockController._$4F = 4;
 
 WidgetDockController.init = function () {
-    if (WidgetDockController._instance != null)
+    if (WidgetDockController._instance != null) {
         return WidgetDockController._instance;
+    }
     WidgetDockController._instance = new WidgetDockController();
 
     var strUserAgent = navigator.userAgent;
@@ -53,15 +54,9 @@ WidgetDockController.init = function () {
 
     if (WidgetDockController._windowMain == null) {
         WidgetDockController._windowMain = new WidgetDockWindow(null, "MainWindow");
-        if (WidgetDockController._browserType == EnumBrowserType.IE && WidgetDockController._ieVersion <= 8) {
-            document.body.attachEvent("onmousedown", mouseDown);
-            document.body.attachEvent("onmouseup", mouseUp);
-            document.body.attachEvent("onmousemove", mouseMove);
-        } else {
-            document.body.addEventListener("mousedown", mouseDown, true);
-            document.body.addEventListener("mouseup", mouseUp, true);
-            document.body.addEventListener("mousemove", mouseMove, true);
-        }
+        document.body.addEventListener("mousedown", mouseDown, true);
+        document.body.addEventListener("mouseup", mouseUp, true);
+        document.body.addEventListener("mousemove", mouseMove, true);
     }
 
     WidgetDockController._isHasCanvasContext = !!document.createElement('canvas').getContext;
