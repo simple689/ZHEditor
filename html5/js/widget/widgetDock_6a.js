@@ -1,4 +1,3 @@
-
 function _$6A(_$a7) {
     this._$hJ = null;
     this._$jU = 0;
@@ -57,10 +56,6 @@ _$6A.prototype.mouseUp = function (e) {
     WidgetDockController._$6s(false);
     this._$il = false;
 };
-_$6A.prototype._$m3 = function (e) {
-    if (!this._$il) {
-    }
-};
 _$6A.prototype._$25 = function (rc) {
     if (this._$h8 != null) {
         rc.left = WidgetDockElementController.getElementLeft(this._$h8);
@@ -73,8 +68,6 @@ _$6A.prototype._$25 = function (rc) {
             rc.bottom = rc.top + parseInt(this._$h8.style.height);
         }
     }
-};
-_$6A.prototype._$mz = function (e) {
 };
 _$6A.prototype.mouseMove = function (e) {
     var pt = new WidgetDockLocation();
@@ -235,5 +228,3 @@ _$6A.prototype._$f4 = function (pt) {
         if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) this._$jU = _$6A._$7c; else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) this._$jU = _$6A._$1v; else this._$jU = _$6A._$60;
     }
 };
-
-

@@ -3,7 +3,7 @@ function _$O(iX1, iX2, _$qV) {
     this._$cE = iX2;
     this._$qV = _$qV;
     this._$qT = _$qV;
-    this._$mO = null;
+    this.floatPanel = null;
     this._$h9 = null;
 };
 _$O._$jL = 22;

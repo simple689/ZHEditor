@@ -127,7 +127,6 @@ _$1l.prototype._$0u = function () {
 };
 _$1l.prototype._$a = function (tab) {
     this._$0u();
-    this._$bi._$fc(_$hf, _$x._$60);
     _$hf._$rz(new WidgetDockSize(150, _$G._$6J + _$bi._$jA));
 };
 _$1l.prototype._$0Y = function (_$mS) {
@@ -161,12 +160,6 @@ _$1l.prototype._$4L = function () {
 _$1l.prototype._$T = function () {
     this._$bi._$T();
 };
-_$1l.prototype._$9N = function () {
-    if (this._$iO) {
-        this._$iO = false;
-        this._$bi._$T();
-    }
-};
 _$1l.prototype._$07 = function (e, key) {
     var _$h0;
     if (e == null) {
@@ -178,19 +171,6 @@ _$1l.prototype._$07 = function (e, key) {
         return true;
     }
     return false;
-};
-_$1l.prototype._$mn = function (e) {
-    if (_$iO && _$07(e, 27)) {
-        _$iO = false;
-        _$bi._$T();
-    } else if (_$iO && _$07(e, 17)) {
-        _$bi._$mf();
-    }
-};
-_$1l.prototype._$mo = function (e) {
-    if (_$iO && _$07(e, 17)) {
-        _$bi._$mg();
-    }
 };
 _$1l.prototype.mouseMove = function (e) {
     if (!this._$iO) {
@@ -259,16 +239,13 @@ _$1l.prototype._$r6 = function (_$7J) {
     this._$i9 = _$7J;
     this._$qJ();
 };
-_$1l.prototype._$rC = function (title) {
+_$1l.prototype.setTitle = function (title) {
     if (title != null) {
         this._title = title;
     } else {
         this._title = "";
     }
-    this._$rE(title);
     this._$qJ();
-};
-_$1l.prototype._$rE = function (_$qW) {
 };
 _$1l.prototype._$cb = function () {
     return this._title;
@@ -322,31 +299,30 @@ _$1l.prototype._$nL = function (_$82, ix, iy, width, height, g, _$7Y) {
         }
         this._$hj.fillRect(ix, iy, width, height);
     }
-    var _$9k = "";
 };
 _$1l.prototype._$qJ = function () {
     if (!WidgetDockController._isHasCanvasContext && this._$hV == null) {
         this._$hV = WidgetDockElementController._$0t("div", this._$h8);
-        this._$hW = new Image();
-        this._$hW.src = WidgetDockController._dir + "img/pinned.gif";
-        this._$hW.style.width = "100%";
-        this._$hW.style.height = "100%";
-        this._$hV.appendChild(this._$hW);
+
+        this._bottonPin = new Image();
+        this._bottonPin.src = WidgetDockController._dir + "img/pinned.gif";
+        this._bottonPin.style.width = "100%";
+        this._bottonPin.style.height = "100%";
+        this._$hV.appendChild(this._bottonPin);
         this._$hV.childNodes[0]._$4t = this;
         this._$hV._$4t = this;
+
         this._$hb = WidgetDockElementController._$0t("div", this._$h8);
-        this._$hc = new Image();
-        this._$hc.src = WidgetDockController._dir + "img/close.jpg";
-        this._$hc.style.width = "100%";
-        this._$hc.style.height = "100%";
-        this._$hb.appendChild(this._$hc);
+        this._bottonClose = new Image();
+        this._bottonClose.src = WidgetDockController._dir + "img/close.jpg";
+        this._bottonClose.style.width = "100%";
+        this._bottonClose.style.height = "100%";
+        this._$hb.appendChild(this._bottonClose);
         this._$hb.childNodes[0]._$4t = this;
         this._$hb._$4t = this;
     }
     var si = new WidgetDockRect();
     this._$2P(si);
-    var _$sO = 0;
-    var _$sT = 0;
     var iw = si.right - si.left;
     var ih = si.bottom - si.top;
     var _$em;
@@ -447,7 +423,6 @@ _$1l.prototype._$aD = function (g, _$9f, rc) {
     }
 };
 _$1l.prototype._$aG = function (g, si, _$gf) {
-    var _$9k = "";
     var _$ff;
     var _$9y = _$gf;
     var rc = new WidgetDockFrame();
@@ -590,7 +565,6 @@ _$1l.prototype._$bK = function (_$7P) {
 };
 _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
     var _$gv, _$gD;
-    var _$9k = "";
     _$gD = (_$pc.right - _$pc.left - 2);
     _$gv = _$gD * 4 / 11;
     var iw = _$pc.right - _$pc.left - 2;
@@ -604,9 +578,9 @@ _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
         WidgetDockElementController.setElementSize(this._$hV, _$pc.right - _$pc.left, _$pc.bottom - _$pc.top);
         WidgetDockElementController.setElementLeftTop(this._$hV.childNodes[0], 0, 0);
         if (_$d6 == WidgetDockFloatPanel._$6W) {
-            this._$hW.src = WidgetDockController._dir + "img/unpinned.gif";
+            this._bottonPin.src = WidgetDockController._dir + "img/unpinned.gif";
         } else {
-            this._$hW.src = WidgetDockController._dir + "img/pinned.gif";
+            this._bottonPin.src = WidgetDockController._dir + "img/pinned.gif";
         }
         return;
     }

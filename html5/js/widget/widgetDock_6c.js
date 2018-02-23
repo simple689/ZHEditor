@@ -1,4 +1,3 @@
-
 function _$6C(type, _$b8) {
     this._$kd = type;
     this._$ik = false;
@@ -90,5 +89,3 @@ _$6C.prototype._$qJ = function () {
         }
     }
 };
-
-

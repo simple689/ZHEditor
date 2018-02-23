@@ -115,7 +115,7 @@ _$K.prototype._$4R = function (_$ts, _$h1) {
     this._$iG = true;
     return _$kK._$15(_$ts, _$h1);
 };
-_$K.prototype._$v = function (_$mO) {
+_$K.prototype._$v = function (floatPanel) {
 };
 _$K.prototype._$n = function (_$b9) {
 };
@@ -213,7 +213,6 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
         WidgetDockElementController.setElementSize(this._elementWithType[1], iw, this._$jF[1] - 3);
         if (this._$kX != null) this._$kX._$qJ();
     }
-    var _$cp = 0;
     var _$e1 = this._patternPositionList[0]._patternSub.getPanelNum();
     if (_$e1 == 1) {
         var panel = this._patternPositionList[0]._patternSub._panelList[0];
@@ -231,20 +230,20 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
     }
     return 0;
 };
-_$K.prototype._$l = function (_$mO) {
-    if (!this._$4s(_$mO, true)) {
+_$K.prototype._$l = function (floatPanel) {
+    if (!this._$4s(floatPanel, true)) {
         if (this._elementWithType[1] != null) WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._elementWithType[1]);
         this._$qF(this._elementWithType[1]);
         this._$5E(this._$kX);
     }
 };
-_$K.prototype._$4s = function (_$mO, _$8e) {
+_$K.prototype._$4s = function (floatPanel, _$8e) {
     var _$e1 = 0;
     var _$nT = null;
     var _$fY = this._patternPositionList[0]._patternSub.getPanelNum();
     if (_$fY < 1) return false;
     _$nT = this._patternPositionList[0]._patternSub._panelList[0]._$kI;
-    _$e1 = _$nT._$4s(_$mO, _$8e);
+    _$e1 = _$nT._$4s(floatPanel, _$8e);
     if (_$e1 < 2) return false;
     return true;
 };

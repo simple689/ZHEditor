@@ -8,11 +8,11 @@ function _$59() {
     this._$hk = this._$hu.getTime();
     this._$iJ = false;
 };
-_$59.prototype.Add = function (_$mO) {
+_$59.prototype.Add = function (floatPanel) {
     var it = 0;
-    var _$et = _$mO._windowMain._$jO;
+    var _$et = floatPanel._windowMain._$jO;
     WidgetDockElementController.setElementZIndex(this._$lc._$h8, _$et);
-    _$mO.setElementZIndex(_$et + 1);
+    floatPanel.setElementZIndex(_$et + 1);
 };
 _$59.prototype.setVisible = function (_$8e) {
 };

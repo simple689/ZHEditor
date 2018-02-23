@@ -354,12 +354,12 @@ _$N.prototype._$sb = function () {
 _$N.prototype._$4q = function (_$cY) {
     var ix, iy;
     var _$gK, _$el;
-    var _$qu = new WidgetDockRect();
-    if (!this._$iG) this._$25(_$qu); else _$qu = this._$ly;
-    _$gK = WidgetDockPatternBase._$2A(_$qu);
-    _$el = WidgetDockPatternBase._$2z(_$qu);
-    ix = _$qu.left;
-    iy = _$qu.top;
+    var rcPanel = new WidgetDockRect();
+    if (!this._$iG) this._$25(rcPanel); else rcPanel = this._$ly;
+    _$gK = WidgetDockPatternBase._$2A(rcPanel);
+    _$el = WidgetDockPatternBase._$2z(rcPanel);
+    ix = rcPanel.left;
+    iy = rcPanel.top;
     if (this._$j1 == EnumPatternPositionType.Left || this._$j1 == EnumPatternPositionType.Right) {
         ix += _$cY;
     } else {
