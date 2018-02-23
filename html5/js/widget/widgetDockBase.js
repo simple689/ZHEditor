@@ -47,3 +47,18 @@ WidgetDockPrototype.bind = function (dst, src) {
     dst.baseConstructor = src;
     dst._$s4 = src.prototype;
 };
+
+var EnumBrowserType = {
+    IE: 0,
+    Firefox: 1,
+    Chrome: 2,
+    Safari: 3,
+    Opera: 4
+};
+var EnumPatternPositionType = {
+    Left: 0,
+    Top: 1,
+    Right: 2,
+    Bottom: 3,
+    Center: 4
+};

@@ -1,15 +1,15 @@
 var dock;
 var panelTest;
-var panelView;
-var panelFileEditor;
+// var panelView;
+// var panelFileEditor;
 var panelFileBrowser;
 var dockLayoutKey = "dockLayout";
 
 function initWidgetDock() {
     dock = WidgetDockController.init();
-    dock.addFixedPanel(document.getElementById("panelFixedCenter"), EnumPanelPositionType.Center);
-    dock.addFixedPanel(document.getElementById("panelFixedTop"), EnumPanelPositionType.Top);
-    dock.addFixedPanel(document.getElementById("panelFixedBottom"), EnumPanelPositionType.Bottom);
+    dock.addFixedPanel(document.getElementById("panelFixedCenter"), EnumPatternPositionType.Center);
+    dock.addFixedPanel(document.getElementById("panelFixedTop"), EnumPatternPositionType.Top);
+    dock.addFixedPanel(document.getElementById("panelFixedBottom"), EnumPatternPositionType.Bottom);
     panelTest = dock.createFloatPanel("测试");
     panelTest.addContentDiv(document.getElementById("panelTest"));
 
@@ -25,25 +25,24 @@ function initWidgetDock() {
     loadLayout();
 }
 
-function initLayout() {
-    panelTest.initLayout(0,0,300,300,EnumPanelPositionType.Right);
-    panelFileBrowser.initLayout(0,0,300,300,EnumPanelPositionType.Bottom);
-    // panelView.initLayout(0,0,600,600,EnumPanelPositionType.Left);
-    // panelFileEditor.initLayout(0,0,2000,2000,EnumPanelPositionType.Left);
-}
-
 function loadLayout() {
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
         // sessionStorage.setItem(dockLayoutKey, dockLayoutStr);
         var item = sessionStorage.getItem(dockLayoutKey);
-        // if (item != null) {
-        //     dock.loadLayoutFromKey(dockLayoutKey);
-        // } else {
+        if (item != null) {
+            dock.loadLayoutFromKey(dockLayoutKey);
+        } else {
             initLayout();
-        // }
+        }
     }
+}
 
+function initLayout() {
+    panelTest.initLayout(0,0,881,864,EnumPatternPositionType.Right);
+    panelFileBrowser.initLayout(0,0,300,300,EnumPatternPositionType.Bottom);
+    // panelView.initLayout(0,0,600,600,EnumPatternPositionType.Left);
+    // panelFileEditor.initLayout(0,0,2000,2000,EnumPatternPositionType.Left);
 }
 
 function saveLayout() {

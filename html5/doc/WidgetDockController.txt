@@ -42,3 +42,32 @@ WidgetDockFloatPanel
 
 WidgetDockFloatPanelController
 |—— _panelList【真正的数据】
+
+left 0
+top 1
+right 2
+bottom 3
+
+WidgetDockWindow.prototype.initLayout
+1-》标识 DFIdentifier
+2-》left
+3-》top
+4-》right
+5-》bottom
+6-》left panelList
+ -》SEC 0、1、2。。。
+ -》width 581
+ -》height 864
+ -》_$kR
+ -》_$l8
+
+
+
+ -》单元结束标识 SECTIONNONE
+ -》top panelList
+ -》单元结束标识 SECTIONNONE
+ -》right panelList
+ -》单元结束标识 SECTIONNONE
+ -》bottom panelList
+ -》单元结束标识 SECTIONNONE
+ -》标识 MINIFRAMES
