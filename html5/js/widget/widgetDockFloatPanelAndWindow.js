@@ -158,13 +158,7 @@ WidgetDockFloatPanel._$ie = false;
 WidgetDockFloatPanel._$lr = new WidgetDockLocation();
 WidgetDockFloatPanel._$cj = new WidgetDockRect();
 WidgetDockFloatPanel._$h5 = null;
-WidgetDockFloatPanel.prototype._$7h = function () {
-};
-WidgetDockFloatPanel.prototype._$7i = function () {
-};
-WidgetDockFloatPanel.prototype._$fO = function () {
-    return false;
-};
+
 WidgetDockFloatPanel.prototype.hasOutIFrame = function () {
     this._$iZ = true;
 };
@@ -222,73 +216,7 @@ WidgetDockFloatPanel.prototype._$f6 = function (patternMain, title) {
     this._$7q();
     this._$hy._$rC(title);
 };
-WidgetDockFloatPanel.prototype._$fS = function () {
-    return true;
-};
-WidgetDockFloatPanel.prototype._$rr = function (img) {
-    _$hE = img;
-    if (this._$k0 == WidgetDockFloatPanel._$6W && _$kH != null) {
-        this._patternMain._$5A(0);
-    } else if (this._$kA != null && this._$kA._$o5 != null) {
-        this._$kA._$o5._$5z();
-    }
-};
-WidgetDockFloatPanel.prototype._$bV = function () {
-    if (this._$fT()) return _$75;
-    if (_$k0 == WidgetDockFloatPanel._$6W) return WidgetDockFloatPanel._$2Y;
-    if (_$kA != null && _$kA._$o5 != null) {
-        if (_$kA._$o5._$3x(this)) return _$2X;
-    }
-    return _$2W;
-};
-WidgetDockFloatPanel.prototype._$rm = function (_$8a) {
-    _$iq = _$8a;
-};
-WidgetDockFloatPanel.prototype._$bO = function () {
-    return _$iq;
-};
-WidgetDockFloatPanel.prototype._$c4 = function () {
-    return _$k0;
-};
-WidgetDockFloatPanel.prototype._$ry = function (_$d6) {
-    if (!_$S() || _$k0 == _$d6) {
-        return;
-    }
-    if (_$kB == null) {
-        _$k0 = _$d6;
-        return;
-    }
-    var bvi = this._$fT();
-    if (_$d6 == WidgetDockFloatPanel._$4Z || _$d6 == WidgetDockFloatPanel._$6W) {
-        if ((this._$k0 == WidgetDockFloatPanel._$4Z && bvi) || this._$k0 == WidgetDockFloatPanel._$6W) this._$0h(); else if (this._$k0 == WidgetDockFloatPanel._$4C && _$d6 == WidgetDockFloatPanel._$6W) {
-            if (bvi) {
-                this._$k0 = WidgetDockFloatPanel._$4Z;
-                this._$0h();
-            } else {
-                this._$iP = true;
-                this._patternMain._$8(this._$j0, this, true);
-            }
-        }
-        this._$k0 = _$d6;
-        _$qJ();
-    } else {
-        if (_$k0 == WidgetDockFloatPanel._$6W) {
-            _$39(false);
-            _$kH._$5M(_$j0, this);
-            _$kH._$5A(0);
-            WidgetDockController._$8l._$5N();
-            this._$iP = false;
-            this._$k0 = WidgetDockFloatPanel._$4Z;
-            setVisible(true);
-            this._$iP = true;
-        }
-        _$k0 = _$4C;
-        _$qJ();
-    }
-};
-WidgetDockFloatPanel.prototype._$9W = function () {
-    this._$f7();
-};
+
 WidgetDockFloatPanel.prototype.unload = function (_$80) {
     if (_$k0 == WidgetDockFloatPanel._$6W) {
         _$kH._$5N();
@@ -322,24 +250,6 @@ WidgetDockFloatPanel.prototype.unload = function (_$80) {
         }
     }
 };
-WidgetDockFloatPanel.prototype._$r9 = function (_$9R) {
-    if (this._$hy != null) {
-        this._$hy._$rp(_$9R);
-        this._$hy._$qJ();
-    }
-    if (this._$kA != null && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
-        this._$kA._$o5._$5z();
-    }
-};
-WidgetDockFloatPanel.prototype._$bW = function () {
-    return this._$hE;
-};
-WidgetDockFloatPanel.prototype._$rl = function (_$7T) {
-    this._$iv = _$7T;
-};
-WidgetDockFloatPanel.prototype._$rx = function (_$qY) {
-    this._title = _$qY;
-};
 WidgetDockFloatPanel.prototype._$c3 = function () {
     return this._title;
 };
@@ -348,18 +258,6 @@ WidgetDockFloatPanel.prototype.getTitle = function () {
 };
 WidgetDockFloatPanel.prototype.setInitialLayoutReference = function (_$mO) {
     if (_$mO != this) this._$l9 = _$mO;
-};
-WidgetDockFloatPanel.prototype._$rt = function (mgr) {
-};
-WidgetDockFloatPanel.prototype._$1f = function (_$og, _$qX) {
-    if (_$og == null) this._$jw = WidgetDockFloatPanel._$4B; else this._$jw = _$1G;
-    this._$f6(_$og._$8l, _$qX);
-    this._$jE = 0;
-    if (WidgetDockFloatPanel._floatPanelController == null) WidgetDockFloatPanel._floatPanelController = new WidgetDockFloatPanelController();
-    WidgetDockFloatPanel._floatPanelController.addFloatPanel(this);
-};
-WidgetDockFloatPanel.prototype._$mq = function () {
-    _$kH._$1(this);
 };
 WidgetDockFloatPanel.prototype._$7q = function () {
     this._$hy = new _$1l();
@@ -919,7 +817,6 @@ WidgetDockFloatPanel.prototype._$4L = function () {
 };
 WidgetDockFloatPanel.prototype._$5d = function () {
     if (_$k0 == WidgetDockFloatPanel._$6W) return;
-    _$7h();
     if (!_$S()) {
         if (!_$ir) {
             if (_$id) {
@@ -1430,7 +1327,6 @@ WidgetDockFloatPanel.prototype._$73 = function (_$nn, _$nG) {
     }
 };
 WidgetDockFloatPanel.prototype._$1x = function (pt) {
-    this._$7i();
     var _$cp = 0;
     this._$T();
     if (!this._$iL) return;
