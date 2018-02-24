@@ -1,69 +1,66 @@
-function _$1l() {
+function widgetDockPanelStateController() {
     this._$bi = null;
     this._$i9 = true;
     this._$iO = false;
     this._title = "";
-    this._$kv = 0;
-    this._$hB = null;
     this._$hf = null;
     this._$lw = new WidgetDockRect();
     this._$lA = new WidgetDockRect();
-    this._$hZ = new WidgetDockLocation();
-    this._$hB = "12px sans-serif";
+    this.styleFont = "12px sans-serif";
     this._$h9 = null;
-    this._$hV = null;
-    this._$hb = null;
+    this._panelStatePinElement = null;
+    this._panelStateCloseElement = null;
     this._$hj = null;
 
-        this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
-        this._$h8.style.background = 'ButtonFace';
-        this._$h9 = WidgetDockElementController._$0t("div", this._$h8);
-        this._$h9.style.font = this._$hB;
+        this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
+        this._panelStateElement.style.background = 'ButtonFace';
+        this._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+        this._$h9.style.font = this.styleFont;
         this._$h9._$4t = this;
-        this._$h9.onmousedown = _$1l._$14;
-        this._$h9.onmousemove = _$1l._$13;
+        this._$h9.onmousedown = widgetDockPanelStateController._$14;
+        this._$h9.onmousemove = widgetDockPanelStateController._$13;
 
-    WidgetDockElementController.setElementSize(this._$h8, 15, 40);
-    this._$h8._$4t = this;
-    this._$h8.onmousedown = _$1l._$4h;
-    this._$h8.onmousemove = _$1l._$4g;
-    this._$h8._$mF = _$1l._$mh;
-    this._$h8.onmouseout = _$1l._$mv;
+    WidgetDockElementController.setElementSize(this._panelStateElement, 15, 40);
+    this._panelStateElement._$4t = this;
+    this._panelStateElement.onmousedown = widgetDockPanelStateController._$4h;
+    this._panelStateElement.onmousemove = widgetDockPanelStateController._$4g;
+    this._panelStateElement._$mF = widgetDockPanelStateController._$mh;
+    this._panelStateElement.onmouseout = widgetDockPanelStateController._$mv;
 };
-_$1l._$0U = 18;
-_$1l._$hd = null;
-_$1l._$4Y = 4;
-_$1l._$j5 = new WidgetDockSize();
-_$1l.prototype._$6o = function (_$cS, _$do, width, height) {
-    WidgetDockElementController.setElementLeftTop(this._$h8, _$cS, _$do);
-    WidgetDockElementController.setElementSize(this._$h8, width, height);
+widgetDockPanelStateController._$0U = 18;
+widgetDockPanelStateController._$hd = null;
+widgetDockPanelStateController._$4Y = 4;
+widgetDockPanelStateController._$j5 = new WidgetDockSize();
+widgetDockPanelStateController.prototype._$6o = function (_$cS, _$do, width, height) {
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
+    WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this._$qJ();
 };
-_$1l.prototype.setVisible = function (isVisible) {
-    WidgetDockElementController.setElementVisible(this._$h8, isVisible);
+widgetDockPanelStateController.prototype.setVisible = function (isVisible) {
+    WidgetDockElementController.setElementVisible(this._panelStateElement, isVisible);
 
         WidgetDockElementController.setElementVisible(this._$h9, isVisible);
-        WidgetDockElementController.setElementVisible(this._$hV, isVisible);
-        WidgetDockElementController.setElementVisible(this._$hb, isVisible);
+        WidgetDockElementController.setElementVisible(this._panelStatePinElement, isVisible);
+        WidgetDockElementController.setElementVisible(this._panelStateCloseElement, isVisible);
 
 };
-_$1l.prototype._$bS = function () {
-    return this._$hB;
+widgetDockPanelStateController.prototype.getStyleFont = function () {
+    return this.styleFont;
 };
-_$1l._$14 = function (e) {
+widgetDockPanelStateController._$14 = function (e) {
     return false;
 };
-_$1l._$13 = function (e) {
+widgetDockPanelStateController._$13 = function (e) {
     return false;
 };
-_$1l._$4h = function (e) {
+widgetDockPanelStateController._$4h = function (e) {
     if (e == null) {
         e = window.event;
     }
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4t._$mw(e); else e.srcElement._$4t._$mw(e);
     return false;
 };
-_$1l._$4g = function (e) {
+widgetDockPanelStateController._$4g = function (e) {
     if (e == null) {
         e = window.event;
     }
@@ -71,18 +68,18 @@ _$1l._$4g = function (e) {
     else e.srcElement._$4t.mouseMove(e);
     return false;
 };
-_$1l._$mh = function (e) {
+widgetDockPanelStateController._$mh = function (e) {
     return false;
 };
-_$1l._$mv = function (e) {
+widgetDockPanelStateController._$mv = function (e) {
     return true;
 };
-_$1l.prototype._$mw = function (e) {
+widgetDockPanelStateController.prototype._$mw = function (e) {
     if (this._$iO) return;
     if (!WidgetDockController._$fQ(e.button)) return; else {
         this._$iO = true;
         if (WidgetDockWindow._$hK != null && WidgetDockWindow._$hK != this) {
-            if (WidgetDockWindow._$hK instanceof _$1l) {
+            if (WidgetDockWindow._$hK instanceof widgetDockPanelStateController) {
                 WidgetDockWindow._$hK._$iO = false;
             }
         }
@@ -97,16 +94,16 @@ _$1l.prototype._$mw = function (e) {
         }
     }
 };
-_$1l.prototype._$fT = function () {
+widgetDockPanelStateController.prototype._$fT = function () {
     return true;
 };
-_$1l.prototype._$2P = function (rc) {
-    rc.left = WidgetDockElementController.getElementLeft(this._$h8);
-    rc.top = WidgetDockElementController.getElementTop(this._$h8);
-    rc.right = rc.left + WidgetDockElementController.getElementWidth(this._$h8);
-    rc.bottom = rc.top + WidgetDockElementController.getElementHeight(this._$h8);
+widgetDockPanelStateController.prototype._$2P = function (rc) {
+    rc.left = WidgetDockElementController.getElementLeft(this._panelStateElement);
+    rc.top = WidgetDockElementController.getElementTop(this._panelStateElement);
+    rc.right = rc.left + WidgetDockElementController.getElementWidth(this._panelStateElement);
+    rc.bottom = rc.top + WidgetDockElementController.getElementHeight(this._panelStateElement);
 };
-_$1l.prototype.mouseUp = function (e) {
+widgetDockPanelStateController.prototype.mouseUp = function (e) {
     if (!this._$fT()) return;
     if (!this._$iO) return;
     if (!WidgetDockController._$fQ(e.button)) {
@@ -120,13 +117,13 @@ _$1l.prototype.mouseUp = function (e) {
     WidgetDockController._$6s(false);
     this._$bi._$1x(_$pH);
 };
-_$1l.prototype._$0u = function () {
+widgetDockPanelStateController.prototype._$0u = function () {
 };
-_$1l.prototype._$a = function (tab) {
+widgetDockPanelStateController.prototype._$a = function (tab) {
     this._$0u();
     _$hf._$rz(new WidgetDockSize(150, _$G._$6J + _$bi._$jA));
 };
-_$1l.prototype._$0Y = function (_$mS) {
+widgetDockPanelStateController.prototype._$0Y = function (_$mS) {
     var _$7E = new WidgetDockFloatPanelController();
     _$mS._$2Q(_$7E);
     var ic = _$7E.getPanelNum();
@@ -146,7 +143,7 @@ _$1l.prototype._$0Y = function (_$mS) {
         if (!_$p3[i]._$fT()) _$p3[i].setVisible(true);
     }
 };
-_$1l.prototype._$4L = function () {
+widgetDockPanelStateController.prototype._$4L = function () {
     if (_$bi._$S()) {
         var pb = _$bi._$kA;
         if (pb._$o5 != null && pb._$o5._$i6.length > 1) {
@@ -154,10 +151,10 @@ _$1l.prototype._$4L = function () {
         } else this._$bi._$4L();
     } else this._$bi._$4L();
 };
-_$1l.prototype._$T = function () {
+widgetDockPanelStateController.prototype._$T = function () {
     this._$bi._$T();
 };
-_$1l.prototype._$07 = function (e, key) {
+widgetDockPanelStateController.prototype._$07 = function (e, key) {
     var _$h0;
     if (e == null) {
         _$h0 = window.event._$gZ;
@@ -169,19 +166,19 @@ _$1l.prototype._$07 = function (e, key) {
     }
     return false;
 };
-_$1l.prototype.mouseMove = function (e) {
+widgetDockPanelStateController.prototype.mouseMove = function (e) {
     if (!this._$iO) {
-        var _$9P = WidgetDockElementController.getElementLeft(this._$h8);
-        var _$9Q = WidgetDockElementController.getElementTop(this._$h8);
+        var _$9P = WidgetDockElementController.getElementLeft(this._panelStateElement);
+        var _$9Q = WidgetDockElementController.getElementTop(this._panelStateElement);
         var _$a5 = new WidgetDockLocation();
         WidgetDockElementController._$2D(e, _$a5);
         _$a5.x = _$a5.x - _$9P;
         _$a5.y = _$a5.y - _$9Q;
         if (this instanceof _$4d) {
             if (WidgetDockPatternBase._$5f(this._$lw, _$a5)) {
-                this._$h8.style.cursor = "default";
+                this._panelStateElement.style.cursor = "default";
             } else {
-                this._$h8.style.cursor = "move";
+                this._panelStateElement.style.cursor = "move";
             }
             return;
         }
@@ -190,19 +187,19 @@ _$1l.prototype.mouseMove = function (e) {
         }
         if (this._$bi._$k0 == WidgetDockFloatPanel._$6W) return;
         if ((this._$bi._$k0 != WidgetDockFloatPanel._$4C && WidgetDockPatternBase._$5f(this._$lA, _$a5)) || (WidgetDockPatternBase._$5f(this._$lw, _$a5))) {
-            this._$h8.style.cursor = "default";
+            this._panelStateElement.style.cursor = "default";
         } else {
-            this._$h8.style.cursor = "move";
+            this._panelStateElement.style.cursor = "move";
         }
     }
 };
-_$1l.prototype._$mj = function (pt) {
+widgetDockPanelStateController.prototype._$mj = function (pt) {
     if (this._$bi._$lp != null) {
         this._$bi._$lp._$qL();
     } else {
     }
-    var _$9P = WidgetDockElementController.getElementLeft(this._$h8);
-    var _$9Q = WidgetDockElementController.getElementTop(this._$h8);
+    var _$9P = WidgetDockElementController.getElementLeft(this._panelStateElement);
+    var _$9Q = WidgetDockElementController.getElementTop(this._panelStateElement);
     var _$a5 = new WidgetDockLocation();
     _$a5.x = pt.x - _$9P;
     _$a5.y = pt.y - _$9Q;
@@ -223,20 +220,20 @@ _$1l.prototype._$mj = function (pt) {
     WidgetDockFloatPanel._$jy = WidgetDockFloatPanel._$0V;
     return this._$bi._$4R(pt);
 };
-_$1l.prototype._$ms = function (e) {
+widgetDockPanelStateController.prototype._$ms = function (e) {
     if (!this._$iO) return;
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
     this._$bi._$4i(pt);
 };
-_$1l.prototype._$rn = function (_$by) {
+widgetDockPanelStateController.prototype._$rn = function (_$by) {
     this._$bi = _$by;
 };
-_$1l.prototype._$r6 = function (_$7J) {
+widgetDockPanelStateController.prototype._$r6 = function (_$7J) {
     this._$i9 = _$7J;
     this._$qJ();
 };
-_$1l.prototype.setTitle = function (title) {
+widgetDockPanelStateController.prototype.setTitle = function (title) {
     if (title != null) {
         this._title = title;
     } else {
@@ -244,42 +241,42 @@ _$1l.prototype.setTitle = function (title) {
     }
     this._$qJ();
 };
-_$1l.prototype._$cb = function () {
+widgetDockPanelStateController.prototype._$cb = function () {
     return this._title;
 };
-_$1l.prototype._$c6 = function () {
+widgetDockPanelStateController.prototype._$c6 = function () {
     if (this._$bi == null) return null;
     if (this._$bi._$jm == WidgetDockFloatPanel._$0) {
         if (this._$bi._patternMain._$jv == WidgetDockController._$0R) {
-            _$1l._$j5.width = 130;
-            _$1l._$j5.height = this._$bi._$jA;
+            widgetDockPanelStateController._$j5.width = 130;
+            widgetDockPanelStateController._$j5.height = this._$bi._$jA;
         } else {
             var _$9y = this._$bi._$bL();
             if (this._$bi._$kB != null && this._$bi._$kB._$ii) {
                 if (_$9y == EnumPatternPositionType.Left || _$9y == EnumPatternPositionType.Right) {
-                    _$1l._$j5.width = 130;
-                    _$1l._$j5.height = this._$bi._$jA;
+                    widgetDockPanelStateController._$j5.width = 130;
+                    widgetDockPanelStateController._$j5.height = this._$bi._$jA;
                 } else {
-                    _$1l._$j5.width = this._$bi._$jA;
-                    _$1l._$j5.height = 130;
+                    widgetDockPanelStateController._$j5.width = this._$bi._$jA;
+                    widgetDockPanelStateController._$j5.height = 130;
                 }
             } else {
-                _$1l._$j5.width = 130;
-                _$1l._$j5.height = this._$bi._$jA;
+                widgetDockPanelStateController._$j5.width = 130;
+                widgetDockPanelStateController._$j5.height = this._$bi._$jA;
             }
         }
     } else {
         if (this._$bi._$jm == WidgetDockFloatPanel._$3Q || this._$bi._$jm == WidgetDockFloatPanel._$5j) {
-            _$1l._$j5.width = this._$bi._$jA;
-            _$1l._$j5.height = 130;
+            widgetDockPanelStateController._$j5.width = this._$bi._$jA;
+            widgetDockPanelStateController._$j5.height = 130;
         } else {
-            _$1l._$j5.width = 130;
-            _$1l._$j5.height = this._$bi._$jA;
+            widgetDockPanelStateController._$j5.width = 130;
+            widgetDockPanelStateController._$j5.height = this._$bi._$jA;
         }
     }
-    return _$1l._$j5;
+    return widgetDockPanelStateController._$j5;
 };
-_$1l.prototype._$nL = function (_$82, ix, iy, width, height, g, _$7Y) {
+widgetDockPanelStateController.prototype._$nL = function (_$82, ix, iy, width, height, g, _$7Y) {
     if (this._$hj == null) {
         return;
     }
@@ -297,26 +294,25 @@ _$1l.prototype._$nL = function (_$82, ix, iy, width, height, g, _$7Y) {
         this._$hj.fillRect(ix, iy, width, height);
     }
 };
-_$1l.prototype._$qJ = function () {
-    if (this._$hV == null) {
-        this._$hV = WidgetDockElementController._$0t("div", this._$h8);
-
+widgetDockPanelStateController.prototype._$qJ = function () {
+    if (this._panelStatePinElement == null) {
+        this._panelStatePinElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         this._bottonPin = new Image();
         this._bottonPin.src = WidgetDockController._dir + "img/pinned.gif";
         this._bottonPin.style.width = "100%";
         this._bottonPin.style.height = "100%";
-        this._$hV.appendChild(this._bottonPin);
-        this._$hV.childNodes[0]._$4t = this;
-        this._$hV._$4t = this;
+        this._panelStatePinElement.appendChild(this._bottonPin);
+        this._panelStatePinElement.childNodes[0]._$4t = this;
+        this._panelStatePinElement._$4t = this;
 
-        this._$hb = WidgetDockElementController._$0t("div", this._$h8);
+        this._panelStateCloseElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         this._bottonClose = new Image();
         this._bottonClose.src = WidgetDockController._dir + "img/close.jpg";
         this._bottonClose.style.width = "100%";
         this._bottonClose.style.height = "100%";
-        this._$hb.appendChild(this._bottonClose);
-        this._$hb.childNodes[0]._$4t = this;
-        this._$hb._$4t = this;
+        this._panelStateCloseElement.appendChild(this._bottonClose);
+        this._panelStateCloseElement.childNodes[0]._$4t = this;
+        this._panelStateCloseElement._$4t = this;
     }
     var si = new WidgetDockRect();
     this._$2P(si);
@@ -339,7 +335,9 @@ _$1l.prototype._$qJ = function () {
     var _$8K = false;
     if (this._$bi._$jm >= WidgetDockFloatPanel._$0 && (this._$bi._patternMain._$jv == WidgetDockController._$0R || _$96)) {
         _$8K = true;
-    } else if (_$ea == WidgetDockFloatPanel._$3Q || _$ea == WidgetDockFloatPanel._$5j) _$8K = true;
+    } else if (_$ea == WidgetDockFloatPanel._$3Q || _$ea == WidgetDockFloatPanel._$5j) {
+        _$8K = true;
+    }
     if (_$8K) {
         _$em = ih;
         _$fu = ih - 3;
@@ -350,7 +348,7 @@ _$1l.prototype._$qJ = function () {
             g._$rc(_$9Z);
             g.fillRect(0, 0, si.width, si.height);
             si.width -= (_$em + _$fu);
-            if (_$em != 0) si.width -= _$1l._$4Y; else si.width -= 2;
+            if (_$em != 0) si.width -= widgetDockPanelStateController._$4Y; else si.width -= 2;
             _$aG(si, _$ea);
             if (_$fu > 0) {
                 this._$lA.left = si.width;
@@ -360,7 +358,7 @@ _$1l.prototype._$qJ = function () {
                 this._$aI(this._$lA, _$bi._$k0, false);
             }
             si.width += _$em + _$fu;
-            if (_$em != 0) si.width += _$1l._$4Y; else si.width += 2;
+            if (_$em != 0) si.width += widgetDockPanelStateController._$4Y; else si.width += 2;
             if (_$em != 0) _$aE(si, _$ea);
         }
     } else {
@@ -372,14 +370,14 @@ _$1l.prototype._$qJ = function () {
         if (_$bi._$k0 == WidgetDockFloatPanel._$4C) _$fu = 0;
         if (!_$bi._$cn()) _$em = 0;
         _$fK = (_$em + _$fu);
-        if (_$em != 0 && _$fu != 0) _$fK += _$1l._$4Y; else if (_$em == 0) _$fK += 2;
+        if (_$em != 0 && _$fu != 0) _$fK += widgetDockPanelStateController._$4Y; else if (_$em == 0) _$fK += 2;
         si.y += _$fK;
         si.height -= _$fK;
         var dt = new WidgetDockSize();
         var _$rX = _$bK(false);
         var _$dE = new Array(1);
-        WidgetDockElementController._$2L(dt, this._$bS(), _$rX, this._$hj);
-        _$rX = WidgetDockPatternBase._$6y(this._$bS(), _$rX, si.height, dt.width, _$G._$2Z, 0, this._$hj);
+        WidgetDockElementController._$2L(dt, this.getStyleFont(), _$rX, this._$hj);
+        _$rX = WidgetDockPatternBase._$6y(this.getStyleFont(), _$rX, si.height, dt.width, _$G._$2Z, 0, this._$hj);
         if (!_$8u) {
             var _$9Z = _$6V._$bF("ToolBar.background");
             g._$rc(_$9Z);
@@ -399,7 +397,7 @@ _$1l.prototype._$qJ = function () {
         if (_$em != 0) _$aE(si, _$ea);
     }
 };
-_$1l.prototype._$aD = function (g, _$9f, rc) {
+widgetDockPanelStateController.prototype._$aD = function (g, _$9f, rc) {
     if (_$9f == EnumPatternPositionType.Left || _$9f == EnumPatternPositionType.Right) {
         g._$rc(_$6I._$ac);
         g._$aH(rc.x, rc.y, rc.width + rc.x - 2, rc.y);
@@ -419,7 +417,7 @@ _$1l.prototype._$aD = function (g, _$9f, rc) {
         g.fillRect(rc.x + 1, rc.y + 1, rc.width - 2, rc.height - 2);
     }
 };
-_$1l.prototype._$aG = function (g, si, _$gf) {
+widgetDockPanelStateController.prototype._$aG = function (g, si, _$gf) {
     var _$ff;
     var _$9y = _$gf;
     var rc = new WidgetDockFrame();
@@ -445,7 +443,7 @@ _$1l.prototype._$aG = function (g, si, _$gf) {
         _$aD(g, EnumPatternPositionType.Top, rc);
     }
 };
-_$1l.prototype._$6z = function () {
+widgetDockPanelStateController.prototype._$6z = function () {
     if (this._$bi != null && this._$bi._$kB != null && !this._$bi._$kB._$ii) {
         var jp = this._$bi._$kB._$hh;
         if (jp == null) return false;
@@ -467,7 +465,7 @@ _$1l.prototype._$6z = function () {
     }
     return false;
 };
-_$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
+widgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
     var _$rQ = true;
     var _$el = 0;
     var _$8H = false;
@@ -491,7 +489,7 @@ _$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
             if (this._$bi._$S() && this._$bi._$k0 != WidgetDockFloatPanel._$4C) {
                 _$fK += ih - 3;
                 if (_$em != 0) {
-                    _$fK += _$1l._$4Y;
+                    _$fK += widgetDockPanelStateController._$4Y;
                 } else {
                     this._$lw.left = this._$lw.right = iw - 2;
                     _$fK += 2;
@@ -501,13 +499,13 @@ _$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
         var _$rX = this._$bK(_$rQ);
         var dt = new WidgetDockSize();
         var _$dE = new Array(1);
-        WidgetDockElementController._$2L(dt, this._$bS(), _$rX, this._$hj);
-        var _$tq = WidgetDockElementController.getElementWidth(this._$h8);
-        _$rX = WidgetDockPatternBase._$6y(this._$bS(), _$rX, _$tq - _$fK, dt.width, _$G._$2Z, 0, this._$hj);
+        WidgetDockElementController._$2L(dt, this.getStyleFont(), _$rX, this._$hj);
+        var _$tq = WidgetDockElementController.getElementWidth(this._panelStateElement);
+        _$rX = WidgetDockPatternBase._$6y(this.getStyleFont(), _$rX, _$tq - _$fK, dt.width, _$G._$2Z, 0, this._$hj);
         var _$gP;
         _$gP = ih / 2;
         if (this._$hj != null) {
-            this._$hj.font = this._$bS();
+            this._$hj.font = this.getStyleFont();
             this._$hj.fillStyle = 'buttonText';
             if (WidgetDockController._browserType == EnumBrowserType.Opera) {
                 this._$hj.fillStyle = 'black';
@@ -516,7 +514,7 @@ _$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
         } else {
             WidgetDockElementController.setElementLeftTop(this._$h9, 2, 2);
             WidgetDockElementController.setElementSize(this._$h9, dt.width + 2, ih - 2);
-            this._$h9.style.font = this._$bS();
+            this._$h9.style.font = this.getStyleFont();
             this._$h9.innerHTML = _$rX;
         }
     }
@@ -525,7 +523,7 @@ _$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
         }
         if (this._$bi._$S()) {
             this._$lA.right = this._$lw.left;
-            if (_$em != 0) this._$lA.right -= _$1l._$4Y;
+            if (_$em != 0) this._$lA.right -= widgetDockPanelStateController._$4Y;
             this._$lA.left = this._$lA.right - (ih - 3);
             this._$lA.top = 1;
             this._$lA.bottom = ih - 3;
@@ -537,7 +535,7 @@ _$1l.prototype._$aF = function (iw, ih, _$8a, _$cD) {
     }
     var _$r1 = String.fromCharCode(4);
 };
-_$1l.prototype._$bK = function (_$7P) {
+widgetDockPanelStateController.prototype._$bK = function (_$7P) {
     var _$r2 = "";
     var _$92 = _$7P;
     var _$rX;
@@ -560,7 +558,7 @@ _$1l.prototype._$bK = function (_$7P) {
     }
     return _$rX;
 };
-_$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
+widgetDockPanelStateController.prototype._$aI = function (_$pc, _$d6, _$7J) {
     var _$gv, _$gD;
     _$gD = (_$pc.right - _$pc.left - 2);
     _$gv = _$gD * 4 / 11;
@@ -571,9 +569,9 @@ _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
     var _$gQ = (_$pc.bottom - _$pc.top) / 2 + _$pc.top;
     var _$gV = _$gQ + iw;
     if (this._$hj == null) {
-        WidgetDockElementController.setElementLeftTop(this._$hV, _$pc.left, _$pc.top);
-        WidgetDockElementController.setElementSize(this._$hV, _$pc.right - _$pc.left, _$pc.bottom - _$pc.top);
-        WidgetDockElementController.setElementLeftTop(this._$hV.childNodes[0], 0, 0);
+        WidgetDockElementController.setElementLeftTop(this._panelStatePinElement, _$pc.left, _$pc.top);
+        WidgetDockElementController.setElementSize(this._panelStatePinElement, _$pc.right - _$pc.left, _$pc.bottom - _$pc.top);
+        WidgetDockElementController.setElementLeftTop(this._panelStatePinElement.childNodes[0], 0, 0);
         if (_$d6 == WidgetDockFloatPanel._$6W) {
             this._bottonPin.src = WidgetDockController._dir + "img/unpinned.gif";
         } else {
@@ -618,7 +616,7 @@ _$1l.prototype._$aI = function (_$pc, _$d6, _$7J) {
         }
     }
 };
-_$1l.prototype._$aE = function (_$cS, _$do, width, height, _$gf) {
+widgetDockPanelStateController.prototype._$aE = function (_$cS, _$do, width, height, _$gf) {
     var _$el;
     var _$8v = false;
     if (this._$bi == null) _$8v = true; else if (this._$bi._$jm >= WidgetDockFloatPanel._$0) {
@@ -638,10 +636,10 @@ _$1l.prototype._$aE = function (_$cS, _$do, width, height, _$gf) {
     this._$lw.right = this._$lw.left + _$el - 1;
     this._$lw.bottom = this._$lw.top + _$el - 1;
     if (this._$hj == null) {
-        if (this._$hb != null) {
-            WidgetDockElementController.setElementLeftTop(this._$hb, _$cS, _$do);
-            WidgetDockElementController.setElementSize(this._$hb, this._$lw.right - this._$lw.left, this._$lw.bottom - this._$lw.top);
-            WidgetDockElementController.setElementLeftTop(this._$hb.childNodes[0], 0, 0);
+        if (this._panelStateCloseElement != null) {
+            WidgetDockElementController.setElementLeftTop(this._panelStateCloseElement, _$cS, _$do);
+            WidgetDockElementController.setElementSize(this._panelStateCloseElement, this._$lw.right - this._$lw.left, this._$lw.bottom - this._$lw.top);
+            WidgetDockElementController.setElementLeftTop(this._panelStateCloseElement.childNodes[0], 0, 0);
         }
         return;
     }
@@ -668,25 +666,25 @@ function _$4d() {
     _$4d.baseConstructor.call(this);
     this._$kY = null;
 };
-WidgetDockPrototype.bind(_$4d, _$1l);
+WidgetDockPrototype.bind(_$4d, widgetDockPanelStateController);
 _$4d.prototype._$ru = function (mainPattern) {
     this._$kY = mainPattern;
 };
 _$4d.prototype.setVisible = function () {
 };
 _$4d.prototype.setSize = function (_$am) {
-    WidgetDockElementController.setElementSize(this._$h8, _$am.width, _$am.height);
+    WidgetDockElementController.setElementSize(this._panelStateElement, _$am.width, _$am.height);
 };
 _$4d.prototype.setElementZIndex = function (_$cR) {
-    if (this._$h8 != null) {
-        WidgetDockElementController.setElementZIndex(this._$h8, _$cR);
+    if (this._panelStateElement != null) {
+        WidgetDockElementController.setElementZIndex(this._panelStateElement, _$cR);
     }
 };
 _$4d.prototype._$mj = function (pts) {
     var _$po;
     _$po = this._$kY._patternPositionList[0]._patternSub._panelList[0]._$kI;
-    var _$9P = WidgetDockElementController.getElementLeft(this._$h8);
-    var _$9Q = WidgetDockElementController.getElementTop(this._$h8);
+    var _$9P = WidgetDockElementController.getElementLeft(this._panelStateElement);
+    var _$9Q = WidgetDockElementController.getElementTop(this._panelStateElement);
     var pt = new WidgetDockLocation();
     pt.x = pts.x - _$9P;
     pt.y = pts.y - _$9Q;
@@ -709,9 +707,9 @@ _$4d.prototype._$mj = function (pts) {
     return this._$bi._$4R(pts);
 };
 _$4d.prototype._$c6 = function () {
-    _$1l._$j5.width = 130;
-    _$1l._$j5.height = 18;
-    return _$1l._$j5;
+    widgetDockPanelStateController._$j5.width = 130;
+    widgetDockPanelStateController._$j5.height = 18;
+    return widgetDockPanelStateController._$j5;
 };
 _$4d.prototype._$qJ = function () {
     var rc = new WidgetDockRect();

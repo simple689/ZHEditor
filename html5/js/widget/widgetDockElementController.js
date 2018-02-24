@@ -1,22 +1,9 @@
 WidgetDockElementController = {};
 WidgetDockElementController.zIndex = 2;
-WidgetDockElementController.createElementWithParent = function (elementType, elementParentId) {
-    var element = document.createElement(elementType);
-    document.getElementById(elementParentId).appendChild(element);
-    element.style.position = "absolute";
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox || WidgetDockController._browserType == EnumBrowserType.Chrome) {
-        element.style.left = 0;
-        element.style.top = 0;
-    } else {
-        element.style.pixelLeft = 0;
-        element.style.pixelTop = 0;
-    }
-    element.width = 200;
-    element.height = 200;
-    element.style.visibility = "visible";
-    return element;
+WidgetDockElementController.createElementWithParentId = function (elementType, elementParentId) {
+    return this.createElementWithParent(elementType, document.getElementById(elementParentId));
 };
-WidgetDockElementController._$0t = function (elementType, elementParent) {
+WidgetDockElementController.createElementWithParent = function (elementType, elementParent) {
     var element = document.createElement(elementType);
     elementParent.appendChild(element);
     element.style.position = "absolute";

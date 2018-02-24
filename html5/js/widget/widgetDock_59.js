@@ -11,7 +11,7 @@ function _$59() {
 _$59.prototype.Add = function (floatPanel) {
     var it = 0;
     var _$et = floatPanel._windowMain._$jO;
-    WidgetDockElementController.setElementZIndex(this._$lc._$h8, _$et);
+    WidgetDockElementController.setElementZIndex(this._$lc._panelStateElement, _$et);
     floatPanel.setElementZIndex(_$et + 1);
 };
 _$59.prototype.setVisible = function (_$8e) {
@@ -21,8 +21,8 @@ _$59.prototype._$6k = function (_$di) {
 };
 _$59.prototype._$6o = function (_$cS, _$do, width, height) {
     var _$d5 = this._$jY;
-    WidgetDockElementController.setElementLeftTop(this._$lc._$h8, _$cS, _$do);
-    var canvas = this._$lc._$h8;
+    WidgetDockElementController.setElementLeftTop(this._$lc._panelStateElement, _$cS, _$do);
+    var canvas = this._$lc._panelStateElement;
 
         canvas.style.width = width + "px";
         canvas.style.height = height + "px";
@@ -59,7 +59,7 @@ _$59.prototype._$au = function () {
     this._$kx.setElementVisible(false);
     this._$kx._$bf(false);
     this._$kx._patternMain.Add(this._$kx);
-    WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$lc._$h8);
+    WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$lc._panelStateElement);
 };
 _$59.prototype._$0a = function (e) {
     if (this._$iJ) return;

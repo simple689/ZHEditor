@@ -10,14 +10,14 @@ function _$6A(_$a7) {
     this._$ld = null;
     this._$l5 = null;
 
-        this._$h8 = WidgetDockElementController.createElementWithParent("div", _$a7);
+        this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", _$a7);
 
-    this._$h8.style.border = "1px solid";
-    this._$h8._$4x = this;
-    this._$h8.onmousedown = _$6A._$4h;
-    this._$h8.onmousemove = _$6A._$4g;
-    this._$h8._$mF = _$6A._$mh;
-    this._$h8.style.background = 'ButtonFace';
+    this._panelStateElement.style.border = "1px solid";
+    this._panelStateElement._$4x = this;
+    this._panelStateElement.onmousedown = _$6A._$4h;
+    this._panelStateElement.onmousemove = _$6A._$4g;
+    this._panelStateElement._$mF = _$6A._$mh;
+    this._panelStateElement.style.background = 'ButtonFace';
 };
 _$6A._$7a = 0;
 _$6A._$4D = 1;
@@ -55,12 +55,12 @@ _$6A.prototype.mouseUp = function (e) {
     this._$il = false;
 };
 _$6A.prototype._$25 = function (rc) {
-    if (this._$h8 != null) {
-        rc.left = WidgetDockElementController.getElementLeft(this._$h8);
-        rc.top = WidgetDockElementController.getElementTop(this._$h8);
+    if (this._panelStateElement != null) {
+        rc.left = WidgetDockElementController.getElementLeft(this._panelStateElement);
+        rc.top = WidgetDockElementController.getElementTop(this._panelStateElement);
 
-            rc.right = rc.left + parseInt(this._$h8.style.width);
-            rc.bottom = rc.top + parseInt(this._$h8.style.height);
+            rc.right = rc.left + parseInt(this._panelStateElement.style.width);
+            rc.bottom = rc.top + parseInt(this._panelStateElement.style.height);
 
     }
 };
@@ -70,17 +70,17 @@ _$6A.prototype.mouseMove = function (e) {
     if (!this._$il) this._$f4(pt);
     if (this._$jU >= 0) {
         if (this._$jU == _$6A._$7a || this._$jU == _$6A._$1t) {
-            this._$h8.style.cursor = "e-resize";
+            this._panelStateElement.style.cursor = "e-resize";
         } else if (this._$jU == _$6A._$60 || this._$jU == _$6A._$4D) {
-            this._$h8.style.cursor = "n-resize";
+            this._panelStateElement.style.cursor = "n-resize";
         } else if (this._$jU == _$6A._$7b) {
-            this._$h8.style.cursor = "nw-resize";
+            this._panelStateElement.style.cursor = "nw-resize";
         } else if (this._$jU == _$6A._$7c) {
-            this._$h8.style.cursor = "sw-resize";
+            this._panelStateElement.style.cursor = "sw-resize";
         } else if (this._$jU == _$6A._$1u) {
-            this._$h8.style.cursor = "ne-resize";
+            this._panelStateElement.style.cursor = "ne-resize";
         } else {
-            this._$h8.style.cursor = "se-resize";
+            this._panelStateElement.style.cursor = "se-resize";
         }
     } else {
     }
@@ -95,13 +95,13 @@ _$6A.prototype._$mw = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
     if (this._$jU >= 0) {
-        this._$mJ.x = WidgetDockElementController.getElementLeft(this._$h8);
-        this._$mJ.y = WidgetDockElementController.getElementTop(this._$h8);
+        this._$mJ.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
+        this._$mJ.y = WidgetDockElementController.getElementTop(this._panelStateElement);
         this._$mK.x = this._$mJ.x;
         this._$mK.y = this._$mJ.y;
 
-            this._$mK.width = parseInt(this._$h8.style.width);
-            this._$mK.height = parseInt(this._$h8.style.height);
+            this._$mK.width = parseInt(this._panelStateElement.style.width);
+            this._$mK.height = parseInt(this._panelStateElement.style.height);
 
         this._$mJ.x = pt.x;
         this._$mJ.y = pt.y;
@@ -140,17 +140,17 @@ _$6A.prototype._$ms = function (e) {
     }
     if (this._$jU >= 0) {
         if (this._$jU == _$6A._$7a || this._$jU == _$6A._$1t) {
-            this._$h8.style.cursor = "e-resize";
+            this._panelStateElement.style.cursor = "e-resize";
         } else if (this._$jU == _$6A._$60 || this._$jU == _$6A._$4D) {
-            this._$h8.style.cursor = "n-resize";
+            this._panelStateElement.style.cursor = "n-resize";
         } else if (this._$jU == _$6A._$7b) {
-            this._$h8.style.cursor = "nw-resize";
+            this._panelStateElement.style.cursor = "nw-resize";
         } else if (this._$jU == _$6A._$7c) {
-            this._$h8.style.cursor = "sw-resize";
+            this._panelStateElement.style.cursor = "sw-resize";
         } else if (this._$jU == _$6A._$1u) {
-            this._$h8.style.cursor = "ne-resize";
+            this._panelStateElement.style.cursor = "ne-resize";
         } else {
-            this._$h8.style.cursor = "se-resize";
+            this._panelStateElement.style.cursor = "se-resize";
         }
     } else {
     }
@@ -200,11 +200,11 @@ _$6A.prototype._$sC = function (_$pL, rt) {
 _$6A.prototype._$f4 = function (pt) {
     this._$jU = -1;
     var rt = new WidgetDockFrame();
-    rt.x = WidgetDockElementController.getElementLeft(this._$h8);
-    rt.y = WidgetDockElementController.getElementTop(this._$h8);
+    rt.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
+    rt.y = WidgetDockElementController.getElementTop(this._panelStateElement);
 
-        rt.width = parseInt(this._$h8.style.width);
-        rt.height = parseInt(this._$h8.style.height);
+        rt.width = parseInt(this._panelStateElement.style.width);
+        rt.height = parseInt(this._panelStateElement.style.height);
 
     if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
         if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) this._$jU = _$6A._$7c; else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) this._$jU = _$6A._$7b; else this._$jU = _$6A._$7a;

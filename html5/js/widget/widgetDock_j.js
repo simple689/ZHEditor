@@ -65,8 +65,8 @@ _$K.prototype._$7v = function (_$a0) {
     this._$qF(this._elementWithType[1]);
     var _$tc = WidgetDockElementController.getElementLeft(this._$he);
     var _$tn = WidgetDockElementController.getElementTop(this._$he);
-    this._elementWithType[1] = _$a0._$h8;
-    WidgetDockElementController.addFixedPanel(_$a0._$h8, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._$h8.style.height));
+    this._elementWithType[1] = _$a0._panelStateElement;
+    WidgetDockElementController.addFixedPanel(_$a0._panelStateElement, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._panelStateElement.style.height));
     this._$5z();
 };
 _$K.prototype.Add = function (com) {
@@ -403,9 +403,9 @@ _$J._$0x = function (_$q2) {
 _$J.prototype._$0v = function (_$mL) {
     var sp = new _$6A(_$mL);
     sp._$kQ = this;
-    this._$he = sp._$h8;
+    this._$he = sp._panelStateElement;
     this.setVisible(false);
-    this._$hh = sp._$h8;
+    this._$hh = sp._panelStateElement;
     this._$is = true;
     this._$jF[1] = 6;
     this._$jF[3] = 6;
@@ -484,8 +484,8 @@ _$J.prototype._$10 = function () {
     var cnt = this._$ha.length;
     var i;
     for (i = 0; i < cnt; i++) {
-        if ((this._$ha[i] instanceof _$N) || (this._$ha[i] instanceof _$1l)) {
-            WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$ha[i]._$h8);
+        if ((this._$ha[i] instanceof _$N) || (this._$ha[i] instanceof widgetDockPanelStateController)) {
+            WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$ha[i]._panelStateElement);
         }
     }
     this._elementWithType[1] = null;

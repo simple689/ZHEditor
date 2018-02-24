@@ -792,7 +792,7 @@ WidgetDockPatternBase.prototype._$0c = function (sch) {
     if (!this.isOutIFrame) return;
     if (this._$hA == null) {
         var _$t5 = "div";
-        this._$hA = WidgetDockElementController.createElementWithParent(_$t5, WidgetDockController._elementRootId);
+        this._$hA = WidgetDockElementController.createElementWithParentId(_$t5, WidgetDockController._elementRootId);
         this._$hA.style.border = "0px solid";
         this._$hA.style.zIndex = 7890;
     }

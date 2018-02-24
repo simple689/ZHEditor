@@ -4,10 +4,10 @@ function _$6C(type, _$b8) {
     this._$hj = null;
     this._$ig = false;
 
-        this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
-        this._$h8.style.border = "1px solid";
+        this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
+        this._panelStateElement.style.border = "1px solid";
 
-    WidgetDockElementController.setElementZIndex(this._$h8, _$b8._windowMain._$jO);
+    WidgetDockElementController.setElementZIndex(this._panelStateElement, _$b8._windowMain._$jO);
 };
 _$6C.prototype._$ri = function (_$7S, _$7K) {
     this._$ik = _$7S;
@@ -23,16 +23,16 @@ _$6C.prototype._$ri = function (_$7S, _$7K) {
     this._$qJ();
 };
 _$6C.prototype._$r8 = function (_$cS, _$do, width, height) {
-    WidgetDockElementController.setElementLeftTop(this._$h8, _$cS, _$do);
-    WidgetDockElementController.setElementSize(this._$h8, width, height);
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
+    WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this._$qJ();
 };
 _$6C.prototype._$sL = function () {
 };
 _$6C.prototype._$qJ = function () {
     var iw, ih;
-    iw = WidgetDockElementController.getElementWidth(this._$h8);
-    ih = WidgetDockElementController.getElementHeight(this._$h8);
+    iw = WidgetDockElementController.getElementWidth(this._panelStateElement);
+    ih = WidgetDockElementController.getElementHeight(this._panelStateElement);
     if (this._$hj == null) return;
     if (this._$ik) {
         this._$hj._$s1 = "#0000ff";

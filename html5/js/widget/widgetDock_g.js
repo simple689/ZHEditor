@@ -3,7 +3,6 @@ function _$G() {
     this._$i9 = true;
     this._$iO = false;
     this._title = "";
-    this._$kv = 0;
     this._$iX = true;
     this._$hI = null;
     this._$kE = null;
@@ -13,21 +12,21 @@ function _$G() {
     this._$hj = null;
     this._$bi = null;
 
-        this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
-        this._$h8.style.backgroundColor = 'ActiveCaption';
-        this._$h8.style.border = "0px solid";
-        this._$hI = WidgetDockElementController._$0t("div", this._$h8);
+        this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
+        this._panelStateElement.style.backgroundColor = 'ActiveCaption';
+        this._panelStateElement.style.border = "0px solid";
+        this._$hI = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         this._$hI._$4u = this;
         this._$hI.onmousedown = _$G._$14;
         this._$hI.onmousemove = _$G._$13;
         this._$hI.style.backgroundColor = 'ButtonFace';
 
-    WidgetDockElementController.setElementSize(this._$h8, 40, _$G._$6J);
-    this._$hB = "8pt sans-serif";
-    this._$h8._$4u = this;
-    this._$h8.onmousedown = _$G._$4h;
-    this._$h8.onmousemove = _$G._$4g;
-    this._$h8._$mF = _$G._$mh;
+    WidgetDockElementController.setElementSize(this._panelStateElement, 40, _$G._$6J);
+    this.styleFont = "8pt sans-serif";
+    this._panelStateElement._$4u = this;
+    this._panelStateElement.onmousedown = _$G._$4h;
+    this._panelStateElement.onmousemove = _$G._$4g;
+    this._panelStateElement._$mF = _$G._$mh;
 };
 _$G._$6J = 28;
 _$G._$51 = 0;
@@ -65,16 +64,16 @@ _$G._$mh = function (e) {
     return false;
 };
 _$G.prototype._$6o = function (_$cS, _$do, width, height) {
-    WidgetDockElementController.setElementLeftTop(this._$h8, _$cS, _$do);
-    WidgetDockElementController.setElementSize(this._$h8, width, height);
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
+    WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this._$5z();
     this._$qJ();
 };
 _$G.prototype._$2P = function (rc) {
-    rc.left = WidgetDockElementController.getElementLeft(this._$h8);
-    rc.top = WidgetDockElementController.getElementTop(this._$h8);
-    rc.right = rc.left + WidgetDockElementController.getElementWidth(this._$h8);
-    rc.bottom = rc.top + WidgetDockElementController.getElementHeight(this._$h8);
+    rc.left = WidgetDockElementController.getElementLeft(this._panelStateElement);
+    rc.top = WidgetDockElementController.getElementTop(this._panelStateElement);
+    rc.right = rc.left + WidgetDockElementController.getElementWidth(this._panelStateElement);
+    rc.bottom = rc.top + WidgetDockElementController.getElementHeight(this._panelStateElement);
 };
 _$G.prototype._$5Q = function (_$al, _$cS, _$do, width, height) {
     if (this._$i6 != null) {
@@ -91,9 +90,9 @@ _$G.prototype._$5Q = function (_$al, _$cS, _$do, width, height) {
 _$G.prototype.mouseMove = function (e) {
     if (this._$iO) this._$ms(e); else {
         if (this._$0i(e) >= 0) {
-            this._$h8.style.cursor = "move";
+            this._panelStateElement.style.cursor = "move";
         } else {
-            this._$h8.style.cursor = "default";
+            this._panelStateElement.style.cursor = "default";
         }
     }
 };
@@ -151,7 +150,7 @@ _$G.prototype._$5K = function (floatPanel) {
         tab = this._$i6[i];
         if (tab.floatPanel == floatPanel) {
             if (tab._$h9 != null) {
-                this._$h8.removeChild(tab._$h9);
+                this._panelStateElement.removeChild(tab._$h9);
                 tab._$h9 = null;
             }
             this._$i6.splice(i, 1);
@@ -179,13 +178,13 @@ _$G.prototype._$5K = function (floatPanel) {
         if (_$gi == 1) {
             var _$sN = this._$i6[0];
             if (_$sN._$h9 != null) {
-                this._$h8.removeChild(_$sN._$h9);
+                this._panelStateElement.removeChild(_$sN._$h9);
                 _$sN._$h9 = null;
             }
         }
         this._$i6.splice(0, this._$i6.length);
         this.setVisible(false);
-        WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$h8);
+        WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._panelStateElement);
         if (_$gi == 0) return false;
     }
     this._$5z();
@@ -212,7 +211,7 @@ _$G.prototype.Add = function (floatPanel) {
     var s = floatPanel._$hy._$cb();
     var tab = new _$O(0, 0, s);
 
-        tab._$h9 = WidgetDockElementController._$0t("div", this._$h8);
+        tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         tab._$h9._$4u = this;
         tab._$h9.onmousedown = _$G._$14;
         tab._$h9.onmousemove = _$G._$13;
@@ -230,7 +229,7 @@ _$G.prototype._$3 = function (floatPanel, _$cN) {
     var s = floatPanel._$hy._$cb();
     var tab = new _$O(0, 0, s);
 
-        tab._$h9 = WidgetDockElementController._$0t("div", this._$h8);
+        tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         tab._$h9._$4u = this;
         tab._$h9.onmousedown = _$G._$14;
         tab._$h9.onmousemove = _$G._$13;
@@ -255,8 +254,8 @@ _$G.prototype._$6b = function (floatPanel) {
 };
 _$G.prototype._$c8 = function () {
     var _$sX = new WidgetDockSize();
-    _$sX.width = WidgetDockElementController.getElementWidth(this._$h8);
-    _$sX.height = WidgetDockElementController.getElementHeight(this._$h8);
+    _$sX.width = WidgetDockElementController.getElementWidth(this._panelStateElement);
+    _$sX.height = WidgetDockElementController.getElementHeight(this._panelStateElement);
     return _$sX;
 };
 _$G.prototype._$5z = function () {
@@ -383,7 +382,6 @@ _$G.prototype._$V = function (_$cN) {
         tab.floatPanel._$kA = this._$kE;
         tab.floatPanel._$6q(rc);
         this._$qJ();
-        this._$kv = 0;
         tab.floatPanel._patternMain._$1(tab.floatPanel);
     }
 };
@@ -402,7 +400,7 @@ _$G.prototype._$ms = function (e) {
 _$G.prototype._$0i = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
-    pt.x = pt.x - WidgetDockElementController.getElementLeft(this._$h8);
+    pt.x = pt.x - WidgetDockElementController.getElementLeft(this._panelStateElement);
     var _$e1 = this._$i6.length;
     var i;
     for (i = 0; i < _$e1; i++) {
@@ -417,7 +415,7 @@ _$G.prototype._$rn = function (_$by) {
     this._$bi = _$by;
 };
 _$G.prototype._$qJ = function (g) {
-    this._$h8.width = this._$h8.width;
+    this._panelStateElement.width = this._panelStateElement.width;
     this._$aK(g, this._$jh);
 };
 _$G.prototype._$cc = function (event) {
@@ -446,8 +444,8 @@ _$G.prototype._$0d = function (floatPanel, _$pC) {
     var _$sw = new WidgetDockLocation();
     _$sw.x = _$pC.x;
     _$sw.y = _$pC.y;
-    _$sw.x = _$sw.x - WidgetDockElementController.getElementLeft(this._$h8);
-    _$sw.y = _$sw.y - WidgetDockElementController.getElementTop(this._$h8);
+    _$sw.x = _$sw.x - WidgetDockElementController.getElementLeft(this._panelStateElement);
+    _$sw.y = _$sw.y - WidgetDockElementController.getElementTop(this._panelStateElement);
     var _$e1 = this._$i6.length;
     var tab = null;
     var i;
@@ -466,11 +464,11 @@ _$G.prototype._$0d = function (floatPanel, _$pC) {
     }
     return false;
 };
-_$G.prototype._$bS = function () {
-    return this._$hB;
+_$G.prototype.getStyleFont = function () {
+    return this.styleFont;
 };
 _$G.prototype._$bT = function (floatPanel) {
-    if (floatPanel != null && floatPanel._$hy != null) return floatPanel._$hy._$bS(); else return this._$bS();
+    if (floatPanel != null && floatPanel._$hy != null) return floatPanel._$hy.getStyleFont(); else return this.getStyleFont();
 };
 _$G.prototype._$aK = function (g, _$cs) {
     if (_$cs < 0) return;
