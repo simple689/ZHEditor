@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_4d.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_4d.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_58.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_58.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_6a.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_6a.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_6c.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_6c.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_f.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_f.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_g.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_g.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_j.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_j.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_n.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_n.js" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_4d.js" afterPath="$PROJECT_DIR$/js/widget/WidgetDockPanelStateController.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,21 +50,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDock_4d.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_4d.js">
+      <file leaf-file-name="WidgetDockPanelStateController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/WidgetDockPanelStateController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="298" column="48" lean-forward="false" selection-start-line="298" selection-start-column="41" selection-end-line="298" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetDock_0.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_0.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="514" column="47" lean-forward="true" selection-start-line="514" selection-start-column="47" selection-end-line="514" selection-end-column="47" />
+            <state relative-caret-position="1296">
+              <caret line="514" column="27" lean-forward="true" selection-start-line="514" selection-start-column="27" selection-end-line="514" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -127,8 +130,8 @@
       <find>init</find>
       <find>_$f7</find>
       <find>getTitle</find>
-      <find>reset</find>
       <find>_$qJ</find>
+      <find>reset</find>
       <find>refresh</find>
     </findStrings>
     <replaceStrings>
@@ -410,7 +413,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234751000" />
+    <option name="totallyTimeSpent" value="234783000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -499,12 +502,12 @@
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetDock_4d.js</url>
+          <url>file://$PROJECT_DIR$/js/widget/WidgetDockPanelStateController.js</url>
           <line>582</line>
           <option name="timeStamp" value="254" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetDock_4d.js</url>
+          <url>file://$PROJECT_DIR$/js/widget/WidgetDockPanelStateController.js</url>
           <line>1</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="259" />
@@ -656,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_0.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_6c.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -801,18 +797,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_4d.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="298" column="48" lean-forward="false" selection-start-line="298" selection-start-column="41" selection-end-line="298" selection-end-column="48" />
+        <state relative-caret-position="1296">
+          <caret line="514" column="27" lean-forward="true" selection-start-line="514" selection-start-column="27" selection-end-line="514" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/WidgetDockPanelStateController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="514" column="47" lean-forward="true" selection-start-line="514" selection-start-column="47" selection-end-line="514" selection-end-column="47" />
+        <state relative-caret-position="0">
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
           <folding />
         </state>
       </provider>
