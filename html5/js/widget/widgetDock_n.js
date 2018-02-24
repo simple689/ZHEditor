@@ -1,4 +1,3 @@
-
 function _$N() {
     this._$je = 0;
     this._$j1 = 0;
