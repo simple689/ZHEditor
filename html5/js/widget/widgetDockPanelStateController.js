@@ -196,10 +196,6 @@ WidgetDockPanelStateController.prototype.mouseMove = function (e) {
     }
 };
 WidgetDockPanelStateController.prototype._$mj = function (pt) {
-    if (this._floatPanel._$lp != null) {
-        this._floatPanel._$lp._$qL();
-    } else {
-    }
     var _$9P = WidgetDockElementController.getElementLeft(this._panelStateElement);
     var _$9Q = WidgetDockElementController.getElementTop(this._panelStateElement);
     var _$a5 = new WidgetDockLocation();

@@ -27,8 +27,6 @@ _$6C.prototype._$r8 = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this.refresh();
 };
-_$6C.prototype._$sL = function () {
-};
 _$6C.prototype.refresh = function () {
     var iw, ih;
     iw = WidgetDockElementController.getElementWidth(this._panelStateElement);

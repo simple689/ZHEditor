@@ -126,7 +126,7 @@ WidgetDockController.prototype.createFloatPanel = function (title) {
 };
 WidgetDockController.prototype.saveStatesIntoKey = function (key) {
     var layout = new WidgetDockLayout();
-    WidgetDockController._windowMain.initLayout(layout);
+    WidgetDockController._windowMain.createLayout(layout);
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
         sessionStorage.setItem(key, layout.getContent());
@@ -153,32 +153,31 @@ WidgetDockController._$6s = function (sch) {
     if (WidgetDockController._$iU) WidgetDockController._windowMain._$6s(sch);
 };
 
-WidgetDockController._$06 = function (fID) {
+WidgetDockController._$06 = function (elementId) {
     var va = WidgetDockController._$kN;
-    var _$e0 = va.length;
-    var i;
-    for (i = 0; i < _$e0; i++) {
-        if (va[i] == fID) {
+    var len = va.length;
+    for (var i = 0; i < len; i++) {
+        if (va[i] == elementId) {
             va.splice(i, 1);
             return true;
         }
     }
     return false;
 };
-WidgetDockController.initIFrame = function (fID) {
+WidgetDockController.initIFrame = function (elementId) {
     if (WidgetDockController._instance == null) WidgetDockController.init();
-    var vf = document.getElementById(fID);
+    var vf = document.getElementById(elementId);
     try {
         vf.contentWindow.document._$m7 = vf;
     } catch (err) {
         {
             if (WidgetDockController._$iU) {
                 if (WidgetDockController._windowMain == null) {
-                    WidgetDockController._$kN.push(fID);
+                    WidgetDockController._$kN.push(elementId);
                 } else {
-                    var _$8C = WidgetDockController._windowMain._$rv(fID);
+                    var _$8C = WidgetDockController._windowMain._$rv(elementId);
                     if (!_$8C) {
-                        WidgetDockController._$kN.push(fID);
+                        WidgetDockController._$kN.push(elementId);
                     }
                 }
             }
@@ -186,13 +185,6 @@ WidgetDockController.initIFrame = function (fID) {
         }
     } finally {
         var s = 0;
-    }
-    if ((vf.contentWindow.attachEvent != null) && WidgetDockController._ieVersion >= 7 && WidgetDockController._ieVersion <= 8) {
-        var vro = vf.contentWindow.document;
-        vro.attachEvent("onmousedown", mouseDown);
-        vro.attachEvent("onmouseup", mouseUp);
-        vro.attachEvent("onmousemove", mouseMove);
-        return;
     }
     vf.contentWindow.addEventListener("mousemove", mouseMove, true);
     vf.contentWindow.addEventListener("mouseup", mouseUp, true);

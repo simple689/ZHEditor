@@ -1454,17 +1454,15 @@ WidgetDockPatternBase._$5r = function (_$cr, _$qf) {
     _$qf.top += _$pL.y;
     _$qf.bottom += _$pL.y;
 };
-WidgetDockPatternBase.prototype._$1P = function (floatPanel, _$df, _$sh, mainPattern, _$cD, _$dg, _$mS, _$nr) {
-    var panel;
+WidgetDockPatternBase.prototype._$1P = function (floatPanel, _$df, title, mainPattern, _$cD, _$dg, _$mS, _$nr) {
     _$mS[0] = _$mS[1] = null;
     var _$eQ = new Array(1);
-    var i;
-    for (i = 0; i < 4; i++) {
-        var _$e1 = this._patternPositionList[i]._patternSub.getPanelNum();
-        var j;
-        for (j = 0; j < _$e1; j++) {
+    for (var i = 0; i < 4; i++) {
+        var panelNum = this._patternPositionList[i]._patternSub.getPanelNum();
+        var panel;
+        for (var j = 0; j < panelNum; j++) {
             panel = this._patternPositionList[i]._patternSub._panelList[j];
-            var _$pO = this._$1J(floatPanel, _$sh, panel._$kI, _$eQ, _$nr);
+            var _$pO = this._$1J(floatPanel, title, panel._$kI, _$eQ, _$nr);
             if (_$pO != null && panel._$k9 == _$df) {
                 if (_$df != 0) {
                     _$cD[0] = i;
@@ -1484,30 +1482,30 @@ WidgetDockPatternBase.prototype._$1P = function (floatPanel, _$df, _$sh, mainPat
                     _$mS[1] = _$pO;
                     mainPattern[1] = this;
                 }
-                this._$1O(floatPanel, _$sh, _$mS, _$cD, _$dg, mainPattern, _$eQ);
+                this._$1O(floatPanel, title, _$mS, _$cD, _$dg, mainPattern, _$eQ);
                 return _$eQ[0] & WidgetDockFloatPanel._$1D;
             }
         }
     }
     if (_$df != 0) return _$eQ[0] & WidgetDockFloatPanel._$1D;
-    this._$1O(floatPanel, _$sh, _$mS, _$cD, _$dg, mainPattern, _$eQ);
+    this._$1O(floatPanel, title, _$mS, _$cD, _$dg, mainPattern, _$eQ);
     return _$eQ[0] & WidgetDockFloatPanel._$1D;
 };
 WidgetDockPatternBase.prototype._$1O = function (floatPanel, _$qY, _$nO, _$dA, _$dC, _$nP, _$cX) {
     floatPanel._windowMain._$1O(floatPanel, _$qY, _$nO, _$dA, _$dC, _$nP, _$cX);
 };
-WidgetDockPatternBase.prototype._$1J = function (floatPanel, _$sh, _$mS, _$cX, _$nr) {
+WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, _$nr) {
     if (_$mS == null) return null;
     var _$pO = null;
-    if (_$mS._$od != null) _$pO = this._$1J(floatPanel, _$sh, _$mS._$od, _$cX, _$nr);
+    if (_$mS._$od != null) _$pO = this._$1J(floatPanel, title, _$mS._$od, _$cX, _$nr);
     if (_$pO != null) return _$pO;
-    if (_$mS._$pr != null) return this._$1J(floatPanel, _$sh, _$mS._$pr, _$cX, _$nr);
-    if (_$mS._$sl != null && (_$sh == _$mS._$sl)) return _$mS; else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
+    if (_$mS._$pr != null) return this._$1J(floatPanel, title, _$mS._$pr, _$cX, _$nr);
+    if (_$mS._$sl != null && (title == _$mS._$sl)) return _$mS; else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
         var _$e1 = _$mS._$l1.length;
         var i;
         for (i = 0; i < _$e1; i++) {
             var _$rZ = _$mS._$l1[i]._$qY;
-            if (_$rZ != null && (_$sh == _$rZ)) {
+            if (_$rZ != null && (title == _$rZ)) {
                 var _$ol = _$mS._$l1[i];
                 _$cX[0] = _$ol._$aP;
                 if (_$nr != null) _$nr[0] = _$ol;
@@ -1553,9 +1551,7 @@ WidgetDockPatternBase.prototype._$qF = function (_$a0) {
     }
 };
 WidgetDockPatternBase.prototype.addFixedPanel = function (element, type) {
-    if (WidgetDockController._browserType == EnumBrowserType.IE && WidgetDockController._ieVersion <= 7) {
-        this.isOutIFrame = true;
-    } else if (element instanceof HTMLIFrameElement) {
+    if (element instanceof HTMLIFrameElement) {
         if (WidgetDockController._$06(element.id)) {
             this.isOutIFrame = true;
         }
@@ -1820,20 +1816,20 @@ WidgetDockPatternBase.prototype._$0b = function (patternPositionPanelNumList, po
         }
     }
 };
-WidgetDockPatternBase.prototype._$1N = function (_$sh, _$mS) {
+WidgetDockPatternBase.prototype._$1N = function (title, _$mS) {
     if (_$mS == null) return null;
     var _$pO = null;
-    if (_$mS._$od != null) _$pO = _$1N(_$sh, _$mS._$od);
+    if (_$mS._$od != null) _$pO = _$1N(title, _$mS._$od);
     if (_$pO != null) return _$pO;
-    if (_$mS._$pr != null) return _$1N(_$sh, _$mS._$pr);
-    if (_$mS._$sl != null && _$mS._$sl.lastIndexOf(_$sh) == 0) {
+    if (_$mS._$pr != null) return _$1N(title, _$mS._$pr);
+    if (_$mS._$sl != null && _$mS._$sl.lastIndexOf(title) == 0) {
         return _$mS;
     } else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
         var _$e1 = _$mS._$l1.length;
         var i;
         for (i = 0; i < _$e1; i++) {
             var _$so = _$mS._$l1[i]._$qY;
-            if (_$so != null && _$so.lastIndexOf(_$sh) == 0) {
+            if (_$so != null && _$so.lastIndexOf(title) == 0) {
                 return _$mS;
             }
         }

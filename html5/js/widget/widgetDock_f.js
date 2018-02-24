@@ -426,7 +426,6 @@ _$F.prototype._$2 = function (floatPanel) {
         }
         floatPanel._$5(this._$o5);
     }
-    floatPanel._$sL();
     if (this._$l1 == null) {
         this._$l1 = new Array(0);
         this.Add(_$p1);
