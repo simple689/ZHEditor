@@ -36,7 +36,7 @@ WidgetDockPanelStateController._$j5 = new WidgetDockSize();
 WidgetDockPanelStateController.prototype._$6o = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
-    this._$qJ();
+    this.refresh();
 };
 WidgetDockPanelStateController.prototype.setVisible = function (isVisible) {
     WidgetDockElementController.setElementVisible(this._panelStateElement, isVisible);
@@ -233,7 +233,7 @@ WidgetDockPanelStateController.prototype.setFloatPanel = function (floatPanel) {
 };
 WidgetDockPanelStateController.prototype._$r6 = function (_$7J) {
     this._$i9 = _$7J;
-    this._$qJ();
+    this.refresh();
 };
 WidgetDockPanelStateController.prototype.setTitle = function (title) {
     if (title != null) {
@@ -241,9 +241,9 @@ WidgetDockPanelStateController.prototype.setTitle = function (title) {
     } else {
         this._title = "";
     }
-    this._$qJ();
+    this.refresh();
 };
-WidgetDockPanelStateController.prototype._$cb = function () {
+WidgetDockPanelStateController.prototype.getTitle = function () {
     return this._title;
 };
 WidgetDockPanelStateController.prototype._$c6 = function () {
@@ -296,7 +296,7 @@ WidgetDockPanelStateController.prototype._$nL = function (_$82, ix, iy, width, h
         this._$hj.fillRect(ix, iy, width, height);
     }
 };
-WidgetDockPanelStateController.prototype._$qJ = function () {
+WidgetDockPanelStateController.prototype.refresh = function () {
     if (this._panelStatePinElement == null) {
         this._panelStatePinElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         this._bottonPin = new Image();
@@ -713,7 +713,7 @@ _$4d.prototype._$c6 = function () {
     WidgetDockPanelStateController._$j5.height = 18;
     return WidgetDockPanelStateController._$j5;
 };
-_$4d.prototype._$qJ = function () {
+_$4d.prototype.refresh = function () {
     var rc = new WidgetDockRect();
     this._$2P(rc);
     rc.right = rc.right - rc.left;

@@ -281,7 +281,7 @@ _$F.prototype._$o = function (_$aQ, _$d3, _$mM, _$nh) {
             }
         }
     }
-    this._$o5._$qJ();
+    this._$o5.refresh();
 };
 _$F.prototype._$0w = function (_$aQ, _$d3, _$mM, _$nh) {
     if (_$aQ == null || _$d3 < 2) return;

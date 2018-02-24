@@ -54,7 +54,7 @@ _$N.prototype.setSize = function (width, height) {
     if (width == 0 && height == 0) {
         this._panelStateElement.style.visibility = "hidden";
     }
-    this._$qJ();
+    this.refresh();
 };
 _$N.prototype.setElementZIndex = function (_$cR) {
     if (this._panelStateElement != null) {
@@ -128,7 +128,7 @@ _$N.prototype._$ms = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
     this._$4i(pt);
-    this._$qJ();
+    this.refresh();
 };
 _$N.prototype._$4N = function (_$ts, _$h1) {
     return this._$kG._$s9(this, _$ts, _$h1);
@@ -364,13 +364,13 @@ _$N.prototype._$4q = function (_$cY) {
     }
     WidgetDockElementController.setElementLeftTop(this._panelStateElement, ix, iy);
     WidgetDockElementController.setElementSize(this._panelStateElement, _$gK, _$el);
-    this._$qJ();
+    this.refresh();
 };
 _$N.prototype._$6q = function (rc) {
     if (this._panelStateElement != null) {
         WidgetDockElementController.setElementLeftTop(this._panelStateElement, rc.left, rc.top);
         WidgetDockElementController.setElementSize(this._panelStateElement, rc.right - rc.left, rc.bottom - rc.top);
-        this._$qJ();
+        this.refresh();
     }
 };
 _$N.prototype._$25 = function (rc) {
@@ -424,7 +424,7 @@ _$N.prototype._$1p = function (_$86) {
 };
 _$N.prototype._$3B = function () {
 };
-_$N.prototype._$qJ = function () {
+_$N.prototype.refresh = function () {
     var _$eu, _$gC, iw, ih;
     _$eu = WidgetDockElementController.getElementLeft(this._panelStateElement);
     _$gC = WidgetDockElementController.getElementTop(this._panelStateElement);

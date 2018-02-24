@@ -88,7 +88,7 @@ _$K.prototype._$7p = function () {
     this._$7v(pan);
     this.Add(pan);
     this._$kX = pan;
-    this._$kX._$qJ();
+    this._$kX.refresh();
 };
 _$K.prototype._$7m = function (_$7J) {
     if (this._elementWithType[1] != null) {
@@ -208,7 +208,7 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
     if (this._elementWithType[1] != null) {
         WidgetDockElementController.setElementLeftTop(this._elementWithType[1], 3 + WidgetDockElementController.getElementLeft(this._$he), 3 + WidgetDockElementController.getElementTop(this._$he));
         WidgetDockElementController.setElementSize(this._elementWithType[1], iw, this._$jF[1] - 3);
-        if (this._$kX != null) this._$kX._$qJ();
+        if (this._$kX != null) this._$kX.refresh();
     }
     var _$e1 = this._patternPositionList[0]._patternSub.getPanelNum();
     if (_$e1 == 1) {

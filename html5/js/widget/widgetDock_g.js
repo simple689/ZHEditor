@@ -67,7 +67,7 @@ _$G.prototype._$6o = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this._$5z();
-    this._$qJ();
+    this.refresh();
 };
 _$G.prototype._$2P = function (rc) {
     rc.left = WidgetDockElementController.getElementLeft(this._panelStateElement);
@@ -188,7 +188,7 @@ _$G.prototype._$5K = function (floatPanel) {
         if (_$gi == 0) return false;
     }
     this._$5z();
-    this._$qJ();
+    this.refresh();
     return true;
 };
 _$G.prototype.setVisible = function (bv) {
@@ -208,7 +208,7 @@ _$G.prototype.Add = function (floatPanel) {
     for (i = 0; i < _$e1; i++) {
         if (this._$i6[i].floatPanel == floatPanel) return;
     }
-    var s = floatPanel._panelStateController._$cb();
+    var s = floatPanel._panelStateController.getTitle();
     var tab = new _$O(0, 0, s);
 
         tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
@@ -226,7 +226,7 @@ _$G.prototype._$3 = function (floatPanel, _$cN) {
     for (i = 0; i < _$e1; i++) {
         if (this._$i6[i].floatPanel == floatPanel) return;
     }
-    var s = floatPanel._panelStateController._$cb();
+    var s = floatPanel._panelStateController.getTitle();
     var tab = new _$O(0, 0, s);
 
         tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
@@ -300,7 +300,7 @@ _$G.prototype._$5z = function () {
         if (tab.floatPanel._$hE != null) _$fK = _$O._$jL;
         tab._$qV = WidgetDockPatternBase._$6y(ft, tab._$qT, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
     }
-    this._$qJ();
+    this.refresh();
 };
 _$G.prototype._$9N = function () {
     if (this._$iO) {
@@ -381,7 +381,7 @@ _$G.prototype._$V = function (_$cN) {
         this._$kE._$of._$kB = tab.floatPanel._$kB;
         tab.floatPanel._$kA = this._$kE;
         tab.floatPanel._$6q(rc);
-        this._$qJ();
+        this.refresh();
         tab.floatPanel._patternMain._$1(tab.floatPanel);
     }
 };
@@ -414,7 +414,7 @@ _$G.prototype._$0i = function (e) {
 _$G.prototype.setFloatPanel = function (floatPanel) {
     this._floatPanel = floatPanel;
 };
-_$G.prototype._$qJ = function (g) {
+_$G.prototype.refresh = function (g) {
     this._panelStateElement.width = this._panelStateElement.width;
     this._$aK(g, this._$jh);
 };

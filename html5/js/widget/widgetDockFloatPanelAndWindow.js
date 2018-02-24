@@ -78,7 +78,7 @@ function WidgetDockFloatPanel(window, title) {
     } else {
         this._$jw = WidgetDockFloatPanel._$4W;
         this._windowMain = window;
-        this._$f6(window._patternMain, title);
+        this.setPatternAndTitle(window._patternMain, title);
     }
     this._$jE = 0;
     if (WidgetDockFloatPanel._floatPanelController == null) {
@@ -145,7 +145,6 @@ WidgetDockFloatPanel._$hO = null;
 WidgetDockFloatPanel._$hR = null;
 WidgetDockFloatPanel._$hS = null;
 WidgetDockFloatPanel._$1H = 4;
-WidgetDockFloatPanel._$iA = false;
 WidgetDockFloatPanel._$jy = 0;
 WidgetDockFloatPanel._$iY = false;
 WidgetDockFloatPanel._$jB = 0;
@@ -165,7 +164,7 @@ WidgetDockFloatPanel._$h5 = null;
 WidgetDockFloatPanel.prototype.hasOutIFrame = function () {
     this.isOutIFrame = true;
 };
-WidgetDockFloatPanel.prototype._$f7 = function () {
+WidgetDockFloatPanel.prototype.reset = function () {
     if (this._$i8 == null) {
         this._$i8 = new Array();
         this._$hw = new Array();
@@ -209,12 +208,11 @@ WidgetDockFloatPanel.prototype._$f7 = function () {
     this._$kA = null;
     this._$jr = 0xffffffff;
 };
-WidgetDockFloatPanel.prototype._$f6 = function (patternMain, title) {
+WidgetDockFloatPanel.prototype.setPatternAndTitle = function (patternMain, title) {
     this._title = title;
-    this._$3a();
     if (this._$jw == WidgetDockFloatPanel._$4B) return;
     this._patternMain = patternMain;
-    this._$f7();
+    this.reset();
     this.setElementVisible(true);
     this.createPanelStateController();
     this._panelStateController.setTitle(title);
@@ -246,7 +244,7 @@ WidgetDockFloatPanel.prototype.unload = function (_$80) {
             _patternMain._$53(this);
         }
     }
-    _$f7();
+    reset();
     if (!_$80) {
         var _$e1 = WidgetDockFloatPanel._floatPanelController.getPanelNum();
         var i;
@@ -259,7 +257,7 @@ WidgetDockFloatPanel.prototype._$c3 = function () {
     return this._title;
 };
 WidgetDockFloatPanel.prototype.getTitle = function () {
-    if (this._title != null && this._title.length > 0) return this._title; else return _panelStateController._$cb();
+    if (this._title != null && this._title.length > 0) return this._title; else return _panelStateController.getTitle();
 };
 WidgetDockFloatPanel.prototype.setInitialLayoutReference = function (floatPanel) {
     if (floatPanel != this) this._$l9 = floatPanel;
@@ -329,9 +327,6 @@ WidgetDockFloatPanel.prototype.setTitle = function (title) {
     if (_$k0 == _$6W && _$fs <= EnumPatternPositionType.Bottom && _patternMain._$lk != null && _patternMain._$lk[_$fs] != null) {
         _patternMain._$lk[_$fs]._$4J(this, title);
     }
-};
-WidgetDockFloatPanel.prototype._$cb = function () {
-    return this._panelStateController._$cb();
 };
 WidgetDockFloatPanel.prototype._$ms = function (pt) {
     var _$pL = _$c0();
@@ -507,7 +502,7 @@ WidgetDockFloatPanel.prototype._$rB = function (sch) {
                     this._$kB._$18(this, null);
                     this.setElementVisible(true);
                     this._$qz(-1);
-                    this._$qJ();
+                    this.refresh();
                 } else {
                     this._$kW = this._$kB;
                     this._$Z();
@@ -757,7 +752,7 @@ WidgetDockFloatPanel.prototype._$5d = function () {
                     _$lt.x = rc.left;
                     _$lt.y = rc.top;
                 }
-                _$kB._$bI()._$qJ();
+                _$kB._$bI().refresh();
                 this._$qz(-1);
             }
         }
@@ -1679,10 +1674,10 @@ WidgetDockFloatPanel.prototype._$m6 = function (_$cS, _$do, width, height) {
         _$lU._$r8(_$cS, _$do, _$1H, height);
         _$lV._$r8(_$cS + width - _$1H, _$do, _$1H, height);
         _$lR._$r8(_$cS + _$1H, _$do + height - _$1H, width - (2 * _$1H), _$1H);
-        _$lY._$qJ();
-        _$lU._$qJ();
-        _$lV._$qJ();
-        _$lR._$qJ();
+        _$lY.refresh();
+        _$lU.refresh();
+        _$lV.refresh();
+        _$lR.refresh();
         if (_$lW != null) {
             _$lW._$au();
             _$lW = null;
@@ -1743,10 +1738,10 @@ WidgetDockFloatPanel.prototype._$m5 = function (_$cS, _$do, width, height) {
         WidgetDockFloatPanel._$hP._$r8(_$cS, _$do, WidgetDockFloatPanel._$1H, height);
         WidgetDockFloatPanel._$hQ._$r8(_$cS + width - WidgetDockFloatPanel._$1H, _$do, WidgetDockFloatPanel._$1H, height);
         WidgetDockFloatPanel._$hM._$r8(_$cS + WidgetDockFloatPanel._$1H, _$do + height - WidgetDockFloatPanel._$1H, width - (2 * WidgetDockFloatPanel._$1H), WidgetDockFloatPanel._$1H);
-        WidgetDockFloatPanel._$hT._$qJ();
-        WidgetDockFloatPanel._$hP._$qJ();
-        WidgetDockFloatPanel._$hQ._$qJ();
-        WidgetDockFloatPanel._$hM._$qJ();
+        WidgetDockFloatPanel._$hT.refresh();
+        WidgetDockFloatPanel._$hP.refresh();
+        WidgetDockFloatPanel._$hQ.refresh();
+        WidgetDockFloatPanel._$hM.refresh();
         var _$eq;
         if (WidgetDockFloatPanel._$hR != null) {
             this._$5D(WidgetDockFloatPanel._$hR);
@@ -1774,10 +1769,10 @@ WidgetDockFloatPanel.prototype._$m5 = function (_$cS, _$do, width, height) {
             WidgetDockFloatPanel._$hO._$ri(true);
             WidgetDockFloatPanel._$hR._$ri(true);
             WidgetDockFloatPanel._$hS._$ri(true);
-            WidgetDockFloatPanel._$hN._$qJ();
-            WidgetDockFloatPanel._$hO._$qJ();
-            WidgetDockFloatPanel._$hR._$qJ();
-            WidgetDockFloatPanel._$hS._$qJ();
+            WidgetDockFloatPanel._$hN.refresh();
+            WidgetDockFloatPanel._$hO.refresh();
+            WidgetDockFloatPanel._$hR.refresh();
+            WidgetDockFloatPanel._$hS.refresh();
         }
         var _$gq = _$G._$6J - WidgetDockFloatPanel._$1H;
         var _$gr = 10;
@@ -2285,7 +2280,7 @@ WidgetDockFloatPanel.prototype._$5U = function (type, title) {
     this._$qz(-1);
     if (_$9K > 0) {
         this._$18();
-        this._$qJ();
+        this.refresh();
     } else if (_$8M) {
         if (this._$kA == null) {
             this._$k0 = WidgetDockFloatPanel._$4Z;
@@ -2315,7 +2310,7 @@ WidgetDockFloatPanel.prototype._$5U = function (type, title) {
                 if (_$nH != this && this._$kA._$o5 != null) {
                     this._$kA._$o5._$6b(_$nH);
                 }
-                this._$qJ();
+                this.refresh();
             } else {
                 _$8G = false;
                 var i;
@@ -2353,10 +2348,6 @@ WidgetDockFloatPanel.prototype._$1S = function () {
     if (this._$jw == WidgetDockFloatPanel._$4W) {
     }
     this._$kB._$6p(ps.x, ps.y, WidgetDockPatternBase._$2A(this._$lx), WidgetDockPatternBase._$2z(this._$lx));
-};
-WidgetDockFloatPanel.prototype._$3a = function () {
-    if (WidgetDockFloatPanel._$iA) return;
-    WidgetDockFloatPanel._$iA = true;
 };
 WidgetDockFloatPanel.prototype._$0A = function (_$n3, _$ne, type, _$oT) {
     var _$pW = _$n3._$oV;
@@ -2483,7 +2474,7 @@ WidgetDockFloatPanel.prototype._$qK = function () {
         WidgetDockElementController.addFixedPanel(this._$hA, this._left, this._top, this._width, this._height);
     }
 };
-WidgetDockFloatPanel.prototype._$qJ = function () {
+WidgetDockFloatPanel.prototype.refresh = function () {
 };
 WidgetDockFloatPanel.prototype._$0c = function (sch) {
     if (!this.isOutIFrame) return;

@@ -193,7 +193,7 @@ _$6A.prototype._$sC = function (_$pL, rt) {
     }
     if (this._$ld != null) {
         this._$ld._$sL();
-        this._$ld._$qJ();
+        this._$ld.refresh();
     } else if (this._$kQ != null) {
     }
 };

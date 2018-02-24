@@ -20,16 +20,16 @@ _$6C.prototype._$ri = function (_$7S, _$7K) {
             this._$ig = true;
         }
     }
-    this._$qJ();
+    this.refresh();
 };
 _$6C.prototype._$r8 = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
-    this._$qJ();
+    this.refresh();
 };
 _$6C.prototype._$sL = function () {
 };
-_$6C.prototype._$qJ = function () {
+_$6C.prototype.refresh = function () {
     var iw, ih;
     iw = WidgetDockElementController.getElementWidth(this._panelStateElement);
     ih = WidgetDockElementController.getElementHeight(this._panelStateElement);
