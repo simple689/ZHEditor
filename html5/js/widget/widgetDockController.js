@@ -5,6 +5,7 @@ WidgetDockController._instance = null;
 WidgetDockController._browserType = EnumBrowserType.IE;
 WidgetDockController._elementRootId = "";
 WidgetDockController._windowMain = null;
+WidgetDockController._dir = "";
 
 WidgetDockController._$kN = new Array();
 WidgetDockController._$iU = true;
@@ -58,20 +59,19 @@ WidgetDockController.init = function () {
         document.body.addEventListener("mousemove", mouseMove, true);
     }
 
-    WidgetDockController._dir = "";
     var elementList = document.getElementsByTagName('script');
     if (elementList != null) {
         var len = elementList.length;
-        var i;
-        for (i = 0; i < len; i++) {
+        for (var i = 0; i < len; i++) {
             var str = elementList[i].src;
-            var index = str.indexOf("widgetDock.js");
+            var index = str.indexOf("jquery.js");
             if (index >= 0) {
                 WidgetDockController._dir = str.substr(0, index);
                 break;
             }
         }
     }
+    WidgetDockController._dir += "../../";
     return WidgetDockController._instance;
 };
 WidgetDockController.setStyle = function () {
