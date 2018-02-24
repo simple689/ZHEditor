@@ -270,7 +270,7 @@ _$F.prototype._$o = function (_$aQ, _$d3, _$mM, _$nh) {
             this._$o5._$jh = i;
             this._$of = _$aQ[i];
             this._$o5.setVisible(true);
-            this._$o5._$bi = _$aQ[i];
+            this._$o5._floatPanel = _$aQ[i];
             _$aQ[i]._$5(this._$o5);
         } else {
             _$aQ[i].setElementVisible(false);
@@ -298,7 +298,7 @@ _$F.prototype._$0w = function (_$aQ, _$d3, _$mM, _$nh) {
             this._$o5._$jh = i;
             this._$of = _$aQ[i];
             this._$o5.setVisible(true);
-            this._$o5._$bi = _$aQ[i];
+            this._$o5._floatPanel = _$aQ[i];
             _$aQ[i]._$5(this._$o5);
         } else {
             _$aQ[i].setElementVisible(false);
@@ -431,7 +431,7 @@ _$F.prototype._$2 = function (floatPanel) {
         this._$l1 = new Array(0);
         this.Add(_$p1);
     }
-    this._$o5._$bi = floatPanel;
+    this._$o5._floatPanel = floatPanel;
     this.Add(floatPanel);
     _$p1._$bf(false);
 };
@@ -571,7 +571,7 @@ _$F.prototype._$03 = function (_$mX, _$pC, _$nz, _$dk, _$oQ) {
         var _$gN = _$q7.left;
         var _$gT = _$q7.top;
         var _$qh = new WidgetDockRect();
-        this._$of._$hy._$2P(_$qh);
+        this._$of._panelStateController._$2P(_$qh);
         if (this._$of._$jm >= WidgetDockFloatPanel._$0) {
             if (this._$of._patternMain._$jv == WidgetDockController._$0R || this._$of._$j0 == EnumPatternPositionType.Left || this._$of._$j0 == EnumPatternPositionType.Right) {
                 _$q7.top = _$qh.bottom;

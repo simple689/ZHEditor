@@ -1150,7 +1150,7 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, _
     if (_$mX._$kx._$kB != this) return true;
     if (WidgetDockPatternBase._$5f(_$qe, _$pC) && _$mX._$it) {
         var _$qh = new WidgetDockRect();
-        _$mX._$kx._$hy._$2P(_$qh);
+        _$mX._$kx._panelStateController._$2P(_$qh);
         var _$8n;
         _$8n = WidgetDockPatternBase._$5f(_$qh, _$pC);
         var _$8Q;

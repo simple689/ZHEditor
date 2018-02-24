@@ -4,7 +4,7 @@ function WidgetDockFloatPanel(window, title) {
     this._$kz = new _$L();
     this._$kz._$ho = this;
     this._$lf = new _$6P();
-    this._$hy = null;
+    this._panelStateController = null;
     this._$lt = null;
     this._$io = true;
     this._$lK = null;
@@ -217,7 +217,7 @@ WidgetDockFloatPanel.prototype._$f6 = function (patternMain, title) {
     this._$f7();
     this.setElementVisible(true);
     this._$7q();
-    this._$hy.setTitle(title);
+    this._panelStateController.setTitle(title);
 };
 
 WidgetDockFloatPanel.prototype.unload = function (_$80) {
@@ -259,14 +259,14 @@ WidgetDockFloatPanel.prototype._$c3 = function () {
     return this._title;
 };
 WidgetDockFloatPanel.prototype.getTitle = function () {
-    if (this._title != null && this._title.length > 0) return this._title; else return _$hy._$cb();
+    if (this._title != null && this._title.length > 0) return this._title; else return _panelStateController._$cb();
 };
 WidgetDockFloatPanel.prototype.setInitialLayoutReference = function (floatPanel) {
     if (floatPanel != this) this._$l9 = floatPanel;
 };
 WidgetDockFloatPanel.prototype._$7q = function () {
-    this._$hy = new WidgetDockPanelStateController();
-    this._$hy._$rn(this);
+    this._panelStateController = new WidgetDockPanelStateController();
+    this._panelStateController.setFloatPanel(this);
 };
 WidgetDockFloatPanel.prototype.isTopOrBottom = function (patternPositionType) {
     if (patternPositionType == EnumPatternPositionType.Top || patternPositionType == EnumPatternPositionType.Bottom) return true;
@@ -275,7 +275,7 @@ WidgetDockFloatPanel.prototype.isTopOrBottom = function (patternPositionType) {
 WidgetDockFloatPanel.prototype._$r6 = function (_$7J) {
     if (this._$k0 == WidgetDockFloatPanel._$6W) return;
     if (this._$jw == WidgetDockFloatPanel._$4B) return;
-    this._$hy._$r6(_$7J);
+    this._panelStateController._$r6(_$7J);
 };
 WidgetDockFloatPanel.prototype._$ag = function () {
     return new widgetDockPanel();
@@ -320,7 +320,7 @@ WidgetDockFloatPanel.prototype._$mw = function (pt) {
     _$4R(_$pL);
 };
 WidgetDockFloatPanel.prototype.setTitle = function (title) {
-    _$hy.setTitle(title);
+    _panelStateController.setTitle(title);
     if (_$kA != null && _$kA._$o5 != null && _$kA._$o5._$i6.length > 1) {
         _$kA._$o5._$4J(this, title);
     }
@@ -331,7 +331,7 @@ WidgetDockFloatPanel.prototype.setTitle = function (title) {
     }
 };
 WidgetDockFloatPanel.prototype._$cb = function () {
-    return this._$hy._$cb();
+    return this._panelStateController._$cb();
 };
 WidgetDockFloatPanel.prototype._$ms = function (pt) {
     var _$pL = _$c0();
@@ -422,8 +422,8 @@ WidgetDockFloatPanel.prototype._$R = function (_$pC, patternPositionType, _$nz) 
     return _$og;
 };
 WidgetDockFloatPanel.prototype.setElementVisible = function (isVisible) {
-    if (this._$hy != null) {
-        this._$hy.setVisible(isVisible);
+    if (this._panelStateController != null) {
+        this._panelStateController.setVisible(isVisible);
     }
     if (this._element != null) {
         if (isVisible) {
@@ -1566,8 +1566,8 @@ WidgetDockFloatPanel.prototype._$qz = function (_$9d) {
         }
     } else {
         var _$8o = false;
-        if (this._$kA != null && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1 && this._$kA._$o5._$bi == this) _$8o = true;
-        if (!_$8o) _$qC(this._$hy); else {
+        if (this._$kA != null && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1 && this._$kA._$o5._floatPanel == this) _$8o = true;
+        if (!_$8o) _$qC(this._panelStateController); else {
         }
         if (this._$jm == _$3Q) {
             _$f1 = WidgetDockFloatPanel._$3Q;
@@ -1612,11 +1612,11 @@ WidgetDockFloatPanel.prototype._$6c = function (patternPositionType) {
 WidgetDockFloatPanel.prototype._$5 = function (_$n2) {
     if (this._$jm != WidgetDockFloatPanel._$q) {
     } else {
-        this._$hy._$a(_$n2);
+        this._panelStateController._$a(_$n2);
     }
     this._$hz = _$n2;
     if (_$n2 != null) {
-        WidgetDockElementController.setElementZIndex(_$n2._panelStateElement, this._$hy._panelStateElement.style.zIndex);
+        WidgetDockElementController.setElementZIndex(_$n2._panelStateElement, this._panelStateController._panelStateElement.style.zIndex);
     }
     this._$qK();
 };
@@ -1841,7 +1841,7 @@ WidgetDockFloatPanel.prototype.initLayout = function (left, top, width, height, 
     this.setSize(width, height);
     this.setLocation(left, top);
     if (this._$iN) {
-        this._$hy._panelStateElement.style.visibility = "visible";
+        this._panelStateController._panelStateElement.style.visibility = "visible";
     }
     if (this._$jw == WidgetDockFloatPanel._$4B) return;
     if (this._isInitLayout) return;
@@ -2438,15 +2438,15 @@ WidgetDockFloatPanel.prototype._$bR = function () {
     return _$kB._$bP();
 };
 WidgetDockFloatPanel.prototype._$fT = function () {
-    if (this._$hy == null) return true;
-    if (this._$hy._panelStateElement.style.visibility == "visible") return true;
+    if (this._panelStateController == null) return true;
+    if (this._panelStateController._panelStateElement.style.visibility == "visible") return true;
     return false;
 };
 WidgetDockFloatPanel.prototype._$sL = function () {
 };
 WidgetDockFloatPanel.prototype.setElementZIndex = function (_$cR) {
-    if (this._$hy != null) {
-        WidgetDockElementController.setElementZIndex(this._$hy._panelStateElement, _$cR);
+    if (this._panelStateController != null) {
+        WidgetDockElementController.setElementZIndex(this._panelStateController._panelStateElement, _$cR);
     }
     if (this._element != null) {
         WidgetDockElementController.setElementZIndex(this._element, _$cR);
@@ -2456,9 +2456,9 @@ WidgetDockFloatPanel.prototype.setElementZIndex = function (_$cR) {
     }
 };
 WidgetDockFloatPanel.prototype._$qK = function () {
-    if (this._$hy == null) return;
+    if (this._panelStateController == null) return;
     var left, top, width, height;
-    var _$tj = this._$hy._$c6();
+    var _$tj = this._panelStateController._$c6();
     if (this._$jz == WidgetDockFloatPanel._$6K) {
         left = this._left;
         top = this._top + _$tj.height;
@@ -2466,7 +2466,7 @@ WidgetDockFloatPanel.prototype._$qK = function () {
         height = this._height - _$tj.height;
         var _$aC = _$tj.height;
         if (_$aC > this._height) _$aC = this._height;
-        this._$hy._$6o(this._left, this._top, this._width, _$aC);
+        this._panelStateController._$6o(this._left, this._top, this._width, _$aC);
     }
     if (this._$hz != null) {
         this._$hz._$6o(this._left, this._top + this._height - _$G._$6J, this._width, _$G._$6J);

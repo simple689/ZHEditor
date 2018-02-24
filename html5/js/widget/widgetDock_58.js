@@ -2053,7 +2053,7 @@ _$58.prototype._$4J = function (floatPanel, _$sc) {
     }
 };
 _$58.prototype._$8 = function (floatPanel) {
-    var _$ol = new _$O(0, 0, floatPanel._$hy._$cb());
+    var _$ol = new _$O(0, 0, floatPanel._panelStateController._$cb());
     _$ol.floatPanel = floatPanel;
     this._$hU.addFloatPanel(_$ol);
 
