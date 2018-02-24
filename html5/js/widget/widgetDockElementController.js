@@ -71,10 +71,8 @@ WidgetDockElementController.setElementLeftTop = function (element, left, top) {
 };
 WidgetDockElementController.setElementSize = function (element, width, height) {
     if (isNaN(height)) return;
-
-        element.style.width = width + "px";
-        element.style.height = height + "px";
-
+    element.style.width = width + "px";
+    element.style.height = height + "px";
 };
 WidgetDockElementController.addFixedPanel = function (element, left, top, width, height) {
     if (isNaN(height)) return;

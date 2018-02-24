@@ -17,13 +17,12 @@ function WidgetDockPanelStateController() {
 
     this._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     this._$h9.style.font = this.styleFont;
-    this._$h9._$4t = this;
+    this._$h9._panelStateController = this;
 
     WidgetDockElementController.setElementSize(this._panelStateElement, 15, 40);
-
-    this._panelStateElement._$4t = this;
-    this._panelStateElement.onmousedown = WidgetDockPanelStateController._$4h;
-    this._panelStateElement.onmousemove = WidgetDockPanelStateController._$4g;
+    this._panelStateElement._panelStateController = this;
+    this._panelStateElement.onmousedown = WidgetDockPanelStateController.onMouseDown;
+    this._panelStateElement.onmousemove = WidgetDockPanelStateController.onMouseMove;
     this._panelStateElement._$mF = WidgetDockPanelStateController._$mh;
     this._panelStateElement.onmouseout = WidgetDockPanelStateController._$mv;
 };
@@ -45,23 +44,23 @@ WidgetDockPanelStateController.prototype.setVisible = function (isVisible) {
 WidgetDockPanelStateController.prototype.getStyleFont = function () {
     return this.styleFont;
 };
-WidgetDockPanelStateController._$4h = function (e) {
+WidgetDockPanelStateController.onMouseDown = function (e) {
     if (e == null) {
         e = window.event;
     }
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4t._$mw(e);
+        e.target._panelStateController.mouseDown(e);
     } else {
-        e.srcElement._$4t._$mw(e);
+        e.srcElement._panelStateController.mouseDown(e);
     }
     return false;
 };
-WidgetDockPanelStateController._$4g = function (e) {
+WidgetDockPanelStateController.onMouseMove = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4t.mouseMove(e);
-    else e.srcElement._$4t.mouseMove(e);
+    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._panelStateController.mouseMove(e);
+    else e.srcElement._panelStateController.mouseMove(e);
     return false;
 };
 WidgetDockPanelStateController._$mh = function (e) {
@@ -70,24 +69,27 @@ WidgetDockPanelStateController._$mh = function (e) {
 WidgetDockPanelStateController._$mv = function (e) {
     return true;
 };
-WidgetDockPanelStateController.prototype._$mw = function (e) {
-    if (this._$iO) return;
-    if (!WidgetDockController._$fQ(e.button)) return; else {
-        this._$iO = true;
-        if (WidgetDockWindow._$hK != null && WidgetDockWindow._$hK != this) {
-            if (WidgetDockWindow._$hK instanceof WidgetDockPanelStateController) {
-                WidgetDockWindow._$hK._$iO = false;
-            }
+WidgetDockPanelStateController.prototype.mouseDown = function (e) {
+    if (this._$iO) {
+        return;
+    }
+    if (!WidgetDockController.isButtonAvailable(e.button)) {
+        return;
+    }
+    this._$iO = true;
+    if (WidgetDockWindow._$hK != null && WidgetDockWindow._$hK != this) {
+        if (WidgetDockWindow._$hK instanceof WidgetDockPanelStateController) {
+            WidgetDockWindow._$hK._$iO = false;
         }
-        WidgetDockWindow._$hK = this;
-        var pt = new WidgetDockLocation();
-        WidgetDockElementController._$2D(e, pt);
-        if (this._$mj(pt) >= 0) {
-            WidgetDockController._$6s(true);
-            this._$ms(e);
-        } else {
-            this._$iO = false;
-        }
+    }
+    WidgetDockWindow._$hK = this;
+    var pt = new WidgetDockLocation();
+    WidgetDockElementController._$2D(e, pt);
+    if (this._$mj(pt) >= 0) {
+        WidgetDockController._$6s(true);
+        this._$ms(e);
+    } else {
+        this._$iO = false;
     }
 };
 WidgetDockPanelStateController.prototype._$fT = function () {
@@ -102,7 +104,7 @@ WidgetDockPanelStateController.prototype._$2P = function (rc) {
 WidgetDockPanelStateController.prototype.mouseUp = function (e) {
     if (!this._$fT()) return;
     if (!this._$iO) return;
-    if (!WidgetDockController._$fQ(e.button)) {
+    if (!WidgetDockController.isButtonAvailable(e.button)) {
         this._$iO = false;
         this._$T();
         return;
@@ -190,11 +192,11 @@ WidgetDockPanelStateController.prototype.mouseMove = function (e) {
     }
 };
 WidgetDockPanelStateController.prototype._$mj = function (pt) {
-    var _$9P = WidgetDockElementController.getElementLeft(this._panelStateElement);
-    var _$9Q = WidgetDockElementController.getElementTop(this._panelStateElement);
+    var left = WidgetDockElementController.getElementLeft(this._panelStateElement);
+    var top = WidgetDockElementController.getElementTop(this._panelStateElement);
     var _$a5 = new WidgetDockLocation();
-    _$a5.x = pt.x - _$9P;
-    _$a5.y = pt.y - _$9Q;
+    _$a5.x = pt.x - left;
+    _$a5.y = pt.y - top;
     if (this._floatPanel._$k0 != WidgetDockFloatPanel._$4C && WidgetDockPatternBase._$5f(this._$lA, _$a5)) {
         this._floatPanel._$0h();
         return -1;
@@ -294,8 +296,8 @@ WidgetDockPanelStateController.prototype.refresh = function () {
         this._imagePin.style.width = "100%";
         this._imagePin.style.height = "100%";
         this._buttonPinElement.appendChild(this._imagePin);
-        this._buttonPinElement.childNodes[0]._$4t = this;
-        this._buttonPinElement._$4t = this;
+        this._buttonPinElement.childNodes[0]._panelStateController = this;
+        this._buttonPinElement._panelStateController = this;
 
         this._buttonCloseElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         this._imageClose = new Image();
@@ -303,8 +305,8 @@ WidgetDockPanelStateController.prototype.refresh = function () {
         this._imageClose.style.width = "100%";
         this._imageClose.style.height = "100%";
         this._buttonCloseElement.appendChild(this._imageClose);
-        this._buttonCloseElement.childNodes[0]._$4t = this;
-        this._buttonCloseElement._$4t = this;
+        this._buttonCloseElement.childNodes[0]._panelStateController = this;
+        this._buttonCloseElement._panelStateController = this;
     }
     var si = new WidgetDockRect();
     this._$2P(si);

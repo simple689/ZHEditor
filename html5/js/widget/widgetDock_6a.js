@@ -14,8 +14,8 @@ function _$6A(_$a7) {
 
     this._panelStateElement.style.border = "1px solid";
     this._panelStateElement._$4x = this;
-    this._panelStateElement.onmousedown = _$6A._$4h;
-    this._panelStateElement.onmousemove = _$6A._$4g;
+    this._panelStateElement.onmousedown = _$6A.onMouseDown;
+    this._panelStateElement.onmousemove = _$6A.onMouseMove;
     this._panelStateElement._$mF = _$6A._$mh;
     this._panelStateElement.style.background = 'ButtonFace';
 };
@@ -30,14 +30,14 @@ _$6A._$1v = 7;
 _$6A.icc = 0;
 _$6A._$p = 4;
 _$6A._$lL = new _$5Y();
-_$6A._$4h = function (e) {
+_$6A.onMouseDown = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4x._$mw(e); else e.srcElement._$4x._$mw(e);
+    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4x.mouseDown(e); else e.srcElement._$4x.mouseDown(e);
     return false;
 };
-_$6A._$4g = function (e) {
+_$6A.onMouseMove = function (e) {
     if (e == null) {
         e = window.event;
     }
@@ -85,7 +85,7 @@ _$6A.prototype.mouseMove = function (e) {
     } else {
     }
 };
-_$6A.prototype._$mw = function (e) {
+_$6A.prototype.mouseDown = function (e) {
     if (this._$il) return;
     WidgetDockWindow._$hK = this;
     WidgetDockController._$6s(true);

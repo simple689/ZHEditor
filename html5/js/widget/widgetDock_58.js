@@ -486,18 +486,18 @@ _$6R.prototype._$nK = function (g, rc) {
 };
 _$6R.prototype._$3I = function () {
     this._panelStateElement._$4A = this;
-    this._panelStateElement.onmousedown = _$6R._$4h;
-    this._panelStateElement.onmousemove = _$6R._$4g;
+    this._panelStateElement.onmousedown = _$6R.onMouseDown;
+    this._panelStateElement.onmousemove = _$6R.onMouseMove;
     this._panelStateElement._$mF = _$6R._$mh;
 };
-_$6R._$4h = function (e) {
+_$6R.onMouseDown = function (e) {
     if (e == null || e == undefined) {
         e = window.event;
     }
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4A._$mw(e); else e.srcElement._$4A._$mw(e);
+    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4A.mouseDown(e); else e.srcElement._$4A.mouseDown(e);
     return false;
 };
-_$6R._$4g = function (e) {
+_$6R.onMouseMove = function (e) {
     if (e == null || e == undefined) {
         e = window.event;
     }
@@ -1702,7 +1702,7 @@ _$58.prototype.mouseMove = function (e) {
     WidgetDockElementController._$2D(e, pt);
     this._$4Q(pt);
 };
-_$58.prototype._$mw = function (e) {
+_$58.prototype.mouseDown = function (e) {
     if (e.button != 1) return;
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);

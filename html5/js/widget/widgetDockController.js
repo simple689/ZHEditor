@@ -143,8 +143,8 @@ WidgetDockController.prototype.loadLayoutFromKey = function (key) {
     }
 };
 
-WidgetDockController._$fQ = function (_$9E) {
-    if ((_$9E != 0 && WidgetDockController._browserType != EnumBrowserType.IE) || (WidgetDockController._browserType == EnumBrowserType.IE && WidgetDockController._ieVersion >= 9 && _$9E != 0)) {
+WidgetDockController.isButtonAvailable = function (buttonType) {
+    if ((buttonType != 0 && WidgetDockController._browserType != EnumBrowserType.IE) || (WidgetDockController._browserType == EnumBrowserType.IE && WidgetDockController._ieVersion >= 9 && buttonType != 0)) {
         return false;
     }
     return true;

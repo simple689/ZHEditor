@@ -22,19 +22,19 @@ function _$N() {
 
     WidgetDockElementController.setElementSize(this._panelStateElement, this._$km, this._$km);
     this._panelStateElement._$4y = this;
-    this._panelStateElement.onmousedown = _$N._$4h;
-    this._panelStateElement.onmousemove = _$N._$4g;
+    this._panelStateElement.onmousedown = _$N.onMouseDown;
+    this._panelStateElement.onmousemove = _$N.onMouseMove;
     this._panelStateElement._$mF = _$N._$mh;
 };
-_$N._$4h = function (e) {
+_$N.onMouseDown = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4y._$mw(e);
-    else e.srcElement._$4y._$mw(e);
+    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4y.mouseDown(e);
+    else e.srcElement._$4y.mouseDown(e);
     return false;
 };
-_$N._$4g = function (e) {
+_$N.onMouseMove = function (e) {
     if (e == null) {
         e = window.event;
     }
@@ -60,8 +60,8 @@ _$N.prototype.setElementZIndex = function (_$cR) {
         WidgetDockElementController.setElementZIndex(this._panelStateElement, _$cR);
     }
 };
-_$N.prototype._$mw = function (e) {
-    if (WidgetDockController._$fQ(e.button)) {
+_$N.prototype.mouseDown = function (e) {
+    if (WidgetDockController.isButtonAvailable(e.button)) {
         WidgetDockWindow._$hK = this;
         WidgetDockController._$6s(true);
         this._$4N(0, 0);

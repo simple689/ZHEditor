@@ -22,8 +22,8 @@ function _$G() {
     WidgetDockElementController.setElementSize(this._panelStateElement, 40, _$G._$6J);
     this.styleFont = "8pt sans-serif";
     this._panelStateElement._$4u = this;
-    this._panelStateElement.onmousedown = _$G._$4h;
-    this._panelStateElement.onmousemove = _$G._$4g;
+    this._panelStateElement.onmousedown = _$G.onMouseDown;
+    this._panelStateElement.onmousemove = _$G.onMouseMove;
     this._panelStateElement._$mF = _$G._$mh;
 };
 _$G._$6J = 28;
@@ -31,18 +31,18 @@ _$G._$51 = 0;
 _$G._$0G = 1;
 _$G._$2Z = 4;
 _$G._$3U = 4;
-_$G._$4h = function (e) {
+_$G.onMouseDown = function (e) {
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4u._$mw(e);
+        e.target._$4u.mouseDown(e);
     } else {
         if (e == null || e == undefined) {
             e = window.event;
         }
-        e.srcElement._$4u._$mw(e);
+        e.srcElement._$4u.mouseDown(e);
     }
     return false;
 };
-_$G._$4g = function (e) {
+_$G.onMouseMove = function (e) {
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
         e.target._$4u.mouseMove(e);
     } else {
@@ -91,7 +91,7 @@ _$G.prototype.mouseMove = function (e) {
 _$G.prototype._$4O = function (e) {
     this._floatPanel._$4L();
 };
-_$G.prototype._$mw = function (e) {
+_$G.prototype.mouseDown = function (e) {
     this._$5e(e);
     return false;
 };
@@ -99,7 +99,7 @@ _$G.prototype.mouseUp = function (e) {
     if (!this._$fT()) return;
     if (!this._$iO) return;
     WidgetDockController._$6s(false);
-    if (!WidgetDockController._$fQ(e.button)) {
+    if (!WidgetDockController.isButtonAvailable(e.button)) {
         this._$iO = false;
         this._floatPanel._$T();
         return;
@@ -314,7 +314,7 @@ _$G.prototype._$5e = function (e) {
     var iac = this._$0i(e);
     this._$V(iac);
     if (iac == -1) return;
-    if (!WidgetDockController._$fQ(e.button)) {
+    if (!WidgetDockController.isButtonAvailable(e.button)) {
         return;
     } else {
         this._$iO = true;

@@ -309,7 +309,7 @@ WidgetDockFloatPanel.prototype._$2w = function (_$nz, _$dk, _$p8, _$8b) {
         this._$lf._$kn = this._$lf._$kn + _$fl;
     }
 };
-WidgetDockFloatPanel.prototype._$mw = function (pt) {
+WidgetDockFloatPanel.prototype.mouseDown = function (pt) {
     var _$pL = _$c0();
     _$pL.x = _$pL.x + pt.x;
     _$pL.y = _$pL.y + pt.y;
