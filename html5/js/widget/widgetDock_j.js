@@ -484,7 +484,7 @@ _$J.prototype._$10 = function () {
     var cnt = this._$ha.length;
     var i;
     for (i = 0; i < cnt; i++) {
-        if ((this._$ha[i] instanceof _$N) || (this._$ha[i] instanceof widgetDockPanelStateController)) {
+        if ((this._$ha[i] instanceof _$N) || (this._$ha[i] instanceof WidgetDockPanelStateController)) {
             WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$ha[i]._panelStateElement);
         }
     }

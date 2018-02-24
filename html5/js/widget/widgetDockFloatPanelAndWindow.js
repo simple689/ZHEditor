@@ -12,7 +12,7 @@ function WidgetDockFloatPanel(window, title) {
     this._title = title;
     this._$hE = null;
     this._$jm = WidgetDockFloatPanel._$0;
-    this._$jA = widgetDockPanelStateController._$0U;
+    this._$jA = WidgetDockPanelStateController._$0U;
     this._$iG = false;
     this._$iP = false;
     this._$iR;
@@ -265,7 +265,7 @@ WidgetDockFloatPanel.prototype.setInitialLayoutReference = function (floatPanel)
     if (floatPanel != this) this._$l9 = floatPanel;
 };
 WidgetDockFloatPanel.prototype._$7q = function () {
-    this._$hy = new widgetDockPanelStateController();
+    this._$hy = new WidgetDockPanelStateController();
     this._$hy._$rn(this);
 };
 WidgetDockFloatPanel.prototype.isTopOrBottom = function (patternPositionType) {
