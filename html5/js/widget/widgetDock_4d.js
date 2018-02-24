@@ -14,10 +14,7 @@ function _$1l() {
     this._$hV = null;
     this._$hb = null;
     this._$hj = null;
-    if (WidgetDockController._isHasCanvasContext) {
-        this._$h8 = WidgetDockElementController.createElementWithParent("canvas", WidgetDockController._elementRootId);
-        this._$hj = this._$h8.getContext("2d");
-    } else {
+
         this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
         this._$h8.style.background = 'ButtonFace';
         this._$h9 = WidgetDockElementController._$0t("div", this._$h8);
@@ -25,7 +22,7 @@ function _$1l() {
         this._$h9._$4t = this;
         this._$h9.onmousedown = _$1l._$14;
         this._$h9.onmousemove = _$1l._$13;
-    }
+
     WidgetDockElementController.setElementSize(this._$h8, 15, 40);
     this._$h8._$4t = this;
     this._$h8.onmousedown = _$1l._$4h;
@@ -44,11 +41,11 @@ _$1l.prototype._$6o = function (_$cS, _$do, width, height) {
 };
 _$1l.prototype.setVisible = function (isVisible) {
     WidgetDockElementController.setElementVisible(this._$h8, isVisible);
-    if (!WidgetDockController._isHasCanvasContext) {
+
         WidgetDockElementController.setElementVisible(this._$h9, isVisible);
         WidgetDockElementController.setElementVisible(this._$hV, isVisible);
         WidgetDockElementController.setElementVisible(this._$hb, isVisible);
-    }
+
 };
 _$1l.prototype._$bS = function () {
     return this._$hB;
@@ -301,7 +298,7 @@ _$1l.prototype._$nL = function (_$82, ix, iy, width, height, g, _$7Y) {
     }
 };
 _$1l.prototype._$qJ = function () {
-    if (!WidgetDockController._isHasCanvasContext && this._$hV == null) {
+    if (this._$hV == null) {
         this._$hV = WidgetDockElementController._$0t("div", this._$h8);
 
         this._bottonPin = new Image();

@@ -17,13 +17,10 @@ function _$N() {
     this._$ka = 0;
     this._$hH = null;
     this._$hj = null;
-    if (WidgetDockController._isHasCanvasContext) {
-        this._$h8 = WidgetDockElementController.createElementWithParent("canvas", WidgetDockController._elementRootId);
-        this._$hj = this._$h8.getContext("2d");
-    } else {
+
         this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
         this._$h8.style.border = "1px solid";
-    }
+
     WidgetDockElementController.setElementSize(this._$h8, this._$km, this._$km);
     this._$h8._$4y = this;
     this._$h8.onmousedown = _$N._$4h;

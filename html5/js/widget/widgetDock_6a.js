@@ -9,11 +9,9 @@ function _$6A(_$a7) {
     this._$hL;
     this._$ld = null;
     this._$l5 = null;
-    if (WidgetDockController._isHasCanvasContext) {
-        this._$h8 = WidgetDockElementController.createElementWithParent("canvas", _$a7);
-    } else {
+
         this._$h8 = WidgetDockElementController.createElementWithParent("div", _$a7);
-    }
+
     this._$h8.style.border = "1px solid";
     this._$h8._$4x = this;
     this._$h8.onmousedown = _$6A._$4h;
@@ -60,13 +58,10 @@ _$6A.prototype._$25 = function (rc) {
     if (this._$h8 != null) {
         rc.left = WidgetDockElementController.getElementLeft(this._$h8);
         rc.top = WidgetDockElementController.getElementTop(this._$h8);
-        if (WidgetDockController._isHasCanvasContext) {
-            rc.right = rc.left + this._$h8.width;
-            rc.bottom = rc.top + this._$h8.height;
-        } else {
+
             rc.right = rc.left + parseInt(this._$h8.style.width);
             rc.bottom = rc.top + parseInt(this._$h8.style.height);
-        }
+
     }
 };
 _$6A.prototype.mouseMove = function (e) {
@@ -104,13 +99,10 @@ _$6A.prototype._$mw = function (e) {
         this._$mJ.y = WidgetDockElementController.getElementTop(this._$h8);
         this._$mK.x = this._$mJ.x;
         this._$mK.y = this._$mJ.y;
-        if (WidgetDockController._isHasCanvasContext) {
-            this._$mK.width = this._$h8.width;
-            this._$mK.height = this._$h8.height;
-        } else {
+
             this._$mK.width = parseInt(this._$h8.style.width);
             this._$mK.height = parseInt(this._$h8.style.height);
-        }
+
         this._$mJ.x = pt.x;
         this._$mJ.y = pt.y;
     }
@@ -210,13 +202,10 @@ _$6A.prototype._$f4 = function (pt) {
     var rt = new WidgetDockFrame();
     rt.x = WidgetDockElementController.getElementLeft(this._$h8);
     rt.y = WidgetDockElementController.getElementTop(this._$h8);
-    if (WidgetDockController._isHasCanvasContext) {
-        rt.width = this._$h8.width;
-        rt.height = this._$h8.height;
-    } else {
+
         rt.width = parseInt(this._$h8.style.width);
         rt.height = parseInt(this._$h8.style.height);
-    }
+
     if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
         if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) this._$jU = _$6A._$7c; else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) this._$jU = _$6A._$7b; else this._$jU = _$6A._$7a;
     } else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) {

@@ -3,14 +3,10 @@ function _$6C(type, _$b8) {
     this._$ik = false;
     this._$hj = null;
     this._$ig = false;
-    if (WidgetDockController._isHasCanvasContext) {
-        this._$h8 = WidgetDockElementController.createElementWithParent("canvas", WidgetDockController._elementRootId);
-        this._$hj = this._$h8.getContext("2d");
-        this._$h8.style.border = "0px solid";
-    } else {
+
         this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
         this._$h8.style.border = "1px solid";
-    }
+
     WidgetDockElementController.setElementZIndex(this._$h8, _$b8._windowMain._$jO);
 };
 _$6C.prototype._$ri = function (_$7S, _$7K) {

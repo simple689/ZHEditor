@@ -458,12 +458,9 @@ function _$6R() {
     this._$js = 1;
     this._$ke = null;
     this._$hi = null;
-    if (WidgetDockController._isHasCanvasContext) {
-        this._$h8 = WidgetDockElementController.createElementWithParent("canvas", WidgetDockController._elementRootId);
-        this._$hj = this._$h8.getContext("2d");
-    } else {
+
         this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
-    }
+
     this._$3I();
     this._$h8.style.backgroundColor = 'ButtonFace';
 };
@@ -2059,12 +2056,12 @@ _$58.prototype._$8 = function (floatPanel) {
     var _$ol = new _$O(0, 0, floatPanel._$hy._$cb());
     _$ol.floatPanel = floatPanel;
     this._$hU.addFloatPanel(_$ol);
-    if (!WidgetDockController._isHasCanvasContext) {
+
         _$ol._$h9 = WidgetDockElementController._$0t("div", this._$h8);
         _$ol._$h9._$4A = this;
         _$ol._$h9.onmousedown = _$6R._$14;
         _$ol._$h9.onmousemove = _$6R._$13;
-    }
+
     this._$5A();
     this._$qJ();
 };

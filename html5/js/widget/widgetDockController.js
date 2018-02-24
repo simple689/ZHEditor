@@ -5,7 +5,6 @@ WidgetDockController._instance = null;
 WidgetDockController._browserType = EnumBrowserType.IE;
 WidgetDockController._elementRootId = "";
 WidgetDockController._windowMain = null;
-WidgetDockController._isHasCanvasContext = true;
 
 WidgetDockController._$kN = new Array();
 WidgetDockController._$iU = true;
@@ -59,20 +58,17 @@ WidgetDockController.init = function () {
         document.body.addEventListener("mousemove", mouseMove, true);
     }
 
-    WidgetDockController._isHasCanvasContext = !!document.createElement('canvas').getContext;
     WidgetDockController._dir = "";
-    if (!WidgetDockController._isHasCanvasContext) {
-        var elementList = document.getElementsByTagName('script');
-        if (elementList != null) {
-            var len = elementList.length;
-            var i;
-            for (i = 0; i < len; i++) {
-                var str = elementList[i].src;
-                var index = str.indexOf("widgetDock.js");
-                if (index >= 0) {
-                    WidgetDockController._dir = str.substr(0, index);
-                    break;
-                }
+    var elementList = document.getElementsByTagName('script');
+    if (elementList != null) {
+        var len = elementList.length;
+        var i;
+        for (i = 0; i < len; i++) {
+            var str = elementList[i].src;
+            var index = str.indexOf("widgetDock.js");
+            if (index >= 0) {
+                WidgetDockController._dir = str.substr(0, index);
+                break;
             }
         }
     }

@@ -66,10 +66,7 @@ _$K.prototype._$7v = function (_$a0) {
     var _$tc = WidgetDockElementController.getElementLeft(this._$he);
     var _$tn = WidgetDockElementController.getElementTop(this._$he);
     this._elementWithType[1] = _$a0._$h8;
-    if (WidgetDockController._isHasCanvasContext) {
-        WidgetDockElementController.setElementLeftTop(_$a0._$h8, 3 + _$tc, 3 + _$tn);
-        _$a0._$h8.width = this._$hh.width - 6;
-    } else WidgetDockElementController.addFixedPanel(_$a0._$h8, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._$h8.style.height));
+    WidgetDockElementController.addFixedPanel(_$a0._$h8, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._$h8.style.height));
     this._$5z();
 };
 _$K.prototype.Add = function (com) {
@@ -319,26 +316,20 @@ _$J.prototype.getWindowRect = function (_$qb) {
     if (this._$he != null) {
         _$qb.left = WidgetDockElementController.getElementLeft(this._$he);
         _$qb.top = WidgetDockElementController.getElementTop(this._$he);
-        if (WidgetDockController._isHasCanvasContext) {
-            _$qb.right = this._$he.width + _$qb.left;
-            _$qb.bottom = this._$he.height + _$qb.top;
-        } else {
+
             _$qb.right = parseInt(this._$he.style.width) + _$qb.left;
             _$qb.bottom = parseInt(this._$he.style.height) + _$qb.top;
-        }
+
     }
 };
 _$J.prototype._$36 = function (iX, iY) {
     var _$eu = WidgetDockElementController.getElementLeft(this._$he);
     var _$gC = WidgetDockElementController.getElementTop(this._$he);
     var width, height;
-    if (WidgetDockController._isHasCanvasContext) {
-        width = this._$he.width;
-        height = this._$he.height;
-    } else {
+
         width = parseInt(this._$he.style.width);
         height = parseInt(this._$he.style.height);
-    }
+
     if ((iX >= _$eu) && (iX <= (_$eu + width)) && (iY >= _$gC) && (iY <= (_$gC + height))) return true;
     return false;
 };
@@ -480,13 +471,10 @@ _$J.prototype._$n = function (_$b9) {
 };
 _$J.prototype._$6p = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementLeftTop(this._$he, _$cS, _$do);
-    if (WidgetDockController._isHasCanvasContext) {
-        this._$he.width = width;
-        this._$he.height = height;
-    } else {
+
         this._$he.style.width = width + "px";
         this._$he.style.height = height + "px";
-    }
+
     this._$mC(_$cS + this._$jF[0], _$do, width - this._$jF[0] - this._$jF[2], height);
 };
 _$J.prototype._$10 = function () {
@@ -508,13 +496,10 @@ _$J.prototype._$01 = function () {
         if (!panel._$iX) {
             this._location.x = WidgetDockElementController.getElementLeft(this._$he);
             this._location.y = WidgetDockElementController.getElementTop(this._$he);
-            if (WidgetDockController._isHasCanvasContext) {
-                this._size.width = this._$he.width;
-                this._size.height = this._$he.height;
-            } else {
+
                 this._size.width = parseInt(this._$he.style.width);
                 this._size.height = parseInt(this._$he.style.height);
-            }
+
             this._$10();
         }
     } else this._$10();

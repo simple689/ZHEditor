@@ -12,11 +12,7 @@ function _$G() {
     this._$kf = _$G._$51;
     this._$hj = null;
     this._$bi = null;
-    if (WidgetDockController._isHasCanvasContext) {
-        this._$h8 = WidgetDockElementController.createElementWithParent("canvas", WidgetDockController._elementRootId);
-        this._$hj = this._$h8.getContext("2d");
-        this._$h8.style.backgroundColor = 'ButtonFace';
-    } else {
+
         this._$h8 = WidgetDockElementController.createElementWithParent("div", WidgetDockController._elementRootId);
         this._$h8.style.backgroundColor = 'ActiveCaption';
         this._$h8.style.border = "0px solid";
@@ -25,7 +21,7 @@ function _$G() {
         this._$hI.onmousedown = _$G._$14;
         this._$hI.onmousemove = _$G._$13;
         this._$hI.style.backgroundColor = 'ButtonFace';
-    }
+
     WidgetDockElementController.setElementSize(this._$h8, 40, _$G._$6J);
     this._$hB = "8pt sans-serif";
     this._$h8._$4u = this;
@@ -215,12 +211,12 @@ _$G.prototype.Add = function (floatPanel) {
     }
     var s = floatPanel._$hy._$cb();
     var tab = new _$O(0, 0, s);
-    if (!WidgetDockController._isHasCanvasContext) {
+
         tab._$h9 = WidgetDockElementController._$0t("div", this._$h8);
         tab._$h9._$4u = this;
         tab._$h9.onmousedown = _$G._$14;
         tab._$h9.onmousemove = _$G._$13;
-    }
+
     tab.floatPanel = floatPanel;
     this._$i6.push(tab);
     this._$5z();
@@ -233,12 +229,12 @@ _$G.prototype._$3 = function (floatPanel, _$cN) {
     }
     var s = floatPanel._$hy._$cb();
     var tab = new _$O(0, 0, s);
-    if (!WidgetDockController._isHasCanvasContext) {
+
         tab._$h9 = WidgetDockElementController._$0t("div", this._$h8);
         tab._$h9._$4u = this;
         tab._$h9.onmousedown = _$G._$14;
         tab._$h9.onmousemove = _$G._$13;
-    }
+
     tab.floatPanel = floatPanel;
     this._$i6.splice(_$cN, 0, tab);
     this._$5z();

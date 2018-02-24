@@ -68,15 +68,9 @@ WidgetDockElementController.getElementTop = function (element) {
     return element.style.pixelTop;
 };
 WidgetDockElementController.getElementWidth = function (element) {
-    if (WidgetDockController._isHasCanvasContext) {
-        return element.width;
-    }
     return parseInt(element.style.width);
 };
 WidgetDockElementController.getElementHeight = function (element) {
-    if (WidgetDockController._isHasCanvasContext) {
-        return element.height;
-    }
     return parseInt(element.style.height);
 };
 WidgetDockElementController.setElementLeftTop = function (element, left, top) {
@@ -90,13 +84,10 @@ WidgetDockElementController.setElementLeftTop = function (element, left, top) {
 };
 WidgetDockElementController.setElementSize = function (element, width, height) {
     if (isNaN(height)) return;
-    if (WidgetDockController._isHasCanvasContext) {
-        element.width = width;
-        element.height = height;
-    } else {
+
         element.style.width = width + "px";
         element.style.height = height + "px";
-    }
+
 };
 WidgetDockElementController.addFixedPanel = function (element, left, top, width, height) {
     if (isNaN(height)) return;

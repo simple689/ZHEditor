@@ -23,13 +23,10 @@ _$59.prototype._$6o = function (_$cS, _$do, width, height) {
     var _$d5 = this._$jY;
     WidgetDockElementController.setElementLeftTop(this._$lc._$h8, _$cS, _$do);
     var canvas = this._$lc._$h8;
-    if (WidgetDockController._isHasCanvasContext) {
-        canvas.width = width;
-        canvas.height = height;
-    } else {
+
         canvas.style.width = width + "px";
         canvas.style.height = height + "px";
-    }
+
     if (this._$kx != null) {
         var _$t6 = 2;
         var _$tl, _$to, _$tp, _$tk;
