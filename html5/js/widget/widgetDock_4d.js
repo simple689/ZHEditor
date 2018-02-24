@@ -12,15 +12,17 @@ function WidgetDockPanelStateController() {
     this._panelStateCloseElement = null;
     this._$hj = null;
 
-        this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
-        this._panelStateElement.style.background = 'ButtonFace';
-        this._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-        this._$h9.style.font = this.styleFont;
-        this._$h9._$4t = this;
-        this._$h9.onmousedown = WidgetDockPanelStateController._$14;
-        this._$h9.onmousemove = WidgetDockPanelStateController._$13;
+    this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
+    this._panelStateElement.style.background = 'ButtonFace';
+
+    this._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+    this._$h9.style.font = this.styleFont;
+    this._$h9._$4t = this;
+    this._$h9.onmousedown = WidgetDockPanelStateController._$14;
+    this._$h9.onmousemove = WidgetDockPanelStateController._$13;
 
     WidgetDockElementController.setElementSize(this._panelStateElement, 15, 40);
+
     this._panelStateElement._$4t = this;
     this._panelStateElement.onmousedown = WidgetDockPanelStateController._$4h;
     this._panelStateElement.onmousemove = WidgetDockPanelStateController._$4g;
@@ -39,9 +41,9 @@ WidgetDockPanelStateController.prototype._$6o = function (_$cS, _$do, width, hei
 WidgetDockPanelStateController.prototype.setVisible = function (isVisible) {
     WidgetDockElementController.setElementVisible(this._panelStateElement, isVisible);
 
-        WidgetDockElementController.setElementVisible(this._$h9, isVisible);
-        WidgetDockElementController.setElementVisible(this._panelStatePinElement, isVisible);
-        WidgetDockElementController.setElementVisible(this._panelStateCloseElement, isVisible);
+    WidgetDockElementController.setElementVisible(this._$h9, isVisible);
+    WidgetDockElementController.setElementVisible(this._panelStatePinElement, isVisible);
+    WidgetDockElementController.setElementVisible(this._panelStateCloseElement, isVisible);
 
 };
 WidgetDockPanelStateController.prototype.getStyleFont = function () {

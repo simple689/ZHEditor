@@ -216,7 +216,7 @@ WidgetDockFloatPanel.prototype._$f6 = function (patternMain, title) {
     this._patternMain = patternMain;
     this._$f7();
     this.setElementVisible(true);
-    this._$7q();
+    this.createPanelStateController();
     this._panelStateController.setTitle(title);
 };
 
@@ -264,7 +264,7 @@ WidgetDockFloatPanel.prototype.getTitle = function () {
 WidgetDockFloatPanel.prototype.setInitialLayoutReference = function (floatPanel) {
     if (floatPanel != this) this._$l9 = floatPanel;
 };
-WidgetDockFloatPanel.prototype._$7q = function () {
+WidgetDockFloatPanel.prototype.createPanelStateController = function () {
     this._panelStateController = new WidgetDockPanelStateController();
     this._panelStateController.setFloatPanel(this);
 };
