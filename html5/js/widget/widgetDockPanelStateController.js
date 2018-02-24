@@ -8,8 +8,8 @@ function WidgetDockPanelStateController() {
     this._$lA = new WidgetDockRect();
     this.styleFont = "12px sans-serif";
     this._$h9 = null;
-    this._panelStatePinElement = null;
-    this._panelStateCloseElement = null;
+    this._buttonPinElement = null;
+    this._buttonCloseElement = null;
     this._$hj = null;
 
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
@@ -18,8 +18,6 @@ function WidgetDockPanelStateController() {
     this._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     this._$h9.style.font = this.styleFont;
     this._$h9._$4t = this;
-    this._$h9.onmousedown = WidgetDockPanelStateController._$14;
-    this._$h9.onmousemove = WidgetDockPanelStateController._$13;
 
     WidgetDockElementController.setElementSize(this._panelStateElement, 15, 40);
 
@@ -40,26 +38,22 @@ WidgetDockPanelStateController.prototype._$6o = function (_$cS, _$do, width, hei
 };
 WidgetDockPanelStateController.prototype.setVisible = function (isVisible) {
     WidgetDockElementController.setElementVisible(this._panelStateElement, isVisible);
-
     WidgetDockElementController.setElementVisible(this._$h9, isVisible);
-    WidgetDockElementController.setElementVisible(this._panelStatePinElement, isVisible);
-    WidgetDockElementController.setElementVisible(this._panelStateCloseElement, isVisible);
-
+    WidgetDockElementController.setElementVisible(this._buttonPinElement, isVisible);
+    WidgetDockElementController.setElementVisible(this._buttonCloseElement, isVisible);
 };
 WidgetDockPanelStateController.prototype.getStyleFont = function () {
     return this.styleFont;
-};
-WidgetDockPanelStateController._$14 = function (e) {
-    return false;
-};
-WidgetDockPanelStateController._$13 = function (e) {
-    return false;
 };
 WidgetDockPanelStateController._$4h = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4t._$mw(e); else e.srcElement._$4t._$mw(e);
+    if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
+        e.target._$4t._$mw(e);
+    } else {
+        e.srcElement._$4t._$mw(e);
+    }
     return false;
 };
 WidgetDockPanelStateController._$4g = function (e) {
@@ -293,24 +287,24 @@ WidgetDockPanelStateController.prototype._$nL = function (_$82, ix, iy, width, h
     }
 };
 WidgetDockPanelStateController.prototype.refresh = function () {
-    if (this._panelStatePinElement == null) {
-        this._panelStatePinElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-        this._bottonPin = new Image();
-        this._bottonPin.src = WidgetDockController._dir + "img/pinned.gif";
-        this._bottonPin.style.width = "100%";
-        this._bottonPin.style.height = "100%";
-        this._panelStatePinElement.appendChild(this._bottonPin);
-        this._panelStatePinElement.childNodes[0]._$4t = this;
-        this._panelStatePinElement._$4t = this;
+    if (this._buttonPinElement == null) {
+        this._buttonPinElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+        this._imagePin = new Image();
+        this._imagePin.src = WidgetDockController._dir + "img/pinned.gif";
+        this._imagePin.style.width = "100%";
+        this._imagePin.style.height = "100%";
+        this._buttonPinElement.appendChild(this._imagePin);
+        this._buttonPinElement.childNodes[0]._$4t = this;
+        this._buttonPinElement._$4t = this;
 
-        this._panelStateCloseElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-        this._bottonClose = new Image();
-        this._bottonClose.src = WidgetDockController._dir + "img/close.jpg";
-        this._bottonClose.style.width = "100%";
-        this._bottonClose.style.height = "100%";
-        this._panelStateCloseElement.appendChild(this._bottonClose);
-        this._panelStateCloseElement.childNodes[0]._$4t = this;
-        this._panelStateCloseElement._$4t = this;
+        this._buttonCloseElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+        this._imageClose = new Image();
+        this._imageClose.src = WidgetDockController._dir + "img/close.jpg";
+        this._imageClose.style.width = "100%";
+        this._imageClose.style.height = "100%";
+        this._buttonCloseElement.appendChild(this._imageClose);
+        this._buttonCloseElement.childNodes[0]._$4t = this;
+        this._buttonCloseElement._$4t = this;
     }
     var si = new WidgetDockRect();
     this._$2P(si);
@@ -567,13 +561,13 @@ WidgetDockPanelStateController.prototype._$aI = function (_$pc, _$d6, _$7J) {
     var _$gQ = (_$pc.bottom - _$pc.top) / 2 + _$pc.top;
     var _$gV = _$gQ + iw;
     if (this._$hj == null) {
-        WidgetDockElementController.setElementLeftTop(this._panelStatePinElement, _$pc.left, _$pc.top);
-        WidgetDockElementController.setElementSize(this._panelStatePinElement, _$pc.right - _$pc.left, _$pc.bottom - _$pc.top);
-        WidgetDockElementController.setElementLeftTop(this._panelStatePinElement.childNodes[0], 0, 0);
+        WidgetDockElementController.setElementLeftTop(this._buttonPinElement, _$pc.left, _$pc.top);
+        WidgetDockElementController.setElementSize(this._buttonPinElement, _$pc.right - _$pc.left, _$pc.bottom - _$pc.top);
+        WidgetDockElementController.setElementLeftTop(this._buttonPinElement.childNodes[0], 0, 0);
         if (_$d6 == WidgetDockFloatPanel._$6W) {
-            this._bottonPin.src = WidgetDockController._dir + "img/unpinned.gif";
+            this._imagePin.src = WidgetDockController._dir + "img/unpinned.gif";
         } else {
-            this._bottonPin.src = WidgetDockController._dir + "img/pinned.gif";
+            this._imagePin.src = WidgetDockController._dir + "img/pinned.gif";
         }
         return;
     }
@@ -634,10 +628,10 @@ WidgetDockPanelStateController.prototype._$aE = function (_$cS, _$do, width, hei
     this._$lw.right = this._$lw.left + _$el - 1;
     this._$lw.bottom = this._$lw.top + _$el - 1;
     if (this._$hj == null) {
-        if (this._panelStateCloseElement != null) {
-            WidgetDockElementController.setElementLeftTop(this._panelStateCloseElement, _$cS, _$do);
-            WidgetDockElementController.setElementSize(this._panelStateCloseElement, this._$lw.right - this._$lw.left, this._$lw.bottom - this._$lw.top);
-            WidgetDockElementController.setElementLeftTop(this._panelStateCloseElement.childNodes[0], 0, 0);
+        if (this._buttonCloseElement != null) {
+            WidgetDockElementController.setElementLeftTop(this._buttonCloseElement, _$cS, _$do);
+            WidgetDockElementController.setElementSize(this._buttonCloseElement, this._$lw.right - this._$lw.left, this._$lw.bottom - this._$lw.top);
+            WidgetDockElementController.setElementLeftTop(this._buttonCloseElement.childNodes[0], 0, 0);
         }
         return;
     }

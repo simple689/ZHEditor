@@ -507,12 +507,6 @@ _$6R._$4g = function (e) {
 _$6R._$mh = function (e) {
     return false;
 };
-_$6R._$14 = function (e) {
-    return false;
-};
-_$6R._$13 = function (e) {
-    return false;
-};
 _$6R.prototype._$5K = function (floatPanel) {
     return false;
 };
@@ -2059,8 +2053,6 @@ _$58.prototype._$8 = function (floatPanel) {
 
         _$ol._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         _$ol._$h9._$4A = this;
-        _$ol._$h9.onmousedown = _$6R._$14;
-        _$ol._$h9.onmousemove = _$6R._$13;
 
     this._$5A();
     this.refresh();

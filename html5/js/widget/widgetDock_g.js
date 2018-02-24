@@ -17,8 +17,6 @@ function _$G() {
         this._panelStateElement.style.border = "0px solid";
         this._$hI = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         this._$hI._$4u = this;
-        this._$hI.onmousedown = _$G._$14;
-        this._$hI.onmousemove = _$G._$13;
         this._$hI.style.backgroundColor = 'ButtonFace';
 
     WidgetDockElementController.setElementSize(this._panelStateElement, 40, _$G._$6J);
@@ -33,12 +31,6 @@ _$G._$51 = 0;
 _$G._$0G = 1;
 _$G._$2Z = 4;
 _$G._$3U = 4;
-_$G._$14 = function (e) {
-    return false;
-};
-_$G._$13 = function (e) {
-    return false;
-};
 _$G._$4h = function (e) {
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
         e.target._$4u._$mw(e);
@@ -213,8 +205,6 @@ _$G.prototype.Add = function (floatPanel) {
 
         tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         tab._$h9._$4u = this;
-        tab._$h9.onmousedown = _$G._$14;
-        tab._$h9.onmousemove = _$G._$13;
 
     tab.floatPanel = floatPanel;
     this._$i6.push(tab);
@@ -231,8 +221,6 @@ _$G.prototype._$3 = function (floatPanel, _$cN) {
 
         tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
         tab._$h9._$4u = this;
-        tab._$h9.onmousedown = _$G._$14;
-        tab._$h9.onmousemove = _$G._$13;
 
     tab.floatPanel = floatPanel;
     this._$i6.splice(_$cN, 0, tab);
