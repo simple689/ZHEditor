@@ -287,6 +287,7 @@ WidgetDockPatternBase.prototype._$5H = function (_$n5, _$ng) {
         if (_$ng != null) {
             _$n5._$d(_$ng);
         }
+        _$01();
         _$n5._$kB = null;
         return;
     }
@@ -334,6 +335,7 @@ WidgetDockPatternBase.prototype._$5H = function (_$n5, _$ng) {
             _$n5._$d(_$ng);
         }
         this._$l(_$n5);
+        this._$01();
         return;
     }
 };
