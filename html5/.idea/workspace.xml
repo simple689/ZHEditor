@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_0.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_0.js" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_58.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_58.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_g.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_g.js" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_6a.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_6a.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,11 +27,8 @@
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34275">
-              <caret line="1427" column="0" lean-forward="false" selection-start-line="1427" selection-start-column="0" selection-end-line="1427" selection-end-column="0" />
-              <folding>
-                <marker date="1519618453212" expanded="true" signature="2883:2887" ph="{...}" />
-                <marker date="1519618453212" expanded="true" signature="30503:30504" ph="{...}" />
-              </folding>
+              <caret line="1390" column="0" lean-forward="false" selection-start-line="1390" selection-start-column="0" selection-end-line="1390" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,8 +66,8 @@
       <file leaf-file-name="widgetDockPanelStateController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="308">
+              <caret line="477" column="27" lean-forward="true" selection-start-line="477" selection-start-column="27" selection-end-line="477" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -89,9 +86,15 @@
       <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1143">
-              <caret line="527" column="0" lean-forward="false" selection-start-line="527" selection-start-column="0" selection-end-line="527" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="218">
+              <caret line="519" column="0" lean-forward="false" selection-start-line="519" selection-start-column="0" selection-end-line="519" selection-end-column="0" />
+              <folding>
+                <marker date="1519618907776" expanded="true" signature="20452:20544" ph="{...}" />
+                <marker date="1519618907776" expanded="true" signature="21506:21522" ph="{...}" />
+                <marker date="1519618907776" expanded="true" signature="28974:30759" ph="{...}" />
+                <marker date="1519618907776" expanded="true" signature="64368:64545" ph="{...}" />
+                <marker date="1519618907776" expanded="true" signature="64714:64866" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,9 +169,9 @@
       <find>_$qg</find>
       <find>_$5h</find>
       <find>floatPanel</find>
-      <find>_$S</find>
       <find>_$h9</find>
       <find>_$mv</find>
+      <find>_$S</find>
     </findStrings>
     <replaceStrings>
       <replace>_panelStateCloseElement</replace>
@@ -446,12 +449,12 @@
       <workItem from="1519263267695" duration="1204000" />
       <workItem from="1519349338899" duration="21393000" />
       <workItem from="1519435527739" duration="4184000" />
-      <workItem from="1519610116337" duration="3899000" />
+      <workItem from="1519610116337" duration="4305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246290000" />
+    <option name="totallyTimeSpent" value="246696000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,9 +471,9 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13489583" sideWeight="0.4879227" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23202614" sideWeight="0.5286458" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23202614" sideWeight="0.5265625" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23202614" sideWeight="0.6088542" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23202614" sideWeight="0.4734375" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49411765" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.083775185" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
@@ -530,7 +533,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2738</line>
+          <line>2642</line>
           <option name="timeStamp" value="264" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -555,23 +558,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>862</line>
+          <line>783</line>
           <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>857</line>
+          <line>778</line>
           <option name="timeStamp" value="293" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js</url>
-          <line>463</line>
+          <line>461</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="298" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js</url>
-          <line>512</line>
+          <line>510</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="299" />
         </line-breakpoint>
@@ -631,61 +634,61 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1889</line>
+          <line>1863</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="309" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1862</line>
+          <line>1836</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="310" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1892</line>
+          <line>1866</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="311" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1898</line>
+          <line>1872</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1903</line>
+          <line>1877</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="313" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1908</line>
+          <line>1882</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="314" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1912</line>
+          <line>1886</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="315" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>1914</line>
+          <line>1888</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="316" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>2079</line>
+          <line>2053</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="317" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock_58.js</url>
-          <line>2090</line>
+          <line>2064</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="318" />
         </line-breakpoint>
@@ -935,11 +938,8 @@
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34275">
-          <caret line="1427" column="0" lean-forward="false" selection-start-line="1427" selection-start-column="0" selection-end-line="1427" selection-end-column="0" />
-          <folding>
-            <marker date="1519618453212" expanded="true" signature="2883:2887" ph="{...}" />
-            <marker date="1519618453212" expanded="true" signature="30503:30504" ph="{...}" />
-          </folding>
+          <caret line="1390" column="0" lean-forward="false" selection-start-line="1390" selection-start-column="0" selection-end-line="1390" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -993,16 +993,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1143">
-          <caret line="527" column="0" lean-forward="false" selection-start-line="527" selection-start-column="0" selection-end-line="527" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="218">
+          <caret line="519" column="0" lean-forward="false" selection-start-line="519" selection-start-column="0" selection-end-line="519" selection-end-column="0" />
+          <folding>
+            <marker date="1519618907776" expanded="true" signature="20452:20544" ph="{...}" />
+            <marker date="1519618907776" expanded="true" signature="21506:21522" ph="{...}" />
+            <marker date="1519618907776" expanded="true" signature="28974:30759" ph="{...}" />
+            <marker date="1519618907776" expanded="true" signature="64368:64545" ph="{...}" />
+            <marker date="1519618907776" expanded="true" signature="64714:64866" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="308">
+          <caret line="477" column="27" lean-forward="true" selection-start-line="477" selection-start-column="27" selection-end-line="477" selection-end-column="27" />
           <folding />
         </state>
       </provider>

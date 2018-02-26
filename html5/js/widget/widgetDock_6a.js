@@ -135,9 +135,6 @@ _$6A.prototype._$ms = function (e) {
         rt.height = rt.height + this._$mJ.y - _$pL.y;
     }
     this._$sC(_$pL, rt);
-    if (this._$j6 != null && !this._$j6._$S()) {
-        this._$j6._$lO._$aw();
-    }
     if (this._$jU >= 0) {
         if (this._$jU == _$6A._$7a || this._$jU == _$6A._$1t) {
             this._panelStateElement.style.cursor = "e-resize";
