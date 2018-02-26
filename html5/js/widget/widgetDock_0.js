@@ -4,6 +4,6 @@ function _$O(iX1, iX2, _$qV) {
     this._$qV = _$qV;
     this._$qT = _$qV;
     this.floatPanel = null;
-    this._$h9 = null;
+    this._titleElement = null;
 };
 _$O._$jL = 22;

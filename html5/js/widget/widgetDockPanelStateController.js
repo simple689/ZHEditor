@@ -7,24 +7,23 @@ function WidgetDockPanelStateController() {
     this._$lw = new WidgetDockRect();
     this._$lA = new WidgetDockRect();
     this.styleFont = "12px sans-serif";
-    this._$h9 = null;
+    this._titleElement = null;
     this._buttonPinElement = null;
     this._buttonCloseElement = null;
     this._$hj = null;
 
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
-    this._panelStateElement.style.background = 'ButtonFace';
-
-    this._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-    this._$h9.style.font = this.styleFont;
-    this._$h9._panelStateController = this;
-
-    WidgetDockElementController.setElementSize(this._panelStateElement, 15, 40);
     this._panelStateElement._panelStateController = this;
+    this._panelStateElement.style.background = 'ButtonFace';
+    WidgetDockElementController.setElementSize(this._panelStateElement, 15, 40);
     this._panelStateElement.onmousedown = WidgetDockPanelStateController.onMouseDown;
     this._panelStateElement.onmousemove = WidgetDockPanelStateController.onMouseMove;
+    this._panelStateElement.onmouseout = WidgetDockPanelStateController.onMouseOut;
     this._panelStateElement._$mF = WidgetDockPanelStateController._$mh;
-    this._panelStateElement.onmouseout = WidgetDockPanelStateController._$mv;
+
+    this._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+    this._titleElement._panelStateController = this;
+    this._titleElement.style.font = this.styleFont;
 };
 WidgetDockPanelStateController._$0U = 18;
 WidgetDockPanelStateController._$hd = null;
@@ -37,7 +36,7 @@ WidgetDockPanelStateController.prototype._$6o = function (_$cS, _$do, width, hei
 };
 WidgetDockPanelStateController.prototype.setVisible = function (isVisible) {
     WidgetDockElementController.setElementVisible(this._panelStateElement, isVisible);
-    WidgetDockElementController.setElementVisible(this._$h9, isVisible);
+    WidgetDockElementController.setElementVisible(this._titleElement, isVisible);
     WidgetDockElementController.setElementVisible(this._buttonPinElement, isVisible);
     WidgetDockElementController.setElementVisible(this._buttonCloseElement, isVisible);
 };
@@ -66,7 +65,7 @@ WidgetDockPanelStateController.onMouseMove = function (e) {
 WidgetDockPanelStateController._$mh = function (e) {
     return false;
 };
-WidgetDockPanelStateController._$mv = function (e) {
+WidgetDockPanelStateController.onMouseOut = function (e) {
     return true;
 };
 WidgetDockPanelStateController.prototype.mouseDown = function (e) {
@@ -506,10 +505,10 @@ WidgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
             }
             this._$hj.fillText(_$rX, 2, _$gP + 4);
         } else {
-            WidgetDockElementController.setElementLeftTop(this._$h9, 2, 2);
-            WidgetDockElementController.setElementSize(this._$h9, dt.width + 2, ih - 2);
-            this._$h9.style.font = this.getStyleFont();
-            this._$h9.innerHTML = _$rX;
+            WidgetDockElementController.setElementLeftTop(this._titleElement, 2, 2);
+            WidgetDockElementController.setElementSize(this._titleElement, dt.width + 2, ih - 2);
+            this._titleElement.style.font = this.getStyleFont();
+            this._titleElement.innerHTML = _$rX;
         }
     }
     if (this._floatPanel != null) {

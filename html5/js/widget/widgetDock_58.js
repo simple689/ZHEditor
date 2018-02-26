@@ -1861,32 +1861,32 @@ _$58.prototype._$4S = function () {
             if (_$ba == null) _$ba = this.getStyleFont();
         }
         if (this._$hj == null) {
-            if (_$pE._$h9 != null) {
+            if (_$pE._titleElement != null) {
                 if (_$cD == EnumPatternPositionType.Top || _$cD == EnumPatternPositionType.Bottom) {
                     var _$ff = 2;
-                    WidgetDockElementController.setElementLeftTop(_$pE._$h9, _$pE._$cv, 2 + _$ff);
-                    WidgetDockElementController.setElementSize(_$pE._$h9, _$pE._$cE - _$pE._$cv, _$58._$2V - 2 - _$ff);
-                    _$pE._$h9.style.font = this.getStyleFont();
+                    WidgetDockElementController.setElementLeftTop(_$pE._titleElement, _$pE._$cv, 2 + _$ff);
+                    WidgetDockElementController.setElementSize(_$pE._titleElement, _$pE._$cE - _$pE._$cv, _$58._$2V - 2 - _$ff);
+                    _$pE._titleElement.style.font = this.getStyleFont();
                 } else {
                     if (WidgetDockController._browserType == WidgetDockController._$3s || WidgetDockController._browserType == WidgetDockController._$I) {
                         _$ff = (_$58._$2V - 2) / 2;
-                        WidgetDockElementController.setElementLeftTop(_$pE._$h9, 4 - _$ff, _$pE._$cv + 2);
-                        WidgetDockElementController.setElementSize(_$pE._$h9, _$58._$2V - 2, _$pE._$cE - _$pE._$cv);
-                        _$pE._$h9.style.writingMode = 'tb-rl';
+                        WidgetDockElementController.setElementLeftTop(_$pE._titleElement, 4 - _$ff, _$pE._$cv + 2);
+                        WidgetDockElementController.setElementSize(_$pE._titleElement, _$58._$2V - 2, _$pE._$cE - _$pE._$cv);
+                        _$pE._titleElement.style.writingMode = 'tb-rl';
                     } else if (WidgetDockController._browserType == WidgetDockController._$4F) {
                         var _$te = (_$pE._$cE - _$pE._$cv) / 2;
-                        WidgetDockElementController.setElementLeftTop(_$pE._$h9, -_$te + (_$58._$2V) / 2 - 2, _$pE._$cv + _$te);
-                        WidgetDockElementController.setElementSize(_$pE._$h9, _$pE._$cE - _$pE._$cv, _$58._$2V);
-                        _$pE._$h9.style['OTransform'] = ' rotate(90deg) ';
+                        WidgetDockElementController.setElementLeftTop(_$pE._titleElement, -_$te + (_$58._$2V) / 2 - 2, _$pE._$cv + _$te);
+                        WidgetDockElementController.setElementSize(_$pE._titleElement, _$pE._$cE - _$pE._$cv, _$58._$2V);
+                        _$pE._titleElement.style['OTransform'] = ' rotate(90deg) ';
                     } else {
                         var _$te = (_$pE._$cE - _$pE._$cv) / 2;
-                        WidgetDockElementController.setElementLeftTop(_$pE._$h9, -_$te + (_$58._$2V) / 2 - 2, _$pE._$cv + _$te);
-                        WidgetDockElementController.setElementSize(_$pE._$h9, _$pE._$cE - _$pE._$cv, _$58._$2V);
-                        _$pE._$h9.style['MozTransform'] = ' rotate(90deg) ';
+                        WidgetDockElementController.setElementLeftTop(_$pE._titleElement, -_$te + (_$58._$2V) / 2 - 2, _$pE._$cv + _$te);
+                        WidgetDockElementController.setElementSize(_$pE._titleElement, _$pE._$cE - _$pE._$cv, _$58._$2V);
+                        _$pE._titleElement.style['MozTransform'] = ' rotate(90deg) ';
                     }
-                    _$pE._$h9.style.font = this.getStyleFont();
+                    _$pE._titleElement.style.font = this.getStyleFont();
                 }
-                _$pE._$h9.innerHTML = _$pE._$qV;
+                _$pE._titleElement.innerHTML = _$pE._$qV;
             }
             continue;
         }
@@ -2051,8 +2051,8 @@ _$58.prototype._$8 = function (floatPanel) {
     _$ol.floatPanel = floatPanel;
     this._$hU.addFloatPanel(_$ol);
 
-        _$ol._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-        _$ol._$h9._$4A = this;
+        _$ol._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+        _$ol._titleElement._$4A = this;
 
     this._$5A();
     this.refresh();
@@ -2062,9 +2062,9 @@ _$58.prototype._$5M = function (floatPanel) {
     var i;
     for (i = 0; i < _$e1; i++) {
         if (floatPanel == this._$hU._panelList[i].floatPanel) {
-            if (this._$hU._panelList[i]._$h9 != null) {
-                this._panelStateElement.removeChild(this._$hU._panelList[i]._$h9);
-                this._$hU._panelList[i]._$h9 = null;
+            if (this._$hU._panelList[i]._titleElement != null) {
+                this._panelStateElement.removeChild(this._$hU._panelList[i]._titleElement);
+                this._$hU._panelList[i]._titleElement = null;
             }
             this._$hU.deletePanel(i);
             break;

@@ -141,9 +141,9 @@ _$G.prototype._$5K = function (floatPanel) {
     for (i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
         if (tab.floatPanel == floatPanel) {
-            if (tab._$h9 != null) {
-                this._panelStateElement.removeChild(tab._$h9);
-                tab._$h9 = null;
+            if (tab._titleElement != null) {
+                this._panelStateElement.removeChild(tab._titleElement);
+                tab._titleElement = null;
             }
             this._$i6.splice(i, 1);
             if (this._$jh >= i) {
@@ -169,9 +169,9 @@ _$G.prototype._$5K = function (floatPanel) {
     if (_$gi <= 1) {
         if (_$gi == 1) {
             var _$sN = this._$i6[0];
-            if (_$sN._$h9 != null) {
-                this._panelStateElement.removeChild(_$sN._$h9);
-                _$sN._$h9 = null;
+            if (_$sN._titleElement != null) {
+                this._panelStateElement.removeChild(_$sN._titleElement);
+                _$sN._titleElement = null;
             }
         }
         this._$i6.splice(0, this._$i6.length);
@@ -203,8 +203,8 @@ _$G.prototype.Add = function (floatPanel) {
     var s = floatPanel._panelStateController.getTitle();
     var tab = new _$O(0, 0, s);
 
-        tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-        tab._$h9._$4u = this;
+        tab._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+        tab._titleElement._$4u = this;
 
     tab.floatPanel = floatPanel;
     this._$i6.push(tab);
@@ -219,8 +219,8 @@ _$G.prototype._$3 = function (floatPanel, _$cN) {
     var s = floatPanel._panelStateController.getTitle();
     var tab = new _$O(0, 0, s);
 
-        tab._$h9 = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-        tab._$h9._$4u = this;
+        tab._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+        tab._titleElement._$4u = this;
 
     tab.floatPanel = floatPanel;
     this._$i6.splice(_$cN, 0, tab);
@@ -471,14 +471,14 @@ _$G.prototype._$aK = function (g, _$cs) {
             if (i != this._$jh) {
                 tab = this._$i6[i];
                 f = this._$bT(tab.floatPanel);
-                this._$aJ(tab._$h9, tab._$cv, tab._$cE, tab._$qV, false, tab.floatPanel._$hE, f);
+                this._$aJ(tab._titleElement, tab._$cv, tab._$cE, tab._$qV, false, tab.floatPanel._$hE, f);
             }
         }
         tab = this._$i6[_$cs];
         var _$dS = tab._$cv;
         var _$ed = tab._$cE;
         f = this._$bT(tab.floatPanel);
-        this._$aJ(tab._$h9, _$dS, _$ed, tab._$qV, true, tab.floatPanel._$hE, f);
+        this._$aJ(tab._titleElement, _$dS, _$ed, tab._$qV, true, tab.floatPanel._$hE, f);
         if (this._$hj != null) {
             this._$hj._$s1 = 'ButtonShadow';
             if (tab._$cv >= 2) {
