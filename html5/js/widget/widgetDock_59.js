@@ -19,7 +19,7 @@ _$59.prototype.setVisible = function (_$8e) {
 _$59.prototype._$6k = function (_$di) {
     this._$jY = _$di;
 };
-_$59.prototype._$6o = function (_$cS, _$do, width, height) {
+_$59.prototype.resize = function (_$cS, _$do, width, height) {
     var _$d5 = this._$jY;
     WidgetDockElementController.setElementLeftTop(this._$lc._panelStateElement, _$cS, _$do);
     var canvas = this._$lc._panelStateElement;

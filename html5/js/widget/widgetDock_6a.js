@@ -178,7 +178,7 @@ _$6A.prototype._$sC = function (_$pL, rt) {
     if (this._$ld != null) this._$ld._$r8(rt); else if (this._$kQ != null) {
         this._$kQ._$6p(rt.x, rt.y, rt.width, rt.height);
     } else if (this._$l5 != null) {
-        this._$l5._$6o(rt.x, rt.y, rt.width, rt.height);
+        this._$l5.resize(rt.x, rt.y, rt.width, rt.height);
     }
     if (this._$ld != null && this._$ld._$hJ != null && !this._$ld._$hJ._$it) {
         if (this._$j6 == null) {

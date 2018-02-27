@@ -29,7 +29,7 @@ WidgetDockPanelStateController._$0U = 18;
 WidgetDockPanelStateController._$hd = null;
 WidgetDockPanelStateController._$4Y = 4;
 WidgetDockPanelStateController._$j5 = new WidgetDockSize();
-WidgetDockPanelStateController.prototype._$6o = function (_$cS, _$do, width, height) {
+WidgetDockPanelStateController.prototype.resize = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this.refresh();
@@ -141,10 +141,10 @@ WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
     }
 };
 WidgetDockPanelStateController.prototype._$4L = function () {
-        var pb = _floatPanel._$kA;
-        if (pb._$o5 != null && pb._$o5._$i6.length > 1) {
-            _$0Y(_floatPanel._$kA);
-        } else this._floatPanel._$4L();
+    var pb = _floatPanel._$kA;
+    if (pb._$o5 != null && pb._$o5._$i6.length > 1) {
+        _$0Y(_floatPanel._$kA);
+    } else this._floatPanel._$4L();
 };
 WidgetDockPanelStateController.prototype._$T = function () {
     this._floatPanel._$T();
@@ -267,7 +267,7 @@ WidgetDockPanelStateController.prototype._$c6 = function () {
     }
     return WidgetDockPanelStateController._$j5;
 };
-WidgetDockPanelStateController.prototype._$nL = function (_$82, ix, iy, width, height, g, _$7Y) {
+WidgetDockPanelStateController.prototype._$nL = function (_$82, ix, iy, width, height) {
     if (this._$hj == null) {
         return;
     }
@@ -314,7 +314,11 @@ WidgetDockPanelStateController.prototype.refresh = function () {
     var _$8u = true;
     var _$96 = this._$6z();
     if (this._floatPanel._patternMain._$jv == WidgetDockController._$0T) {
-        if ((this._floatPanel._$jm >= WidgetDockFloatPanel._$0) && _$96) _$8u = true; else _$8u = false;
+        if ((this._floatPanel._$jm >= WidgetDockFloatPanel._$0) && _$96) {
+            _$8u = true;
+        } else {
+            _$8u = false;
+        }
     }
     var _$ea = this._floatPanel._$j0;
     if (this._floatPanel._$jm < WidgetDockFloatPanel._$0) {
@@ -333,7 +337,6 @@ WidgetDockPanelStateController.prototype.refresh = function () {
         _$em = ih;
         _$fu = ih - 3;
         if (this._floatPanel._$k0 == WidgetDockFloatPanel._$4C) _$fu = 0;
-        if (!this._floatPanel._$cn()) _$em = 0;
         if (_$8u) this._$aF(iw, ih, _$96, _$ea); else {
             var _$9Z = _$6V._$bF("ToolBar.background");
             g._$rc(_$9Z);
@@ -359,16 +362,14 @@ WidgetDockPanelStateController.prototype.refresh = function () {
         var _$fj = si.height;
         var _$fK = 0;
         if (_floatPanel._$k0 == WidgetDockFloatPanel._$4C) _$fu = 0;
-        if (!_floatPanel._$cn()) _$em = 0;
         _$fK = (_$em + _$fu);
         if (_$em != 0 && _$fu != 0) _$fK += WidgetDockPanelStateController._$4Y; else if (_$em == 0) _$fK += 2;
         si.y += _$fK;
         si.height -= _$fK;
-        var dt = new WidgetDockSize();
-        var _$rX = _$bK(false);
-        var _$dE = new Array(1);
-        WidgetDockElementController._$2L(dt, this.getStyleFont(), _$rX, this._$hj);
-        _$rX = WidgetDockPatternBase._$6y(this.getStyleFont(), _$rX, si.height, dt.width, _$G._$2Z, 0, this._$hj);
+        var size = new WidgetDockSize();
+        var titleNow = this._title;
+        WidgetDockElementController.getOffsetSize(size, this.getStyleFont(), titleNow, this._$hj);
+        titleNow = WidgetDockPatternBase._$6y(this.getStyleFont(), titleNow, si.height, size.width, _$G._$2Z, 0, this._$hj);
         if (!_$8u) {
             var _$9Z = _$6V._$bF("ToolBar.background");
             g._$rc(_$9Z);
@@ -457,7 +458,6 @@ WidgetDockPanelStateController.prototype._$6z = function () {
     return false;
 };
 WidgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
-    var _$rQ = true;
     var _$el = 0;
     var _$8H = false;
     var _$8n = true;
@@ -465,18 +465,13 @@ WidgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
         _$8n = false;
     }
     if (_$8n && _$8a) _$8H = true;
-    this._$nL(_$8H, 0, 0, iw, ih, true);
+    this._$nL(_$8H, 0, 0, iw, ih);
     var _$em = 0;
     if (this._title != null) {
-        if (this._$i9) {
-        } else {
-        }
         var _$fK = 0;
         if (this._floatPanel != null) {
-            if (this._floatPanel._$cn()) {
-                _$em = ih;
-                _$fK += ih;
-            }
+            _$em = ih;
+            _$fK += ih;
             if (this._floatPanel._$k0 != WidgetDockFloatPanel._$4C) {
                 _$fK += ih - 3;
                 if (_$em != 0) {
@@ -487,12 +482,11 @@ WidgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
                 }
             }
         }
-        var _$rX = this._$bK(_$rQ);
-        var dt = new WidgetDockSize();
-        var _$dE = new Array(1);
-        WidgetDockElementController._$2L(dt, this.getStyleFont(), _$rX, this._$hj);
+        var titleNow = this._title;
+        var size = new WidgetDockSize();
+        WidgetDockElementController.getOffsetSize(size, this.getStyleFont(), titleNow, this._$hj);
         var _$tq = WidgetDockElementController.getElementWidth(this._panelStateElement);
-        _$rX = WidgetDockPatternBase._$6y(this.getStyleFont(), _$rX, _$tq - _$fK, dt.width, _$G._$2Z, 0, this._$hj);
+        titleNow = WidgetDockPatternBase._$6y(this.getStyleFont(), titleNow, _$tq - _$fK, size.width, _$G._$2Z, 0, this._$hj);
         var _$gP;
         _$gP = ih / 2;
         if (this._$hj != null) {
@@ -501,48 +495,24 @@ WidgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
             if (WidgetDockController._browserType == EnumBrowserType.Opera) {
                 this._$hj.fillStyle = 'black';
             }
-            this._$hj.fillText(_$rX, 2, _$gP + 4);
+            this._$hj.fillText(titleNow, 2, _$gP + 4);
         } else {
             WidgetDockElementController.setElementLeftTop(this._titleElement, 2, 2);
-            WidgetDockElementController.setElementSize(this._titleElement, dt.width + 2, ih - 2);
+            WidgetDockElementController.setElementSize(this._titleElement, size.width + 2, ih - 2);
             this._titleElement.style.font = this.getStyleFont();
-            this._titleElement.innerHTML = _$rX;
+            this._titleElement.innerHTML = titleNow;
         }
     }
     if (this._floatPanel != null) {
-        if (this._floatPanel._$cn()) this._$aE(0, 0, iw, ih, _$cD); else {
-        }
-            this._$lA.right = this._$lw.left;
-            if (_$em != 0) this._$lA.right -= WidgetDockPanelStateController._$4Y;
-            this._$lA.left = this._$lA.right - (ih - 3);
-            this._$lA.top = 1;
-            this._$lA.bottom = ih - 3;
-            this._$aI(this._$lA, this._floatPanel._$k0, this._$i9);
+        this._$aE(0, 0, iw, ih, _$cD);
+        this._$lA.right = this._$lw.left;
+        if (_$em != 0) this._$lA.right -= WidgetDockPanelStateController._$4Y;
+        this._$lA.left = this._$lA.right - (ih - 3);
+        this._$lA.top = 1;
+        this._$lA.bottom = ih - 3;
+        this._$aI(this._$lA, this._floatPanel._$k0, this._$i9);
     }
     var _$r1 = String.fromCharCode(4);
-};
-WidgetDockPanelStateController.prototype._$bK = function (_$7P) {
-    var _$r2 = "";
-    var _$92 = _$7P;
-    var _$rX;
-    var _$7A = new Array();
-    var k;
-    _$7A[0] = 33;
-    _$7A[1] = 61;
-    _$7A[2] = 94;
-    _$7A[3] = 102;
-    _$7A[4] = 104;
-    _$7A[5] = 34;
-    if (_$92) {
-        for (k = 0; k < 6; k++) {
-            _$7A[k] = _$7A[k] + 7;
-            _$r2 += String.fromCharCode(_$7A[k]);
-        }
-        _$rX = this._title + " " + _$r2;
-    } else {
-        _$rX = this._title;
-    }
-    return _$rX;
 };
 WidgetDockPanelStateController.prototype._$aI = function (_$pc, _$d6, _$7J) {
     var _$gv, _$gD;
@@ -681,9 +651,7 @@ _$4d.prototype._$mj = function (pts) {
         var i;
         for (i = 0; i < _$e1; i++) {
             var dfw = _$7E._panelList[i];
-            if (dfw._$cn()) {
-                dfw.setVisible(false);
-            }
+            dfw.setVisible(false);
         }
         return -1;
     }
@@ -708,7 +676,7 @@ _$4d.prototype.refresh = function () {
     vh -= 2;
     var _$pN = this._floatPanel;
     this._floatPanel = null;
-    this._$nL(true, rc.left, rc.top, rc.right - rc.left, vh, true);
+    this._$nL(true, rc.left, rc.top, rc.right - rc.left, vh);
     this._$aE(rc.left, rc.top, rc.right - rc.left, vh, WidgetDockFloatPanel._$3Q);
     this._floatPanel = _$pN;
 };

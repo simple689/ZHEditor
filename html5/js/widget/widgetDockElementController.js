@@ -86,7 +86,7 @@ WidgetDockElementController.addFixedPanel = function (element, left, top, width,
     element.style.width = width + "px";
     element.style.height = height + "px";
 };
-WidgetDockElementController.setBodyFontStyle = function (fontStyle) {
+WidgetDockElementController.getOffsetHeightWithFontStyle = function (fontStyle) {
     var body = document.getElementsByTagName("body")[0];
     var elementDiv = document.createElement("div");
     var textNode = document.createTextNode("Mj");
@@ -97,10 +97,10 @@ WidgetDockElementController.setBodyFontStyle = function (fontStyle) {
     body.removeChild(elementDiv);
     return offsetHeight;
 };
-;WidgetDockElementController._$ar = function (fontStyle, _$qV) {
+;WidgetDockElementController.getOffsetWidthWithFontStyle = function (fontStyle, title) {
     var body = document.getElementsByTagName("body")[0];
     var elementSpan = document.createElement("span");
-    var textNode = document.createTextNode(_$qV);
+    var textNode = document.createTextNode(title);
     elementSpan.appendChild(textNode);
     elementSpan.setAttribute("style", fontStyle);
     body.appendChild(elementSpan);
@@ -108,17 +108,16 @@ WidgetDockElementController.setBodyFontStyle = function (fontStyle) {
     body.removeChild(elementSpan);
     return offsetWidth;
 };
-;WidgetDockElementController._$2L = function (dt, ft, _$qV, _$aa) {
-    if (_$aa != null) {
-        var _$t8 = "font: " + ft + ";";
-        _$aa.font = ft;
-        dt.height = WidgetDockElementController.setBodyFontStyle(_$t8);
-        var _$sr = _$aa.measureText(_$qV);
-        dt.width = _$sr.width;
+;WidgetDockElementController.getOffsetSize = function (size, ft, title, element) {
+    var fontStyleStr = "font: " + ft + ";";
+    if (element != null) {
+        element.font = ft;
+        size.height = WidgetDockElementController.getOffsetHeightWithFontStyle(fontStyleStr);
+        var _$sr = element.measureText(title);
+        size.width = _$sr.width;
     } else {
-        var _$t8 = "font: " + ft + ";";
-        dt.height = WidgetDockElementController.setBodyFontStyle(_$t8);
-        dt.width = WidgetDockElementController._$ar(_$t8, _$qV);
+        size.height = WidgetDockElementController.getOffsetHeightWithFontStyle(fontStyleStr);
+        size.width = WidgetDockElementController.getOffsetWidthWithFontStyle(fontStyleStr, title);
     }
 };
 WidgetDockElementController._$1q = function (_$tB, _$tD, _$tA, _$tC, cxt) {

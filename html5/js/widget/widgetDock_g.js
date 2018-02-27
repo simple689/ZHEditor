@@ -55,7 +55,7 @@ _$G.onMouseMove = function (e) {
 _$G._$mh = function (e) {
     return false;
 };
-_$G.prototype._$6o = function (_$cS, _$do, width, height) {
+_$G.prototype.resize = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this._$5z();
@@ -259,15 +259,15 @@ _$G.prototype._$5z = function () {
     var _$gi = this._$i6.length;
     var _$fv = 0;
     var tab = null;
-    var dt = new WidgetDockSize();
+    var size = new WidgetDockSize();
     var i;
     var _$dI = new Array(_$gi);
     for (i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
         ft = this._$bT(tab.floatPanel);
         tab._$cv = _$fv;
-        WidgetDockElementController._$2L(dt, ft, tab._$qT, this._$hj);
-        tab._$cE = _$fv + dt.width + 2 * _$G._$2Z;
+        WidgetDockElementController.getOffsetSize(size, ft, tab._$qT, this._$hj);
+        tab._$cE = _$fv + size.width + 2 * _$G._$2Z;
         if (tab.floatPanel._$hE != null) tab._$cE += _$O._$jL;
         _$dI[i] = tab._$cE - _$fv;
         _$fv = tab._$cE;
@@ -534,9 +534,8 @@ _$G.prototype._$aJ = function (_$U, _$cv, _$cE, _$qV, _$7J, img, _$b2) {
         g.drawImage(img, _$cv + 2, _$gC + 1, _$O._$jL, _$O._$jL, this);
         _$cv += _$O._$jL;
     }
-    var dt = new WidgetDockSize();
-    var _$dE = new Array(1);
-    WidgetDockElementController._$2L(dt, _$b2, _$qV, this._$hj);
+    var size = new WidgetDockSize();
+    WidgetDockElementController.getOffsetSize(size, _$b2, _$qV, this._$hj);
     this._$hj.font = _$b2;
     this._$hj.fillText(_$qV, _$cv + _$G._$2Z, _$G._$6J / 2 + 4);
 };

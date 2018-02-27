@@ -24,7 +24,6 @@ function WidgetDockFloatPanel(window, title) {
     this._$ks;
     this._$kr;
     this._$iv;
-    this._$iw = true;
     this._$jG;
     this._$jE;
     this._$jw = 0;
@@ -518,9 +517,6 @@ WidgetDockFloatPanel.prototype._$rB = function (sch) {
     this._$bf(sch);
 };
 WidgetDockFloatPanel.prototype._$18 = function () {
-    this._patternMain._$s7(this);
-};
-WidgetDockFloatPanel.prototype._$s7 = function () {
     var _$8s = false;
     if (this._$kB == null) {
         if (this._$jE == 0) {
@@ -538,12 +534,22 @@ WidgetDockFloatPanel.prototype._$s7 = function () {
             _$8s = true;
         }
     }
-    if (this._$kB._$ii) this._$ir = false; else this._$ir = true;
+    if (this._$kB._$ii) {
+        this._$ir = false;
+    } else {
+        this._$ir = true;
+    }
     this.setElementVisible(false);
     this._$d(this._$kB);
-    if (this._$kB != null && this._$kB._$ii) this._$be(this._$j0); else this._$be(EnumPatternPositionType.Center);
+    if (this._$kB != null && this._$kB._$ii) {
+        this._$be(this._$j0);
+    } else {
+        this._$be(EnumPatternPositionType.Center);
+    }
     this.setElementVisible(true);
-    if (!_$8s) this._$kB._$18(this, null);
+    if (!_$8s) {
+        this._$kB._$18(this, null);
+    }
     this._patternMain._$1(this);
 };
 WidgetDockFloatPanel.prototype._$d = function (mainPattern) {
@@ -708,12 +714,6 @@ WidgetDockFloatPanel.prototype._$0h = function () {
         this._$k0 = WidgetDockFloatPanel._$4Z;
         this.setVisible(true);
     }
-};
-WidgetDockFloatPanel.prototype._$cn = function () {
-    return this._$iw;
-};
-WidgetDockFloatPanel.prototype._$rq = function (_$7U) {
-    this._$iw = _$7U;
 };
 WidgetDockFloatPanel.prototype._$5u = function () {
 };
@@ -2329,10 +2329,10 @@ WidgetDockFloatPanel.prototype._$qK = function () {
         height = this._height - _$tj.height;
         var _$aC = _$tj.height;
         if (_$aC > this._height) _$aC = this._height;
-        this._panelStateController._$6o(this._left, this._top, this._width, _$aC);
+        this._panelStateController.resize(this._left, this._top, this._width, _$aC);
     }
     if (this._$hz != null) {
-        this._$hz._$6o(this._left, this._top + this._height - _$G._$6J, this._width, _$G._$6J);
+        this._$hz.resize(this._left, this._top + this._height - _$G._$6J, this._width, _$G._$6J);
         height -= _$G._$6J;
     }
     if (height < 0) height = 0;
