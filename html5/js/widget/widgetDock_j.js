@@ -66,7 +66,7 @@ _$K.prototype._$7v = function (_$a0) {
     var _$tc = WidgetDockElementController.getElementLeft(this._$he);
     var _$tn = WidgetDockElementController.getElementTop(this._$he);
     this._elementWithType[1] = _$a0._panelStateElement;
-    WidgetDockElementController.addFixedPanel(_$a0._panelStateElement, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._panelStateElement.style.height));
+    WidgetDockElementController.setElementLeftTopSize(_$a0._panelStateElement, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._panelStateElement.style.height));
     this._$5z();
 };
 _$K.prototype.Add = function (com) {
@@ -76,8 +76,6 @@ _$K.prototype._$d = function (com) {
     var vs = 0;
 };
 _$K.prototype._$5E = function (com) {
-};
-_$K.prototype._$2g = function () {
 };
 _$K.prototype._$7p = function () {
     if (this._elementWithType[1] != null) return;
@@ -90,11 +88,6 @@ _$K.prototype._$7p = function () {
     this._$kX = pan;
     this._$kX.refresh();
 };
-_$K.prototype._$7m = function (_$7J) {
-    if (this._elementWithType[1] != null) {
-        this._elementWithType[1]._$r6(_$7J);
-    }
-};
 _$K._$0y = function (_$q2) {
     var _$og = new _$K(false);
     _$og._location = new WidgetDockLocation();
@@ -106,7 +99,7 @@ _$K._$0y = function (_$q2) {
     _$K._$kL.push(_$og);
     return _$og;
 };
-_$K.prototype._$0v = function (_$mL) {
+_$K.prototype._$0v = function (elementId) {
 };
 _$K.prototype._$4R = function (_$ts, _$h1) {
     this._$iG = true;
@@ -127,7 +120,9 @@ _$K.prototype._$01 = function () {
             _$ln = _$he._$c8();
             _$10();
         }
-    } else _$10();
+    } else {
+        _$10();
+    }
 };
 _$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     if (!this._$is || !this._$it) return 0xff;
@@ -137,20 +132,20 @@ _$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
         return 0xff;
     }
     var _$qf = new _$5g();
-    var _$qe = new _$5g();
-    _$qe = _$mX._$lC;
     var _$el = WidgetDockPatternBase._$2z(_$qe);
     var _$gK = WidgetDockPatternBase._$2A(_$qe);
     var _$gk = _$gK < _$el ? _$gK : _$el;
     _$mX._$iM = false;
     _$nz.cx = _$gK;
     _$nz.cy = _$el;
-    if (!this._$1h(_$mX, _$nz, _$gK, _$el, _$qe, _$pC)) return _$mX._$j1;
+    if (!this._$1h(_$mX, _$nz, _$gK, _$el, _$qe, _$pC)) {
+        return _$mX._$j1;
+    }
     this.getWindowRect(_$qf);
-    _$qf.left += this._$jF[0];
-    _$qf.right -= this._$jF[2];
-    _$qf.top += this._$jF[1];
-    _$qf.bottom -= this._$jF[3];
+    _$qf.left += this._signLenAry[0];
+    _$qf.right -= this._signLenAry[2];
+    _$qf.top += this._signLenAry[1];
+    _$qf.bottom -= this._signLenAry[3];
     var _$9j = WidgetDockPatternBase._$m(_$qf, _$pC);
     _$mX._$ka = 0;
     _$mX._$ky = null;
@@ -190,24 +185,19 @@ _$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     }
     return _$mX._$j1;
 };
-_$K.prototype._$2e = function (_$n7, _$7L) {
-    var i;
-    var d;
-    _$n7[0] = this._$jF[0];
-    _$n7[2] = this._$jF[2];
-    _$n7[3] = this._$jF[3];
-    _$n7[1] = 3;
+_$K.prototype.setSignLen = function (signLenAry) {
+    signLenAry[0] = this._signLenAry[0];
+    signLenAry[2] = this._signLenAry[2];
+    signLenAry[3] = this._signLenAry[3];
+    signLenAry[1] = 3;
     if (this._elementWithType[1] != null) {
-        _$n7[1] += WidgetDockElementController.getElementHeight(this._elementWithType[1]);
+        signLenAry[1] += WidgetDockElementController.getElementHeight(this._elementWithType[1]);
     }
 };
 _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
-    var _$gK, _$el;
-    _$el = ih;
-    _$gK = iw;
     if (this._elementWithType[1] != null) {
         WidgetDockElementController.setElementLeftTop(this._elementWithType[1], 3 + WidgetDockElementController.getElementLeft(this._$he), 3 + WidgetDockElementController.getElementTop(this._$he));
-        WidgetDockElementController.setElementSize(this._elementWithType[1], iw, this._$jF[1] - 3);
+        WidgetDockElementController.setElementSize(this._elementWithType[1], iw, this._signLenAry[1] - 3);
         if (this._$kX != null) this._$kX.refresh();
     }
     var _$e1 = this._patternPositionList[0]._patternSub.getPanelNum();
@@ -253,8 +243,7 @@ _$K.prototype._$bP = function () {
     _$nT = this._patternPositionList[0]._patternSub._panelList[0]._$kI;
     _$nT._$2Q(_$oq);
     var _$at = new Array(_$oq.getPanelNum());
-    var i;
-    for (i = 0; i < _$oq.getPanelNum(); i++) _$at[i] = _$oq._panelList[i];
+    for (var i = 0; i < _$oq.getPanelNum(); i++) _$at[i] = _$oq._panelList[i];
     return _$at;
 };
 _$K.prototype._$3G = function (_$nc, _$mX, _$n1) {
@@ -296,8 +285,7 @@ _$K.prototype._$53 = function (_$n5) {
         }
     } else {
         _$e1 = _$K._$kL.length;
-        var i;
-        for (i = 0; i < _$e1; i++) {
+        for (var i = 0; i < _$e1; i++) {
             if (_$K._$kL[i] == this) {
                 _$K._$kL.splice(i, 1);
                 break;
@@ -388,8 +376,6 @@ _$J.prototype._$74 = function () {
         }
     }
 };
-_$J.prototype._$2g = function () {
-};
 _$J._$0x = function (_$q2) {
     var _$og = new _$J(false);
     _$og._location = new WidgetDockLocation();
@@ -400,18 +386,18 @@ _$J._$0x = function (_$q2) {
     _$og._size.height = _$q2.height;
     return _$og;
 };
-_$J.prototype._$0v = function (_$mL) {
-    var sp = new _$6A(_$mL);
+_$J.prototype._$0v = function (elementId) {
+    var sp = new _$6A(elementId);
     sp._$kQ = this;
     this._$he = sp._panelStateElement;
     this.setVisible(false);
     this._$hh = sp._panelStateElement;
     this._$is = true;
-    this._$jF[1] = 6;
-    this._$jF[3] = 6;
-    this._$jF[0] = 6;
-    this._$jF[2] = 6;
-    this._$lz.bottom = this._$lz.top;
+    this._signLenAry[1] = 6;
+    this._signLenAry[3] = 6;
+    this._signLenAry[0] = 6;
+    this._signLenAry[2] = 6;
+    this._rect.bottom = this._rect.top;
     return true;
 };
 _$J.prototype._$fT = function () {
@@ -475,7 +461,7 @@ _$J.prototype._$6p = function (_$cS, _$do, width, height) {
         this._$he.style.width = width + "px";
         this._$he.style.height = height + "px";
 
-    this._$mC(_$cS + this._$jF[0], _$do, width - this._$jF[0] - this._$jF[2], height);
+    this._$mC(_$cS + this._signLenAry[0], _$do, width - this._signLenAry[0] - this._signLenAry[2], height);
 };
 _$J.prototype._$10 = function () {
     WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$he);

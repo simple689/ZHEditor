@@ -8,7 +8,6 @@ WidgetDockController._windowMain = null;
 WidgetDockController._dir = "";
 
 WidgetDockController._$kN = new Array();
-WidgetDockController._$iU = true;
 WidgetDockController._$0R = 0;
 WidgetDockController._$0T = 1;
 WidgetDockController._$0S = 2;
@@ -78,7 +77,6 @@ WidgetDockController.setStyle = function () {
     document.body.scroll = "no";
     document.body.style.overflow = 'hidden';
 };
-
 function mouseDown(e) {
     if (WidgetDockController._windowMain == null) return;
     if (e == null) {
@@ -86,7 +84,6 @@ function mouseDown(e) {
     }
     WidgetDockController._windowMain.mouseDown(e);
 };
-
 function mouseUp(e) {
     if (WidgetDockController._windowMain == null) return;
     if (e == null) {
@@ -102,7 +99,6 @@ function mouseUp(e) {
         }
     }
 };
-
 function mouseMove(e) {
     if (WidgetDockController._windowMain == null) return;
     if (e == null) {
@@ -142,7 +138,6 @@ WidgetDockController.prototype.loadLayoutFromKey = function (key) {
         }
     }
 };
-
 WidgetDockController.isButtonAvailable = function (buttonType) {
     if ((buttonType != 0 && WidgetDockController._browserType != EnumBrowserType.IE) || (WidgetDockController._browserType == EnumBrowserType.IE && WidgetDockController._ieVersion >= 9 && buttonType != 0)) {
         return false;
@@ -150,9 +145,8 @@ WidgetDockController.isButtonAvailable = function (buttonType) {
     return true;
 };
 WidgetDockController._$6s = function (sch) {
-    if (WidgetDockController._$iU) WidgetDockController._windowMain._$6s(sch);
+    WidgetDockController._windowMain._$6s(sch);
 };
-
 WidgetDockController._$06 = function (elementId) {
     var va = WidgetDockController._$kN;
     var len = va.length;
@@ -164,33 +158,6 @@ WidgetDockController._$06 = function (elementId) {
     }
     return false;
 };
-WidgetDockController.initIFrame = function (elementId) {
-    if (WidgetDockController._instance == null) WidgetDockController.init();
-    var vf = document.getElementById(elementId);
-    try {
-        vf.contentWindow.document._$m7 = vf;
-    } catch (err) {
-        {
-            if (WidgetDockController._$iU) {
-                if (WidgetDockController._windowMain == null) {
-                    WidgetDockController._$kN.push(elementId);
-                } else {
-                    var _$8C = WidgetDockController._windowMain._$rv(elementId);
-                    if (!_$8C) {
-                        WidgetDockController._$kN.push(elementId);
-                    }
-                }
-            }
-            return;
-        }
-    } finally {
-        var s = 0;
-    }
-    vf.contentWindow.addEventListener("mousemove", mouseMove, true);
-    vf.contentWindow.addEventListener("mouseup", mouseUp, true);
-    vf.contentWindow.addEventListener("mousedown", mouseDown, true);
-};
-
 WidgetDockController._$2E = function (rc) {
     var iw = 0;
     var ih = 0;
