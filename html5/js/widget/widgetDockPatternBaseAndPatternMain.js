@@ -13,27 +13,24 @@ function WidgetDockPatternBase(_$7R) {
     this._$jO = 0;
     this._$he = null;
     this._$i3 = null;
-    this._$iV = false;
-    this._$lm = new Array(4);
-    this._$iz = false;
+    this._windowPattern = new Array(4);
     this._$jv = 0;
-    this._$jF = new Array(4);
+    this._signLenAry = new Array(4);
     var k;
     for (k = 0; k < 4; k++) {
         this._patternPositionList[k] = new _$0O();
-        this._$lm[k] = new _$5h();
-        this._$jF[k] = 0;
+        this._windowPattern[k] = new _$5h();
+        this._signLenAry[k] = 0;
         this._elementWithType[k] = null;
     }
-    this._$lz = new WidgetDockRect();
     this.width = 0;
     this.height = 0;
     this._$ii = _$7R;
-    WidgetDockPatternBase.resetRect(this._$lz);
     this._elementWithCenter = null;
-    this._$jd = 0;
-    this._$lz.left = -4000;
-    this._$lz.right = -4000;
+    this._rect = new WidgetDockRect();
+    WidgetDockPatternBase.resetRect(this._rect);
+    this._rect.left = -4000;
+    this._rect.right = -4000;
 };
 WidgetDockPatternBase._$3S = 0;
 WidgetDockPatternBase._$6M = 1;
@@ -65,8 +62,8 @@ WidgetDockPatternBase._$ib = true;
 WidgetDockPatternBase.prototype._$3z = function () {
     this.width = 0;
     this.height = 0;
-    this._$lz.left = -4000;
-    this._$lz.right = -4000;
+    this._rect.left = -4000;
+    this._rect.right = -4000;
     this._$iW = false;
 };
 WidgetDockPatternBase.prototype._$4b = function (floatPanel) {
@@ -145,7 +142,7 @@ WidgetDockPatternBase.prototype._$4a = function (_$mS, floatPanel) {
 
 WidgetDockPatternBase.prototype.addFixedPanelWithType = function (type, element, left, top, width, height) {
     this._elementWithType[type] = element;
-    WidgetDockElementController.addFixedPanel(element, left, top, width, height);
+    WidgetDockElementController.setElementLeftTopSize(element, left, top, width, height);
     this._$5z();
 };
 WidgetDockPatternBase.prototype._$6E = function (_$9f, _$cB, _$cQ, _$d8) {
@@ -154,12 +151,12 @@ WidgetDockPatternBase.prototype._$6E = function (_$9f, _$cB, _$cQ, _$d8) {
     var _$e6 = _$cB;
     var _$pU;
     var _$dM;
-    var _$e1;
+    var panelNum;
     var _$9l = _$9f;
     while (_$e6 != 0) {
-        _$e1 = this._patternPositionList[_$9l]._patternSub.getPanelNum();
+        panelNum = this._patternPositionList[_$9l]._patternSub.getPanelNum();
         var j;
-        for (j = _$e1 - 1; j >= 0; j--) {
+        for (j = panelNum - 1; j >= 0; j--) {
             _$pU = this._patternPositionList[_$9l]._patternSub._panelList[j];
             if (_$9l == EnumPatternPositionType.Left || _$9l == EnumPatternPositionType.Right) _$dM = _$pU.rect.right - _$pU.rect.left - 2 * widgetDockPanel._$kt; else _$dM = _$pU.rect.bottom - _$pU.rect.top - 2 * widgetDockPanel._$kt;
             if (_$pU._$iX && _$pU._$k9 == 0 && (_$dM != 0)) {
@@ -223,10 +220,10 @@ WidgetDockPatternBase.prototype._$mB = function (iw, ih) {
     }
     this.width = width;
     this.height = height;
-    this._$lz.setRect(rcPanel);
+    this._rect.setRect(rcPanel);
     if (this._elementWithCenter != null) {
         var element = this._elementWithCenter;
-        WidgetDockElementController.addFixedPanel(element, rcPanel.left, rcPanel.top, rcPanel.right - rcPanel.left, rcPanel.bottom - rcPanel.top);
+        WidgetDockElementController.setElementLeftTopSize(element, rcPanel.left, rcPanel.top, rcPanel.right - rcPanel.left, rcPanel.bottom - rcPanel.top);
     }
     return 1;
 };
@@ -263,13 +260,9 @@ WidgetDockPatternBase.prototype._$5H = function (_$n5, _$ng) {
     if (this._patternPositionList[_$n5._$j0]._patternSub.getPanelNum() < 1) return;
     var panel = this._patternPositionList[_$n5._$j0]._patternSub._panelList[_$n5._$jr];
     if (_$n5._$kA._$8y) return;
-    var _$qs = new WidgetDockRect();
     var rcPanel = new WidgetDockRect();
     panel._$2B(_$n5, rcPanel);
     var _$8V = false;
-    var _$oV = _$n5._$kA._$oV;
-    var pme = _$n5._$kA;
-    var _$pu;
     var _$9h = panel._$5K(_$n5);
     if (!_$9h) {
         _$n5._$kA._$8y = true;
@@ -290,6 +283,8 @@ WidgetDockPatternBase.prototype._$5H = function (_$n5, _$ng) {
         }
         this._$4n(_$n5._$j0, _$n5._$jr + 1, -(_$dt + panel._$cf()));
         if (_$n5._$j0 == EnumPatternPositionType.Right || _$n5._$j0 == EnumPatternPositionType.Bottom) _$dt += panel._$cf(); else _$dt = -(_$dt + panel._$cf());
+            _$dt = -(_$dt + panel._$cf());
+        }
         this._$6x(_$9y, rcPanel.top, rcPanel.bottom);
         this._$6x((_$9y + 2), rcPanel.top, rcPanel.bottom);
         this.refreshFixedPanel();
@@ -514,35 +509,35 @@ WidgetDockPatternBase.prototype._$4m = function (panel, patternPositionType, _$9
         panel._$qy(_$mS._$of, rcPanel);
         return;
     }
-    if (this._$lz.right == -4000 && this._$lz.left == -4000) {
-        this.getWindowRect(this._$lz);
-        this.width = this._$lz.right - this._$lz.left;
-        this.height = this._$lz.bottom - this._$lz.top;
+    if (this._rect.right == -4000 && this._rect.left == -4000) {
+        this.getWindowRect(this._rect);
+        this.width = this._rect.right - this._rect.left;
+        this.height = this._rect.bottom - this._rect.top;
     }
     var _$fJ;
     var _$ev = new Array(1);
     var _$fM = new Array(1);
     if ((patternPositionType == EnumPatternPositionType.Left) || (patternPositionType == EnumPatternPositionType.Right)) {
-        _$fJ = this._$lz.right - this._$lz.left - (rcPanel.right + panel._$cf());
+        _$fJ = this._rect.right - this._rect.left - (rcPanel.right + panel._$cf());
         if (_$fJ < 0) {
             if (_$7Q) {
                 _$fJ += rcPanel.right;
                 if (_$fJ < 0) _$fJ = 0;
                 rcPanel.right = _$fJ;
-                _$fJ = this._$lz.right - this._$lz.left - (rcPanel.right + panel._$cf());
+                _$fJ = this._rect.right - this._rect.left - (rcPanel.right + panel._$cf());
             }
             if (_$fJ < 0) {
                 this._$6E(EnumPatternPositionType.Left, _$fJ, _$ev, _$fM);
             }
         }
     } else {
-        _$fJ = this._$lz.bottom - this._$lz.top - (rcPanel.bottom + panel._$cf());
+        _$fJ = this._rect.bottom - this._rect.top - (rcPanel.bottom + panel._$cf());
         if (_$fJ < 0) {
             if (_$7Q) {
                 _$fJ += rcPanel.bottom;
                 if (_$fJ < 0) _$fJ = 0;
                 rcPanel.bottom = _$fJ;
-                _$fJ = this._$lz.bottom - this._$lz.top - (rcPanel.bottom + panel._$cf());
+                _$fJ = this._rect.bottom - this._rect.top - (rcPanel.bottom + panel._$cf());
             }
             if (_$fJ < 0) {
                 this._$6E(EnumPatternPositionType.Top, _$fJ, _$ev, _$fM);
@@ -760,9 +755,9 @@ WidgetDockPatternBase.prototype._$0c = function (sch) {
         this._$hA.style.zIndex = 7890;
     }
     if (sch) {
-        var rcPanel = this._$lz;
+        var rcPanel = this._rect;
         this._$hA.style.visibility = "visible";
-        WidgetDockElementController.addFixedPanel(this._$hA, rcPanel.left, rcPanel.top, rcPanel.right - rcPanel.left, rcPanel.bottom - rcPanel.top);
+        WidgetDockElementController.setElementLeftTopSize(this._$hA, rcPanel.left, rcPanel.top, rcPanel.right - rcPanel.left, rcPanel.bottom - rcPanel.top);
     } else {
         this._$hA.style.visibility = "hidden";
     }
@@ -773,10 +768,9 @@ WidgetDockPatternBase.prototype.refreshFixedPanel = function () {
     rc.top = this._$2K(EnumPatternPositionType.Top, WidgetDockPatternBase._$s);
     rc.right = this._$2K(EnumPatternPositionType.Right, WidgetDockPatternBase._$3S);
     rc.bottom = this._$2K(EnumPatternPositionType.Bottom, WidgetDockPatternBase._$6M);
-    this._$lz.setRect(rc);
+    this._rect.setRect(rc);
     if (this._elementWithCenter != null) {
-        var element = this._elementWithCenter;
-        WidgetDockElementController.addFixedPanel(element, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
+        WidgetDockElementController.setElementLeftTopSize(this._elementWithCenter, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
     }
 };
 WidgetDockPatternBase.prototype._$5F = function () {
@@ -787,7 +781,7 @@ WidgetDockPatternBase.prototype._$5F = function () {
 };
 WidgetDockPatternBase.prototype._$k = function (_$mV, _$cu) {
     var _$qm = new WidgetDockRect();
-    _$mV._$le._$25(_$qm);
+    _$mV._$le.getRect(_$qm);
     var _$9w;
     var _$ey;
     var _$eB;
@@ -821,7 +815,7 @@ WidgetDockPatternBase.prototype._$4j = function (_$mS, _$ct, _$9c) {
         if (_$mS._$od != null) this._$4j(_$mS._$od, _$ct, _$9c);
         if (_$mS._$pr != null) this._$4j(_$mS._$pr, _$ct, _$9c);
         if ((_$mS._$od != null) && (_$mS._$pr != null) && (!_$mS._$od._$8y) && (!_$mS._$pr._$8y)) {
-            _$mS._$oy._$25(rcPanel);
+            _$mS._$oy.getRect(rcPanel);
             plt.x = rcPanel.left;
             plt.y = rcPanel.top;
             if (_$9c == EnumPatternPositionType.Left || _$9c == EnumPatternPositionType.Right) {
@@ -839,7 +833,7 @@ WidgetDockPatternBase.prototype._$4j = function (_$mS, _$ct, _$9c) {
         return;
     }
     if (!_$mS._$8y) {
-        _$mS._$of._$25(rcPanel);
+        _$mS._$of.getRect(rcPanel);
         plt.x = rcPanel.left;
         plt.y = rcPanel.top;
         if (_$mS._$of._$j0 == EnumPatternPositionType.Left || _$mS._$of._$j0 == EnumPatternPositionType.Right) {
@@ -857,8 +851,7 @@ WidgetDockPatternBase.prototype._$4j = function (_$mS, _$ct, _$9c) {
 };
 WidgetDockPatternBase.prototype._$4n = function (patternPositionType, _$dg, _$cY) {
     var panel;
-    var i;
-    for (i = _$dg; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
+    for (var i = _$dg; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         panel._$4i(this, patternPositionType, _$dg, _$cY);
     }
@@ -876,21 +869,20 @@ WidgetDockPatternBase.prototype._$2K = function (patternPositionType, _$9a) {
     var rcWindow = new WidgetDockRect();
     this.getWindowRect(rcWindow);
     if (_$9a == WidgetDockPatternBase._$3S) {
-        _$ex = rcWindow.right - this._$jF[2];
+        _$ex = rcWindow.right - this._signLenAry[2];
     } else if (_$9a == WidgetDockPatternBase._$5k) {
-        _$ex = rcWindow.left + this._$jF[0];
+        _$ex = rcWindow.left + this._signLenAry[0];
     } else if (_$9a == WidgetDockPatternBase._$6M) {
-        _$ex = rcWindow.bottom - this._$jF[3];
+        _$ex = rcWindow.bottom - this._signLenAry[3];
     } else {
-        _$ex = rcWindow.top + this._$jF[1];
+        _$ex = rcWindow.top + this._signLenAry[1];
     }
     var panel;
     var rc = new WidgetDockRect();
-    var i;
-    for (i = 0; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
+    for (var i = 0; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
-            panel._$le._$25(rc);
+            panel._$le.getRect(rc);
             if (_$9a == WidgetDockPatternBase._$3S) {
                 _$ex = rc.left;
             } else if (_$9a == WidgetDockPatternBase._$5k) {
@@ -1009,7 +1001,11 @@ WidgetDockPatternBase.prototype.getWindowRect = function (rect) {
 WidgetDockPatternBase.prototype._$5p = function (panel, _$dg, patternPositionType, _$dX) {
     if (_$dX != 0) {
         if (_$dX > 0) {
-            if (patternPositionType == EnumPatternPositionType.Top || patternPositionType == EnumPatternPositionType.Bottom) this._$4m(panel, patternPositionType, _$dg, false, 0, _$dX, null, false); else this._$4m(panel, patternPositionType, _$dg, false, _$dX, 0, null, false);
+            if (patternPositionType == EnumPatternPositionType.Top || patternPositionType == EnumPatternPositionType.Bottom) {
+                this._$4m(panel, patternPositionType, _$dg, false, 0, _$dX, null, false);
+            } else {
+                this._$4m(panel, patternPositionType, _$dg, false, _$dX, 0, null, false);
+            }
         } else {
             var _$9y;
             this._$4n(patternPositionType, _$dg + 1, _$dX);
@@ -1022,7 +1018,9 @@ WidgetDockPatternBase.prototype._$5p = function (panel, _$dg, patternPositionTyp
                 irb = panel.rect.bottom;
                 if (patternPositionType == EnumPatternPositionType.Left) {
                     _$qt.left = panel.rect.right;
-                } else _$qt.left = panel.rect.left;
+                } else {
+                    _$qt.left = panel.rect.left;
+                }
                 _$qt.right = _$qt.left;
             } else {
                 _$9y = EnumPatternPositionType.Left;
@@ -1030,7 +1028,9 @@ WidgetDockPatternBase.prototype._$5p = function (panel, _$dg, patternPositionTyp
                 irb = panel.rect.right;
                 if (patternPositionType == EnumPatternPositionType.Top) {
                     _$qt.top = panel.rect.bottom;
-                } else _$qt.top = panel.rect.top;
+                } else {
+                    _$qt.top = panel.rect.top;
+                }
                 _$qt.bottom = _$qt.top;
             }
             panel._$le._$r8(_$qt.left, _$qt.top, _$qt.right - _$qt.left, _$qt.bottom - _$qt.top);
@@ -1042,13 +1042,9 @@ WidgetDockPatternBase.prototype._$5p = function (panel, _$dg, patternPositionTyp
 };
 WidgetDockPatternBase.prototype._$6x = function (patternPositionType, _$cT, _$cU) {
     var panel;
-    var _$gK, _$el;
     var rcWindow = new WidgetDockRect();
-    var _$qt = new WidgetDockRect();
-    var _$9p = 0;
     this.getWindowRect(rcWindow);
-    var i;
-    for (i = 0; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
+    for (var i = 0; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         var _$dX = new Array(1);
         _$dX[0] = 0;
@@ -1057,29 +1053,37 @@ WidgetDockPatternBase.prototype._$6x = function (patternPositionType, _$cT, _$cU
     }
 };
 WidgetDockPatternBase.prototype._$2J = function (patternPositionType, _$cv, _$cE) {
-    var _$e1 = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
-    if (_$cE == 0xffffffff || _$cE > _$e1) _$cE = _$e1;
+    var panelNum = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
+    if (_$cE == 0xffffffff || _$cE > panelNum) {
+        _$cE = panelNum;
+    }
     var panel;
     var ire = 0;
-    var i;
-    for (i = _$cv; i < _$cE; i++) {
+    for (var i = _$cv; i < _$cE; i++) {
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
-            if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) ire += WidgetDockPatternBase._$2A(panel.rect); else ire += WidgetDockPatternBase._$2z(panel.rect);
+            if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) {
+                ire += WidgetDockPatternBase._$2A(panel.rect);
+            } else {
+                ire += WidgetDockPatternBase._$2z(panel.rect);
+            }
             ire += panel._$cf();
         }
     }
     return ire;
 };
 WidgetDockPatternBase.prototype._$2I = function (patternPositionType, _$nd) {
-    var ire = this._$jF[patternPositionType];
+    var ire = this._signLenAry[patternPositionType];
     if (_$nd == null) return ire;
     var panel;
-    var i;
-    for (i = 0; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
+    for (var i = 0; i < this._patternPositionList[patternPositionType]._patternSub.getPanelNum(); i++) {
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
-            if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) ire += WidgetDockPatternBase._$2A(panel.rect); else ire += WidgetDockPatternBase._$2z(panel.rect);
+            if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) {
+                ire += WidgetDockPatternBase._$2A(panel.rect);
+            } else {
+                ire += WidgetDockPatternBase._$2z(panel.rect);
+            }
             ire += panel._$le._$cf();
         }
         if (panel == _$nd) break;
@@ -1145,11 +1149,15 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, _
                     _$mX._$ky = _$mX._$kA;
                     if (_$9i == EnumPatternPositionType.Left || _$9i == EnumPatternPositionType.Right) {
                         _$nz.cx = _$mX._$kx._$lK.cx;
-                        if (_$nz.cx >= (_$qe.right - _$qe.left)) _$nz.cx = _$nz.cx / 2;
+                        if (_$nz.cx >= (_$qe.right - _$qe.left)) {
+                            _$nz.cx = _$nz.cx / 2;
+                        }
                         _$nz.cy = _$qe.bottom - _$qe.top;
                     } else {
                         _$nz.cy = _$mX._$kx._$lK.cy;
-                        if (_$nz.cy > (_$qe.bottom - _$qe.top)) _$nz.cy = _$nz.cy / 2;
+                        if (_$nz.cy > (_$qe.bottom - _$qe.top)) {
+                            _$nz.cy = _$nz.cy / 2;
+                        }
                     }
                     if (_$9i == EnumPatternPositionType.Left || _$9i == EnumPatternPositionType.Top) {
                         _$mX._$kn = _$qe.left;
@@ -1178,10 +1186,10 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     rcWindow.bottom = rcWindow.bottom - rcWindow.top;
     rcWindow.left = 0;
     rcWindow.top = 0;
-    rcWindow.left += this._$jF[0];
-    rcWindow.right -= this._$jF[2];
-    rcWindow.top += this._$jF[1];
-    rcWindow.bottom -= this._$jF[3];
+    rcWindow.left += this._signLenAry[0];
+    rcWindow.right -= this._signLenAry[2];
+    rcWindow.top += this._signLenAry[1];
+    rcWindow.bottom -= this._signLenAry[3];
     var _$qe = new WidgetDockRect();
     _$qe.setRect(_$mX._$lC);
     var _$el = WidgetDockPatternBase._$2z(_$qe);
@@ -1209,8 +1217,7 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     var _$gw = 0xff;
     _$9j = 0xff;
     var _$d1 = new Array(1);
-    var i;
-    for (i = 0; i < 4; i++) {
+    for (var i = 0; i < 4; i++) {
         _$9z = this._$02(_$mX, i, _$pC, _$nz, _$gk, _$pP, _$d1);
         if (_$9z != 0xff) {
             if ((((_$9z + 1) % 2) == 0) || _$d1[0] >= 0) {
@@ -1227,7 +1234,7 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
         }
     }
     var rcs = new WidgetDockRect();
-    rcs.setRect(this._$lz);
+    rcs.setRect(this._rect);
     var bme = false;
     if ((_$mX._$kx != null) && (_$mX._$kx == _$o4)) {
         _$mX._$j1 = 0xff;
@@ -1247,7 +1254,7 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
         _$9j = WidgetDockPatternBase._$m(rcs, _$pC);
         if (_$9j != 0xff) {
             _$mX._$j1 = parseInt((_$9j / 2));
-            _$mU._$2G(_$nz, _$gk, this._$lz, false);
+            _$mU._$2G(_$nz, _$gk, this._rect, false);
         }
         if (_$9j != 0xff && ((_$9j + 1) % 2 == 0)) {
             _$mX._$ka = 0xffffffff;
@@ -1255,7 +1262,9 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
             _$mX._$j1 = parseInt((_$9j / 2));
             _$mX._$j2 = parseInt((_$9j / 2));
             WidgetDockPatternBase._$2c(_$mX, rcs, _$nz);
-        } else _$mX._$j1 = 0xff;
+        } else {
+            _$mX._$j1 = 0xff;
+        }
         _$mX._$iM = true;
     }
     return _$mX._$j1;
@@ -1265,13 +1274,11 @@ WidgetDockPatternBase.prototype._$02 = function (_$mX, patternPositionType, _$pC
         return 0xff;
     }
     var panel;
-    var _$9m = 0xff;
     var _$9z = 0xff;
     _$oQ[0] = null;
     var _$fZ = new Array(1);
-    var _$e1 = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
-    var i;
-    for (i = 0; i < _$e1; i++) {
+    var panelNum = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
+    for (var i = 0; i < panelNum; i++) {
         _$d1[0] = -1;
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
@@ -1285,7 +1292,7 @@ WidgetDockPatternBase.prototype._$02 = function (_$mX, patternPositionType, _$pC
                 } else if (_$fZ[0] == 2) {
                     var j;
                     var _$8G = false;
-                    for (j = i + 1; j < _$e1; j++) {
+                    for (j = i + 1; j < panelNum; j++) {
                         var _$oG = this._patternPositionList[patternPositionType]._patternSub._panelList[j];
                         if (_$oG._$iX) {
                             panel = _$oG;
@@ -1351,18 +1358,12 @@ WidgetDockPatternBase.prototype._$1 = function (_$mN) {
 WidgetDockPatternBase.prototype._$bG = function () {
     return this._$he;
 };
-WidgetDockPatternBase.prototype._$bI = function () {
-};
-WidgetDockPatternBase.prototype._$rd = function (com) {
-};
 WidgetDockPatternBase.prototype.Add = function (com) {
 };
 WidgetDockPatternBase.prototype._$d = function (com) {
     var i = 0;
 };
 WidgetDockPatternBase.prototype._$5E = function (com) {
-};
-WidgetDockPatternBase.prototype._$2g = function () {
 };
 WidgetDockPatternBase._$2A = function (rc) {
     return (rc.right - rc.left);
@@ -1383,7 +1384,7 @@ WidgetDockPatternBase._$5s = function (com, rc) {
     rc.right = pt.x;
     rc.bottom = pt.y;
 };
-WidgetDockPatternBase._$25 = function (com, rc) {
+WidgetDockPatternBase.getRect = function (com, rc) {
 };
 WidgetDockPatternBase._$2P = function (com, rc) {
     var i = 0;
@@ -1450,7 +1451,9 @@ WidgetDockPatternBase.prototype._$1P = function (floatPanel, _$df, title, mainPa
             }
         }
     }
-    if (_$df != 0) return _$eQ[0] & WidgetDockFloatPanel._$1D;
+    if (_$df != 0) {
+        return _$eQ[0] & WidgetDockFloatPanel._$1D;
+    }
     this._$1O(floatPanel, title, _$mS, _$cD, _$dg, mainPattern, _$eQ);
     return _$eQ[0] & WidgetDockFloatPanel._$1D;
 };
@@ -1460,10 +1463,16 @@ WidgetDockPatternBase.prototype._$1O = function (floatPanel, _$qY, _$nO, _$dA, _
 WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, _$nr) {
     if (_$mS == null) return null;
     var _$pO = null;
-    if (_$mS._$od != null) _$pO = this._$1J(floatPanel, title, _$mS._$od, _$cX, _$nr);
+    if (_$mS._$od != null) {
+        _$pO = this._$1J(floatPanel, title, _$mS._$od, _$cX, _$nr);
+    }
     if (_$pO != null) return _$pO;
-    if (_$mS._$pr != null) return this._$1J(floatPanel, title, _$mS._$pr, _$cX, _$nr);
-    if (_$mS._$sl != null && (title == _$mS._$sl)) return _$mS; else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
+    if (_$mS._$pr != null) {
+        return this._$1J(floatPanel, title, _$mS._$pr, _$cX, _$nr);
+    }
+    if (_$mS._$sl != null && (title == _$mS._$sl)) {
+        return _$mS;
+    } else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
         var _$e1 = _$mS._$l1.length;
         var i;
         for (i = 0; i < _$e1; i++) {
@@ -1480,17 +1489,14 @@ WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, 
     }
     return null;
 };
-WidgetDockPatternBase.prototype._$2e = function (_$n7, _$7L) {
-    var i;
-    var d;
-    for (i = 0; i < 4; i++) {
-        _$n7[i] = 0;
+WidgetDockPatternBase.prototype.setSignLen = function (signLenAry) {
+    for (var i = 0; i < 4; i++) {
+        signLenAry[i] = 0;
         if (this._elementWithType[i] != null) {
             if (i == 1 || i == 3) {
-                d = parseInt(this._elementWithType[i].style.height);
-                _$n7[i] = d;
+                signLenAry[i] = parseInt(this._elementWithType[i].style.height);
             } else {
-                _$n7[i] = parseInt(this._elementWithType[i].style.width);
+                signLenAry[i] = parseInt(this._elementWithType[i].style.width);
             }
         }
     }
@@ -1501,8 +1507,7 @@ WidgetDockPatternBase.prototype.addFixedPanelWithCenter = function (element) {
 };
 WidgetDockPatternBase.prototype._$qF = function (_$a0) {
     if (_$a0 == null) return;
-    var i;
-    for (i = 0; i < 4; i++) {
+    for (var i = 0; i < 4; i++) {
         if (this._elementWithType[i] == _$a0) {
             this._elementWithType[i] = null;
             this._$5z();
@@ -1510,15 +1515,8 @@ WidgetDockPatternBase.prototype._$qF = function (_$a0) {
             return;
         }
     }
-    if (this._elementWithCenter != null) {
-    }
 };
 WidgetDockPatternBase.prototype.addFixedPanel = function (element, type) {
-    if (element instanceof HTMLIFrameElement) {
-        if (WidgetDockController._$06(element.id)) {
-            this.isOutIFrame = true;
-        }
-    }
     var left, top, width, height;
     var rcWindow = new WidgetDockRect();
     this.getWindowRect(rcWindow);
@@ -1528,16 +1526,16 @@ WidgetDockPatternBase.prototype.addFixedPanel = function (element, type) {
     } else if (type == EnumPatternPositionType.Left) {
         width = element.style.width;
         width = parseInt(width, "px");
-        height = rcWindow.bottom - rcWindow.top - (this._$jF[1] + this._$jF[3]);
+        height = rcWindow.bottom - rcWindow.top - (this._signLenAry[1] + this._signLenAry[3]);
         left = 0;
-        top = this._$jF[1];
+        top = this._signLenAry[1];
         this.addFixedPanelWithType(type, element, left, top, width, height);
     } else if (type == EnumPatternPositionType.Right) {
         width = element.style.width;
         width = parseInt(width, "px");
-        height = rcWindow.bottom - rcWindow.top - this._$jF[1] - this._$jF[3];
-        left = this._$lz.right - width;
-        top = this._$jF[1];
+        height = rcWindow.bottom - rcWindow.top - this._signLenAry[1] - this._signLenAry[3];
+        left = this._rect.right - width;
+        top = this._signLenAry[1];
         this.addFixedPanelWithType(type, element, left, top, width, height);
     } else if (type == EnumPatternPositionType.Top) {
         width = rcWindow.right - rcWindow.left;
@@ -1559,7 +1557,7 @@ WidgetDockPatternBase.prototype.addFixedPanel = function (element, type) {
             var height = parseInt(element.style.height, "px") - height;
             var left = WidgetDockElementController.getElementLeft(element);
             var top = WidgetDockElementController.getElementTop(element);
-            WidgetDockElementController.addFixedPanel(element, left, top, width, height);
+            WidgetDockElementController.setElementLeftTopSize(element, left, top, width, height);
         }
         if (this._elementWithType[EnumPatternPositionType.Right] != null) {
             var element = this._elementWithType[EnumPatternPositionType.Right];
@@ -1567,23 +1565,22 @@ WidgetDockPatternBase.prototype.addFixedPanel = function (element, type) {
             var height = parseInt(element.style.height, "px") - height;
             var left = WidgetDockElementController.getElementLeft(element);
             var top = WidgetDockElementController.getElementTop(element);
-            WidgetDockElementController.addFixedPanel(element, left, top, width, height);
+            WidgetDockElementController.setElementLeftTopSize(element, left, top, width, height);
         }
     }
     this.refreshFixedPanel();
 };
 WidgetDockPatternBase.prototype._$5z = function () {
-    var _$gG = new Array(4);
-    var _$e6;
-    this._$2e(_$gG, true);
-    if ((_$gG[1] - this._$jF[1]) != 0 || (_$gG[0] - this._$jF[0]) != 0 || (_$gG[2] - this._$jF[2]) != 0 || (_$gG[3] - this._$jF[3]) != 0) {
-        var k;
+    var signLenAry = new Array(4);
+    this.setSignLen(signLenAry);
+    if ((signLenAry[0] - this._signLenAry[0]) != 0 || (signLenAry[1] - this._signLenAry[1]) != 0 || (signLenAry[2] - this._signLenAry[2]) != 0 || (signLenAry[3] - this._signLenAry[3]) != 0) {
+        var _$e6;
         var _$du;
-        for (k = 1; k < 4; k = k + 2) {
-            if (_$gG[k] - this._$jF[k] != 0) {
-                _$e6 = _$gG[k] - this._$jF[k];
-                _$du = _$e6 - (this._$lz.bottom - this._$lz.top);
-                this._$jF[k] = _$gG[k];
+        for (var k = 1; k < 4; k = k + 2) {
+            if (signLenAry[k] - this._signLenAry[k] != 0) {
+                _$e6 = signLenAry[k] - this._signLenAry[k];
+                _$du = _$e6 - (this._rect.bottom - this._rect.top);
+                this._signLenAry[k] = signLenAry[k];
                 this._$4n(k, 0, _$e6);
                 this._$6x(EnumPatternPositionType.Left, -32767, 32767);
                 this._$6x(EnumPatternPositionType.Right, -32767, 32767);
@@ -1594,11 +1591,11 @@ WidgetDockPatternBase.prototype._$5z = function () {
                 }
             }
         }
-        for (k = 0; k < 3; k = k + 2) {
-            if ((_$gG[k] - this._$jF[k]) != 0) {
-                _$e6 = _$gG[k] - this._$jF[k];
-                _$du = _$e6 - (this._$lz.right - this._$lz.left);
-                this._$jF[k] = _$gG[k];
+        for (var k = 0; k < 3; k = k + 2) {
+            if ((signLenAry[k] - this._signLenAry[k]) != 0) {
+                _$e6 = signLenAry[k] - this._signLenAry[k];
+                _$du = _$e6 - (this._rect.right - this._rect.left);
+                this._signLenAry[k] = signLenAry[k];
                 this._$4n(k, 0, _$e6);
                 this._$6x(EnumPatternPositionType.Top, -32767, 32767);
                 this._$6x(EnumPatternPositionType.Bottom, -32767, 32767);
@@ -1623,8 +1620,8 @@ WidgetDockPatternBase.prototype._$sa = function (floatPanel, _$pC) {
 WidgetDockPatternBase.prototype._$sb = function (_$rR) {
     _$rR._$sb();
 };
-WidgetDockPatternBase.prototype._$s9 = function (_$rR, _$ts, _$h1) {
-    return _$rR._$s9(_$ts, _$h1);
+WidgetDockPatternBase.prototype._$s9 = function (_$rR) {
+    return _$rR._$s9();
 };
 WidgetDockPatternBase.prototype._$41 = function (layoutController) {
     var left, top, right, bottom;
@@ -1643,7 +1640,7 @@ WidgetDockPatternBase.prototype._$41 = function (layoutController) {
     var readInt;
     var i;
     for (i = 0; i < _$gh; i++) {
-        this._$lm[i]._$i0.reset();
+        this._windowPattern[i]._floatPanelController.reset();
         var _secIndex = 0;
         while (true) {
             secIndexStr = "SEC" + _secIndex;
@@ -1651,7 +1648,7 @@ WidgetDockPatternBase.prototype._$41 = function (layoutController) {
             if (readStr == secIndexStr) {
                 var _$pg = new _$M();
                 _$pg._$g6 = 0;
-                this._$lm[i]._$i0._$4(_$pg, _secIndex);
+                this._windowPattern[i]._floatPanelController._$4(_$pg, _secIndex);
                 readInt = parseInt(layoutController.read());
                 _$pg._widthSec = readInt;
                 readInt = parseInt(layoutController.read());
@@ -1701,21 +1698,21 @@ WidgetDockPatternBase.prototype._$41 = function (layoutController) {
         if (this._$ii) {
             var j;
             for (j = 0; j < 2; j++) {
-                var _$fH = this._$lm[_$gl + 2 * j]._$i0.getPanelNum();
+                var _$fH = this._windowPattern[_$gl + 2 * j]._floatPanelController.getPanelNum();
                 var k;
                 for (k = 0; k < _$fH; k++) {
-                    _$pf = this._$lm[_$gl + 2 * j]._$i0._panelList[k];
+                    _$pf = this._windowPattern[_$gl + 2 * j]._floatPanelController._panelList[k];
                     if (_$8S) _$pf._$eF = _$pf._$eF + _$ee; else _$pf._$fB = _$pf._$fB + _$ee;
                 }
             }
         }
     }
     for (i = 0; i < _$gh; i++) {
-        var _$e1 = this._$lm[i]._$i0.getPanelNum();
+        var panelNum = this._windowPattern[i]._floatPanelController.getPanelNum();
         var _$e3 = this._patternPositionList[i]._patternSub.getPanelNum();
         var j;
-        for (j = 0; j < _$e1; j++) {
-            var _$pf = this._$lm[i]._$i0._panelList[j];
+        for (j = 0; j < panelNum; j++) {
+            var _$pf = this._windowPattern[i]._floatPanelController._panelList[j];
             _$pf._$eq = _$e3;
             var panel = null;
             if (_$pf._$g6 == 0) panel = new widgetDockPanel(); else if (_$pf._$g6 == 1) panel = new _$6R(); else panel = new _$4c();
@@ -1730,7 +1727,7 @@ WidgetDockPatternBase.prototype._$41 = function (layoutController) {
         }
     }
     for (i = 0; i < _$gh; i++) {
-        var _$e1 = this._$lm[i]._$i0.getPanelNum();
+        var panelNum = this._windowPattern[i]._floatPanelController.getPanelNum();
         var _$ou, _$p6;
         if (i == 0 || i == 2) {
             _$ou = this._patternPositionList[1];
@@ -1741,8 +1738,8 @@ WidgetDockPatternBase.prototype._$41 = function (layoutController) {
         }
         if (this._$ii) {
             var j;
-            for (j = 0; j < _$e1; j++) {
-                var _$pf = this._$lm[i]._$i0._panelList[j];
+            for (j = 0; j < panelNum; j++) {
+                var _$pf = this._windowPattern[i]._floatPanelController._panelList[j];
                 if (_$pf._$eF != -1) _$pf._$o2._$kR = _$ou._patternSub._panelList[_$pf._$eF]; else _$pf._$o2._$kR = null;
                 if (_$pf._$fB != -1) _$pf._$o2._$l8 = _$p6._patternSub._panelList[_$pf._$fB]; else _$pf._$o2._$l8 = null;
             }
@@ -1752,8 +1749,7 @@ WidgetDockPatternBase.prototype._$41 = function (layoutController) {
 WidgetDockPatternBase.prototype._$0b = function (patternPositionPanelNumList, positionNum, floatPanelController) {
     if (floatPanelController == null) return;
     var _$dD = new Array(4);
-    var i;
-    for (i = 0; i < positionNum; i++) {
+    for (var i = 0; i < positionNum; i++) {
         _$dD[i] = this._patternPositionList[i]._patternSub.getPanelNum();
     }
     var _$fz = floatPanelController.getPanelNum();
@@ -1761,7 +1757,7 @@ WidgetDockPatternBase.prototype._$0b = function (patternPositionPanelNumList, po
     for (nn = 0; nn < _$fz; nn++) {
         var _$si = floatPanelController._panelList[nn].getTitle();
         var _$8G = false;
-        for (i = 0; i < positionNum; i++) {
+        for (var i = 0; i < positionNum; i++) {
             if (_$8G) break;
             var s;
             for (s = patternPositionPanelNumList[i]; s < _$dD[i]; s++) {
@@ -1786,8 +1782,7 @@ WidgetDockPatternBase.prototype._$1N = function (title, _$mS) {
         return _$mS;
     } else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
         var _$e1 = _$mS._$l1.length;
-        var i;
-        for (i = 0; i < _$e1; i++) {
+        for (var i = 0; i < _$e1; i++) {
             var _$so = _$mS._$l1[i]._$qY;
             if (_$so != null && _$so.lastIndexOf(title) == 0) {
                 return _$mS;
@@ -1798,16 +1793,16 @@ WidgetDockPatternBase.prototype._$1N = function (title, _$mS) {
 };
 WidgetDockPatternBase.prototype._$78 = function (_$cD, _$cZ, _$81, _$84) {
     var _$py, _$oC;
-    _$py = this._$lm[_$cD];
-    _$oC = this._$lm[_$cZ];
-    var _$e1 = _$py._$i0.getPanelNum();
-    var _$eY = _$oC._$i0.getPanelNum();
+    _$py = this._windowPattern[_$cD];
+    _$oC = this._windowPattern[_$cZ];
+    var panelNum = _$py._floatPanelController.getPanelNum();
+    var _$eY = _$oC._floatPanelController.getPanelNum();
     var _$eq, _$eZ;
     _$eq = 0;
     _$eZ = -1;
     var _$pt, _$oz;
-    while (_$eq < _$e1) {
-        var _$pf = _$py._$i0._panelList[_$eq];
+    while (_$eq < panelNum) {
+        var _$pf = _$py._floatPanelController._panelList[_$eq];
         if (_$81) _$pt = _$pf._$eF; else _$pt = _$pf._$fB;
         if ((_$pt) > (_$eY - 1)) _$pt = (_$eY - 1);
         if ((_$pt) < _$eZ) _$pt = _$eZ;
@@ -1816,7 +1811,7 @@ WidgetDockPatternBase.prototype._$78 = function (_$cD, _$cZ, _$81, _$84) {
             var _$ei = (_$pt) - _$eZ;
             var s;
             for (s = 0; s < _$ei; s++) {
-                var _$oA = _$oC._$i0._panelList[_$eZ + 1 + s];
+                var _$oA = _$oC._floatPanelController._panelList[_$eZ + 1 + s];
                 if (_$84) _$oz = _$oA._$eF; else _$oz = _$oA._$fB;
                 _$oz = _$eq - 1;
                 if (_$84) _$oA._$eF = _$oz; else _$oA._$fB = _$oz;
@@ -1824,15 +1819,15 @@ WidgetDockPatternBase.prototype._$78 = function (_$cD, _$cZ, _$81, _$84) {
             _$eZ = _$pt;
         } else {
             if ((_$eZ + 1) < _$eY) {
-                var _$oA = _$oC._$i0._panelList[_$eZ + 1];
+                var _$oA = _$oC._floatPanelController._panelList[_$eZ + 1];
                 if (_$84) _$oz = _$oA._$eF; else _$oz = _$oA._$fB;
                 if (_$oz < _$eq) _$oz = _$eq;
-                if (_$oz > (_$e1 - 1)) _$oz = _$e1 - 1;
+                if (_$oz > (panelNum - 1)) _$oz = panelNum - 1;
                 if (_$84) _$oA._$eF = _$oz; else _$oA._$fB = _$oz;
                 var _$ei = (_$oz) - _$eq;
                 var s;
                 for (s = 0; s < _$ei; s++) {
-                    var panel = _$py._$i0._panelList[_$eq + 1 + s];
+                    var panel = _$py._floatPanelController._panelList[_$eq + 1 + s];
                     if (_$81) panel._$eF = _$eZ; else panel._$fB = _$eZ;
                 }
                 _$eZ += 1;
@@ -1841,17 +1836,19 @@ WidgetDockPatternBase.prototype._$78 = function (_$cD, _$cZ, _$81, _$84) {
         }
         _$eq++;
     }
-    var i;
-    for (i = (_$eZ + 1); i < (_$eY - _$eZ - 1); i++) {
-        var _$oA = _$oC._$i0._panelList[i];
-        if (_$84) _$oA._$eF = _$eq - 1; else _$oA._$fB = _$eq - 1;
+    for (var i = (_$eZ + 1); i < (_$eY - _$eZ - 1); i++) {
+        var _$oA = _$oC._floatPanelController._panelList[i];
+        if (_$84) {
+            _$oA._$eF = _$eq - 1;
+        } else {
+            _$oA._$fB = _$eq - 1;
+        }
     }
 };
 WidgetDockPatternBase.prototype._$42 = function (_$na, _$mS) {
 };
 WidgetDockPatternBase.prototype._$3Z = function (_$na, _$mS) {
     var _$h2;
-    var dw;
     _$h2 = parseInt(_$na.read());
     _$mS._$br = (_$h2 / 1000.0);
     _$mS._$8y = true;
@@ -1881,11 +1878,8 @@ WidgetDockPatternBase.prototype._$3Z = function (_$na, _$mS) {
         this._$3X(_$na, _$mS);
     }
     _$h2 = parseInt(_$na.read());
-    if ((_$h2 & 0x01) == 1) _$mS._$90 = true; else _$mS._$90 = false;
     _$mS._$9y = ((_$h2 >> 8) & 0xff);
     _$mS._$9j = ((_$h2 >> 16) & 0xff);
-};
-WidgetDockPatternBase.prototype._$43 = function (_$na, _$mS) {
 };
 WidgetDockPatternBase.prototype._$3X = function (_$na, _$mS) {
     var _$gs = parseInt(_$na.read());
@@ -1924,28 +1918,21 @@ WidgetDockPatternBase.prototype._$09 = function (e) {
         WidgetDockPatternBase._$l2._$09(e);
     }
 };
-WidgetDockPatternBase.prototype._$rA = function (_$r4) {
-    _$i3 = _$r4;
-    var i;
-    for (i = 0; i < 4; i++) {
-        if (this._$lk[i] != null) this._$lk[i]._$5A();
-    }
-};
 WidgetDockPatternBase.prototype._$8 = function (patternPositionType, floatPanel, _$7V) {
     var _$g1 = 0xFFFFFFFF;
     if (_$7V) _$g1 = 0; else if (this._$lk[patternPositionType] == null) {
-        var _$e1 = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
+        var panelNum = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
         alert("Sd");
         var panel;
         var i;
-        for (i = 0; i < _$e1; i++) {
+        for (i = 0; i < panelNum; i++) {
             panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
             if (panel._$k9 == 0) {
                 _$g1 = i;
                 break;
             } else if (panel._$k9 == 1) {
                 _$g1 = (i + 1);
-                if (_$g1 == _$e1) {
+                if (_$g1 == panelNum) {
                     _$g1 = 0xFFFFFFFF;
                     break;
                 }
@@ -2086,8 +2073,7 @@ WidgetDockPatternBase.prototype._$9 = function (patternPositionType, _$dg, iWH) 
     panel._$iX = true;
 };
 WidgetDockPatternBase.prototype._$5A = function (_$98) {
-    var i;
-    for (i = 0; i < 4; i++) {
+    for (var i = 0; i < 4; i++) {
         if (this._$lk[i] != null) this._$lk[i]._$5A();
     }
 };
@@ -2101,8 +2087,6 @@ WidgetDockPatternBase.prototype._$6t = function (floatPanel) {
     if (floatPanel._$kj > WidgetDockFloatPanel._$q) this._$lk[floatPanel._$j0]._$5b(floatPanel); else {
         this._$lk[floatPanel._$kj]._$5b(floatPanel);
     }
-};
-WidgetDockPatternBase.prototype._$34 = function (_$rU, iID, _$pB) {
 };
 WidgetDockPatternBase.prototype._$0f = function (_$nF, _$nU, _$nz) {
     var _$nm = null;

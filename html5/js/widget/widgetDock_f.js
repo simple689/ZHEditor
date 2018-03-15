@@ -1,6 +1,4 @@
-
 function _$F() {
-    this._$fG = 0;
     this._$aS = 0xffffffff;
     this._$oV = null;
     this._$od = null;
@@ -8,7 +6,6 @@ function _$F() {
     this._$9y = EnumPatternPositionType.Top;
     this._$9j = EnumPatternPositionType.Bottom;
     this._$8y = false;
-    this._$90 = false;
     this._$br = 1.0;
     this._$oy = null;
     this._$of = null;
@@ -17,7 +14,6 @@ function _$F() {
     this.prc = new WidgetDockRect();
     this._$e8 = 0;
     this._$eb = 0;
-    this._$rO = new _$5Y();
     this._$pl = false;
     this._$o5 = null;
 };
@@ -195,19 +191,21 @@ _$F.prototype._$3F = function (_$nf, _$9f, _$7V, _$n1) {
     this._$oy = null;
 };
 _$F.prototype._$P = function (_$n4, _$nf, _$nj) {
-    {
-        var _$qs = new WidgetDockRect();
-        _$n4._$22(_$qs);
-        var _$gd = _$qs.bottom - _$qs.top;
-        var _$ge = _$qs.right - _$qs.left;
-        if ((this._$9y == EnumPatternPositionType.Top || this._$9y == EnumPatternPositionType.Bottom) && _$gd > 0 && (_$gd > _$nj.cy) && _$nj.cy > 0) {
-            if (_$nf._$9j == EnumPatternPositionType.Top) {
-                this._$br = 1.0 * _$nj.cy / (_$gd - _$nj.cy);
-            } else {
-                this._$br = 1.0 * (_$gd - _$nj.cy) / _$nj.cy;
-            }
-        } else if ((this._$9y == EnumPatternPositionType.Left || this._$9y == EnumPatternPositionType.Right) && _$ge > 0 && (_$ge > _$nj.cx) && _$nj.cx > 0) {
-            if (_$nf._$9j == EnumPatternPositionType.Left) this._$br = 1.0 * _$nj.cx / (_$ge - _$nj.cx); else this._$br = 1.0 * (_$ge - _$nj.cx) / _$nj.cx;
+    var _$qs = new WidgetDockRect();
+    _$n4._$22(_$qs);
+    var _$gd = _$qs.bottom - _$qs.top;
+    var _$ge = _$qs.right - _$qs.left;
+    if ((this._$9y == EnumPatternPositionType.Top || this._$9y == EnumPatternPositionType.Bottom) && _$gd > 0 && (_$gd > _$nj.cy) && _$nj.cy > 0) {
+        if (_$nf._$9j == EnumPatternPositionType.Top) {
+            this._$br = 1.0 * _$nj.cy / (_$gd - _$nj.cy);
+        } else {
+            this._$br = 1.0 * (_$gd - _$nj.cy) / _$nj.cy;
+        }
+    } else if ((this._$9y == EnumPatternPositionType.Left || this._$9y == EnumPatternPositionType.Right) && _$ge > 0 && (_$ge > _$nj.cx) && _$nj.cx > 0) {
+        if (_$nf._$9j == EnumPatternPositionType.Left) {
+            this._$br = 1.0 * _$nj.cx / (_$ge - _$nj.cx);
+        } else {
+            this._$br = 1.0 * (_$ge - _$nj.cx) / _$nj.cx;
         }
     }
 };
@@ -393,7 +391,7 @@ _$F.prototype._$6G = function (_$mP, _$mQ) {
 };
 _$F.prototype._$2 = function (floatPanel) {
     var rc = new WidgetDockRect();
-    this._$of._$25(rc);
+    this._$of.getRect(rc);
     var _$og = this._$of._$kB;
     _$og.Add(floatPanel);
     var _$p1 = this._$of;
@@ -529,7 +527,7 @@ _$F.prototype._$22 = function (_$q1) {
         }
         return;
     } else if (!this._$8y) {
-        this._$of._$25(_$q1);
+        this._$of.getRect(_$q1);
     }
 };
 _$F.prototype._$03 = function (_$mX, _$pC, _$nz, _$dk, _$oQ) {
@@ -557,14 +555,13 @@ _$F.prototype._$03 = function (_$mX, _$pC, _$nz, _$dk, _$oQ) {
         return _$9z;
     }
     if (!this._$8y) {
-        var _$qg = new WidgetDockRect();
-        _$qg = _$mX._$lC;
+        var _$qg = _$mX._$lC;
         var _$q7 = new WidgetDockRect();
         var _$9m = 0xff;
         if (this._$of == null) {
             return _$9m;
         }
-        this._$of._$25(_$q7);
+        this._$of.getRect(_$q7);
         var iw = _$q7.right - _$q7.left;
         var ih = _$q7.bottom - _$q7.top;
         var _$gN = _$q7.left;
