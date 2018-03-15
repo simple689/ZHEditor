@@ -9,7 +9,9 @@ function _$6A(_$a7) {
     this._$hL;
     this._$ld = null;
     this._$l5 = null;
-    this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", _$a7);
+
+        this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", _$a7);
+
     this._panelStateElement.style.border = "1px solid";
     this._panelStateElement._$4x = this;
     this._panelStateElement.onmousedown = _$6A.onMouseDown;
@@ -32,11 +34,7 @@ _$6A.onMouseDown = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4x.mouseDown(e);
-    } else {
-        e.srcElement._$4x.mouseDown(e);
-    }
+    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._$4x.mouseDown(e); else e.srcElement._$4x.mouseDown(e);
     return false;
 };
 _$6A.onMouseMove = function (e) {
@@ -56,20 +54,20 @@ _$6A.prototype.mouseUp = function (e) {
     WidgetDockController._$6s(false);
     this._$il = false;
 };
-_$6A.prototype.getRect = function (rc) {
+_$6A.prototype._$25 = function (rc) {
     if (this._panelStateElement != null) {
         rc.left = WidgetDockElementController.getElementLeft(this._panelStateElement);
         rc.top = WidgetDockElementController.getElementTop(this._panelStateElement);
-        rc.right = rc.left + parseInt(this._panelStateElement.style.width);
-        rc.bottom = rc.top + parseInt(this._panelStateElement.style.height);
+
+            rc.right = rc.left + parseInt(this._panelStateElement.style.width);
+            rc.bottom = rc.top + parseInt(this._panelStateElement.style.height);
+
     }
 };
 _$6A.prototype.mouseMove = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
-    if (!this._$il) {
-        this._$f4(pt);
-    }
+    if (!this._$il) this._$f4(pt);
     if (this._$jU >= 0) {
         if (this._$jU == _$6A._$7a || this._$jU == _$6A._$1t) {
             this._panelStateElement.style.cursor = "e-resize";
@@ -84,13 +82,16 @@ _$6A.prototype.mouseMove = function (e) {
         } else {
             this._panelStateElement.style.cursor = "se-resize";
         }
+    } else {
     }
 };
 _$6A.prototype.mouseDown = function (e) {
     if (this._$il) return;
-    WidgetDockWindow._movePanelStateController = this;
+    WidgetDockWindow._$hK = this;
     WidgetDockController._$6s(true);
     this._$il = true;
+    if (this._$ld != null && this._$ld._$hJ != null && !_$ld._$hJ._$it) {
+    }
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
     if (this._$jU >= 0) {
@@ -98,8 +99,10 @@ _$6A.prototype.mouseDown = function (e) {
         this._$mJ.y = WidgetDockElementController.getElementTop(this._panelStateElement);
         this._$mK.x = this._$mJ.x;
         this._$mK.y = this._$mJ.y;
-        this._$mK.width = parseInt(this._panelStateElement.style.width);
-        this._$mK.height = parseInt(this._panelStateElement.style.height);
+
+            this._$mK.width = parseInt(this._panelStateElement.style.width);
+            this._$mK.height = parseInt(this._panelStateElement.style.height);
+
         this._$mJ.x = pt.x;
         this._$mJ.y = pt.y;
     }
@@ -114,13 +117,9 @@ _$6A.prototype._$ms = function (e) {
     rt.y = this._$mK.y;
     rt.width = this._$mK.width;
     rt.height = this._$mK.height;
-    if (this._$jU == _$6A._$1t) {
-        rt.width = rt.width + _$pL.x - this._$mJ.x;
-    } else if (this._$jU == _$6A._$7a) {
+    if (this._$jU == _$6A._$1t) rt.width = rt.width + _$pL.x - this._$mJ.x; else if (this._$jU == _$6A._$7a) {
         rt.width = rt.width + this._$mJ.x - _$pL.x;
-    } else if (this._$jU == _$6A._$60) {
-        rt.height = rt.height + _$pL.y - this._$mJ.y;
-    } else if (this._$jU == _$6A._$4D) {
+    } else if (this._$jU == _$6A._$60) rt.height = rt.height + _$pL.y - this._$mJ.y; else if (this._$jU == _$6A._$4D) {
         rt.height = rt.height + this._$mJ.y - _$pL.y;
     } else if (this._$jU == _$6A._$7c) {
         rt.width = rt.width + this._$mJ.x - _$pL.x;
@@ -150,16 +149,13 @@ _$6A.prototype._$ms = function (e) {
         } else {
             this._panelStateElement.style.cursor = "se-resize";
         }
+    } else {
     }
 };
 _$6A.prototype._$sC = function (_$pL, rt) {
     var _$8K = true;
-    if (this._$jU == _$6A._$4D || this._$jU == _$6A._$60) {
-        _$8K = false;
-    }
-    if (this._$j6 != null) {
-        this._$j6._$bA(rt.width, rt.height, _$lL, _$8K);
-    }
+    if (this._$jU == _$6A._$4D || this._$jU == _$6A._$60) _$8K = false;
+    if (this._$j6 != null) this._$j6._$bA(rt.width, rt.height, _$lL, _$8K);
     if (this._$ld != null && this._$ld._$hJ != null && !this._$ld._$hJ._$it) {
         rt.width = _$lL.cx;
         rt.height = _$lL.cy;
@@ -179,14 +175,14 @@ _$6A.prototype._$sC = function (_$pL, rt) {
     } else if (this._$jU == _$6A._$1u) {
         rt.y = this._$mK.y + _$pL.y - this._$mJ.y;
     }
-    if (this._$ld != null) {
-        this._$ld._$r8(rt);
-    } else if (this._$kQ != null) {
+    if (this._$ld != null) this._$ld._$r8(rt); else if (this._$kQ != null) {
         this._$kQ._$6p(rt.x, rt.y, rt.width, rt.height);
     } else if (this._$l5 != null) {
         this._$l5.resize(rt.x, rt.y, rt.width, rt.height);
     }
     if (this._$ld != null && this._$ld._$hJ != null && !this._$ld._$hJ._$it) {
+        if (this._$j6 == null) {
+        }
         if (this._$j6 != null) {
             this._$j6._$lK.cx = rt.width;
             this._$j6._$lK.cy = rt.height;
@@ -194,6 +190,7 @@ _$6A.prototype._$sC = function (_$pL, rt) {
     }
     if (this._$ld != null) {
         this._$ld.refresh();
+    } else if (this._$kQ != null) {
     }
 };
 _$6A.prototype._$f4 = function (pt) {
@@ -201,40 +198,18 @@ _$6A.prototype._$f4 = function (pt) {
     var rt = new WidgetDockFrame();
     rt.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
     rt.y = WidgetDockElementController.getElementTop(this._panelStateElement);
-    rt.width = parseInt(this._panelStateElement.style.width);
-    rt.height = parseInt(this._panelStateElement.style.height);
+
+        rt.width = parseInt(this._panelStateElement.style.width);
+        rt.height = parseInt(this._panelStateElement.style.height);
+
     if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
-        if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) {
-            this._$jU = _$6A._$7c;
-        } else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) {
-            this._$jU = _$6A._$7b;
-        } else {
-            this._$jU = _$6A._$7a;
-        }
+        if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) this._$jU = _$6A._$7c; else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) this._$jU = _$6A._$7b; else this._$jU = _$6A._$7a;
     } else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) {
-        if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) {
-            this._$jU = _$6A._$1v;
-        } else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) {
-            this._$jU = _$6A._$1u;
-        } else {
-            this._$jU = _$6A._$1t;
-        }
+        if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) this._$jU = _$6A._$1v; else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) this._$jU = _$6A._$1u; else this._$jU = _$6A._$1t;
     }
     if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) {
-        if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
-            this._$jU = _$6A._$7b;
-        } else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) {
-            this._$jU = _$6A._$1u;
-        } else {
-            this._$jU = _$6A._$4D;
-        }
+        if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) this._$jU = _$6A._$7b; else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) this._$jU = _$6A._$1u; else this._$jU = _$6A._$4D;
     } else if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) {
-        if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
-            this._$jU = _$6A._$7c;
-        } else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) {
-            this._$jU = _$6A._$1v;
-        } else {
-            this._$jU = _$6A._$60;
-        }
+        if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) this._$jU = _$6A._$7c; else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) this._$jU = _$6A._$1v; else this._$jU = _$6A._$60;
     }
 };

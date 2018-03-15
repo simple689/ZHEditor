@@ -1,7 +1,7 @@
 function WidgetDockPanelStateController() {
     this._floatPanel = null;
     this._$i9 = true;
-    this._isMouseDown = false;
+    this._$iO = false;
     this._title = "";
     this._$hf = null;
     this._$lw = new WidgetDockRect();
@@ -11,6 +11,7 @@ function WidgetDockPanelStateController() {
     this._buttonPinElement = null;
     this._buttonCloseElement = null;
     this._$hj = null;
+
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
     this._panelStateElement._panelStateController = this;
     this._panelStateElement.style.background = 'ButtonFace';
@@ -19,6 +20,7 @@ function WidgetDockPanelStateController() {
     this._panelStateElement.onmousemove = WidgetDockPanelStateController.onMouseMove;
     this._panelStateElement.onmouseout = WidgetDockPanelStateController.onMouseOut;
     this._panelStateElement._$mF = WidgetDockPanelStateController._$mh;
+
     this._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     this._titleElement._panelStateController = this;
     this._titleElement.style.font = this.styleFont;
@@ -56,11 +58,8 @@ WidgetDockPanelStateController.onMouseMove = function (e) {
     if (e == null) {
         e = window.event;
     }
-    if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._panelStateController.mouseMove(e);
-    } else {
-        e.srcElement._panelStateController.mouseMove(e);
-    }
+    if (WidgetDockController._browserType == EnumBrowserType.Firefox) e.target._panelStateController.mouseMove(e);
+    else e.srcElement._panelStateController.mouseMove(e);
     return false;
 };
 WidgetDockPanelStateController._$mh = function (e) {
@@ -70,26 +69,26 @@ WidgetDockPanelStateController.onMouseOut = function (e) {
     return true;
 };
 WidgetDockPanelStateController.prototype.mouseDown = function (e) {
-    if (this._isMouseDown) {
+    if (this._$iO) {
         return;
     }
     if (!WidgetDockController.isButtonAvailable(e.button)) {
         return;
     }
-    this._isMouseDown = true;
-    if (WidgetDockWindow._movePanelStateController != null && WidgetDockWindow._movePanelStateController != this) {
-        if (WidgetDockWindow._movePanelStateController instanceof WidgetDockPanelStateController) {
-            WidgetDockWindow._movePanelStateController._isMouseDown = false;
+    this._$iO = true;
+    if (WidgetDockWindow._$hK != null && WidgetDockWindow._$hK != this) {
+        if (WidgetDockWindow._$hK instanceof WidgetDockPanelStateController) {
+            WidgetDockWindow._$hK._$iO = false;
         }
     }
-    WidgetDockWindow._movePanelStateController = this;
+    WidgetDockWindow._$hK = this;
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
     if (this._$mj(pt) >= 0) {
         WidgetDockController._$6s(true);
         this._$ms(e);
     } else {
-        this._isMouseDown = false;
+        this._$iO = false;
     }
 };
 WidgetDockPanelStateController.prototype._$fT = function () {
@@ -103,17 +102,17 @@ WidgetDockPanelStateController.prototype._$2P = function (rc) {
 };
 WidgetDockPanelStateController.prototype.mouseUp = function (e) {
     if (!this._$fT()) return;
-    if (!this._isMouseDown) return;
+    if (!this._$iO) return;
     if (!WidgetDockController.isButtonAvailable(e.button)) {
-        this._isMouseDown = false;
+        this._$iO = false;
         this._$T();
         return;
     }
-    var pt = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, pt);
-    this._isMouseDown = false;
+    var _$pH = new WidgetDockLocation();
+    WidgetDockElementController._$2D(e, _$pH);
+    this._$iO = false;
     WidgetDockController._$6s(false);
-    this._floatPanel._$1x();
+    this._floatPanel._$1x(_$pH);
 };
 WidgetDockPanelStateController.prototype._$0u = function () {
 };
@@ -150,8 +149,20 @@ WidgetDockPanelStateController.prototype._$4L = function () {
 WidgetDockPanelStateController.prototype._$T = function () {
     this._floatPanel._$T();
 };
+WidgetDockPanelStateController.prototype._$07 = function (e, key) {
+    var _$h0;
+    if (e == null) {
+        _$h0 = window.event._$gZ;
+    } else {
+        _$h0 = e._$tu;
+    }
+    if (_$h0 == key) {
+        return true;
+    }
+    return false;
+};
 WidgetDockPanelStateController.prototype.mouseMove = function (e) {
-    if (!this._isMouseDown) {
+    if (!this._$iO) {
         var _$9P = WidgetDockElementController.getElementLeft(this._panelStateElement);
         var _$9Q = WidgetDockElementController.getElementTop(this._panelStateElement);
         var _$a5 = new WidgetDockLocation();
@@ -201,7 +212,7 @@ WidgetDockPanelStateController.prototype._$mj = function (pt) {
     return this._floatPanel._$4R(pt);
 };
 WidgetDockPanelStateController.prototype._$ms = function (e) {
-    if (!this._isMouseDown) return;
+    if (!this._$iO) return;
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
     this._floatPanel._$4i(pt);

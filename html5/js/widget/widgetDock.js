@@ -5,6 +5,7 @@ function _$6P() {
     this._$lC = new _$5g();
     this._$ir = false;
     this._$it = false;
+    this._$kC = null;
     this._$kx = null;
     this._$jr = 0;
     this._$j0 = 0;
@@ -23,9 +24,10 @@ function _$6P() {
 };
 
 function _$0O() {
+    this._$aO = 0;
     this._patternSub = new WidgetDockFloatPanelController();
 };
 
 function _$5h() {
-    this._floatPanelController = new WidgetDockFloatPanelController();
+    this._$i0 = new WidgetDockFloatPanelController();
 };

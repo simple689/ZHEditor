@@ -3,8 +3,10 @@ function _$6C(type, _$b8) {
     this._$ik = false;
     this._$hj = null;
     this._$ig = false;
-    this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
-    this._panelStateElement.style.border = "1px solid";
+
+        this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
+        this._panelStateElement.style.border = "1px solid";
+
     WidgetDockElementController.setElementZIndex(this._panelStateElement, _$b8._windowMain._$jO);
 };
 _$6C.prototype._$ri = function (_$7S, _$7K) {

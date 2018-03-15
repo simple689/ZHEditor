@@ -5,10 +5,11 @@ function _$59() {
     this._$lc = new _$6A(WidgetDockController._elementRootId);
     this._$lc._$l5 = this;
     this._$hu = new Date();
-    this._movePanelStateController = this._$hu.getTime();
+    this._$hk = this._$hu.getTime();
     this._$iJ = false;
 };
 _$59.prototype.Add = function (floatPanel) {
+    var it = 0;
     var _$et = floatPanel._windowMain._$jO;
     WidgetDockElementController.setElementZIndex(this._$lc._panelStateElement, _$et);
     floatPanel.setElementZIndex(_$et + 1);
@@ -22,8 +23,10 @@ _$59.prototype.resize = function (_$cS, _$do, width, height) {
     var _$d5 = this._$jY;
     WidgetDockElementController.setElementLeftTop(this._$lc._panelStateElement, _$cS, _$do);
     var canvas = this._$lc._panelStateElement;
-    canvas.style.width = width + "px";
-    canvas.style.height = height + "px";
+
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+
     if (this._$kx != null) {
         var _$t6 = 2;
         var _$tl, _$to, _$tp, _$tk;
@@ -61,13 +64,13 @@ _$59.prototype._$au = function () {
 _$59.prototype._$0a = function (e) {
     if (this._$iJ) return;
     var rc = new WidgetDockRect();
-    this._$lc.getRect(rc);
+    this._$lc._$25(rc);
     var pt = new WidgetDockLocation();
     WidgetDockElementController._$2D(e, pt);
     if (!WidgetDockPatternBase._$5f(rc, pt)) {
         if (!this._$la._$3u(pt, this._$kx)) {
             var vd = new Date();
-            var _$sW = (vd.getTime() - this._movePanelStateController) / 1000;
+            var _$sW = (vd.getTime() - this._$hk) / 1000;
             if (_$sW > 2) {
                 this._$kx._windowMain._patternMain._$4T(null);
             }
@@ -75,7 +78,7 @@ _$59.prototype._$0a = function (e) {
     }
     _$59.prototype._$09 = function (e) {
         var rc = new WidgetDockRect();
-        this._$lc.getRect(rc);
+        this._$lc._$25(rc);
         var pt = new WidgetDockLocation();
         WidgetDockElementController._$2D(e, pt);
         if (WidgetDockPatternBase._$5f(rc, pt)) {

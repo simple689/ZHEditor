@@ -74,7 +74,7 @@ WidgetDockElementController.setElementSize = function (element, width, height) {
     element.style.width = width + "px";
     element.style.height = height + "px";
 };
-WidgetDockElementController.setElementLeftTopSize = function (element, left, top, width, height) {
+WidgetDockElementController.addFixedPanel = function (element, left, top, width, height) {
     if (isNaN(height)) return;
     if (WidgetDockController._browserType == EnumBrowserType.Firefox || WidgetDockController._browserType == EnumBrowserType.Chrome) {
         element.style.left = left + "px";
