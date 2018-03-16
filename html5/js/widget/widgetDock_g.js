@@ -21,7 +21,6 @@ function _$G() {
     this._panelStateElement._$4u = this;
     this._panelStateElement.onmousedown = _$G.onMouseDown;
     this._panelStateElement.onmousemove = _$G.onMouseMove;
-    this._panelStateElement._$mF = _$G._$mh;
 };
 _$G._$6J = 28;
 _$G._$51 = 0;
@@ -48,9 +47,6 @@ _$G.onMouseMove = function (e) {
         }
         e.srcElement._$4u.mouseMove(e);
     }
-};
-_$G._$mh = function (e) {
-    return false;
 };
 _$G.prototype.resize = function (_$cS, _$do, width, height) {
     WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
@@ -134,7 +130,7 @@ _$G.prototype._$5K = function (floatPanel) {
     var i;
     for (i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
-        if (tab.floatPanel == floatPanel) {
+        if (tab._floatPanel == floatPanel) {
             if (tab._titleElement != null) {
                 this._panelStateElement.removeChild(tab._titleElement);
                 tab._titleElement = null;
@@ -185,29 +181,29 @@ _$G.prototype._$fT = function () {
 };
 _$G.prototype.Add = function (floatPanel) {
     var _$e1 = this._$i6.length;
-    var i;
-    for (i = 0; i < _$e1; i++) {
-        if (this._$i6[i].floatPanel == floatPanel) return;
+    for (var i = 0; i < _$e1; i++) {
+        if (this._$i6[i].floatPanel == floatPanel) {
+            return;
+        }
     }
-    var s = floatPanel._panelStateController.getTitle();
-    var tab = new _$O(0, 0, s);
+    var title = floatPanel._panelStateController.getTitle();
+    var tab = new WidgetDockTab(0, 0, title);
     tab._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     tab._titleElement._$4u = this;
-    tab.floatPanel = floatPanel;
+    tab._floatPanel = floatPanel;
     this._$i6.push(tab);
     this._$5z();
 };
 _$G.prototype._$3 = function (floatPanel, _$cN) {
     var _$e1 = this._$i6.length;
-    var i;
-    for (i = 0; i < _$e1; i++) {
+    for (var i = 0; i < _$e1; i++) {
         if (this._$i6[i].floatPanel == floatPanel) return;
     }
-    var s = floatPanel._panelStateController.getTitle();
-    var tab = new _$O(0, 0, s);
+    var title = floatPanel._panelStateController.getTitle();
+    var tab = new WidgetDockTab(0, 0, title);
     tab._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     tab._titleElement._$4u = this;
-    tab.floatPanel = floatPanel;
+    tab._floatPanel = floatPanel;
     this._$i6.splice(_$cN, 0, tab);
     this._$5z();
 };
@@ -216,7 +212,7 @@ _$G.prototype._$6b = function (floatPanel) {
     var i;
     for (i = 0; i < _$e1; i++) {
         var tab = this._$i6[i];
-        if (tab.floatPanel == floatPanel) {
+        if (tab._floatPanel == floatPanel) {
             this._$V(i);
             break;
         }
@@ -246,11 +242,11 @@ _$G.prototype._$5z = function () {
     var _$dI = new Array(_$gi);
     for (i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
-        ft = this._$bT(tab.floatPanel);
+        ft = this._$bT(tab._floatPanel);
         tab._$cv = _$fv;
-        WidgetDockElementController.getOffsetSize(size, ft, tab._$qT, this._$hj);
+        WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
         tab._$cE = _$fv + size.width + 2 * _$G._$2Z;
-        if (tab.floatPanel._$hE != null) tab._$cE += _$O._$jL;
+        if (tab._floatPanel._$hE != null) tab._$cE += WidgetDockTab._$jL;
         _$dI[i] = tab._$cE - _$fv;
         _$fv = tab._$cE;
     }
@@ -264,11 +260,11 @@ _$G.prototype._$5z = function () {
     var j;
     for (i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
-        ft = this._$bT(tab.floatPanel);
+        ft = this._$bT(tab._floatPanel);
         var _$fE = tab._$cE - tab._$cv;
         var _$fK = 0;
-        if (tab.floatPanel._$hE != null) _$fK = _$O._$jL;
-        tab._$qV = WidgetDockPatternBase._$6y(ft, tab._$qT, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
+        if (tab._floatPanel._$hE != null) _$fK = WidgetDockTab._$jL;
+        tab._title = WidgetDockPatternBase._$6y(ft, tab._title, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
     }
     this.refresh();
 };
@@ -277,9 +273,8 @@ _$G.prototype._$4J = function (floatPanel, _$sd) {
     var i;
     for (i = 0; i < _$e1; i++) {
         var tab = _$i6[i];
-        if (tab.floatPanel == floatPanel) {
-            tab._$qT = new String(_$sd);
-            tab._$qV = new String(_$sd);
+        if (tab._floatPanel == floatPanel) {
+            tab._title = new String(_$sd);
             _$5z();
             break;
         }
@@ -308,7 +303,7 @@ _$G.prototype._$3x = function (floatPanel) {
     var i;
     for (i = 0; i < _$e1; i++) {
         var tab = this._$i6[i];
-        if (tab.floatPanel == floatPanel) {
+        if (tab._floatPanel == floatPanel) {
             b = true;
             break;
         }
@@ -323,7 +318,7 @@ _$G.prototype._$V = function (_$cN) {
         }
         this._$jh = iac;
         var tab = this._$i6[iac];
-        this._floatPanel = tab.floatPanel;
+        this._floatPanel = tab._floatPanel;
         var rc = new WidgetDockRect();
         this._$kE._$of.getRect(rc);
         if (this._$kE._$of._$jm == WidgetDockFloatPanel._$q) {
@@ -331,19 +326,19 @@ _$G.prototype._$V = function (_$cN) {
         }
         this._$kE._$of.setElementVisible(false);
         this._$kE._$of._$bf(false);
-        tab.floatPanel.setElementVisible(true);
-        tab.floatPanel._$bf(true);
-        if (!(tab.floatPanel._$jm == WidgetDockFloatPanel._$q)) {
-            tab.floatPanel._$hz = this;
+        tab._floatPanel.setElementVisible(true);
+        tab._floatPanel._$bf(true);
+        if (!(tab._floatPanel._$jm == WidgetDockFloatPanel._$q)) {
+            tab._floatPanel._$hz = this;
         } else {
-            tab.floatPanel._panelStateController._$a();
+            tab._floatPanel._panelStateController._$a();
         }
-        this._$kE._$of = tab.floatPanel;
-        this._$kE._$of._$kB = tab.floatPanel._$kB;
-        tab.floatPanel._$kA = this._$kE;
-        tab.floatPanel._$6q(rc);
+        this._$kE._$of = tab._floatPanel;
+        this._$kE._$of._$kB = tab._floatPanel._$kB;
+        tab._floatPanel._$kA = this._$kE;
+        tab._floatPanel._$6q(rc);
         this.refresh();
-        tab.floatPanel._patternMain._$1(tab.floatPanel);
+        tab._floatPanel._patternMain._$1(tab._floatPanel);
     }
 };
 _$G.prototype._$37 = function (e) {
@@ -399,11 +394,11 @@ _$G.prototype._$0d = function (floatPanel, pt) {
     for (var i = 0; i < _$e1; i++) {
         tab = this._$i6[i];
         if (_$sw.x > tab._$cv && _$sw.x < tab._$cE) {
-            if (tab.floatPanel != floatPanel) {
+            if (tab._floatPanel != floatPanel) {
                 this._$i6[i] = this._$i6[this._$jh];
                 this._$i6[this._$jh] = tab;
                 this._$jh = i;
-                this._$kE._$6G(tab.floatPanel, floatPanel);
+                this._$kE._$6G(tab._floatPanel, floatPanel);
                 this._$5z();
             }
             return true;
@@ -432,15 +427,15 @@ _$G.prototype._$aK = function (g, _$cs) {
         for (var i = 0; i < _$e1; i++) {
             if (i != this._$jh) {
                 tab = this._$i6[i];
-                f = this._$bT(tab.floatPanel);
-                this._$aJ(tab._titleElement, tab._$cv, tab._$cE, tab._$qV, false, tab.floatPanel._$hE, f);
+                f = this._$bT(tab._floatPanel);
+                this._$aJ(tab._titleElement, tab._$cv, tab._$cE, tab._title, false, tab._floatPanel._$hE, f);
             }
         }
         tab = this._$i6[_$cs];
         var _$dS = tab._$cv;
         var _$ed = tab._$cE;
-        f = this._$bT(tab.floatPanel);
-        this._$aJ(tab._titleElement, _$dS, _$ed, tab._$qV, true, tab.floatPanel._$hE, f);
+        f = this._$bT(tab._floatPanel);
+        this._$aJ(tab._titleElement, _$dS, _$ed, tab._title, true, tab._floatPanel._$hE, f);
         if (this._$hj != null) {
             this._$hj._$s1 = 'ButtonShadow';
             if (tab._$cv >= 2) {
@@ -455,7 +450,7 @@ _$G.prototype._$aK = function (g, _$cs) {
         }
     }
 };
-_$G.prototype._$aJ = function (_$U, _$cv, _$cE, _$qV, _$7J, img, _$b2) {
+_$G.prototype._$aJ = function (_$U, _$cv, _$cE, title, _$7J, img, _$b2) {
     var _$gC = 2;
     var _$dU;
     if (!_$7J) {
@@ -468,7 +463,7 @@ _$G.prototype._$aJ = function (_$U, _$cv, _$cE, _$qV, _$7J, img, _$b2) {
         WidgetDockElementController.setElementLeftTop(_$U, _$cv + _$G._$2Z, _$G._$3U + _$ff);
         WidgetDockElementController.setElementSize(_$U, _$cE - _$cv, _$G._$6J - _$G._$3U - _$ff - 4);
         _$U.style.font = _$b2;
-        _$U.innerHTML = _$qV;
+        _$U.innerHTML = title;
         if (_$7J) {
             _$U.style.backgroundColor = 'ButtonFace';
             _$U.style.color = 'menutext';
@@ -491,11 +486,11 @@ _$G.prototype._$aJ = function (_$U, _$cv, _$cE, _$qV, _$7J, img, _$b2) {
     WidgetDockElementController._$1q(_$cE, _$gC, _$cE, _$dU - 2, this._$hj);
     this._$hj.fillStyle = 'menutext';
     if (img != null) {
-        g.drawImage(img, _$cv + 2, _$gC + 1, _$O._$jL, _$O._$jL, this);
-        _$cv += _$O._$jL;
+        g.drawImage(img, _$cv + 2, _$gC + 1, WidgetDockTab._$jL, WidgetDockTab._$jL, this);
+        _$cv += WidgetDockTab._$jL;
     }
     var size = new WidgetDockSize();
-    WidgetDockElementController.getOffsetSize(size, _$b2, _$qV, this._$hj);
+    WidgetDockElementController.getOffsetSize(size, _$b2, title, this._$hj);
     this._$hj.font = _$b2;
-    this._$hj.fillText(_$qV, _$cv + _$G._$2Z, _$G._$6J / 2 + 4);
+    this._$hj.fillText(title, _$cv + _$G._$2Z, _$G._$6J / 2 + 4);
 };

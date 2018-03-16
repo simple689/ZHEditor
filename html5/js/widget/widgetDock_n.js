@@ -21,7 +21,6 @@ function _$N() {
     this._panelStateElement._$4y = this;
     this._panelStateElement.onmousedown = _$N.onMouseDown;
     this._panelStateElement.onmousemove = _$N.onMouseMove;
-    this._panelStateElement._$mF = _$N._$mh;
 };
 _$N.onMouseDown = function (e) {
     if (e == null) {
@@ -43,9 +42,6 @@ _$N.onMouseMove = function (e) {
     } else {
         e.srcElement._$4y.mouseMove(e);
     }
-};
-_$N._$mh = function (e) {
-    return false;
 };
 _$N._floatPanelController = new WidgetDockFloatPanelController();
 _$N.prototype._$r8 = function (_$cS, _$do, width, height) {

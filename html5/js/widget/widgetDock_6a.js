@@ -1,7 +1,7 @@
 function _$6A(elementId) {
     this._$hJ = null;
     this._$jU = 0;
-    this._$il = false;
+    this._isMouseDown = false;
     this._$mJ = new WidgetDockLocation();
     this._$mK = new WidgetDockFrame();
     this._$j6 = null;
@@ -14,7 +14,6 @@ function _$6A(elementId) {
     this._panelStateElement._$4x = this;
     this._panelStateElement.onmousedown = _$6A.onMouseDown;
     this._panelStateElement.onmousemove = _$6A.onMouseMove;
-    this._panelStateElement._$mF = _$6A._$mh;
     this._panelStateElement.style.background = 'ButtonFace';
 };
 _$6A._$7a = 0;
@@ -49,12 +48,9 @@ _$6A.onMouseMove = function (e) {
         e.srcElement._$4x.mouseMove(e);
     }
 };
-_$6A._$mh = function (e) {
-    return false;
-};
 _$6A.prototype.mouseUp = function (e) {
     WidgetDockController._$6s(false);
-    this._$il = false;
+    this._isMouseDown = false;
 };
 _$6A.prototype.getRect = function (rc) {
     if (this._panelStateElement != null) {
@@ -67,7 +63,7 @@ _$6A.prototype.getRect = function (rc) {
 _$6A.prototype.mouseMove = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
-    if (!this._$il) {
+    if (!this._isMouseDown) {
         this._$f4(pt);
     }
     if (this._$jU >= 0) {
@@ -87,10 +83,10 @@ _$6A.prototype.mouseMove = function (e) {
     }
 };
 _$6A.prototype.mouseDown = function (e) {
-    if (this._$il) return;
+    if (this._isMouseDown) return;
     WidgetDockWindow._movePanelStateController = this;
     WidgetDockController._$6s(true);
-    this._$il = true;
+    this._isMouseDown = true;
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
     if (this._$jU >= 0) {
@@ -105,7 +101,7 @@ _$6A.prototype.mouseDown = function (e) {
     }
 };
 _$6A.prototype._$ms = function (e) {
-    if (!this._$il) return;
+    if (!this._isMouseDown) return;
     if (this._$jU < 0) return;
     var _$pL = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, _$pL);

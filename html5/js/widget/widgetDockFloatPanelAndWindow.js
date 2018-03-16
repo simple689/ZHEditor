@@ -2376,7 +2376,7 @@ WidgetDockWindow.prototype._$0g = function () {
     var vrc = new WidgetDockRect();
     this.getWindowRect(vrc);
     this._patternMain.setSize(vrc.right - vrc.left, vrc.bottom - vrc.top);
-    this._$my(null);
+    this.resizeWindow(null);
 };
 WidgetDockWindow.prototype._$2i = function () {
     return this._$kL;
@@ -2401,7 +2401,7 @@ WidgetDockWindow.prototype.getWindowRect = function (rc) {
 };
 
 WidgetDockWindow.prototype._$3C = function () {
-    window.onresize = _$7g;
+    window.onresize = windowResize;
     var rect = new WidgetDockRect();
     this.getWindowRect(rect);
     this._patternMain.setSize(rect.right - rect.left, rect.bottom - rect.top);
@@ -2410,6 +2410,9 @@ WidgetDockWindow.prototype._$3C = function () {
         this._windowPattern[i] = new WidgetDockWindowPattern();
     }
     this._patternMain._$jv = 0;
+};
+function windowResize() {
+    WidgetDockController._windowMain.resizeWindow();
 };
 WidgetDockWindow.prototype._$ml = function (mainPattern) {
     var _$e1 = this._$kL.length;
@@ -2443,7 +2446,7 @@ WidgetDockWindow.prototype._$mm = function (mainPattern) {
         }
     }
 };
-WidgetDockWindow.prototype._$my = function (e) {
+WidgetDockWindow.prototype.resizeWindow = function (e) {
     var rc = new WidgetDockFrame();
     var d = new WidgetDockSize();
     var iw = 0;
@@ -2461,8 +2464,7 @@ WidgetDockWindow.prototype._$my = function (e) {
     d.width = iw;
     d.height = ih;
     rc.height = ih;
-    var i;
-    for (i = 0; i < 2; i++) {
+    for (var i = 0; i < 2; i++) {
         if (this._patternMain._elementWithType != null) {
             if (this._patternMain._elementWithType[2 * i + 1] != null) {
                 if (i == 0) {
@@ -2475,7 +2477,7 @@ WidgetDockWindow.prototype._$my = function (e) {
             }
         }
     }
-    for (i = 0; i < 2; i++) {
+    for (var i = 0; i < 2; i++) {
         if (this._patternMain._elementWithType != null) {
             if (this._patternMain._elementWithType[2 * i] != null && d.height > 0) {
                 rc.width = this._patternMain._signLenAry[2 * i];
