@@ -800,8 +800,7 @@ WidgetDockPatternBase.prototype.refreshFixedPanel = function () {
     rc.bottom = this._$2K(EnumPatternPositionType.Bottom, WidgetDockPatternBase._$6M);
     this._rect.setRect(rc);
     if (this._elementWithCenter != null) {
-        var element = this._elementWithCenter;
-        WidgetDockElementController.setElementLeftTopSize(element, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
+        WidgetDockElementController.setElementLeftTopSize(this._elementWithCenter, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
     }
 };
 WidgetDockPatternBase.prototype._$5F = function () {
