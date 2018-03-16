@@ -1,20 +1,20 @@
 WidgetDockController
-|¡ª¡ª _instance
-|¡ª¡ª _browserType
-|¡ª¡ª _elementRootId
-|¡ª¡ª _windowMain
-|¡ª¡ª mouseDown
-|¡ª¡ª mouseUp
-|¡ª¡ª mouseMove
-|¡ª¡ª _isHasCanvasContext
-|¡ª¡ª _dir
-|¡ª¡ª addFixedPanel -¡· _windowMain.addFixedPanel
-			|¡ª¡ª _patternMain¡¾WidgetDockPatternMain¡¿¡¾WidgetDockPatternBase¡¿.addFixedPanel -¡· Center -¡· _elementWithCenter¡¾ÕæÕýµÄÊý¾Ý¡¿
-													       Left -¡· _elementWithType¡¾ÕæÕýµÄÊý¾Ý¡¿
-													       Right -¡· _elementWithType¡¾ÕæÕýµÄÊý¾Ý¡¿
-													       Top -¡· _elementWithType¡¾ÕæÕýµÄÊý¾Ý¡¿
-													       Bottom -¡· _elementWithType¡¾ÕæÕýµÄÊý¾Ý¡¿
-|¡ª¡ª createFloatPanel -¡· new WidgetDockFloatPanel -¡· _floatPanelController.addFloatPanel -¡· _floatPanelController._panelList¡¾ÕæÕýµÄÊý¾Ý¡¿
+|â€”â€”_instance
+|â€”â€” _browserType
+|â€”â€” _elementRootId
+|â€”â€” _windowMain
+|â€”â€”â€”â€” mouseDown
+|â€”â€” mouseUp
+|â€”â€” mouseMove
+|â€”â€” _isHasCanvasContext
+|â€”â€” _dir
+|â€”â€” addFixedPanel - _windowMain.addFixedPanel
+                 |â€”â€” _patternMain WidgetDockPatternMainï¿½ï¿½ï¿½ï¿½WidgetDockPatternBaseï¿½ï¿½.addFixedPanel -ï¿½ï¿½ Center -ï¿½ï¿½ _elementWithCenterï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+													       Left -ï¿½ï¿½ _elementWithTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+													       Right -ï¿½ï¿½ _elementWithTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+													       Top -ï¿½ï¿½ _elementWithTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+													       Bottom -ï¿½ï¿½ _elementWithTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+|â€”â€” createFloatPanel -ï¿½ï¿½ new WidgetDockFloatPanel -ï¿½ï¿½ _floatPanelController.addFloatPanel -ï¿½ï¿½ _floatPanelController._panelListï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
 
 
 
@@ -26,22 +26,22 @@ WidgetDockController
 WidgetDockPatternMain
 
 WidgetDockPatternBase
-|¡ª¡ª _elementWithCenter¡¾ÕæÕýµÄÊý¾Ý¡¿
-|¡ª¡ª _elementWithType¡¾ÕæÕýµÄÊý¾Ý¡¿
+|ï¿½ï¿½ï¿½ï¿½ _elementWithCenterï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+|ï¿½ï¿½ï¿½ï¿½ _elementWithTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
 
 
-WidgetDockFloatPanel 
-|¡ª¡ª _windowMain
-|¡ª¡ª _title
-|¡ª¡ª _patternMain
-|¡ª¡ª _floatPanelController
-|¡ª¡ª addContentDiv -¡· _element¡¾ÕæÕýµÄÊý¾Ý¡¿
-|¡ª¡ª _element¡¾ÕæÕýµÄÊý¾Ý¡¿
-|¡ª¡ª initLayout -¡· _element¡¾ÕæÕýµÄÊý¾Ý¡¿
+WidgetDockFloatPanel
+|ï¿½ï¿½ï¿½ï¿½ _windowMain
+|ï¿½ï¿½ï¿½ï¿½ _title
+|ï¿½ï¿½ï¿½ï¿½ _patternMain
+|ï¿½ï¿½ï¿½ï¿½ _floatPanelController
+|ï¿½ï¿½ï¿½ï¿½ addContentDiv -ï¿½ï¿½ _elementï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+|ï¿½ï¿½ï¿½ï¿½ _elementï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+|ï¿½ï¿½ï¿½ï¿½ initLayout -ï¿½ï¿½ _elementï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
 
 
 WidgetDockFloatPanelController
-|¡ª¡ª _panelList¡¾ÕæÕýµÄÊý¾Ý¡¿
+|ï¿½ï¿½ï¿½ï¿½ _panelListï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
 
 left 0
 top 1
@@ -49,25 +49,25 @@ right 2
 bottom 3
 
 WidgetDockWindow.prototype.initLayout
-1-¡·±êÊ¶ DFIdentifier
-2-¡·left
-3-¡·top
-4-¡·right
-5-¡·bottom
-6-¡·left panelList
- -¡·SEC 0¡¢1¡¢2¡£¡£¡£
- -¡·width 581
- -¡·height 864
- -¡·_$kR
- -¡·_$l8
+1-ï¿½ï¿½ï¿½ï¿½Ê¶ DFIdentifier
+2-ï¿½ï¿½left
+3-ï¿½ï¿½top
+4-ï¿½ï¿½right
+5-ï¿½ï¿½bottom
+6-ï¿½ï¿½left panelList
+ -ï¿½ï¿½SEC 0ï¿½ï¿½1ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ -ï¿½ï¿½width 581
+ -ï¿½ï¿½height 864
+ -ï¿½ï¿½_$kR
+ -ï¿½ï¿½_$l8
 
 
 
- -¡·µ¥Ôª½áÊø±êÊ¶ SECTIONNONE
- -¡·top panelList
- -¡·µ¥Ôª½áÊø±êÊ¶ SECTIONNONE
- -¡·right panelList
- -¡·µ¥Ôª½áÊø±êÊ¶ SECTIONNONE
- -¡·bottom panelList
- -¡·µ¥Ôª½áÊø±êÊ¶ SECTIONNONE
- -¡·±êÊ¶ MINIFRAMES
+ -ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ SECTIONNONE
+ -ï¿½ï¿½top panelList
+ -ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ SECTIONNONE
+ -ï¿½ï¿½right panelList
+ -ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ SECTIONNONE
+ -ï¿½ï¿½bottom panelList
+ -ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ SECTIONNONE
+ -ï¿½ï¿½ï¿½ï¿½Ê¶ MINIFRAMES

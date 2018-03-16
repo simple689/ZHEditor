@@ -96,12 +96,6 @@ WidgetDockFloatPanel._$48 = 0;
 WidgetDockFloatPanel._$46 = 1;
 WidgetDockFloatPanel._$47 = 2;
 
-var EnumPinType = {
-    None: 0,
-    Show: 1,
-    Hide: 2,
-};
-
 WidgetDockFloatPanel._$0V = 0;
 WidgetDockFloatPanel._$0X = 1;
 WidgetDockFloatPanel._$0W = 2;
@@ -156,8 +150,8 @@ WidgetDockFloatPanel._$lr = new WidgetDockLocation();
 WidgetDockFloatPanel._$cj = new WidgetDockRect();
 WidgetDockFloatPanel._$h5 = null;
 
-WidgetDockFloatPanel.prototype.hasOutIFrame = function () {
-    this.isOutIFrame = true;
+WidgetDockFloatPanel.prototype.hasOutIFrame = function (sch) {
+    this.isOutIFrame = sch;
 };
 WidgetDockFloatPanel.prototype.reset = function () {
     if (this._$i8 == null) {
@@ -402,7 +396,7 @@ WidgetDockFloatPanel.prototype.addContentDiv = function (element) {
     element.style.position = "absolute";
     if (element instanceof HTMLIFrameElement) {
         if (WidgetDockController._$06(element.id)) {
-            this.hasOutIFrame();
+            this.hasOutIFrame(true);
         }
     }
 };
@@ -2330,18 +2324,6 @@ WidgetDockWindow.prototype.mouseUp = function (e) {
         WidgetDockWindow._movePanelStateController.mouseUp(e);
         WidgetDockWindow._movePanelStateController = null;
     }
-};
-WidgetDockWindow.prototype._$rv = function (sID) {
-    var ic = WidgetDockFloatPanel._floatPanelController.getPanelNum();
-    var i;
-    for (i = 0; i < ic; i++) {
-        var _$sR = WidgetDockFloatPanel._floatPanelController._panelList[i]._element;
-        if (_$sR != null && _$sR.id == sID) {
-            WidgetDockFloatPanel._floatPanelController._panelList[i].hasOutIFrame(true);
-            return true;
-        }
-    }
-    return false;
 };
 WidgetDockWindow.prototype._$6s = function (sch) {
     var ic = WidgetDockFloatPanel._floatPanelController.getPanelNum();
