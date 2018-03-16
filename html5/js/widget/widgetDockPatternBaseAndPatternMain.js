@@ -255,10 +255,10 @@ WidgetDockPatternBase.prototype._$5H = function (floatPanel, _$ng) {
         var _$9y;
         var _$dt;
         if (floatPanel._patternPositionType == EnumPatternPositionType.Left || floatPanel._patternPositionType == EnumPatternPositionType.Right) {
-            _$dt = WidgetDockPatternBase._$2A(rcPanel);
+            _$dt = WidgetDockPatternBase.getWidth(rcPanel);
             _$9y = EnumPatternPositionType.Top;
         } else {
-            _$dt = WidgetDockPatternBase._$2z(rcPanel);
+            _$dt = WidgetDockPatternBase.getHeight(rcPanel);
             _$9y = EnumPatternPositionType.Left;
             rcPanel.top = rcPanel.left;
             rcPanel.bottom = rcPanel.right;
@@ -572,7 +572,7 @@ WidgetDockPatternBase.prototype._$4m = function (panel, patternPositionType, _$9
         rcPanel.top = _$ey;
         _$qt.top = _$ey;
         _$qt.bottom = _$qt.top + _$el;
-        _$gK = WidgetDockPatternBase._$2A(rcPanel);
+        _$gK = WidgetDockPatternBase.getWidth(rcPanel);
         if (_$83) {
             _$dt = _$gK + _$gj;
         } else {
@@ -590,7 +590,7 @@ WidgetDockPatternBase.prototype._$4m = function (panel, patternPositionType, _$9
         _$ey = rcWindow.left + ilt;
         _$eB = rcWindow.right - irb;
         _$gK = _$eB - _$ey;
-        _$el = WidgetDockPatternBase._$2z(rcPanel);
+        _$el = WidgetDockPatternBase.getHeight(rcPanel);
         rcPanel.left = _$ey;
         _$qt.left = _$ey;
         _$qt.right = _$qt.left + _$gK;
@@ -873,8 +873,8 @@ WidgetDockPatternBase.prototype._$4j = function (_$mS, _$ct, _$9c) {
             }
             _$ql.left = plt.x;
             _$ql.top = plt.y;
-            _$ql.right = plt.x + WidgetDockPatternBase._$2A(rcPanel);
-            _$ql.bottom = plt.y + WidgetDockPatternBase._$2z(rcPanel);
+            _$ql.right = plt.x + WidgetDockPatternBase.getWidth(rcPanel);
+            _$ql.bottom = plt.y + WidgetDockPatternBase.getHeight(rcPanel);
             _$mS._$oy._$6q(_$ql);
         }
         return;
@@ -899,8 +899,8 @@ WidgetDockPatternBase.prototype._$4j = function (_$mS, _$ct, _$9c) {
         }
         _$ql.left = plt.x;
         _$ql.top = plt.y;
-        _$ql.right = plt.x + WidgetDockPatternBase._$2A(rcPanel);
-        _$ql.bottom = plt.y + WidgetDockPatternBase._$2z(rcPanel);
+        _$ql.right = plt.x + WidgetDockPatternBase.getWidth(rcPanel);
+        _$ql.bottom = plt.y + WidgetDockPatternBase.getHeight(rcPanel);
         _$mS._$of._$6q(_$ql);
     }
 };
@@ -973,9 +973,9 @@ WidgetDockPatternBase.prototype._$6v = function (_$mS, _$q1, _$9c) {
         if (b1 && b2) {
             if (((_$mS._$9y % 2) == 0 && (_$9c % 2) == 0) || (((_$mS._$9y + 1) % 2) == 0 && (_$9c + 1) % 2 == 0)) {
                 if ((_$9c == WidgetDockPatternBase._$3T) || (_$9c == WidgetDockPatternBase._$5l)) {
-                    _$gD = WidgetDockPatternBase._$2A(_$q1) - widgetDockPanel._$kt;
+                    _$gD = WidgetDockPatternBase.getWidth(_$q1) - widgetDockPanel._$kt;
                 } else {
-                    _$gD = WidgetDockPatternBase._$2z(_$q1) - widgetDockPanel._$kt;
+                    _$gD = WidgetDockPatternBase.getHeight(_$q1) - widgetDockPanel._$kt;
                 }
                 var id2 = (_$gD / (1 + _$mS._$br));
                 var id1 = _$gD - id2;
@@ -1043,7 +1043,7 @@ WidgetDockPatternBase.prototype._$6v = function (_$mS, _$q1, _$9c) {
     }
 };
 WidgetDockPatternBase._$5y = function (_$cm, _$q6) {
-    WidgetDockPatternBase.resize(_$cm, null, _$q6.left, _$q6.top, WidgetDockPatternBase._$2A(_$q6), WidgetDockPatternBase._$2z(_$q6), 0);
+    WidgetDockPatternBase.resize(_$cm, null, _$q6.left, _$q6.top, WidgetDockPatternBase.getWidth(_$q6), WidgetDockPatternBase.getHeight(_$q6), 0);
 };
 WidgetDockPatternBase.prototype.getWindowRect = function (rect) {
     if (!this._$iW) {
@@ -1131,9 +1131,9 @@ WidgetDockPatternBase.prototype._$2J = function (patternPositionType, _$cv, _$cE
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
             if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) {
-                ire += WidgetDockPatternBase._$2A(panel.rect);
+                ire += WidgetDockPatternBase.getWidth(panel.rect);
             } else {
-                ire += WidgetDockPatternBase._$2z(panel.rect);
+                ire += WidgetDockPatternBase.getHeight(panel.rect);
             }
             ire += panel._$cf();
         }
@@ -1151,9 +1151,9 @@ WidgetDockPatternBase.prototype._$2I = function (patternPositionType, _$nd) {
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
             if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) {
-                ire += WidgetDockPatternBase._$2A(panel.rect);
+                ire += WidgetDockPatternBase.getWidth(panel.rect);
             } else {
-                ire += WidgetDockPatternBase._$2z(panel.rect);
+                ire += WidgetDockPatternBase.getHeight(panel.rect);
             }
             ire += panel._$le._$cf();
         }
@@ -1267,8 +1267,8 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
     rcWindow.bottom -= this._signLenAry[3];
     var _$qe = new WidgetDockRect();
     _$qe.setRect(_$mX._$lC);
-    var _$el = WidgetDockPatternBase._$2z(_$qe);
-    var _$gK = WidgetDockPatternBase._$2A(_$qe);
+    var _$el = WidgetDockPatternBase.getHeight(_$qe);
+    var _$gK = WidgetDockPatternBase.getWidth(_$qe);
     var _$gk = _$gK < _$el ? _$gK : _$el;
     _$mX._$iM = false;
     _$nz.cx = _$gK;
@@ -1461,10 +1461,10 @@ WidgetDockPatternBase.prototype._$d = function (com) {
 };
 WidgetDockPatternBase.prototype._$5E = function (com) {
 };
-WidgetDockPatternBase._$2A = function (rc) {
+WidgetDockPatternBase.getWidth = function (rc) {
     return (rc.right - rc.left);
 };
-WidgetDockPatternBase._$2z = function (rc) {
+WidgetDockPatternBase.getHeight = function (rc) {
     return (rc.bottom - rc.top);
 };
 WidgetDockPatternBase._$5s = function (com, rc) {
@@ -1491,8 +1491,8 @@ WidgetDockPatternBase._$5f = function (_$qe, pt) {
     }
     return false;
 };
-WidgetDockPatternBase.resize = function (com, _$qd, _$cS, _$do, width, height, _$cI) {
-    _$cS = 0;
+WidgetDockPatternBase.resize = function (com, _$qd, left, top, width, height, _$cI) {
+    left = 0;
 };
 WidgetDockPatternBase._$0j = function (_$cm, pt) {
     var _$pG = _$cm._$c0();

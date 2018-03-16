@@ -18,9 +18,9 @@ _$59.prototype.setVisible = function (_$8e) {
 _$59.prototype._$6k = function (_$di) {
     this._$jY = _$di;
 };
-_$59.prototype.resize = function (_$cS, _$do, width, height) {
+_$59.prototype.resize = function (left, top, width, height) {
     var _$d5 = this._$jY;
-    WidgetDockElementController.setElementLeftTop(this._$lc._panelStateElement, _$cS, _$do);
+    WidgetDockElementController.setElementLeftTop(this._$lc._panelStateElement, left, top);
     var canvas = this._$lc._panelStateElement;
     canvas.style.width = width + "px";
     canvas.style.height = height + "px";
@@ -28,23 +28,23 @@ _$59.prototype.resize = function (_$cS, _$do, width, height) {
         var _$t6 = 2;
         var _$tl, _$to, _$tp, _$tk;
         if (_$d5 == EnumPatternPositionType.Left) {
-            _$tl = _$cS + _$6A._$p;
-            _$to = _$do + _$6A._$p;
+            _$tl = left + _$6A._$p;
+            _$to = top + _$6A._$p;
             _$tp = width - 2 * _$6A._$p - _$t6;
             _$tk = height - 2 * _$6A._$p;
         } else if (_$d5 == EnumPatternPositionType.Right) {
-            _$tl = _$cS + _$6A._$p + _$t6;
-            _$to = _$do + _$6A._$p;
+            _$tl = left + _$6A._$p + _$t6;
+            _$to = top + _$6A._$p;
             _$tp = width - 2 * _$6A._$p - _$t6;
             _$tk = height - 2 * _$6A._$p;
         } else if (_$d5 == EnumPatternPositionType.Top) {
-            _$tl = _$cS + _$6A._$p;
-            _$to = _$do + _$6A._$p;
+            _$tl = left + _$6A._$p;
+            _$to = top + _$6A._$p;
             _$tp = width - 2 * _$6A._$p;
             _$tk = height - 2 * _$6A._$p - _$t6;
         } else {
-            _$tl = _$cS + _$6A._$p;
-            _$to = _$do + _$6A._$p + _$t6;
+            _$tl = left + _$6A._$p;
+            _$to = top + _$6A._$p + _$t6;
             _$tp = width - 2 * _$6A._$p;
             _$tk = height - 2 * _$6A._$p - _$t6;
         }

@@ -26,8 +26,8 @@ WidgetDockPanelStateController._$0U = 18;
 WidgetDockPanelStateController._$hd = null;
 WidgetDockPanelStateController._$4Y = 4;
 WidgetDockPanelStateController._$j5 = new WidgetDockSize();
-WidgetDockPanelStateController.prototype.resize = function (_$cS, _$do, width, height) {
-    WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
+WidgetDockPanelStateController.prototype.resize = function (left, top, width, height) {
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, left, top);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this.refresh();
 };
@@ -595,7 +595,7 @@ WidgetDockPanelStateController.prototype._$aI = function (_$pc, _$d6, _$7J) {
         }
     }
 };
-WidgetDockPanelStateController.prototype._$aE = function (_$cS, _$do, width, height, _$gf) {
+WidgetDockPanelStateController.prototype._$aE = function (left, top, width, height, _$gf) {
     var _$el;
     var _$8v = false;
     if (this._floatPanel == null) {
@@ -607,42 +607,42 @@ WidgetDockPanelStateController.prototype._$aE = function (_$cS, _$do, width, hei
     }
     if (_$8v || (_$gf == EnumPatternPositionType.Left) || (_$gf == EnumPatternPositionType.Right)) {
         _$el = height - 3;
-        _$cS = _$cS + width - 2 - _$el;
-        _$do = _$do + 2;
+        left = left + width - 2 - _$el;
+        top = top + 2;
     } else {
-        _$cS += 2;
+        left += 2;
         _$el = width - 3;
-        _$do += 2;
+        top += 2;
     }
-    this._buttonCloseRect.left = _$cS;
-    this._buttonCloseRect.top = _$do;
+    this._buttonCloseRect.left = left;
+    this._buttonCloseRect.top = top;
     this._buttonCloseRect.right = this._buttonCloseRect.left + _$el - 1;
     this._buttonCloseRect.bottom = this._buttonCloseRect.top + _$el - 1;
     if (this._$hj == null) {
         if (this._buttonCloseElement != null) {
-            WidgetDockElementController.setElementLeftTop(this._buttonCloseElement, _$cS, _$do);
+            WidgetDockElementController.setElementLeftTop(this._buttonCloseElement, left, top);
             WidgetDockElementController.setElementSize(this._buttonCloseElement, this._buttonCloseRect.right - this._buttonCloseRect.left, this._buttonCloseRect.bottom - this._buttonCloseRect.top);
             WidgetDockElementController.setElementLeftTop(this._buttonCloseElement.childNodes[0], 0, 0);
         }
         return;
     }
     this._$hj._$s1 = 'buttonText';
-    WidgetDockElementController._$1q(_$cS, _$do, _$cS + _$el - 2, _$do, this._$hj);
-    WidgetDockElementController._$1q(_$cS, _$do, _$cS, _$do + _$el - 2, this._$hj);
+    WidgetDockElementController._$1q(left, top, left + _$el - 2, top, this._$hj);
+    WidgetDockElementController._$1q(left, top, left, top + _$el - 2, this._$hj);
     this._$hj._$s1 = 'buttonShadow';
-    WidgetDockElementController._$1q(_$cS + 1, _$do + _$el - 2, _$cS + _$el - 2, _$do + _$el - 2, this._$hj);
-    WidgetDockElementController._$1q(_$cS + _$el - 2, _$do + 1, _$cS + _$el - 2, _$do + _$el - 2, this._$hj);
+    WidgetDockElementController._$1q(left + 1, top + _$el - 2, left + _$el - 2, top + _$el - 2, this._$hj);
+    WidgetDockElementController._$1q(left + _$el - 2, top + 1, left + _$el - 2, top + _$el - 2, this._$hj);
     this._$hj._$s1 = 'buttonShadow';
-    WidgetDockElementController._$1q(_$cS, _$do + _$el - 1, _$cS + _$el - 1, _$do + _$el - 1, this._$hj);
-    WidgetDockElementController._$1q(_$cS + _$el - 1, _$do, _$cS + _$el - 1, _$do + _$el - 1, this._$hj);
+    WidgetDockElementController._$1q(left, top + _$el - 1, left + _$el - 1, top + _$el - 1, this._$hj);
+    WidgetDockElementController._$1q(left + _$el - 1, top, left + _$el - 1, top + _$el - 1, this._$hj);
     this._$hj.fillStyle = 'ButtonFace';
     if (WidgetDockController._browserType == EnumBrowserType.Opera) {
         this._$hj.fillStyle = 'white';
     }
-    this._$hj.fillRect(_$cS + 1, _$do + 1, _$el - 3, _$el - 3);
+    this._$hj.fillRect(left + 1, top + 1, _$el - 3, _$el - 3);
     this._$hj._$s1 = 'buttonShadow';
-    WidgetDockElementController._$1q(_$cS + 3, _$do + 3, _$cS + _$el - 4, _$do + _$el - 4, this._$hj);
-    WidgetDockElementController._$1q(_$cS + 3, _$do + _$el - 4, _$cS + _$el - 4, _$do + 3, this._$hj);
+    WidgetDockElementController._$1q(left + 3, top + 3, left + _$el - 4, top + _$el - 4, this._$hj);
+    WidgetDockElementController._$1q(left + 3, top + _$el - 4, left + _$el - 4, top + 3, this._$hj);
 };
 
 function _$4d() {

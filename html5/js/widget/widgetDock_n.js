@@ -44,7 +44,7 @@ _$N.onMouseMove = function (e) {
     }
 };
 _$N._floatPanelController = new WidgetDockFloatPanelController();
-_$N.prototype._$r8 = function (_$cS, _$do, width, height) {
+_$N.prototype._$r8 = function (left, top, width, height) {
 };
 _$N.prototype.setSize = function (width, height) {
     if (this._panelStateElement == null) return;
@@ -185,8 +185,8 @@ _$N.prototype._$s9 = function () {
     return 0;
 };
 _$N.prototype._$4i = function (pt) {
-    var iw = WidgetDockPatternBase._$2A(this._$lx);
-    var ih = WidgetDockPatternBase._$2z(this._$lx);
+    var iw = WidgetDockPatternBase.getWidth(this._$lx);
+    var ih = WidgetDockPatternBase.getHeight(this._$lx);
     if (this._$j1 == EnumPatternPositionType.Left || this._$j1 == EnumPatternPositionType.Right) {
         this._$lx.left = pt.x;
         if (this._$jR > pt.x) {
@@ -322,7 +322,7 @@ _$N.prototype._$sb = function () {
             if (rc2.top == rc2.bottom) {
                 this._$kE._$br = 999.0;
             } else {
-                this._$kE._$br = 1.0 * (WidgetDockPatternBase._$2z(rc1)) / (WidgetDockPatternBase._$2z(rc2));
+                this._$kE._$br = 1.0 * (WidgetDockPatternBase.getHeight(rc1)) / (WidgetDockPatternBase.getHeight(rc2));
             }
         } else {
             rc1.right += _$dt;
@@ -332,7 +332,7 @@ _$N.prototype._$sb = function () {
             if (rc2.left == rc2.right) {
                 this._$kE._$br = 999.0;
             } else {
-                this._$kE._$br = 1.0 * (WidgetDockPatternBase._$2A(rc1)) / (WidgetDockPatternBase._$2A(rc2));
+                this._$kE._$br = 1.0 * (WidgetDockPatternBase.getWidth(rc1)) / (WidgetDockPatternBase.getWidth(rc2));
             }
         }
     }
@@ -346,8 +346,8 @@ _$N.prototype._$4q = function (_$cY) {
     } else {
         rcPanel = this._$ly;
     }
-    _$gK = WidgetDockPatternBase._$2A(rcPanel);
-    _$el = WidgetDockPatternBase._$2z(rcPanel);
+    _$gK = WidgetDockPatternBase.getWidth(rcPanel);
+    _$el = WidgetDockPatternBase.getHeight(rcPanel);
     ix = rcPanel.left;
     iy = rcPanel.top;
     if (this._$j1 == EnumPatternPositionType.Left || this._$j1 == EnumPatternPositionType.Right) {

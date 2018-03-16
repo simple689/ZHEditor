@@ -636,19 +636,19 @@ _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
             if (((_$9z + 1) % 2) == 0) {
                 _$oQ[0] = this._$of;
                 if (parseInt(_$9z / 2) == EnumPatternPositionType.Bottom || parseInt(_$9z / 2) == EnumPatternPositionType.Top) {
-                    _$nz.cx = WidgetDockPatternBase._$2A(_$q7);
+                    _$nz.cx = WidgetDockPatternBase.getWidth(_$q7);
                     if ((_$nz.cy >= (_$q7.bottom - _$q7.top))) {
                         if (_$qg.left != _$q7.left || _$qg.right != _$q7.right) {
                             _$nz.cy = (_$q7.bottom - _$q7.top) / 2;
-                            if (WidgetDockPatternBase._$2z(_$q7) < _$dk) _$9z = 0xff;
+                            if (WidgetDockPatternBase.getHeight(_$q7) < _$dk) _$9z = 0xff;
                         }
                     }
                 } else {
-                    _$nz.cy = WidgetDockPatternBase._$2z(_$q7);
+                    _$nz.cy = WidgetDockPatternBase.getHeight(_$q7);
                     if ((_$nz.cx >= (_$q7.right - _$q7.left))) {
                         if (_$qg.top != _$q7.top || _$qg.bottom != _$q7.bottom) {
                             _$nz.cx = (_$q7.right - _$q7.left) / 2;
-                            if (WidgetDockPatternBase._$2A(_$q7) < _$dk) _$9z = 0xff;
+                            if (WidgetDockPatternBase.getWidth(_$q7) < _$dk) _$9z = 0xff;
                         }
                     }
                 }

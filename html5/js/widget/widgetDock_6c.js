@@ -20,8 +20,8 @@ _$6C.prototype._$ri = function (_$7S, _$7K) {
     }
     this.refresh();
 };
-_$6C.prototype._$r8 = function (_$cS, _$do, width, height) {
-    WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
+_$6C.prototype._$r8 = function (left, top, width, height) {
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, left, top);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this.refresh();
 };

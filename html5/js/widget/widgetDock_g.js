@@ -48,8 +48,8 @@ _$G.onMouseMove = function (e) {
         e.srcElement._$4u.mouseMove(e);
     }
 };
-_$G.prototype.resize = function (_$cS, _$do, width, height) {
-    WidgetDockElementController.setElementLeftTop(this._panelStateElement, _$cS, _$do);
+_$G.prototype.resize = function (left, top, width, height) {
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, left, top);
     WidgetDockElementController.setElementSize(this._panelStateElement, width, height);
     this._$5z();
     this.refresh();
@@ -60,14 +60,14 @@ _$G.prototype._$2P = function (rc) {
     rc.right = rc.left + WidgetDockElementController.getElementWidth(this._panelStateElement);
     rc.bottom = rc.top + WidgetDockElementController.getElementHeight(this._panelStateElement);
 };
-_$G.prototype._$5Q = function (_$al, _$cS, _$do, width, height) {
+_$G.prototype._$5Q = function (_$al, left, top, width, height) {
     if (this._$i6 != null) {
         var _$e0 = this._$i6.length;
         var i;
         for (i = 0; i < _$e0; i++) {
             var pb = this._$i6[i].floatPanel;
             if (pb != null && pb != _$al) {
-                pb._$6p(_$cS, _$do, width, height);
+                pb._$6p(left, top, width, height);
             }
         }
     }
@@ -238,9 +238,8 @@ _$G.prototype._$5z = function () {
     var _$fv = 0;
     var tab = null;
     var size = new WidgetDockSize();
-    var i;
     var _$dI = new Array(_$gi);
-    for (i = 0; i < _$gi; i++) {
+    for (var i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
         ft = this._$bT(tab._floatPanel);
         tab._$cv = _$fv;
@@ -251,14 +250,13 @@ _$G.prototype._$5z = function () {
         _$fv = tab._$cE;
     }
     if (_$fv > d.width) {
-        for (i = 0; i < _$gi; i++) {
+        for (var i = 0; i < _$gi; i++) {
             tab = this._$i6[i];
             tab._$cv = tab._$cv * d.width / _$fv;
             tab._$cE = tab._$cE * d.width / _$fv;
         }
     }
-    var j;
-    for (i = 0; i < _$gi; i++) {
+    for (var i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
         ft = this._$bT(tab._floatPanel);
         var _$fE = tab._$cE - tab._$cv;
@@ -358,8 +356,7 @@ _$G.prototype._$0i = function (e) {
     WidgetDockElementController.getMousePoint(e, pt);
     pt.x = pt.x - WidgetDockElementController.getElementLeft(this._panelStateElement);
     var _$e1 = this._$i6.length;
-    var i;
-    for (i = 0; i < _$e1; i++) {
+    for (var i = 0; i < _$e1; i++) {
         var tab = this._$i6[i];
         if (pt.x >= tab._$cv && pt.x <= tab._$cE) {
             return i;

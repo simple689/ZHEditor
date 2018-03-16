@@ -230,7 +230,7 @@ widgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
                 var _$gc;
                 _$pu._$22(_$qs);
                 if (_$oV._$9y == EnumPatternPositionType.Top || _$oV._$9y == EnumPatternPositionType.Bottom) {
-                    _$gc = WidgetDockPatternBase._$2z(rcPanel) + widgetDockPanel._$kt;
+                    _$gc = WidgetDockPatternBase.getHeight(rcPanel) + widgetDockPanel._$kt;
                     if (pme._$9j == EnumPatternPositionType.Bottom) {
                         _$qs.bottom += _$gc;
                     } else {
@@ -238,7 +238,7 @@ widgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
                     }
                     mainPattern._$6v(pme._$oV, _$qs, WidgetDockPatternBase._$6N);
                 } else {
-                    _$gc = WidgetDockPatternBase._$2A(rcPanel) + widgetDockPanel._$kt;
+                    _$gc = WidgetDockPatternBase.getWidth(rcPanel) + widgetDockPanel._$kt;
                     if (pme._$9j == EnumPatternPositionType.Right) {
                         _$qs.right += _$gc;
                     } else {
@@ -760,8 +760,8 @@ _$6R.prototype._$4j = function (mainPattern, _$cY, patternPositionType) {
         var _$ql = new WidgetDockRect();
         _$ql.left = plt.x;
         _$ql.top = plt.y;
-        _$ql.right = plt.x + WidgetDockPatternBase._$2A(rcPanel);
-        _$ql.bottom = plt.y + WidgetDockPatternBase._$2z(rcPanel);
+        _$ql.right = plt.x + WidgetDockPatternBase.getWidth(rcPanel);
+        _$ql.bottom = plt.y + WidgetDockPatternBase.getHeight(rcPanel);
         this._$6q(_$ql);
     }
 };
