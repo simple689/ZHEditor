@@ -803,7 +803,7 @@ WidgetDockPatternBase.prototype.refreshFixedPanel = function () {
         WidgetDockElementController.setElementLeftTopSize(this._elementWithCenter, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
     }
 };
-WidgetDockPatternBase.prototype._$5F = function () {
+WidgetDockPatternBase.prototype.reset = function () {
     for (var i = 0; i < 4; i++) {
         this._patternPositionList[i]._patternSub.reset();
     }
