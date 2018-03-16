@@ -1,15 +1,15 @@
 function WidgetDockPanelStateController() {
     this._floatPanel = null;
-    this._$i9 = true;
     this._isMouseDown = false;
     this._title = "";
-    this._$hf = null;
     this._buttonCloseRect = new WidgetDockRect();
     this._buttonPinRect = new WidgetDockRect();
     this._styleFont = "12px sans-serif";
     this._titleElement = null;
     this._buttonPinElement = null;
     this._buttonCloseElement = null;
+    this._$i9 = true;
+    this._$hf = null;
     this._$hj = null;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
     this._panelStateElement._panelStateController = this;

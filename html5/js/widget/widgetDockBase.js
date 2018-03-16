@@ -62,9 +62,12 @@ var EnumPatternPositionType = {
     Bottom: 3,
     Center: 4
 };
-
 var EnumPinType = {
     None: 0,
     Show: 1,
-    Hide: 2,
+    Hide: 2
+};
+var EnumWindowType = {
+    Main: 0,
+    Normal: 1
 };

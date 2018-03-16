@@ -20,24 +20,6 @@ _$K.prototype._$bE = function () {
     }
     return _$9U;
 };
-_$K.prototype._$2v = function (rc) {
-    if (rc != null) {
-        if (this._location != null) {
-            rc.x = this._location.x;
-            rc.y = this._location.y;
-        } else {
-            rc.x = 100;
-            rc.y = 100;
-        }
-        if (this._size != null) {
-            rc.width = this._size.width;
-            rc.height = this._size.height;
-        } else {
-            rc.width = 200;
-            rc.height = 300;
-        }
-    }
-};
 _$K.prototype.setLocationSize = function (left, top, right, bottom) {
     if (this._location == null) {
         this._location = new WidgetDockLocation();
@@ -52,8 +34,7 @@ _$K.prototype.setLocationSize = function (left, top, right, bottom) {
 };
 _$K.prototype._$qF = function (_$a0) {
     if (_$a0 == null) return;
-    var i;
-    for (i = 0; i < 4; i++) {
+    for (var i = 0; i < 4; i++) {
         if (this._elementWithType[i] == _$a0) {
             this._elementWithType[i] = null;
             this._$5z();
@@ -156,7 +137,6 @@ _$K.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
         return _$mX._$j1;
     }
     var _$9z;
-    var _$8E = true;
     var _$o4 = null;
     var _$pP = new Array(1);
     var _$d1 = new Array(1);

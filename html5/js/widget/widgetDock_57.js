@@ -1,5 +1,5 @@
 function _$57() {
-    this._$qY = null;
+    this.title = null;
     this._$aP = 0;
     this.floatPanel = null;
     this._$pA = null;

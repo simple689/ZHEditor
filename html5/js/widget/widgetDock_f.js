@@ -17,9 +17,9 @@ function _$F() {
     this._$pl = false;
     this._$o5 = null;
 };
-_$F.prototype._$e = function (_$qY, _$aP, _$pz, _$cJ, _$cK) {
+_$F.prototype._$e = function (title, _$aP, _$pz, _$cJ, _$cK) {
     var _$ol = new _$57();
-    _$ol._$qY = _$qY;
+    _$ol.title = title;
     _$ol._$aP = _$aP;
     _$ol._$pA = _$pz;
     _$ol._$rM = _$cJ;
@@ -357,7 +357,7 @@ _$F.prototype._$56 = function (_$sg) {
     var _$gi = this._$l1.length;
     var _$sm;
     for (var i = 0; i < _$gi; i++) {
-        _$sm = this._$l1[i]._$qY;
+        _$sm = this._$l1[i].title;
         if (_$sm != null && (_$sm == _$sg)) {
             this._$l1.splice(i, 1);
             break;

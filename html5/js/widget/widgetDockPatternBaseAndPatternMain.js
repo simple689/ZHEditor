@@ -81,7 +81,7 @@ WidgetDockPatternBase.prototype._$4a = function (_$mS, floatPanel) {
             var _$ol = _$mS._$l1.get(i);
             if (_$ol.floatPanel != null && _$ol.floatPanel == floatPanel) {
                 _$ol.floatPanel = null;
-                _$ol._$qY = floatPanel.getTitle();
+                _$ol.title = floatPanel.getTitle();
                 _$ol._$pA = floatPanel._$lt;
                 _$ol._$rM = floatPanel._$lK.cx;
                 _$ol._$rN = floatPanel._$lK.cy;
@@ -1288,7 +1288,6 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
         return _$mX._$j1;
     }
     var _$9z;
-    var _$8E = true;
     var _$o4 = null;
     var _$pP = new Array(1);
     var _$gw = 0xff;
@@ -1303,7 +1302,7 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
                 _$9j = _$9z;
                 if (_$d1[0] >= 0) _$mX._$ka = _$d1[0];
                 break;
-            } else if (_$8E) {
+            } else {
                 _$9j = _$9z;
                 _$o4 = _$pP[0];
                 _$gw = i;
@@ -1516,7 +1515,7 @@ WidgetDockPatternBase._$5r = function (_$cr, _$qf) {
     _$qf.top += _$pL.y;
     _$qf.bottom += _$pL.y;
 };
-WidgetDockPatternBase.prototype._$1P = function (floatPanel, _$df, title, mainPattern, _$cD, _$dg, _$mS, _$nr) {
+WidgetDockPatternBase.prototype._$1P = function (floatPanel, title, mainPattern, _$cD, _$dg, _$mS, _$nr) {
     _$mS[0] = _$mS[1] = null;
     var _$eQ = new Array(1);
     for (var i = 0; i < 4; i++) {
@@ -1525,14 +1524,7 @@ WidgetDockPatternBase.prototype._$1P = function (floatPanel, _$df, title, mainPa
         for (var j = 0; j < panelNum; j++) {
             panel = this._patternPositionList[i]._patternSub._panelList[j];
             var _$pO = this._$1J(floatPanel, title, panel._$kI, _$eQ, _$nr);
-            if (_$pO != null && panel._$k9 == _$df) {
-                if (_$df != 0) {
-                    _$cD[0] = i;
-                    _$dg[0] = j;
-                    _$mS[0] = _$pO;
-                    mainPattern[0] = this;
-                    return _$eQ[0];
-                }
+            if (_$pO != null && panel._$k9 == 0) {
                 if ((_$eQ[0] & WidgetDockFloatPanel._$1A) > 0) {
                     _$cD[0] = i;
                     _$dg[0] = j;
@@ -1549,14 +1541,11 @@ WidgetDockPatternBase.prototype._$1P = function (floatPanel, _$df, title, mainPa
             }
         }
     }
-    if (_$df != 0) {
-        return _$eQ[0] & WidgetDockFloatPanel._$1D;
-    }
     this._$1O(floatPanel, title, _$mS, _$cD, _$dg, mainPattern, _$eQ);
     return _$eQ[0] & WidgetDockFloatPanel._$1D;
 };
-WidgetDockPatternBase.prototype._$1O = function (floatPanel, _$qY, _$nO, _$dA, _$dC, _$nP, _$cX) {
-    floatPanel._windowMain._$1O(floatPanel, _$qY, _$nO, _$dA, _$dC, _$nP, _$cX);
+WidgetDockPatternBase.prototype._$1O = function (floatPanel, title, _$nO, _$dA, _$dC, _$nP, _$cX) {
+    floatPanel._windowMain._$1O(floatPanel, title, _$nO, _$dA, _$dC, _$nP, _$cX);
 };
 WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, _$nr) {
     if (_$mS == null) return null;
@@ -1568,13 +1557,13 @@ WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, 
         var _$e1 = _$mS._$l1.length;
         var i;
         for (i = 0; i < _$e1; i++) {
-            var _$rZ = _$mS._$l1[i]._$qY;
+            var _$rZ = _$mS._$l1[i].title;
             if (_$rZ != null && (title == _$rZ)) {
                 var _$ol = _$mS._$l1[i];
                 _$cX[0] = _$ol._$aP;
                 if (_$nr != null) _$nr[0] = _$ol;
                 _$ol.floatPanel = floatPanel;
-                _$ol._$qY = null;
+                _$ol.title = null;
                 return _$mS;
             }
         }
@@ -1889,7 +1878,7 @@ WidgetDockPatternBase.prototype._$1N = function (title, _$mS) {
         var _$e1 = _$mS._$l1.length;
         var i;
         for (i = 0; i < _$e1; i++) {
-            var _$so = _$mS._$l1[i]._$qY;
+            var _$so = _$mS._$l1[i].title;
             if (_$so != null && _$so.lastIndexOf(title) == 0) {
                 return _$mS;
             }

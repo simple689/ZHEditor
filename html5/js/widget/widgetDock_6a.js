@@ -173,8 +173,6 @@ _$6A.prototype._$sC = function (_$pL, rt) {
         this._$l5.resize(rt.x, rt.y, rt.width, rt.height);
     }
     if (this._$ld != null && this._$ld._$hJ != null && !this._$ld._$hJ._$it) {
-        if (this._$j6 == null) {
-        }
         if (this._$j6 != null) {
             this._$j6._$lK.cx = rt.width;
             this._$j6._$lK.cy = rt.height;

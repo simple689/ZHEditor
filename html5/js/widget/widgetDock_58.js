@@ -352,8 +352,8 @@ widgetDockPanel.prototype._$0e = function (_$mS) {
             for (var i = 0; i < _$e1; i++) {
                 var p = _$mS._$l1[i];
                 var sz;
-                if (p._$qY != null) {
-                    sz = p._$qY;
+                if (p.title != null) {
+                    sz = p.title;
                 } else {
                     sz = p.floatPanel._title;
                 }
@@ -427,8 +427,8 @@ widgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
     for (var i = 0; i < _$7D.length; i++) {
         var sTitle;
         var _$aS = 0xFFF00000;
-        if (_$7D[i]._$qY != null) {
-            sTitle = _$7D[i]._$qY;
+        if (_$7D[i].title != null) {
+            sTitle = _$7D[i].title;
             _$aS = _$7D[i]._$aP;
         } else {
             if (_$7D[i].floatPanel != null) {
@@ -539,7 +539,7 @@ function _$6R() {
 WidgetDockPrototype.bind(_$6R, widgetDockPanel);
 _$6R.prototype._$nJ = function (g) {
     widgetDockPanel.prototype._$nJ.call(this, g);
-    var rc = _$bC();
+    var rc = getFrame();
     _$4S(g);
 };
 _$6R.prototype.getRect = function (rc) {
@@ -940,7 +940,7 @@ _$6R.prototype._$2H = function (d) {
     var _$e1 = _$8j.getPanelNum();
     if (_$e1 > 0) {
         var _$ol = _$8j._panelList[_$e1 - 1];
-        var rc = _$ol._$nQ._$bC();
+        var rc = _$ol._$nQ.getFrame();
         if (this._$le._$j1 == EnumPatternPositionType.Top || this._$le._$j1 == EnumPatternPositionType.Bottom) {
             d.height = rc.x + rc.width;
         } else {
@@ -2065,7 +2065,6 @@ _$58.prototype._$5b = function (floatPanel) {
     var ih = floatPanel._$bU();
     iw += 6;
     ih += 6;
-    var _$qi = new WidgetDockRect();
     var _$ft = this._$ju;
     if (_$ft == EnumPatternPositionType.Left) {
         rc.left = rc.right;
