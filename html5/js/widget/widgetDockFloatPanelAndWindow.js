@@ -2335,13 +2335,13 @@ WidgetDockWindow.prototype._$6s = function (sch) {
     this._patternMain._$0c(sch);
 };
 WidgetDockWindow.prototype._$0g = function () {
-    var _$nR = WidgetDockFloatPanel._floatPanelController;
-    if (_$nR == null) return;
-    var _$e1 = _$nR.getPanelNum();
+    var floatPanelController = WidgetDockFloatPanel._floatPanelController;
+    if (floatPanelController == null) return;
+    var _$e1 = floatPanelController.getPanelNum();
     var i;
     for (i = _$e1 - 1; i >= 0; i--) {
-        if (_$nR._panelList[i] != this) {
-            _$nR._panelList[i]._$0g();
+        if (floatPanelController._panelList[i] != this) {
+            floatPanelController._panelList[i]._$0g();
         }
     }
     this._patternMain._$5F();
