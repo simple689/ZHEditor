@@ -329,7 +329,9 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
     var i;
     for (i = 0; i < _$e1; i++) {
         var pmi;
-        if (this._windowType == EnumWindowType.Normal) pmi = _$oh[i];
+        if (this._windowType == EnumWindowType.Normal) {
+            pmi = _$oh[i];
+        }
         if (pmi._$bG() == null) continue;
         pmi.getWindowRect(_$qj);
         _$8R = false;
@@ -464,7 +466,9 @@ WidgetDockFloatPanel.prototype._$rB = function (sch) {
             }
         }
         var _$8L = false;
-        if (this._$kB != this._patternMain) _$8L = true;
+        if (this._$kB != this._patternMain) {
+            _$8L = true;
+        }
         this._$kB._$5H(this, null);
         this._$ir = _$8L;
         this.setElementVisible(false);
@@ -2363,6 +2367,7 @@ WidgetDockWindow.prototype._$3C = function () {
     }
     this._patternMain._$jv = 0;
 };
+
 function windowResize() {
     WidgetDockController._windowMain.resizeWindow();
 };

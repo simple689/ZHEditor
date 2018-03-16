@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelController.js" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_58.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_58.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_j.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_j.js" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_n.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_n.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,15 +19,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DockManager">
-    <window id="1">
+    <window id="2">
       <content type="file-editors">
         <state>
           <leaf>
             <file leaf-file-name="widgetDockBase.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/js/widget/widgetDockBase.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="689">
-                    <caret line="69" column="18" lean-forward="false" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="18" />
+                  <state relative-caret-position="0">
+                    <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="12" />
                     <folding />
                   </state>
                 </provider>
@@ -44,11 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10975">
-              <caret line="439" column="30" lean-forward="false" selection-start-line="439" selection-start-column="30" selection-end-line="439" selection-end-column="30" />
+            <state relative-caret-position="420">
+              <caret line="2467" column="13" lean-forward="true" selection-start-line="2467" selection-start-column="13" selection-end-line="2467" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -67,28 +66,38 @@
       <file leaf-file-name="widgetDock_58.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_58.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="2157" column="0" lean-forward="false" selection-start-line="2157" selection-start-column="0" selection-end-line="2157" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="1810" column="19" lean-forward="false" selection-start-line="1810" selection-start-column="19" selection-end-line="1810" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDockPatternBaseAndPatternMain.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetDockPatternBaseAndPatternMain.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="2191" column="0" lean-forward="false" selection-start-line="2191" selection-start-column="0" selection-end-line="2191" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="2383" column="5" lean-forward="true" selection-start-line="2383" selection-start-column="5" selection-end-line="2383" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDockController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDockController.js">
+      <file leaf-file-name="widgetDock_l.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_l.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="129" column="40" lean-forward="true" selection-start-line="129" selection-start-column="40" selection-end-line="129" selection-end-column="40" />
+            <state relative-caret-position="200">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetDockFloatPanelController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-225">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,18 +106,18 @@
       <file leaf-file-name="widgetDockPanelStateController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state relative-caret-position="213">
+              <caret line="133" column="35" lean-forward="false" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDock.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock.js">
+      <file leaf-file-name="widgetDockController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetDockController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="21" />
+            <state relative-caret-position="205">
+              <caret line="129" column="45" lean-forward="false" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -118,27 +127,17 @@
         <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="305">
-              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDock_j.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_j.js">
+      <file leaf-file-name="widgetDock_n.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_n.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetDock_6a.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_6a.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="13" />
+            <state relative-caret-position="200">
+              <caret line="416" column="18" lean-forward="false" selection-start-line="416" selection-start-column="14" selection-end-line="416" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -157,39 +156,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_$jw</find>
-      <find>_$rS</find>
-      <find>getRect</find>
-      <find>_$bC</find>
-      <find>getLocationAndSize</find>
-      <find>_$qY</find>
-      <find>_isInitLayout</find>
-      <find>_$1P</find>
-      <find>Add</find>
-      <find>_$R</find>
-      <find>_$8E</find>
-      <find>_$kK</find>
-      <find>_$2v</find>
-      <find>this._$kL</find>
-      <find>_$kL</find>
-      <find>//</find>
-      <find>_$4a</find>
-      <find>WidgetDockPatternBase</find>
-      <find>_$3z</find>
-      <find>_$43</find>
       <find>dw</find>
       <find>_$rA</find>
       <find>_$34</find>
       <find>WidgetDockPatternMain</find>
       <find>_$7R</find>
       <find>_$ii</find>
-      <find>getFrame</find>
       <find>_isMain</find>
       <find>_$qp</find>
       <find>_$5A</find>
+      <find>_$d</find>
+      <find>_$4M</find>
+      <find>_$7n</find>
+      <find>_$rw</find>
+      <find>_$66</find>
+      <find>_$63</find>
+      <find>initPanelInfoLayout</find>
+      <find>_$5z</find>
+      <find>_$ok</find>
+      <find>_$6F</find>
+      <find>_$5d</find>
+      <find>_$4L</find>
+      <find>_$na</find>
+      <find>getFrame</find>
+      <find>_$g6</find>
+      <find>_$oS</find>
+      <find>_$r8</find>
+      <find>_$3B</find>
+      <find>_$M</find>
+      <find>getOffsetSize</find>
+      <find>_$5E</find>
     </findStrings>
     <replaceStrings>
-      <replace>EnumPin</replace>
       <replace>EnumPinType.Show</replace>
       <replace>EnumPinType.None</replace>
       <replace>_pinType</replace>
@@ -219,6 +217,7 @@
       <replace>title</replace>
       <replace>isMain</replace>
       <replace>_isMain</replace>
+      <replace>layoutController</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -227,7 +226,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDrop.js" />
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelFileEditor.html" />
@@ -257,7 +255,6 @@
         <option value="$PROJECT_DIR$/js/widget/widgetDock_6c.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock_PatternMain.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock_4d.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetDock_n.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDockController.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDockElementController.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock_f.js" />
@@ -275,8 +272,10 @@
         <option value="$PROJECT_DIR$/js/business/editor/dock/dock.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDockBase.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock_j.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock_58.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetDockFloatPanelController.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetDock_n.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js" />
       </list>
     </option>
@@ -288,8 +287,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="y" value="234" />
+    <option name="x" value="2406" />
+    <option name="y" value="255" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -495,12 +494,12 @@
       <workItem from="1521118146161" duration="263000" />
       <workItem from="1521118435042" duration="966000" />
       <workItem from="1521165892165" duration="15123000" />
-      <workItem from="1521187993254" duration="10884000" />
+      <workItem from="1521187993254" duration="12631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283936000" />
+    <option name="totallyTimeSpent" value="285683000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -512,57 +511,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="19" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2125" sideWeight="0.4879227" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="检验" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4204793" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27342048" sideWeight="0.76770836" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.059912853" sideWeight="0.65260416" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24285714" sideWeight="0.4879227" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="检验" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4204793" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28265765" sideWeight="0.76770836" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.059912853" sideWeight="0.65260416" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49411765" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.083775185" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.083775185" sideWeight="0.49583334" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20595238" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4335512" sideWeight="0.34739584" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4335512" sideWeight="0.34739584" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16557734" sideWeight="0.49322918" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16557734" sideWeight="0.49322918" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.059912853" sideWeight="0.76770836" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.059912853" sideWeight="0.65260416" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16557734" sideWeight="0.49322918" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.083775185" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2125" sideWeight="0.4879227" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49411765" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20595238" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4335512" sideWeight="0.34739584" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -622,111 +597,105 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2307</line>
+          <line>2311</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="401" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2309</line>
+          <line>2313</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="402" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2388</line>
+          <line>2393</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="404" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2473</line>
+          <line>2478</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="405" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1786</line>
+          <line>1790</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="408" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1789</line>
+          <line>1793</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="409" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1795</line>
+          <line>1799</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="410" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1798</line>
+          <line>1802</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="411" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1804</line>
+          <line>1808</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="412" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1806</line>
+          <line>1810</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="413" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1809</line>
+          <line>1813</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="414" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>1811</line>
+          <line>1815</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="415" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2369</line>
+          <line>2374</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="419" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2382</line>
+          <line>2387</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="420" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2392</line>
+          <line>2397</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="421" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2489</line>
+          <line>2494</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="422" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js</url>
-          <line>2450</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="427" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/business/editor/dock/dock.js</url>
-          <line>33</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="428" />
+          <line>2459</line>
+          <properties />
+          <option name="timeStamp" value="435" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -737,7 +706,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="435" />
+      <option name="time" value="436" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -794,14 +763,6 @@
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock2 - 59.js" />
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock2 - 7g.js" />
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock2 - 58.js" />
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_l.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../doc/dsxDockFloatPro.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-950">
@@ -842,13 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-707">
-          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -926,26 +880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_n.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="28" column="76" lean-forward="true" selection-start-line="28" selection-start-column="76" selection-end-line="28" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_59.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -966,26 +904,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_6a.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="69" column="18" lean-forward="false" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1006,10 +928,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_59.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_58.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="1810" column="19" lean-forward="false" selection-start-line="1810" selection-start-column="19" selection-end-line="1810" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="133" column="35" lean-forward="false" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
-          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1024,32 +970,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="129" column="40" lean-forward="true" selection-start-line="129" selection-start-column="40" selection-end-line="129" selection-end-column="40" />
+        <state relative-caret-position="205">
+          <caret line="129" column="45" lean-forward="false" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10975">
-          <caret line="439" column="30" lean-forward="false" selection-start-line="439" selection-start-column="30" selection-end-line="439" selection-end-column="30" />
+        <state relative-caret-position="-225">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_58.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_n.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="2157" column="0" lean-forward="false" selection-start-line="2157" selection-start-column="0" selection-end-line="2157" selection-end-column="0" />
+        <state relative-caret-position="200">
+          <caret line="416" column="18" lean-forward="false" selection-start-line="416" selection-start-column="14" selection-end-line="416" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="2191" column="0" lean-forward="false" selection-start-line="2191" selection-start-column="0" selection-end-line="2191" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="2383" column="5" lean-forward="true" selection-start-line="2383" selection-start-column="5" selection-end-line="2383" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock_l.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="2467" column="13" lean-forward="true" selection-start-line="2467" selection-start-column="13" selection-end-line="2467" selection-end-column="13" />
           <folding />
         </state>
       </provider>
