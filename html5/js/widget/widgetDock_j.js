@@ -96,7 +96,7 @@ _$K.prototype._$01 = function () {
         var panel = this._patternPositionList[0]._patternSub._panelList[0];
         if (!panel._$iX) {
             _$lq = _$he._$bZ();
-            _$ln = _$he._$c8();
+            _$ln = _$he.getSize();
             _$10();
         }
     } else {

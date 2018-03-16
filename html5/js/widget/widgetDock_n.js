@@ -109,7 +109,7 @@ _$N.prototype._$bZ = function () {
     pt.y = WidgetDockElementController.getElementTop(this._panelStateElement);
     return pt;
 };
-_$N.prototype._$c8 = function () {
+_$N.prototype.getSize = function () {
     var d = new WidgetDockSize();
     d.width = WidgetDockElementController.getElementWidth(this._panelStateElement);
     d.height = WidgetDockElementController.getElementHeight(this._panelStateElement);
@@ -119,7 +119,7 @@ _$N.prototype._$s9 = function () {
     if (this._$iG) return;
     this._$iG = true;
     var _$pL = this._$bZ();
-    var dd = this._$c8();
+    var dd = this.getSize();
     this._$lx.left = _$pL.x;
     this._$lx.top = _$pL.y;
     this._$lx.right = dd.width + _$pL.x;

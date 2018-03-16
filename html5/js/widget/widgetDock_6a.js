@@ -2,8 +2,8 @@ function _$6A(elementId) {
     this._$hJ = null;
     this._$jU = 0;
     this._isMouseDown = false;
-    this._$mJ = new WidgetDockLocation();
-    this._$mK = new WidgetDockFrame();
+    this._location = new WidgetDockLocation();
+    this._frame = new WidgetDockFrame();
     this._$j6 = null;
     this._$kQ = null;
     this._$hL;
@@ -90,14 +90,14 @@ _$6A.prototype.mouseDown = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
     if (this._$jU >= 0) {
-        this._$mJ.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
-        this._$mJ.y = WidgetDockElementController.getElementTop(this._panelStateElement);
-        this._$mK.x = this._$mJ.x;
-        this._$mK.y = this._$mJ.y;
-        this._$mK.width = parseInt(this._panelStateElement.style.width);
-        this._$mK.height = parseInt(this._panelStateElement.style.height);
-        this._$mJ.x = pt.x;
-        this._$mJ.y = pt.y;
+        this._location.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
+        this._location.y = WidgetDockElementController.getElementTop(this._panelStateElement);
+        this._frame.x = this._location.x;
+        this._frame.y = this._location.y;
+        this._frame.width = parseInt(this._panelStateElement.style.width);
+        this._frame.height = parseInt(this._panelStateElement.style.height);
+        this._location.x = pt.x;
+        this._location.y = pt.y;
     }
 };
 _$6A.prototype._$ms = function (e) {
@@ -106,26 +106,26 @@ _$6A.prototype._$ms = function (e) {
     var _$pL = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, _$pL);
     var rt = new WidgetDockFrame();
-    rt.x = this._$mK.x;
-    rt.y = this._$mK.y;
-    rt.width = this._$mK.width;
-    rt.height = this._$mK.height;
-    if (this._$jU == _$6A._$1t) rt.width = rt.width + _$pL.x - this._$mJ.x; else if (this._$jU == _$6A._$7a) {
-        rt.width = rt.width + this._$mJ.x - _$pL.x;
-    } else if (this._$jU == _$6A._$60) rt.height = rt.height + _$pL.y - this._$mJ.y; else if (this._$jU == _$6A._$4D) {
-        rt.height = rt.height + this._$mJ.y - _$pL.y;
+    rt.x = this._frame.x;
+    rt.y = this._frame.y;
+    rt.width = this._frame.width;
+    rt.height = this._frame.height;
+    if (this._$jU == _$6A._$1t) rt.width = rt.width + _$pL.x - this._location.x; else if (this._$jU == _$6A._$7a) {
+        rt.width = rt.width + this._location.x - _$pL.x;
+    } else if (this._$jU == _$6A._$60) rt.height = rt.height + _$pL.y - this._location.y; else if (this._$jU == _$6A._$4D) {
+        rt.height = rt.height + this._location.y - _$pL.y;
     } else if (this._$jU == _$6A._$7c) {
-        rt.width = rt.width + this._$mJ.x - _$pL.x;
-        rt.height = rt.height + _$pL.y - this._$mJ.y;
+        rt.width = rt.width + this._location.x - _$pL.x;
+        rt.height = rt.height + _$pL.y - this._location.y;
     } else if (this._$jU == _$6A._$7b) {
-        rt.width = rt.width + this._$mJ.x - _$pL.x;
-        rt.height = rt.height + this._$mJ.y - _$pL.y;
+        rt.width = rt.width + this._location.x - _$pL.x;
+        rt.height = rt.height + this._location.y - _$pL.y;
     } else if (this._$jU == _$6A._$1v) {
-        rt.width = rt.width + _$pL.x - this._$mJ.x;
-        rt.height = rt.height + _$pL.y - this._$mJ.y;
+        rt.width = rt.width + _$pL.x - this._location.x;
+        rt.height = rt.height + _$pL.y - this._location.y;
     } else {
-        rt.width = rt.width + _$pL.x - this._$mJ.x;
-        rt.height = rt.height + this._$mJ.y - _$pL.y;
+        rt.width = rt.width + _$pL.x - this._location.x;
+        rt.height = rt.height + this._location.y - _$pL.y;
     }
     this._$sC(_$pL, rt);
     if (this._$jU >= 0) {
@@ -156,16 +156,16 @@ _$6A.prototype._$sC = function (_$pL, rt) {
         if (rt.height < 100) rt.height = 100;
     }
     if (this._$jU == _$6A._$7a) {
-        rt.x = this._$mK.x + _$pL.x - this._$mJ.x;
+        rt.x = this._frame.x + _$pL.x - this._location.x;
     } else if (this._$jU == _$6A._$4D) {
-        rt.y = this._$mK.y + _$pL.y - this._$mJ.y;
+        rt.y = this._frame.y + _$pL.y - this._location.y;
     } else if (this._$jU == _$6A._$7c) {
-        rt.x = this._$mK.x + _$pL.x - this._$mJ.x;
+        rt.x = this._frame.x + _$pL.x - this._location.x;
     } else if (this._$jU == _$6A._$7b) {
-        rt.x = this._$mK.x + _$pL.x - this._$mJ.x;
-        rt.y = this._$mK.y + _$pL.y - this._$mJ.y;
+        rt.x = this._frame.x + _$pL.x - this._location.x;
+        rt.y = this._frame.y + _$pL.y - this._location.y;
     } else if (this._$jU == _$6A._$1u) {
-        rt.y = this._$mK.y + _$pL.y - this._$mJ.y;
+        rt.y = this._frame.y + _$pL.y - this._location.y;
     }
     if (this._$ld != null) this._$ld._$r8(rt); else if (this._$kQ != null) {
         this._$kQ._$6p(rt.x, rt.y, rt.width, rt.height);

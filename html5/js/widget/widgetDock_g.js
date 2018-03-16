@@ -218,7 +218,7 @@ _$G.prototype._$6b = function (floatPanel) {
         }
     }
 };
-_$G.prototype._$c8 = function () {
+_$G.prototype.getSize = function () {
     var _$sX = new WidgetDockSize();
     _$sX.width = WidgetDockElementController.getElementWidth(this._panelStateElement);
     _$sX.height = WidgetDockElementController.getElementHeight(this._panelStateElement);
@@ -226,7 +226,7 @@ _$G.prototype._$c8 = function () {
 };
 _$G.prototype._$5z = function () {
     if (this._$i6 == null) return;
-    var d = this._$c8();
+    var d = this.getSize();
     d.width -= 2;
     if (d.width < 0) d.width = 0;
     var ft;
@@ -373,7 +373,7 @@ _$G.prototype.refresh = function (g) {
 };
 _$G.prototype._$c6 = function () {
     if (this._floatPanel != null) {
-        var d = this._floatPanel._$c8();
+        var d = this._floatPanel.getSize();
         d.height = _$6J;
         return d;
     } else {
@@ -415,7 +415,7 @@ _$G.prototype._$bT = function (floatPanel) {
 };
 _$G.prototype._$aK = function (g, _$cs) {
     if (_$cs < 0) return;
-    var d = this._$c8();
+    var d = this.getSize();
     var _$e1 = this._$i6.length;
     if (_$e1 == 0) return;
     if (this._$kf == _$G._$51) {

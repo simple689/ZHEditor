@@ -162,7 +162,7 @@ WidgetDockPanelStateController.prototype.mouseMove = function (e) {
         location.x = location.x - left;
         location.y = location.y - top;
         if (this instanceof _$4d) {
-            if (WidgetDockPatternBase._$5f(this._buttonCloseRect, location)) {
+            if (WidgetDockPatternBase.isInRect(this._buttonCloseRect, location)) {
                 this._panelStateElement.style.cursor = "default";
             } else {
                 this._panelStateElement.style.cursor = "move";
@@ -173,7 +173,7 @@ WidgetDockPanelStateController.prototype.mouseMove = function (e) {
             return;
         }
         if (this._floatPanel._pinType == EnumPinType.Hide) return;
-        if ((this._floatPanel._pinType != EnumPinType.None && WidgetDockPatternBase._$5f(this._buttonPinRect, location)) || (WidgetDockPatternBase._$5f(this._buttonCloseRect, location))) {
+        if ((this._floatPanel._pinType != EnumPinType.None && WidgetDockPatternBase.isInRect(this._buttonPinRect, location)) || (WidgetDockPatternBase.isInRect(this._buttonCloseRect, location))) {
             this._panelStateElement.style.cursor = "default";
         } else {
             this._panelStateElement.style.cursor = "move";
@@ -186,16 +186,16 @@ WidgetDockPanelStateController.prototype._$mj = function (pt) {
     var location = new WidgetDockLocation();
     location.x = pt.x - left;
     location.y = pt.y - top;
-    if (this._floatPanel._pinType != EnumPinType.None && WidgetDockPatternBase._$5f(this._buttonPinRect, location)) {
+    if (this._floatPanel._pinType != EnumPinType.None && WidgetDockPatternBase.isInRect(this._buttonPinRect, location)) {
         this._floatPanel._$0h();
         return -1;
     }
     if ((this._floatPanel != null) && (this._floatPanel._pinType == EnumPinType.Hide)) {
-        if (!WidgetDockPatternBase._$5f(this._buttonCloseRect, location)) {
+        if (!WidgetDockPatternBase.isInRect(this._buttonCloseRect, location)) {
             return -1;
         }
     }
-    if (WidgetDockPatternBase._$5f(this._buttonCloseRect, location)) {
+    if (WidgetDockPatternBase.isInRect(this._buttonCloseRect, location)) {
         this._floatPanel._$9X();
         return -1;
     }
@@ -671,7 +671,7 @@ _$4d.prototype._$mj = function (pts) {
     var pt = new WidgetDockLocation();
     pt.x = pts.x - left;
     pt.y = pts.y - top;
-    if (WidgetDockPatternBase._$5f(this._buttonCloseRect, pt)) {
+    if (WidgetDockPatternBase.isInRect(this._buttonCloseRect, pt)) {
         var _$7E = new WidgetDockFloatPanelController();
         _$po._$2Q(_$7E);
         var _$e1 = _$7E.getPanelNum();

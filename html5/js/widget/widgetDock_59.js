@@ -58,13 +58,13 @@ _$59.prototype._$au = function () {
     this._$kx._patternMain.Add(this._$kx);
     WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$lc._panelStateElement);
 };
-_$59.prototype._$0a = function (e) {
+_$59.prototype.mouseMove = function (e) {
     if (this._$iJ) return;
     var rc = new WidgetDockRect();
     this._$lc.getRect(rc);
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
-    if (!WidgetDockPatternBase._$5f(rc, pt)) {
+    if (!WidgetDockPatternBase.isInRect(rc, pt)) {
         if (!this._$la._$3u(pt, this._$kx)) {
             var vd = new Date();
             var _$sW = (vd.getTime() - this._$hk) / 1000;
@@ -78,7 +78,7 @@ _$59.prototype._$0a = function (e) {
         this._$lc.getRect(rc);
         var pt = new WidgetDockLocation();
         WidgetDockElementController.getMousePoint(e, pt);
-        if (WidgetDockPatternBase._$5f(rc, pt)) {
+        if (WidgetDockPatternBase.isInRect(rc, pt)) {
             this._$iJ = true;
         } else {
             this._$iJ = false;

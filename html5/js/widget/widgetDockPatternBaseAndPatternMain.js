@@ -1215,11 +1215,11 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, p
     if (_$mX._$kx._$kB != this) {
         return true;
     }
-    if (WidgetDockPatternBase._$5f(_$qe, pt) && _$mX._$it) {
+    if (WidgetDockPatternBase.isInRect(_$qe, pt) && _$mX._$it) {
         var _$qh = new WidgetDockRect();
         _$mX._$kx._panelStateController._$2P(_$qh);
         var _$8n;
-        _$8n = WidgetDockPatternBase._$5f(_$qh, pt);
+        _$8n = WidgetDockPatternBase.isInRect(_$qh, pt);
         var _$8Q;
         _$8Q = _$mX._$kx._$kA._$3v(pt);
         if (_$8n || _$8Q) {
@@ -1340,7 +1340,7 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
     if ((_$mX._$kx != null) && (_$mX._$kx == _$o4)) {
         _$mX._$j1 = 0xff;
         bme = true;
-        if (!WidgetDockPatternBase._$5f(rcs, pt)) return 0xff;
+        if (!WidgetDockPatternBase.isInRect(rcs, pt)) return 0xff;
     }
     if (!bme && _$9j != 0xff && ((_$9j + 1) % 2 == 0)) {
         _$mX._$j1 = parseInt((_$9j / 2));
@@ -1430,7 +1430,7 @@ WidgetDockPatternBase.prototype._$02 = function (_$mX, patternPositionType, pt, 
 };
 WidgetDockPatternBase._$m = function (_$nv, pt) {
     var _$9j = 0xff;
-    if (WidgetDockPatternBase._$5f(_$nv, pt)) {
+    if (WidgetDockPatternBase.isInRect(_$nv, pt)) {
         if ((pt.x - _$nv.left) > 0 && (pt.x - _$nv.left) <= WidgetDockPatternBase._$A) {
             _$9j = WidgetDockPatternBase._$3d;
         } else if ((pt.y - _$nv.top) > 0 && (pt.y - _$nv.top) <= WidgetDockPatternBase._$A) {
@@ -1509,7 +1509,7 @@ WidgetDockPatternBase.getRect = function (com, rc) {
 WidgetDockPatternBase._$2P = function (com, rc) {
     var i = 0;
 };
-WidgetDockPatternBase._$5f = function (_$qe, pt) {
+WidgetDockPatternBase.isInRect = function (_$qe, pt) {
     if ((pt.x > _$qe.left) && (pt.x < _$qe.right) && (pt.y > _$qe.top) && (pt.y < _$qe.bottom)) {
         return true;
     }
@@ -2038,9 +2038,9 @@ WidgetDockPatternBase.prototype._$4T = function (_$og) {
     WidgetDockPatternBase._$l2 = _$og;
     WidgetDockPatternBase._$k1 = 0;
 };
-WidgetDockPatternBase.prototype._$0a = function (e) {
+WidgetDockPatternBase.prototype.mouseMove = function (e) {
     if (WidgetDockPatternBase._$l2 != null) {
-        WidgetDockPatternBase._$l2._$0a(e);
+        WidgetDockPatternBase._$l2.mouseMove(e);
     }
 };
 WidgetDockPatternBase.prototype._$09 = function (e) {
