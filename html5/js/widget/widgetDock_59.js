@@ -63,7 +63,7 @@ _$59.prototype._$0a = function (e) {
     var rc = new WidgetDockRect();
     this._$lc.getRect(rc);
     var pt = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, pt);
+    WidgetDockElementController.getMousePoint(e, pt);
     if (!WidgetDockPatternBase._$5f(rc, pt)) {
         if (!this._$la._$3u(pt, this._$kx)) {
             var vd = new Date();
@@ -77,7 +77,7 @@ _$59.prototype._$0a = function (e) {
         var rc = new WidgetDockRect();
         this._$lc.getRect(rc);
         var pt = new WidgetDockLocation();
-        WidgetDockElementController._$2D(e, pt);
+        WidgetDockElementController.getMousePoint(e, pt);
         if (WidgetDockPatternBase._$5f(rc, pt)) {
             this._$iJ = true;
         } else {

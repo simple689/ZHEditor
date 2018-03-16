@@ -17,7 +17,7 @@ WidgetDockElementController.createElementWithParent = function (elementType, ele
     element.width = 200;
     element.height = 200;
     element.style.visibility = "visible";
-    element.style.zIndex = WidgetDockElementController.zIndex;
+    element.style.zIndex = parseInt(WidgetDockElementController.zIndex);
     WidgetDockElementController.zIndex++;
     return element;
 };
@@ -25,7 +25,7 @@ WidgetDockElementController.setElementZIndex = function (element, zIndex) {
     element.style.zIndex = zIndex;
 };
 WidgetDockElementController.setElementZIndexWithController = function (element) {
-    element.style.zIndex = WidgetDockElementController.zIndex;
+    element.style.zIndex = parseInt(WidgetDockElementController.zIndex);
     WidgetDockElementController.zIndex++;
 };
 WidgetDockElementController.setElementVisible = function (element, isVisible) {
@@ -38,9 +38,8 @@ WidgetDockElementController.setElementVisible = function (element, isVisible) {
 };
 WidgetDockElementController.removeChildWithElementId = function (elementId, elementChild) {
     var element = document.getElementById(elementId);
-    if (element != null) {
-        element.removeChild(elementChild);
-    }
+    if (element == null) return;
+    element.removeChild(elementChild);
 };
 WidgetDockElementController.getElementLeft = function (element) {
     if (WidgetDockController._browserType == EnumBrowserType.Firefox || WidgetDockController._browserType == EnumBrowserType.Chrome) {
@@ -110,14 +109,14 @@ WidgetDockElementController.getOffsetHeightWithFontStyle = function (fontStyle) 
 };
 ;WidgetDockElementController.getOffsetSize = function (size, ft, title, element) {
     var fontStyleStr = "font: " + ft + ";";
-    if (element != null) {
+    if (element == null) {
+        size.height = WidgetDockElementController.getOffsetHeightWithFontStyle(fontStyleStr);
+        size.width = WidgetDockElementController.getOffsetWidthWithFontStyle(fontStyleStr, title);
+    } else {
         element.font = ft;
         size.height = WidgetDockElementController.getOffsetHeightWithFontStyle(fontStyleStr);
         var _$sr = element.measureText(title);
         size.width = _$sr.width;
-    } else {
-        size.height = WidgetDockElementController.getOffsetHeightWithFontStyle(fontStyleStr);
-        size.width = WidgetDockElementController.getOffsetWidthWithFontStyle(fontStyleStr, title);
     }
 };
 WidgetDockElementController._$1q = function (_$tB, _$tD, _$tA, _$tC, cxt) {
@@ -133,7 +132,6 @@ WidgetDockElementController._$1n = function (_$tB, _$tD, _$tA, _$tC, cxt) {
     var _$ta = 2;
     var _$t3 = 5;
     var vno;
-    var i;
     if (_$tB == _$tA) {
         vno = (_$tC - _$tD) / (_$ta + _$t3);
         if (vno < 0) {
@@ -142,7 +140,7 @@ WidgetDockElementController._$1n = function (_$tB, _$tD, _$tA, _$tC, cxt) {
             _$tD = _$tC;
             _$tC = _$tm;
         }
-        for (i = 0; i < vno; i++) {
+        for (var i = 0; i < vno; i++) {
             cxt.moveTo(_$tB, _$tD + i * (_$ta + _$t3));
             cxt.lineTo(_$tA, _$tD + i * (_$ta + _$t3) + _$t3);
         }
@@ -154,7 +152,7 @@ WidgetDockElementController._$1n = function (_$tB, _$tD, _$tA, _$tC, cxt) {
             _$tB = _$tA;
             _$tA = _$tm;
         }
-        for (i = 0; i < vno; i++) {
+        for (var i = 0; i < vno; i++) {
             cxt.moveTo(_$tB + i * (_$ta + _$t3), _$tD);
             cxt.lineTo(_$tB + i * (_$ta + _$t3) + _$t3, _$tC);
         }
@@ -163,36 +161,9 @@ WidgetDockElementController._$1n = function (_$tB, _$tD, _$tA, _$tC, cxt) {
     cxt.closePath();
     cxt.stroke();
 };
-WidgetDockElementController._$2D = function (e, pt) {
-    var vme = null;
-    if (e.view != null) {
-        vme = e.view.document._$m7;
-        if (vme == undefined) {
-            vme = e.view.frameElement;
-        }
-    }
-    if (e.srcElement != null && e.srcElement.document != null) {
-        vme = e.srcElement.document._$m7;
-    }
-    if (vme != undefined) {
-        var bsp = false;
-        if (WidgetDockController._browserType == EnumBrowserType.IE) {
-            var vs = e.srcElement.toString();
-            if (vs.indexOf("HTMLHtmlElement") >= 0) {
-                bsp = true;
-            }
-        }
-        if (bsp) {
-            pt.x = e.clientX - e.layerX + e.pageX;
-            pt.y = e.clientY - e.layerY + e.pageY;
-        } else {
-            pt.x = e.clientX + vme.offsetLeft + vme.clientLeft;
-            pt.y = e.clientY + vme.offsetTop + vme.clientTop;
-        }
-    } else {
-        pt.x = e.clientX;
-        pt.y = e.clientY;
-    }
+WidgetDockElementController.getMousePoint = function (e, pt) {
+    pt.x = e.clientX;
+    pt.y = e.clientY;
     pt.x = parseInt(pt.x);
     pt.y = parseInt(pt.y);
 };

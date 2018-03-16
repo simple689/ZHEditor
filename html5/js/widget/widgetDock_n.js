@@ -100,7 +100,7 @@ _$N.prototype._$rh = function (_$og) {
 _$N.prototype._$ms = function (e) {
     if (!this._$iG) return;
     var pt = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, pt);
+    WidgetDockElementController.getMousePoint(e, pt);
     this._$4i(pt);
     this.refresh();
 };

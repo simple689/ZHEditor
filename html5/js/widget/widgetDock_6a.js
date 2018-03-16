@@ -66,7 +66,7 @@ _$6A.prototype.getRect = function (rc) {
 };
 _$6A.prototype.mouseMove = function (e) {
     var pt = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, pt);
+    WidgetDockElementController.getMousePoint(e, pt);
     if (!this._$il) {
         this._$f4(pt);
     }
@@ -92,7 +92,7 @@ _$6A.prototype.mouseDown = function (e) {
     WidgetDockController._$6s(true);
     this._$il = true;
     var pt = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, pt);
+    WidgetDockElementController.getMousePoint(e, pt);
     if (this._$jU >= 0) {
         this._$mJ.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
         this._$mJ.y = WidgetDockElementController.getElementTop(this._panelStateElement);
@@ -108,7 +108,7 @@ _$6A.prototype._$ms = function (e) {
     if (!this._$il) return;
     if (this._$jU < 0) return;
     var _$pL = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, _$pL);
+    WidgetDockElementController.getMousePoint(e, _$pL);
     var rt = new WidgetDockFrame();
     rt.x = this._$mK.x;
     rt.y = this._$mK.y;

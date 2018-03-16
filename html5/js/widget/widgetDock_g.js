@@ -17,7 +17,7 @@ function _$G() {
     this._$hI._$4u = this;
     this._$hI.style.backgroundColor = 'ButtonFace';
     WidgetDockElementController.setElementSize(this._panelStateElement, 40, _$G._$6J);
-    this.styleFont = "8pt sans-serif";
+    this._styleFont = "8pt sans-serif";
     this._panelStateElement._$4u = this;
     this._panelStateElement.onmousedown = _$G.onMouseDown;
     this._panelStateElement.onmousemove = _$G.onMouseMove;
@@ -99,7 +99,7 @@ _$G.prototype.mouseUp = function (e) {
         return;
     }
     var _$pH = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, _$pH);
+    WidgetDockElementController.getMousePoint(e, _$pH);
     this._isMouseDown = false;
     this._floatPanel._$1x();
 };
@@ -336,7 +336,7 @@ _$G.prototype._$V = function (_$cN) {
         if (!(tab.floatPanel._$jm == WidgetDockFloatPanel._$q)) {
             tab.floatPanel._$hz = this;
         } else {
-            tab.floatPanel._panelStateController._$a(this);
+            tab.floatPanel._panelStateController._$a();
         }
         this._$kE._$of = tab.floatPanel;
         this._$kE._$of._$kB = tab.floatPanel._$kB;
@@ -348,19 +348,19 @@ _$G.prototype._$V = function (_$cN) {
 };
 _$G.prototype._$37 = function (e) {
     var _$pL = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, _$pL);
+    WidgetDockElementController.getMousePoint(e, _$pL);
     WidgetDockFloatPanel._$jy = WidgetDockFloatPanel._$0X;
     this._floatPanel._$lf._$iC = true;
     return this._floatPanel._$4R(_$pL);
 };
 _$G.prototype._$ms = function (e) {
     var pt = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, pt);
+    WidgetDockElementController.getMousePoint(e, pt);
     this._floatPanel._$4i(pt);
 };
 _$G.prototype._$0i = function (e) {
     var pt = new WidgetDockLocation();
-    WidgetDockElementController._$2D(e, pt);
+    WidgetDockElementController.getMousePoint(e, pt);
     pt.x = pt.x - WidgetDockElementController.getElementLeft(this._panelStateElement);
     var _$e1 = this._$i6.length;
     var i;
@@ -388,10 +388,10 @@ _$G.prototype._$c6 = function () {
         return new WidgetDockSize(100, _$G._$6J);
     }
 };
-_$G.prototype._$0d = function (floatPanel, _$pC) {
+_$G.prototype._$0d = function (floatPanel, pt) {
     var _$sw = new WidgetDockLocation();
-    _$sw.x = _$pC.x;
-    _$sw.y = _$pC.y;
+    _$sw.x = pt.x;
+    _$sw.y = pt.y;
     _$sw.x = _$sw.x - WidgetDockElementController.getElementLeft(this._panelStateElement);
     _$sw.y = _$sw.y - WidgetDockElementController.getElementTop(this._panelStateElement);
     var _$e1 = this._$i6.length;
@@ -412,7 +412,7 @@ _$G.prototype._$0d = function (floatPanel, _$pC) {
     return false;
 };
 _$G.prototype.getStyleFont = function () {
-    return this.styleFont;
+    return this._styleFont;
 };
 _$G.prototype._$bT = function (floatPanel) {
     if (floatPanel != null && floatPanel._panelStateController != null) {

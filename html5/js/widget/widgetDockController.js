@@ -1,6 +1,5 @@
 function WidgetDockController() {
 };
-
 WidgetDockController._instance = null;
 WidgetDockController._browserType = EnumBrowserType.IE;
 WidgetDockController._elementRootId = "";
@@ -10,12 +9,6 @@ WidgetDockController._dir = "";
 WidgetDockController._$kN = new Array();
 WidgetDockController._$0R = 0;
 WidgetDockController._$0T = 1;
-WidgetDockController._$0S = 2;
-WidgetDockController._$3s = 0;
-WidgetDockController._$1E = 1;
-WidgetDockController._$I = 2;
-WidgetDockController._$5V = 3;
-WidgetDockController._$4F = 4;
 
 WidgetDockController.init = function () {
     if (WidgetDockController._instance != null) {

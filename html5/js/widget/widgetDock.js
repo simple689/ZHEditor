@@ -7,7 +7,7 @@ function _$6P() {
     this._$it = false;
     this._$kx = null;
     this._$jr = 0;
-    this._$j0 = 0;
+    this._patternPositionType = 0;
     this._$kA = null;
     this._$ka = 0;
     this._$j1 = 0;

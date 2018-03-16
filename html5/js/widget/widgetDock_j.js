@@ -124,7 +124,7 @@ _$K.prototype._$01 = function () {
         _$10();
     }
 };
-_$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
+_$K.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
     if (!this._$is || !this._$it) return 0xff;
     if (!_$mX._$it) return 0xff;
     if (this._$kK != null && this._$kK._$iq) {
@@ -138,7 +138,7 @@ _$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     _$mX._$iM = false;
     _$nz.cx = _$gK;
     _$nz.cy = _$el;
-    if (!this._$1h(_$mX, _$nz, _$gK, _$el, _$qe, _$pC)) {
+    if (!this._$1h(_$mX, _$nz, _$gK, _$el, _$qe, pt)) {
         return _$mX._$j1;
     }
     this.getWindowRect(_$qf);
@@ -146,7 +146,7 @@ _$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     _$qf.right -= this._signLenAry[2];
     _$qf.top += this._signLenAry[1];
     _$qf.bottom -= this._signLenAry[3];
-    var _$9j = WidgetDockPatternBase._$m(_$qf, _$pC);
+    var _$9j = WidgetDockPatternBase._$m(_$qf, pt);
     _$mX._$ka = 0;
     _$mX._$ky = null;
     _$mX._$j1 = 0xff;
@@ -162,7 +162,7 @@ _$K.prototype._$R = function (_$mX, _$mU, _$pC, _$nz) {
     var _$o4 = null;
     var _$pP = new Array(1);
     var _$d1 = new Array(1);
-    _$9z = this._$02(_$mX, 0, _$pC, _$nz, _$gk, _$pP, _$d1);
+    _$9z = this._$02(_$mX, 0, pt, _$nz, _$gk, _$pP, _$d1);
     if (_$9z != 0xff) {
         if (((_$9z + 1) % 2) == 0) {
             _$o4 = _$pP[0];
@@ -266,10 +266,10 @@ _$K.prototype._$1g = function (_$mX, _$n1) {
     _$oD._$of = _$mX._$kx;
     _$mX._$kx._$kA = _$oD;
     _$pp._$3F(_$oD, _$mX._$j1, _$8E, _$n1);
-    _$mX._$kx._$j0 = 0;
+    _$mX._$kx._patternPositionType = 0;
 };
-_$K.prototype._$53 = function (_$n5) {
-    WidgetDockPatternBase.prototype._$53.call(this, _$n5);
+_$K.prototype._$53 = function (floatPanel) {
+    WidgetDockPatternBase.prototype._$53.call(this, floatPanel);
     var _$e1 = this._patternPositionList[0]._patternSub.getPanelNum();
     if (_$e1 > 0) {
         var panel = this._patternPositionList[0]._patternSub._panelList[0];
@@ -490,6 +490,6 @@ _$J.prototype._$01 = function () {
         }
     } else this._$10();
 };
-_$J.prototype._$53 = function (_$n5) {
-    _$K.prototype._$53.call(this, _$n5);
+_$J.prototype._$53 = function (floatPanel) {
+    _$K.prototype._$53.call(this, floatPanel);
 };
