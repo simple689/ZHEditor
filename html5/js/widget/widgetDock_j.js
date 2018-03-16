@@ -1,5 +1,5 @@
-function _$K(_$7R) {
-    _$K.baseConstructor.call(this, _$7R);
+function _$K(isMain) {
+    _$K.baseConstructor.call(this, isMain);
     this._$kK = null;
     this._$iG = false;
     this._location = null;
@@ -272,8 +272,8 @@ _$K.prototype._$53 = function (floatPanel) {
     }
 };
 
-function _$J(_$7R) {
-    _$J.baseConstructor.call(this, _$7R);
+function _$J(isMain) {
+    _$J.baseConstructor.call(this, isMain);
     this._$kS;
     this._$kF = null;
 };

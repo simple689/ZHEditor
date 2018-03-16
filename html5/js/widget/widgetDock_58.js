@@ -477,7 +477,7 @@ widgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
         }
         layout.addContent(sTitle);
         layout.addContent(_$aS);
-        if (mainPattern._$ii) {
+        if (mainPattern._isMain) {
             if (_$7D[i].floatPanel != null) {
                 layout.addContent(_$7D[i].floatPanel._$lt.x);
                 layout.addContent(_$7D[i].floatPanel._$lt.y);
@@ -2155,7 +2155,6 @@ _$58.prototype._$5M = function (floatPanel) {
     return this._$hU.getPanelNum();
 };
 _$58.prototype._$5A = function () {
-    var _$qp = new WidgetDockRect();
     var _$ga = 0;
     var _$gb = 0;
     var _$qk = new WidgetDockRect();
