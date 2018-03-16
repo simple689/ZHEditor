@@ -2407,7 +2407,7 @@ WidgetDockWindow.prototype._$3C = function () {
     this._patternMain.setSize(rect.right - rect.left, rect.bottom - rect.top);
     var i;
     for (i = 0; i < 4; i++) {
-        this._windowPattern[i] = new _$5h();
+        this._windowPattern[i] = new WidgetDockWindowPattern();
     }
     this._patternMain._$jv = 0;
 };
@@ -2550,7 +2550,6 @@ WidgetDockWindow.prototype.loadStatesFromLayoutController = function (layoutCont
     }
 };
 WidgetDockWindow.prototype.createLayout = function (layout) {
-    var _$eF, _$fB;
     layout.addContent("DFIdentifier");
     var rcWindow = new WidgetDockRect();
     this.getWindowRect(rcWindow);
@@ -2558,20 +2557,21 @@ WidgetDockWindow.prototype.createLayout = function (layout) {
     layout.addContent(rcWindow.top);
     layout.addContent(rcWindow.right);
     layout.addContent(rcWindow.bottom);
+    var patternPositionType_0, patternPositionType_1;
     for (var i = 0; i < 4; i++) {
         if (i == 0 || i == 2) {
-            _$eF = EnumPatternPositionType.Top;
-            _$fB = EnumPatternPositionType.Bottom;
+            patternPositionType_0 = EnumPatternPositionType.Top;
+            patternPositionType_1 = EnumPatternPositionType.Bottom;
         } else {
-            _$eF = EnumPatternPositionType.Left;
-            _$fB = EnumPatternPositionType.Right;
+            patternPositionType_0 = EnumPatternPositionType.Left;
+            patternPositionType_1 = EnumPatternPositionType.Right;
         }
         var panelNum = this._patternMain._patternPositionList[i]._patternSub.getPanelNum();
         var panel;
         var index = 0;
         for (var j = 0; j < panelNum; j++) {
             panel = this._patternMain._patternPositionList[i]._patternSub._panelList[j];
-            index = panel.initPanelLayout(this._patternMain, layout, index, _$eF, _$fB);
+            index = panel.initPanelLayout(this._patternMain, layout, index, patternPositionType_0, patternPositionType_1);
         }
         layout.addContent("SECTIONNONE");
     }
@@ -2589,8 +2589,8 @@ WidgetDockWindow.prototype.createLayout = function (layout) {
         // }
     }
     layout.addContent(ino);
-    _$eF = 1;
-    _$fB = 3;
+    patternPositionType_0 = 1;
+    patternPositionType_1 = 3;
     for (var i = 0; i < _$e1; i++) {
         // _panelNum = this._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
         panelNum = _$K._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
@@ -2603,7 +2603,7 @@ WidgetDockWindow.prototype.createLayout = function (layout) {
             layout.addContent(rcWindow.right);
             layout.addContent(rcWindow.bottom);
             panel = _$og._patternPositionList[0]._patternSub._panelList[0];
-            panel.initPanelLayout(_$og, layout, 0, _$eF, _$fB);
+            panel.initPanelLayout(_$og, layout, 0, patternPositionType_0, patternPositionType_1);
             layout.addContent("SECTIONNONE");
         }
     }

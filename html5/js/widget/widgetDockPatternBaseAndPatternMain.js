@@ -19,8 +19,8 @@ function WidgetDockPatternBase(_$7R) {
     this._$jv = 0;
     this._signLenAry = new Array(4);
     for (var k = 0; k < 4; k++) {
-        this._patternPositionList[k] = new _$0O();
-        this._windowPattern[k] = new _$5h();
+        this._patternPositionList[k] = new WidgetDockPatternPosition();
+        this._windowPattern[k] = new WidgetDockWindowPattern();
         this._signLenAry[k] = 0;
         this._elementWithType[k] = null;
     }

@@ -18,7 +18,7 @@ function initWidgetDock() {
 
     // panelFileEditor = dock.createFloatPanel("文件编辑");
     // panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"));
-    //
+
     panelFileBrowser = dock.createFloatPanel("文件浏览器");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
 

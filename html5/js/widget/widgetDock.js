@@ -21,11 +21,3 @@ function _$6P() {
     this._$iC = false;
     this._$ij = false;
 };
-
-function _$0O() {
-    this._patternSub = new WidgetDockFloatPanelController();
-};
-
-function _$5h() {
-    this._floatPanelController = new WidgetDockFloatPanelController();
-};
