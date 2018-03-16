@@ -2530,27 +2530,23 @@ WidgetDockWindow.prototype.createLayout = function (layout) {
         layout.addContent("SECTIONNONE");
     }
     layout.addContent("MINIFRAMES");
-    // var _$e1 = this._$kL.length;
-    var _$e1 = _$K._$kL.length;
+    var _$e1 = this._$kL.length;
     var panel;
     var ino = 0;
     var panelNum;
     for (var i = 0; i < _$e1; i++) {
-        // _panelNum = this._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
-        panelNum = _$K._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
-        // if (_panelNum == 1) {
-        ino++;
-        // }
+        _panelNum = this._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
+        if (_panelNum == 1) {
+            ino++;
+        }
     }
     layout.addContent(ino);
     patternPositionType_0 = 1;
     patternPositionType_1 = 3;
     for (var i = 0; i < _$e1; i++) {
-        // _panelNum = this._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
-        panelNum = _$K._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
+        _panelNum = this._$kL[i]._patternPositionList[0]._patternSub.getPanelNum();
         if (panelNum == 1) {
-            // var _$og = this._$kL[i];
-            var _$og = _$K._$kL[i];
+            var _$og = this._$kL[i];
             _$og.getWindowRect(rcWindow);
             layout.addContent(rcWindow.left);
             layout.addContent(rcWindow.top);
