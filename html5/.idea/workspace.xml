@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockController.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockElementController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockElementController.js" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js" afterPath="$PROJECT_DIR$/js/widget/widgetDockPatternBaseAndPatternMain.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_58.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_58.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_59.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_59.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_6a.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_6a.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_f.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_f.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_g.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_g.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_j.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_j.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock_n.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock_n.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -94,8 +82,8 @@
       <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="672" column="38" lean-forward="true" selection-start-line="672" selection-start-column="38" selection-end-line="672" selection-end-column="38" />
+            <state relative-caret-position="306">
+              <caret line="2615" column="0" lean-forward="false" selection-start-line="2615" selection-start-column="0" selection-end-line="2615" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,8 +122,8 @@
       <file leaf-file-name="widgetDockPanelStateController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="104" column="29" lean-forward="true" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
+            <state relative-caret-position="116">
+              <caret line="193" column="16" lean-forward="false" selection-start-line="193" selection-start-column="16" selection-end-line="193" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -164,7 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_$l3</find>
       <find>mouse</find>
       <find>_$9P</find>
       <find>_$9Q</find>
@@ -191,9 +178,10 @@
       <find>_$bR</find>
       <find>_$fN</find>
       <find>_$ay</find>
+      <find>_$el</find>
       <find>_$bh</find>
       <find>_$16</find>
-      <find>_$el</find>
+      <find>_$0C</find>
     </findStrings>
     <replaceStrings>
       <replace>_titleElement</replace>
@@ -500,12 +488,12 @@
       <workItem from="1521116597085" duration="10000" />
       <workItem from="1521118146161" duration="263000" />
       <workItem from="1521118435042" duration="966000" />
-      <workItem from="1521165892165" duration="5099000" />
+      <workItem from="1521165892165" duration="5623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263028000" />
+    <option name="totallyTimeSpent" value="263552000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -845,16 +833,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockPanelStateController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="104" column="29" lean-forward="true" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
+        <state relative-caret-position="116">
+          <caret line="193" column="16" lean-forward="false" selection-start-line="193" selection-start-column="16" selection-end-line="193" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockFloatPanelAndWindow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="672" column="38" lean-forward="true" selection-start-line="672" selection-start-column="38" selection-end-line="672" selection-end-column="38" />
+        <state relative-caret-position="306">
+          <caret line="2615" column="0" lean-forward="false" selection-start-line="2615" selection-start-column="0" selection-end-line="2615" selection-end-column="0" />
           <folding />
         </state>
       </provider>
