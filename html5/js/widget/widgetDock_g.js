@@ -242,24 +242,24 @@ _$G.prototype._$5z = function () {
     for (var i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
         ft = this._$bT(tab._floatPanel);
-        tab._$cv = _$fv;
+        tab._left = _$fv;
         WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
-        tab._$cE = _$fv + size.width + 2 * _$G._$2Z;
-        if (tab._floatPanel._$hE != null) tab._$cE += WidgetDockTab._$jL;
-        _$dI[i] = tab._$cE - _$fv;
-        _$fv = tab._$cE;
+        tab._right = _$fv + size.width + 2 * _$G._$2Z;
+        if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._$jL;
+        _$dI[i] = tab._right - _$fv;
+        _$fv = tab._right;
     }
     if (_$fv > d.width) {
         for (var i = 0; i < _$gi; i++) {
             tab = this._$i6[i];
-            tab._$cv = tab._$cv * d.width / _$fv;
-            tab._$cE = tab._$cE * d.width / _$fv;
+            tab._left = tab._left * d.width / _$fv;
+            tab._right = tab._right * d.width / _$fv;
         }
     }
     for (var i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
         ft = this._$bT(tab._floatPanel);
-        var _$fE = tab._$cE - tab._$cv;
+        var _$fE = tab._right - tab._left;
         var _$fK = 0;
         if (tab._floatPanel._$hE != null) _$fK = WidgetDockTab._$jL;
         tab._title = WidgetDockPatternBase._$6y(ft, tab._title, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
@@ -358,7 +358,7 @@ _$G.prototype._$0i = function (e) {
     var _$e1 = this._$i6.length;
     for (var i = 0; i < _$e1; i++) {
         var tab = this._$i6[i];
-        if (pt.x >= tab._$cv && pt.x <= tab._$cE) {
+        if (pt.x >= tab._left && pt.x <= tab._right) {
             return i;
         }
     }
@@ -390,7 +390,7 @@ _$G.prototype._$0d = function (floatPanel, pt) {
     var tab = null;
     for (var i = 0; i < _$e1; i++) {
         tab = this._$i6[i];
-        if (_$sw.x > tab._$cv && _$sw.x < tab._$cE) {
+        if (_$sw.x > tab._left && _$sw.x < tab._right) {
             if (tab._floatPanel != floatPanel) {
                 this._$i6[i] = this._$i6[this._$jh];
                 this._$i6[this._$jh] = tab;
@@ -425,29 +425,29 @@ _$G.prototype._$aK = function (g, _$cs) {
             if (i != this._$jh) {
                 tab = this._$i6[i];
                 f = this._$bT(tab._floatPanel);
-                this._$aJ(tab._titleElement, tab._$cv, tab._$cE, tab._title, false, tab._floatPanel._$hE, f);
+                this._$aJ(tab._titleElement, tab._left, tab._right, tab._title, false, tab._floatPanel._$hE, f);
             }
         }
         tab = this._$i6[_$cs];
-        var _$dS = tab._$cv;
-        var _$ed = tab._$cE;
+        var _$dS = tab._left;
+        var _$ed = tab._right;
         f = this._$bT(tab._floatPanel);
         this._$aJ(tab._titleElement, _$dS, _$ed, tab._title, true, tab._floatPanel._$hE, f);
         if (this._$hj != null) {
             this._$hj._$s1 = 'ButtonShadow';
-            if (tab._$cv >= 2) {
-                WidgetDockElementController._$1q(0, 2, tab._$cv, 2, this._$hj);
+            if (tab._left >= 2) {
+                WidgetDockElementController._$1q(0, 2, tab._left, 2, this._$hj);
             }
-            WidgetDockElementController._$1q(tab._$cE, 2, d.width, 2, this._$hj);
+            WidgetDockElementController._$1q(tab._right, 2, d.width, 2, this._$hj);
             this._$hj._$s1 = 'menutext';
-            if (tab._$cv >= 2) {
-                WidgetDockElementController._$1q(0, 3, tab._$cv, 3, this._$hj);
+            if (tab._left >= 2) {
+                WidgetDockElementController._$1q(0, 3, tab._left, 3, this._$hj);
             }
-            WidgetDockElementController._$1q(tab._$cE, 3, d.width, 3, this._$hj);
+            WidgetDockElementController._$1q(tab._right, 3, d.width, 3, this._$hj);
         }
     }
 };
-_$G.prototype._$aJ = function (_$U, _$cv, _$cE, title, _$7J, img, _$b2) {
+_$G.prototype._$aJ = function (_$U, left, right, title, _$7J, img, _$b2) {
     var _$gC = 2;
     var _$dU;
     if (!_$7J) {
@@ -457,8 +457,8 @@ _$G.prototype._$aJ = function (_$U, _$cv, _$cE, title, _$7J, img, _$b2) {
     }
     if (this._$hj == null) {
         var _$ff = 0;
-        WidgetDockElementController.setElementLeftTop(_$U, _$cv + _$G._$2Z, _$G._$3U + _$ff);
-        WidgetDockElementController.setElementSize(_$U, _$cE - _$cv, _$G._$6J - _$G._$3U - _$ff - 4);
+        WidgetDockElementController.setElementLeftTop(_$U, left + _$G._$2Z, _$G._$3U + _$ff);
+        WidgetDockElementController.setElementSize(_$U, right - left, _$G._$6J - _$G._$3U - _$ff - 4);
         _$U.style.font = _$b2;
         _$U.innerHTML = title;
         if (_$7J) {
@@ -471,23 +471,23 @@ _$G.prototype._$aJ = function (_$U, _$cv, _$cE, title, _$7J, img, _$b2) {
         return;
     }
     this._$hj._$s1 = 'buttonText';
-    WidgetDockElementController._$1q(_$cv, 2, _$cv, _$dU - 2, this._$hj);
-    WidgetDockElementController._$1q(_$cE, 2, _$cE, _$dU - 2, this._$hj);
+    WidgetDockElementController._$1q(left, 2, left, _$dU - 2, this._$hj);
+    WidgetDockElementController._$1q(right, 2, right, _$dU - 2, this._$hj);
     this._$hj._$s1 = 'buttonShadow';
-    WidgetDockElementController._$1q(_$cv + 2, _$dU - 1, _$cE - 2, _$dU - 1, this._$hj);
-    WidgetDockElementController._$1q(_$cE - 1, _$gC, _$cE - 1, _$dU - 2, this._$hj);
+    WidgetDockElementController._$1q(left + 2, _$dU - 1, right - 2, _$dU - 1, this._$hj);
+    WidgetDockElementController._$1q(right - 1, _$gC, right - 1, _$dU - 2, this._$hj);
     this._$hj._$s1 = 'buttonText';
-    WidgetDockElementController._$1q(_$cv, _$dU - 2, _$cv + 1, _$dU - 1, this._$hj);
-    WidgetDockElementController._$1q(_$cv + 2, _$dU, _$cE - 2, _$dU, this._$hj);
-    WidgetDockElementController._$1q(_$cE - 1, _$dU - 1, _$cE, _$dU - 2, this._$hj);
-    WidgetDockElementController._$1q(_$cE, _$gC, _$cE, _$dU - 2, this._$hj);
+    WidgetDockElementController._$1q(left, _$dU - 2, left + 1, _$dU - 1, this._$hj);
+    WidgetDockElementController._$1q(left + 2, _$dU, right - 2, _$dU, this._$hj);
+    WidgetDockElementController._$1q(right - 1, _$dU - 1, right, _$dU - 2, this._$hj);
+    WidgetDockElementController._$1q(right, _$gC, right, _$dU - 2, this._$hj);
     this._$hj.fillStyle = 'menutext';
     if (img != null) {
-        g.drawImage(img, _$cv + 2, _$gC + 1, WidgetDockTab._$jL, WidgetDockTab._$jL, this);
-        _$cv += WidgetDockTab._$jL;
+        g.drawImage(img, left + 2, _$gC + 1, WidgetDockTab._$jL, WidgetDockTab._$jL, this);
+        left += WidgetDockTab._$jL;
     }
     var size = new WidgetDockSize();
     WidgetDockElementController.getOffsetSize(size, _$b2, title, this._$hj);
     this._$hj.font = _$b2;
-    this._$hj.fillText(title, _$cv + _$G._$2Z, _$G._$6J / 2 + 4);
+    this._$hj.fillText(title, left + _$G._$2Z, _$G._$6J / 2 + 4);
 };

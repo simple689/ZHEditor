@@ -1144,14 +1144,14 @@ WidgetDockPatternBase.prototype._$6x = function (patternPositionType, _$cT, _$cU
         this._$5p(panel, i, patternPositionType, _$dX[0]);
     }
 };
-WidgetDockPatternBase.prototype._$2J = function (patternPositionType, _$cv, _$cE) {
+WidgetDockPatternBase.prototype._$2J = function (patternPositionType, left, right) {
     var panelNum = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
-    if (_$cE == 0xffffffff || _$cE > panelNum) {
-        _$cE = panelNum;
+    if (right == 0xffffffff || right > panelNum) {
+        right = panelNum;
     }
     var panel;
     var ire = 0;
-    for (var i = _$cv; i < _$cE; i++) {
+    for (var i = left; i < right; i++) {
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
             if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) {

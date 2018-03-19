@@ -1,6 +1,6 @@
-function WidgetDockTab(iX1, iX2, title) {
-    this._$cv = iX1;
-    this._$cE = iX2;
+function WidgetDockTab(left, right, title) {
+    this._left = left;
+    this._right = right;
     this._title = title;
     this._floatPanel = null;
     this._titleElement = null;
