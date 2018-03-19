@@ -903,8 +903,6 @@ WidgetDockFloatPanel.prototype._$2Q = function (_$mY, _$nh, _$85, _$7O) {
                         _$nh.Add(_$sx._$kA._$o5._$i6[j].floatPanel);
                         _$7F.addFloatPanel(_$sx._$kA._$o5._$i6[j].floatPanel);
                     }
-                    if (_$85) {
-                    }
                     _$sx._$kA._$o5 = null;
                 } else {
                     if (com[i]._$fT()) {
@@ -1039,7 +1037,11 @@ WidgetDockFloatPanel.prototype._$73 = function (_$nn, _$nG) {
                 _$pW._$br = 1.0 * (_$gd - this._$lJ.cy) / this._$lJ.cy;
             }
         } else if ((_$pW._$9y == EnumPatternPositionType.Left || _$pW._$9y == EnumPatternPositionType.Right) && _$ge > 0 && (_$ge > this._$lJ.cx) && this._$lJ.cx > 0) {
-            if (pb._$9j == EnumPatternPositionType.Left) _$pW._$br = 1.0 * this._$lJ.cx / (_$ge - this._$lJ.cx); else _$pW._$br = 1.0 * (_$ge - this._$lJ.cx) / this._$lJ.cx;
+            if (pb._$9j == EnumPatternPositionType.Left) {
+                _$pW._$br = 1.0 * this._$lJ.cx / (_$ge - this._$lJ.cx);
+            } else {
+                _$pW._$br = 1.0 * (_$ge - this._$lJ.cx) / this._$lJ.cx;
+            }
         }
         if (_$pW._$br < 0.01) _$pW._$br = 0.01;
     }
@@ -1222,10 +1224,14 @@ WidgetDockFloatPanel.prototype._$1x = function () {
             var _$p2 = new Array(1);
             _$nZ._$0A(this._$lf._$ky, pb, this._$lf._$j2, _$p2);
             var _$pu = _$p2[0];
-            if (WidgetDockFloatPanel._$jy != WidgetDockFloatPanel._$0W) _$nZ._$kA = pb;
+            if (WidgetDockFloatPanel._$jy != WidgetDockFloatPanel._$0W) {
+                _$nZ._$kA = pb;
+            }
             _$nZ._$73(_$pu, pb);
         } else {
-            if (WidgetDockFloatPanel._$jy != WidgetDockFloatPanel._$0W && _$nZ != null) _$nZ._$kA = null;
+            if (WidgetDockFloatPanel._$jy != WidgetDockFloatPanel._$0W && _$nZ != null) {
+                _$nZ._$kA = null;
+            }
         }
         if (!this._$lf._$kM._isMain) {
             this._$lf._$kM.Add(this);
@@ -1271,8 +1277,7 @@ WidgetDockFloatPanel.prototype._$1x = function () {
                 }
             } else {
                 this._$lf._$kM._$19(pb, this._$lf._$j1, this._$lf._$ka);
-                var k;
-                for (k = 0; k < _$f8; k++) {
+                for (var k = 0; k < _$f8; k++) {
                     if (_$aQ[k] != this) {
                         if (_$aQ[k]._$kB != null && _$aQ[k]._$kB._isMain) {
                             _$aQ[k]._$be(_$aQ[k]._patternPositionType);
@@ -1311,7 +1316,6 @@ WidgetDockFloatPanel.prototype._$1x = function () {
         if (!this._$kB._isMain && WidgetDockFloatPanel._$iY) {
             this._$1S();
         } else {
-            var _$8F = this._$ir;
             var _$p0 = null;
             var _$en = 0;
             var _$gF;
