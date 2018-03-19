@@ -58,9 +58,9 @@ _$J.prototype._$5E = function (com) {
     }
 };
 _$J.prototype._$X = function (_$tE) {
-    this._$6r(this._$jO + _$tE);
+    this.WidgetDockPanelState(this._$jO + _$tE);
 };
-_$J.prototype._$6r = function (_$tE) {
+_$J.prototype.WidgetDockPanelState = function (_$tE) {
     this._$jO = _$tE;
     this._$74();
 };

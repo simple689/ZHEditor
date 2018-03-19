@@ -7,7 +7,7 @@ function _$58() {
     this._$ju = 0;
     this._floatPanelController = new WidgetDockFloatPanelController();
 };
-WidgetDockPrototype.bind(_$58, _$6R);
+WidgetDockPrototype.bind(_$58, WidgetDockPanelState);
 _$58._$in = false;
 _$58._$h6 = null;
 _$58._$lu = new WidgetDockLocation();
@@ -26,13 +26,13 @@ _$58.prototype.mouseDown = function (e) {
 _$58.prototype._$5e = function (e) {
 };
 _$58.prototype._$qy = function (wnd, rc) {
-    _$6R.prototype._$qy.call(this, null, rc);
+    WidgetDockPanelState.prototype._$qy.call(this, null, rc);
 };
 _$58.prototype._$5z = function (floatPanel, pt, _$87) {
     this._$5A();
 };
 _$58.prototype._$6v = function (patternBase, _$9c, _$cA) {
-    _$6R.prototype._$6v.call(this, patternBase, _$9c, _$cA);
+    WidgetDockPanelState.prototype._$6v.call(this, patternBase, _$9c, _$cA);
 };
 _$58.prototype.reset = function () {
     this._$kg = -1;

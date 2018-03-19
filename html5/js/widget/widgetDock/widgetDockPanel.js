@@ -1,24 +1,24 @@
-function widgetDockPanel() {
+function WidgetDockPanel() {
     this._$le = null;
     this._$kI = null;
     this._$kR;
     this._$l8;
     this._$iX;
     this.rect = new WidgetDockRect();
-    this._$km = widgetDockPanel._$kt;
+    this._$km = WidgetDockPanel._$kt;
     this._$k9 = 0;
 };
-widgetDockPanel._$kt = WidgetDockPatternBase._$5Z;
-widgetDockPanel._$6g = function (iWH) {
+WidgetDockPanel._$kt = WidgetDockPatternBase._$5Z;
+WidgetDockPanel._$6g = function (iWH) {
     if (iWH < 0) {
         iWH = 0;
     }
-    widgetDockPanel._$kt = iWH;
+    WidgetDockPanel._$kt = iWH;
 };
-widgetDockPanel.prototype._$cf = function () {
+WidgetDockPanel.prototype._$cf = function () {
     return this._$km;
 };
-widgetDockPanel.prototype._$3E = function (_$p9, pt, _$de) {
+WidgetDockPanel.prototype._$3E = function (_$p9, pt, _$de) {
     var _$9z = WidgetDockPatternBase._$m(_$p9, pt);
     _$de[0] = 0;
     if (_$9z != 0xff) {
@@ -56,13 +56,13 @@ widgetDockPanel.prototype._$3E = function (_$p9, pt, _$de) {
     }
     return _$9z;
 };
-widgetDockPanel.prototype._$ah = function (patternBase, patternPositionType) {
+WidgetDockPanel.prototype._$ah = function (patternBase, patternPositionType) {
     this._$le = new _$N();
     this._$le._$j1 = patternPositionType;
     this._$le._$rh(patternBase);
     this._$le._$rG(this._$km);
 };
-widgetDockPanel.prototype._$qI = function () {
+WidgetDockPanel.prototype._$qI = function () {
     if (this._$le != null) {
         if (this._$le._$kG != null) {
             this._$le._$kG._$5E(this._$le);
@@ -72,13 +72,13 @@ widgetDockPanel.prototype._$qI = function () {
     }
     this._$iX = false;
 };
-widgetDockPanel.prototype._$05 = function () {
+WidgetDockPanel.prototype._$05 = function () {
     return this._$kI._$05();
 };
-widgetDockPanel.prototype._$qy = function (wnd, rc) {
+WidgetDockPanel.prototype._$qy = function (wnd, rc) {
     wnd._$6q(rc);
 };
-widgetDockPanel.prototype._$2B = function (floatPanel, pRC) {
+WidgetDockPanel.prototype._$2B = function (floatPanel, pRC) {
     if (floatPanel._$kA._$8y) {
         pRC.left = 0;
         pRC.top = 0;
@@ -88,7 +88,7 @@ widgetDockPanel.prototype._$2B = function (floatPanel, pRC) {
     }
     floatPanel.getRect(pRC);
 };
-widgetDockPanel.prototype._$6u = function (patternBase, _$qb, patternPositionType, _$cT, _$cU, _$cA) {
+WidgetDockPanel.prototype._$6u = function (patternBase, _$qb, patternPositionType, _$cT, _$cU, _$cA) {
     if (this._$iX) {
         var ilt, irb;
         var _$dW;
@@ -130,7 +130,7 @@ widgetDockPanel.prototype._$6u = function (patternBase, _$qb, patternPositionTyp
         }
     }
 };
-widgetDockPanel.prototype._$5q = function () {
+WidgetDockPanel.prototype._$5q = function () {
     var pd1 = new Array(1);
     var pd2 = new Array(1);
     var rc1 = new WidgetDockRect();
@@ -159,7 +159,7 @@ widgetDockPanel.prototype._$5q = function () {
         }
     }
 };
-widgetDockPanel.prototype._$03 = function (mainPattern, _$mX, pt, _$nz, _$dk, _$oQ, _$de) {
+WidgetDockPanel.prototype._$03 = function (mainPattern, _$mX, pt, _$nz, _$dk, _$oQ, _$de) {
     _$de[0] = 0;
     if (_$mX._$it) {
         return this._$kI._$03(_$mX, pt, _$nz, _$dk, _$oQ);
@@ -173,7 +173,7 @@ widgetDockPanel.prototype._$03 = function (mainPattern, _$mX, pt, _$nz, _$dk, _$
         return _$9z;
     }
 };
-widgetDockPanel.prototype._$53 = function (_$mS) {
+WidgetDockPanel.prototype._$53 = function (_$mS) {
     var _$oV = _$mS._$oV;
     if (_$oV == null) {
         return true;
@@ -207,10 +207,10 @@ widgetDockPanel.prototype._$53 = function (_$mS) {
     }
     return false;
 };
-widgetDockPanel.prototype._$5K = function (floatPanel) {
+WidgetDockPanel.prototype._$5K = function (floatPanel) {
     return floatPanel._$kA._$5K(floatPanel);
 };
-widgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
+WidgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
     var _$qs = new WidgetDockRect();
     var rcPanel = new WidgetDockRect();
     rcPanel.setRect(prc);
@@ -230,7 +230,7 @@ widgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
                 var _$gc;
                 _$pu._$22(_$qs);
                 if (_$oV._$9y == EnumPatternPositionType.Top || _$oV._$9y == EnumPatternPositionType.Bottom) {
-                    _$gc = WidgetDockPatternBase.getHeight(rcPanel) + widgetDockPanel._$kt;
+                    _$gc = WidgetDockPatternBase.getHeight(rcPanel) + WidgetDockPanel._$kt;
                     if (pme._$9j == EnumPatternPositionType.Bottom) {
                         _$qs.bottom += _$gc;
                     } else {
@@ -238,7 +238,7 @@ widgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
                     }
                     mainPattern._$6v(pme._$oV, _$qs, WidgetDockPatternBase._$6N);
                 } else {
-                    _$gc = WidgetDockPatternBase.getWidth(rcPanel) + widgetDockPanel._$kt;
+                    _$gc = WidgetDockPatternBase.getWidth(rcPanel) + WidgetDockPanel._$kt;
                     if (pme._$9j == EnumPatternPositionType.Right) {
                         _$qs.right += _$gc;
                     } else {
@@ -258,7 +258,7 @@ widgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
     }
     return _$8V;
 };
-widgetDockPanel.prototype._$6 = function (mainPattern, _$mS) {
+WidgetDockPanel.prototype._$6 = function (mainPattern, _$mS) {
     var pme = _$mS;
     var _$oV = pme._$oV;
     if (_$oV == null) return;
@@ -295,7 +295,7 @@ widgetDockPanel.prototype._$6 = function (mainPattern, _$mS) {
             var rc = new WidgetDockRect();
             _$pu._$22(rc);
             _$oV._$oy = new _$N();
-            _$oV._$oy._$rG(widgetDockPanel._$kt);
+            _$oV._$oy._$rG(WidgetDockPanel._$kt);
             _$oV._$oy._$rh(mainPattern);
             _$oV._$oy._$iI = true;
             _$oV._$oy._$j1 = _$9o;
@@ -311,11 +311,11 @@ widgetDockPanel.prototype._$6 = function (mainPattern, _$mS) {
         }
     }
 };
-widgetDockPanel.prototype._$7 = function (mainPattern, floatPanel) {
+WidgetDockPanel.prototype._$7 = function (mainPattern, floatPanel) {
     var pme = floatPanel._$kA;
     this._$6(mainPattern, pme);
 };
-widgetDockPanel.prototype._$4i = function (mainPattern, patternPositionType, _$dg, _$cY) {
+WidgetDockPanel.prototype._$4i = function (mainPattern, patternPositionType, _$dg, _$cY) {
     if (this._$iX) {
         this._$4j(mainPattern, _$cY, patternPositionType);
         if (patternPositionType == EnumPatternPositionType.Right) {
@@ -336,14 +336,14 @@ widgetDockPanel.prototype._$4i = function (mainPattern, patternPositionType, _$d
         this._$le._$4q(_$gz);
     }
 };
-widgetDockPanel.prototype._$6v = function (patternBase, _$9c, _$cA) {
+WidgetDockPanel.prototype._$6v = function (patternBase, _$9c, _$cA) {
     _$cA[0] = 0;
     patternBase._$6v(this._$kI, this.rect, _$9c);
 };
-widgetDockPanel.prototype._$4j = function (mainPattern, _$cY, patternPositionType) {
+WidgetDockPanel.prototype._$4j = function (mainPattern, _$cY, patternPositionType) {
     mainPattern._$4j(this._$kI, _$cY, patternPositionType);
 };
-widgetDockPanel.prototype._$0e = function (_$mS) {
+WidgetDockPanel.prototype._$0e = function (_$mS) {
     if (_$mS == null) return false;
     if (_$mS._$of != null) return true;
     if (_$mS._$od == null && _$mS._$pr == null && _$mS._$l1 != null) {
@@ -378,7 +378,7 @@ widgetDockPanel.prototype._$0e = function (_$mS) {
     }
     return b;
 };
-widgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index, patternPositionType_0, patternPositionType_1) {
+WidgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index, patternPositionType_0, patternPositionType_1) {
     if (!this._$0e(this._$kI)) {
         return index;
     }
@@ -410,7 +410,7 @@ widgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index
     index++;
     return index;
 };
-widgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
+WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
     var _$7D = null;
     if (_$mS._$l1 != null && _$mS._$l1.length >= 1) {
         var _$gi = _$mS._$l1.length;
@@ -493,7 +493,7 @@ widgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
         }
     }
 };
-widgetDockPanel.prototype.initPanelInfoLayout = function (mainPattern, layout, _$mS) {
+WidgetDockPanel.prototype.initPanelInfoLayout = function (mainPattern, layout, _$mS) {
     layout.addContent(_$mS._$br * 1000);
     var _$aS = new Array(1);
     _$aS[0] = _$mS._$9j;
@@ -520,6 +520,6 @@ widgetDockPanel.prototype.initPanelInfoLayout = function (mainPattern, layout, _
     }
     layout.addContent(_$aS[0]);
 };
-widgetDockPanel.prototype._$66 = function (layout) {
+WidgetDockPanel.prototype._$66 = function (layout) {
     layout.addContent(0);
 };

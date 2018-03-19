@@ -46,9 +46,9 @@ WidgetDockController.init = function () {
 
     if (WidgetDockController._windowMain == null) {
         WidgetDockController._windowMain = new WidgetDockWindow(null, "MainWindow");
-        document.body.addEventListener("mousedown", mouseDown, true);
-        document.body.addEventListener("mouseup", mouseUp, true);
-        document.body.addEventListener("mousemove", mouseMove, true);
+        document.body.addEventListener("mousedown", WidgetDockController.mouseDown, true);
+        document.body.addEventListener("mouseup", WidgetDockController.mouseUp, true);
+        document.body.addEventListener("mousemove", WidgetDockController.mouseMove, true);
     }
 
     var elementList = document.getElementsByTagName('script');
@@ -70,14 +70,14 @@ WidgetDockController.setStyle = function () {
     document.body.scroll = "no";
     document.body.style.overflow = 'hidden';
 };
-function mouseDown(e) {
+WidgetDockController.mouseDown = function (e) {
     if (WidgetDockController._windowMain == null) return;
     if (e == null) {
         e = window.event;
     }
     WidgetDockController._windowMain.mouseDown(e);
 };
-function mouseUp(e) {
+WidgetDockController.mouseUp = function (e) {
     if (WidgetDockController._windowMain == null) return;
     if (e == null) {
         e = window.event;
@@ -92,7 +92,7 @@ function mouseUp(e) {
         }
     }
 };
-function mouseMove(e) {
+WidgetDockController.mouseMove = function (e) {
     if (WidgetDockController._windowMain == null) return;
     if (e == null) {
         e = window.event;

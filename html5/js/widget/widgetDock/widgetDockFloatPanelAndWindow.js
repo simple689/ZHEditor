@@ -224,7 +224,7 @@ WidgetDockFloatPanel.prototype._$r6 = function (_$7J) {
     this._panelStateController._$r6(_$7J);
 };
 WidgetDockFloatPanel.prototype._$ag = function () {
-    return new widgetDockPanel();
+    return new WidgetDockPanel();
 };
 WidgetDockFloatPanel.prototype._$69 = function (_$9g, _$nA, _$97) {
     this._$lf._$j1 = _$9g;
@@ -2332,7 +2332,7 @@ WidgetDockWindow.prototype.mouseDown = function (e) {
                 }
                 this._$kL.splice(i, 1);
                 this._$kL.splice(0, 0, _$tm);
-                _$tm._$6r(_$tr);
+                _$tm.WidgetDockPanelState(_$tr);
             }
             break;
         }
@@ -2400,7 +2400,7 @@ WidgetDockWindow.prototype._$ml = function (mainPattern) {
         }
     }
     this._$kL.splice(0, 0, mainPattern);
-    mainPattern._$6r(this._$jO);
+    mainPattern.WidgetDockPanelState(this._$jO);
     this._$jO += 3;
 };
 WidgetDockWindow.prototype._$mm = function (mainPattern) {
