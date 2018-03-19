@@ -137,7 +137,6 @@ WidgetDockFloatPanel._$1H = 4;
 WidgetDockFloatPanel._$jy = 0;
 WidgetDockFloatPanel._$iY = false;
 WidgetDockFloatPanel._$jB = 0;
-WidgetDockFloatPanel._$im = true;
 WidgetDockFloatPanel._$k2 = 0;
 WidgetDockFloatPanel._$k3 = 0;
 WidgetDockFloatPanel._$lL = new _$5Y();
@@ -693,7 +692,6 @@ WidgetDockFloatPanel.prototype._$sa = function (_$pD) {
     WidgetDockFloatPanel._$ie = false;
     this._$lf._$j1 = 0xff;
     this._$lf._$ij = false;
-    this._$im = true;
     if (this._$kB != null && this._$kB._isMain) {
         if ((WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V) && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
             var _$f8;
@@ -709,11 +707,6 @@ WidgetDockFloatPanel.prototype._$sa = function (_$pD) {
             for (i = 0; i < _$f8; i++) {
                 if (_$p4[i]._$id) break;
             }
-            if (i == _$f8) this._$im = false;
-        } else {
-            if (!this._$id) {
-                this._$im = false;
-            }
         }
     }
     WidgetDockFloatPanel._$iY = false;
@@ -728,13 +721,11 @@ WidgetDockFloatPanel.prototype._$sa = function (_$pD) {
             WidgetDockFloatPanel._$k2 = this._$lK.cx;
             WidgetDockFloatPanel._$k3 = this._$lK.cy;
         }
-        {
-            if (this._$kB != null) {
-                this._$kB.getWindowRect(this._$lx);
-            }
-            this._$lK.cx = WidgetDockPatternBase.getWidth(this._$lx);
-            this._$lK.cy = WidgetDockPatternBase.getHeight(this._$lx);
+        if (this._$kB != null) {
+            this._$kB.getWindowRect(this._$lx);
         }
+        this._$lK.cx = WidgetDockPatternBase.getWidth(this._$lx);
+        this._$lK.cy = WidgetDockPatternBase.getHeight(this._$lx);
     }
     this._$iG = true;
     this._$ly.left = this._$ly.right = this._$ly.right = this._$ly.bottom = 0;
