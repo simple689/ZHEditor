@@ -71,3 +71,13 @@ var EnumWindowType = {
     Main: 0,
     Normal: 1
 };
+var EnumResizeType = {
+    eResize_x: 0,
+    nResize_x: 1,
+    eResize_y: 2,
+    nResize_y: 3,
+    nwResize: 4,
+    swResize: 5,
+    neResize: 6,
+    seResize: 7
+};

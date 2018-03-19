@@ -14,7 +14,7 @@ WidgetDockPatternPosition
 WidgetDockPanelStateController
 WidgetDockPanel
 WidgetDockPanelState（WidgetDockPanel）
-_$58（_$6R）
+WidgetDockPanelStatePanel（WidgetDockPanelState）
 
 
 
@@ -39,7 +39,7 @@ _$F
 _$59
 _$57
 _$6C
-_$6A
+WidgetDockPanelAlone
 _$5g
 _$6P
 

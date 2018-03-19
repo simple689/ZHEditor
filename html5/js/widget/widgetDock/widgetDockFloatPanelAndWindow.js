@@ -650,7 +650,7 @@ WidgetDockFloatPanel.prototype._$9X = function () {
     this._$bf(false);
     return true;
 };
-WidgetDockFloatPanel.prototype._$0h = function () {
+WidgetDockFloatPanel.prototype.clickButtonPin = function () {
     if (this._pinType == EnumPinType.Show) {
         if (this._pinType == EnumPinType.Hide) {
             WidgetDockController._$8l._$5N();
@@ -660,12 +660,20 @@ WidgetDockFloatPanel.prototype._$0h = function () {
         this._$iP = false;
         this._pinType = EnumPinType.Hide;
         this._$bf(false);
-        if (this._$kj > WidgetDockFloatPanel._$q) this._patternMain._$8(this._patternPositionType, this, true); else this._patternMain._$8(this._$kj, this, true);
+        if (this._$kj > WidgetDockFloatPanel._$q) {
+            this._patternMain._$8(this._patternPositionType, this);
+        } else {
+            this._patternMain._$8(this._$kj, this);
+        }
         this._patternMain._$5A();
         this._$qz(-1);
     } else {
         this.setElementVisible(false);
-        if (this._$kj <= WidgetDockFloatPanel._$q) this._patternMain._$5M(this._$kj, this); else this._patternMain._$5M(this._patternPositionType, this);
+        if (this._$kj <= WidgetDockFloatPanel._$q) {
+            this._patternMain._$5M(this._$kj, this);
+        } else {
+            this._patternMain._$5M(this._patternPositionType, this);
+        }
         this._patternMain._$5A();
         this._windowMain._patternMain._$5N();
         this._$iP = false;
@@ -1734,7 +1742,7 @@ WidgetDockFloatPanel.prototype._$0C = function () {
     } else {
         _$9u = this._patternPositionType;
     }
-    this._patternMain._$8(_$9u, this, true);
+    this._patternMain._$8(_$9u, this);
     this._patternMain._$5A();
     this._pinType = EnumPinType.Hide;
 };

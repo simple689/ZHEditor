@@ -81,7 +81,7 @@ WidgetDockPanelStateController.prototype.mouseDown = function (e) {
     WidgetDockWindow._movePanelStateController = this;
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
-    if (this._$mj(pt) >= 0) {
+    if (this.isInRectWithPanelState(pt) >= 0) {
         WidgetDockController._$6s(true);
         this._$ms(e);
     } else {
@@ -180,14 +180,14 @@ WidgetDockPanelStateController.prototype.mouseMove = function (e) {
         }
     }
 };
-WidgetDockPanelStateController.prototype._$mj = function (pt) {
+WidgetDockPanelStateController.prototype.isInRectWithPanelState = function (pt) {
     var left = WidgetDockElementController.getElementLeft(this._panelStateElement);
     var top = WidgetDockElementController.getElementTop(this._panelStateElement);
     var location = new WidgetDockLocation();
     location.x = pt.x - left;
     location.y = pt.y - top;
     if (this._floatPanel._pinType != EnumPinType.None && WidgetDockPatternBase.isInRect(this._buttonPinRect, location)) {
-        this._floatPanel._$0h();
+        this._floatPanel.clickButtonPin();
         return -1;
     }
     if ((this._floatPanel != null) && (this._floatPanel._pinType == EnumPinType.Hide)) {

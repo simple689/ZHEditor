@@ -16,7 +16,7 @@ _$4d.prototype.setElementZIndex = function (_$cR) {
         WidgetDockElementController.setElementZIndex(this._panelStateElement, _$cR);
     }
 };
-_$4d.prototype._$mj = function (pts) {
+_$4d.prototype.isInRectWithPanelState = function (pts) {
     var _$po;
     _$po = this._$kY._patternPositionList[0]._patternSub._panelList[0]._$kI;
     var left = WidgetDockElementController.getElementLeft(this._panelStateElement);

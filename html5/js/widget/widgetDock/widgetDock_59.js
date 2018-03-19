@@ -2,7 +2,7 @@ function _$59() {
     this._$kx = null;
     this._$la = null;
     this._$lc = null;
-    this._$lc = new _$6A(WidgetDockController._elementRootId);
+    this._$lc = new WidgetDockPanelAlone(WidgetDockController._elementRootId);
     this._$lc._$l5 = this;
     this._$hu = new Date();
     this._$hk = this._$hu.getTime();
@@ -28,25 +28,25 @@ _$59.prototype.resize = function (left, top, width, height) {
         var _$t6 = 2;
         var _$tl, _$to, _$tp, _$tk;
         if (_$d5 == EnumPatternPositionType.Left) {
-            _$tl = left + _$6A._$p;
-            _$to = top + _$6A._$p;
-            _$tp = width - 2 * _$6A._$p - _$t6;
-            _$tk = height - 2 * _$6A._$p;
+            _$tl = left + WidgetDockPanelAlone._$p;
+            _$to = top + WidgetDockPanelAlone._$p;
+            _$tp = width - 2 * WidgetDockPanelAlone._$p - _$t6;
+            _$tk = height - 2 * WidgetDockPanelAlone._$p;
         } else if (_$d5 == EnumPatternPositionType.Right) {
-            _$tl = left + _$6A._$p + _$t6;
-            _$to = top + _$6A._$p;
-            _$tp = width - 2 * _$6A._$p - _$t6;
-            _$tk = height - 2 * _$6A._$p;
+            _$tl = left + WidgetDockPanelAlone._$p + _$t6;
+            _$to = top + WidgetDockPanelAlone._$p;
+            _$tp = width - 2 * WidgetDockPanelAlone._$p - _$t6;
+            _$tk = height - 2 * WidgetDockPanelAlone._$p;
         } else if (_$d5 == EnumPatternPositionType.Top) {
-            _$tl = left + _$6A._$p;
-            _$to = top + _$6A._$p;
-            _$tp = width - 2 * _$6A._$p;
-            _$tk = height - 2 * _$6A._$p - _$t6;
+            _$tl = left + WidgetDockPanelAlone._$p;
+            _$to = top + WidgetDockPanelAlone._$p;
+            _$tp = width - 2 * WidgetDockPanelAlone._$p;
+            _$tk = height - 2 * WidgetDockPanelAlone._$p - _$t6;
         } else {
-            _$tl = left + _$6A._$p;
-            _$to = top + _$6A._$p + _$t6;
-            _$tp = width - 2 * _$6A._$p;
-            _$tk = height - 2 * _$6A._$p - _$t6;
+            _$tl = left + WidgetDockPanelAlone._$p;
+            _$to = top + WidgetDockPanelAlone._$p + _$t6;
+            _$tp = width - 2 * WidgetDockPanelAlone._$p;
+            _$tk = height - 2 * WidgetDockPanelAlone._$p - _$t6;
         }
         this._$kx._$6p(_$tl, _$to, _$tp, _$tk);
     }

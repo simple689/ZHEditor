@@ -28,7 +28,7 @@ WidgetDockPanelState.prototype.refresh = function () {
     this._$4S();
 };
 WidgetDockPanelState.prototype._$3I = function () {
-    this._panelStateElement._$4A = this;
+    this._panelStateElement._panelStatePanel = this;
     this._panelStateElement.onmousedown = WidgetDockPanelState.onMouseDown;
     this._panelStateElement.onmousemove = WidgetDockPanelState.onMouseMove;
 };
@@ -37,9 +37,9 @@ WidgetDockPanelState.onMouseDown = function (e) {
         e = window.event;
     }
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4A.mouseDown(e);
+        e.target._panelStatePanel.mouseDown(e);
     } else {
-        e.srcElement._$4A.mouseDown(e);
+        e.srcElement._panelStatePanel.mouseDown(e);
     }
     return false;
 };
@@ -48,9 +48,9 @@ WidgetDockPanelState.onMouseMove = function (e) {
         e = window.event;
     }
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4A.mouseMove(e);
+        e.target._panelStatePanel.mouseMove(e);
     } else {
-        e.srcElement._$4A.mouseMove(e);
+        e.srcElement._panelStatePanel.mouseMove(e);
     }
 };
 WidgetDockPanelState.prototype._$5K = function (floatPanel) {

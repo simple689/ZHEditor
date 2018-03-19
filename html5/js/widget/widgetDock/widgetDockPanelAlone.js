@@ -1,6 +1,6 @@
-function _$6A(elementId) {
+function WidgetDockPanelAlone(elementId) {
     this._$hJ = null;
-    this._$jU = 0;
+    this._resizeType = 0;
     this._isMouseDown = false;
     this._location = new WidgetDockLocation();
     this._frame = new WidgetDockFrame();
@@ -11,48 +11,40 @@ function _$6A(elementId) {
     this._$l5 = null;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", elementId);
     this._panelStateElement.style.border = "1px solid";
-    this._panelStateElement._$4x = this;
-    this._panelStateElement.onmousedown = _$6A.onMouseDown;
-    this._panelStateElement.onmousemove = _$6A.onMouseMove;
+    this._panelStateElement._panelAlone = this;
+    this._panelStateElement.onmousedown = WidgetDockPanelAlone.onMouseDown;
+    this._panelStateElement.onmousemove = WidgetDockPanelAlone.onMouseMove;
     this._panelStateElement.style.background = 'ButtonFace';
 };
-_$6A._$7a = 0;
-_$6A._$4D = 1;
-_$6A._$1t = 2;
-_$6A._$60 = 3;
-_$6A._$7b = 4;
-_$6A._$7c = 5;
-_$6A._$1u = 6;
-_$6A._$1v = 7;
-_$6A.icc = 0;
-_$6A._$p = 4;
-_$6A._$lL = new _$5Y();
-_$6A.onMouseDown = function (e) {
+WidgetDockPanelAlone.icc = 0;
+WidgetDockPanelAlone._$p = 4;
+WidgetDockPanelAlone._$lL = new _$5Y();
+WidgetDockPanelAlone.onMouseDown = function (e) {
     if (e == null) {
         e = window.event;
     }
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4x.mouseDown(e);
+        e.target._panelAlone.mouseDown(e);
     } else {
-        e.srcElement._$4x.mouseDown(e);
+        e.srcElement._panelAlone.mouseDown(e);
     }
     return false;
 };
-_$6A.onMouseMove = function (e) {
+WidgetDockPanelAlone.onMouseMove = function (e) {
     if (e == null) {
         e = window.event;
     }
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4x.mouseMove(e);
+        e.target._panelAlone.mouseMove(e);
     } else {
-        e.srcElement._$4x.mouseMove(e);
+        e.srcElement._panelAlone.mouseMove(e);
     }
 };
-_$6A.prototype.mouseUp = function (e) {
+WidgetDockPanelAlone.prototype.mouseUp = function (e) {
     WidgetDockController._$6s(false);
     this._isMouseDown = false;
 };
-_$6A.prototype.getRect = function (rc) {
+WidgetDockPanelAlone.prototype.getRect = function (rc) {
     if (this._panelStateElement != null) {
         rc.left = WidgetDockElementController.getElementLeft(this._panelStateElement);
         rc.top = WidgetDockElementController.getElementTop(this._panelStateElement);
@@ -60,36 +52,36 @@ _$6A.prototype.getRect = function (rc) {
         rc.bottom = rc.top + parseInt(this._panelStateElement.style.height);
     }
 };
-_$6A.prototype.mouseMove = function (e) {
+WidgetDockPanelAlone.prototype.mouseMove = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
     if (!this._isMouseDown) {
         this._$f4(pt);
     }
-    if (this._$jU >= 0) {
-        if (this._$jU == _$6A._$7a || this._$jU == _$6A._$1t) {
+    if (this._resizeType >= 0) {
+        if (this._resizeType == EnumResizeType.eResize_x || this._resizeType == EnumResizeType.eResize_y) {
             this._panelStateElement.style.cursor = "e-resize";
-        } else if (this._$jU == _$6A._$60 || this._$jU == _$6A._$4D) {
+        } else if (this._resizeType == EnumResizeType.nResize_y || this._resizeType == EnumResizeType.nResize_x) {
             this._panelStateElement.style.cursor = "n-resize";
-        } else if (this._$jU == _$6A._$7b) {
+        } else if (this._resizeType == EnumResizeType.nwResize) {
             this._panelStateElement.style.cursor = "nw-resize";
-        } else if (this._$jU == _$6A._$7c) {
+        } else if (this._resizeType == EnumResizeType.swResize) {
             this._panelStateElement.style.cursor = "sw-resize";
-        } else if (this._$jU == _$6A._$1u) {
+        } else if (this._resizeType == EnumResizeType.neResize) {
             this._panelStateElement.style.cursor = "ne-resize";
         } else {
             this._panelStateElement.style.cursor = "se-resize";
         }
     }
 };
-_$6A.prototype.mouseDown = function (e) {
+WidgetDockPanelAlone.prototype.mouseDown = function (e) {
     if (this._isMouseDown) return;
     WidgetDockWindow._movePanelStateController = this;
     WidgetDockController._$6s(true);
     this._isMouseDown = true;
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
-    if (this._$jU >= 0) {
+    if (this._resizeType >= 0) {
         this._location.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
         this._location.y = WidgetDockElementController.getElementTop(this._panelStateElement);
         this._frame.x = this._location.x;
@@ -100,9 +92,9 @@ _$6A.prototype.mouseDown = function (e) {
         this._location.y = pt.y;
     }
 };
-_$6A.prototype._$ms = function (e) {
+WidgetDockPanelAlone.prototype._$ms = function (e) {
     if (!this._isMouseDown) return;
-    if (this._$jU < 0) return;
+    if (this._resizeType < 0) return;
     var _$pL = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, _$pL);
     var rt = new WidgetDockFrame();
@@ -110,17 +102,17 @@ _$6A.prototype._$ms = function (e) {
     rt.y = this._frame.y;
     rt.width = this._frame.width;
     rt.height = this._frame.height;
-    if (this._$jU == _$6A._$1t) rt.width = rt.width + _$pL.x - this._location.x; else if (this._$jU == _$6A._$7a) {
+    if (this._resizeType == EnumResizeType.eResize_y) rt.width = rt.width + _$pL.x - this._location.x; else if (this._resizeType == EnumResizeType.eResize_x) {
         rt.width = rt.width + this._location.x - _$pL.x;
-    } else if (this._$jU == _$6A._$60) rt.height = rt.height + _$pL.y - this._location.y; else if (this._$jU == _$6A._$4D) {
+    } else if (this._resizeType == EnumResizeType.nResize_y) rt.height = rt.height + _$pL.y - this._location.y; else if (this._resizeType == EnumResizeType.nResize_x) {
         rt.height = rt.height + this._location.y - _$pL.y;
-    } else if (this._$jU == _$6A._$7c) {
+    } else if (this._resizeType == EnumResizeType.swResize) {
         rt.width = rt.width + this._location.x - _$pL.x;
         rt.height = rt.height + _$pL.y - this._location.y;
-    } else if (this._$jU == _$6A._$7b) {
+    } else if (this._resizeType == EnumResizeType.nwResize) {
         rt.width = rt.width + this._location.x - _$pL.x;
         rt.height = rt.height + this._location.y - _$pL.y;
-    } else if (this._$jU == _$6A._$1v) {
+    } else if (this._resizeType == EnumResizeType.seResize) {
         rt.width = rt.width + _$pL.x - this._location.x;
         rt.height = rt.height + _$pL.y - this._location.y;
     } else {
@@ -128,25 +120,25 @@ _$6A.prototype._$ms = function (e) {
         rt.height = rt.height + this._location.y - _$pL.y;
     }
     this._$sC(_$pL, rt);
-    if (this._$jU >= 0) {
-        if (this._$jU == _$6A._$7a || this._$jU == _$6A._$1t) {
+    if (this._resizeType >= 0) {
+        if (this._resizeType == EnumResizeType.eResize_x || this._resizeType == EnumResizeType.eResize_y) {
             this._panelStateElement.style.cursor = "e-resize";
-        } else if (this._$jU == _$6A._$60 || this._$jU == _$6A._$4D) {
+        } else if (this._resizeType == EnumResizeType.nResize_y || this._resizeType == EnumResizeType.nResize_x) {
             this._panelStateElement.style.cursor = "n-resize";
-        } else if (this._$jU == _$6A._$7b) {
+        } else if (this._resizeType == EnumResizeType.nwResize) {
             this._panelStateElement.style.cursor = "nw-resize";
-        } else if (this._$jU == _$6A._$7c) {
+        } else if (this._resizeType == EnumResizeType.swResize) {
             this._panelStateElement.style.cursor = "sw-resize";
-        } else if (this._$jU == _$6A._$1u) {
+        } else if (this._resizeType == EnumResizeType.neResize) {
             this._panelStateElement.style.cursor = "ne-resize";
         } else {
             this._panelStateElement.style.cursor = "se-resize";
         }
     }
 };
-_$6A.prototype._$sC = function (_$pL, rt) {
+WidgetDockPanelAlone.prototype._$sC = function (_$pL, rt) {
     var _$8K = true;
-    if (this._$jU == _$6A._$4D || this._$jU == _$6A._$60) _$8K = false;
+    if (this._resizeType == EnumResizeType.nResize_x || this._resizeType == EnumResizeType.nResize_y) _$8K = false;
     if (this._$j6 != null) this._$j6._$bA(rt.width, rt.height, _$lL, _$8K);
     if (this._$ld != null && this._$ld._$hJ != null && !this._$ld._$hJ._$it) {
         rt.width = _$lL.cx;
@@ -155,16 +147,16 @@ _$6A.prototype._$sC = function (_$pL, rt) {
         if (rt.width < 100) rt.width = 100;
         if (rt.height < 100) rt.height = 100;
     }
-    if (this._$jU == _$6A._$7a) {
+    if (this._resizeType == EnumResizeType.eResize_x) {
         rt.x = this._frame.x + _$pL.x - this._location.x;
-    } else if (this._$jU == _$6A._$4D) {
+    } else if (this._resizeType == EnumResizeType.nResize_x) {
         rt.y = this._frame.y + _$pL.y - this._location.y;
-    } else if (this._$jU == _$6A._$7c) {
+    } else if (this._resizeType == EnumResizeType.swResize) {
         rt.x = this._frame.x + _$pL.x - this._location.x;
-    } else if (this._$jU == _$6A._$7b) {
+    } else if (this._resizeType == EnumResizeType.nwResize) {
         rt.x = this._frame.x + _$pL.x - this._location.x;
         rt.y = this._frame.y + _$pL.y - this._location.y;
-    } else if (this._$jU == _$6A._$1u) {
+    } else if (this._resizeType == EnumResizeType.neResize) {
         rt.y = this._frame.y + _$pL.y - this._location.y;
     }
     if (this._$ld != null) this._$ld._$r8(rt); else if (this._$kQ != null) {
@@ -182,8 +174,8 @@ _$6A.prototype._$sC = function (_$pL, rt) {
         this._$ld.refresh();
     }
 };
-_$6A.prototype._$f4 = function (pt) {
-    this._$jU = -1;
+WidgetDockPanelAlone.prototype._$f4 = function (pt) {
+    this._resizeType = -1;
     var rt = new WidgetDockFrame();
     rt.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
     rt.y = WidgetDockElementController.getElementTop(this._panelStateElement);
@@ -191,36 +183,36 @@ _$6A.prototype._$f4 = function (pt) {
     rt.height = parseInt(this._panelStateElement.style.height);
     if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
         if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) {
-            this._$jU = _$6A._$7c;
+            this._resizeType = EnumResizeType.swResize;
         } else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) {
-            this._$jU = _$6A._$7b;
+            this._resizeType = EnumResizeType.nwResize;
         } else {
-            this._$jU = _$6A._$7a;
+            this._resizeType = EnumResizeType.eResize_x;
         }
     } else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) {
         if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) {
-            this._$jU = _$6A._$1v;
+            this._resizeType = EnumResizeType.seResize;
         } else if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) {
-            this._$jU = _$6A._$1u;
+            this._resizeType = EnumResizeType.neResize;
         } else {
-            this._$jU = _$6A._$1t;
+            this._resizeType = EnumResizeType.eResize_y;
         }
     }
     if ((pt.y >= rt.y) && (pt.y < (rt.y + 7))) {
         if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
-            this._$jU = _$6A._$7b;
+            this._resizeType = EnumResizeType.nwResize;
         } else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) {
-            this._$jU = _$6A._$1u;
+            this._resizeType = EnumResizeType.neResize;
         } else {
-            this._$jU = _$6A._$4D;
+            this._resizeType = EnumResizeType.nResize_x;
         }
     } else if ((pt.y <= (rt.y + rt.height)) && (pt.y > (rt.y + rt.height - 7))) {
         if ((pt.x >= rt.x) && (pt.x < (rt.x + 7))) {
-            this._$jU = _$6A._$7c;
+            this._resizeType = EnumResizeType.swResize;
         } else if ((pt.x <= (rt.x + rt.width)) && (pt.x > (rt.x + rt.width - 7))) {
-            this._$jU = _$6A._$1v;
+            this._resizeType = EnumResizeType.seResize;
         } else {
-            this._$jU = _$6A._$60;
+            this._resizeType = EnumResizeType.nResize_y;
         }
     }
 };

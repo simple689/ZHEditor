@@ -91,7 +91,7 @@ _$J._$0x = function (_$q2) {
     return _$og;
 };
 _$J.prototype._$0v = function (elementId) {
-    var sp = new _$6A(elementId);
+    var sp = new WidgetDockPanelAlone(elementId);
     sp._$kQ = this;
     this._$he = sp._panelStateElement;
     this.setVisible(false);

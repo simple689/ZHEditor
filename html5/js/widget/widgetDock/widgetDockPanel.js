@@ -221,7 +221,11 @@ WidgetDockPanel.prototype._$f = function (mainPattern, _$mS, prc) {
     while (true) {
         if (_$oV != null) {
             _$pu = null;
-            if (_$oV._$od != null && _$oV._$od != pme) _$pu = _$oV._$od; else if (_$oV._$pr != null && _$oV._$pr != pme) _$pu = _$oV._$pr;
+            if (_$oV._$od != null && _$oV._$od != pme) {
+                _$pu = _$oV._$od;
+            } else if (_$oV._$pr != null && _$oV._$pr != pme) {
+                _$pu = _$oV._$pr;
+            }
             if (_$pu != null && !_$pu._$8y) {
                 if (_$oV._$oy != null) {
                     _$oV._$oy._$ap();
