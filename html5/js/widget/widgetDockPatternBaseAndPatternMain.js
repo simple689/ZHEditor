@@ -1217,10 +1217,8 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, p
     if (WidgetDockPatternBase.isInRect(_$qe, pt) && _$mX._$it) {
         var _$qh = new WidgetDockRect();
         _$mX._$kx._panelStateController._$2P(_$qh);
-        var _$8n;
-        _$8n = WidgetDockPatternBase.isInRect(_$qh, pt);
-        var _$8Q;
-        _$8Q = _$mX._$kx._$kA._$3v(pt);
+        var _$8n = WidgetDockPatternBase.isInRect(_$qh, pt);
+        var _$8Q = _$mX._$kx._$kA._$3v(pt);
         if (_$8n || _$8Q) {
             _$mX._$ka = _$mX._$jr;
             _$mX._$ky = _$mX._$kA;
@@ -1343,7 +1341,9 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
     }
     if (!bme && _$9j != 0xff && ((_$9j + 1) % 2 == 0)) {
         _$mX._$j1 = parseInt((_$9j / 2));
-        if (_$o4 != null) _$mU._$2G(_$nz, _$gk, rcWindow, true); else {
+        if (_$o4 != null) {
+            _$mU._$2G(_$nz, _$gk, rcWindow, true);
+        } else {
             rcWindow.left = rcWindow.top = 0;
             rcWindow.right = _$nz.cx;
             rcWindow.bottom = _$nz.cy;
@@ -1362,7 +1362,9 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
             _$mX._$j1 = parseInt((_$9j / 2));
             _$mX._$j2 = parseInt((_$9j / 2));
             WidgetDockPatternBase._$2c(_$mX, rcs, _$nz);
-        } else _$mX._$j1 = 0xff;
+        } else {
+            _$mX._$j1 = 0xff;
+        }
         _$mX._$iM = true;
     }
     return _$mX._$j1;
@@ -1375,9 +1377,8 @@ WidgetDockPatternBase.prototype._$02 = function (_$mX, patternPositionType, pt, 
     var _$9z = 0xff;
     _$oQ[0] = null;
     var _$fZ = new Array(1);
-    var _$e1 = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
-    var i;
-    for (i = 0; i < _$e1; i++) {
+    var panelNum = this._patternPositionList[patternPositionType]._patternSub.getPanelNum();
+    for (var i = 0; i < panelNum; i++) {
         _$d1[0] = -1;
         panel = this._patternPositionList[patternPositionType]._patternSub._panelList[i];
         if (panel._$iX) {
@@ -1389,9 +1390,8 @@ WidgetDockPatternBase.prototype._$02 = function (_$mX, patternPositionType, pt, 
                         this._$2d(_$mX, patternPositionType, panel, _$nz);
                     }
                 } else if (_$fZ[0] == 2) {
-                    var j;
                     var _$8G = false;
-                    for (j = i + 1; j < _$e1; j++) {
+                    for (var j = i + 1; j < panelNum; j++) {
                         var _$oG = this._patternPositionList[patternPositionType]._patternSub._panelList[j];
                         if (_$oG._$iX) {
                             panel = _$oG;
@@ -1574,18 +1574,23 @@ WidgetDockPatternBase.prototype._$1O = function (floatPanel, title, _$nO, _$dA, 
 WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, _$nr) {
     if (_$mS == null) return null;
     var _$pO = null;
-    if (_$mS._$od != null) _$pO = this._$1J(floatPanel, title, _$mS._$od, _$cX, _$nr);
+    if (_$mS._$od != null) {
+        _$pO = this._$1J(floatPanel, title, _$mS._$od, _$cX, _$nr);
+    }
     if (_$pO != null) return _$pO;
-    if (_$mS._$pr != null) return this._$1J(floatPanel, title, _$mS._$pr, _$cX, _$nr);
+    if (_$mS._$pr != null) {
+        return this._$1J(floatPanel, title, _$mS._$pr, _$cX, _$nr);
+    }
     if (_$mS._$sl != null && (title == _$mS._$sl)) return _$mS; else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
         var _$e1 = _$mS._$l1.length;
-        var i;
-        for (i = 0; i < _$e1; i++) {
+        for (var i = 0; i < _$e1; i++) {
             var _$rZ = _$mS._$l1[i]._title;
             if (_$rZ != null && (title == _$rZ)) {
                 var _$ol = _$mS._$l1[i];
                 _$cX[0] = _$ol._$aP;
-                if (_$nr != null) _$nr[0] = _$ol;
+                if (_$nr != null) {
+                    _$nr[0] = _$ol;
+                }
                 _$ol._floatPanel = floatPanel;
                 _$ol._title = null;
                 return _$mS;
@@ -1595,9 +1600,8 @@ WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, 
     return null;
 };
 WidgetDockPatternBase.prototype.setSignLen = function (signLenAry) {
-    var i;
     var d;
-    for (i = 0; i < 4; i++) {
+    for (var i = 0; i < 4; i++) {
         signLenAry[i] = 0;
         if (this._elementWithType[i] != null) {
             if (i == 1 || i == 3) {
@@ -1615,8 +1619,7 @@ WidgetDockPatternBase.prototype.addFixedPanelWithCenter = function (element) {
 };
 WidgetDockPatternBase.prototype._$qF = function (_$a0) {
     if (_$a0 == null) return;
-    var i;
-    for (i = 0; i < 4; i++) {
+    for (var i = 0; i < 4; i++) {
         if (this._elementWithType[i] == _$a0) {
             this._elementWithType[i] = null;
             this._$5z();

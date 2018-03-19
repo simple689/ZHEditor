@@ -5,4 +5,4 @@ function WidgetDockTab(left, right, title) {
     this._floatPanel = null;
     this._titleElement = null;
 };
-WidgetDockTab._$jL = 22;
+WidgetDockTab._space = 22;

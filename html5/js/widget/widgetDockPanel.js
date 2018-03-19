@@ -1991,8 +1991,8 @@ _$58.prototype._$4S = function () {
             rc.left += 2;
             this._$hj.fillStyle = 'ButtonFace';
             this._$hj.fillRect(rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
-            _$eo = rc.right - WidgetDockTab._$jL;
-            _$ep = rc.top + (rc.bottom - rc.top - WidgetDockTab._$jL) / 2;
+            _$eo = rc.right - WidgetDockTab._space;
+            _$ep = rc.top + (rc.bottom - rc.top - WidgetDockTab._space) / 2;
             this._$hj.font = this.getStyleFont();
             this._$hj.fillStyle = 'menuText';
             if (WidgetDockController._browserType == EnumBrowserType.Opera) {
@@ -2013,20 +2013,20 @@ _$58.prototype._$4S = function () {
                 WidgetDockElementController._$1q(rc.left, rc.top, rc.left, rc.bottom, this._$hj);
                 WidgetDockElementController._$1q(rc.left, rc.top, rc.right, rc.top, this._$hj);
                 WidgetDockElementController._$1q(rc.right, rc.top, rc.right, rc.bottom, this._$hj);
-                _$eo = _$qa.left + (_$qa.right - _$qa.left - WidgetDockTab._$jL) / 2;
+                _$eo = _$qa.left + (_$qa.right - _$qa.left - WidgetDockTab._space) / 2;
             } else {
                 rc.top = 0;
                 rc.bottom = _$qa.right - 2;
                 WidgetDockElementController._$1q(rc.left, rc.bottom, rc.left, rc.top, this._$hj);
                 WidgetDockElementController._$1q(rc.right, rc.top, rc.right, rc.bottom, this._$hj);
                 WidgetDockElementController._$1q(rc.left, rc.bottom, rc.right, rc.bottom, this._$hj);
-                _$eo = _$qa.left + (_$qa.right - _$qa.left - WidgetDockTab._$jL) / 2 + 1;
+                _$eo = _$qa.left + (_$qa.right - _$qa.left - WidgetDockTab._space) / 2 + 1;
                 rc.bottom -= 1;
             }
             rc.left += 2;
             this._$hj.fillStyle = 'ButtonFace';
             this._$hj.fillRect(rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
-            _$ep = rc.right - WidgetDockTab._$jL;
+            _$ep = rc.right - WidgetDockTab._space;
             this._$hj.font = this.getStyleFont();
             this._$hj.fillStyle = 'menuText';
             if (WidgetDockController._browserType == EnumBrowserType.Opera) {
@@ -2190,7 +2190,7 @@ _$58.prototype._$5B = function (_$d4) {
         }
         WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
         tab._right = _$fv + size.width + 2 * _$G._$2Z;
-        if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._$jL;
+        if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._space;
         _$dI[i] = tab._right - _$fv;
         _$fv = tab._right;
     }

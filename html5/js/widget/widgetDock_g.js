@@ -245,7 +245,7 @@ _$G.prototype._$5z = function () {
         tab._left = _$fv;
         WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
         tab._right = _$fv + size.width + 2 * _$G._$2Z;
-        if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._$jL;
+        if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._space;
         _$dI[i] = tab._right - _$fv;
         _$fv = tab._right;
     }
@@ -261,7 +261,7 @@ _$G.prototype._$5z = function () {
         ft = this._$bT(tab._floatPanel);
         var _$fE = tab._right - tab._left;
         var _$fK = 0;
-        if (tab._floatPanel._$hE != null) _$fK = WidgetDockTab._$jL;
+        if (tab._floatPanel._$hE != null) _$fK = WidgetDockTab._space;
         tab._title = WidgetDockPatternBase._$6y(ft, tab._title, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
     }
     this.refresh();
@@ -483,8 +483,8 @@ _$G.prototype._$aJ = function (_$U, left, right, title, _$7J, img, _$b2) {
     WidgetDockElementController._$1q(right, _$gC, right, _$dU - 2, this._$hj);
     this._$hj.fillStyle = 'menutext';
     if (img != null) {
-        g.drawImage(img, left + 2, _$gC + 1, WidgetDockTab._$jL, WidgetDockTab._$jL, this);
-        left += WidgetDockTab._$jL;
+        g.drawImage(img, left + 2, _$gC + 1, WidgetDockTab._space, WidgetDockTab._space, this);
+        left += WidgetDockTab._space;
     }
     var size = new WidgetDockSize();
     WidgetDockElementController.getOffsetSize(size, _$b2, title, this._$hj);

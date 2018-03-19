@@ -1,4 +1,4 @@
-WidgetDockController
+﻿WidgetDockController
 |——_instance
 |—— _browserType
 |—— _elementRootId
