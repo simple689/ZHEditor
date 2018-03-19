@@ -352,8 +352,8 @@ widgetDockPanel.prototype._$0e = function (_$mS) {
             for (var i = 0; i < _$e1; i++) {
                 var p = _$mS._$l1[i];
                 var sz;
-                if (p.title != null) {
-                    sz = p.title;
+                if (p._title != null) {
+                    sz = p._title;
                 } else {
                     sz = p.floatPanel._title;
                 }
@@ -427,8 +427,8 @@ widgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
     for (var i = 0; i < _$7D.length; i++) {
         var sTitle;
         var _$aS = 0xFFF00000;
-        if (_$7D[i].title != null) {
-            sTitle = _$7D[i].title;
+        if (_$7D[i]._title != null) {
+            sTitle = _$7D[i]._title;
             _$aS = _$7D[i]._$aP;
         } else {
             if (_$7D[i].floatPanel != null) {
@@ -463,8 +463,8 @@ widgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
         var _$8Q = false;
         if (_$mS._$o5 != null) {
             for (var k = 0; k < _$mS._$o5._$i6.length; k++) {
-                var _$pE = _$mS._$o5._$i6[k];
-                if (_$pE.floatPanel == _$7D[i].floatPanel) {
+                var tab = _$mS._$o5._$i6[k];
+                if (tab._floatPanel == _$7D[i].floatPanel) {
                     _$8Q = true;
                     break;
                 }
@@ -1839,14 +1839,14 @@ _$58.prototype._$3u = function (pt, floatPanel) {
     } else ptc.x += 1;
     var _$e1 = this._$hU.getPanelNum();
     for (var i = 0; i < _$e1; i++) {
-        var _$pE = this._$hU._panelList[i];
+        var tab = this._$hU._panelList[i];
         if (WidgetDockPatternBase.isInRect(rc, ptc)) {
             if (this._$le._$j1 == EnumPatternPositionType.Top || this._$le._$j1 == EnumPatternPositionType.Bottom) {
-                if ((ptc.x > _$pE._$cv && ptc.x < _$pE._$cE) && (_$pE.floatPanel == floatPanel)) {
+                if ((ptc.x > tab._$cv && ptc.x < tab._$cE) && (tab._floatPanel == floatPanel)) {
                     return true;
                 }
             } else {
-                if ((ptc.y > _$pE._$cv && ptc.y < _$pE._$cE) && (_$pE.floatPanel == floatPanel)) {
+                if ((ptc.y > tab._$cv && ptc.y < tab._$cE) && (tab._floatPanel == floatPanel)) {
                     return true;
                 }
             }
@@ -1867,43 +1867,43 @@ _$58.prototype._$08 = function (pt, _$7X) {
     var _$e1 = this._$hU.getPanelNum();
     var bin = false;
     for (var i = 0; i < _$e1; i++) {
-        var _$pE = this._$hU._panelList[i];
+        var tab = this._$hU._panelList[i];
         var _$8O = false;
         var _$9J = true;
-        if ((_$pE.floatPanel._$jN == WidgetDockFloatPanel._$48 && !_$7X) || (_$pE.floatPanel._$jN == WidgetDockFloatPanel._$46 && _$7X)) _$9J = false;
+        if ((tab._floatPanel._$jN == WidgetDockFloatPanel._$48 && !_$7X) || (tab._floatPanel._$jN == WidgetDockFloatPanel._$46 && _$7X)) _$9J = false;
         if (WidgetDockPatternBase.isInRect(rc, ptc)) {
             if (WidgetDockPatternBase._$l2 != null) {
-                if (WidgetDockPatternBase._$l2._$kx == _$pE.floatPanel) {
+                if (WidgetDockPatternBase._$l2._$kx == tab._floatPanel) {
                     _$8O = true;
                 }
             }
             if (this._$le._$j1 == EnumPatternPositionType.Top || this._$le._$j1 == EnumPatternPositionType.Bottom) {
-                if (ptc.x > _$pE._$cv && ptc.x < _$pE._$cE) {
+                if (ptc.x > tab._$cv && ptc.x < tab._$cE) {
                     bin = true;
                     if (!_$7X) {
                         this._$jZ = i;
                         if (!_$8O && _$9J) {
-                            this._$6Q(_$pE.floatPanel);
+                            this._$6Q(tab._floatPanel);
                             return;
                         }
                     }
                     if (this._$jZ == i && !_$8O && _$9J) {
-                        this._$5b(_$pE.floatPanel);
+                        this._$5b(tab._floatPanel);
                     } else this._$jZ = i;
                     break;
                 }
             } else {
-                if (ptc.y > _$pE._$cv && ptc.y < _$pE._$cE) {
+                if (ptc.y > tab._$cv && ptc.y < tab._$cE) {
                     bin = true;
                     if (!_$7X) {
                         this._$jZ = i;
                         if (!_$8O && _$9J) {
-                            this._$6Q(_$pE.floatPanel);
+                            this._$6Q(tab._floatPanel);
                             return;
                         }
                     }
                     if (this._$jZ == i && !_$8O && _$9J) {
-                        this._$5b(_$pE.floatPanel);
+                        this._$5b(tab._floatPanel);
                     } else this._$jZ = i;
                     break;
                 }
@@ -1917,7 +1917,7 @@ _$58.prototype._$4Q = function (pt) {
 _$58.prototype._$4S = function () {
     var _$cD = this._$le._$j1;
     var _$e1 = this._$hU.getPanelNum();
-    var _$pE;
+    var tab;
     var rc = new WidgetDockRect();
     var _$qa = new WidgetDockRect();
     this.getRect(_$qa);
@@ -1933,47 +1933,47 @@ _$58.prototype._$4S = function () {
     var _$ba = null;
     var _$eo, _$ep;
     for (var i = 0; i < _$e1; i++) {
-        _$pE = this._$hU._panelList[i];
+        tab = this._$hU._panelList[i];
         if (_$o3 == null) {
-            _$o3 = _$pE.floatPanel._patternMain;
+            _$o3 = tab._floatPanel._patternMain;
             _$ba = _$o3._$i3;
             if (_$ba == null) _$ba = this.getStyleFont();
         }
         if (this._$hj == null) {
-            if (_$pE._titleElement != null) {
+            if (tab._titleElement != null) {
                 if (_$cD == EnumPatternPositionType.Top || _$cD == EnumPatternPositionType.Bottom) {
                     var _$ff = 2;
-                    WidgetDockElementController.setElementLeftTop(_$pE._titleElement, _$pE._$cv, 2 + _$ff);
-                    WidgetDockElementController.setElementSize(_$pE._titleElement, _$pE._$cE - _$pE._$cv, _$58._$2V - 2 - _$ff);
-                    _$pE._titleElement.style.font = this.getStyleFont();
+                    WidgetDockElementController.setElementLeftTop(tab._titleElement, tab._$cv, 2 + _$ff);
+                    WidgetDockElementController.setElementSize(tab._titleElement, tab._$cE - tab._$cv, _$58._$2V - 2 - _$ff);
+                    tab._titleElement.style.font = this.getStyleFont();
                 } else {
                     if (WidgetDockController._browserType == EnumBrowserType.IE || WidgetDockController._browserType == EnumBrowserType.Chrome) {
                         _$ff = (_$58._$2V - 2) / 2;
-                        WidgetDockElementController.setElementLeftTop(_$pE._titleElement, 4 - _$ff, _$pE._$cv + 2);
-                        WidgetDockElementController.setElementSize(_$pE._titleElement, _$58._$2V - 2, _$pE._$cE - _$pE._$cv);
-                        _$pE._titleElement.style.writingMode = 'tb-rl';
+                        WidgetDockElementController.setElementLeftTop(tab._titleElement, 4 - _$ff, tab._$cv + 2);
+                        WidgetDockElementController.setElementSize(tab._titleElement, _$58._$2V - 2, tab._$cE - tab._$cv);
+                        tab._titleElement.style.writingMode = 'tb-rl';
                     } else if (WidgetDockController._browserType == EnumBrowserType.Opera) {
-                        var _$te = (_$pE._$cE - _$pE._$cv) / 2;
-                        WidgetDockElementController.setElementLeftTop(_$pE._titleElement, -_$te + (_$58._$2V) / 2 - 2, _$pE._$cv + _$te);
-                        WidgetDockElementController.setElementSize(_$pE._titleElement, _$pE._$cE - _$pE._$cv, _$58._$2V);
-                        _$pE._titleElement.style['OTransform'] = ' rotate(90deg) ';
+                        var _$te = (tab._$cE - tab._$cv) / 2;
+                        WidgetDockElementController.setElementLeftTop(tab._titleElement, -_$te + (_$58._$2V) / 2 - 2, tab._$cv + _$te);
+                        WidgetDockElementController.setElementSize(tab._titleElement, tab._$cE - tab._$cv, _$58._$2V);
+                        tab._titleElement.style['OTransform'] = ' rotate(90deg) ';
                     } else {
-                        var _$te = (_$pE._$cE - _$pE._$cv) / 2;
-                        WidgetDockElementController.setElementLeftTop(_$pE._titleElement, -_$te + (_$58._$2V) / 2 - 2, _$pE._$cv + _$te);
-                        WidgetDockElementController.setElementSize(_$pE._titleElement, _$pE._$cE - _$pE._$cv, _$58._$2V);
-                        _$pE._titleElement.style['MozTransform'] = ' rotate(90deg) ';
+                        var _$te = (tab._$cE - tab._$cv) / 2;
+                        WidgetDockElementController.setElementLeftTop(tab._titleElement, -_$te + (_$58._$2V) / 2 - 2, tab._$cv + _$te);
+                        WidgetDockElementController.setElementSize(tab._titleElement, tab._$cE - tab._$cv, _$58._$2V);
+                        tab._titleElement.style['MozTransform'] = ' rotate(90deg) ';
                     }
-                    _$pE._titleElement.style.font = this.getStyleFont();
+                    tab._titleElement.style.font = this.getStyleFont();
                 }
-                _$pE._titleElement.innerHTML = _$pE.title;
+                tab._titleElement.innerHTML = tab._title;
             }
             continue;
         }
         var size = new WidgetDockSize();
-        WidgetDockElementController.getOffsetSize(size, _$ba, _$pE.title, this._$hj);
+        WidgetDockElementController.getOffsetSize(size, _$ba, tab._title, this._$hj);
         if (_$cD == EnumPatternPositionType.Top || _$cD == EnumPatternPositionType.Bottom) {
-            rc.left = _$pE._$cv;
-            rc.right = _$pE._$cE;
+            rc.left = tab._$cv;
+            rc.right = tab._$cE;
             this._$hj._$s1 = 'ButtonShadow';
             if (_$cD == EnumPatternPositionType.Top) {
                 rc.top = 0;
@@ -1999,15 +1999,15 @@ _$58.prototype._$4S = function () {
             if (WidgetDockController._browserType == EnumBrowserType.Opera) {
                 this._$hj.fillStyle = 'black';
             }
-            this._$hj.fillText(_$pE.title, rc.left, (rc.bottom - rc.top) / 2 + rc.top + 4);
+            this._$hj.fillText(tab._title, rc.left, (rc.bottom - rc.top) / 2 + rc.top + 4);
         } else {
             this._$hj.save();
             this._$hj._$s1 = 'ButtonShadow';
             this._$hj.translate(this._panelStateElement.width / 2, -this._panelStateElement.width / 2);
             this._$hj.rotate(3.141592653589 / 2);
             this._$hj.translate(this._panelStateElement.width / 2, -this._panelStateElement.width / 2);
-            rc.left = _$pE._$cv;
-            rc.right = _$pE._$cE;
+            rc.left = tab._$cv;
+            rc.right = tab._$cE;
             if (_$cD == EnumPatternPositionType.Left) {
                 rc.top = 3;
                 rc.bottom = _$qa.right;
@@ -2033,7 +2033,7 @@ _$58.prototype._$4S = function () {
             if (WidgetDockController._browserType == EnumBrowserType.Opera) {
                 this._$hj.fillStyle = 'black';
             }
-            this._$hj.fillText(_$pE.title, rc.left, (rc.bottom - rc.top) / 2 + rc.top + 4);
+            this._$hj.fillText(tab._title, rc.left, (rc.bottom - rc.top) / 2 + rc.top + 4);
             this._$hj.restore();
         }
     }
@@ -2111,8 +2111,8 @@ _$58.prototype._$4J = function (floatPanel, _$sc) {
     var i;
     for (i = 0; i < _$e1; i++) {
         if (floatPanel == _$hU._panelList[i].floatPanel) {
-            var _$pE = _$hU._panelList[i];
-            _$pE.title = new String(_$sc);
+            var tab = _$hU._panelList[i];
+            tab._title = new String(_$sc);
             this._$5A();
             break;
         }

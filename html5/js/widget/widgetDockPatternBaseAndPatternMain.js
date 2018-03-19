@@ -76,9 +76,9 @@ WidgetDockPatternBase.prototype._$4a = function (_$mS, floatPanel) {
         var _$e1 = _$mS._$l1.length;
         for (var i = 0; i < _$e1; i++) {
             var _$ol = _$mS._$l1.get(i);
-            if (_$ol.floatPanel != null && _$ol.floatPanel == floatPanel) {
-                _$ol.floatPanel = null;
-                _$ol.title = floatPanel.getTitle();
+            if (_$ol._floatPanel != null && _$ol._floatPanel == floatPanel) {
+                _$ol._floatPanel = null;
+                _$ol._title = floatPanel.getTitle();
                 _$ol._$pA = floatPanel._$lt;
                 _$ol._$rM = floatPanel._$lK.cx;
                 _$ol._$rN = floatPanel._$lK.cy;
@@ -1582,13 +1582,13 @@ WidgetDockPatternBase.prototype._$1J = function (floatPanel, title, _$mS, _$cX, 
         var _$e1 = _$mS._$l1.length;
         var i;
         for (i = 0; i < _$e1; i++) {
-            var _$rZ = _$mS._$l1[i].title;
+            var _$rZ = _$mS._$l1[i]._title;
             if (_$rZ != null && (title == _$rZ)) {
                 var _$ol = _$mS._$l1[i];
                 _$cX[0] = _$ol._$aP;
                 if (_$nr != null) _$nr[0] = _$ol;
-                _$ol.floatPanel = floatPanel;
-                _$ol.title = null;
+                _$ol._floatPanel = floatPanel;
+                _$ol._title = null;
                 return _$mS;
             }
         }
@@ -1912,7 +1912,7 @@ WidgetDockPatternBase.prototype._$1N = function (title, _$mS) {
     } else if (_$mS._$l1 != null && _$mS._$l1.length > 0) {
         var _$e1 = _$mS._$l1.length;
         for (var i = 0; i < _$e1; i++) {
-            var _$so = _$mS._$l1[i].title;
+            var _$so = _$mS._$l1[i]._title;
             if (_$so != null && _$so.lastIndexOf(title) == 0) {
                 return _$mS;
             }

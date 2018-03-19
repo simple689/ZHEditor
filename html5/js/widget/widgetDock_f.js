@@ -19,7 +19,7 @@ function _$F() {
 };
 _$F.prototype._$e = function (title, _$aP, _$pz, _$cJ, _$cK) {
     var _$ol = new _$57();
-    _$ol.title = title;
+    _$ol._title = title;
     _$ol._$aP = _$aP;
     _$ol._$pA = _$pz;
     _$ol._$rM = _$cJ;
@@ -75,7 +75,7 @@ _$F.prototype._$5w = function (mainPattern, patternPositionType) {
                 var _$nQ = this._$o5._$i6[i].floatPanel;
                 var _$ol = new _$57();
                 _$nQ._patternPositionType = patternPositionType;
-                _$ol.floatPanel = _$nQ;
+                _$ol._floatPanel = _$nQ;
                 _$nQ._$kB = mainPattern;
                 this._$l1.push(_$ol);
                 _$nQ._$kA = this;
@@ -357,7 +357,7 @@ _$F.prototype._$56 = function (_$sg) {
     var _$gi = this._$l1.length;
     var _$sm;
     for (var i = 0; i < _$gi; i++) {
-        _$sm = this._$l1[i].title;
+        _$sm = this._$l1[i]._title;
         if (_$sm != null && (_$sm == _$sg)) {
             this._$l1.splice(i, 1);
             break;
@@ -491,11 +491,11 @@ _$F.prototype.Add = function (floatPanel) {
         var _$ol;
         if (this._$of != null && this._$of != floatPanel) {
             _$ol = new _$57();
-            _$ol.floatPanel = this._$of;
+            _$ol._floatPanel = this._$of;
             this._$l1.push(_$ol);
         }
         _$ol = new _$57();
-        _$ol.floatPanel = floatPanel;
+        _$ol._floatPanel = floatPanel;
         this._$l1.push(_$ol);
         return;
     }
@@ -504,7 +504,7 @@ _$F.prototype.Add = function (floatPanel) {
         if (floatPanel == this._$l1[i].floatPanel) return;
     }
     var _$ol = new _$57();
-    _$ol.floatPanel = floatPanel;
+    _$ol._floatPanel = floatPanel;
     this._$l1.push(_$ol);
 };
 _$F.prototype._$1K = function (_$nn, _$nG, _$p7, _$pa) {

@@ -2083,7 +2083,7 @@ WidgetDockFloatPanel.prototype._$5U = function (type, title) {
             var i;
             for (i = 0; i < this._$kA._$l1.length; i++) {
                 var _$ol = this._$kA._$l1[i];
-                if (_$ol.floatPanel == this && ((_$ol._$aP & WidgetDockFloatPanel._$1B) > 0)) {
+                if (_$ol._floatPanel == this && ((_$ol._$aP & WidgetDockFloatPanel._$1B) > 0)) {
                     _$8G = true;
                 }
             }
