@@ -9,7 +9,7 @@ WidgetDockLayoutController
 WidgetDockLayout
 WidgetDockFloatPanelController
 WidgetDockFloatPanel
-WidgetDockWindow（）
+WidgetDockWindow（WidgetDockFloatPanel）特殊
 WidgetDockElementController
 WidgetDockController
 _$M
