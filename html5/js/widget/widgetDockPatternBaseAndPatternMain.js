@@ -14,7 +14,6 @@ function WidgetDockPatternBase(isMain) {
     this._elementWithType = new Array(4);
     this._$jO = 0;
     this._$he = null;
-    this._$i3 = null;
     this._windowPattern = new Array(4);
     this._$jv = 0;
     this._signLenAry = new Array(4);
