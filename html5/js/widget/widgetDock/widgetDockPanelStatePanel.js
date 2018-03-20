@@ -67,7 +67,7 @@ WidgetDockPanelStatePanel.prototype._$3u = function (pt, floatPanel) {
     } else ptc.x += 1;
     var _$e1 = this._floatPanelController.getPanelNum();
     for (var i = 0; i < _$e1; i++) {
-        var tab = this._floatPanelController._panelList[i];
+        var tab = this._floatPanelController._panelTabList[i];
         if (WidgetDockPatternBase.isInRect(rc, ptc)) {
             if (this._$le._$j1 == EnumPatternPositionType.Top || this._$le._$j1 == EnumPatternPositionType.Bottom) {
                 if ((ptc.x > tab._left && ptc.x < tab._right) && (tab._floatPanel == floatPanel)) {
@@ -95,7 +95,7 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, isMove) {
     var panelNum = this._floatPanelController.getPanelNum();
     var bin = false;
     for (var i = 0; i < panelNum; i++) {
-        var tab = this._floatPanelController._panelList[i];
+        var tab = this._floatPanelController._panelTabList[i];
         var _$8O = false;
         var _$9J = true;
         if ((tab._floatPanel._$jN == WidgetDockFloatPanel._$48 && !isMove) || (tab._floatPanel._$jN == WidgetDockFloatPanel._$46 && isMove)) {
@@ -164,7 +164,7 @@ WidgetDockPanelStatePanel.prototype._$4S = function () {
     var ft = null;
     var _$eo, _$ep;
     for (var i = 0; i < _$e1; i++) {
-        tab = this._floatPanelController._panelList[i];
+        tab = this._floatPanelController._panelTabList[i];
         if (patternMain == null) {
             patternMain = tab._floatPanel._patternMain;
             ft = this.getStyleFont();
@@ -329,7 +329,7 @@ WidgetDockPanelStatePanel.prototype._$0s = function () {
         var _$oU = new Array();
         var i;
         for (i = 0; i < iNo; i++) {
-            _$oU[i] = this._floatPanelController._panelList[i];
+            _$oU[i] = this._floatPanelController._panelTabList[i];
         }
         this._floatPanelController.reset();
         return _$oU;
@@ -340,8 +340,8 @@ WidgetDockPanelStatePanel.prototype._$4J = function (floatPanel, _$sc) {
     var _$e1 = _floatPanelController.getPanelNum();
     var i;
     for (i = 0; i < _$e1; i++) {
-        if (floatPanel == _floatPanelController._panelList[i].floatPanel) {
-            var tab = _floatPanelController._panelList[i];
+        if (floatPanel == _floatPanelController._panelTabList[i].floatPanel) {
+            var tab = _floatPanelController._panelTabList[i];
             tab._title = new String(_$sc);
             this._$5A();
             break;
@@ -362,10 +362,10 @@ WidgetDockPanelStatePanel.prototype._$5M = function (floatPanel) {
     var _$e1 = this._floatPanelController.getPanelNum();
     var i;
     for (i = 0; i < _$e1; i++) {
-        if (floatPanel == this._floatPanelController._panelList[i].floatPanel) {
-            if (this._floatPanelController._panelList[i]._titleElement != null) {
-                this._panelStateElement.removeChild(this._floatPanelController._panelList[i]._titleElement);
-                this._floatPanelController._panelList[i]._titleElement = null;
+        if (floatPanel == this._floatPanelController._panelTabList[i].floatPanel) {
+            if (this._floatPanelController._panelTabList[i]._titleElement != null) {
+                this._panelStateElement.removeChild(this._floatPanelController._panelTabList[i]._titleElement);
+                this._floatPanelController._panelTabList[i]._titleElement = null;
             }
             this._floatPanelController.deletePanel(i);
             break;
@@ -413,7 +413,7 @@ WidgetDockPanelStatePanel.prototype._$5B = function (_$d4) {
     var _$dI = new Array();
     var patternMain = null;
     for (var i = 0; i < _$gi; i++) {
-        tab = this._floatPanelController._panelList[i];
+        tab = this._floatPanelController._panelTabList[i];
         tab._left = _$fv;
         if (patternMain == null) {
             patternMain = tab._floatPanel._patternMain;

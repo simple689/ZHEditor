@@ -90,7 +90,7 @@ _$K.prototype._$10 = function () {
 };
 _$K.prototype._$01 = function () {
     if (this._$it) {
-        var panel = this._patternPositionList[0]._patternSub._panelList[0];
+        var panel = this._patternPositionList[0]._patternSub._panelTabList[0];
         if (!panel._$iX) {
             _$lq = _$he._$bZ();
             _$ln = _$he.getSize();
@@ -185,7 +185,7 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
     }
     var panelNum = this._patternPositionList[0]._patternSub.getPanelNum();
     if (panelNum == 1) {
-        var panel = this._patternPositionList[0]._patternSub._panelList[0];
+        var panel = this._patternPositionList[0]._patternSub._panelTabList[0];
         if (panel._$le != null) {
             panel._$le.setSize(0, 0);
         }
@@ -214,7 +214,7 @@ _$K.prototype._$4s = function (floatPanel, _$8e) {
     if (panelNum < 1) {
         return false;
     }
-    var _$nT = this._patternPositionList[0]._patternSub._panelList[0]._$kI;
+    var _$nT = this._patternPositionList[0]._patternSub._panelTabList[0]._$kI;
     var _$e1 = _$nT._$4s(floatPanel, _$8e);
     if (_$e1 < 2) {
         return false;
@@ -222,7 +222,7 @@ _$K.prototype._$4s = function (floatPanel, _$8e) {
     return true;
 };
 _$K.prototype._$3G = function (_$nc, _$mX, _$n1) {
-    var panel = this._patternPositionList[0]._patternSub._panelList[0];
+    var panel = this._patternPositionList[0]._patternSub._panelTabList[0];
     var _$pp = panel._$kI;
     var _$8E = false;
     if (_$mX._$j1 == EnumPatternPositionType.Top || _$mX._$j1 == EnumPatternPositionType.Left) {
@@ -234,7 +234,7 @@ _$K.prototype._$3G = function (_$nc, _$mX, _$n1) {
     _$nc._$6m(0, this);
 };
 _$K.prototype._$1g = function (_$mX, _$n1) {
-    var panel = this._patternPositionList[0]._patternSub._panelList[0];
+    var panel = this._patternPositionList[0]._patternSub._panelTabList[0];
     var _$pp = panel._$kI;
     _$mX._$kx._$jr = 0;
     var _$8E = false;
@@ -251,7 +251,7 @@ _$K.prototype._$53 = function (floatPanel) {
     WidgetDockPatternBase.prototype._$53.call(this, floatPanel);
     var panelNum = this._patternPositionList[0]._patternSub.getPanelNum();
     if (panelNum > 0) {
-        var panel = this._patternPositionList[0]._patternSub._panelList[0];
+        var panel = this._patternPositionList[0]._patternSub._panelTabList[0];
         if (panel._$kI._$od == null && panel._$kI._$pr == null && panel._$kI._$of == null && (panel._$kI._$l1 == null || (panel._$kI._$l1 != null && panel._$kI._$l1.length < 1))) {
             panelNum = _$K._$kL.length;
             for (var i = 0; i < panelNum; i++) {

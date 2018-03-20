@@ -17,7 +17,7 @@ _$4d.prototype.setElementZIndex = function (_$cR) {
     }
 };
 _$4d.prototype.isInRectWithPanelState = function (pts) {
-    var _$po = this._$kY._patternPositionList[0]._patternSub._panelList[0]._$kI;
+    var _$po = this._$kY._patternPositionList[0]._patternSub._panelTabList[0]._$kI;
     var left = WidgetDockElementController.getElementLeft(this._panelStateElement);
     var top = WidgetDockElementController.getElementTop(this._panelStateElement);
     var pt = new WidgetDockLocation();
@@ -59,6 +59,6 @@ _$4d.prototype.refresh = function () {
     this._floatPanel = _$pN;
 };
 _$4d.prototype._$4L = function () {
-    var _$po = _$kY._patternPositionList[0]._patternSub._panelList[0]._$kI;
+    var _$po = _$kY._patternPositionList[0]._patternSub._panelTabList[0]._$kI;
     this._$0Y(_$po);
 };

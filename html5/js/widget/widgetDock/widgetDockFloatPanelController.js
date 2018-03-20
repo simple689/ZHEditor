@@ -1,57 +1,57 @@
 function WidgetDockFloatPanelController() {
-    this._panelNumMax = this._$jk = 10;
-    this._panelNum = 0;
-    this._panelList = new Array(this._panelNumMax);
+    this._panelTabNumMax = this._$jk = 10;
+    this._panelTabNum = 0;
+    this._panelTabList = new Array(this._panelTabNumMax);
 };
 WidgetDockFloatPanelController.prototype.reset = function () {
-    this._panelNumMax = this._$jk = 10;
-    this._panelNum = 0;
-    this._panelList = new Array(this._panelNumMax);
+    this._panelTabNumMax = this._$jk = 10;
+    this._panelTabNum = 0;
+    this._panelTabList = new Array(this._panelTabNumMax);
 };
 WidgetDockFloatPanelController.prototype.addFloatPanel = function (floatPanel) {
-    this._panelList[this._panelNum] = floatPanel;
-    this._panelNum++;
-    if (this._panelNum == this._panelNumMax) {
-        var _$oR = new Array(this._panelNum + this._$jk);
-        for (var i = 0; i < this._panelNum; i++) {
-            _$oR[i] = this._panelList[i];
+    this._panelTabList[this._panelTabNum] = floatPanel;
+    this._panelTabNum++;
+    if (this._panelTabNum == this._panelTabNumMax) {
+        var _$oR = new Array(this._panelTabNum + this._$jk);
+        for (var i = 0; i < this._panelTabNum; i++) {
+            _$oR[i] = this._panelTabList[i];
         }
-        this._panelList = _$oR;
-        this._panelNumMax += this._$jk;
+        this._panelTabList = _$oR;
+        this._panelTabNumMax += this._$jk;
     }
 };
 WidgetDockFloatPanelController.prototype.deletePanel = function (index) {
-    if (this._panelNum == 0 || index > (this._panelNum - 1)) return;
-    for (var i = index; i < this._panelNum - 1; i++) {
-        this._panelList[i] = this._panelList[i + 1];
+    if (this._panelTabNum == 0 || index > (this._panelTabNum - 1)) return;
+    for (var i = index; i < this._panelTabNum - 1; i++) {
+        this._panelTabList[i] = this._panelTabList[i + 1];
     }
-    this._panelNum -= 1;
+    this._panelTabNum -= 1;
 };
 WidgetDockFloatPanelController.prototype._$4 = function (floatPanel, secIndex) {
-    if (secIndex > this._panelNum) return false;
-    if (secIndex == this._panelNum) {
+    if (secIndex > this._panelTabNum) return false;
+    if (secIndex == this._panelTabNum) {
         this.addFloatPanel(floatPanel);
         return true;
     }
-    this._panelNum++;
-    if (this._panelNum == this._panelNumMax) {
+    this._panelTabNum++;
+    if (this._panelTabNum == this._panelTabNumMax) {
         for (var i = 0; i < secIndex; i++) {
-            _$oR[i] = this._panelList[i];
+            _$oR[i] = this._panelTabList[i];
         }
-        for (var i = secIndex; i < this._panelNum; i++) {
-            _$oR[i + 1] = this._panelList[i];
+        for (var i = secIndex; i < this._panelTabNum; i++) {
+            _$oR[i + 1] = this._panelTabList[i];
         }
         _$oR[secIndex] = floatPanel;
-        this._panelList = _$oR;
-        this._panelNumMax += this._$jk;
+        this._panelTabList = _$oR;
+        this._panelTabNumMax += this._$jk;
     } else {
-        for (var i = this._panelNum - 1; i > secIndex; i--) {
-            this._panelList[i] = this._panelList[i - 1];
+        for (var i = this._panelTabNum - 1; i > secIndex; i--) {
+            this._panelTabList[i] = this._panelTabList[i - 1];
         }
-        this._panelList[secIndex] = floatPanel;
+        this._panelTabList[secIndex] = floatPanel;
     }
     return true;
 };
 WidgetDockFloatPanelController.prototype.getPanelNum = function () {
-    return this._panelNum;
+    return this._panelTabNum;
 };

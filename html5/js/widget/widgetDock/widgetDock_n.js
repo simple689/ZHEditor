@@ -381,7 +381,7 @@ _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
     _$89[0] = true;
     var _$f2;
     for (var i = panelNum - 1; i >= 0; i--) {
-        panel = this._$kG._patternPositionList[this._$j1]._patternSub._panelList[i];
+        panel = this._$kG._patternPositionList[this._$j1]._patternSub._panelTabList[i];
         if (panel._$iX) {
             if (panel._$le == this) {
                 this._$ka = i;
