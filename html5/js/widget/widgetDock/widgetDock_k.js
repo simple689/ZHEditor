@@ -13,9 +13,8 @@ WidgetDockPrototype.bind(_$K, WidgetDockPatternBase);
 _$K._$kL = new Array();
 _$K.prototype._$bE = function () {
     var _$9U = new Array();
-    var i;
     var cnt = this._$ha.length;
-    for (i = 0; i < cnt; i++) {
+    for (var i = 0; i < cnt; i++) {
         _$9U.push(this._$ha[i]);
     }
     return _$9U;
@@ -51,10 +50,8 @@ _$K.prototype._$7v = function (_$a0) {
     this._$5z();
 };
 _$K.prototype.Add = function (com) {
-    var vt = 0;
 };
 _$K.prototype._$d = function (com) {
-    var vs = 0;
 };
 _$K.prototype._$5E = function (com) {
 };
@@ -104,8 +101,12 @@ _$K.prototype._$01 = function () {
     }
 };
 _$K.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
-    if (!this._$is || !this._$it) return 0xff;
-    if (!_$mX._$it) return 0xff;
+    if (!this._$is || !this._$it) {
+        return 0xff;
+    }
+    if (!_$mX._$it) {
+        return 0xff;
+    }
     if (this._$kK != null && this._$kK._$iq) {
         _$mX._$j1 = 0xff;
         return 0xff;
@@ -151,7 +152,9 @@ _$K.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
         return 0xff;
     }
     _$mX._$j1 = parseInt(_$9z / 2);
-    if (_$o4 != null) _$mU._$2G(_$nz, _$gk, _$qf, true); else {
+    if (_$o4 != null) {
+        _$mU._$2G(_$nz, _$gk, _$qf, true);
+    } else {
         _$qf.left = _$qf.top = 0;
         _$qf.right = _$nz.cx;
         _$qf.bottom = _$nz.cy;
@@ -176,10 +179,12 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
     if (this._elementWithType[1] != null) {
         WidgetDockElementController.setElementLeftTop(this._elementWithType[1], 3 + WidgetDockElementController.getElementLeft(this._$he), 3 + WidgetDockElementController.getElementTop(this._$he));
         WidgetDockElementController.setElementSize(this._elementWithType[1], iw, this._signLenAry[1] - 3);
-        if (this._$kX != null) this._$kX.refresh();
+        if (this._$kX != null) {
+            this._$kX.refresh();
+        }
     }
-    var _$e1 = this._patternPositionList[0]._patternSub.getPanelNum();
-    if (_$e1 == 1) {
+    var panelNum = this._patternPositionList[0]._patternSub.getPanelNum();
+    if (panelNum == 1) {
         var panel = this._patternPositionList[0]._patternSub._panelList[0];
         if (panel._$le != null) {
             panel._$le.setSize(0, 0);
@@ -197,38 +202,32 @@ _$K.prototype._$mC = function (_$eu, _$gC, iw, ih) {
 };
 _$K.prototype._$l = function (floatPanel) {
     if (!this._$4s(floatPanel, true)) {
-        if (this._elementWithType[1] != null) WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._elementWithType[1]);
+        if (this._elementWithType[1] != null) {
+            WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._elementWithType[1]);
+        }
         this._$qF(this._elementWithType[1]);
         this._$5E(this._$kX);
     }
 };
 _$K.prototype._$4s = function (floatPanel, _$8e) {
-    var _$e1 = 0;
-    var _$nT = null;
-    var _$fY = this._patternPositionList[0]._patternSub.getPanelNum();
-    if (_$fY < 1) return false;
-    _$nT = this._patternPositionList[0]._patternSub._panelList[0]._$kI;
-    _$e1 = _$nT._$4s(floatPanel, _$8e);
-    if (_$e1 < 2) return false;
+    var panelNum = this._patternPositionList[0]._patternSub.getPanelNum();
+    if (panelNum < 1) {
+        return false;
+    }
+    var _$nT = this._patternPositionList[0]._patternSub._panelList[0]._$kI;
+    var _$e1 = _$nT._$4s(floatPanel, _$8e);
+    if (_$e1 < 2) {
+        return false;
+    }
     return true;
-};
-_$K.prototype._$bP = function () {
-    var _$e1 = 0;
-    var _$nT = null;
-    var _$fY = this._patternPositionList[0]._patternSub.getPanelNum();
-    if (_$fY < 1) return null;
-    var _$oq = new WidgetDockFloatPanelController();
-    _$nT = this._patternPositionList[0]._patternSub._panelList[0]._$kI;
-    _$nT._$2Q(_$oq);
-    var _$at = new Array(_$oq.getPanelNum());
-    for (var i = 0; i < _$oq.getPanelNum(); i++) _$at[i] = _$oq._panelList[i];
-    return _$at;
 };
 _$K.prototype._$3G = function (_$nc, _$mX, _$n1) {
     var panel = this._patternPositionList[0]._patternSub._panelList[0];
     var _$pp = panel._$kI;
     var _$8E = false;
-    if (_$mX._$j1 == EnumPatternPositionType.Top || _$mX._$j1 == EnumPatternPositionType.Left) _$8E = true;
+    if (_$mX._$j1 == EnumPatternPositionType.Top || _$mX._$j1 == EnumPatternPositionType.Left) {
+        _$8E = true;
+    }
     _$mX._$ka = 0;
     _$pp._$3F(_$nc, _$mX._$j1, _$8E, _$n1);
     _$mX._$j1 = 0;
@@ -239,7 +238,9 @@ _$K.prototype._$1g = function (_$mX, _$n1) {
     var _$pp = panel._$kI;
     _$mX._$kx._$jr = 0;
     var _$8E = false;
-    if (_$mX._$j1 == EnumPatternPositionType.Top || _$mX._$j1 == EnumPatternPositionType.Left) _$8E = true;
+    if (_$mX._$j1 == EnumPatternPositionType.Top || _$mX._$j1 == EnumPatternPositionType.Left) {
+        _$8E = true;
+    }
     var _$oD = new _$F();
     _$oD._$of = _$mX._$kx;
     _$mX._$kx._$kA = _$oD;
@@ -248,13 +249,12 @@ _$K.prototype._$1g = function (_$mX, _$n1) {
 };
 _$K.prototype._$53 = function (floatPanel) {
     WidgetDockPatternBase.prototype._$53.call(this, floatPanel);
-    var _$e1 = this._patternPositionList[0]._patternSub.getPanelNum();
-    if (_$e1 > 0) {
+    var panelNum = this._patternPositionList[0]._patternSub.getPanelNum();
+    if (panelNum > 0) {
         var panel = this._patternPositionList[0]._patternSub._panelList[0];
         if (panel._$kI._$od == null && panel._$kI._$pr == null && panel._$kI._$of == null && (panel._$kI._$l1 == null || (panel._$kI._$l1 != null && panel._$kI._$l1.length < 1))) {
-            _$e1 = _$K._$kL.length;
-            var i;
-            for (i = 0; i < _$e1; i++) {
+            panelNum = _$K._$kL.length;
+            for (var i = 0; i < panelNum; i++) {
                 if (_$K._$kL[i] == this) {
                     _$K._$kL.splice(i, 1);
                     break;
@@ -262,8 +262,8 @@ _$K.prototype._$53 = function (floatPanel) {
             }
         }
     } else {
-        _$e1 = _$K._$kL.length;
-        for (var i = 0; i < _$e1; i++) {
+        panelNum = _$K._$kL.length;
+        for (var i = 0; i < panelNum; i++) {
             if (_$K._$kL[i] == this) {
                 _$K._$kL.splice(i, 1);
                 break;

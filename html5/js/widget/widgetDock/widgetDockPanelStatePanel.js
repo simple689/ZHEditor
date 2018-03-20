@@ -4,7 +4,7 @@ function WidgetDockPanelStatePanel() {
     this._$jC = 0;
     this._$kg = -1;
     this._$jZ = -1;
-    this._$ju = 0;
+    this._patternPositionType = 0;
     this._floatPanelController = new WidgetDockFloatPanelController();
 };
 WidgetDockPrototype.bind(WidgetDockPanelStatePanel, WidgetDockPanelState);
@@ -280,7 +280,7 @@ WidgetDockPanelStatePanel.prototype._$5b = function (floatPanel) {
     var ih = floatPanel.getHeight();
     iw += 6;
     ih += 6;
-    var _$ft = this._$ju;
+    var _$ft = this._patternPositionType;
     if (_$ft == EnumPatternPositionType.Left) {
         rc.left = rc.right;
         rc.right = rc.left + iw;

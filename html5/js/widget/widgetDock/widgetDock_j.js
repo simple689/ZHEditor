@@ -1,35 +1,30 @@
 function _$J(isMain) {
     _$J.baseConstructor.call(this, isMain);
-    this._$kS;
     this._$kF = null;
 };
 WidgetDockPrototype.bind(_$J, _$K);
-_$J.prototype.getWindowRect = function (_$qb) {
+_$J.prototype.getWindowRect = function (rc) {
     if (this._$he != null) {
-        _$qb.left = WidgetDockElementController.getElementLeft(this._$he);
-        _$qb.top = WidgetDockElementController.getElementTop(this._$he);
-
-        _$qb.right = parseInt(this._$he.style.width) + _$qb.left;
-        _$qb.bottom = parseInt(this._$he.style.height) + _$qb.top;
-
+        rc.left = WidgetDockElementController.getElementLeft(this._$he);
+        rc.top = WidgetDockElementController.getElementTop(this._$he);
+        rc.right = parseInt(this._$he.style.width) + rc.left;
+        rc.bottom = parseInt(this._$he.style.height) + rc.top;
     }
 };
-_$J.prototype._$36 = function (iX, iY) {
-    var _$eu = WidgetDockElementController.getElementLeft(this._$he);
-    var _$gC = WidgetDockElementController.getElementTop(this._$he);
-    var width, height;
-
-    width = parseInt(this._$he.style.width);
-    height = parseInt(this._$he.style.height);
-
-    if ((iX >= _$eu) && (iX <= (_$eu + width)) && (iY >= _$gC) && (iY <= (_$gC + height))) return true;
+_$J.prototype._$36 = function (x, y) {
+    var left = WidgetDockElementController.getElementLeft(this._$he);
+    var top = WidgetDockElementController.getElementTop(this._$he);
+    var width = parseInt(this._$he.style.width);
+    var height = parseInt(this._$he.style.height);
+    if ((x >= left) && (x <= (left + width)) && (y >= top) && (y <= (top + height))) {
+        return true;
+    }
     return false;
 };
 _$J.prototype.Add = function (com) {
-    var _$e0 = this._$ha.length;
-    var i;
+    var len = this._$ha.length;
     var _$8G = false;
-    for (i = 0; i < _$e0; i++) {
+    for (var i = 0; i < len; i++) {
         if (this._$ha[i] == com) {
             _$8G = true;
             break;
@@ -45,12 +40,10 @@ _$J.prototype.Add = function (com) {
     }
 };
 _$J.prototype._$d = function (com) {
-    var v = 0;
 };
 _$J.prototype._$5E = function (com) {
-    var _$e0 = this._$ha.length;
-    var i;
-    for (i = 0; i < _$e0; i++) {
+    var len = this._$ha.length;
+    for (var i = 0; i < len; i++) {
         if (this._$ha[i] == com) {
             this._$ha.splice(i, 1);
             break;
@@ -69,8 +62,7 @@ _$J.prototype._$74 = function () {
         WidgetDockElementController.setElementZIndex(this._$he, this._$jO);
         if (this._$ha != null) {
             var _$e0 = this._$ha.length;
-            var i;
-            for (i = 0; i < _$e0; i++) {
+            for (var i = 0; i < _$e0; i++) {
                 if (this._$ha[i] instanceof WidgetDockFloatPanel) {
                     this._$ha[i].setElementZIndex(this._$jO + 1);
                 } else {
@@ -104,7 +96,9 @@ _$J.prototype._$0v = function (elementId) {
     return true;
 };
 _$J.prototype._$fT = function () {
-    if (this._$he != null && this._$he.style.visibility == "visible") return true;
+    if (this._$he != null && this._$he.style.visibility == "visible") {
+        return true;
+    }
     return false;
 };
 _$J.prototype.setVisible = function (_$8e) {
@@ -113,20 +107,19 @@ _$J.prototype.setVisible = function (_$8e) {
 _$J.prototype._$n = function (_$b9) {
     this._$it = true;
     this._$is = true;
-    this._$kS = _$b9._windowMain._$kS;
     this._$kF = _$b9._windowMain;
     this._$kF._$ml(this);
     var _$8q = false;
     if (this._$he == null || (this._$he != null && !this._$fT())) {
-        if (this._$kV == null) this._$kV = _$b9._patternMain;
+        if (this._$kV == null) {
+            this._$kV = _$b9._patternMain;
+        }
         this._$0v(WidgetDockController._elementRootId);
         _$8q = true;
         this._$74();
     }
     this.Add(_$b9);
     this._$kK = _$b9;
-    if (_$8q) {
-    }
     _$b9._$kB = this;
     this._$18(_$b9, null);
     if (!this._$fT()) {
@@ -146,11 +139,15 @@ _$J.prototype._$n = function (_$b9) {
         var pt = new WidgetDockLocation();
         pt.x = _$b9._$lt.x;
         pt.y = _$b9._$lt.y;
-        if (pt.y < 0) pt.y = 0;
+        if (pt.y < 0) {
+            pt.y = 0;
+        }
         this.setVisible(true);
         this._$6p(pt.x, pt.y, _$b9._$lK.cx, _$b9._$lK.cy);
     }
-    if (_$b9._$kA != null && _$b9._$kA._$o5 != null) _$b9._$kA._$o5._$5z();
+    if (_$b9._$kA != null && _$b9._$kA._$o5 != null) {
+        _$b9._$kA._$o5._$5z();
+    }
     if (!_$8q) {
         if (this._$4s(null, true)) {
             this._$7p();

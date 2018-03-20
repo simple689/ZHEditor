@@ -2299,7 +2299,6 @@ WidgetDockFloatPanel.prototype._$0c = function (sch) {
 function WidgetDockWindow(window, title) {
     WidgetDockWindow.baseConstructor.call(this, window, title);
     this._patternMain = new WidgetDockPatternMain(true);
-    this._$kS = null;
     this._$kL = new Array();
     this.cx;
     this.cy;
