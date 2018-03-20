@@ -375,13 +375,13 @@ _$N.prototype.getRect = function (rc) {
     }
 };
 _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
-    var panelNum = this._$kG._patternPositionList[this._$j1]._patternSub.getPanelNum();
+    var panelNum = this._$kG._patternPositionList[this._$j1].getPanelNum();
     var panel;
     _$nC[0] = null;
     _$89[0] = true;
     var _$f2;
     for (var i = panelNum - 1; i >= 0; i--) {
-        panel = this._$kG._patternPositionList[this._$j1]._patternSub._panelTabList[i];
+        panel = this._$kG._patternPositionList[this._$j1]._panelTabList[i];
         if (panel._$iX) {
             if (panel._$le == this) {
                 this._$ka = i;

@@ -1,22 +1,17 @@
-﻿WidgetDockPatternBase
+﻿WidgetDockPrototype.bind
+=============================================
+WidgetDockPatternBase
 WidgetDockPatternMain（WidgetDockPatternBase）
-
 
 WidgetDockLayoutController
 WidgetDockLayout
 
-
-WidgetDockWindowPattern
 WidgetDockTab
-WidgetDockPatternPosition
-
 
 WidgetDockPanelStateController
 WidgetDockPanel
 WidgetDockPanelState（WidgetDockPanel）
 WidgetDockPanelStatePanel（WidgetDockPanelState）
-
-
 
 _$4d（WidgetDockPanelStateController）
 WidgetDockFloatPanelController
@@ -44,5 +39,3 @@ _$5g
 _$6P
 
 
-
-WidgetDockPrototype.bind
