@@ -445,7 +445,7 @@ WidgetDockFloatPanel.prototype._$rB = function (sch) {
                     this._$be(this._patternPositionType);
                     this._pattern._$18(this, null);
                     this.setElementVisible(true);
-                    this._$qz(-1);
+                    this._$qz();
                     this.refresh();
                 } else {
                     this._$kW = this._pattern;
@@ -600,7 +600,7 @@ WidgetDockFloatPanel.prototype._$s8 = function () {
     this._$jE = 1;
     this._$kW = null;
     this._$Z();
-    this._$qz(-1);
+    this._$qz();
 };
 WidgetDockFloatPanel.prototype._$31 = function (pt) {
     return this._$kA._$31(this, pt);
@@ -626,7 +626,7 @@ WidgetDockFloatPanel.prototype._$6F = function () {
     this._$lf._$j1 = this._patternPositionType;
     this._$5u();
     this._$18();
-    this._$qz(-1);
+    this._$qz();
 };
 WidgetDockFloatPanel.prototype._$4L = function () {
     _$5d();
@@ -660,7 +660,7 @@ WidgetDockFloatPanel.prototype.clickButtonPin = function () {
             this._patternMain._$8(this._$kj, this);
         }
         this._patternMain._$5A();
-        this._$qz(-1);
+        this._$qz();
     } else {
         this.setElementVisible(false);
         if (this._$kj <= WidgetDockFloatPanel._$q) {
@@ -968,7 +968,7 @@ WidgetDockFloatPanel.prototype._$33 = function (_$mY, _$nh) {
     var _$e1 = _$7F.getPanelNum();
     for (var i = 0; i < _$e1; i++) {
         if (_$7F._panelList[i] != this) {
-            _$7F._panelList[i]._$qz(-1);
+            _$7F._panelList[i]._$qz();
         }
     }
     return _$oE;
@@ -1186,7 +1186,7 @@ WidgetDockFloatPanel.prototype._$1x = function () {
                 _$aQ[i]._patternPositionType = this._$lf._$j1;
                 _$aQ[i]._$jr = this._$lf._$ka;
                 if (_$aQ[i]._patternMain._$jv != WidgetDockController._$0R) {
-                    _$aQ[i]._$qz(-1);
+                    _$aQ[i]._$qz();
                 }
                 if (_$aQ[i]._pattern != null && _$aQ[i]._pattern._isMain) {
                     _$aQ[i]._$be(_$aQ[i]._patternPositionType);
@@ -1257,7 +1257,7 @@ WidgetDockFloatPanel.prototype._$1x = function () {
                             _$aQ[i]._$jr = _$nZ._$jr;
                             _$aQ[i]._pattern = this._$lf._$kM;
                             if (_$aQ[i]._patternMain._$jv != WidgetDockController._$0R) {
-                                _$aQ[i]._$qz(-1);
+                                _$aQ[i]._$qz();
                             }
                             if (_$aQ[i]._pattern != null && _$aQ[i]._pattern._isMain) {
                                 _$aQ[i]._$be(_$aQ[i]._patternPositionType);
@@ -1299,7 +1299,7 @@ WidgetDockFloatPanel.prototype._$1x = function () {
             } else {
                 _$nZ._$be(EnumPatternPositionType.Center);
             }
-            _$nZ._$qz(-1);
+            _$nZ._$qz();
             _$nZ._pattern = this._$lf._$kM;
         }
         if (this._$lf._$iM && this._pattern._isMain) {
@@ -1366,7 +1366,7 @@ WidgetDockFloatPanel.prototype._$1x = function () {
                         _$aQ[i]._$kW = _$nY._pattern;
                         _$aQ[i]._$jE = 1;
                         if (_$aQ[i] != this && _$aQ[i]._patternMain._$jv != WidgetDockController._$0R) {
-                            _$aQ[i]._$qz(-1);
+                            _$aQ[i]._$qz();
                         }
                         if (_$aQ[i] != this) {
                             _$aQ[i]._$be(EnumPatternPositionType.Center);
@@ -1384,7 +1384,7 @@ WidgetDockFloatPanel.prototype._$1x = function () {
         }
     }
 };
-WidgetDockFloatPanel.prototype._$qz = function (_$9d) {
+WidgetDockFloatPanel.prototype._$qz = function () {
     var _$f1 = -1;
     if (this._$jm >= WidgetDockFloatPanel._$0) {
         if (this._pattern != null && this._pattern._isMain && this._patternMain._$jv != WidgetDockController._$0R) {
@@ -2056,7 +2056,7 @@ WidgetDockFloatPanel.prototype._$5U = function (type, title) {
         this._pinType = EnumPinType.Show;
     }
     this._$lf._$j1 = _$fU[0];
-    this._$qz(-1);
+    this._$qz();
     if (_$9K > 0) {
         this._$18();
         this.refresh();

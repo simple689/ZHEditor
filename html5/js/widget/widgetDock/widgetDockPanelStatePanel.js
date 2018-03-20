@@ -82,7 +82,7 @@ WidgetDockPanelStatePanel.prototype._$3u = function (pt, floatPanel) {
     }
     return false;
 };
-WidgetDockPanelStatePanel.prototype._$08 = function (pt, _$7X) {
+WidgetDockPanelStatePanel.prototype._$08 = function (pt, isMove) {
     var rc = new WidgetDockRect();
     this.getRect(rc);
     var ptc = new WidgetDockLocation();
@@ -92,13 +92,15 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, _$7X) {
     rc.bottom = rc.bottom - rc.top;
     rc.left = 0;
     rc.top = 0;
-    var _$e1 = this._floatPanelController.getPanelNum();
+    var panelNum = this._floatPanelController.getPanelNum();
     var bin = false;
-    for (var i = 0; i < _$e1; i++) {
+    for (var i = 0; i < panelNum; i++) {
         var tab = this._floatPanelController._panelList[i];
         var _$8O = false;
         var _$9J = true;
-        if ((tab._floatPanel._$jN == WidgetDockFloatPanel._$48 && !_$7X) || (tab._floatPanel._$jN == WidgetDockFloatPanel._$46 && _$7X)) _$9J = false;
+        if ((tab._floatPanel._$jN == WidgetDockFloatPanel._$48 && !isMove) || (tab._floatPanel._$jN == WidgetDockFloatPanel._$46 && isMove)) {
+            _$9J = false;
+        }
         if (WidgetDockPatternBase.isInRect(rc, ptc)) {
             if (WidgetDockPatternBase._$l2 != null) {
                 if (WidgetDockPatternBase._$l2._$kx == tab._floatPanel) {
@@ -108,7 +110,7 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, _$7X) {
             if (this._$le._$j1 == EnumPatternPositionType.Top || this._$le._$j1 == EnumPatternPositionType.Bottom) {
                 if (ptc.x > tab._left && ptc.x < tab._right) {
                     bin = true;
-                    if (!_$7X) {
+                    if (!isMove) {
                         this._$jZ = i;
                         if (!_$8O && _$9J) {
                             this._$6Q(tab._floatPanel);
@@ -117,13 +119,15 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, _$7X) {
                     }
                     if (this._$jZ == i && !_$8O && _$9J) {
                         this._$5b(tab._floatPanel);
-                    } else this._$jZ = i;
+                    } else {
+                        this._$jZ = i;
+                    }
                     break;
                 }
             } else {
                 if (ptc.y > tab._left && ptc.y < tab._right) {
                     bin = true;
-                    if (!_$7X) {
+                    if (!isMove) {
                         this._$jZ = i;
                         if (!_$8O && _$9J) {
                             this._$6Q(tab._floatPanel);
@@ -132,7 +136,9 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, _$7X) {
                     }
                     if (this._$jZ == i && !_$8O && _$9J) {
                         this._$5b(tab._floatPanel);
-                    } else this._$jZ = i;
+                    } else {
+                        this._$jZ = i;
+                    }
                     break;
                 }
             }
