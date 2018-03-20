@@ -161,7 +161,7 @@ WidgetDockPanelState.prototype._$6v = function (patternBase, _$9c, _$cA) {
         return;
     }
     for (var i = 0; i < _$e1; i++) {
-        _$ol = _$8j._panelList[i];
+        _$ol = _$8j._panelTabList[i];
         _$ol._$nQ.getRect(_$q7);
         if (_$9t && (_$q7.right > (this.rect.right - this.rect.left))) {
             _$eq[0] = i;
@@ -179,17 +179,17 @@ WidgetDockPanelState.prototype._$6v = function (patternBase, _$9c, _$cA) {
         var _$fn;
         if (_$9t) {
             rc.top = 0;
-            rc.bottom = _$8j._panelList[_$eq[0]].size.cy;
+            rc.bottom = _$8j._panelTabList[_$eq[0]].size.cy;
             _$fn = _$eR[0] + _$2H(_$8j, _$eq[0], _$e1, false) - (this.rect.right - this.rect.left);
         } else {
             rc.left = 0;
-            rc.right = _$8j._panelList[_$eq[0]].size.cx;
+            rc.right = _$8j._panelTabList[_$eq[0]].size.cx;
             _$fn = _$eR[0] + _$2H(_$8j, _$eq[0], _$e1, false) - (this.rect.bottom - this.rect.top);
         }
         if (_$fn > _$fx) _$eR[0] -= _$fx; else _$eR[0] -= _$fn;
         if (_$9t) rc.right = _$eR[0]; else rc.bottom = _$eR[0];
         for (var i = 0; i < _$eq[0]; i++) {
-            _$ol = _$8j._panelList[_$eq[0] - 1 - i];
+            _$ol = _$8j._panelTabList[_$eq[0] - 1 - i];
             _$ol._$nQ.getRect(_$q7);
             if (_$9t) {
                 if (_$q7.right < rc.right) break;
@@ -205,7 +205,7 @@ WidgetDockPanelState.prototype._$6v = function (patternBase, _$9c, _$cA) {
         }
         if (_$9t) rc.left = _$eR[0]; else rc.top = _$eR[0];
         for (var i = _$eq[0]; i < _$e1; i++) {
-            _$ol = _$8j._panelList[i];
+            _$ol = _$8j._panelTabList[i];
             if (_$9t) {
                 rc.right = rc.left + _$ol.size.cx;
                 _$ol._$nQ.resize(rc);
@@ -343,7 +343,7 @@ WidgetDockPanelState.prototype._$f = function (mainPattern, _$mS, pRC) {
         var iid = new Array(1);
         var imo = new Array(1);
         this._$04(_$9t, _$8j, _$8D, _$gE, iid, imo);
-        var _$ow = _$8j._panelList[_$er];
+        var _$ow = _$8j._panelTabList[_$er];
         _$8j.deletePanel(_$er);
         var _$g2 = _$2m(_$8j, 0, _$8j.getPanelNum(), _$9t);
         var _$fW = new Array(1);
@@ -358,7 +358,7 @@ WidgetDockPanelState.prototype._$f = function (mainPattern, _$mS, pRC) {
         if ((_$9t && (_$eL <= (this.rect.right - this.rect.left))) || (!_$9t && (_$eL <= (this.rect.bottom - this.rect.top)))) {
             var j;
             for (j = 0; j < _$8j.getPanelNum(); j++) {
-                var _$ol = _$8j._panelList[j];
+                var _$ol = _$8j._panelTabList[j];
                 var _$ov = _$ol._$nQ;
                 _$ov._$5S();
             }
@@ -376,7 +376,7 @@ WidgetDockPanelState.prototype._$f = function (mainPattern, _$mS, pRC) {
                 _$sM;
                 var k;
                 for (k = 0; k < _$e1; k++) {
-                    _$ol = _$8j._panelList[k];
+                    _$ol = _$8j._panelTabList[k];
                     if (_$9t) {
                         _$gu += _$ol._$nQ.getWidth();
                     } else {
@@ -413,7 +413,7 @@ WidgetDockPanelState.prototype._$2H = function (d) {
     d.height = 0;
     var _$e1 = _$8j.getPanelNum();
     if (_$e1 > 0) {
-        var _$ol = _$8j._panelList[_$e1 - 1];
+        var _$ol = _$8j._panelTabList[_$e1 - 1];
         var rc = _$ol._$nQ.getFrame();
         if (this._$le._$j1 == EnumPatternPositionType.Top || this._$le._$j1 == EnumPatternPositionType.Bottom) {
             d.height = rc.x + rc.width;
@@ -427,7 +427,7 @@ WidgetDockPanelState.prototype._$2H = function (floatPanelController, left, righ
     var _$os;
     var i;
     for (i = left; i < right; i++) {
-        _$os = floatPanelController._panelList[i];
+        _$os = floatPanelController._panelTabList[i];
         var _$9y;
         if (this._$le != null) _$9y = this._$le._$j1; else _$9y = _$os._$nQ._$lf._$j1;
         if (_$9y == EnumPatternPositionType.Top || _$9y == EnumPatternPositionType.Bottom) {
@@ -509,7 +509,7 @@ WidgetDockPanelState.prototype._$7 = function (mainPattern, floatPanel) {
     if (_$er < 0) {
         return;
     }
-    _$ol = floatPanelController._panelList[_$er];
+    _$ol = floatPanelController._panelTabList[_$er];
     floatPanelController.deletePanel(_$er);
     this._$04(_$9t, floatPanelController, _$8D, _$gE, _$eq, _$eR);
     floatPanelController._$4(_$ol, _$er);
@@ -521,7 +521,7 @@ WidgetDockPanelState.prototype._$7 = function (mainPattern, floatPanel) {
             var _$mI = new WidgetDockFloatPanelController();
             this._$2t(floatPanelController, 0, _$mI);
             for (i = 0; i < _$e1; i++) {
-                _$ol = floatPanelController._panelList[i];
+                _$ol = floatPanelController._panelTabList[i];
                 if (_$ol._$nQ != floatPanel) {
                     _$ol.size.cx = _$ol._$nQ.getWidth();
                     _$ol.size.cy = _$ol._$nQ.getHeight();
@@ -548,7 +548,7 @@ WidgetDockPanelState.prototype._$7 = function (mainPattern, floatPanel) {
                 }
             }
             if (_$er > 0) {
-                _$ol = floatPanelController._panelList[_$er - 1];
+                _$ol = floatPanelController._panelTabList[_$er - 1];
                 var _$qo = new WidgetDockRect();
                 _$ol._$nQ.getRect(_$qo);
                 var _$eO = 0;
@@ -570,7 +570,7 @@ WidgetDockPanelState.prototype._$7 = function (mainPattern, floatPanel) {
                 }
             }
             if (_$er < (_$e1 - 1)) {
-                _$ol = floatPanelController._panelList[_$er + 1];
+                _$ol = floatPanelController._panelTabList[_$er + 1];
                 var _$qo = new WidgetDockRect();
                 _$ol.bar.getRect(_$qo);
                 var _$eO = 0;
@@ -593,7 +593,7 @@ WidgetDockPanelState.prototype._$7 = function (mainPattern, floatPanel) {
             }
             var _$dN = 0;
             for (i = 0; i < _$e1; i++) {
-                _$ol = floatPanelController._panelList[i];
+                _$ol = floatPanelController._panelTabList[i];
                 if (_$ol._$nQ != floatPanel) {
                     _$dN += _$ol._$du;
                 } else {
@@ -626,7 +626,7 @@ WidgetDockPanelState.prototype._$2m = function (_$u, left, right, _$8c) {
     var _$eI = 0;
     var i;
     for (i = left; i < right; i++) {
-        _$ol = _$u._panelList[i];
+        _$ol = _$u._panelTabList[i];
         if (_$8c) {
             if (_$ol.size.cy > _$eI) {
                 _$eI = _$ol.size.cy;
@@ -687,7 +687,7 @@ WidgetDockPanelState.prototype._$2s = function (_$8j, left, right) {
     var _$gD = 0;
     var _$eM = 0;
     for (i = left; i < right; i++) {
-        _$ol = _$8j._panelList[i];
+        _$ol = _$8j._panelTabList[i];
         _$eM = _$ol._$nQ._$2r();
         _$gD += _$eM;
     }
@@ -703,9 +703,9 @@ WidgetDockPanelState.prototype._$2t = function (_$8j, _$dS, _$mI) {
     for (i = _$dS; i < _$e1; i++) {
         _$fi = _$mI.getPanelNum();
         bin = false;
-        _$ol = _$8j._panelList[i];
+        _$ol = _$8j._panelTabList[i];
         for (j = 0; j < _$fi; j++) {
-            _$oJ = _$mI._panelList[j];
+            _$oJ = _$mI._panelTabList[j];
             if (_$ol._$nQ._$jW < _$oJ._$nQ._$jW) {
                 _$mI._$4(_$ol, j);
                 bin = true;
@@ -733,7 +733,7 @@ WidgetDockPanelState.prototype._$5c = function (_$8j, _$cx, _$cw, _$cF, _$mI, _$
     }
     if (_$rJ > 0) {
         for (j = _$e1 - 1; j >= 0; j--) {
-            _$oJ = _$mI._panelList[j];
+            _$oJ = _$mI._panelTabList[j];
             _$ov = _$oJ._$nQ;
             var _$ds = _$ov._$2o(_$9t);
             if (_$ov._$k6 > _$ds) _$ov._$k6 = _$ds;
@@ -750,7 +750,7 @@ WidgetDockPanelState.prototype._$5c = function (_$8j, _$cx, _$cw, _$cF, _$mI, _$
         }
     } else {
         for (j = 0; j < _$e1; j++) {
-            _$oJ = _$mI._panelList[j];
+            _$oJ = _$mI._panelTabList[j];
             _$ov = _$oJ._$nQ;
             if (_$oJ._$du > _$ov._$k6) {
                 if ((_$oJ._$du - _$dX) < _$ov._$k6) {
@@ -766,7 +766,7 @@ WidgetDockPanelState.prototype._$5c = function (_$8j, _$cx, _$cw, _$cF, _$mI, _$
     }
     j = 0;
     while (j < _$e1 && _$dX > 0) {
-        _$oJ = _$mI._panelList[_$eq];
+        _$oJ = _$mI._panelTabList[_$eq];
         _$ov = _$oJ._$nQ;
         if (_$rJ >= 0) {
             _$eM = _$ov._$2o(_$9t);
@@ -819,7 +819,7 @@ WidgetDockPanelState.prototype._$5c = function (_$8j, _$cx, _$cw, _$cF, _$mI, _$
     var _$dS = _$cx;
     _$eX[0] = 0;
     for (i = _$cw; i < _$cF; i++) {
-        _$ol = _$8j._panelList[i];
+        _$ol = _$8j._panelTabList[i];
         _$fJ = _$ol._$du;
         _$ov = _$ol._$nQ;
         if (_$9t) {
@@ -841,7 +841,7 @@ WidgetDockPanelState.prototype._$5c = function (_$8j, _$cx, _$cw, _$cF, _$mI, _$
         }
     }
     for (i = _$cw; i < _$cF; i++) {
-        _$ol = _$8j._panelList[i];
+        _$ol = _$8j._panelTabList[i];
         _$ov = _$ol._$nQ;
         _$ov._$5n(_$9t, _$g4, _$eX[0]);
     }
@@ -875,11 +875,11 @@ WidgetDockPanelState.prototype._$6w = function (_$8j, _$rJ, _$dB) {
     var _$dJ = new Array(_$e1);
     var ihw = 0;
     for (i = 0; i < _$e1; i++) {
-        _$ol = _$8j._panelList[i];
+        _$ol = _$8j._panelTabList[i];
         _$eM = _$ol._$nQ._$2r();
         if ((_$eP + _$eM) > _$gD) {
             if (i >= 1) {
-                var panel = _$8j._panelList[i - 1];
+                var panel = _$8j._panelTabList[i - 1];
                 if (_$gD >= _$eP) panel._$du = (_$gD - _$eP) + panel._$du;
             }
             _$eP = 0;
@@ -909,7 +909,7 @@ WidgetDockPanelState.prototype._$6w = function (_$8j, _$rJ, _$dB) {
                     if (_$9t) {
                         szs.cy = this._$ke[j];
                     } else szs.cx = this._$ke[j];
-                    _$ol = _$8j._panelList[i];
+                    _$ol = _$8j._panelTabList[i];
                     if (_$ol._$go == j) {
                         _$ov = _$ol._$nQ;
                         if (_$9t) szs.cx = _$ol._$du; else szs.cy = _$ol._$du;
@@ -925,7 +925,7 @@ WidgetDockPanelState.prototype._$6w = function (_$8j, _$rJ, _$dB) {
                     } else {
                         var k;
                         for (k = _$gw; k < i; k++) {
-                            _$ol = _$8j._panelList[k];
+                            _$ol = _$8j._panelTabList[k];
                             _$ov = _$ol._$nQ;
                             _$ov._$5n(_$9t, _$g4, _$eJ);
                         }
@@ -938,7 +938,7 @@ WidgetDockPanelState.prototype._$6w = function (_$8j, _$rJ, _$dB) {
         }
         _$eP = 0;
         for (i = _$gw; i < _$e1; i++) {
-            _$ol = _$8j._panelList[i];
+            _$ol = _$8j._panelTabList[i];
             if (_$9t) {
                 _$ol.size.cx = _$ol._$du;
             } else {
@@ -959,7 +959,7 @@ WidgetDockPanelState.prototype._$6w = function (_$8j, _$rJ, _$dB) {
         _$g4 = 0;
         _$gw = 0;
         for (j = 0; j < _$e1; j++) {
-            _$ol = _$8j._panelList[j];
+            _$ol = _$8j._panelTabList[j];
             _$ov = _$ol._$nQ;
             _$ov.getRect(_$q7);
             _$ol.size.cx = _$q7.right - _$q7.left;
@@ -1000,7 +1000,7 @@ WidgetDockPanelState.prototype._$04 = function (_$9t, _$8j, _$8i, _$dL, _$dF, _$
     var _$ol;
     var _$q7 = new WidgetDockRect();
     for (i = 0; i < _$e1; i++) {
-        _$ol = _$8j._panelList[i];
+        _$ol = _$8j._panelTabList[i];
         _$ol._$nQ.getRect(_$q7);
         if (_$9t) _$dL[0] += _$q7.right - _$q7.left; else _$dL[0] += _$q7.bottom - _$q7.top;
         if (_$ol._$nQ._$ix) {
@@ -1019,7 +1019,7 @@ WidgetDockPanelState.prototype._$04 = function (_$9t, _$8j, _$8i, _$dL, _$dF, _$
     }
     var j;
     for (j = i + 1; j < _$e1; j++) {
-        _$ol = _$8j._panelList[j];
+        _$ol = _$8j._panelTabList[j];
         _$ol._$nQ.getRect(_$q7);
         if (_$9t) _$dL[0] += _$q7.right - _$q7.left; else _$dL[0] += _$q7.bottom - _$q7.top;
     }
@@ -1039,7 +1039,7 @@ WidgetDockPanelState.prototype._$g = function (_$8h, _$cP, _$8c, pt) {
     var _$dP = this._$2H(_$8h, 0, _$cP, true);
     var _$dw = this._$2H(_$8h, _$cP, _$8h.getPanelNum(), true);
     var _$dO, _$dv;
-    var _$or = _$8h._panelList[_$cP];
+    var _$or = _$8h._panelTabList[_$cP];
     var _$qk = new WidgetDockRect();
     _$or._$nQ.getRect(_$qk);
     var _$8f = true;
@@ -1049,14 +1049,14 @@ WidgetDockPanelState.prototype._$g = function (_$8h, _$cP, _$8c, pt) {
     var _$7y = new WidgetDockFloatPanelController();
     var i = 0;
     for (i = 0; i < _$cP; i++) {
-        _$or = _$8h._panelList[i];
+        _$or = _$8h._panelTabList[i];
         if (_$8c) _$or._$du = _$or._$nQ.getWidth(); else _$or._$du = _$or._$nQ.getHeight();
-        _$8w.addFloatPanel(_$8h._panelList[i]);
+        _$8w.addFloatPanel(_$8h._panelTabList[i]);
     }
     for (i = _$cP; i < _$e1; i++) {
-        _$or = _$8h._panelList[i];
+        _$or = _$8h._panelTabList[i];
         if (_$8c) _$or._$du = _$or._$nQ.getWidth(); else _$or._$du = _$or._$nQ.getHeight();
-        _$7x.addFloatPanel(_$8h._panelList[i]);
+        _$7x.addFloatPanel(_$8h._panelTabList[i]);
     }
     this._$2t(_$8w, 0, _$8A);
     this._$2t(_$7x, 0, _$7y);
@@ -1098,7 +1098,7 @@ WidgetDockPanelState.prototype._$g = function (_$8h, _$cP, _$8c, pt) {
             this._$le._$kG._$5p(this, _$e5, this._$le._$j1, _$e7);
         }
         for (i = 0; i < _$8h.getPanelNum(); i++) {
-            _$or = _$8h._panelList[i];
+            _$or = _$8h._panelTabList[i];
             _$ov = _$or._$nQ;
             _$ov._$5n(_$8c, 0, _$eW);
             if (_$8c) _$ov._$k6 = _$ov.getWidth(); else _$ov._$k6 = _$ov.getHeight();
@@ -1141,13 +1141,19 @@ WidgetDockPanelState.prototype._$5z = function (floatPanel, pt, _$q5) {
     this._$7(null, floatPanel);
 };
 WidgetDockPanelState.prototype._$0B = function (floatPanel, _$nq, _$cD) {
-    if (_$nq == null) return;
+    if (_$nq == null) {
+        return;
+    }
     if (_$cD == EnumPatternPositionType.Left || _$cD == EnumPatternPositionType.Top) {
         this._$c(floatPanel, _$nq);
     } else {
         var _$oU = _$nq._$oV;
-        if (_$oU == null || _$oU._$pr == _$nq) _$nq = null; else {
-            if (_$oU._$pr._$od == null && _$oU._$pr._$pr == null) _$nq = _$oU._$pr; else if (_$oU._$pr._$od != null) {
+        if (_$oU == null || _$oU._$pr == _$nq) {
+            _$nq = null;
+        } else {
+            if (_$oU._$pr._$od == null && _$oU._$pr._$pr == null) {
+                _$nq = _$oU._$pr;
+            } else if (_$oU._$pr._$od != null) {
                 _$nq = _$oU._$pr._$od;
             }
         }
