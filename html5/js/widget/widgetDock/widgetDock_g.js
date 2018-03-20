@@ -64,7 +64,7 @@ _$G.prototype._$5Q = function (_$al, left, top, width, height) {
     if (this._$i6 != null) {
         var _$e0 = this._$i6.length;
         for (var i = 0; i < _$e0; i++) {
-            var pb = this._$i6[i].floatPanel;
+            var pb = this._$i6[i]._floatPanel;
             if (pb != null && pb != _$al) {
                 pb._$6p(left, top, width, height);
             }
@@ -105,7 +105,7 @@ _$G.prototype._$21 = function () {
     var _$aQ = new Array(this._$i6.length);
     var i;
     for (i = 0; i < _$aQ.length; i++) {
-        _$aQ[i] = this._$i6[i].floatPanel;
+        _$aQ[i] = this._$i6[i]._floatPanel;
     }
     return _$aQ;
 };
@@ -128,7 +128,7 @@ _$G.prototype._$5K = function (floatPanel) {
     var _$q7 = new WidgetDockRect();
     if (_$gi >= 2 && this._$jh < _$gi) {
         act = this._$i6[this._$jh];
-        act.floatPanel.getRect(_$q7);
+        act._floatPanel.getRect(_$q7);
     }
     for (var i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
@@ -148,15 +148,15 @@ _$G.prototype._$5K = function (floatPanel) {
     _$gi = this._$i6.length;
     if (_$gi >= 1) {
         act = this._$i6[this._$jh];
-        act.floatPanel.setElementVisible(true);
-        if (floatPanel._$io) act.floatPanel._$bf(true);
-        this._$kE._$of = act.floatPanel;
-        this._$kE._$of._pattern = act.floatPanel._pattern;
-        this._floatPanel = act.floatPanel;
+        act._floatPanel.setElementVisible(true);
+        if (floatPanel._$io) act._floatPanel._$bf(true);
+        this._$kE._$of = act._floatPanel;
+        this._$kE._$of._$kB = act._floatPanel._$kB;
+        this._floatPanel = act._floatPanel;
         if (_$gi >= 2) {
-            act.floatPanel._$5(this);
+            act._floatPanel._$5(this);
         }
-        act.floatPanel._$6q(_$q7);
+        act._floatPanel._$6q(_$q7);
     }
     if (_$gi <= 1) {
         if (_$gi == 1) {
@@ -184,7 +184,7 @@ _$G.prototype._$fT = function () {
 _$G.prototype.Add = function (floatPanel) {
     var _$e1 = this._$i6.length;
     for (var i = 0; i < _$e1; i++) {
-        if (this._$i6[i].floatPanel == floatPanel) {
+        if (this._$i6[i]._floatPanel == floatPanel) {
             return;
         }
     }
@@ -199,7 +199,9 @@ _$G.prototype.Add = function (floatPanel) {
 _$G.prototype._$3 = function (floatPanel, _$cN) {
     var _$e1 = this._$i6.length;
     for (var i = 0; i < _$e1; i++) {
-        if (this._$i6[i].floatPanel == floatPanel) return;
+        if (this._$i6[i]._floatPanel == floatPanel) {
+            return;
+        }
     }
     var title = floatPanel._panelStateController.getTitle();
     var tab = new WidgetDockTab(0, 0, title);
@@ -244,7 +246,7 @@ _$G.prototype._$5z = function () {
         tab = this._$i6[i];
         ft = this._$bT(tab._floatPanel);
         tab._left = _$fv;
-        WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
+        WidgetDockElementController.getOffsetSize(size, ft, tab._$qT, this._$hj);
         tab._right = _$fv + size.width + 2 * _$G._$2Z;
         if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._space;
         _$dI[i] = tab._right - _$fv;
@@ -265,7 +267,7 @@ _$G.prototype._$5z = function () {
         if (tab._floatPanel._$hE != null) {
             _$fK = WidgetDockTab._space;
         }
-        tab._title = WidgetDockPatternBase._$6y(ft, tab._title, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
+        tab._title = WidgetDockPatternBase._$6y(ft, tab._$qT, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
     }
     this.refresh();
 };
@@ -274,6 +276,7 @@ _$G.prototype._$4J = function (floatPanel, _$sd) {
     for (var i = 0; i < _$e1; i++) {
         var tab = _$i6[i];
         if (tab._floatPanel == floatPanel) {
+            tab._$qT = new String(_$sd);
             tab._title = new String(_$sd);
             _$5z();
             break;
@@ -333,7 +336,7 @@ _$G.prototype._$V = function (_$cN) {
             tab._floatPanel._panelStateController._$a();
         }
         this._$kE._$of = tab._floatPanel;
-        this._$kE._$of._pattern = tab._floatPanel._pattern;
+        this._$kE._$of._$kB = tab._floatPanel._$kB;
         tab._floatPanel._$kA = this._$kE;
         tab._floatPanel._$6q(rc);
         this.refresh();
