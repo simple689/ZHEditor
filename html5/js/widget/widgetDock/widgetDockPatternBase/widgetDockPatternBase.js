@@ -1275,7 +1275,7 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, p
     }
     return true;
 };
-WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
+WidgetDockPatternBase.prototype._$R = function (_$mX, floatPanel, pt, _$nz) {
     if (!this._$is) return 0xff;
     var rcWindow = new WidgetDockRect();
     this.getWindowRect(rcWindow);
@@ -1304,7 +1304,7 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
     _$mX._$j1 = 0;
     if ((_$9j != 0xff) && ((_$9j % 2) == 0)) {
         _$mX._$j1 = parseInt(_$9j / 2);
-        _$mU._$2G(_$nz, _$gk, rcWindow, false);
+        floatPanel._$2w(_$nz, _$gk, rcWindow, false);
         _$mX._$iM = true;
         WidgetDockPatternBase._$2c(_$mX, rcWindow, _$nz);
         return _$mX._$j1;
@@ -1346,19 +1346,19 @@ WidgetDockPatternBase.prototype._$R = function (_$mX, _$mU, pt, _$nz) {
     if (!bme && _$9j != 0xff && ((_$9j + 1) % 2 == 0)) {
         _$mX._$j1 = parseInt((_$9j / 2));
         if (_$o4 != null) {
-            _$mU._$2G(_$nz, _$gk, rcWindow, true);
+            floatPanel._$2w(_$nz, _$gk, rcWindow, true);
         } else {
             rcWindow.left = rcWindow.top = 0;
             rcWindow.right = _$nz.cx;
             rcWindow.bottom = _$nz.cy;
-            _$mU._$2G(_$nz, _$gk, rcWindow, false);
+            floatPanel._$2w(_$nz, _$gk, rcWindow, false);
         }
-        _$mU._$67(_$gw, _$o4, parseInt((_$9j / 2)));
+        floatPanel._$69(_$gw, _$o4, parseInt((_$9j / 2)));
     } else {
         _$9j = WidgetDockPatternBase._$m(rcs, pt);
         if (_$9j != 0xff) {
             _$mX._$j1 = parseInt((_$9j / 2));
-            _$mU._$2G(_$nz, _$gk, this._rect, false);
+            floatPanel._$2w(_$nz, _$gk, this._rect, false);
         }
         if (_$9j != 0xff && ((_$9j + 1) % 2 == 0)) {
             _$mX._$ka = 0xffffffff;

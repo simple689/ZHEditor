@@ -28,7 +28,6 @@ WidgetDockFrame
 WidgetDockRect
 _$5Y
 _$N
-_$L
 _$G
 _$F
 _$59

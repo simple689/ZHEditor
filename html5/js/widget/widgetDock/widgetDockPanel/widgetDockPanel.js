@@ -336,7 +336,9 @@ WidgetDockPanel.prototype._$4i = function (mainPattern, patternPositionType, _$d
             this.rect.bottom += _$cY;
         }
         var _$gz = _$cY;
-        if (patternPositionType == EnumPatternPositionType.Right || patternPositionType == EnumPatternPositionType.Bottom) _$gz = -_$cY;
+        if (patternPositionType == EnumPatternPositionType.Right || patternPositionType == EnumPatternPositionType.Bottom) {
+            _$gz = -_$cY;
+        }
         this._$le._$4q(_$gz);
     }
 };

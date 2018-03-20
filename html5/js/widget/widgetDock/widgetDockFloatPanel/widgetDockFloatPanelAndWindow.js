@@ -1,7 +1,5 @@
 function WidgetDockFloatPanel(window, title) {
     this._$jz = -1;
-    this._$kz = new _$L();
-    this._$kz._$ho = this;
     this._$lf = new _$6P();
     this._panelStateController = null;
     this._$lt = null;
@@ -349,7 +347,7 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
                     patternPositionType[0] = 0xff;
                     this._$lf._$j1 = 0xff;
                 } else {
-                    _$og = pmi._$1Z(this._$lf, this._$kz, pt, patternPositionType, _$nz);
+                    _$og = pmi._$1Z(this._$lf, this, pt, patternPositionType, _$nz);
                     if (this._$lf._$j1 >= 0 && this._$lf._$j1 <= 7) {
                         return _$og;
                     }
@@ -361,7 +359,7 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
         }
     }
     _$og = null;
-    _$og = this._patternMain._$1Z(this._$lf, this._$kz, pt, patternPositionType, _$nz);
+    _$og = this._patternMain._$1Z(this._$lf, this, pt, patternPositionType, _$nz);
     if (patternPositionType[0] >= 0 && patternPositionType[0] <= 7) {
         if (this._$lf._$iM) {
             this._patternMain._$0f(this._$lf, patternPositionType, _$nz);
