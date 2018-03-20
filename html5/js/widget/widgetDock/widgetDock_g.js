@@ -63,8 +63,7 @@ _$G.prototype._$2P = function (rc) {
 _$G.prototype._$5Q = function (_$al, left, top, width, height) {
     if (this._$i6 != null) {
         var _$e0 = this._$i6.length;
-        var i;
-        for (i = 0; i < _$e0; i++) {
+        for (var i = 0; i < _$e0; i++) {
             var pb = this._$i6[i].floatPanel;
             if (pb != null && pb != _$al) {
                 pb._$6p(left, top, width, height);
@@ -73,7 +72,9 @@ _$G.prototype._$5Q = function (_$al, left, top, width, height) {
     }
 };
 _$G.prototype.mouseMove = function (e) {
-    if (this._isMouseDown) this._$ms(e); else {
+    if (this._isMouseDown) {
+        this._$ms(e);
+    } else {
         if (this._$0i(e) >= 0) {
             this._panelStateElement.style.cursor = "move";
         } else {
@@ -103,7 +104,9 @@ _$G.prototype._$21 = function () {
     if (this._$i6 == null) return null;
     var _$aQ = new Array(this._$i6.length);
     var i;
-    for (i = 0; i < _$aQ.length; i++) _$aQ[i] = this._$i6[i].floatPanel;
+    for (i = 0; i < _$aQ.length; i++) {
+        _$aQ[i] = this._$i6[i].floatPanel;
+    }
     return _$aQ;
 };
 _$G.prototype._$5K = function (floatPanel) {
@@ -127,8 +130,7 @@ _$G.prototype._$5K = function (floatPanel) {
         act = this._$i6[this._$jh];
         act.floatPanel.getRect(_$q7);
     }
-    var i;
-    for (i = 0; i < _$gi; i++) {
+    for (var i = 0; i < _$gi; i++) {
         tab = this._$i6[i];
         if (tab._floatPanel == floatPanel) {
             if (tab._titleElement != null) {
@@ -209,8 +211,7 @@ _$G.prototype._$3 = function (floatPanel, _$cN) {
 };
 _$G.prototype._$6b = function (floatPanel) {
     var _$e1 = this._$i6.length;
-    var i;
-    for (i = 0; i < _$e1; i++) {
+    for (var i = 0; i < _$e1; i++) {
         var tab = this._$i6[i];
         if (tab._floatPanel == floatPanel) {
             this._$V(i);
@@ -261,15 +262,16 @@ _$G.prototype._$5z = function () {
         ft = this._$bT(tab._floatPanel);
         var _$fE = tab._right - tab._left;
         var _$fK = 0;
-        if (tab._floatPanel._$hE != null) _$fK = WidgetDockTab._space;
+        if (tab._floatPanel._$hE != null) {
+            _$fK = WidgetDockTab._space;
+        }
         tab._title = WidgetDockPatternBase._$6y(ft, tab._title, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
     }
     this.refresh();
 };
 _$G.prototype._$4J = function (floatPanel, _$sd) {
     var _$e1 = _$i6.length;
-    var i;
-    for (i = 0; i < _$e1; i++) {
+    for (var i = 0; i < _$e1; i++) {
         var tab = _$i6[i];
         if (tab._floatPanel == floatPanel) {
             tab._title = new String(_$sd);
@@ -298,8 +300,7 @@ _$G.prototype._$5e = function (e) {
 _$G.prototype._$3x = function (floatPanel) {
     var b = false;
     var _$e1 = this._$i6.length;
-    var i;
-    for (i = 0; i < _$e1; i++) {
+    for (var i = 0; i < _$e1; i++) {
         var tab = this._$i6[i];
         if (tab._floatPanel == floatPanel) {
             b = true;

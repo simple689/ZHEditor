@@ -608,15 +608,13 @@ WidgetDockFloatPanel.prototype._$31 = function (pt) {
 WidgetDockFloatPanel.prototype._$6F = function () {
     if (this._$j3 <= 3 && !this._$1k(this._$l7, this._$j3)) return;
     if ((this._$l7 != null) && (!this._$l7._isMain) && (!this._$id)) return;
-    var _$pR = null;
-    var _$pO = null;
-    var _$9B;
-    var _$9C;
-    _$pR = this._pattern;
-    _$pO = this._$kA;
-    _$9B = this._$jr;
-    _$9C = this._patternPositionType;
-    if (this._pattern != null) this._pattern._$5H(this, null);
+    var _$pR = this._pattern;
+    var _$pO = this._$kA;
+    var _$9B = this._$jr;
+    var _$9C = this._patternPositionType;
+    if (this._pattern != null) {
+        this._pattern._$5H(this, null);
+    }
     this._pattern = this._$l7;
     this._$kA = this._$l6;
     this._$jr = this._$k4;
