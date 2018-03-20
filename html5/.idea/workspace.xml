@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/doc/WidgetDock类名.txt" afterPath="$PROJECT_DIR$/doc/WidgetDock类名.txt" />
-      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanel/widgetDockFloatPanelAndWindow.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanel/widgetDockFloatPanelAndWindow.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanel/widgetDockPanel.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanel/widgetDockPanel.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDockPatternBase.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDockPatternBase.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_l.js" afterPath="" />
-    </list>
+    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -106,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDock_57.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="widgetDock_57.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDock_57.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
@@ -126,7 +117,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetDock.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetDock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDock.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
@@ -556,12 +547,12 @@
       <workItem from="1521165892165" duration="15123000" />
       <workItem from="1521187993254" duration="15868000" />
       <workItem from="1521214230056" duration="244000" />
-      <workItem from="1521510973734" duration="11017000" />
+      <workItem from="1521510973734" duration="11045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311200000" />
+    <option name="totallyTimeSpent" value="311228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1569,10 +1560,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDock_57.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1585,10 +1576,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDock.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDock_57.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="200">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
