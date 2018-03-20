@@ -120,7 +120,7 @@ _$J.prototype._$n = function (_$b9) {
     }
     this.Add(_$b9);
     this._$kK = _$b9;
-    _$b9._$kB = this;
+    _$b9._pattern = this;
     this._$18(_$b9, null);
     if (!this._$fT()) {
         if (this._size == null) {
