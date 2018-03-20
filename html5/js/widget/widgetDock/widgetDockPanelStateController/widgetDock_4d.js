@@ -28,7 +28,7 @@ _$4d.prototype.isInRectWithPanelState = function (pts) {
         _$po._$2Q(_$7E);
         var _$e1 = _$7E.getPanelNum();
         for (var i = 0; i < _$e1; i++) {
-            var dfw = _$7E._panelList[i];
+            var dfw = _$7E._panelTabList[i];
             dfw.setVisible(false);
         }
         return -1;
