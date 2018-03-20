@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/doc/WidgetDockController.txt" afterPath="$PROJECT_DIR$/doc/WidgetDockController.txt" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelController.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanelStatePanel.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanelStatePanel.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_4d.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_4d.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_j.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_j.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_k.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_k.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_n.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_n.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,11 +50,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetDockFloatPanelAndWindow.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="782" column="65" lean-forward="false" selection-start-line="782" selection-start-column="65" selection-end-line="782" selection-end-column="65" />
+            <state relative-caret-position="3217">
+              <caret line="821" column="0" lean-forward="false" selection-start-line="821" selection-start-column="0" selection-end-line="821" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,8 +83,18 @@
       <file leaf-file-name="widgetDockFloatPanelController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
+            <state relative-caret-position="-825">
               <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dock.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="48" column="27" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -133,16 +135,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
               <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetDock_f.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDock_f.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1616">
-              <caret line="719" column="20" lean-forward="false" selection-start-line="719" selection-start-column="20" selection-end-line="719" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -196,11 +188,11 @@
       <find>this._panelList</find>
       <find>this._panelNum</find>
       <find>_$7X</find>
-      <find>_$9d</find>
       <find>_panelNumMax</find>
       <find>_panelNum</find>
       <find>_panelTabNum</find>
       <find>_patternSub._panelList</find>
+      <find>_$9d</find>
     </findStrings>
     <replaceStrings>
       <replace>_panelStatePanel</replace>
@@ -521,12 +513,12 @@
       <workItem from="1521165892165" duration="15123000" />
       <workItem from="1521187993254" duration="15868000" />
       <workItem from="1521214230056" duration="244000" />
-      <workItem from="1521510973734" duration="6364000" />
+      <workItem from="1521510973734" duration="6492000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306547000" />
+    <option name="totallyTimeSpent" value="306675000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -539,10 +531,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21496312" sideWeight="0.4879227" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26815644" sideWeight="0.76770836" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26815644" sideWeight="0.76770836" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.059912853" sideWeight="0.65260416" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -634,82 +627,82 @@
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2327</line>
+          <line>2326</line>
           <option name="timeStamp" value="401" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2329</line>
+          <line>2328</line>
           <option name="timeStamp" value="402" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2409</line>
+          <line>2408</line>
           <option name="timeStamp" value="404" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2494</line>
+          <line>2493</line>
           <option name="timeStamp" value="405" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1781</line>
+          <line>1780</line>
           <option name="timeStamp" value="408" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1784</line>
+          <line>1783</line>
           <option name="timeStamp" value="409" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1790</line>
+          <line>1789</line>
           <option name="timeStamp" value="410" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1793</line>
+          <line>1792</line>
           <option name="timeStamp" value="411" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1799</line>
+          <line>1798</line>
           <option name="timeStamp" value="412" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1801</line>
+          <line>1800</line>
           <option name="timeStamp" value="413" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1804</line>
+          <line>1803</line>
           <option name="timeStamp" value="414" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1806</line>
+          <line>1805</line>
           <option name="timeStamp" value="415" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2390</line>
+          <line>2389</line>
           <option name="timeStamp" value="419" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2403</line>
+          <line>2402</line>
           <option name="timeStamp" value="420" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2413</line>
+          <line>2412</line>
           <option name="timeStamp" value="421" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2510</line>
+          <line>2509</line>
           <option name="timeStamp" value="422" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
@@ -949,112 +942,112 @@
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>944</line>
+          <line>943</line>
           <option name="timeStamp" value="487" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>995</line>
+          <line>994</line>
           <option name="timeStamp" value="488" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1176</line>
+          <line>1175</line>
           <option name="timeStamp" value="489" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1185</line>
+          <line>1184</line>
           <option name="timeStamp" value="490" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1199</line>
+          <line>1198</line>
           <option name="timeStamp" value="491" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1198</line>
+          <line>1197</line>
           <option name="timeStamp" value="492" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1207</line>
+          <line>1206</line>
           <option name="timeStamp" value="493" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1206</line>
+          <line>1205</line>
           <option name="timeStamp" value="494" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1203</line>
+          <line>1202</line>
           <option name="timeStamp" value="495" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1247</line>
+          <line>1246</line>
           <option name="timeStamp" value="496" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1251</line>
+          <line>1250</line>
           <option name="timeStamp" value="497" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1356</line>
+          <line>1355</line>
           <option name="timeStamp" value="498" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1360</line>
+          <line>1359</line>
           <option name="timeStamp" value="499" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1928</line>
+          <line>1927</line>
           <option name="timeStamp" value="500" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1927</line>
+          <line>1926</line>
           <option name="timeStamp" value="501" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1921</line>
+          <line>1920</line>
           <option name="timeStamp" value="502" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1941</line>
+          <line>1940</line>
           <option name="timeStamp" value="503" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1916</line>
+          <line>1915</line>
           <option name="timeStamp" value="504" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1957</line>
+          <line>1956</line>
           <option name="timeStamp" value="505" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1977</line>
+          <line>1976</line>
           <option name="timeStamp" value="506" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1992</line>
+          <line>1991</line>
           <option name="timeStamp" value="507" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>2005</line>
+          <line>2004</line>
           <option name="timeStamp" value="508" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
@@ -1069,12 +1062,12 @@
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1918</line>
+          <line>1917</line>
           <option name="timeStamp" value="514" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js</url>
-          <line>1775</line>
+          <line>1774</line>
           <option name="timeStamp" value="515" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -1158,6 +1151,12 @@
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="592" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/business/editor/dock/dock.js</url>
+          <line>48</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="593" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -1167,7 +1166,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="593" />
+      <option name="time" value="594" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1267,18 +1266,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDockWindowResize.js" />
-    <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="60" lean-forward="false" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,6 +1278,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,6 +1286,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1300,6 +1294,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1307,6 +1302,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1314,6 +1310,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,14 +1498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternPosition.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -1527,8 +1516,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelAndWindow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="782" column="65" lean-forward="false" selection-start-line="782" selection-start-column="65" selection-end-line="782" selection-end-column="65" />
+        <state relative-caret-position="3217">
+          <caret line="821" column="0" lean-forward="false" selection-start-line="821" selection-start-column="0" selection-end-line="821" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-825">
+          <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="48" column="27" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
           <folding />
         </state>
       </provider>

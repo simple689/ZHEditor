@@ -819,8 +819,7 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
             var _$g5 = this._$lf._$ka - 1;
             if (_$g5 < _$e1) {
                 var _$pY = null;
-                var k;
-                for (k = 0; k <= _$g5; k++) {
+                for (var k = 0; k <= _$g5; k++) {
                     _$pY = this._$lf._$kM._patternPositionList[this._$lN[0]]._patternSub._panelTabList[_$g5 - k];
                     if (_$pY._$iX) break;
                     _$pY = null;
