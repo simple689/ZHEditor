@@ -2,21 +2,23 @@
 =============================================
 WidgetDockPatternBase
 WidgetDockPatternMain（WidgetDockPatternBase）
+_$K（WidgetDockPatternBase）
+_$J（_$K）
 
-WidgetDockLayoutController
-WidgetDockLayout
-
-WidgetDockTab
-
-WidgetDockPanelStateController
 WidgetDockPanel
 WidgetDockPanelState（WidgetDockPanel）
 WidgetDockPanelStatePanel（WidgetDockPanelState）
 
+WidgetDockPanelStateController
 _$4d（WidgetDockPanelStateController）
-WidgetDockFloatPanelController
+
 WidgetDockFloatPanel
 WidgetDockWindow（WidgetDockFloatPanel）特殊
+
+WidgetDockLayoutController
+WidgetDockLayout
+WidgetDockTab
+WidgetDockFloatPanelController
 WidgetDockElementController
 WidgetDockController
 _$M
@@ -27,8 +29,6 @@ WidgetDockRect
 _$5Y
 _$N
 _$L
-_$K（WidgetDockPatternBase）
-_$J（_$K）
 _$G
 _$F
 _$59

@@ -111,10 +111,7 @@ WidgetDockPanelStateController.prototype.mouseUp = function (e) {
     WidgetDockController._$6s(false);
     this._floatPanel._$1x();
 };
-WidgetDockPanelStateController.prototype._$0u = function () {
-};
 WidgetDockPanelStateController.prototype._$a = function () {
-    this._$0u();
     _$hf._$rz(new WidgetDockSize(150, _$G._$6J + _floatPanel._$jA));
 };
 WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
