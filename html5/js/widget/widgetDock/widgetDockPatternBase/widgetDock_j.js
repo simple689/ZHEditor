@@ -51,9 +51,9 @@ _$J.prototype._$5E = function (com) {
     }
 };
 _$J.prototype._$X = function (_$tE) {
-    this.WidgetDockPanelState(this._$jO + _$tE);
+    this._$6r(this._$jO + _$tE);
 };
-_$J.prototype.WidgetDockPanelState = function (_$tE) {
+_$J.prototype._$6r = function (_$tE) {
     this._$jO = _$tE;
     this._$74();
 };
@@ -87,6 +87,7 @@ _$J.prototype._$0v = function (elementId) {
     sp._$kQ = this;
     this._$he = sp._panelStateElement;
     this.setVisible(false);
+    this._$hh = sp._panelStateElement;
     this._$is = true;
     this._signLenAry[1] = 6;
     this._signLenAry[3] = 6;
@@ -120,7 +121,7 @@ _$J.prototype._$n = function (_$b9) {
     }
     this.Add(_$b9);
     this._$kK = _$b9;
-    _$b9._pattern = this;
+    _$b9._$kB = this;
     this._$18(_$b9, null);
     if (!this._$fT()) {
         if (this._size == null) {
