@@ -331,8 +331,6 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
         var pmi;
         if (this._windowType == EnumWindowType.Normal) {
             pmi = _$oh[i];
-        } else {
-            pmi = _$6B._$kL[i]._$hJ;
         }
         if (pmi._$bG() == null) continue;
         pmi.getWindowRect(_$qj);
@@ -751,14 +749,6 @@ WidgetDockFloatPanel.prototype._$15 = function (_$ts, _$h1) {
     _$jG = 0;
     return _$jG;
 };
-WidgetDockFloatPanel.prototype._$mf = function () {
-    WidgetDockFloatPanel._$ie = true;
-    this._$4i(WidgetDockFloatPanel._$lr);
-};
-WidgetDockFloatPanel.prototype._$mg = function () {
-    WidgetDockFloatPanel._$ie = false;
-    this._$4i(WidgetDockFloatPanel._$lr);
-};
 WidgetDockFloatPanel.prototype._$4i = function (pt) {
     WidgetDockFloatPanel._$lr.x = pt.x;
     WidgetDockFloatPanel._$lr.y = pt.y;
@@ -766,7 +756,9 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
     if (this._windowType == EnumWindowType.Normal) {
         var rcb = new WidgetDockRect();
         this._windowMain.getWindowRect(rcb);
-        if (!WidgetDockPatternBase.isInRect(rcb, pt)) return;
+        if (!WidgetDockPatternBase.isInRect(rcb, pt)) {
+            return;
+        }
     }
     this._$lD.setRect(this._$lx);
     var _$8s = false;
@@ -2393,10 +2385,11 @@ WidgetDockWindow.prototype.mouseUp = function (e) {
     }
 };
 WidgetDockWindow.prototype._$6s = function (sch) {
-    var ic = WidgetDockFloatPanel._floatPanelController.getPanelNum();
-    var i;
-    for (i = 0; i < ic; i++) {
-        if (WidgetDockFloatPanel._floatPanelController._panelTabList[i] != this) WidgetDockFloatPanel._floatPanelController._panelTabList[i]._$0c(sch);
+    var panelNum = WidgetDockFloatPanel._floatPanelController.getPanelNum();
+    for (var i = 0; i < panelNum; i++) {
+        if (WidgetDockFloatPanel._floatPanelController._panelTabList[i] != this) {
+            WidgetDockFloatPanel._floatPanelController._panelTabList[i]._$0c(sch);
+        }
     }
     this._patternMain._$0c(sch);
 };

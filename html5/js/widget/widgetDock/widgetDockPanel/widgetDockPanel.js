@@ -22,26 +22,26 @@ WidgetDockPanel.prototype._$3E = function (_$p9, pt, _$de) {
     var _$9z = WidgetDockPatternBase._$m(_$p9, pt);
     _$de[0] = 0;
     if (_$9z != 0xff) {
-        if (this._$le._$j1 == EnumPatternPositionType.Top) {
+        if (this._$le._patternPositionType == EnumPatternPositionType.Top) {
             if (_$9z == WidgetDockPatternBase._$3h) {
                 _$de[0] = 1;
             } else if (_$9z == WidgetDockPatternBase._$3b) {
                 _$de[0] = 2;
             }
-        } else if (this._$le._$j1 == EnumPatternPositionType.Bottom) {
+        } else if (this._$le._patternPositionType == EnumPatternPositionType.Bottom) {
             if (_$9z == WidgetDockPatternBase._$3h) {
                 _$de[0] = 2;
             } else if (_$9z == WidgetDockPatternBase._$3b) {
                 _$de[0] = 1;
             }
-        } else if (this._$le._$j1 == EnumPatternPositionType.Left) {
+        } else if (this._$le._patternPositionType == EnumPatternPositionType.Left) {
             if (_$9z == WidgetDockPatternBase._$3d) {
                 _$de[0] = 1;
             }
             if (_$9z == WidgetDockPatternBase._$3f) {
                 _$de[0] = 2;
             }
-        } else if (this._$le._$j1 == EnumPatternPositionType.Right) {
+        } else if (this._$le._patternPositionType == EnumPatternPositionType.Right) {
             if (_$9z == WidgetDockPatternBase._$3d) {
                 _$de[0] = 2;
             }
@@ -52,13 +52,13 @@ WidgetDockPanel.prototype._$3E = function (_$p9, pt, _$de) {
         if (_$de[0] == 0) {
             return 0xff;
         }
-        _$9z = (2 * this._$le._$j1 + 1);
+        _$9z = (2 * this._$le._patternPositionType + 1);
     }
     return _$9z;
 };
 WidgetDockPanel.prototype._$ah = function (patternBase, patternPositionType) {
     this._$le = new _$N();
-    this._$le._$j1 = patternPositionType;
+    this._$le._patternPositionType = patternPositionType;
     this._$le._$rh(patternBase);
     this._$le._$rG(this._$km);
 };
@@ -302,7 +302,7 @@ WidgetDockPanel.prototype._$6 = function (mainPattern, _$mS) {
             _$oV._$oy._$rG(WidgetDockPanel._$kt);
             _$oV._$oy._$rh(mainPattern);
             _$oV._$oy._$iI = true;
-            _$oV._$oy._$j1 = _$9o;
+            _$oV._$oy._patternPositionType = _$9o;
             _$oV._$oy._$kE = _$oV;
             mainPattern._$6v(_$pu._$oV, rc, 0);
             mainPattern._$6v(_$pu._$oV, rc, 1);

@@ -21,14 +21,18 @@ WidgetDockFloatPanelController.prototype.addFloatPanel = function (floatPanel) {
     }
 };
 WidgetDockFloatPanelController.prototype.deletePanel = function (index) {
-    if (this._panelTabNum == 0 || index > (this._panelTabNum - 1)) return;
+    if (this._panelTabNum == 0 || index > (this._panelTabNum - 1)) {
+        return;
+    }
     for (var i = index; i < this._panelTabNum - 1; i++) {
         this._panelTabList[i] = this._panelTabList[i + 1];
     }
     this._panelTabNum -= 1;
 };
 WidgetDockFloatPanelController.prototype._$4 = function (floatPanel, secIndex) {
-    if (secIndex > this._panelTabNum) return false;
+    if (secIndex > this._panelTabNum) {
+        return false;
+    }
     if (secIndex == this._panelTabNum) {
         this.addFloatPanel(floatPanel);
         return true;

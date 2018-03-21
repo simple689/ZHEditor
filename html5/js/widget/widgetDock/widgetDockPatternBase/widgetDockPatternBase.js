@@ -866,7 +866,7 @@ WidgetDockPatternBase.prototype._$k = function (_$mV, _$cu) {
     var _$9w;
     var _$ey;
     var _$eB;
-    var _$9y = _$mV._$le._$j1;
+    var _$9y = _$mV._$le._patternPositionType;
     var _$g1 = this._$2F(_$9y, _$mV);
     if (_$9y == EnumPatternPositionType.Left || _$9y == EnumPatternPositionType.Right) {
         _$9w = EnumPatternPositionType.Top;

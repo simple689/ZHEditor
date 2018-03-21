@@ -71,14 +71,18 @@ WidgetDockController.setStyle = function () {
     document.body.style.overflow = 'hidden';
 };
 WidgetDockController.mouseDown = function (e) {
-    if (WidgetDockController._windowMain == null) return;
+    if (WidgetDockController._windowMain == null) {
+        return;
+    }
     if (e == null) {
         e = window.event;
     }
     WidgetDockController._windowMain.mouseDown(e);
 };
 WidgetDockController.mouseUp = function (e) {
-    if (WidgetDockController._windowMain == null) return;
+    if (WidgetDockController._windowMain == null) {
+        return;
+    }
     if (e == null) {
         e = window.event;
     }
@@ -93,7 +97,9 @@ WidgetDockController.mouseUp = function (e) {
     }
 };
 WidgetDockController.mouseMove = function (e) {
-    if (WidgetDockController._windowMain == null) return;
+    if (WidgetDockController._windowMain == null) {
+        return;
+    }
     if (e == null) {
         e = window.event;
     }
