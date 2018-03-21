@@ -26,9 +26,8 @@ _$6C.prototype._$r8 = function (left, top, width, height) {
     this.refresh();
 };
 _$6C.prototype.refresh = function () {
-    var iw, ih;
-    iw = WidgetDockElementController.getElementWidth(this._panelStateElement);
-    ih = WidgetDockElementController.getElementHeight(this._panelStateElement);
+    var width = WidgetDockElementController.getElementWidth(this._panelStateElement);
+    var height = WidgetDockElementController.getElementHeight(this._panelStateElement);
     if (this._$hj == null) return;
     if (this._$ik) {
         this._$hj._$s1 = "#0000ff";
@@ -37,47 +36,47 @@ _$6C.prototype.refresh = function () {
     }
     if (this._$kd == 0) {
         if (this._$ig) {
-            WidgetDockElementController._$1n(0, 0, 0, ih, this._$hj);
-            WidgetDockElementController._$1n(0, 0, iw, 0, this._$hj);
-            WidgetDockElementController._$1n(0, ih - 1, iw, ih - 1, this._$hj);
+            WidgetDockElementController._$1n(0, 0, 0, height, this._$hj);
+            WidgetDockElementController._$1n(0, 0, width, 0, this._$hj);
+            WidgetDockElementController._$1n(0, height - 1, width, height - 1, this._$hj);
         } else {
-            WidgetDockElementController._$1q(0, 0, 0, ih, this._$hj);
-            WidgetDockElementController._$1q(0, 0, iw, 0, this._$hj);
-            WidgetDockElementController._$1q(0, ih - 1, iw, ih - 1, this._$hj);
+            WidgetDockElementController._$1q(0, 0, 0, height, this._$hj);
+            WidgetDockElementController._$1q(0, 0, width, 0, this._$hj);
+            WidgetDockElementController._$1q(0, height - 1, width, height - 1, this._$hj);
         }
     } else if (this._$kd == 1) {
         if (this._$ig) {
-            WidgetDockElementController._$1n(0, 0, iw, 0, this._$hj);
+            WidgetDockElementController._$1n(0, 0, width, 0, this._$hj);
         } else {
-            WidgetDockElementController._$1q(0, 0, iw, 0, this._$hj);
+            WidgetDockElementController._$1q(0, 0, width, 0, this._$hj);
         }
     } else if (this._$kd == 2) {
         if (this._$ig) {
-            WidgetDockElementController._$1n(0, 0, iw, 0, this._$hj);
-            WidgetDockElementController._$1n(0, ih - 1, iw, ih - 1, this._$hj);
-            WidgetDockElementController._$1n(iw - 1, 0, iw - 1, ih, this._$hj);
+            WidgetDockElementController._$1n(0, 0, width, 0, this._$hj);
+            WidgetDockElementController._$1n(0, height - 1, width, height - 1, this._$hj);
+            WidgetDockElementController._$1n(width - 1, 0, width - 1, height, this._$hj);
         } else {
-            WidgetDockElementController._$1q(0, 0, iw, 0, this._$hj);
-            WidgetDockElementController._$1q(0, ih - 1, iw, ih - 1, this._$hj);
-            WidgetDockElementController._$1q(iw - 1, 0, iw - 1, ih, this._$hj);
+            WidgetDockElementController._$1q(0, 0, width, 0, this._$hj);
+            WidgetDockElementController._$1q(0, height - 1, width, height - 1, this._$hj);
+            WidgetDockElementController._$1q(width - 1, 0, width - 1, height, this._$hj);
         }
     } else if (this._$kd == 3) {
         if (this._$ig) {
-            WidgetDockElementController._$1n(0, ih - 1, iw, ih - 1, this._$hj);
+            WidgetDockElementController._$1n(0, height - 1, width, height - 1, this._$hj);
         } else {
-            WidgetDockElementController._$1q(0, ih - 1, iw, ih - 1, this._$hj);
+            WidgetDockElementController._$1q(0, height - 1, width, height - 1, this._$hj);
         }
     } else if (this._$kd == 4) {
         if (this._$ig) {
-            WidgetDockElementController._$1q(0, iw, 0, ih - 1, this._$hj);
+            WidgetDockElementController._$1q(0, width, 0, height - 1, this._$hj);
         } else {
-            WidgetDockElementController._$1n(0, iw, 0, ih - 1, this._$hj);
+            WidgetDockElementController._$1n(0, width, 0, height - 1, this._$hj);
         }
     } else if (this._$kd == 5) {
         if (this._$ig) {
-            WidgetDockElementController._$1n(iw - 1, iw, iw - 1, ih - 1, this._$hj);
+            WidgetDockElementController._$1n(width - 1, width, width - 1, height - 1, this._$hj);
         } else {
-            WidgetDockElementController._$1q(iw - 1, iw, iw - 1, ih - 1, this._$hj);
+            WidgetDockElementController._$1q(width - 1, width, width - 1, height - 1, this._$hj);
         }
     }
 };
