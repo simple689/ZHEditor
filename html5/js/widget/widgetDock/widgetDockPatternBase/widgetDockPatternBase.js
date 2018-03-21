@@ -95,7 +95,7 @@ WidgetDockPatternBase.prototype._$4a = function (_$mS, floatPanel) {
                 _$ol._$rM = floatPanel._$lK.cx;
                 _$ol._$rN = floatPanel._$lK.cy;
                 _$ol._$aP = WidgetDockFloatPanel._$1D;
-                if (floatPanel._$kB == this) {
+                if (floatPanel._pattern == this) {
                     _$ol._$aP |= WidgetDockFloatPanel._$1A;
                 }
                 if (floatPanel._pinType == EnumPinType.Hide) {
@@ -1265,7 +1265,7 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, p
             _$mX._$j2 = 0xff;
             return false;
         } else {
-            if ((_$mX._$kx._$jy != WidgetDockFloatPanel._$0X) || (_$mX._$kx._$kA._$o5 == null) || (_$mX._$kx._$kA._$o5 != null && _$mX._$kx._$kA._$o5._$i6.length < 2)) {
+            if ((_$mX._$kx._$jy != WidgetDockFloatPanel._$0X) || (_$mX._$kx._$kA._$o5 == null) || (_$mX._$kx._$kA._$o5 != null && _$mX._$kx._$kA._$o5._tabList.length < 2)) {
                 _$mX._$j1 = 0xff;
                 return true;
             } else {

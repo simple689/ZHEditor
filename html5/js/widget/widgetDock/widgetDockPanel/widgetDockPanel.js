@@ -468,8 +468,8 @@ WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
         }
         var _$8Q = false;
         if (_$mS._$o5 != null) {
-            for (var k = 0; k < _$mS._$o5._$i6.length; k++) {
-                var tab = _$mS._$o5._$i6[k];
+            for (var k = 0; k < _$mS._$o5._tabList.length; k++) {
+                var tab = _$mS._$o5._tabList[k];
                 if (tab._floatPanel == _$7D[i]._floatPanel) {
                     _$8Q = true;
                     break;

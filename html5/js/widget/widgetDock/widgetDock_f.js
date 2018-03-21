@@ -65,14 +65,14 @@ _$F.prototype._$5w = function (mainPattern, patternPositionType) {
         this._$of._$kA = this;
         this._$of._patternPositionType = patternPositionType;
         this._$of._pattern = mainPattern;
-        if (this._$o5 != null && this._$o5._$i6.length > 1) {
+        if (this._$o5 != null && this._$o5._tabList.length > 1) {
             if (this._$l1 == null) {
                 this._$l1 = new Array(0);
             }
-            var _$e1 = this._$o5._$i6.length;
+            var _$e1 = this._$o5._tabList.length;
             var i;
             for (i = 0; i < _$e1; i++) {
-                var _$nQ = this._$o5._$i6[i]._floatPanel;
+                var _$nQ = this._$o5._tabList[i]._floatPanel;
                 var _$ol = new _$57();
                 _$nQ._patternPositionType = patternPositionType;
                 _$ol._floatPanel = _$nQ;
@@ -117,10 +117,10 @@ _$F.prototype._$2Q = function (_$nb) {
         this._$pr._$2Q(_$nb);
     }
     if (this._$od == null && this._$pr == null && !this._$8y) {
-        if (this._$o5 != null && this._$o5._$i6.length > 1) {
-            var _$e1 = this._$o5._$i6.length;
+        if (this._$o5 != null && this._$o5._tabList.length > 1) {
+            var _$e1 = this._$o5._tabList.length;
             for (var i = 0; i < _$e1; i++) {
-                _$nb.addFloatPanel(this._$o5._$i6[i]._floatPanel);
+                _$nb.addFloatPanel(this._$o5._tabList[i]._floatPanel);
             }
         } else {
             _$nb.addFloatPanel(this._$of);
@@ -156,7 +156,7 @@ _$F.prototype._$5J = function (_$mS) {
             this._$9j = _$mS._$9j;
             this._$br = _$mS._$br;
             this._$8y = _$mS._$8y;
-            if (_$mS._$o5 != null && _$mS._$o5._$i6.length > 1) {
+            if (_$mS._$o5 != null && _$mS._$o5._tabList.length > 1) {
                 this._$o5 = _$mS._$o5;
                 this._$o5._$kE = this;
             }
@@ -399,13 +399,13 @@ _$F.prototype._$56 = function (floatPanel) {
     return _$gi;
 };
 _$F.prototype._$31 = function (floatPanel, pt) {
-    if (this._$o5 != null && this._$o5._$i6.length >= 2) {
+    if (this._$o5 != null && this._$o5._tabList.length >= 2) {
         return this._$o5._$0d(floatPanel, pt);
     }
     return false;
 };
 _$F.prototype._$3v = function (pt) {
-    if (this._$o5 == null || this._$o5._$i6.length < 2) {
+    if (this._$o5 == null || this._$o5._tabList.length < 2) {
         return false;
     }
     var rc = new WidgetDockRect();
@@ -439,7 +439,7 @@ _$F.prototype._$2 = function (floatPanel) {
     floatPanel._$6q(rc);
     var _$eq = this._$1M(floatPanel);
     var _$fy = this._$1M(_$p1);
-    if (this._$o5 == null || (this._$o5._$i6.length == 0)) {
+    if (this._$o5 == null || (this._$o5._tabList.length == 0)) {
         this._$o5 = new _$G();
         this._$o5._$kE = this;
         if ((_$fy <= _$eq) || (_$eq < 0)) {
@@ -458,7 +458,7 @@ _$F.prototype._$2 = function (floatPanel) {
             this._$o5._$jh = _$eq;
         } else {
             this._$o5.Add(floatPanel);
-            this._$o5._$jh = this._$o5._$i6.length - 1;
+            this._$o5._$jh = this._$o5._tabList.length - 1;
         }
         floatPanel._$5(this._$o5);
     }
@@ -482,7 +482,7 @@ _$F.prototype._$1M = function (floatPanel) {
                 if (this._$o5 != null && this._$o5._$3x(tmp)) _$e5++;
             }
             if (tmp == floatPanel) {
-                if ((this._$o5 == null) || (this._$o5._$i6.length == 0)) return i; else return _$e5;
+                if ((this._$o5 == null) || (this._$o5._tabList.length == 0)) return i; else return _$e5;
             }
         }
     }
@@ -704,7 +704,7 @@ _$F.prototype._$4s = function (floatPanel, _$8e) {
         if (this._$of != null && this._$of != floatPanel) {
             _$e1++;
             if (!_$8e) {
-                if (this._$o5 != null && this._$o5._$i6.length > 1) {
+                if (this._$o5 != null && this._$o5._tabList.length > 1) {
                     _$e1 += 2;
                     return _$e1;
                 }

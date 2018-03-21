@@ -141,7 +141,7 @@ WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
 };
 WidgetDockPanelStateController.prototype._$4L = function () {
     var pb = _floatPanel._$kA;
-    if (pb._$o5 != null && pb._$o5._$i6.length > 1) {
+    if (pb._$o5 != null && pb._$o5._tabList.length > 1) {
         _$0Y(_floatPanel._$kA);
     } else {
         this._floatPanel._$4L();

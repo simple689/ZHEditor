@@ -266,7 +266,7 @@ WidgetDockFloatPanel.prototype.mouseDown = function (pt) {
 };
 WidgetDockFloatPanel.prototype.setTitle = function (title) {
     _panelStateController.setTitle(title);
-    if (_$kA != null && _$kA._$o5 != null && _$kA._$o5._$i6.length > 1) {
+    if (_$kA != null && _$kA._$o5 != null && _$kA._$o5._tabList.length > 1) {
         _$kA._$o5._$4J(this, title);
     }
     var _$fs;
@@ -457,7 +457,7 @@ WidgetDockFloatPanel.prototype._$rB = function (sch) {
         }
     } else {
         if (!this._$fT()) {
-            if (this._$kA == null || this._$kA._$o5 == null || this._$kA._$o5._$i6.length <= 1) return;
+            if (this._$kA == null || this._$kA._$o5 == null || this._$kA._$o5._tabList.length <= 1) return;
             this._$kA._$o5._$6b(this);
         } else {
             if (this._pinType == EnumPinType.Hide) {
@@ -538,7 +538,7 @@ WidgetDockFloatPanel.prototype._$s8 = function () {
     rc.bottom = rc.top + this._$lK.cy;
     if (this._pattern != null) {
         var _$aQ = null;
-        if (WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V && this._$kA._$o5 != null && (this._$kA._$o5._$i6.length > 1)) {
+        if (WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V && this._$kA._$o5 != null && (this._$kA._$o5._tabList.length > 1)) {
             _$aQ = this._$kA._$o5._$21();
         } else {
             _$aQ = new Array(1);
@@ -692,7 +692,7 @@ WidgetDockFloatPanel.prototype._$sa = function (pt) {
     this._$lf._$j1 = 0xff;
     this._$lf._$ij = false;
     if (this._pattern != null && this._pattern._isMain) {
-        if ((WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V) && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
+        if ((WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V) && this._$kA._$o5 != null && this._$kA._$o5._tabList.length > 1) {
             var _$f8;
             var _$p4 = this._$kA._$o5._$21();
             _$f8 = _$p4.length;
@@ -776,7 +776,7 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
     if (this._$lN[0] <= 7) {
         var i = 0;
         var _$f8;
-        if ((WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V) && (this._$kA._$o5 != null) && this._$kA._$o5._$i6.length > 1) {
+        if ((WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V) && (this._$kA._$o5 != null) && this._$kA._$o5._tabList.length > 1) {
             var _$p4 = this._$kA._$o5._$21();
             _$f8 = _$p4.length;
             for (i = 0; i < _$f8; i++) {
@@ -901,13 +901,13 @@ WidgetDockFloatPanel.prototype._$2Q = function (_$mY, mainPattern, _$85, _$7O) {
         if (com[i] instanceof WidgetDockFloatPanel) {
             _$sx = com[i];
             if (!_$sx._$kA._$8y) {
-                if (_$sx._$kA._$o5 != null && _$sx._$kA._$o5._$i6.length >= 1) {
-                    var _$e1 = _$sx._$kA._$o5._$i6.length;
+                if (_$sx._$kA._$o5 != null && _$sx._$kA._$o5._tabList.length >= 1) {
+                    var _$e1 = _$sx._$kA._$o5._tabList.length;
                     var j;
                     for (j = 0; j < _$e1; j++) {
-                        _$mY._$5E(_$sx._$kA._$o5._$i6[j]._floatPanel);
-                        mainPattern.Add(_$sx._$kA._$o5._$i6[j]._floatPanel);
-                        _$7F.addFloatPanel(_$sx._$kA._$o5._$i6[j]._floatPanel);
+                        _$mY._$5E(_$sx._$kA._$o5._tabList[j]._floatPanel);
+                        mainPattern.Add(_$sx._$kA._$o5._tabList[j]._floatPanel);
+                        _$7F.addFloatPanel(_$sx._$kA._$o5._tabList[j]._floatPanel);
                     }
                     _$sx._$kA._$o5 = null;
                 } else {
@@ -1072,7 +1072,7 @@ WidgetDockFloatPanel.prototype._$1x = function () {
         var _$8t = false;
         var _$aQ = null;
         var pb = null;
-        if (WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1) {
+        if (WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0V && this._$kA._$o5 != null && this._$kA._$o5._tabList.length > 1) {
             _$8t = true;
             var _$p4 = this._$kA._$o5._$21();
             _$aQ = new Array(_$p4.length);
@@ -1390,7 +1390,7 @@ WidgetDockFloatPanel.prototype._$qz = function (_$9d) {
         }
     } else {
         var _$8o = false;
-        if (this._$kA != null && this._$kA._$o5 != null && this._$kA._$o5._$i6.length > 1 && this._$kA._$o5._floatPanel == this) {
+        if (this._$kA != null && this._$kA._$o5 != null && this._$kA._$o5._tabList.length > 1 && this._$kA._$o5._floatPanel == this) {
             _$8o = true;
         }
         if (!_$8o) {
