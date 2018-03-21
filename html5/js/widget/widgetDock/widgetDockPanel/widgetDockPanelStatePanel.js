@@ -160,14 +160,18 @@ WidgetDockPanelStatePanel.prototype._$4S = function () {
         this._$hj.fillStyle = 'rgb( 250, 250, 250 )';
         this._$hj.fillRect(_$qa.left, _$qa.top, _$qa.right - _$qa.left, _$qa.bottom - _$qa.top);
     }
-    var patternMain = null;
-    var ft = null;
+    var _$o3 = null;
+    var _$ba = null;
     var _$eo, _$ep;
     for (var i = 0; i < _$e1; i++) {
         tab = this._floatPanelController._panelTabList[i];
-        if (patternMain == null) {
-            patternMain = tab._floatPanel._patternMain;
-            ft = this.getStyleFont();
+        var _$ok = _$pE._floatPanel._$hE;
+        if (_$o3 == null) {
+            _$o3 = _$pE._floatPanel._patternMain;
+            _$ba = _$o3._$i3;
+            if (_$ba == null) {
+                _$ba = this.getStyleFont();
+            }
         }
         if (this._$hj == null) {
             if (tab._titleElement != null) {
@@ -200,7 +204,7 @@ WidgetDockPanelStatePanel.prototype._$4S = function () {
             continue;
         }
         var size = new WidgetDockSize();
-        WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
+        WidgetDockElementController.getOffsetSize(size, _$ba, tab._title, this._$hj);
         if (_$cD == EnumPatternPositionType.Top || _$cD == EnumPatternPositionType.Bottom) {
             rc.left = tab._left;
             rc.right = tab._right;
@@ -349,20 +353,18 @@ WidgetDockPanelStatePanel.prototype._$4J = function (floatPanel, _$sc) {
     }
 };
 WidgetDockPanelStatePanel.prototype._$8 = function (floatPanel) {
-    var title = floatPanel._panelStateController.getTitle();
-    var tab = new WidgetDockTab(0, 0, title);
-    tab._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
-    tab._titleElement._panelStatePanel = this;
-    tab._floatPanel = floatPanel;
-    this._floatPanelController.addFloatPanel(tab);
+    var _$ol = new WidgetDockTab(0, 0, floatPanel._panelStateController.getTitle());
+    _$ol._floatPanel = floatPanel;
+    this._floatPanelController.addFloatPanel(_$ol);
+    _$ol._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
+    _$ol._titleElement._panelStatePanel = this;
     this._$5A();
     this.refresh();
 };
 WidgetDockPanelStatePanel.prototype._$5M = function (floatPanel) {
     var _$e1 = this._floatPanelController.getPanelNum();
-    var i;
-    for (i = 0; i < _$e1; i++) {
-        if (floatPanel == this._floatPanelController._panelTabList[i].floatPanel) {
+    for (var i = 0; i < _$e1; i++) {
+        if (floatPanel == this._floatPanelController._panelTabList[i]._floatPanel) {
             if (this._floatPanelController._panelTabList[i]._titleElement != null) {
                 this._panelStateElement.removeChild(this._floatPanelController._panelTabList[i]._titleElement);
                 this._floatPanelController._panelTabList[i]._titleElement = null;
@@ -411,15 +413,16 @@ WidgetDockPanelStatePanel.prototype._$5B = function (_$d4) {
     var tab = null;
     var size = new WidgetDockSize();
     var _$dI = new Array();
-    var patternMain = null;
+    var _$o3 = null;
     for (var i = 0; i < _$gi; i++) {
         tab = this._floatPanelController._panelTabList[i];
         tab._left = _$fv;
-        if (patternMain == null) {
-            patternMain = tab._floatPanel._patternMain;
-            ft = this.getStyleFont();
+        if (_$o3 == null) {
+            _$o3 = tab._floatPanel._patternMain;
+            ft = _$o3._$i3;
+            if (ft == null) ft = this.getStyleFont();
         }
-        WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
+        WidgetDockElementController.getOffsetSize(size, ft, tab._$qT, this._$hj);
         tab._right = _$fv + size.width + 2 * _$G._$2Z;
         if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._space;
         _$dI[i] = tab._right - _$fv;
