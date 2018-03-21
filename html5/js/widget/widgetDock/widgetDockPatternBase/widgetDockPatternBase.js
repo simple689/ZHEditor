@@ -2005,57 +2005,55 @@ WidgetDockPatternBase.prototype._$78 = function (_$cD, _$cZ, _$81, _$84) {
 WidgetDockPatternBase.prototype._$42 = function (layoutController, _$mS) {
 };
 WidgetDockPatternBase.prototype._$3Z = function (layoutController, _$mS) {
-    var _$h2;
-    var dw;
-    _$h2 = parseInt(_$na.read());
+    var _$h2 = parseInt(layoutController.read());
     _$mS._$br = (_$h2 / 1000.0);
     _$mS._$8y = true;
     var _$h3 = 0;
-    var _$rV = _$na.read();
+    var _$rV = layoutController.read();
     var _$nX;
     if (_$rV == "LEFTBLOCK") {
         _$h2 = 0;
         _$nX = new _$F();
         _$mS._$od = _$nX;
         _$nX._$oV = _$mS;
-        this._$3Z(_$na, _$nX);
+        this._$3Z(layoutController, _$nX);
     } else {
         _$h2 = 1;
     }
-    _$rV = _$na.read();
+    _$rV = layoutController.read();
     if (_$rV == "RIGHTBLOCK") {
         _$h3 = 0;
         _$nX = new _$F();
         _$mS._$pr = _$nX;
         _$nX._$oV = _$mS;
-        this._$3Z(_$na, _$nX);
+        this._$3Z(layoutController, _$nX);
     } else {
         _$h3 = 1;
     }
     if (_$h2 == 1 && _$h3 == 1) {
-        this._$3X(_$na, _$mS);
+        this._$3X(layoutController, _$mS);
     }
-    _$h2 = parseInt(_$na.read());
+    _$h2 = parseInt(layoutController.read());
     _$mS._$9y = ((_$h2 >> 8) & 0xff);
     _$mS._$9j = ((_$h2 >> 16) & 0xff);
 };
-WidgetDockPatternBase.prototype._$43 = function (_$na, _$mS) {
+WidgetDockPatternBase.prototype._$43 = function (layoutController, _$mS) {
 };
-WidgetDockPatternBase.prototype._$3X = function (_$na, _$mS) {
-    var _$gs = parseInt(_$na.read());
+WidgetDockPatternBase.prototype._$3X = function (layoutController, _$mS) {
+    var _$gs = parseInt(layoutController.read());
     var i;
     for (i = 0; i < _$gs; i++) {
-        var _$rZ = _$na.read();
-        var _$aS = parseInt(_$na.read());
+        var _$rZ = layoutController.read();
+        var _$aS = parseInt(layoutController.read());
         var pt = new WidgetDockLocation();
         var iX, iY;
         iX = 0;
         iY = 0;
         if (this._isMain) {
-            pt.x = parseInt(_$na.read());
-            pt.y = parseInt(_$na.read());
-            iX = parseInt(_$na.read());
-            iY = parseInt(_$na.read());
+            pt.x = parseInt(layoutController.read());
+            pt.y = parseInt(layoutController.read());
+            iX = parseInt(layoutController.read());
+            iY = parseInt(layoutController.read());
         }
         _$mS._$e(_$rZ, _$aS, pt, iX, iY);
     }

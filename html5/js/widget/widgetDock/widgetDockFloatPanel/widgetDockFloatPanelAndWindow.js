@@ -223,10 +223,10 @@ WidgetDockFloatPanel.prototype._$r6 = function (_$7J) {
 WidgetDockFloatPanel.prototype._$ag = function () {
     return new WidgetDockPanel();
 };
-WidgetDockFloatPanel.prototype._$69 = function (_$9g, _$nA, _$97) {
+WidgetDockFloatPanel.prototype._$69 = function (_$9g, layoutController, _$97) {
     this._$lf._$j1 = _$9g;
-    if (_$nA != null) {
-        this._$lf._$ky = _$nA._$kA;
+    if (layoutController != null) {
+        this._$lf._$ky = layoutController._$kA;
         this._$lf._$j2 = _$97;
     } else {
         this._$lf._$ky = null;
