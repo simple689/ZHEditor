@@ -2,7 +2,7 @@ function WidgetDockTab(left, right, title) {
     this._left = left;
     this._right = right;
     this._title = title;
-    this._$qT = title;
+    this._titleOriginal = title;
     this._floatPanel = null;
     this._titleElement = null;
 };

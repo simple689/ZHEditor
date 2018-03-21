@@ -250,7 +250,7 @@ _$G.prototype._$5z = function () {
         tab = this._tabList[i];
         ft = this._$bT(tab._floatPanel);
         tab._left = _$fv;
-        WidgetDockElementController.getOffsetSize(size, ft, tab._$qT, this._$hj);
+        WidgetDockElementController.getOffsetSize(size, ft, tab._titleOriginal, this._$hj);
         tab._right = _$fv + size.width + 2 * _$G._$2Z;
         if (tab._floatPanel._$hE != null) {
             tab._right += WidgetDockTab._space;
@@ -273,7 +273,7 @@ _$G.prototype._$5z = function () {
         if (tab._floatPanel._$hE != null) {
             _$fK = WidgetDockTab._space;
         }
-        tab._title = WidgetDockPatternBase._$6y(ft, tab._$qT, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
+        tab._title = WidgetDockPatternBase._$6y(ft, tab._titleOriginal, _$fE, _$dI[i], _$G._$2Z, _$fK, this._$hj);
     }
     this.refresh();
 };
@@ -282,7 +282,7 @@ _$G.prototype._$4J = function (floatPanel, _$sd) {
     for (var i = 0; i < _$e1; i++) {
         var tab = this._tabList[i];
         if (tab._floatPanel == floatPanel) {
-            tab._$qT = new String(_$sd);
+            tab._titleOriginal = new String(_$sd);
             tab._title = new String(_$sd);
             _$5z();
             break;
