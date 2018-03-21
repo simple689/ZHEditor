@@ -120,7 +120,7 @@ WidgetDockPatternBase.prototype._$4a = function (_$mS, floatPanel) {
     } else {
         if (_$mS._$of == floatPanel && floatPanel != null) {
             var _$aS = WidgetDockFloatPanel._$1D;
-            if (floatPanel._$kB == this) {
+            if (floatPanel._pattern == this) {
                 _$aS |= WidgetDockFloatPanel._$1A;
             }
             if (floatPanel._pinType == EnumPinType.Hide) {
@@ -274,7 +274,7 @@ WidgetDockPatternBase.prototype._$5H = function (floatPanel, _$ng) {
             floatPanel._$d(_$ng);
         }
         _$01();
-        floatPanel._$kB = null;
+        floatPanel._pattern = null;
         return;
     }
     if (floatPanel._$jr < 0) return;
@@ -387,7 +387,7 @@ WidgetDockPatternBase.prototype._$6m = function (_$mS, _$cN) {
         return;
     }
     if (_$mS._$of != null) {
-        if (_$mS._$of._$kB == this) {
+        if (_$mS._$of._pattern == this) {
             _$mS._$of._$jr = _$cN;
         } else if (_$mS._$of._$l7 == this) {
             _$mS._$of._$k4 = _$cN;
@@ -1243,7 +1243,7 @@ WidgetDockPatternBase._$2c = function (_$mX, _$q3, _$nz) {
     }
 };
 WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, pt) {
-    if (_$mX._$kx._$kB != this) {
+    if (_$mX._$kx._pattern != this) {
         return true;
     }
     if (WidgetDockPatternBase.isInRect(_$qe, pt) && _$mX._$it) {
@@ -1765,9 +1765,6 @@ WidgetDockPatternBase.prototype._$rB = function (floatPanel, sch) {
 };
 WidgetDockPatternBase.prototype._$s8 = function (floatPanel) {
     floatPanel._$s8();
-};
-WidgetDockPatternBase.prototype._$sa = function (floatPanel, pt) {
-    return floatPanel._$sa(pt);
 };
 WidgetDockPatternBase.prototype._$sb = function (_$rR) {
     _$rR._$sb();

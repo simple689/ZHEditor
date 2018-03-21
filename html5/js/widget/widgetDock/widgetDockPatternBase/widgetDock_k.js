@@ -66,22 +66,22 @@ _$K.prototype._$7p = function () {
     this._$kX = pan;
     this._$kX.refresh();
 };
-_$K._$0y = function (_$q2) {
+_$K._$0y = function (frame) {
     var _$og = new _$K(false);
     _$og._location = new WidgetDockLocation();
-    _$og._location.x = _$q2.x;
-    _$og._location.y = _$q2.y;
+    _$og._location.x = frame.x;
+    _$og._location.y = frame.y;
     _$og._size = new WidgetDockSize();
-    _$og._size.width = _$q2.width;
-    _$og._size.height = _$q2.height;
+    _$og._size.width = frame.width;
+    _$og._size.height = frame.height;
     _$K._$kL.push(_$og);
     return _$og;
 };
 _$K.prototype._$0v = function (elementId) {
 };
-_$K.prototype._$4R = function (_$ts, _$h1) {
+_$K.prototype._$4R = function () {
     this._$iG = true;
-    return _$kK._$15(_$ts, _$h1);
+    return _$kK._$15();
 };
 _$K.prototype._$n = function (_$b9) {
 };

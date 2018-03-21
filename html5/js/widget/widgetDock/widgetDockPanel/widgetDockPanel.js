@@ -443,7 +443,7 @@ WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
                 if (bvi) {
                     _$aS |= WidgetDockFloatPanel._$1D;
                 }
-                if (_$7D[i]._floatPanel._$kB == mainPattern) {
+                if (_$7D[i]._floatPanel._pattern == mainPattern) {
                     _$aS |= WidgetDockFloatPanel._$1A;
                 }
                 if (_$7D[i]._floatPanel._pinType == EnumPinType.Hide) {

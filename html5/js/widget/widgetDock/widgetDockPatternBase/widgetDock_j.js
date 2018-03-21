@@ -72,14 +72,14 @@ _$J.prototype._$74 = function () {
         }
     }
 };
-_$J._$0x = function (_$q2) {
+_$J._$0x = function (frame) {
     var _$og = new _$J(false);
     _$og._location = new WidgetDockLocation();
-    _$og._location.x = _$q2.x;
-    _$og._location.y = _$q2.y;
+    _$og._location.x = frame.x;
+    _$og._location.y = frame.y;
     _$og._size = new WidgetDockSize();
-    _$og._size.width = _$q2.width;
-    _$og._size.height = _$q2.height;
+    _$og._size.width = frame.width;
+    _$og._size.height = frame.height;
     return _$og;
 };
 _$J.prototype._$0v = function (elementId) {
@@ -121,7 +121,7 @@ _$J.prototype._$n = function (_$b9) {
     }
     this.Add(_$b9);
     this._$kK = _$b9;
-    _$b9._$kB = this;
+    _$b9._pattern = this;
     this._$18(_$b9, null);
     if (!this._$fT()) {
         if (this._size == null) {

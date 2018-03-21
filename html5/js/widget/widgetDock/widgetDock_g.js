@@ -151,7 +151,7 @@ _$G.prototype._$5K = function (floatPanel) {
         act._floatPanel.setElementVisible(true);
         if (floatPanel._$io) act._floatPanel._$bf(true);
         this._$kE._$of = act._floatPanel;
-        this._$kE._$of._$kB = act._floatPanel._$kB;
+        this._$kE._$of._pattern = act._floatPanel._pattern;
         this._floatPanel = act._floatPanel;
         if (_$gi >= 2) {
             act._floatPanel._$5(this);
@@ -335,7 +335,7 @@ _$G.prototype._$V = function (_$cN) {
             tab._floatPanel._panelStateController._$a();
         }
         this._$kE._$of = tab._floatPanel;
-        this._$kE._$of._$kB = tab._floatPanel._$kB;
+        this._$kE._$of._pattern = tab._floatPanel._pattern;
         tab._floatPanel._$kA = this._$kE;
         tab._floatPanel._$6q(rc);
         this.refresh();
