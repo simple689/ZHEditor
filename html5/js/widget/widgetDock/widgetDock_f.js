@@ -631,7 +631,7 @@ _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
                 _$q7.top = _$qh.bottom;
             } else if (this._$of._$jm == WidgetDockFloatPanel._$5j) {
                 _$q7.right = _$qh.left;
-            else
+            } else {
                 _$q7.bottom = _$qh.top;
             }
         }

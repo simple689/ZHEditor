@@ -2252,11 +2252,11 @@ WidgetDockFloatPanel.prototype._$Y = function (mainPattern, _$cD, _$dg) {
         } else {
             _$fC = mainPattern._$2F(_$9v, panel._$l8);
         }
-        if (this._patternMain._panelStatePanelList[_$9n] != null) {
-            _$fq = mainPattern._$2F(_$9n, this._patternMain._panelStatePanelList[_$9n]);
+        if (this._patternMain._$lk[_$9n] != null) {
+            _$fq = mainPattern._$2F(_$9n, this._patternMain._$lk[_$9n]);
         }
-        if (this._patternMain._panelStatePanelList[_$9v] != null) {
-            _$fr = mainPattern._$2F(_$9v, this._patternMain._panelStatePanelList[_$9v]);
+        if (this._patternMain._$lk[_$9v] != null) {
+            _$fr = mainPattern._$2F(_$9v, this._patternMain._$lk[_$9v]);
         }
         if (_$fq >= 0 && _$eG < _$fq) {
             mainPattern._$j(_$9n);

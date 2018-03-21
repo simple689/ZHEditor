@@ -165,9 +165,8 @@ WidgetDockPanelStatePanel.prototype._$4S = function () {
     var _$eo, _$ep;
     for (var i = 0; i < _$e1; i++) {
         tab = this._floatPanelController._panelTabList[i];
-        var _$ok = _$pE._floatPanel._$hE;
         if (_$o3 == null) {
-            _$o3 = _$pE._floatPanel._patternMain;
+            _$o3 = tab._floatPanel._patternMain;
             _$ba = _$o3._$i3;
             if (_$ba == null) {
                 _$ba = this.getStyleFont();
