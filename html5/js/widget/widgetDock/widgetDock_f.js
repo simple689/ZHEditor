@@ -619,7 +619,7 @@ _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
         var _$qh = new WidgetDockRect();
         this._$of._panelStateController._$2P(_$qh);
         if (this._$of._$jm >= WidgetDockFloatPanel._$0) {
-            if (this._$of._patternMain._$jv == WidgetDockController._$0R || this._$of._patternPositionType == EnumPatternPositionType.Left || this._$of._patternPositionType == EnumPatternPositionType.Right) {
+            if (this._$of._patternPositionType == EnumPatternPositionType.Left || this._$of._patternPositionType == EnumPatternPositionType.Right) {
                 _$q7.top = _$qh.bottom;
             } else {
                 _$q7.left = _$qh.right;

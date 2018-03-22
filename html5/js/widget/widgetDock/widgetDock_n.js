@@ -61,14 +61,12 @@ _$N.prototype.setElementZIndex = function (_$cR) {
 _$N.prototype.mouseDown = function (e) {
     if (WidgetDockController.isButtonAvailable(e.button)) {
         WidgetDockWindow._movePanelStateController = this;
-        WidgetDockController._$6s(true);
         this._$4N();
     }
     return false;
 };
 _$N.prototype.mouseUp = function (e) {
     if (!this._$iG) return;
-    WidgetDockController._$6s(false);
     this._$1x();
     this._$iG = false;
 };

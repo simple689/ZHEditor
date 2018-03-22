@@ -46,7 +46,7 @@ function initLayout() {
 }
 
 function saveLayout() {
-    dock.saveStatesIntoKey(dockLayoutKey);
+    dock.saveLayoutIntoKey(dockLayoutKey);
     // var sessionStorage = window['sessionStorage'];
     // alert(sessionStorage.getItem(dockLayoutKey));
 }

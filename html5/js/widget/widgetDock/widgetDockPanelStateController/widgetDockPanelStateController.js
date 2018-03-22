@@ -82,7 +82,6 @@ WidgetDockPanelStateController.prototype.mouseDown = function (e) {
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
     if (this.isInRectWithPanelState(pt) >= 0) {
-        WidgetDockController._$6s(true);
         this._$ms(e);
     } else {
         this._isMouseDown = false;
@@ -108,7 +107,6 @@ WidgetDockPanelStateController.prototype.mouseUp = function (e) {
     var _$pH = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, _$pH);
     this._isMouseDown = false;
-    WidgetDockController._$6s(false);
     this._floatPanel._$1x();
 };
 WidgetDockPanelStateController.prototype._$a = function () {
@@ -229,24 +227,8 @@ WidgetDockPanelStateController.prototype.getTitle = function () {
 WidgetDockPanelStateController.prototype._$c6 = function () {
     if (this._floatPanel == null) return null;
     if (this._floatPanel._$jm == WidgetDockFloatPanel._$0) {
-        if (this._floatPanel._patternMain._$jv == WidgetDockController._$0R) {
-            WidgetDockPanelStateController._$j5.width = 130;
-            WidgetDockPanelStateController._$j5.height = this._floatPanel._$jA;
-        } else {
-            var _$9y = this._floatPanel._$bL();
-            if (this._floatPanel._pattern != null && this._floatPanel._pattern._isMain) {
-                if (_$9y == EnumPatternPositionType.Left || _$9y == EnumPatternPositionType.Right) {
-                    WidgetDockPanelStateController._$j5.width = 130;
-                    WidgetDockPanelStateController._$j5.height = this._floatPanel._$jA;
-                } else {
-                    WidgetDockPanelStateController._$j5.width = this._floatPanel._$jA;
-                    WidgetDockPanelStateController._$j5.height = 130;
-                }
-            } else {
-                WidgetDockPanelStateController._$j5.width = 130;
-                WidgetDockPanelStateController._$j5.height = this._floatPanel._$jA;
-            }
-        }
+        WidgetDockPanelStateController._$j5.width = 130;
+        WidgetDockPanelStateController._$j5.height = this._floatPanel._$jA;
     } else {
         if (this._floatPanel._$jm == WidgetDockFloatPanel._$3Q || this._floatPanel._$jm == WidgetDockFloatPanel._$5j) {
             WidgetDockPanelStateController._$j5.width = this._floatPanel._$jA;
@@ -303,13 +285,6 @@ WidgetDockPanelStateController.prototype.refresh = function () {
     var _$fu;
     var _$8u = true;
     var _$96 = this._$6z();
-    if (this._floatPanel._patternMain._$jv == WidgetDockController._$0T) {
-        if ((this._floatPanel._$jm >= WidgetDockFloatPanel._$0) && _$96) {
-            _$8u = true;
-        } else {
-            _$8u = false;
-        }
-    }
     var _$ea = this._floatPanel._patternPositionType;
     if (this._floatPanel._$jm < WidgetDockFloatPanel._$0) {
         _$ea = this._floatPanel._$jm;
@@ -320,7 +295,7 @@ WidgetDockPanelStateController.prototype.refresh = function () {
         }
     }
     var _$8K = false;
-    if (this._floatPanel._$jm >= WidgetDockFloatPanel._$0 && (this._floatPanel._patternMain._$jv == WidgetDockController._$0R || _$96)) {
+    if (this._floatPanel._$jm >= WidgetDockFloatPanel._$0) {
         _$8K = true;
     } else if (_$ea == WidgetDockFloatPanel._$3Q || _$ea == WidgetDockFloatPanel._$5j) {
         _$8K = true;
@@ -598,9 +573,7 @@ WidgetDockPanelStateController.prototype._$aE = function (left, top, width, heig
     if (this._floatPanel == null) {
         _$8v = true;
     } else if (this._floatPanel._$jm >= WidgetDockFloatPanel._$0) {
-        if ((this._floatPanel._patternMain._$jv == WidgetDockController._$0R) || (this._floatPanel._pattern != null && !_floatPanel._pattern._isMain)) {
-            _$8v = true;
-        }
+        _$8v = true;
     }
     if (_$8v || (_$gf == EnumPatternPositionType.Left) || (_$gf == EnumPatternPositionType.Right)) {
         _$el = height - 3;

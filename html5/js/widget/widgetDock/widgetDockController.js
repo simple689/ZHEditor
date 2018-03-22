@@ -6,10 +6,6 @@ WidgetDockController._elementRootId = "";
 WidgetDockController._windowMain = null;
 WidgetDockController._dir = "";
 
-WidgetDockController._$kN = new Array();
-WidgetDockController._$0R = 0;
-WidgetDockController._$0T = 1;
-
 WidgetDockController.init = function () {
     if (WidgetDockController._instance != null) {
         return WidgetDockController._instance;
@@ -119,7 +115,7 @@ WidgetDockController.prototype.addFixedPanel = function (element, type) {
 WidgetDockController.prototype.createFloatPanel = function (title) {
     return new WidgetDockFloatPanel(WidgetDockController._windowMain, title);
 };
-WidgetDockController.prototype.saveStatesIntoKey = function (key) {
+WidgetDockController.prototype.saveLayoutIntoKey = function (key) {
     var layout = new WidgetDockLayout();
     WidgetDockController._windowMain.createLayout(layout);
     var sessionStorage = window['sessionStorage'];
@@ -142,20 +138,6 @@ WidgetDockController.isButtonAvailable = function (buttonType) {
         return false;
     }
     return true;
-};
-WidgetDockController._$6s = function (sch) {
-    WidgetDockController._windowMain._$6s(sch);
-};
-WidgetDockController._$06 = function (elementId) {
-    var va = WidgetDockController._$kN;
-    var len = va.length;
-    for (var i = 0; i < len; i++) {
-        if (va[i] == elementId) {
-            va.splice(i, 1);
-            return true;
-        }
-    }
-    return false;
 };
 WidgetDockController._$2E = function (rc) {
     var iw = 0;

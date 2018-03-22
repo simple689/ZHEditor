@@ -37,7 +37,6 @@ WidgetDockPanelAlone.onMouseMove = function (e) {
 WidgetDockPanelAlone.prototype.mouseDown = function (e) {
     if (this._isMouseDown) return;
     WidgetDockWindow._movePanelStateController = this;
-    WidgetDockController._$6s(true);
     this._isMouseDown = true;
     var pt = new WidgetDockLocation();
     WidgetDockElementController.getMousePoint(e, pt);
@@ -53,7 +52,6 @@ WidgetDockPanelAlone.prototype.mouseDown = function (e) {
     }
 };
 WidgetDockPanelAlone.prototype.mouseUp = function (e) {
-    WidgetDockController._$6s(false);
     this._isMouseDown = false;
 };
 WidgetDockPanelAlone.prototype.mouseMove = function (e) {

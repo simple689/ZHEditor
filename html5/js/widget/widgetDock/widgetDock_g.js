@@ -89,7 +89,6 @@ _$G.prototype.mouseDown = function (e) {
 _$G.prototype.mouseUp = function (e) {
     if (!this._$fT()) return;
     if (!this._isMouseDown) return;
-    WidgetDockController._$6s(false);
     if (!WidgetDockController.isButtonAvailable(e.button)) {
         this._isMouseDown = false;
         this._floatPanel._$T();
@@ -299,7 +298,6 @@ _$G.prototype._$5e = function (e) {
         this._isMouseDown = true;
         WidgetDockWindow._movePanelStateController = this;
         if (this._$37(e) >= 0) {
-            WidgetDockController._$6s(true);
             this._$ms(e);
         } else {
             this._isMouseDown = false;
