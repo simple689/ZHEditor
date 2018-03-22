@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockElementController.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockElementController.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanel/widgetDockFloatPanelAndWindow.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanel/widgetDockFloatPanelAndWindow.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanel/widgetDockPanel.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanel/widgetDockPanel.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanel/widgetDockPanelStatePanel.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanel/widgetDockPanelStatePanel.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_g.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_g.js" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js" afterPath="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +32,8 @@
       <file leaf-file-name="widgetDock_k.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="74" column="35" lean-forward="false" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+            <state relative-caret-position="829">
+              <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -137,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_windowPattern</find>
       <find>_$jO</find>
       <find>_$9d</find>
       <find>_$d =</find>
@@ -167,6 +161,7 @@
       <find>_$ly</find>
       <find>_$lx</find>
       <find>_$lI</find>
+      <find>_$kK</find>
     </findStrings>
     <replaceStrings>
       <replace>EnumResizeType.swResize</replace>
@@ -244,7 +239,6 @@
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPanelAlone.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanelController.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_n.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_j.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_6c.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockTab.js" />
@@ -261,6 +255,7 @@
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockElementController.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDock_g.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockFloatPanel/widgetDockFloatPanelAndWindow.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js" />
       </list>
     </option>
   </component>
@@ -526,12 +521,12 @@
       <workItem from="1521214230056" duration="244000" />
       <workItem from="1521606773856" duration="5790000" />
       <workItem from="1521622160230" duration="2735000" />
-      <workItem from="1521640890435" duration="13040000" />
+      <workItem from="1521640890435" duration="13152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334083000" />
+    <option name="totallyTimeSpent" value="334195000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -544,12 +539,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="19" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24607961" sideWeight="0.4879227" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="检验" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43468207" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.33294797" sideWeight="0.76770836" order="8" side_tool="false" content_ui="tabs" x="0" y="23" width="1920" height="1017" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.33294797" sideWeight="0.76770836" order="8" side_tool="false" content_ui="tabs" x="0" y="23" width="1920" height="1017" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.059912853" sideWeight="0.65260416" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1135,8 +1129,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDock/widgetDockPatternBase/widgetDock_k.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="74" column="35" lean-forward="false" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+        <state relative-caret-position="829">
+          <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
           <folding />
         </state>
       </provider>
