@@ -165,11 +165,11 @@ WidgetDockPanel.prototype._$03 = function (mainPattern, _$mX, pt, _$nz, _$dk, _$
         return this._$kI._$03(_$mX, pt, _$nz, _$dk, _$oQ);
     } else {
         var rcPanel = new WidgetDockRect();
-        rcPanel.setRect(rect);
+        rcPanel.setRect(this.rect);
         mainPattern._$5r(mainPattern._$hh, rcPanel);
-        var _$9z = _$3E(rcPanel, pt, _$de);
-        _$mX._$kn = rect.right - rect.left;
-        _$mX._$kq = rect.bottom - rect.top;
+        var _$9z = this._$3E(rcPanel, pt, _$de);
+        _$mX._$kn = this.rect.right - this.rect.left;
+        _$mX._$kq = this.rect.bottom - this.rect.top;
         return _$9z;
     }
 };

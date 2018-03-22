@@ -330,8 +330,7 @@ WidgetDockPanelStatePanel.prototype._$0s = function () {
     var iNo = this._floatPanelController.getPanelNum();
     if (iNo > 0) {
         var _$oU = new Array();
-        var i;
-        for (i = 0; i < iNo; i++) {
+        for (var i = 0; i < iNo; i++) {
             _$oU[i] = this._floatPanelController._panelTabList[i];
         }
         this._floatPanelController.reset();
@@ -340,11 +339,10 @@ WidgetDockPanelStatePanel.prototype._$0s = function () {
     return null;
 };
 WidgetDockPanelStatePanel.prototype._$4J = function (floatPanel, _$sc) {
-    var _$e1 = _floatPanelController.getPanelNum();
-    var i;
-    for (i = 0; i < _$e1; i++) {
-        if (floatPanel == _floatPanelController._panelTabList[i].floatPanel) {
-            var tab = _floatPanelController._panelTabList[i];
+    var _$e1 = this._floatPanelController.getPanelNum();
+    for (var i = 0; i < _$e1; i++) {
+        if (floatPanel == this._floatPanelController._panelTabList[i].floatPanel) {
+            var tab = this._floatPanelController._panelTabList[i];
             tab._title = new String(_$sc);
             this._$5A();
             break;
@@ -423,7 +421,6 @@ WidgetDockPanelStatePanel.prototype._$5B = function (_$d4) {
         }
         WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
         tab._right = _$fv + size.width + 2 * _$G._$2Z;
-        if (tab._floatPanel._$hE != null) tab._right += WidgetDockTab._space;
         _$dI[i] = tab._right - _$fv;
         _$fv = tab._right;
     }

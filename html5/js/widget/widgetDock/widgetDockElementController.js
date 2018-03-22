@@ -17,7 +17,7 @@ WidgetDockElementController.createElementWithParent = function (elementType, ele
     element.width = 200;
     element.height = 200;
     element.style.visibility = "visible";
-    element.style.zIndex = parseInt(WidgetDockElementController.zIndex);
+    element.style.zIndex = WidgetDockElementController.zIndex;
     WidgetDockElementController.zIndex++;
     return element;
 };
@@ -25,7 +25,7 @@ WidgetDockElementController.setElementZIndex = function (element, zIndex) {
     element.style.zIndex = zIndex;
 };
 WidgetDockElementController.setElementZIndexWithController = function (element) {
-    element.style.zIndex = parseInt(WidgetDockElementController.zIndex);
+    element.style.zIndex = WidgetDockElementController.zIndex;
     WidgetDockElementController.zIndex++;
 };
 WidgetDockElementController.setElementVisible = function (element, isVisible) {
