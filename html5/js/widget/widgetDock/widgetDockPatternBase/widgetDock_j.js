@@ -108,7 +108,7 @@ _$J.prototype.setVisible = function (_$8e) {
 _$J.prototype._$n = function (_$b9) {
     this._$it = true;
     this._$is = true;
-    this._$kF = _$b9._windowMain;
+    this._$kF = _$b9._window;
     this._$kF._$ml(this);
     var _$8q = false;
     if (this._$he == null || (this._$he != null && !this._$fT())) {

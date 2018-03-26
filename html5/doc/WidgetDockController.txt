@@ -2,13 +2,13 @@
 |——_instance
 |—— _browserType
 |—— _elementRootId
-|—— _windowMain
+|—— _window
 |———— mouseDown
 |—— mouseUp
 |—— mouseMove
 |—— _isHasCanvasContext
 |—— _dir
-|—— addFixedPanel - _windowMain.addFixedPanel
+|—— addFixedPanel - _window.addFixedPanel
                  |—— _patternMain WidgetDockPatternMain����WidgetDockPatternBase��.addFixedPanel -�� Center -�� _elementWithCenter�����������ݡ�
 													       Left -�� _elementWithType�����������ݡ�
 													       Right -�� _elementWithType�����������ݡ�
@@ -31,7 +31,7 @@ WidgetDockPatternBase
 
 
 WidgetDockFloatPanel
-|���� _windowMain
+|���� _window
 |���� _title
 |���� _patternMain
 |���� _floatPanelController

@@ -323,7 +323,7 @@ WidgetDockPanelStatePanel.prototype._$5b = function (floatPanel) {
     _$og._$6k(_$ft);
     _$og.resize(rc.left, rc.top, (rc.right - rc.left), (rc.bottom - rc.top));
     _$og.setVisible(true);
-    floatPanel._windowMain._patternMain._$4T(_$og);
+    floatPanel._window._patternMain._$4T(_$og);
 };
 WidgetDockPanelStatePanel.prototype._$0s = function () {
     var iNo = this._floatPanelController.getPanelNum();

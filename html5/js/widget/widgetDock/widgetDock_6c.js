@@ -5,7 +5,7 @@ function _$6C(type, floatPanel) {
     this._$ig = false;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
     this._panelStateElement.style.border = "1px solid";
-    WidgetDockElementController.setElementZIndex(this._panelStateElement, floatPanel._windowMain._$jO);
+    WidgetDockElementController.setElementZIndex(this._panelStateElement, floatPanel._window._$jO);
 };
 _$6C.prototype._$ri = function (_$7S, _$7K) {
     this._$ik = _$7S;

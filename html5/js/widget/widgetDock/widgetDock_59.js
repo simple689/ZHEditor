@@ -9,7 +9,7 @@ function _$59() {
     this._$iJ = false;
 };
 _$59.prototype.Add = function (floatPanel) {
-    var _$et = floatPanel._windowMain._$jO;
+    var _$et = floatPanel._window._$jO;
     WidgetDockElementController.setElementZIndex(this._$lc._panelStateElement, _$et);
     floatPanel.setElementZIndex(_$et + 1);
 };
@@ -68,7 +68,7 @@ _$59.prototype.mouseMove = function (e) {
             var vd = new Date();
             var _$sW = (vd.getTime() - this._$hk) / 1000;
             if (_$sW > 2) {
-                this._$kx._windowMain._patternMain._$4T(null);
+                this._$kx._window._patternMain._$4T(null);
             }
         }
     }
@@ -81,7 +81,7 @@ _$59.prototype.mouseMove = function (e) {
             this._$iJ = true;
         } else {
             this._$iJ = false;
-            this._$kx._windowMain._patternMain._$4T(null);
+            this._$kx._window._patternMain._$4T(null);
         }
     }
 };

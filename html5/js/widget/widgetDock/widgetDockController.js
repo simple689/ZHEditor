@@ -3,7 +3,7 @@ function WidgetDockController() {
 WidgetDockController._instance = null;
 WidgetDockController._browserType = EnumBrowserType.IE;
 WidgetDockController._elementRootId = "";
-WidgetDockController._windowMain = null;
+WidgetDockController._window = null;
 WidgetDockController._dir = "";
 
 WidgetDockController.init = function () {
@@ -40,8 +40,8 @@ WidgetDockController.init = function () {
 
     WidgetDockController.setStyle();
 
-    if (WidgetDockController._windowMain == null) {
-        WidgetDockController._windowMain = new WidgetDockWindow(null, "MainWindow");
+    if (WidgetDockController._window == null) {
+        WidgetDockController._window = new WidgetDockWindow(null, "MainWindow");
         document.body.addEventListener("mousedown", WidgetDockController.mouseDown, true);
         document.body.addEventListener("mouseup", WidgetDockController.mouseUp, true);
         document.body.addEventListener("mousemove", WidgetDockController.mouseMove, true);
@@ -67,22 +67,22 @@ WidgetDockController.setStyle = function () {
     document.body.style.overflow = 'hidden';
 };
 WidgetDockController.mouseDown = function (e) {
-    if (WidgetDockController._windowMain == null) {
+    if (WidgetDockController._window == null) {
         return;
     }
     if (e == null) {
         e = window.event;
     }
-    WidgetDockController._windowMain.mouseDown(e);
+    WidgetDockController._window.mouseDown(e);
 };
 WidgetDockController.mouseUp = function (e) {
-    if (WidgetDockController._windowMain == null) {
+    if (WidgetDockController._window == null) {
         return;
     }
     if (e == null) {
         e = window.event;
     }
-    WidgetDockController._windowMain.mouseUp(e);
+    WidgetDockController._window.mouseUp(e);
     var div = document.getElementById("widgetDockMessageId");
     if (div != null) {
         if (WidgetDockController._browserType == EnumBrowserType.IE) {
@@ -93,13 +93,13 @@ WidgetDockController.mouseUp = function (e) {
     }
 };
 WidgetDockController.mouseMove = function (e) {
-    if (WidgetDockController._windowMain == null) {
+    if (WidgetDockController._window == null) {
         return;
     }
     if (e == null) {
         e = window.event;
     }
-    WidgetDockController._windowMain.mouseMove(e);
+    WidgetDockController._window.mouseMove(e);
     var div = document.getElementById("widgetDockMessageId");
     if (div != null) {
         if (WidgetDockController._browserType == EnumBrowserType.IE) {
@@ -110,14 +110,14 @@ WidgetDockController.mouseMove = function (e) {
     }
 };
 WidgetDockController.prototype.addFixedPanel = function (element, type) {
-    WidgetDockController._windowMain.addFixedPanel(element, type);
+    WidgetDockController._window.addFixedPanel(element, type);
 };
 WidgetDockController.prototype.createFloatPanel = function (title) {
-    return new WidgetDockFloatPanel(WidgetDockController._windowMain, title);
+    return new WidgetDockFloatPanel(WidgetDockController._window, title);
 };
 WidgetDockController.prototype.saveLayoutIntoKey = function (key) {
     var layout = new WidgetDockLayout();
-    WidgetDockController._windowMain.createLayout(layout);
+    WidgetDockController._window.createLayout(layout);
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
         sessionStorage.setItem(key, layout.getContent());
@@ -129,7 +129,7 @@ WidgetDockController.prototype.loadLayoutFromKey = function (key) {
         var layoutStr = sessionStorage.getItem(key);
         if (layoutStr != null) {
             var layoutController = new WidgetDockLayoutController(layoutStr);
-            WidgetDockController._windowMain.loadStatesFromLayoutController(layoutController);
+            WidgetDockController._window.loadStatesFromLayoutController(layoutController);
         }
     }
 };

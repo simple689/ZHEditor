@@ -43,19 +43,21 @@ function WidgetDockFloatPanel(window, title) {
     this._width = 0;
     this._height = 0;
     this._patternPositionType;
-    this._pinType = EnumPinType.Show;
-    this._patternMain;
     this._pattern;
-    this._isInitLayout;
     this._panelStateController = null;
+
+    this._pinType = EnumPinType.Show;
+    this._isInitLayout = false;
+
     this._windowType = EnumWindowType.Main;
-    this._windowMain = null;
+    this._window = null;
+    this._patternMain;
     this._title = title;
     if (window == null) {
         this._windowType = EnumWindowType.Main;
     } else {
         this._windowType = EnumWindowType.Normal;
-        this._windowMain = window;
+        this._window = window;
         this.setPatternAndTitle(window._patternMain, title);
     }
     if (WidgetDockFloatPanel._floatPanelController == null) {
@@ -112,12 +114,23 @@ WidgetDockFloatPanel._$k3 = 0;
 WidgetDockFloatPanel._$lL = new _$5Y();
 WidgetDockFloatPanel._$cj = new WidgetDockRect();
 
+WidgetDockFloatPanel.prototype.setPatternAndTitle = function (patternMain, title) {
+    this._title = title;
+    if (this._windowType == EnumWindowType.Main) {
+        return;
+    }
+    this._patternMain = patternMain;
+    this.reset();
+    this.setElementVisible(true);
+    this.createPanelStateController(title);
+};
 WidgetDockFloatPanel.prototype.reset = function () {
-    this._$kc = 0xffff;
     this._pinType = EnumPinType.Show;
+    this._isInitLayout = false;
+
+    this._$kc = 0xffff;
     this._$kj = WidgetDockFloatPanel._$0;
     this._$iv = true;
-    this._isInitLayout = false;
     this._$lt = new WidgetDockLocation();
     this._$lK = new _$5Y();
     this._$lJ = new _$5Y();
@@ -145,15 +158,23 @@ WidgetDockFloatPanel.prototype.reset = function () {
     this._$kA = null;
     this._$jr = 0xffffffff;
 };
-WidgetDockFloatPanel.prototype.setPatternAndTitle = function (patternMain, title) {
-    this._title = title;
-    if (this._windowType == EnumWindowType.Main) {
-        return;
+WidgetDockFloatPanel.prototype.setElementVisible = function (isVisible) {
+    if (this._panelStateController != null) {
+        this._panelStateController.setVisible(isVisible);
     }
-    this._patternMain = patternMain;
-    this.reset();
-    this.setElementVisible(true);
-    this.createPanelStateController(title);
+    if (this._element != null) {
+        if (isVisible) {
+            this._element.style.overflow = "auto";
+        } else {
+            this._element.style.overflow = "hidden";
+        }
+    }
+    WidgetDockElementController.setElementVisible(this._element, isVisible);
+};
+WidgetDockFloatPanel.prototype.createPanelStateController = function (title) {
+    this._panelStateController = new WidgetDockPanelStateController();
+    this._panelStateController.setFloatPanel(this);
+    this._panelStateController.setTitle(title);
 };
 WidgetDockFloatPanel.prototype._$c3 = function () {
     return this._title;
@@ -164,11 +185,6 @@ WidgetDockFloatPanel.prototype.getTitle = function () {
     } else {
         return this._panelStateController.getTitle();
     }
-};
-WidgetDockFloatPanel.prototype.createPanelStateController = function (title) {
-    this._panelStateController = new WidgetDockPanelStateController();
-    this._panelStateController.setFloatPanel(this);
-    this._panelStateController.setTitle(title);
 };
 WidgetDockFloatPanel.prototype._$r6 = function (_$7J) {
     if (this._pinType == EnumPinType.Hide) return;
@@ -255,7 +271,7 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
     var _$og = null;
     var _$oh = null;
     if (this._windowType == EnumWindowType.Normal) {
-        _$oh = this._windowMain._$2i();
+        _$oh = this._window._$2i();
     } else {
         _$oh = _$6B._$kL;
     }
@@ -306,19 +322,6 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
     }
     return _$og;
 };
-WidgetDockFloatPanel.prototype.setElementVisible = function (isVisible) {
-    if (this._panelStateController != null) {
-        this._panelStateController.setVisible(isVisible);
-    }
-    if (this._element != null) {
-        if (isVisible) {
-            this._element.style.overflow = "auto";
-        } else {
-            this._element.style.overflow = "hidden";
-        }
-    }
-    WidgetDockElementController.setElementVisible(this._element, isVisible);
-};
 WidgetDockFloatPanel.prototype._$fR = function () {
     if (this._$kc == 0 && !this._$id) {
         return false;
@@ -363,7 +366,7 @@ WidgetDockFloatPanel.prototype._$rB = function (sch) {
             this.setElementVisible(true);
             if (this._pinType == EnumPinType.Hide) {
                 if (this._patternMain != null) {
-                    this._windowMain._patternMain._$6t(this);
+                    this._window._patternMain._$6t(this);
                 }
                 return;
             }
@@ -558,7 +561,7 @@ WidgetDockFloatPanel.prototype._$5d = function () {
 };
 WidgetDockFloatPanel.prototype._$9X = function () {
     if (this._pinType == EnumPinType.Hide) {
-        this._windowMain._patternMain._$5N();
+        this._window._patternMain._$5N();
         return true;
     }
     this._pattern._$5H(this, null);
@@ -590,7 +593,7 @@ WidgetDockFloatPanel.prototype.clickButtonPin = function () {
             this._patternMain._$5M(this._patternPositionType, this);
         }
         this._patternMain._$5A();
-        this._windowMain._patternMain._$5N();
+        this._window._patternMain._$5N();
         this._$iP = false;
         this._pinType = EnumPinType.Show;
         this.setVisible(true);
@@ -672,7 +675,7 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
     this._$iL = true;
     if (this._windowType == EnumWindowType.Normal) {
         var rcb = new WidgetDockRect();
-        this._windowMain.getWindowRect(rcb);
+        this._window.getWindowRect(rcb);
         if (!WidgetDockPatternBase.isInRect(rcb, pt)) {
             return;
         }
@@ -2122,7 +2125,7 @@ function WidgetDockWindow(window, title) {
     this._$kL = new Array();
     this.cx;
     this.cy;
-    this._windowPattern = new Array(4);
+    this._floatPanelControllerList = new Array(4);
     this._$3C();
     this._$jO = 4;
 };
@@ -2219,12 +2222,12 @@ WidgetDockWindow.prototype._$3C = function () {
     this.getWindowRect(rect);
     this._patternMain.setSize(rect.right - rect.left, rect.bottom - rect.top);
     for (var i = 0; i < 4; i++) {
-        this._windowPattern[i] = new WidgetDockFloatPanelController();
+        this._floatPanelControllerList[i] = new WidgetDockFloatPanelController();
     }
     this._patternMain._$jv = 0;
 };
 function windowResize() {
-    WidgetDockController._windowMain.resizeWindow();
+    WidgetDockController._window.resizeWindow();
 };
 WidgetDockWindow.prototype._$ml = function (mainPattern) {
     var _$e1 = this._$kL.length;
