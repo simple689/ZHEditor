@@ -175,7 +175,7 @@ _$J.prototype._$10 = function () {
 };
 _$J.prototype._$01 = function () {
     if (this._$it) {
-        var panel = this._patternPositionList[0]._panelTabList[0];
+        var panel = this._patternPositionList[0]._list[0];
         if (!panel._$iX) {
             this._location.x = WidgetDockElementController.getElementLeft(this._$he);
             this._location.y = WidgetDockElementController.getElementTop(this._$he);

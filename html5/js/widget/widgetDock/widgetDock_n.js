@@ -40,7 +40,7 @@ _$N.onMouseMove = function (e) {
         e.srcElement._$4y.mouseMove(e);
     }
 };
-_$N._floatPanelController = new WidgetDockFloatPanelController();
+_$N._floatPanelController = new WidgetDockListController();
 _$N.prototype._$r8 = function (left, top, width, height) {
 };
 _$N.prototype.setSize = function (width, height) {
@@ -367,13 +367,13 @@ _$N.prototype.getRect = function (rc) {
     }
 };
 _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
-    var panelNum = this._$kG._patternPositionList[this._patternPositionType].getPanelNum();
+    var panelNum = this._$kG._patternPositionList[this._patternPositionType].getSize();
     var panel;
     _$nC[0] = null;
     _$89[0] = true;
     var _$f2;
     for (var i = panelNum - 1; i >= 0; i--) {
-        panel = this._$kG._patternPositionList[this._patternPositionType]._panelTabList[i];
+        panel = this._$kG._patternPositionList[this._patternPositionType]._list[i];
         if (panel._$iX) {
             if (panel._$le == this) {
                 this._$ka = i;

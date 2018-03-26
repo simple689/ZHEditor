@@ -18,7 +18,7 @@ WidgetDockWindow（WidgetDockFloatPanel）特殊
 WidgetDockLayoutController
 WidgetDockLayout
 WidgetDockTab
-WidgetDockFloatPanelController
+WidgetDockListController
 WidgetDockElementController
 WidgetDockController
 _$M

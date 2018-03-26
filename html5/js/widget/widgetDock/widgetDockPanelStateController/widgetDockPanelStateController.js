@@ -113,22 +113,22 @@ WidgetDockPanelStateController.prototype._$a = function () {
     _$hf._$rz(new WidgetDockSize(150, _$G._$6J + _floatPanel._$jA));
 };
 WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
-    var _$7E = new WidgetDockFloatPanelController();
+    var _$7E = new WidgetDockListController();
     _$mS._$2Q(_$7E);
-    var ic = _$7E.getPanelNum();
+    var ic = _$7E.getSize();
     var _$p3 = new Array(ic);
     var _$gJ = 0;
     for (var i = 0; i < ic; i++) {
-        if (_$7E._panelTabList[i]._$fT()) {
-            _$p3[_$gJ] = _$7E._panelTabList[i];
+        if (_$7E._list[i]._$fT()) {
+            _$p3[_$gJ] = _$7E._list[i];
             _$gJ++;
         }
     }
     for (var i = 0; i < ic; i++) {
-        if (_$7E._panelTabList[i] != _floatPanel) {
-            _$7E._panelTabList[i]._$5d();
+        if (_$7E._list[i] != _floatPanel) {
+            _$7E._list[i]._$5d();
         } else {
-            _$7E._panelTabList[i]._$4L();
+            _$7E._list[i]._$4L();
         }
     }
     for (var i = 0; i < _$gJ; i++) {

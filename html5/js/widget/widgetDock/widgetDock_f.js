@@ -120,10 +120,10 @@ _$F.prototype._$2Q = function (_$nb) {
         if (this._$o5 != null && this._$o5._tabList.length > 1) {
             var _$e1 = this._$o5._tabList.length;
             for (var i = 0; i < _$e1; i++) {
-                _$nb.addFloatPanel(this._$o5._tabList[i]._floatPanel);
+                _$nb.add(this._$o5._tabList[i]._floatPanel);
             }
         } else {
-            _$nb.addFloatPanel(this._$of);
+            _$nb.add(this._$of);
         }
     }
 };

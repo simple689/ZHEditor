@@ -14,7 +14,7 @@
 													       Right -�� _elementWithType�����������ݡ�
 													       Top -�� _elementWithType�����������ݡ�
 													       Bottom -�� _elementWithType�����������ݡ�
-|—— createFloatPanel -�� new WidgetDockFloatPanel -�� _floatPanelController.addFloatPanel -�� _floatPanelController._panelTabList�����������ݡ�
+|—— createFloatPanel -�� new WidgetDockFloatPanel -�� _floatPanelController.add -�� _floatPanelController._list�����������ݡ�
 
 
 
@@ -40,7 +40,7 @@ WidgetDockFloatPanel
 |���� initLayout -�� _element�����������ݡ�
 
 
-WidgetDockFloatPanelController
+WidgetDockListController
 |���� _panelList�����������ݡ�
 
 left 0

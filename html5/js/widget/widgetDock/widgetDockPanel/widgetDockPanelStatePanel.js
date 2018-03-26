@@ -5,7 +5,7 @@ function WidgetDockPanelStatePanel() {
     this._$kg = -1;
     this._$jZ = -1;
     this._patternPositionType = 0;
-    this._floatPanelController = new WidgetDockFloatPanelController();
+    this._floatPanelController = new WidgetDockListController();
 };
 WidgetDockPrototype.bind(WidgetDockPanelStatePanel, WidgetDockPanelState);
 WidgetDockPanelStatePanel._$in = false;
@@ -65,9 +65,9 @@ WidgetDockPanelStatePanel.prototype._$3u = function (pt, floatPanel) {
     } else if (_$th == EnumPatternPositionType.Left) {
         ptc.x -= 1;
     } else ptc.x += 1;
-    var _$e1 = this._floatPanelController.getPanelNum();
+    var _$e1 = this._floatPanelController.getSize();
     for (var i = 0; i < _$e1; i++) {
-        var tab = this._floatPanelController._panelTabList[i];
+        var tab = this._floatPanelController._list[i];
         if (WidgetDockPatternBase.isInRect(rc, ptc)) {
             if (this._$le._patternPositionType == EnumPatternPositionType.Top || this._$le._patternPositionType == EnumPatternPositionType.Bottom) {
                 if ((ptc.x > tab._left && ptc.x < tab._right) && (tab._floatPanel == floatPanel)) {
@@ -92,10 +92,10 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, isMove) {
     rc.bottom = rc.bottom - rc.top;
     rc.left = 0;
     rc.top = 0;
-    var panelNum = this._floatPanelController.getPanelNum();
+    var panelNum = this._floatPanelController.getSize();
     var bin = false;
     for (var i = 0; i < panelNum; i++) {
-        var tab = this._floatPanelController._panelTabList[i];
+        var tab = this._floatPanelController._list[i];
         var _$8O = false;
         var _$9J = true;
         if (!isMove) {
@@ -147,7 +147,7 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, isMove) {
 };
 WidgetDockPanelStatePanel.prototype._$4S = function () {
     var _$cD = this._$le._patternPositionType;
-    var _$e1 = this._floatPanelController.getPanelNum();
+    var _$e1 = this._floatPanelController.getSize();
     var tab;
     var rc = new WidgetDockRect();
     var _$qa = new WidgetDockRect();
@@ -164,7 +164,7 @@ WidgetDockPanelStatePanel.prototype._$4S = function () {
     var _$ba = null;
     var _$eo, _$ep;
     for (var i = 0; i < _$e1; i++) {
-        tab = this._floatPanelController._panelTabList[i];
+        tab = this._floatPanelController._list[i];
         if (_$o3 == null) {
             _$o3 = tab._floatPanel._patternMain;
             _$ba = _$o3._$i3;
@@ -326,11 +326,11 @@ WidgetDockPanelStatePanel.prototype._$5b = function (floatPanel) {
     floatPanel._window._patternMain._$4T(_$og);
 };
 WidgetDockPanelStatePanel.prototype._$0s = function () {
-    var iNo = this._floatPanelController.getPanelNum();
+    var iNo = this._floatPanelController.getSize();
     if (iNo > 0) {
         var _$oU = new Array();
         for (var i = 0; i < iNo; i++) {
-            _$oU[i] = this._floatPanelController._panelTabList[i];
+            _$oU[i] = this._floatPanelController._list[i];
         }
         this._floatPanelController.reset();
         return _$oU;
@@ -338,10 +338,10 @@ WidgetDockPanelStatePanel.prototype._$0s = function () {
     return null;
 };
 WidgetDockPanelStatePanel.prototype._$4J = function (floatPanel, _$sc) {
-    var _$e1 = this._floatPanelController.getPanelNum();
+    var _$e1 = this._floatPanelController.getSize();
     for (var i = 0; i < _$e1; i++) {
-        if (floatPanel == this._floatPanelController._panelTabList[i].floatPanel) {
-            var tab = this._floatPanelController._panelTabList[i];
+        if (floatPanel == this._floatPanelController._list[i].floatPanel) {
+            var tab = this._floatPanelController._list[i];
             tab._title = new String(_$sc);
             this._$5A();
             break;
@@ -351,27 +351,27 @@ WidgetDockPanelStatePanel.prototype._$4J = function (floatPanel, _$sc) {
 WidgetDockPanelStatePanel.prototype._$8 = function (floatPanel) {
     var _$ol = new WidgetDockTab(0, 0, floatPanel._panelStateController.getTitle());
     _$ol._floatPanel = floatPanel;
-    this._floatPanelController.addFloatPanel(_$ol);
+    this._floatPanelController.add(_$ol);
     _$ol._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     _$ol._titleElement._panelStatePanel = this;
     this._$5A();
     this.refresh();
 };
 WidgetDockPanelStatePanel.prototype._$5M = function (floatPanel) {
-    var _$e1 = this._floatPanelController.getPanelNum();
+    var _$e1 = this._floatPanelController.getSize();
     for (var i = 0; i < _$e1; i++) {
-        if (floatPanel == this._floatPanelController._panelTabList[i]._floatPanel) {
-            if (this._floatPanelController._panelTabList[i]._titleElement != null) {
-                this._panelStateElement.removeChild(this._floatPanelController._panelTabList[i]._titleElement);
-                this._floatPanelController._panelTabList[i]._titleElement = null;
+        if (floatPanel == this._floatPanelController._list[i]._floatPanel) {
+            if (this._floatPanelController._list[i]._titleElement != null) {
+                this._panelStateElement.removeChild(this._floatPanelController._list[i]._titleElement);
+                this._floatPanelController._list[i]._titleElement = null;
             }
-            this._floatPanelController.deletePanel(i);
+            this._floatPanelController.delete(i);
             break;
         }
     }
     this._$5A();
     this.refresh();
-    return this._floatPanelController.getPanelNum();
+    return this._floatPanelController.getSize();
 };
 WidgetDockPanelStatePanel.prototype._$5A = function () {
     var _$ga = 0;
@@ -404,14 +404,14 @@ WidgetDockPanelStatePanel.prototype._$5B = function (_$d4) {
     d.width -= 2;
     if (d.width < 0) d.width = 0;
     var ft = null;
-    var _$gi = this._floatPanelController.getPanelNum();
+    var _$gi = this._floatPanelController.getSize();
     var _$fv = _$d4;
     var tab = null;
     var size = new WidgetDockSize();
     var _$dI = new Array();
     var _$o3 = null;
     for (var i = 0; i < _$gi; i++) {
-        tab = this._floatPanelController._panelTabList[i];
+        tab = this._floatPanelController._list[i];
         tab._left = _$fv;
         if (_$o3 == null) {
             _$o3 = tab._floatPanel._patternMain;
