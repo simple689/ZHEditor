@@ -54,7 +54,6 @@ _$59.prototype.resize = function (left, top, width, height) {
 _$59.prototype._$au = function () {
     if (this._$la != null) this._$la.reset();
     this._$kx.setElementVisible(false);
-    this._$kx._$bf(false);
     this._$kx._patternMain.Add(this._$kx);
     WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$lc._panelStateElement);
 };

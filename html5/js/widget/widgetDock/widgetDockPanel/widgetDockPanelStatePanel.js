@@ -98,7 +98,7 @@ WidgetDockPanelStatePanel.prototype._$08 = function (pt, isMove) {
         var tab = this._floatPanelController._panelTabList[i];
         var _$8O = false;
         var _$9J = true;
-        if ((tab._floatPanel._$jN == WidgetDockFloatPanel._$48 && !isMove) || (tab._floatPanel._$jN == WidgetDockFloatPanel._$46 && isMove)) {
+        if (!isMove) {
             _$9J = false;
         }
         if (WidgetDockPatternBase.isInRect(rc, ptc)) {
@@ -320,7 +320,6 @@ WidgetDockPanelStatePanel.prototype._$5b = function (floatPanel) {
     _$og._$kx = floatPanel;
     _$og.Add(floatPanel);
     floatPanel.setElementVisible(true);
-    floatPanel._$bf(true);
     _$og._$6k(_$ft);
     _$og.resize(rc.left, rc.top, (rc.right - rc.left), (rc.bottom - rc.top));
     _$og.setVisible(true);

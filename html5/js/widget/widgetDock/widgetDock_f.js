@@ -468,7 +468,6 @@ _$F.prototype._$2 = function (floatPanel) {
     }
     this._$o5._floatPanel = floatPanel;
     this.Add(floatPanel);
-    _$p1._$bf(false);
 };
 _$F.prototype._$1M = function (floatPanel) {
     if (this._$l1 == null || this._$l1.length == 0) return -1;
@@ -636,7 +635,7 @@ _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
             }
         }
         if (_$qh.left != 0 || _$qh.right != 0 || _$qh.top != 0 || _$qh.bottom != 0) {
-            if (WidgetDockPatternBase.isInRect(_$qh, pt) && (this._$of == null || (this._$of != null && !this._$of._$iq)) && (_$mX._$kx == null || (_$mX._$kx != null && !_$mX._$kx._$iq))) {
+            if (WidgetDockPatternBase.isInRect(_$qh, pt) && (this._$of == null || this._$of != null) && (_$mX._$kx == null || _$mX._$kx != null)) {
                 _$nz.cx = iw;
                 _$oQ[0] = this._$of;
                 _$nz.cy = ih;

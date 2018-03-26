@@ -10,8 +10,6 @@ function _$N() {
     this._$lx = new WidgetDockRect();
     this._$ly = new WidgetDockRect();
     this._$iG = false;
-    this._$ja = 0;
-    this._$jf = 0;
     this._$ka = 0;
     this._$hj = null;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);

@@ -148,7 +148,6 @@ _$G.prototype._$5K = function (floatPanel) {
     if (_$gi >= 1) {
         act = this._tabList[this._$jh];
         act._floatPanel.setElementVisible(true);
-        if (floatPanel._$io) act._floatPanel._$bf(true);
         this._$kE._$of = act._floatPanel;
         this._$kE._$of._pattern = act._floatPanel._pattern;
         this._floatPanel = act._floatPanel;
@@ -325,9 +324,7 @@ _$G.prototype._$V = function (_$cN) {
             this._$kE._$of._$qC(this._$kE._$of._panelStateController._$hf);
         }
         this._$kE._$of.setElementVisible(false);
-        this._$kE._$of._$bf(false);
         tab._floatPanel.setElementVisible(true);
-        tab._floatPanel._$bf(true);
         if (!(tab._floatPanel._$jm == WidgetDockFloatPanel._$q)) {
             tab._floatPanel._$hz = this;
         } else {

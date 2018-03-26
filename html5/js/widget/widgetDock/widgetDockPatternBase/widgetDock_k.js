@@ -107,7 +107,7 @@ _$K.prototype._$R = function (_$mX, floatPanel, pt, _$nz) {
     if (!_$mX._$it) {
         return 0xff;
     }
-    if (this._$kK != null && this._$kK._$iq) {
+    if (this._$kK != null) {
         _$mX._$j1 = 0xff;
         return 0xff;
     }
