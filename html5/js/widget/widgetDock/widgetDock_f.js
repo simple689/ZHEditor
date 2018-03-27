@@ -678,16 +678,16 @@ _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
     }
     return 0xff;
 };
-_$F.prototype._$4s = function (floatPanel, _$8e) {
+_$F.prototype._$4s = function (floatPanel, sch) {
     var _$e1 = 0;
     if (this._$od != null) {
-        _$e1 += this._$od._$4s(floatPanel, _$8e);
+        _$e1 += this._$od._$4s(floatPanel, sch);
     }
     if (_$e1 >= 2) {
         return _$e1;
     }
     if (this._$pr != null) {
-        _$e1 += this._$pr._$4s(floatPanel, _$8e);
+        _$e1 += this._$pr._$4s(floatPanel, sch);
     }
     if (_$e1 >= 2) {
         return _$e1;
@@ -695,7 +695,7 @@ _$F.prototype._$4s = function (floatPanel, _$8e) {
     if (this._$od == null && this._$pr == null && !this._$8y) {
         if (this._floatPanel != null && this._floatPanel != floatPanel) {
             _$e1++;
-            if (!_$8e) {
+            if (!sch) {
                 if (this._tabController != null && this._tabController._tabList.length > 1) {
                     _$e1 += 2;
                     return _$e1;

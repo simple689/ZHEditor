@@ -1,6 +1,6 @@
 function _$J(isMain) {
     _$J.baseConstructor.call(this, isMain);
-    this._$kF = null;
+    this._window = null;
 };
 WidgetDockPrototype.bind(_$J, _$K);
 _$J.prototype.getWindowRect = function (rc) {
@@ -102,52 +102,52 @@ _$J.prototype._$fT = function () {
     }
     return false;
 };
-_$J.prototype.setVisible = function (_$8e) {
-    WidgetDockElementController.setElementVisible(this._$he, _$8e);
+_$J.prototype.setVisible = function (sch) {
+    WidgetDockElementController.setElementVisible(this._$he, sch);
 };
-_$J.prototype._$n = function (_$b9) {
+_$J.prototype._$n = function (floatPanel) {
     this._$it = true;
     this._$is = true;
-    this._$kF = _$b9._window;
-    this._$kF._$ml(this);
+    this._window = floatPanel._window;
+    this._window._$ml(this);
     var _$8q = false;
     if (this._$he == null || (this._$he != null && !this._$fT())) {
         if (this._$kV == null) {
-            this._$kV = _$b9._patternMain;
+            this._$kV = floatPanel._patternMain;
         }
         this._$0v(WidgetDockController._elementRootId);
         _$8q = true;
         this._$74();
     }
-    this.add(_$b9);
-    this._$kK = _$b9;
-    _$b9._pattern = this;
-    this._$18(_$b9, null);
+    this.add(floatPanel);
+    this._$kK = floatPanel;
+    floatPanel._pattern = this;
+    this._$18(floatPanel, null);
     if (!this._$fT()) {
         if (this._size == null) {
             this._size = new WidgetDockSize();
-            this._size.width = _$b9._$lK.cx;
-            this._size.height = _$b9._$lK.cy;
+            this._size.width = floatPanel._$lK.cx;
+            this._size.height = floatPanel._$lK.cy;
             this._location = new WidgetDockLocation();
-            this._location.x = _$b9._$lt.x;
-            this._location.y = _$b9._$lt.y;
+            this._location.x = floatPanel._$lt.x;
+            this._location.y = floatPanel._$lt.y;
         } else {
-            _$b9._$lt.x = this._location.x;
-            _$b9._$lt.y = this._location.y;
-            _$b9._$lK.cx = this._size.width;
-            _$b9._$lK.cy = this._size.height;
+            floatPanel._$lt.x = this._location.x;
+            floatPanel._$lt.y = this._location.y;
+            floatPanel._$lK.cx = this._size.width;
+            floatPanel._$lK.cy = this._size.height;
         }
         var pt = new WidgetDockLocation();
-        pt.x = _$b9._$lt.x;
-        pt.y = _$b9._$lt.y;
+        pt.x = floatPanel._$lt.x;
+        pt.y = floatPanel._$lt.y;
         if (pt.y < 0) {
             pt.y = 0;
         }
         this.setVisible(true);
-        this._$6p(pt.x, pt.y, _$b9._$lK.cx, _$b9._$lK.cy);
+        this._$6p(pt.x, pt.y, floatPanel._$lK.cx, floatPanel._$lK.cy);
     }
-    if (_$b9._$kA != null && _$b9._$kA._tabController != null) {
-        _$b9._$kA._tabController._$5z();
+    if (floatPanel._$kA != null && floatPanel._$kA._tabController != null) {
+        floatPanel._$kA._tabController._$5z();
     }
     if (!_$8q) {
         if (this._$4s(null, true)) {
@@ -164,7 +164,7 @@ _$J.prototype._$6p = function (left, top, width, height) {
 _$J.prototype._$10 = function () {
     WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$he);
     this._$he = null;
-    this._$kF._$mm(this);
+    this._window._$mm(this);
     var cnt = this._$ha.length;
     for (var i = 0; i < cnt; i++) {
         if ((this._$ha[i] instanceof _$N) || (this._$ha[i] instanceof WidgetDockPanelStateController)) {

@@ -83,7 +83,7 @@ _$K.prototype._$4R = function () {
     this._$iG = true;
     return this._$kK._$15();
 };
-_$K.prototype._$n = function (_$b9) {
+_$K.prototype._$n = function (floatPanel) {
 };
 _$K.prototype._$10 = function () {
     _$he = null;
@@ -211,7 +211,7 @@ _$K.prototype._$l = function (floatPanel) {
         this._$5E(this._$kX);
     }
 };
-_$K.prototype._$4s = function (floatPanel, _$8e) {
+_$K.prototype._$4s = function (floatPanel, sch) {
     var _$e1 = 0;
     var _$nT = null;
     var _$fY = this._panelList[0].getSize();
@@ -219,7 +219,7 @@ _$K.prototype._$4s = function (floatPanel, _$8e) {
         return false;
     }
     _$nT = this._panelList[0]._list[0]._$kI;
-    _$e1 = _$nT._$4s(floatPanel, _$8e);
+    _$e1 = _$nT._$4s(floatPanel, sch);
     if (_$e1 < 2) {
         return false;
     }
