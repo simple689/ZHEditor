@@ -345,7 +345,7 @@ WidgetDockPanelStatePanel.prototype._$4J = function (floatPanel, _$sc) {
 WidgetDockPanelStatePanel.prototype._$8 = function (floatPanel) {
     var _$ol = new WidgetDockTab(0, 0, floatPanel._panelStateController.getTitle());
     _$ol._floatPanel = floatPanel;
-    this._floatPanelController.addFloatPanel(_$ol);
+    this._floatPanelController.add(_$ol);
     _$ol._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     _$ol._titleElement._panelStatePanel = this;
     this._$5A();

@@ -1241,7 +1241,7 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, p
                 return true;
             } else {
                 _$qe.top = _$qh.bottom;
-                _$qe.bottom -= WidgetDockTabController._$6J;
+                _$qe.bottom -= WidgetDockTabController._tabControllerHeightBase;
                 var _$9i = WidgetDockPatternBase._$m(_$qe, pt);
                 if (_$9i != 0xff) {
                     _$9i = parseInt((_$9i - 1) / 2);
@@ -2298,8 +2298,6 @@ WidgetDockPatternBase.prototype._$0f = function (_$nF, _$nU, _$nz) {
     _$nU[0] = 0xff;
     _$nF._$j1 = 0xff;
     return;
-};
-WidgetDockPatternBase.getOffsetSize = function (size, ft, title, element) {
 };
 WidgetDockPatternBase._$6y = function (styleFont, title, _$fE, width, _$cy, _$dc, element) {
     var _$r0 = "";

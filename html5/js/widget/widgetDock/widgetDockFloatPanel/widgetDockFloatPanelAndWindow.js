@@ -33,7 +33,7 @@ function WidgetDockFloatPanel(window, title) {
     this._$lJ;
     this._$l7;
     this._$lN;
-    this._$hz = null;
+    this._tabController = null;
     this._$jE = 0;
 
     this._element = null;
@@ -1288,14 +1288,14 @@ WidgetDockFloatPanel.prototype._$5 = function (tabController) {
     if (this._$jm == WidgetDockFloatPanel._$q) {
         this._panelStateController._$a();
     }
-    this._$hz = tabController;
+    this._tabController = tabController;
     if (tabController != null) {
         WidgetDockElementController.setElementZIndex(tabController._tabControllerElement, this._panelStateController._panelStateElement.style.zIndex);
     }
     this._$qK();
 };
 WidgetDockFloatPanel.prototype._$5O = function () {
-    this._$hz = null;
+    this._tabController = null;
     this._$qK();
 };
 WidgetDockFloatPanel.prototype._$1k = function (mainPattern, patternPositionType) {
@@ -1402,14 +1402,14 @@ WidgetDockFloatPanel.prototype._$m6 = function (left, top, width, height) {
             _$lS.setVisible(true);
             _$lT.setVisible(true);
         }
-        var _$gq = WidgetDockTabController._$6J - _$1H;
+        var _$gq = WidgetDockTabController._tabControllerHeightBase - _$1H;
         var _$gr = 10;
         var _$gt = 40;
         if (width < 50) {
             _$gr = width / 6;
             _$gt = (4 * width) / 6;
         }
-        if (height < (WidgetDockTabController._$6J - _$1H)) {
+        if (height < (WidgetDockTabController._tabControllerHeightBase - _$1H)) {
             _$gq = 0;
         }
         height -= 3;
@@ -1466,14 +1466,14 @@ WidgetDockFloatPanel.prototype._$m5 = function (left, top, width, height) {
             WidgetDockFloatPanel._$hR.refresh();
             WidgetDockFloatPanel._$hS.refresh();
         }
-        var _$gq = WidgetDockTabController._$6J - WidgetDockFloatPanel._$1H;
+        var _$gq = WidgetDockTabController._tabControllerHeightBase - WidgetDockFloatPanel._$1H;
         var _$gr = 10;
         var _$gt = 40;
         if (width < 50) {
             _$gr = width / 6;
             _$gt = (4 * width) / 6;
         }
-        if (height < (WidgetDockTabController._$6J - WidgetDockFloatPanel._$1H)) {
+        if (height < (WidgetDockTabController._tabControllerHeightBase - WidgetDockFloatPanel._$1H)) {
             _$gq = 0;
         }
         height -= 3;
@@ -2066,8 +2066,8 @@ WidgetDockFloatPanel.prototype.setElementZIndex = function (_$cR) {
     if (this._element != null) {
         WidgetDockElementController.setElementZIndex(this._element, _$cR);
     }
-    if (this._$hz != null) {
-        WidgetDockElementController.setElementZIndex(this._$hz._panelStateElement, _$cR);
+    if (this._tabController != null) {
+        WidgetDockElementController.setElementZIndex(this._tabController._tabControllerElement, _$cR);
     }
 };
 WidgetDockFloatPanel.prototype._$qK = function () {
@@ -2085,9 +2085,9 @@ WidgetDockFloatPanel.prototype._$qK = function () {
         }
         this._panelStateController.resize(this._left, this._top, this._width, _$aC);
     }
-    if (this._$hz != null) {
-        this._$hz.resize(this._left, this._top + this._height - WidgetDockTabController._$6J, this._width, WidgetDockTabController._$6J);
-        height -= WidgetDockTabController._$6J;
+    if (this._tabController != null) {
+        this._tabController.resize(this._left, this._top + this._height - WidgetDockTabController._tabControllerHeightBase, this._width, WidgetDockTabController._tabControllerHeightBase);
+        height -= WidgetDockTabController._tabControllerHeightBase;
     }
     if (height < 0) height = 0;
     if (width < 0) width = 0;
@@ -2095,8 +2095,8 @@ WidgetDockFloatPanel.prototype._$qK = function () {
     if (this._element != null) {
         WidgetDockElementController.setElementLeftTopSize(this._element, left, top, width, height);
     }
-    if (this._$hz != null && this._$hz._$bj == this) {
-        this._$hz._$5Q(this, this._left, this._top, this._width, this._height);
+    if (this._tabController != null && this._tabController._$bj == this) {
+        this._tabController._$5Q(this, this._left, this._top, this._width, this._height);
     }
 };
 WidgetDockFloatPanel.prototype.refresh = function () {

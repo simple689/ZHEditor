@@ -4,7 +4,6 @@ function WidgetDockPanelStateController() {
     this._title = "";
     this._buttonCloseRect = new WidgetDockRect();
     this._buttonPinRect = new WidgetDockRect();
-    this._styleFont = "12px sans-serif";
     this._titleElement = null;
     this._buttonPinElement = null;
     this._buttonCloseElement = null;
@@ -20,8 +19,9 @@ function WidgetDockPanelStateController() {
     this._panelStateElement.onmouseout = WidgetDockPanelStateController.onMouseOut;
     this._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     this._titleElement._panelStateController = this;
-    this._titleElement.style.font = this._styleFont;
+    this._titleElement.style.font = WidgetDockPanelStateController._styleFont;
 };
+WidgetDockPanelStateController._styleFont = "12px sans-serif";
 WidgetDockPanelStateController._$0U = 18;
 WidgetDockPanelStateController._$hd = null;
 WidgetDockPanelStateController._$4Y = 4;
@@ -38,7 +38,7 @@ WidgetDockPanelStateController.prototype.setVisible = function (isVisible) {
     WidgetDockElementController.setElementVisible(this._buttonCloseElement, isVisible);
 };
 WidgetDockPanelStateController.prototype.getStyleFont = function () {
-    return this._styleFont;
+    return WidgetDockPanelStateController._styleFont;
 };
 WidgetDockPanelStateController.onMouseDown = function (e) {
     if (e == null) {
@@ -110,7 +110,7 @@ WidgetDockPanelStateController.prototype.mouseUp = function (e) {
     this._floatPanel._$1x();
 };
 WidgetDockPanelStateController.prototype._$a = function () {
-    _$hf._$rz(new WidgetDockSize(150, WidgetDockTabController._$6J + _floatPanel._$jA));
+    _$hf._$rz(new WidgetDockSize(150, WidgetDockTabController._tabControllerHeightBase + _floatPanel._$jA));
 };
 WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
     var _$7E = new WidgetDockListController();

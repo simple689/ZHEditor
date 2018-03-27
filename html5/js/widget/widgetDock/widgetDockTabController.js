@@ -1,53 +1,51 @@
 function WidgetDockTabController() {
-    this._isMouseDown = false;
-    this._title = "";
     this._$iX = true;
     this._$kE = null;
-    this._tabList = new Array(0);
     this._$jh = 0;
     this._$kf = WidgetDockTabController._$51;
     this._$hj = null;
+
+    this._isMouseDown = false;
+    this._title = "";
     this._floatPanel = null;
+    this._tabList = new Array(0);
 
     this._tabControllerElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
+    this._tabControllerElement._tabController = this;
     this._tabControllerElement.style.backgroundColor = 'ActiveCaption';
     this._tabControllerElement.style.border = "0px solid";
-
-    this._tabElement = null;
-    this._tabElement = WidgetDockElementController.createElementWithParent("div", this._tabControllerElement);
-    this._tabElement._$4u = this;
-    this._tabElement.style.backgroundColor = 'ButtonFace';
-
-    WidgetDockElementController.setElementSize(this._tabControllerElement, 40, WidgetDockTabController._$6J);
-    this._styleFont = "8pt sans-serif";
-    this._tabControllerElement._$4u = this;
     this._tabControllerElement.onmousedown = WidgetDockTabController.onMouseDown;
     this._tabControllerElement.onmousemove = WidgetDockTabController.onMouseMove;
+    WidgetDockElementController.setElementSize(this._tabControllerElement, 40, WidgetDockTabController._tabControllerHeightBase);
+
+    this._tabElement = WidgetDockElementController.createElementWithParent("div", this._tabControllerElement);
+    this._tabElement._tabController = this;
+    this._tabElement.style.backgroundColor = 'ButtonFace';
 };
-WidgetDockTabController._$6J = 28;
+WidgetDockTabController._tabControllerHeightBase = 28;
+WidgetDockTabController._styleFont = "8pt sans-serif";
 WidgetDockTabController._$51 = 0;
-WidgetDockTabController._$0G = 1;
 WidgetDockTabController._$2Z = 4;
 WidgetDockTabController._$3U = 4;
 WidgetDockTabController.onMouseDown = function (e) {
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4u.mouseDown(e);
+        e.target._tabController.mouseDown(e);
     } else {
         if (e == null || e == undefined) {
             e = window.event;
         }
-        e.srcElement._$4u.mouseDown(e);
+        e.srcElement._tabController.mouseDown(e);
     }
     return false;
 };
 WidgetDockTabController.onMouseMove = function (e) {
     if (WidgetDockController._browserType == EnumBrowserType.Firefox) {
-        e.target._$4u.mouseMove(e);
+        e.target._tabController.mouseMove(e);
     } else {
         if (e == null || e == undefined) {
             e = window.event;
         }
-        e.srcElement._$4u.mouseMove(e);
+        e.srcElement._tabController.mouseMove(e);
     }
 };
 WidgetDockTabController.prototype.resize = function (left, top, width, height) {
@@ -204,7 +202,7 @@ WidgetDockTabController.prototype.Add = function (floatPanel) {
     var title = floatPanel._panelStateController.getTitle();
     var tab = new WidgetDockTab(0, 0, title);
     tab._titleElement = WidgetDockElementController.createElementWithParent("div", this._tabControllerElement);
-    tab._titleElement._$4u = this;
+    tab._titleElement._tabController = this;
     tab._floatPanel = floatPanel;
     this._tabList.push(tab);
     this._$5z();
@@ -219,7 +217,7 @@ WidgetDockTabController.prototype._$3 = function (floatPanel, _$cN) {
     var title = floatPanel._panelStateController.getTitle();
     var tab = new WidgetDockTab(0, 0, title);
     tab._titleElement = WidgetDockElementController.createElementWithParent("div", this._tabControllerElement);
-    tab._titleElement._$4u = this;
+    tab._titleElement._tabController = this;
     tab._floatPanel = floatPanel;
     this._tabList.splice(_$cN, 0, tab);
     this._$5z();
@@ -261,7 +259,7 @@ WidgetDockTabController.prototype._$5z = function () {
     var _$dI = new Array(tabListLength);
     for (var i = 0; i < tabListLength; i++) {
         tab = this._tabList[i];
-        ft = this._$bT(tab._floatPanel);
+        ft = this.getStyleFontWithFloatPanel(tab._floatPanel);
         tab._left = _$fv;
         WidgetDockElementController.getOffsetSize(size, ft, tab._titleOriginal, this._$hj);
         tab._right = _$fv + size.width + 2 * WidgetDockTabController._$2Z;
@@ -277,7 +275,7 @@ WidgetDockTabController.prototype._$5z = function () {
     }
     for (var i = 0; i < tabListLength; i++) {
         tab = this._tabList[i];
-        ft = this._$bT(tab._floatPanel);
+        ft = this.getStyleFontWithFloatPanel(tab._floatPanel);
         var _$fE = tab._right - tab._left;
         var _$fK = 0;
         tab._title = WidgetDockPatternBase._$6y(ft, tab._titleOriginal, _$fE, _$dI[i], WidgetDockTabController._$2Z, _$fK, this._$hj);
@@ -312,7 +310,7 @@ WidgetDockTabController.prototype._$V = function (_$cN) {
     var iac = _$cN;
     if (iac != this._$jh && iac != -1) {
         if (this._floatPanel != null) {
-            this._floatPanel._$hz = null;
+            this._floatPanel._tabController = null;
         }
         this._$jh = iac;
         var tab = this._tabList[iac];
@@ -325,7 +323,7 @@ WidgetDockTabController.prototype._$V = function (_$cN) {
         this._$kE._floatPanel.setElementVisible(false);
         tab._floatPanel.setElementVisible(true);
         if (!(tab._floatPanel._$jm == WidgetDockFloatPanel._$q)) {
-            tab._floatPanel._$hz = this;
+            tab._floatPanel._tabController = this;
         } else {
             tab._floatPanel._panelStateController._$a();
         }
@@ -372,10 +370,10 @@ WidgetDockTabController.prototype.refresh = function (g) {
 WidgetDockTabController.prototype._$c6 = function () {
     if (this._floatPanel != null) {
         var d = this._floatPanel.getSize();
-        d.height = _$6J;
+        d.height = WidgetDockTabController._tabControllerHeightBase;
         return d;
     } else {
-        return new WidgetDockSize(100, WidgetDockTabController._$6J);
+        return new WidgetDockSize(100, WidgetDockTabController._tabControllerHeightBase);
     }
 };
 WidgetDockTabController.prototype._$0d = function (floatPanel, pt) {
@@ -402,9 +400,9 @@ WidgetDockTabController.prototype._$0d = function (floatPanel, pt) {
     return false;
 };
 WidgetDockTabController.prototype.getStyleFont = function () {
-    return this._styleFont;
+    return WidgetDockTabController._styleFont;
 };
-WidgetDockTabController.prototype._$bT = function (floatPanel) {
+WidgetDockTabController.prototype.getStyleFontWithFloatPanel = function (floatPanel) {
     if (floatPanel != null && floatPanel._panelStateController != null) {
         return floatPanel._panelStateController.getStyleFont();
     } else {
@@ -422,14 +420,14 @@ WidgetDockTabController.prototype._$aK = function (g, _$cs) {
         for (var i = 0; i < _$e1; i++) {
             if (i != this._$jh) {
                 tab = this._tabList[i];
-                f = this._$bT(tab._floatPanel);
+                f = this.getStyleFontWithFloatPanel(tab._floatPanel);
                 this._$aJ(tab._titleElement, tab._left, tab._right, tab._title, false, f);
             }
         }
         tab = this._tabList[_$cs];
         var _$dS = tab._left;
         var _$ed = tab._right;
-        f = this._$bT(tab._floatPanel);
+        f = this.getStyleFontWithFloatPanel(tab._floatPanel);
         this._$aJ(tab._titleElement, _$dS, _$ed, tab._title, true, f);
         if (this._$hj != null) {
             this._$hj._$s1 = 'ButtonShadow';
@@ -449,14 +447,14 @@ WidgetDockTabController.prototype._$aJ = function (_$U, left, right, title, _$7J
     var _$gC = 2;
     var _$dU;
     if (!_$7J) {
-        _$dU = WidgetDockTabController._$6J - 3;
+        _$dU = WidgetDockTabController._tabControllerHeightBase - 3;
     } else {
-        _$dU = WidgetDockTabController._$6J - 2;
+        _$dU = WidgetDockTabController._tabControllerHeightBase - 2;
     }
     if (this._$hj == null) {
         var _$ff = 0;
         WidgetDockElementController.setElementLeftTop(_$U, left + WidgetDockTabController._$2Z, WidgetDockTabController._$3U + _$ff);
-        WidgetDockElementController.setElementSize(_$U, right - left, WidgetDockTabController._$6J - WidgetDockTabController._$3U - _$ff - 4);
+        WidgetDockElementController.setElementSize(_$U, right - left, WidgetDockTabController._tabControllerHeightBase - WidgetDockTabController._$3U - _$ff - 4);
         _$U.style.font = _$b2;
         _$U.innerHTML = title;
         if (_$7J) {
@@ -483,5 +481,5 @@ WidgetDockTabController.prototype._$aJ = function (_$U, left, right, title, _$7J
     var size = new WidgetDockSize();
     WidgetDockElementController.getOffsetSize(size, _$b2, title, this._$hj);
     this._$hj.font = _$b2;
-    this._$hj.fillText(title, left + WidgetDockTabController._$2Z, WidgetDockTabController._$6J / 2 + 4);
+    this._$hj.fillText(title, left + WidgetDockTabController._$2Z, WidgetDockTabController._tabControllerHeightBase / 2 + 4);
 };
