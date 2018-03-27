@@ -11,7 +11,7 @@ function _$F() {
     this._$sl = "";
     this._$l1 = null;
     this.prc = new WidgetDockRect();
-    this._$o5 = null;
+    this._tabController = null;
 };
 _$F.prototype._$e = function (title, _$aP, _$pz, _$cJ, _$cK) {
     var _$ol = new _$57();
@@ -61,14 +61,14 @@ _$F.prototype._$5w = function (mainPattern, patternPositionType) {
         this._floatPanel._$kA = this;
         this._floatPanel._patternPositionType = patternPositionType;
         this._floatPanel._pattern = mainPattern;
-        if (this._$o5 != null && this._$o5._tabList.length > 1) {
+        if (this._tabController != null && this._tabController._tabList.length > 1) {
             if (this._$l1 == null) {
                 this._$l1 = new Array(0);
             }
-            var _$e1 = this._$o5._tabList.length;
+            var _$e1 = this._tabController._tabList.length;
             var i;
             for (i = 0; i < _$e1; i++) {
-                var _$nQ = this._$o5._tabList[i]._floatPanel;
+                var _$nQ = this._tabController._tabList[i]._floatPanel;
                 var _$ol = new _$57();
                 _$nQ._patternPositionType = patternPositionType;
                 _$ol._floatPanel = _$nQ;
@@ -113,10 +113,10 @@ _$F.prototype._$2Q = function (_$nb) {
         this._$pr._$2Q(_$nb);
     }
     if (this._$od == null && this._$pr == null && !this._$8y) {
-        if (this._$o5 != null && this._$o5._tabList.length > 1) {
-            var _$e1 = this._$o5._tabList.length;
+        if (this._tabController != null && this._tabController._tabList.length > 1) {
+            var _$e1 = this._tabController._tabList.length;
             for (var i = 0; i < _$e1; i++) {
-                _$nb.add(this._$o5._tabList[i]._floatPanel);
+                _$nb.add(this._tabController._tabList[i]._floatPanel);
             }
         } else {
             _$nb.add(this._floatPanel);
@@ -152,9 +152,9 @@ _$F.prototype._$5J = function (_$mS) {
             this._$9j = _$mS._$9j;
             this._$br = _$mS._$br;
             this._$8y = _$mS._$8y;
-            if (_$mS._$o5 != null && _$mS._$o5._tabList.length > 1) {
-                this._$o5 = _$mS._$o5;
-                this._$o5._$kE = this;
+            if (_$mS._tabController != null && _$mS._tabController._tabList.length > 1) {
+                this._tabController = _$mS._tabController;
+                this._tabController._$kE = this;
             }
         }
     }
@@ -178,15 +178,15 @@ _$F.prototype._$3F = function (_$nf, _$9f, _$7V, _$n1) {
     }
     _$oc._$br = this._$br;
     _$oc._$l1 = this._$l1;
-    _$oc._$o5 = this._$o5;
+    _$oc._tabController = this._tabController;
     _$oc._$9y = this._$9y;
     _$oc._$oy = this._$oy;
     if (this._$oy != null) {
         this._$oy._$kE = _$oc;
     }
     _$oc.prc = this.prc;
-    if (this._$o5 != null) {
-        this._$o5._$kE = _$oc;
+    if (this._tabController != null) {
+        this._tabController._$kE = _$oc;
     }
     _$oc._$6Z(this);
     _$oc._$8y = this._$8y;
@@ -210,7 +210,7 @@ _$F.prototype._$3F = function (_$nf, _$9f, _$7V, _$n1) {
     this._$9y = this._$od._$9j;
     this._$P(_$oc, _$oD, _$n1);
     this._$l1 = null;
-    this._$o5 = null;
+    this._tabController = null;
     this._floatPanel = null;
     this._$oy = null;
 };
@@ -230,8 +230,8 @@ _$F.prototype._$P = function (_$n4, _$nf, _$nj) {
     }
 };
 _$F.prototype._$5K = function (floatPanel) {
-    if (this._$o5 != null) {
-        return this._$o5._$5K(floatPanel);
+    if (this._tabController != null) {
+        return this._tabController._$5K(floatPanel);
     }
     return false;
 };
@@ -275,8 +275,8 @@ _$F.prototype._$o = function (_$aQ, _$d3, _$mM, mainPattern) {
     if (this._$l1 == null) {
         this._$l1 = new Array(0);
     }
-    if (this._$o5 == null) {
-        this._$o5 = new _$G();
+    if (this._tabController == null) {
+        this._tabController = new WidgetDockTabController();
     }
     var _$e1 = this._$l1.length;
     for (var i = 0; i < _$e1; i++) {
@@ -285,20 +285,20 @@ _$F.prototype._$o = function (_$aQ, _$d3, _$mM, mainPattern) {
             break;
         }
     }
-    this._$o5._$5K(_$mM);
-    this._$o5._$kE = this;
+    this._tabController._$5K(_$mM);
+    this._tabController._$kE = this;
     for (var i = 0; i < _$d3; i++) {
         mainPattern.Add(_$aQ[i]);
         this.Add(_$aQ[i]);
-        this._$o5.Add(_$aQ[i]);
+        this._tabController.Add(_$aQ[i]);
         _$aQ[i]._$kA = this;
         _$aQ[i]._pattern = mainPattern;
         if (_$aQ[i] == _$mM) {
-            this._$o5._$jh = i;
+            this._tabController._$jh = i;
             this._floatPanel = _$aQ[i];
-            this._$o5.setVisible(true);
-            this._$o5._floatPanel = _$aQ[i];
-            _$aQ[i]._$5(this._$o5);
+            this._tabController.setVisible(true);
+            this._tabController._floatPanel = _$aQ[i];
+            _$aQ[i]._$5(this._tabController);
         } else {
             _$aQ[i].setElementVisible(false);
             if (_$mM != null) {
@@ -308,24 +308,24 @@ _$F.prototype._$o = function (_$aQ, _$d3, _$mM, mainPattern) {
             }
         }
     }
-    this._$o5.refresh();
+    this._tabController.refresh();
 };
 _$F.prototype._$0w = function (_$aQ, _$d3, _$mM, mainPattern) {
     if (_$aQ == null || _$d3 < 2) return;
     this._$l1 = new Array(0);
-    this._$o5 = new _$G();
-    this._$o5._$kE = this;
+    this._tabController = new WidgetDockTabController();
+    this._tabController._$kE = this;
     for (var i = 0; i < _$d3; i++) {
         this.Add(_$aQ[i]);
-        this._$o5.Add(_$aQ[i]);
+        this._tabController.Add(_$aQ[i]);
         _$aQ[i]._$kA = this;
         mainPattern.Add(_$aQ[i]);
         if (_$aQ[i] == _$mM) {
-            this._$o5._$jh = i;
+            this._tabController._$jh = i;
             this._floatPanel = _$aQ[i];
-            this._$o5.setVisible(true);
-            this._$o5._floatPanel = _$aQ[i];
-            _$aQ[i]._$5(this._$o5);
+            this._tabController.setVisible(true);
+            this._tabController._floatPanel = _$aQ[i];
+            _$aQ[i]._$5(this._tabController);
         } else {
             _$aQ[i].setElementVisible(false);
             if (_$mM != null) {
@@ -392,17 +392,17 @@ _$F.prototype._$56 = function (floatPanel) {
     return _$gi;
 };
 _$F.prototype._$31 = function (floatPanel, pt) {
-    if (this._$o5 != null && this._$o5._tabList.length >= 2) {
-        return this._$o5._$0d(floatPanel, pt);
+    if (this._tabController != null && this._tabController._tabList.length >= 2) {
+        return this._tabController._$0d(floatPanel, pt);
     }
     return false;
 };
 _$F.prototype._$3v = function (pt) {
-    if (this._$o5 == null || this._$o5._tabList.length < 2) {
+    if (this._tabController == null || this._tabController._tabList.length < 2) {
         return false;
     }
     var rc = new WidgetDockRect();
-    this._$o5._$2P(rc);
+    this._tabController._$2P(rc);
     return WidgetDockPatternBase.isInRect(rc, pt);
 };
 _$F.prototype._$6G = function (_$mP, _$mQ) {
@@ -432,34 +432,34 @@ _$F.prototype._$2 = function (floatPanel) {
     floatPanel._$6q(rc);
     var _$eq = this._$1M(floatPanel);
     var _$fy = this._$1M(_$p1);
-    if (this._$o5 == null || (this._$o5._tabList.length == 0)) {
-        this._$o5 = new _$G();
-        this._$o5._$kE = this;
+    if (this._tabController == null || (this._tabController._tabList.length == 0)) {
+        this._tabController = new WidgetDockTabController();
+        this._tabController._$kE = this;
         if ((_$fy <= _$eq) || (_$eq < 0)) {
-            this._$o5.Add(_$p1);
-            this._$o5.Add(floatPanel);
-            this._$o5._$jh = 1;
+            this._tabController.Add(_$p1);
+            this._tabController.Add(floatPanel);
+            this._tabController._$jh = 1;
         } else {
-            this._$o5.Add(floatPanel);
-            this._$o5.Add(_$p1);
-            this._$o5._$jh = 0;
+            this._tabController.Add(floatPanel);
+            this._tabController.Add(_$p1);
+            this._tabController._$jh = 0;
         }
-        floatPanel._$5(this._$o5);
+        floatPanel._$5(this._tabController);
     } else {
         if (_$eq >= 0) {
-            this._$o5._$3(floatPanel, _$eq);
-            this._$o5._$jh = _$eq;
+            this._tabController._$3(floatPanel, _$eq);
+            this._tabController._$jh = _$eq;
         } else {
-            this._$o5.Add(floatPanel);
-            this._$o5._$jh = this._$o5._tabList.length - 1;
+            this._tabController.Add(floatPanel);
+            this._tabController._$jh = this._tabController._tabList.length - 1;
         }
-        floatPanel._$5(this._$o5);
+        floatPanel._$5(this._tabController);
     }
     if (this._$l1 == null) {
         this._$l1 = new Array(0);
         this.Add(_$p1);
     }
-    this._$o5._floatPanel = floatPanel;
+    this._tabController._floatPanel = floatPanel;
     this.Add(floatPanel);
 };
 _$F.prototype._$1M = function (floatPanel) {
@@ -471,10 +471,10 @@ _$F.prototype._$1M = function (floatPanel) {
         tmp = this._$l1[i]._floatPanel;
         if (tmp != null) {
             if (tmp._$kA == this && !tmp._$kA._$8y && floatPanel != tmp) {
-                if (this._$o5 != null && this._$o5._$3x(tmp)) _$e5++;
+                if (this._tabController != null && this._tabController._$3x(tmp)) _$e5++;
             }
             if (tmp == floatPanel) {
-                if ((this._$o5 == null) || (this._$o5._tabList.length == 0)) return i; else return _$e5;
+                if ((this._tabController == null) || (this._tabController._tabList.length == 0)) return i; else return _$e5;
             }
         }
     }
@@ -696,7 +696,7 @@ _$F.prototype._$4s = function (floatPanel, _$8e) {
         if (this._floatPanel != null && this._floatPanel != floatPanel) {
             _$e1++;
             if (!_$8e) {
-                if (this._$o5 != null && this._$o5._tabList.length > 1) {
+                if (this._tabController != null && this._tabController._tabList.length > 1) {
                     _$e1 += 2;
                     return _$e1;
                 }

@@ -110,7 +110,7 @@ WidgetDockPanelStateController.prototype.mouseUp = function (e) {
     this._floatPanel._$1x();
 };
 WidgetDockPanelStateController.prototype._$a = function () {
-    _$hf._$rz(new WidgetDockSize(150, _$G._$6J + _floatPanel._$jA));
+    _$hf._$rz(new WidgetDockSize(150, WidgetDockTabController._$6J + _floatPanel._$jA));
 };
 WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
     var _$7E = new WidgetDockListController();
@@ -139,7 +139,7 @@ WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
 };
 WidgetDockPanelStateController.prototype._$4L = function () {
     var pb = _floatPanel._$kA;
-    if (pb._$o5 != null && pb._$o5._tabList.length > 1) {
+    if (pb._tabController != null && pb._tabController._tabList.length > 1) {
         _$0Y(_floatPanel._$kA);
     } else {
         this._floatPanel._$4L();
@@ -356,7 +356,7 @@ WidgetDockPanelStateController.prototype.refresh = function () {
         var size = new WidgetDockSize();
         var titleNow = this._title;
         WidgetDockElementController.getOffsetSize(size, this.getStyleFont(), titleNow, this._$hj);
-        titleNow = WidgetDockPatternBase._$6y(this.getStyleFont(), titleNow, si.height, size.width, _$G._$2Z, 0, this._$hj);
+        titleNow = WidgetDockPatternBase._$6y(this.getStyleFont(), titleNow, si.height, size.width, WidgetDockTabController._$2Z, 0, this._$hj);
         if (!_$8u) {
             var _$9Z = _$6V._$bF("ToolBar.background");
             g._$rc(_$9Z);
@@ -481,7 +481,7 @@ WidgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
         var size = new WidgetDockSize();
         WidgetDockElementController.getOffsetSize(size, this.getStyleFont(), titleNow, this._$hj);
         var _$tq = WidgetDockElementController.getElementWidth(this._panelStateElement);
-        titleNow = WidgetDockPatternBase._$6y(this.getStyleFont(), titleNow, _$tq - _$fK, size.width, _$G._$2Z, 0, this._$hj);
+        titleNow = WidgetDockPatternBase._$6y(this.getStyleFont(), titleNow, _$tq - _$fK, size.width, WidgetDockTabController._$2Z, 0, this._$hj);
         var _$gP;
         _$gP = ih / 2;
         if (this._$hj != null) {

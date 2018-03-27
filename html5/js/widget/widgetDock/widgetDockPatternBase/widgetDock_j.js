@@ -146,8 +146,8 @@ _$J.prototype._$n = function (_$b9) {
         this.setVisible(true);
         this._$6p(pt.x, pt.y, _$b9._$lK.cx, _$b9._$lK.cy);
     }
-    if (_$b9._$kA != null && _$b9._$kA._$o5 != null) {
-        _$b9._$kA._$o5._$5z();
+    if (_$b9._$kA != null && _$b9._$kA._tabController != null) {
+        _$b9._$kA._tabController._$5z();
     }
     if (!_$8q) {
         if (this._$4s(null, true)) {

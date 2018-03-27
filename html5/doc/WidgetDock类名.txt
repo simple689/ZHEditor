@@ -28,7 +28,7 @@ WidgetDockFrame
 WidgetDockRect
 _$5Y
 _$N
-_$G
+WidgetDockTabController
 _$F
 _$59
 _$57

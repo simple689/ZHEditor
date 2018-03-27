@@ -1236,12 +1236,12 @@ WidgetDockPatternBase.prototype._$1h = function (_$mX, _$nz, _$gK, _$el, _$qe, p
             _$mX._$j2 = 0xff;
             return false;
         } else {
-            if ((_$mX._$kx._$jy != WidgetDockFloatPanel._$0X) || (_$mX._$kx._$kA._$o5 == null) || (_$mX._$kx._$kA._$o5 != null && _$mX._$kx._$kA._$o5._tabList.length < 2)) {
+            if ((_$mX._$kx._$jy != WidgetDockFloatPanel._$0X) || (_$mX._$kx._$kA._tabController == null) || (_$mX._$kx._$kA._tabController != null && _$mX._$kx._$kA._tabController._tabList.length < 2)) {
                 _$mX._$j1 = 0xff;
                 return true;
             } else {
                 _$qe.top = _$qh.bottom;
-                _$qe.bottom -= _$G._$6J;
+                _$qe.bottom -= WidgetDockTabController._$6J;
                 var _$9i = WidgetDockPatternBase._$m(_$qe, pt);
                 if (_$9i != 0xff) {
                     _$9i = parseInt((_$9i - 1) / 2);

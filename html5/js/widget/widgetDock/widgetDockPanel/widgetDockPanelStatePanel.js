@@ -412,7 +412,7 @@ WidgetDockPanelStatePanel.prototype._$5B = function (_$d4) {
             ft = this.getStyleFont();
         }
         WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
-        tab._right = _$fv + size.width + 2 * _$G._$2Z;
+        tab._right = _$fv + size.width + 2 * WidgetDockTabController._$2Z;
         _$dI[i] = tab._right - _$fv;
         _$fv = tab._right;
     }
