@@ -639,11 +639,11 @@ WidgetDockPanelState.prototype._$2m = function (_$u, left, right, _$8c) {
     }
     return _$eI;
 };
-WidgetDockPanelState.prototype.setVisible = function (_$8e) {
+WidgetDockPanelState.prototype.setVisible = function (sch) {
     if (this._panelStateElement != null) {
         WidgetDockElementController.setElementVisible(this._panelStateElement);
     }
-    this._$iX = _$8e;
+    this._$iX = sch;
 };
 WidgetDockPanelState.prototype._$4S = function (g) {
 };
@@ -656,7 +656,7 @@ WidgetDockPanelState.prototype._$qy = function (wnd, rc) {
     }
     if (!this._$iy) {
         this.rect.setRect(rc);
-        _$iy = true;
+        this._$iy = true;
     }
     this._$6q(rc);
     this._$7(null, wnd);
@@ -682,11 +682,10 @@ WidgetDockPanelState.prototype._$0m = function (_$9t, iwh) {
     return _$e7;
 };
 WidgetDockPanelState.prototype._$2s = function (_$8j, left, right) {
-    var i;
     var _$ol;
     var _$gD = 0;
     var _$eM = 0;
-    for (i = left; i < right; i++) {
+    for (var i = left; i < right; i++) {
         _$ol = _$8j._list[i];
         _$eM = _$ol._$nQ._$2r();
         _$gD += _$eM;

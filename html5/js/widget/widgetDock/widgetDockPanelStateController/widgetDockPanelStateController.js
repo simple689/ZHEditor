@@ -205,8 +205,8 @@ WidgetDockPanelStateController.prototype._$ms = function (e) {
 WidgetDockPanelStateController.prototype.setFloatPanel = function (floatPanel) {
     this._floatPanel = floatPanel;
 };
-WidgetDockPanelStateController.prototype._$r6 = function (_$7J) {
-    this._$i9 = _$7J;
+WidgetDockPanelStateController.prototype._$r6 = function (sch) {
+    this._$i9 = sch;
     this.refresh();
 };
 WidgetDockPanelStateController.prototype.setTitle = function (title) {

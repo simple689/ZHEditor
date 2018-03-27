@@ -7,6 +7,7 @@ function WidgetDockPatternBase(isMain) {
     WidgetDockPatternBase.resetRect(this._rect);
     this._rect.left = -4000;
     this._rect.right = -4000;
+    this._floatPanel = null;
 
     this._panelList = new Array(4);
     this._floatPanelControllerList = new Array(4);
@@ -24,7 +25,6 @@ function WidgetDockPatternBase(isMain) {
     }
     this._$it = true;
     this._$is = false;
-    this._$lo = null;
     this._$je = 0;
     this._$jO = 0;
     this._$he = null;
@@ -1472,12 +1472,12 @@ WidgetDockPatternBase.prototype._$1Z = function (_$mX, _$mT, pt, patternPosition
     }
     return this;
 };
-WidgetDockPatternBase.prototype._$1 = function (_$mN) {
-    if (this._$lo != null && this._$lo != _$mN) {
-        this._$lo._$r6(false);
+WidgetDockPatternBase.prototype._$1 = function (floatPanel) {
+    if (this._floatPanel != null && this._floatPanel != floatPanel) {
+        this._floatPanel._$r6(false);
     }
-    _$mN._$r6(true);
-    this._$lo = _$mN;
+    floatPanel._$r6(true);
+    this._floatPanel = floatPanel;
 };
 WidgetDockPatternBase.prototype._$bG = function () {
     return this._$he;

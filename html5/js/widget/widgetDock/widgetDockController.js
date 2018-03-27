@@ -139,7 +139,7 @@ WidgetDockController.isButtonAvailable = function (buttonType) {
     }
     return true;
 };
-WidgetDockController._$2E = function (rc) {
+WidgetDockController.getFrame = function (rc) {
     var iw = 0;
     var ih = 0;
     if (window.innerHeight) {
