@@ -13,8 +13,6 @@ _$59.prototype.Add = function (floatPanel) {
     WidgetDockElementController.setElementZIndex(this._$lc._panelStateElement, _$et);
     floatPanel.setElementZIndex(_$et + 1);
 };
-_$59.prototype.setVisible = function (_$8e) {
-};
 _$59.prototype._$6k = function (_$di) {
     this._$jY = _$di;
 };

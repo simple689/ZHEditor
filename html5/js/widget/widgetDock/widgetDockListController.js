@@ -1,8 +1,9 @@
 function WidgetDockListController() {
     this.reset();
 };
+WidgetDockListController._sizeBase = 10;
 WidgetDockListController.prototype.reset = function () {
-    this._sizeMax = this._sizeBase = 10;
+    this._sizeMax = WidgetDockListController._sizeBase;
     this._size = 0;
     this._list = new Array(this._sizeMax);
 };
@@ -10,12 +11,12 @@ WidgetDockListController.prototype.add = function (value) {
     this._list[this._size] = value;
     this._size++;
     if (this._size == this._sizeMax) {
-        var listTmp = new Array(this._size + this._sizeBase);
+        var listTmp = new Array(this._size + WidgetDockListController._sizeBase);
         for (var i = 0; i < this._size; i++) {
             listTmp[i] = this._list[i];
         }
         this._list = listTmp;
-        this._sizeMax += this._sizeBase;
+        this._sizeMax += WidgetDockListController._sizeBase;
     }
 };
 WidgetDockListController.prototype.delete = function (index) {
@@ -37,7 +38,7 @@ WidgetDockListController.prototype.insert = function (value, index) {
     }
     this._size++;
     if (this._size == this._sizeMax) {
-        var listTmp = new Array(this._size + this._sizeBase);
+        var listTmp = new Array(this._size + WidgetDockListController._sizeBase);
         for (var i = 0; i < index; i++) {
             listTmp[i] = this._list[i];
         }
@@ -46,7 +47,7 @@ WidgetDockListController.prototype.insert = function (value, index) {
         }
         listTmp[index] = value;
         this._list = listTmp;
-        this._sizeMax += this._sizeBase;
+        this._sizeMax += WidgetDockListController._sizeBase;
     } else {
         for (var i = this._size - 1; i > index; i--) {
             this._list[i] = this._list[i - 1];

@@ -23,8 +23,6 @@ WidgetDockPanelStatePanel.prototype.mouseDown = function (e) {
     WidgetDockElementController.getMousePoint(e, pt);
     this._$08(pt, false);
 };
-WidgetDockPanelStatePanel.prototype._$5e = function (e) {
-};
 WidgetDockPanelStatePanel.prototype._$qy = function (wnd, rc) {
     WidgetDockPanelState.prototype._$qy.call(this, null, rc);
 };
@@ -167,10 +165,7 @@ WidgetDockPanelStatePanel.prototype._$4S = function () {
         tab = this._floatPanelController._list[i];
         if (_$o3 == null) {
             _$o3 = tab._floatPanel._patternMain;
-            _$ba = _$o3._$i3;
-            if (_$ba == null) {
-                _$ba = this.getStyleFont();
-            }
+            _$ba = this.getStyleFont();
         }
         if (this._$hj == null) {
             if (tab._titleElement != null) {
@@ -322,7 +317,6 @@ WidgetDockPanelStatePanel.prototype._$5b = function (floatPanel) {
     floatPanel.setElementVisible(true);
     _$og._$6k(_$ft);
     _$og.resize(rc.left, rc.top, (rc.right - rc.left), (rc.bottom - rc.top));
-    _$og.setVisible(true);
     floatPanel._window._patternMain._$4T(_$og);
 };
 WidgetDockPanelStatePanel.prototype._$0s = function () {
@@ -351,7 +345,7 @@ WidgetDockPanelStatePanel.prototype._$4J = function (floatPanel, _$sc) {
 WidgetDockPanelStatePanel.prototype._$8 = function (floatPanel) {
     var _$ol = new WidgetDockTab(0, 0, floatPanel._panelStateController.getTitle());
     _$ol._floatPanel = floatPanel;
-    this._floatPanelController.add(_$ol);
+    this._floatPanelController.addFloatPanel(_$ol);
     _$ol._titleElement = WidgetDockElementController.createElementWithParent("div", this._panelStateElement);
     _$ol._titleElement._panelStatePanel = this;
     this._$5A();
@@ -415,8 +409,7 @@ WidgetDockPanelStatePanel.prototype._$5B = function (_$d4) {
         tab._left = _$fv;
         if (_$o3 == null) {
             _$o3 = tab._floatPanel._patternMain;
-            ft = _$o3._$i3;
-            if (ft == null) ft = this.getStyleFont();
+            ft = this.getStyleFont();
         }
         WidgetDockElementController.getOffsetSize(size, ft, tab._title, this._$hj);
         tab._right = _$fv + size.width + 2 * _$G._$2Z;

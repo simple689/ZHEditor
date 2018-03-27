@@ -10,10 +10,10 @@
 |—— _dir
 |—— addFixedPanel - _window.addFixedPanel
                  |—— _patternMain WidgetDockPatternMain����WidgetDockPatternBase��.addFixedPanel -�� Center -�� _elementWithCenter�����������ݡ�
-													       Left -�� _elementWithType�����������ݡ�
-													       Right -�� _elementWithType�����������ݡ�
-													       Top -�� _elementWithType�����������ݡ�
-													       Bottom -�� _elementWithType�����������ݡ�
+													       Left -�� _elementList�����������ݡ�
+													       Right -�� _elementList�����������ݡ�
+													       Top -�� _elementList�����������ݡ�
+													       Bottom -�� _elementList�����������ݡ�
 |—— createFloatPanel -�� new WidgetDockFloatPanel -�� _floatPanelController.add -�� _floatPanelController._list�����������ݡ�
 
 
@@ -27,7 +27,7 @@ WidgetDockPatternMain
 
 WidgetDockPatternBase
 |���� _elementWithCenter�����������ݡ�
-|���� _elementWithType�����������ݡ�
+|���� _elementList�����������ݡ�
 
 
 WidgetDockFloatPanel
