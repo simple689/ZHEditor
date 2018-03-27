@@ -1482,7 +1482,7 @@ WidgetDockPatternBase.prototype._$1 = function (_$mN) {
 WidgetDockPatternBase.prototype._$bG = function () {
     return this._$he;
 };
-WidgetDockPatternBase.prototype.Add = function (com) {
+WidgetDockPatternBase.prototype.add = function (com) {
 };
 WidgetDockPatternBase.prototype._$d = function (com) {
 };

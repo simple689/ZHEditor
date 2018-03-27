@@ -86,7 +86,7 @@ _$N.prototype.mouseMove = function () {
 };
 _$N.prototype._$rh = function (mainPattern) {
     this._mainPattern = mainPattern;
-    mainPattern.Add(this);
+    mainPattern.add(this);
 };
 _$N.prototype._$ms = function (e) {
     if (!this._$iG) return;

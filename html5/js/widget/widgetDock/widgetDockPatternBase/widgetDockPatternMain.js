@@ -3,7 +3,7 @@ function WidgetDockPatternMain(isMain) {
     this._$is = true;
 };
 WidgetDockPrototype.bind(WidgetDockPatternMain, WidgetDockPatternBase);
-WidgetDockPatternMain.prototype.Add = function (com) {
+WidgetDockPatternMain.prototype.add = function (com) {
     if (com instanceof WidgetDockFloatPanel) {
         com.setElementZIndex(2);
     } else {

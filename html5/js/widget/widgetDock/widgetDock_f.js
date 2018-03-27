@@ -50,7 +50,7 @@ _$F.prototype._$5w = function (mainPattern, patternPositionType) {
             this._$oy._mainPattern._$5E(this._$oy);
         }
         this._$oy._mainPattern = mainPattern;
-        mainPattern.Add(this._$oy);
+        mainPattern.add(this._$oy);
     }
     if (this._$od != null && !this._$od._$8y) {
         this._$od._$5w(mainPattern, patternPositionType);
@@ -288,9 +288,9 @@ _$F.prototype._$o = function (_$aQ, _$d3, _$mM, mainPattern) {
     this._tabController._$5K(_$mM);
     this._tabController._$kE = this;
     for (var i = 0; i < _$d3; i++) {
-        mainPattern.Add(_$aQ[i]);
-        this.Add(_$aQ[i]);
-        this._tabController.Add(_$aQ[i]);
+        mainPattern.add(_$aQ[i]);
+        this.add(_$aQ[i]);
+        this._tabController.add(_$aQ[i]);
         _$aQ[i]._$kA = this;
         _$aQ[i]._pattern = mainPattern;
         if (_$aQ[i] == _$mM) {
@@ -316,10 +316,10 @@ _$F.prototype._$0w = function (_$aQ, _$d3, _$mM, mainPattern) {
     this._tabController = new WidgetDockTabController();
     this._tabController._$kE = this;
     for (var i = 0; i < _$d3; i++) {
-        this.Add(_$aQ[i]);
-        this._tabController.Add(_$aQ[i]);
+        this.add(_$aQ[i]);
+        this._tabController.add(_$aQ[i]);
         _$aQ[i]._$kA = this;
-        mainPattern.Add(_$aQ[i]);
+        mainPattern.add(_$aQ[i]);
         if (_$aQ[i] == _$mM) {
             this._tabController._$jh = i;
             this._floatPanel = _$aQ[i];
@@ -424,7 +424,7 @@ _$F.prototype._$2 = function (floatPanel) {
     var rc = new WidgetDockRect();
     this._floatPanel.getRect(rc);
     var _$og = this._floatPanel._pattern;
-    _$og.Add(floatPanel);
+    _$og.add(floatPanel);
     var _$p1 = this._floatPanel;
     this._floatPanel.setElementVisible(false);
     floatPanel._$kA._floatPanel = floatPanel;
@@ -436,12 +436,12 @@ _$F.prototype._$2 = function (floatPanel) {
         this._tabController = new WidgetDockTabController();
         this._tabController._$kE = this;
         if ((_$fy <= _$eq) || (_$eq < 0)) {
-            this._tabController.Add(_$p1);
-            this._tabController.Add(floatPanel);
+            this._tabController.add(_$p1);
+            this._tabController.add(floatPanel);
             this._tabController._$jh = 1;
         } else {
-            this._tabController.Add(floatPanel);
-            this._tabController.Add(_$p1);
+            this._tabController.add(floatPanel);
+            this._tabController.add(_$p1);
             this._tabController._$jh = 0;
         }
         floatPanel._$5(this._tabController);
@@ -450,17 +450,17 @@ _$F.prototype._$2 = function (floatPanel) {
             this._tabController._$3(floatPanel, _$eq);
             this._tabController._$jh = _$eq;
         } else {
-            this._tabController.Add(floatPanel);
+            this._tabController.add(floatPanel);
             this._tabController._$jh = this._tabController._tabList.length - 1;
         }
         floatPanel._$5(this._tabController);
     }
     if (this._$l1 == null) {
         this._$l1 = new Array(0);
-        this.Add(_$p1);
+        this.add(_$p1);
     }
     this._tabController._floatPanel = floatPanel;
-    this.Add(floatPanel);
+    this.add(floatPanel);
 };
 _$F.prototype._$1M = function (floatPanel) {
     if (this._$l1 == null || this._$l1.length == 0) return -1;
@@ -480,7 +480,7 @@ _$F.prototype._$1M = function (floatPanel) {
     }
     return -1;
 };
-_$F.prototype.Add = function (floatPanel) {
+_$F.prototype.add = function (floatPanel) {
     var _$ol = new _$57();
     if (this._$l1 == null || this._$l1.length == 0) {
         if (this._$l1 == null) {

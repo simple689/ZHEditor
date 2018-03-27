@@ -49,7 +49,7 @@ _$K.prototype._$7v = function (_$a0) {
     WidgetDockElementController.setElementLeftTopSize(_$a0._panelStateElement, 3 + _$tc, 3 + _$tn, parseInt(this._$hh.style.width) - 6, parseInt(_$a0._panelStateElement.style.height));
     this._$5z();
 };
-_$K.prototype.Add = function (com) {
+_$K.prototype.add = function (com) {
 };
 _$K.prototype._$d = function (com) {
 };
@@ -62,7 +62,7 @@ _$K.prototype._$7p = function () {
     pan.setVisible(true);
     pan.setSize(pan._$c6());
     this._$7v(pan);
-    this.Add(pan);
+    this.add(pan);
     this._$kX = pan;
     this._$kX.refresh();
 };

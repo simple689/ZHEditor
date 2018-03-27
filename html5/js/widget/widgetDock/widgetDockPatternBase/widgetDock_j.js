@@ -21,7 +21,7 @@ _$J.prototype._$36 = function (x, y) {
     }
     return false;
 };
-_$J.prototype.Add = function (com) {
+_$J.prototype.add = function (com) {
     var len = this._$ha.length;
     var _$8G = false;
     for (var i = 0; i < len; i++) {
@@ -119,7 +119,7 @@ _$J.prototype._$n = function (_$b9) {
         _$8q = true;
         this._$74();
     }
-    this.Add(_$b9);
+    this.add(_$b9);
     this._$kK = _$b9;
     _$b9._pattern = this;
     this._$18(_$b9, null);

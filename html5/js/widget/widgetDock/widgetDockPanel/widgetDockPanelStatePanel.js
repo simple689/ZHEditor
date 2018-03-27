@@ -313,7 +313,7 @@ WidgetDockPanelStatePanel.prototype._$5b = function (floatPanel) {
         this._$kg = 1;
     }
     _$og._$kx = floatPanel;
-    _$og.Add(floatPanel);
+    _$og.add(floatPanel);
     floatPanel.setElementVisible(true);
     _$og._$6k(_$ft);
     _$og.resize(rc.left, rc.top, (rc.right - rc.left), (rc.bottom - rc.top));

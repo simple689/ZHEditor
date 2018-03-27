@@ -186,7 +186,7 @@ WidgetDockTabController.prototype.setVisible = function (bv) {
 WidgetDockTabController.prototype._$fT = function () {
     return this._$iX;
 };
-WidgetDockTabController.prototype.Add = function (floatPanel) {
+WidgetDockTabController.prototype.add = function (floatPanel) {
     var _$e1 = this._tabList.length;
     for (var i = 0; i < _$e1; i++) {
         if (this._tabList[i]._floatPanel == floatPanel) {

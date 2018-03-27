@@ -8,7 +8,7 @@ function _$59() {
     this._$hk = this._$hu.getTime();
     this._$iJ = false;
 };
-_$59.prototype.Add = function (floatPanel) {
+_$59.prototype.add = function (floatPanel) {
     var _$et = floatPanel._window._$jO;
     WidgetDockElementController.setElementZIndex(this._$lc._panelStateElement, _$et);
     floatPanel.setElementZIndex(_$et + 1);
@@ -52,7 +52,7 @@ _$59.prototype.resize = function (left, top, width, height) {
 _$59.prototype._$au = function () {
     if (this._$la != null) this._$la.reset();
     this._$kx.setElementVisible(false);
-    this._$kx._patternMain.Add(this._$kx);
+    this._$kx._patternMain.add(this._$kx);
     WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._$lc._panelStateElement);
 };
 _$59.prototype.mouseMove = function (e) {
