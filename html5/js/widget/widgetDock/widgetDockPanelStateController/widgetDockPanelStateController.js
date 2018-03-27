@@ -8,7 +8,6 @@ function WidgetDockPanelStateController() {
     this._buttonPinElement = null;
     this._buttonCloseElement = null;
     this._$i9 = true;
-    this._$hf = null;
     this._$hj = null;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
     this._panelStateElement._panelStateController = this;
@@ -108,9 +107,6 @@ WidgetDockPanelStateController.prototype.mouseUp = function (e) {
     WidgetDockElementController.getMousePoint(e, _$pH);
     this._isMouseDown = false;
     this._floatPanel._$1x();
-};
-WidgetDockPanelStateController.prototype._$a = function () {
-    _$hf._$rz(new WidgetDockSize(150, WidgetDockTabController._tabControllerHeightBase + _floatPanel._$jA));
 };
 WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
     var _$7E = new WidgetDockListController();

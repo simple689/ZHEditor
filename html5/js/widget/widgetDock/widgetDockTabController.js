@@ -124,12 +124,6 @@ WidgetDockTabController.prototype._$21 = function () {
 WidgetDockTabController.prototype._$5K = function (floatPanel) {
     if (floatPanel._$jm != WidgetDockFloatPanel._$q) {
         floatPanel._$5O();
-    } else {
-        if (floatPanel._panelStateController._$hf != null) {
-            floatPanel._$qC(floatPanel._panelStateController._$hf);
-            floatPanel._panelStateController._$hf._$qC(floatPanel._panelStateController);
-            floatPanel._panelStateController._$hf._$qC(this);
-        }
     }
     var _$gi = this._tabList.length;
     if (_$gi == 0) {
@@ -317,15 +311,10 @@ WidgetDockTabController.prototype._$V = function (_$cN) {
         this._floatPanel = tab._floatPanel;
         var rc = new WidgetDockRect();
         this._$kE._floatPanel.getRect(rc);
-        if (this._$kE._floatPanel._$jm == WidgetDockFloatPanel._$q) {
-            this._$kE._floatPanel._$qC(this._$kE._floatPanel._panelStateController._$hf);
-        }
         this._$kE._floatPanel.setElementVisible(false);
         tab._floatPanel.setElementVisible(true);
         if (!(tab._floatPanel._$jm == WidgetDockFloatPanel._$q)) {
             tab._floatPanel._tabController = this;
-        } else {
-            tab._floatPanel._panelStateController._$a();
         }
         this._$kE._floatPanel = tab._floatPanel;
         this._$kE._floatPanel._pattern = tab._floatPanel._pattern;

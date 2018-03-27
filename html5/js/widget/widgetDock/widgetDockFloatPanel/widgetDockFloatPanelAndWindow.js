@@ -1250,9 +1250,6 @@ WidgetDockFloatPanel.prototype._$qz = function () {
         if (this._$kA != null && this._$kA._tabController != null && this._$kA._tabController._tabList.length > 1 && this._$kA._tabController._floatPanel == this) {
             _$8o = true;
         }
-        if (!_$8o) {
-            _$qC(this._panelStateController);
-        }
         if (this._$jm == _$3Q) {
             _$f1 = WidgetDockFloatPanel._$3Q;
         } else if (this._$jm == WidgetDockFloatPanel._$5j) {
@@ -1285,9 +1282,6 @@ WidgetDockFloatPanel.prototype._$6c = function (patternPositionType) {
     return 0xff;
 };
 WidgetDockFloatPanel.prototype._$5 = function (tabController) {
-    if (this._$jm == WidgetDockFloatPanel._$q) {
-        this._panelStateController._$a();
-    }
     this._tabController = tabController;
     if (tabController != null) {
         WidgetDockElementController.setElementZIndex(tabController._tabControllerElement, this._panelStateController._panelStateElement.style.zIndex);
