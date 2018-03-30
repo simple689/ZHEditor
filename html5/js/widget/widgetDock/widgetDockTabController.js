@@ -1,5 +1,5 @@
 function WidgetDockTabController() {
-    this._$iX = true;
+    this._isVisible = true;
     this._$kE = null;
     this._$jh = 0;
     this._$kf = WidgetDockTabController._$51;
@@ -100,7 +100,7 @@ WidgetDockTabController.prototype.mouseDown = function (e) {
     return false;
 };
 WidgetDockTabController.prototype.mouseUp = function (e) {
-    if (!this._$fT()) return;
+    if (!this.getVisible()) return;
     if (!this._isMouseDown) return;
     if (!WidgetDockController.isButtonAvailable(e.button)) {
         this._isMouseDown = false;
@@ -112,14 +112,13 @@ WidgetDockTabController.prototype.mouseUp = function (e) {
     this._isMouseDown = false;
     this._floatPanel._$1x();
 };
-WidgetDockTabController.prototype._$21 = function () {
+WidgetDockTabController.prototype.getFloatPanelList = function () {
     if (this._tabList == null) return null;
-    var _$aQ = new Array(this._tabList.length);
-    var i;
-    for (i = 0; i < _$aQ.length; i++) {
-        _$aQ[i] = this._tabList[i]._floatPanel;
+    var floatPanelList = new Array(this._tabList.length);
+    for (var i = 0; i < _$aQ.length; i++) {
+        floatPanelList[i] = this._tabList[i]._floatPanel;
     }
-    return _$aQ;
+    return floatPanelList;
 };
 WidgetDockTabController.prototype._$5K = function (floatPanel) {
     if (floatPanel._$jm != WidgetDockFloatPanel._$q) {
@@ -180,11 +179,11 @@ WidgetDockTabController.prototype._$5K = function (floatPanel) {
     this.refresh();
     return true;
 };
-WidgetDockTabController.prototype.setVisible = function (bv) {
-    this._$iX = bv;
+WidgetDockTabController.prototype.setVisible = function (sch) {
+    this._isVisible = sch;
 };
-WidgetDockTabController.prototype._$fT = function () {
-    return this._$iX;
+WidgetDockTabController.prototype.getVisible = function () {
+    return this._isVisible;
 };
 WidgetDockTabController.prototype.add = function (floatPanel) {
     var _$e1 = this._tabList.length;

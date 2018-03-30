@@ -86,7 +86,7 @@ WidgetDockPanelStateController.prototype.mouseDown = function (e) {
         this._isMouseDown = false;
     }
 };
-WidgetDockPanelStateController.prototype._$fT = function () {
+WidgetDockPanelStateController.prototype.getVisible = function () {
     return true;
 };
 WidgetDockPanelStateController.prototype._$2P = function (rc) {
@@ -96,15 +96,15 @@ WidgetDockPanelStateController.prototype._$2P = function (rc) {
     rc.bottom = rc.top + WidgetDockElementController.getElementHeight(this._panelStateElement);
 };
 WidgetDockPanelStateController.prototype.mouseUp = function (e) {
-    if (!this._$fT()) return;
+    if (!this.getVisible()) return;
     if (!this._isMouseDown) return;
     if (!WidgetDockController.isButtonAvailable(e.button)) {
         this._isMouseDown = false;
         this._$T();
         return;
     }
-    var _$pH = new WidgetDockLocation();
-    WidgetDockElementController.getMousePoint(e, _$pH);
+    var pt = new WidgetDockLocation();
+    WidgetDockElementController.getMousePoint(e, pt);
     this._isMouseDown = false;
     this._floatPanel._$1x();
 };
@@ -115,7 +115,7 @@ WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
     var _$p3 = new Array(ic);
     var _$gJ = 0;
     for (var i = 0; i < ic; i++) {
-        if (_$7E._list[i]._$fT()) {
+        if (_$7E._list[i].getVisible()) {
             _$p3[_$gJ] = _$7E._list[i];
             _$gJ++;
         }
@@ -128,7 +128,7 @@ WidgetDockPanelStateController.prototype._$0Y = function (_$mS) {
         }
     }
     for (var i = 0; i < _$gJ; i++) {
-        if (!_$p3[i]._$fT()) {
+        if (!_$p3[i].getVisible()) {
             _$p3[i].setVisible(true);
         }
     }
@@ -187,7 +187,7 @@ WidgetDockPanelStateController.prototype.isInRectWithPanelState = function (pt) 
         }
     }
     if (WidgetDockPatternBase.isInRect(this._buttonCloseRect, location)) {
-        this._floatPanel._$9X();
+        this._floatPanel.clickButtonClose();
         return -1;
     }
     if (!this._floatPanel._$fR()) {
@@ -434,7 +434,7 @@ WidgetDockPanelStateController.prototype._$6z = function () {
         var i;
         for (i = 0; i < _$ew; i++) {
             if (_$a6[i] instanceof WidgetDockFloatPanel) {
-                if (_$a6[i]._$fT()) {
+                if (_$a6[i].getVisible()) {
                     ino++;
                 }
                 if (ino > 1) {

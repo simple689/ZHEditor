@@ -219,7 +219,7 @@ WidgetDockPanelState.prototype._$6v = function (patternBase, _$9c, _$cA) {
     }
 };
 WidgetDockPanelState.prototype._$4j = function (mainPattern, _$cY, patternPositionType) {
-    if (this._$iX) {
+    if (this._isVisible) {
         var plt = new WidgetDockLocation();
         var rcPanel = new WidgetDockRect();
         this.getRect(rcPanel);
@@ -643,7 +643,7 @@ WidgetDockPanelState.prototype.setVisible = function (sch) {
     if (this._panelStateElement != null) {
         WidgetDockElementController.setElementVisible(this._panelStateElement);
     }
-    this._$iX = sch;
+    this._isVisible = sch;
 };
 WidgetDockPanelState.prototype._$4S = function (g) {
 };

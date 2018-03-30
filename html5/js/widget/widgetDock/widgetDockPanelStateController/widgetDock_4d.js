@@ -59,6 +59,6 @@ _$4d.prototype.refresh = function () {
     this._floatPanel = _$pN;
 };
 _$4d.prototype._$4L = function () {
-    var _$po = _$kY._panelList[0]._list[0]._$kI;
+    var _$po = this._$kY._panelList[0]._list[0]._$kI;
     this._$0Y(_$po);
 };

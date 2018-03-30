@@ -2,8 +2,8 @@
 =============================================
 WidgetDockPatternBase
 WidgetDockPatternMain（WidgetDockPatternBase）
-_$K（WidgetDockPatternBase）
-_$J（_$K）
+WidgetDockPatternFloatPanel（WidgetDockPatternBase）
+WidgetDockPatternFloatPanelNormal（WidgetDockPatternFloatPanel）
 
 WidgetDockPanel
 WidgetDockPanelState（WidgetDockPanel）

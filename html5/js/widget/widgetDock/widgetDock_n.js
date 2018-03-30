@@ -374,7 +374,7 @@ _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
     var _$f2;
     for (var i = panelNum - 1; i >= 0; i--) {
         panel = this._mainPattern._panelList[this._patternPositionType]._list[i];
-        if (panel._$iX) {
+        if (panel._isVisible) {
             if (panel._$le == this) {
                 this._$ka = i;
                 return panel;
