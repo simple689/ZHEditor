@@ -3,14 +3,14 @@ function WidgetDockPanelAlone(elementId) {
     this._isMouseDown = false;
     this._location = new WidgetDockPoint();
     this._frame = new WidgetDockFrame();
-    this._$kQ = null;
-    this.m$59 = null;
+    this._patternFloatPanelNormal = null;
+    this._m$59 = null;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", elementId);
     this._panelStateElement.style.border = "1px solid";
+    this._panelStateElement.style.background = 'ButtonFace';
     this._panelStateElement._panelAlone = this;
     this._panelStateElement.onmousedown = WidgetDockPanelAlone.onMouseDown;
     this._panelStateElement.onmousemove = WidgetDockPanelAlone.onMouseMove;
-    this._panelStateElement.style.background = 'ButtonFace';
 };
 WidgetDockPanelAlone._space = 4;
 WidgetDockPanelAlone.onMouseDown = function (e) {
@@ -55,9 +55,9 @@ WidgetDockPanelAlone.prototype.mouseUp = function (e) {
     this._isMouseDown = false;
 };
 WidgetDockPanelAlone.prototype.mouseMove = function (e) {
-    var pt = new WidgetDockPoint();
-    WidgetDockElementController.getMousePoint(e, pt);
     if (!this._isMouseDown) {
+        var pt = new WidgetDockPoint();
+        WidgetDockElementController.getMousePoint(e, pt);
         this._$f4(pt);
     }
     if (this._resizeType >= 0) {
@@ -84,38 +84,38 @@ WidgetDockPanelAlone.prototype.getRect = function (rc) {
         rc.bottom = rc.top + parseInt(this._panelStateElement.style.height);
     }
 };
-WidgetDockPanelAlone.prototype._$ms = function (e) {
+WidgetDockPanelAlone.prototype.mouseDrag = function (e) {
     if (!this._isMouseDown) return;
     if (this._resizeType < 0) return;
-    var _$pL = new WidgetDockPoint();
-    WidgetDockElementController.getMousePoint(e, _$pL);
+    var pt = new WidgetDockPoint();
+    WidgetDockElementController.getMousePoint(e, pt);
     var rt = new WidgetDockFrame();
     rt.x = this._frame.x;
     rt.y = this._frame.y;
     rt.width = this._frame.width;
     rt.height = this._frame.height;
     if (this._resizeType == EnumResizeType.eResize_y) {
-        rt.width = rt.width + _$pL.x - this._location.x;
+        rt.width = rt.width + pt.x - this._location.x;
     } else if (this._resizeType == EnumResizeType.eResize_x) {
-        rt.width = rt.width + this._location.x - _$pL.x;
+        rt.width = rt.width + this._location.x - pt.x;
     } else if (this._resizeType == EnumResizeType.nResize_y) {
-        rt.height = rt.height + _$pL.y - this._location.y;
+        rt.height = rt.height + pt.y - this._location.y;
     } else if (this._resizeType == EnumResizeType.nResize_x) {
-        rt.height = rt.height + this._location.y - _$pL.y;
+        rt.height = rt.height + this._location.y - pt.y;
     } else if (this._resizeType == EnumResizeType.swResize) {
-        rt.width = rt.width + this._location.x - _$pL.x;
-        rt.height = rt.height + _$pL.y - this._location.y;
+        rt.width = rt.width + this._location.x - pt.x;
+        rt.height = rt.height + pt.y - this._location.y;
     } else if (this._resizeType == EnumResizeType.nwResize) {
-        rt.width = rt.width + this._location.x - _$pL.x;
-        rt.height = rt.height + this._location.y - _$pL.y;
+        rt.width = rt.width + this._location.x - pt.x;
+        rt.height = rt.height + this._location.y - pt.y;
     } else if (this._resizeType == EnumResizeType.seResize) {
-        rt.width = rt.width + _$pL.x - this._location.x;
-        rt.height = rt.height + _$pL.y - this._location.y;
+        rt.width = rt.width + pt.x - this._location.x;
+        rt.height = rt.height + pt.y - this._location.y;
     } else {
-        rt.width = rt.width + _$pL.x - this._location.x;
-        rt.height = rt.height + this._location.y - _$pL.y;
+        rt.width = rt.width + pt.x - this._location.x;
+        rt.height = rt.height + this._location.y - pt.y;
     }
-    this._$sC(_$pL, rt);
+    this._$sC(pt, rt);
     if (this._resizeType >= 0) {
         if (this._resizeType == EnumResizeType.eResize_x || this._resizeType == EnumResizeType.eResize_y) {
             this._panelStateElement.style.cursor = "e-resize";
@@ -132,27 +132,29 @@ WidgetDockPanelAlone.prototype._$ms = function (e) {
         }
     }
 };
-WidgetDockPanelAlone.prototype._$sC = function (_$pL, rt) {
-    var _$8K = true;
-    if (this._resizeType == EnumResizeType.nResize_x || this._resizeType == EnumResizeType.nResize_y) _$8K = false;
-        if (rt.width < 100) rt.width = 100;
-        if (rt.height < 100) rt.height = 100;
-    if (this._resizeType == EnumResizeType.eResize_x) {
-        rt.x = this._frame.x + _$pL.x - this._location.x;
-    } else if (this._resizeType == EnumResizeType.nResize_x) {
-        rt.y = this._frame.y + _$pL.y - this._location.y;
-    } else if (this._resizeType == EnumResizeType.swResize) {
-        rt.x = this._frame.x + _$pL.x - this._location.x;
-    } else if (this._resizeType == EnumResizeType.nwResize) {
-        rt.x = this._frame.x + _$pL.x - this._location.x;
-        rt.y = this._frame.y + _$pL.y - this._location.y;
-    } else if (this._resizeType == EnumResizeType.neResize) {
-        rt.y = this._frame.y + _$pL.y - this._location.y;
+WidgetDockPanelAlone.prototype._$sC = function (pt, rt) {
+    if (rt.width < 100) {
+        rt.width = 100;
     }
-    if (this._$kQ != null) {
-        this._$kQ._$6p(rt.x, rt.y, rt.width, rt.height);
-    } else if (this.m$59 != null) {
-        this.m$59.resize(rt.x, rt.y, rt.width, rt.height);
+    if (rt.height < 100) {
+        rt.height = 100;
+    }
+    if (this._resizeType == EnumResizeType.eResize_x) {
+        rt.x = this._frame.x + pt.x - this._location.x;
+    } else if (this._resizeType == EnumResizeType.nResize_x) {
+        rt.y = this._frame.y + pt.y - this._location.y;
+    } else if (this._resizeType == EnumResizeType.swResize) {
+        rt.x = this._frame.x + pt.x - this._location.x;
+    } else if (this._resizeType == EnumResizeType.nwResize) {
+        rt.x = this._frame.x + pt.x - this._location.x;
+        rt.y = this._frame.y + pt.y - this._location.y;
+    } else if (this._resizeType == EnumResizeType.neResize) {
+        rt.y = this._frame.y + pt.y - this._location.y;
+    }
+    if (this._patternFloatPanelNormal != null) {
+        this._patternFloatPanelNormal._$6p(rt.x, rt.y, rt.width, rt.height);
+    } else if (this._m$59 != null) {
+        this._m$59.resize(rt.x, rt.y, rt.width, rt.height);
     }
 };
 WidgetDockPanelAlone.prototype._$f4 = function (pt) {

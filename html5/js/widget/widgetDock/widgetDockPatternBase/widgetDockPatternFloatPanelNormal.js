@@ -84,7 +84,7 @@ WidgetDockPatternFloatPanelNormal._$0x = function (frame) {
 };
 WidgetDockPatternFloatPanelNormal.prototype._$0v = function (elementId) {
     var sp = new WidgetDockPanelAlone(elementId);
-    sp._$kQ = this;
+    sp._patternFloatPanelNormal = this;
     this._$he = sp._panelStateElement;
     this.setVisible(false);
     this._$hh = sp._panelStateElement;
@@ -146,8 +146,8 @@ WidgetDockPatternFloatPanelNormal.prototype._$n = function (floatPanel) {
         this.setVisible(true);
         this._$6p(pt.x, pt.y, floatPanel._$lK.x, floatPanel._$lK.y);
     }
-    if (floatPanel._$kA != null && floatPanel._$kA._tabController != null) {
-        floatPanel._$kA._tabController._$5z();
+    if (floatPanel._m$F != null && floatPanel._m$F._tabController != null) {
+        floatPanel._m$F._tabController._$5z();
     }
     if (!_$8q) {
         if (this._$4s(null, true)) {

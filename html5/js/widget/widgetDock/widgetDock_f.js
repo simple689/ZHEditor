@@ -1,16 +1,16 @@
 function _$F() {
-    this._$oV = null;
-    this._$od = null;
-    this._$pr = null;
-    this._$9y = EnumPatternPositionType.Top;
-    this._$9j = EnumPatternPositionType.Bottom;
+    this._m$FParent = null;
+    this._m$F_1 = null;
+    this._m$F_2 = null;
+    this._positionType_1 = EnumPatternPositionType.Top;
+    this._positionType_2 = EnumPatternPositionType.Bottom;
     this._$8y = false;
     this._$br = 1.0;
     this._$oy = null;
     this._floatPanel = null;
-    this._$sl = "";
+    this._title = "";
     this._$57List = null;
-    this.prc = new WidgetDockRect();
+    this._rect = new WidgetDockRect();
     this._tabController = null;
 };
 _$F.prototype._$e = function (title, _$aP, pt, x, y) {
@@ -27,19 +27,19 @@ _$F.prototype._$e = function (title, _$aP, pt, x, y) {
 };
 _$F.prototype._$1L = function () {
     var _$pO = null;
-    if (this._$od != null) {
-        _$pO = this._$od._$1L();
+    if (this._m$F_1 != null) {
+        _$pO = this._m$F_1._$1L();
     }
     if (_$pO != null) {
         return _$pO;
     }
-    if (this._$pr != null) {
-        _$pO = this._$pr._$1L();
+    if (this._m$F_2 != null) {
+        _$pO = this._m$F_2._$1L();
     }
     if (_$pO != null) {
         return _$pO;
     }
-    if (this._$pr == null && this._$od == null && !this._$8y) {
+    if (this._m$F_2 == null && this._m$F_1 == null && !this._$8y) {
         return this;
     }
     return null;
@@ -52,52 +52,51 @@ _$F.prototype._$5w = function (mainPattern, patternPositionType) {
         this._$oy._mainPattern = mainPattern;
         mainPattern.add(this._$oy);
     }
-    if (this._$od != null && !this._$od._$8y) {
-        this._$od._$5w(mainPattern, patternPositionType);
+    if (this._m$F_1 != null && !this._m$F_1._$8y) {
+        this._m$F_1._$5w(mainPattern, patternPositionType);
     }
-    if (this._$pr != null && !this._$pr._$8y) {
-        this._$pr._$5w(mainPattern, patternPositionType);
-    } else if ((this._$pr == null) && (this._$pr == null) && !this._$8y && (this._floatPanel != null)) {
-        this._floatPanel._$kA = this;
+    if (this._m$F_2 != null && !this._m$F_2._$8y) {
+        this._m$F_2._$5w(mainPattern, patternPositionType);
+    } else if (this._m$F_2 == null && this._m$F_2 == null && !this._$8y && this._floatPanel != null) {
+        this._floatPanel._m$F = this;
         this._floatPanel._patternPositionType = patternPositionType;
         this._floatPanel._pattern = mainPattern;
         if (this._tabController != null && this._tabController._tabList.length > 1) {
             if (this._$57List == null) {
                 this._$57List = new Array(0);
             }
-            var _$e1 = this._tabController._tabList.length;
-            var i;
-            for (i = 0; i < _$e1; i++) {
+            var len = this._tabController._tabList.length;
+            for (var i = 0; i < len; i++) {
                 var _$nQ = this._tabController._tabList[i]._floatPanel;
                 var m$57 = new _$57();
                 _$nQ._patternPositionType = patternPositionType;
                 m$57._floatPanel = _$nQ;
                 _$nQ._pattern = mainPattern;
                 this._$57List.push(m$57);
-                _$nQ._$kA = this;
+                _$nQ._m$F = this;
             }
         }
     }
 };
 _$F.prototype._$i = function () {
     var _$8V = false;
-    var _$oU = this._$oV;
+    var _$oU = this._m$FParent;
     var pme = this;
     var _$pu;
     while (true) {
         if (_$oU != null) {
             _$pu = null;
-            if (_$oU._$od != null && _$oU._$od != pme) {
-                _$pu = _$oU._$od;
-            } else if (_$oU._$pr != null && _$oU._$pr != pme) {
-                _$pu = _$oU._$pr;
+            if (_$oU._m$F_1 != null && _$oU._m$F_1 != pme) {
+                _$pu = _$oU._m$F_1;
+            } else if (_$oU._m$F_2 != null && _$oU._m$F_2 != pme) {
+                _$pu = _$oU._m$F_2;
             }
             if (_$pu != null && !_$pu._$8y) {
                 break;
             }
             _$oU._$8y = true;
             pme = _$oU;
-            _$oU = _$oU._$oV;
+            _$oU = _$oU._m$FParent;
         } else {
             _$8V = true;
             break;
@@ -106,13 +105,13 @@ _$F.prototype._$i = function () {
     return _$8V;
 };
 _$F.prototype._$2Q = function (_$nb) {
-    if (this._$od != null) {
-        this._$od._$2Q(_$nb);
+    if (this._m$F_1 != null) {
+        this._m$F_1._$2Q(_$nb);
     }
-    if (this._$pr != null) {
-        this._$pr._$2Q(_$nb);
+    if (this._m$F_2 != null) {
+        this._m$F_2._$2Q(_$nb);
     }
-    if (this._$od == null && this._$pr == null && !this._$8y) {
+    if (this._m$F_1 == null && this._m$F_2 == null && !this._$8y) {
         if (this._tabController != null && this._tabController._tabList.length > 1) {
             var _$e1 = this._tabController._tabList.length;
             for (var i = 0; i < _$e1; i++) {
@@ -123,37 +122,37 @@ _$F.prototype._$2Q = function (_$nb) {
         }
     }
 };
-_$F.prototype._$5J = function (_$mS) {
+_$F.prototype._$5J = function (_m$F) {
     var _$pO = null;
-    if (_$mS != null) {
-        this._$9y = _$mS._$9y;
-        this._$9j = _$mS._$9j;
-        this._$br = _$mS._$br;
-        this._$8y = _$mS._$8y;
-        this._$oy = _$mS._$oy;
+    if (_m$F != null) {
+        this._positionType_1 = _m$F._positionType_1;
+        this._positionType_2 = _m$F._positionType_2;
+        this._$br = _m$F._$br;
+        this._$8y = _m$F._$8y;
+        this._$oy = _m$F._$oy;
         if (this._$oy != null) {
             this._$oy._$kE = this;
         }
-        if (_$mS._$od != null && !_$mS._$od._$8y) {
+        if (_m$F._m$F_1 != null && !_m$F._m$F_1._$8y) {
             _$pO = new _$F();
-            this._$od = _$pO;
-            _$pO._$oV = this;
-            _$pO._$5J(_$mS._$od);
+            this._m$F_1 = _$pO;
+            _$pO._m$FParent = this;
+            _$pO._$5J(_m$F._m$F_1);
         }
-        if (_$mS._$pr != null && !_$mS._$pr._$8y) {
+        if (_m$F._m$F_2 != null && !_m$F._m$F_2._$8y) {
             _$pO = new _$F();
-            this._$pr = _$pO;
-            _$pO._$oV = this;
-            _$pO._$5J(_$mS._$pr);
-        } else if ((_$mS._$pr == null) && (_$mS._$pr == null) && !_$mS._$8y && (_$mS._floatPanel != null)) {
-            this._floatPanel = _$mS._floatPanel;
+            this._m$F_2 = _$pO;
+            _$pO._m$FParent = this;
+            _$pO._$5J(_m$F._m$F_2);
+        } else if ((_m$F._m$F_2 == null) && (_m$F._m$F_2 == null) && !_m$F._$8y && (_m$F._floatPanel != null)) {
+            this._floatPanel = _m$F._floatPanel;
             this._$8y = false;
-            this._$9y = _$mS._$9y;
-            this._$9j = _$mS._$9j;
-            this._$br = _$mS._$br;
-            this._$8y = _$mS._$8y;
-            if (_$mS._tabController != null && _$mS._tabController._tabList.length > 1) {
-                this._tabController = _$mS._tabController;
+            this._positionType_1 = _m$F._positionType_1;
+            this._positionType_2 = _m$F._positionType_2;
+            this._$br = _m$F._$br;
+            this._$8y = _m$F._$8y;
+            if (_m$F._tabController != null && _m$F._tabController._tabList.length > 1) {
+                this._tabController = _m$F._tabController;
                 this._tabController._$kE = this;
             }
         }
@@ -162,16 +161,16 @@ _$F.prototype._$5J = function (_$mS) {
 _$F.prototype._$3F = function (_$nf, _$9f, _$7V, _$n1) {
     var _$oc = new _$F();
     var _$oD = _$nf;
-    _$oc._$oV = this;
-    _$oD._$oV = this;
-    _$oc._$od = this._$od;
-    _$oc._$pr = this._$pr;
-    if (this._$od != null) this._$od._$oV = _$oc;
-    if (this._$pr != null) this._$pr._$oV = _$oc;
+    _$oc._m$FParent = this;
+    _$oD._m$FParent = this;
+    _$oc._m$F_1 = this._m$F_1;
+    _$oc._m$F_2 = this._m$F_2;
+    if (this._m$F_1 != null) this._m$F_1._m$FParent = _$oc;
+    if (this._m$F_2 != null) this._m$F_2._m$FParent = _$oc;
     _$oc._floatPanel = this._floatPanel;
     if (this._floatPanel != null) {
-        if (this._floatPanel._$kA == this) {
-            this._floatPanel._$kA = _$oc;
+        if (this._floatPanel._m$F == this) {
+            this._floatPanel._m$F = _$oc;
         } else if (this._floatPanel._$l6 == this) {
             this._floatPanel._$l6 = _$oc;
         }
@@ -179,35 +178,35 @@ _$F.prototype._$3F = function (_$nf, _$9f, _$7V, _$n1) {
     _$oc._$br = this._$br;
     _$oc._$57List = this._$57List;
     _$oc._tabController = this._tabController;
-    _$oc._$9y = this._$9y;
+    _$oc._positionType_1 = this._positionType_1;
     _$oc._$oy = this._$oy;
     if (this._$oy != null) {
         this._$oy._$kE = _$oc;
     }
-    _$oc.prc = this.prc;
+    _$oc._rect = this._rect;
     if (this._tabController != null) {
         this._tabController._$kE = _$oc;
     }
     _$oc._$6Z(this);
     _$oc._$8y = this._$8y;
     if (_$7V) {
-        this._$od = _$oD;
-        this._$pr = _$oc;
+        this._m$F_1 = _$oD;
+        this._m$F_2 = _$oc;
     } else {
-        this._$od = _$oc;
-        this._$pr = _$oD;
+        this._m$F_1 = _$oc;
+        this._m$F_2 = _$oD;
     }
     if (_$9f == EnumPatternPositionType.Left || _$9f == EnumPatternPositionType.Right) {
-        this._$od._$9j = EnumPatternPositionType.Left;
-        this._$pr._$9j = EnumPatternPositionType.Right;
+        this._m$F_1._positionType_2 = EnumPatternPositionType.Left;
+        this._m$F_2._positionType_2 = EnumPatternPositionType.Right;
     } else {
-        this._$od._$9j = EnumPatternPositionType.Top;
-        this._$pr._$9j = EnumPatternPositionType.Bottom;
+        this._m$F_1._positionType_2 = EnumPatternPositionType.Top;
+        this._m$F_2._positionType_2 = EnumPatternPositionType.Bottom;
     }
     this._$8y = false;
     _$oD._$8y = true;
     this._$br = 1.0;
-    this._$9y = this._$od._$9j;
+    this._positionType_1 = this._m$F_1._positionType_2;
     this._$P(_$oc, _$oD, _$n1);
     this._$57List = null;
     this._tabController = null;
@@ -219,14 +218,14 @@ _$F.prototype._$P = function (_$n4, _$nf, _$nj) {
     _$n4._$22(_$qs);
     var _$gd = _$qs.bottom - _$qs.top;
     var _$ge = _$qs.right - _$qs.left;
-    if ((this._$9y == EnumPatternPositionType.Top || this._$9y == EnumPatternPositionType.Bottom) && _$gd > 0 && (_$gd > _$nj.y) && _$nj.y > 0) {
-        if (_$nf._$9j == EnumPatternPositionType.Top) {
+    if ((this._positionType_1 == EnumPatternPositionType.Top || this._positionType_1 == EnumPatternPositionType.Bottom) && _$gd > 0 && (_$gd > _$nj.y) && _$nj.y > 0) {
+        if (_$nf._positionType_2 == EnumPatternPositionType.Top) {
             this._$br = 1.0 * _$nj.y / (_$gd - _$nj.y);
         } else {
             this._$br = 1.0 * (_$gd - _$nj.y) / _$nj.y;
         }
-    } else if ((this._$9y == EnumPatternPositionType.Left || this._$9y == EnumPatternPositionType.Right) && _$ge > 0 && (_$ge > _$nj.x) && _$nj.x > 0) {
-        if (_$nf._$9j == EnumPatternPositionType.Left) this._$br = 1.0 * _$nj.x / (_$ge - _$nj.x); else this._$br = 1.0 * (_$ge - _$nj.x) / _$nj.x;
+    } else if ((this._positionType_1 == EnumPatternPositionType.Left || this._positionType_1 == EnumPatternPositionType.Right) && _$ge > 0 && (_$ge > _$nj.x) && _$nj.x > 0) {
+        if (_$nf._positionType_2 == EnumPatternPositionType.Left) this._$br = 1.0 * _$nj.x / (_$ge - _$nj.x); else this._$br = 1.0 * (_$ge - _$nj.x) / _$nj.x;
     }
 };
 _$F.prototype._$5K = function (floatPanel) {
@@ -242,7 +241,7 @@ _$F.prototype._$6Z = function (_$nl) {
     for (var i = 0; i < _$gi; i++) {
         _$pN = this._$57List[i]._floatPanel;
         if (_$pN != null) {
-            if (_$pN._$kA == _$nl) _$pN._$kA = this;
+            if (_$pN._m$F == _$nl) _$pN._m$F = this;
             if (_$pN._$l6 == _$nl) _$pN._$l6 = this;
         }
     }
@@ -259,7 +258,7 @@ _$F.prototype._$6m = function (_$cN, mainPattern) {
             if (_$pN._pattern == mainPattern) {
                 _$pN._$jr = _$cN;
             }
-            if (_$pN._$l7 == mainPattern) {
+            if (_$pN._patternFloatPanelNormal == mainPattern) {
                 _$pN._$k4 = _$cN;
             }
         }
@@ -291,7 +290,7 @@ _$F.prototype._$o = function (_$aQ, _$d3, _$mM, mainPattern) {
         mainPattern.add(_$aQ[i]);
         this.add(_$aQ[i]);
         this._tabController.add(_$aQ[i]);
-        _$aQ[i]._$kA = this;
+        _$aQ[i]._m$F = this;
         _$aQ[i]._pattern = mainPattern;
         if (_$aQ[i] == _$mM) {
             this._tabController._$jh = i;
@@ -318,7 +317,7 @@ _$F.prototype._$0w = function (_$aQ, _$d3, _$mM, mainPattern) {
     for (var i = 0; i < _$d3; i++) {
         this.add(_$aQ[i]);
         this._tabController.add(_$aQ[i]);
-        _$aQ[i]._$kA = this;
+        _$aQ[i]._m$F = this;
         mainPattern.add(_$aQ[i]);
         if (_$aQ[i] == _$mM) {
             this._tabController._$jh = i;
@@ -370,7 +369,7 @@ _$F.prototype._$56 = function (floatPanel) {
         while (_$gi > 0) {
             _$pN = this._$57List[0]._floatPanel;
             if (_$pN != null) {
-                _$pN._$kA = null;
+                _$pN._m$F = null;
                 this._$57List.splice(0, 1);
                 _$gi = this._$57List.length;
             }
@@ -381,7 +380,7 @@ _$F.prototype._$56 = function (floatPanel) {
         _$pN = this._$57List[i]._floatPanel;
         if (_$pN == floatPanel) {
             this._$57List.splice(i, 1);
-            _$pN._$kA = null;
+            _$pN._m$F = null;
             if (floatPanel == this._floatPanel) {
                 this._floatPanel = null;
             }
@@ -427,7 +426,7 @@ _$F.prototype._$2 = function (floatPanel) {
     _$og.add(floatPanel);
     var _$p1 = this._floatPanel;
     this._floatPanel.setElementVisible(false);
-    floatPanel._$kA._floatPanel = floatPanel;
+    floatPanel._m$F._floatPanel = floatPanel;
     floatPanel._pattern = _$og;
     floatPanel._$6q(rc);
     var _$eq = this._$1M(floatPanel);
@@ -470,7 +469,7 @@ _$F.prototype._$1M = function (floatPanel) {
     for (var i = 0; i < _$gi; i++) {
         tmp = this._$57List[i]._floatPanel;
         if (tmp != null) {
-            if (tmp._$kA == this && !tmp._$kA._$8y && floatPanel != tmp) {
+            if (tmp._m$F == this && !tmp._m$F._$8y && floatPanel != tmp) {
                 if (this._tabController != null && this._tabController._$3x(tmp)) _$e5++;
             }
             if (tmp == floatPanel) {
@@ -508,17 +507,17 @@ _$F.prototype._$1K = function (_$nn, _$nG, _$p7, _$pa) {
     var rcs = new WidgetDockRect();
     var rcPanel = new WidgetDockRect();
     rcf.left = rcf.right = rcs.left = rcs.right = -6000;
-    _$nn[0] = this._$od;
-    _$nG[0] = this._$pr;
-    if (this._$od != null) {
-        this._$od._$22(rcf);
+    _$nn[0] = this._m$F_1;
+    _$nG[0] = this._m$F_2;
+    if (this._m$F_1 != null) {
+        this._m$F_1._$22(rcf);
     }
-    if (this._$pr != null) {
-        this._$pr._$22(rcs);
+    if (this._m$F_2 != null) {
+        this._m$F_2._$22(rcs);
     }
-    if ((_$nG[0] != null) && ((_$nG[0]._$9j == EnumPatternPositionType.Top) || (_$nG[0]._$9j == EnumPatternPositionType.Left))) {
-        _$nn[0] = this._$pr;
-        _$nG[0] = this._$od;
+    if ((_$nG[0] != null) && ((_$nG[0]._positionType_2 == EnumPatternPositionType.Top) || (_$nG[0]._positionType_2 == EnumPatternPositionType.Left))) {
+        _$nn[0] = this._m$F_2;
+        _$nG[0] = this._m$F_1;
         rcPanel.setRect(rcf);
         rcf.setRect(rcs);
         rcs.setRect(rcPanel);
@@ -533,11 +532,11 @@ _$F.prototype._$1K = function (_$nn, _$nG, _$p7, _$pa) {
 _$F.prototype._$22 = function (_$q1) {
     _$q1.left = _$q1.right = _$q1.top = _$q1.bottom = -6000;
     var _$pQ, _$pT;
-    _$pQ = this._$od;
-    _$pT = this._$pr;
-    if (this._$pr != null && (this._$pr._$9j == EnumPatternPositionType.Left || this._$pr._$9j == EnumPatternPositionType.Top)) {
-        _$pQ = this._$pr;
-        _$pT = this._$od;
+    _$pQ = this._m$F_1;
+    _$pT = this._m$F_2;
+    if (this._m$F_2 != null && (this._m$F_2._positionType_2 == EnumPatternPositionType.Left || this._m$F_2._positionType_2 == EnumPatternPositionType.Top)) {
+        _$pQ = this._m$F_2;
+        _$pT = this._m$F_1;
     }
     var rcs = new WidgetDockRect();
     if (_$pQ != null && _$pT == null) {
@@ -549,7 +548,7 @@ _$F.prototype._$22 = function (_$q1) {
     } else if (_$pQ != null && _$pT != null) {
         _$pQ._$22(_$q1);
         _$pT._$22(rcs);
-        if (this._$9y == EnumPatternPositionType.Top || this._$9y == EnumPatternPositionType.Bottom) {
+        if (this._positionType_1 == EnumPatternPositionType.Top || this._positionType_1 == EnumPatternPositionType.Bottom) {
             if ((_$q1.top == _$q1.bottom) && (_$q1.top == -6000)) {
                 _$q1.setRect(rcs);
             } else {
@@ -569,21 +568,21 @@ _$F.prototype._$22 = function (_$q1) {
 };
 _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
     var _$9z = 0xff;
-    if (this._$od != null || this._$pr != null) {
+    if (this._m$F_1 != null || this._m$F_2 != null) {
         var _$rP = new WidgetDockPoint();
         _$rP.x = _$nz.x;
         _$rP.y = _$nz.y;
-        if (this._$od != null) {
-            _$9z = this._$od._$03(_$mX, pt, _$nz, _$dk, _$oQ);
+        if (this._m$F_1 != null) {
+            _$9z = this._m$F_1._$03(_$mX, pt, _$nz, _$dk, _$oQ);
         }
         if (_$9z != 0xff && ((_$9z + 1) % 2) == 0) {
             return _$9z;
         }
         var _$9A = 0xff;
         var _$su = null;
-        if (this._$pr != null) {
+        if (this._m$F_2 != null) {
             _$su = new Array(1);
-            _$9A = this._$pr._$03(_$mX, pt, _$rP, _$dk, _$su);
+            _$9A = this._m$F_2._$03(_$mX, pt, _$rP, _$dk, _$su);
         }
         if ((_$9A != 0xff) && ((((_$9A + 1) % 2) == 0) || (_$9z == 0xff))) {
             if (_$oQ != null) {
@@ -596,8 +595,7 @@ _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
         return _$9z;
     }
     if (!this._$8y) {
-        var _$qg = new WidgetDockRect();
-        _$qg = _$mX.m$5g;
+        var _$qg = _$mX._rect;
         var _$q7 = new WidgetDockRect();
         var _$9m = 0xff;
         if (this._floatPanel == null) {
@@ -680,19 +678,19 @@ _$F.prototype._$03 = function (_$mX, pt, _$nz, _$dk, _$oQ) {
 };
 _$F.prototype._$4s = function (floatPanel, sch) {
     var _$e1 = 0;
-    if (this._$od != null) {
-        _$e1 += this._$od._$4s(floatPanel, sch);
+    if (this._m$F_1 != null) {
+        _$e1 += this._m$F_1._$4s(floatPanel, sch);
     }
     if (_$e1 >= 2) {
         return _$e1;
     }
-    if (this._$pr != null) {
-        _$e1 += this._$pr._$4s(floatPanel, sch);
+    if (this._m$F_2 != null) {
+        _$e1 += this._m$F_2._$4s(floatPanel, sch);
     }
     if (_$e1 >= 2) {
         return _$e1;
     }
-    if (this._$od == null && this._$pr == null && !this._$8y) {
+    if (this._m$F_1 == null && this._m$F_2 == null && !this._$8y) {
         if (this._floatPanel != null && this._floatPanel != floatPanel) {
             _$e1++;
             if (!sch) {
@@ -707,22 +705,22 @@ _$F.prototype._$4s = function (floatPanel, sch) {
 };
 _$F.prototype._$05 = function () {
     var _$8y;
-    if (this._$od != null) {
-        _$8y = this._$od._$05();
+    if (this._m$F_1 != null) {
+        _$8y = this._m$F_1._$05();
         if (!_$8y) {
             return _$8y;
         }
     }
-    if (this._$pr != null) {
-        _$8y = this._$pr._$05();
+    if (this._m$F_2 != null) {
+        _$8y = this._m$F_2._$05();
         if (!_$8y) {
             return _$8y;
         }
     }
-    if (this._$oV == null) {
+    if (this._m$FParent == null) {
         return true;
     }
-    if (this._$pr == null && this._$od == null && this._floatPanel != null) {
+    if (this._m$F_2 == null && this._m$F_1 == null && this._floatPanel != null) {
         return this._$8y;
     }
     return true;

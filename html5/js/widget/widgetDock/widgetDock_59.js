@@ -3,7 +3,7 @@ function _$59() {
     this._panelStatePanel = null;
     this._panelAlone = null;
     this._panelAlone = new WidgetDockPanelAlone(WidgetDockController._elementRootId);
-    this._panelAlone.m$59 = this;
+    this._panelAlone._m$59 = this;
     var date = new Date();
     this._time = date.getTime();
     this._isInRect = false;
@@ -70,16 +70,17 @@ _$59.prototype.mouseMove = function (e) {
             }
         }
     }
-    _$59.prototype._$09 = function (e) {
-        var rc = new WidgetDockRect();
-        this._panelAlone.getRect(rc);
-        var pt = new WidgetDockPoint();
-        WidgetDockElementController.getMousePoint(e, pt);
-        if (WidgetDockPatternBase.isInRect(rc, pt)) {
-            this._isInRect = true;
-        } else {
-            this._isInRect = false;
-            this._floatPanel._window._patternMain._$4T(null);
-        }
+};
+_$59.prototype._$09 = function (e) {
+    var rc = new WidgetDockRect();
+    this._panelAlone.getRect(rc);
+    var pt = new WidgetDockPoint();
+    WidgetDockElementController.getMousePoint(e, pt);
+    if (WidgetDockPatternBase.isInRect(rc, pt)) {
+        this._isInRect = true;
+    } else {
+        this._isInRect = false;
+        this._floatPanel._window._patternMain._$4T(null);
     }
 };
+

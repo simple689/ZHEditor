@@ -7,9 +7,9 @@ var dockLayoutKey = "dockLayout";
 
 function initWidgetDock() {
     dock = WidgetDockController.init();
-    dock.addFixedPanel(document.getElementById("panelFixedCenter"), EnumPatternPositionType.Center);
-    dock.addFixedPanel(document.getElementById("panelFixedTop"), EnumPatternPositionType.Top);
-    dock.addFixedPanel(document.getElementById("panelFixedBottom"), EnumPatternPositionType.Bottom);
+    // dock.addFixedPanel(document.getElementById("panelFixedCenter"), EnumPatternPositionType.Center);
+    // dock.addFixedPanel(document.getElementById("panelFixedTop"), EnumPatternPositionType.Top);
+    // dock.addFixedPanel(document.getElementById("panelFixedBottom"), EnumPatternPositionType.Bottom);
     panelTest = dock.createFloatPanel("测试");
     panelTest.addContentDiv(document.getElementById("panelTest"));
 
