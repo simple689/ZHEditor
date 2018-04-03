@@ -63,7 +63,7 @@ WidgetDockPanelState.prototype._$w = function (floatPanel, pt) {
     var rc = new WidgetDockRect();
     var _$8m = false;
     floatPanel.getRect(rc);
-    if (this._$le._patternPositionType == EnumPatternPositionType.Left || this._$le._patternPositionType == EnumPatternPositionType.Right) {
+    if (this.m$N._patternPositionType == EnumPatternPositionType.Left || this.m$N._patternPositionType == EnumPatternPositionType.Right) {
         if (pt.y < rc.top) {
             _$8m = true;
         } else {
@@ -118,7 +118,7 @@ WidgetDockPanelState.prototype._$03 = function (mainPattern, _$mX, pt, _$nz, _$d
     WidgetDockPatternBase._$2P(_$je, rcPanel);
     var _$9z = _$3E(rcPanel, pt, _$de);
     if (_$9z != 0xff) {
-        if (this._$le._patternPositionType == EnumPatternPositionType.Left || this._$le._patternPositionType == EnumPatternPositionType.Right) {
+        if (this.m$N._patternPositionType == EnumPatternPositionType.Left || this.m$N._patternPositionType == EnumPatternPositionType.Right) {
             _$nz.y = rect.bottom - rect.top;
         } else {
             _$nz.x = rect.right - rect.left;
@@ -138,7 +138,7 @@ WidgetDockPanelState.prototype._$6v = function (patternBase, _$9c, _$cA) {
     var _$eR = new Array(1);
     var m$57;
     var _$9t;
-    if (this._$le._patternPositionType == EnumPatternPositionType.Top || this._$le._patternPositionType == EnumPatternPositionType.Bottom) {
+    if (this.m$N._patternPositionType == EnumPatternPositionType.Top || this.m$N._patternPositionType == EnumPatternPositionType.Bottom) {
         _$9t = true;
     } else {
         _$9t = false;
@@ -335,7 +335,7 @@ WidgetDockPanelState.prototype._$f = function (mainPattern, _$mS, pRC) {
         _$e1 = _$8j.getSize();
         _$mS._$8y = true;
         var _$9y;
-        if (this._$le != null) _$9y = this._$le._patternPositionType; else _$9y = _$mS._floatPanel._$lf._$j1;
+        if (this.m$N != null) _$9y = this.m$N._patternPositionType; else _$9y = _$mS._floatPanel._$lf._$j1;
         var _$9t = true;
         if (_$9y == EnumPatternPositionType.Right || _$9y == EnumPatternPositionType.Left) _$9t = false;
         var _$8D = new Array(1);
@@ -387,14 +387,14 @@ WidgetDockPanelState.prototype._$f = function (mainPattern, _$mS, pRC) {
                 if (_$9t) _$rK = ((this.rect.right - this.rect.left) - _$gu); else _$rK = ((this.rect.bottom - this.rect.top) - _$gu);
                 _$6w(_$8j, _$rK, _$fW);
                 if (_$fW[0] != 0) {
-                    var _$e5 = this._$le._mainPattern._$2F(this._$le._patternPositionType, this);
-                    this._$le._mainPattern._$5p(this, _$e5, this._$le._patternPositionType, _$fW[0]);
+                    var _$e5 = this.m$N._mainPattern._$2F(this.m$N._patternPositionType, this);
+                    this.m$N._mainPattern._$5p(this, _$e5, this.m$N._patternPositionType, _$fW[0]);
                 }
             } else {
                 _$6w(_$8j, 0, _$fW);
                 if (_$fW[0] != 0) {
-                    var _$e5 = this._$le._mainPattern._$2F(this._$le._patternPositionType, this);
-                    this._$le._mainPattern._$5p(this, _$e5, this._$le._patternPositionType, _$fW[0]);
+                    var _$e5 = this.m$N._mainPattern._$2F(this.m$N._patternPositionType, this);
+                    this.m$N._mainPattern._$5p(this, _$e5, this.m$N._patternPositionType, _$fW[0]);
                 }
             }
             return _$8g;
@@ -415,7 +415,7 @@ WidgetDockPanelState.prototype._$2H = function (d) {
     if (_$e1 > 0) {
         var m$57 = _$8j._list[_$e1 - 1];
         var rc = m$57._$nQ.getFrame();
-        if (this._$le._patternPositionType == EnumPatternPositionType.Top || this._$le._patternPositionType == EnumPatternPositionType.Bottom) {
+        if (this.m$N._patternPositionType == EnumPatternPositionType.Top || this.m$N._patternPositionType == EnumPatternPositionType.Bottom) {
             d.height = rc.x + rc.width;
         } else {
             d.height = rc.y + rc.height;
@@ -429,7 +429,7 @@ WidgetDockPanelState.prototype._$2H = function (floatPanelController, left, righ
     for (i = left; i < right; i++) {
         _$os = floatPanelController._list[i];
         var _$9y;
-        if (this._$le != null) _$9y = this._$le._patternPositionType; else _$9y = _$os._$nQ._$lf._$j1;
+        if (this.m$N != null) _$9y = this.m$N._patternPositionType; else _$9y = _$os._$nQ._$lf._$j1;
         if (_$9y == EnumPatternPositionType.Top || _$9y == EnumPatternPositionType.Bottom) {
             if (!_$7N) _$fe += _$os.size.x; else _$fe += _$os._$nQ.getWidth();
         } else {
@@ -447,7 +447,7 @@ WidgetDockPanelState.prototype._$2l = function (floatPanelController, floatPanel
             if (!_$pO._$8y && _$pO._floatPanel != null) {
                 var m$57 = new _$44();
                 var bts = _$pO._floatPanel._$lf._$j1;
-                if (this._$le != null) _$pO._floatPanel._$lf._$j1 = this._$le._patternPositionType;
+                if (this.m$N != null) _$pO._floatPanel._$lf._$j1 = this.m$N._patternPositionType;
                 _$pO._floatPanel._$2w(m$57.size, 0, null, false);
                 _$pO._floatPanel._$lf._$j1 = bts;
                 m$57._$nQ = _$pO._floatPanel;
@@ -462,8 +462,8 @@ WidgetDockPanelState.prototype._$2l = function (floatPanelController, floatPanel
                     if (pf._floatPanel == floatPanel) _$er = _$eq;
                     var m$57 = new _$44();
                     var bts = pf._floatPanel._$lf._$j1;
-                    if (this._$le != null) {
-                        pf._floatPanel._$lf._$j1 = this._$le._patternPositionType;
+                    if (this.m$N != null) {
+                        pf._floatPanel._$lf._$j1 = this.m$N._patternPositionType;
                     }
                     pf._floatPanel._$2w(m$57.size, 0, null, false);
                     pf._floatPanel._$lf._$j1 = bts;
@@ -501,7 +501,7 @@ WidgetDockPanelState.prototype._$7 = function (mainPattern, floatPanel) {
     var _$eq = new Array(1);
     var _$eR = new Array(1);
     var _$9t;
-    if (this._$le._patternPositionType == EnumPatternPositionType.Left || this._$le._patternPositionType == EnumPatternPositionType.Right) {
+    if (this.m$N._patternPositionType == EnumPatternPositionType.Left || this.m$N._patternPositionType == EnumPatternPositionType.Right) {
         _$9t = false;
     } else {
         _$9t = true;
@@ -607,8 +607,8 @@ WidgetDockPanelState.prototype._$7 = function (mainPattern, floatPanel) {
             this._$5c(floatPanelController, 0, 0, floatPanelController.getSize(), _$mI, _$rK, _$9t, _$gD, 0, _$dZ);
             _$dZ[0] = this._$0m(_$9t, _$dZ[0]);
             if (_$dZ[0] != 0) {
-                var _$e5 = this._$le._mainPattern._$2F(this._$le._patternPositionType, this);
-                this._$le._mainPattern._$5p(this, _$e5, this._$le._patternPositionType, _$dZ[0]);
+                var _$e5 = this.m$N._mainPattern._$2F(this.m$N._patternPositionType, this);
+                this.m$N._mainPattern._$5p(this, _$e5, this.m$N._patternPositionType, _$dZ[0]);
             }
         } else {
             var _$fX = new Array(1);
@@ -672,11 +672,11 @@ WidgetDockPanelState.prototype._$0m = function (_$9t, iwh) {
     var _$e7 = 0;
     if (!_$9t && iwh != (this.rect.right - this.rect.left)) {
         _$e7 = iwh - (this.rect.right - this.rect.left);
-        if (this._$le._patternPositionType == EnumPatternPositionType.Right) this.rect.left -= _$e7;
+        if (this.m$N._patternPositionType == EnumPatternPositionType.Right) this.rect.left -= _$e7;
         this.rect.right = this.rect.left + iwh;
     } else if (_$9t && iwh != (this.rect.bottom - this.rect.top)) {
         _$e7 = iwh - (this.rect.bottom - this.rect.top);
-        if (this._$le._patternPositionType == EnumPatternPositionType.Bottom) this.rect.top -= _$e7;
+        if (this.m$N._patternPositionType == EnumPatternPositionType.Bottom) this.rect.top -= _$e7;
         this.rect.bottom = this.rect.top + iwh;
     }
     return _$e7;
@@ -856,7 +856,7 @@ WidgetDockPanelState.prototype._$6w = function (_$8j, _$rJ, _$dB) {
     this._$2t(_$8j, 0, _$mI);
     var _$q7 = new WidgetDockRect();
     var _$9t;
-    if (this._$le._patternPositionType == EnumPatternPositionType.Top || this._$le._patternPositionType == EnumPatternPositionType.Bottom) _$9t = true; else _$9t = false;
+    if (this.m$N._patternPositionType == EnumPatternPositionType.Top || this.m$N._patternPositionType == EnumPatternPositionType.Bottom) _$9t = true; else _$9t = false;
     var _$dS = 0;
     var szs = new WidgetDockPoint();
     var _$gD;
@@ -979,13 +979,13 @@ WidgetDockPanelState.prototype._$6w = function (_$8j, _$rJ, _$dB) {
     _$gp += _$eX[0];
     if (_$9t) _$dB[0] = _$gp - (this.rect.bottom - this.rect.top); else _$dB[0] = _$gp - (this.rect.right - this.rect.left);
     if (_$dB[0] != 0) {
-        if (this._$le._patternPositionType == EnumPatternPositionType.Left) {
+        if (this.m$N._patternPositionType == EnumPatternPositionType.Left) {
             this.rect.right += _$dB[0];
-        } else if (this._$le._patternPositionType == EnumPatternPositionType.Right) {
+        } else if (this.m$N._patternPositionType == EnumPatternPositionType.Right) {
             this.rect.left -= _$dB[0];
-        } else if (this._$le._patternPositionType == EnumPatternPositionType.Top) {
+        } else if (this.m$N._patternPositionType == EnumPatternPositionType.Top) {
             this.rect.bottom += _$dB[0];
-        } else if (this._$le._patternPositionType == EnumPatternPositionType.Bottom) {
+        } else if (this.m$N._patternPositionType == EnumPatternPositionType.Bottom) {
             this.rect.top -= _$dB[0];
         }
         this._$js = _$go;
@@ -1093,8 +1093,8 @@ WidgetDockPanelState.prototype._$g = function (_$8h, _$cP, _$8c, pt) {
         if (_$eX[0] > _$eW) _$eW = _$eX[0];
         var _$e7 = this._$0m(_$8c, _$eW);
         if (_$e7 != 0) {
-            var _$e5 = this._$le._mainPattern._$2F(this._$le._patternPositionType, this);
-            this._$le._mainPattern._$5p(this, _$e5, this._$le._patternPositionType, _$e7);
+            var _$e5 = this.m$N._mainPattern._$2F(this.m$N._patternPositionType, this);
+            this.m$N._mainPattern._$5p(this, _$e5, this.m$N._patternPositionType, _$e7);
         }
         for (i = 0; i < _$8h.getSize(); i++) {
             _$or = _$8h._list[i];

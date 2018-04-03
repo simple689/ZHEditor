@@ -10,7 +10,7 @@ function _$N() {
     this._$lx = new WidgetDockRect();
     this._$ly = new WidgetDockRect();
     this._$iG = false;
-    this._$ka = 0;
+    this._panelIndex = 0;
     this._$hj = null;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", WidgetDockController._elementRootId);
     this._panelStateElement.style.border = "1px solid";
@@ -59,7 +59,7 @@ _$N.prototype.setElementZIndex = function (_$cR) {
 _$N.prototype.mouseDown = function (e) {
     if (WidgetDockController.isButtonAvailable(e.button)) {
         WidgetDockWindow._movePanelStateController = this;
-        this._$4N();
+        this._$s9(this);
     }
     return false;
 };
@@ -95,36 +95,32 @@ _$N.prototype._$ms = function (e) {
     this._$4i(pt);
     this.refresh();
 };
-_$N.prototype._$4N = function () {
-    return this._mainPattern._$s9(this);
-};
-_$N.prototype._$bZ = function () {
+_$N.prototype.getPoint = function () {
     var pt = new WidgetDockPoint();
     pt.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
     pt.y = WidgetDockElementController.getElementTop(this._panelStateElement);
     return pt;
 };
 _$N.prototype.getSize = function () {
-    var d = new WidgetDockSize();
-    d.width = WidgetDockElementController.getElementWidth(this._panelStateElement);
-    d.height = WidgetDockElementController.getElementHeight(this._panelStateElement);
-    return d;
+    var size = new WidgetDockSize();
+    size.width = WidgetDockElementController.getElementWidth(this._panelStateElement);
+    size.height = WidgetDockElementController.getElementHeight(this._panelStateElement);
+    return size;
 };
 _$N.prototype._$s9 = function () {
     if (this._$iG) return;
     this._$iG = true;
-    var _$pL = this._$bZ();
+    var _$pL = this.getPoint();
     var dd = this.getSize();
     this._$lx.left = _$pL.x;
     this._$lx.top = _$pL.y;
     this._$lx.right = dd.width + _$pL.x;
     this._$lx.bottom = _$pL.y + dd.height;
     this.getRect(this._$ly);
-    var panel;
     var _$pv = new Array(1);
     var _$95 = new Array(1);
     var _$gg = new Array(1);
-    panel = this._$2a(_$95, _$pv, _$gg);
+    var panel = this._$2a(_$95, _$pv, _$gg);
     if (panel != null) {
         panel._$5q();
         var _$g8 = this._mainPattern._$2F(this._patternPositionType, panel) + 1;
@@ -175,7 +171,6 @@ _$N.prototype._$s9 = function () {
             this._$jS = rc2.bottom - WidgetDockPatternBase._$5Z * 2;
         }
     }
-    this._$3B();
     return 0;
 };
 _$N.prototype._$4i = function (pt) {
@@ -203,8 +198,8 @@ _$N.prototype._$4i = function (pt) {
     this._$1p();
 };
 _$N.prototype._$1x = function () {
-    this._$T();
-    this._$1Q();
+    this._$1p();
+    this._$sb();
 };
 _$N.prototype._$ap = function () {
     this._mainPattern._$5E(this);
@@ -212,9 +207,6 @@ _$N.prototype._$ap = function () {
         WidgetDockElementController.removeChildWithElementId(WidgetDockController._elementRootId, this._panelStateElement);
     }
     this._panelStateElement = null;
-};
-_$N.prototype._$1Q = function () {
-    this._mainPattern._$sb(this);
 };
 _$N.prototype._$sb = function () {
     var _$pv = new Array(1);
@@ -279,13 +271,13 @@ _$N.prototype._$sb = function () {
                     if (this._patternPositionType == EnumPatternPositionType.Right || this._patternPositionType == EnumPatternPositionType.Bottom) {
                         _$dt = -_$dt;
                     }
-                    this._mainPattern._$4o(this._patternPositionType, this._$ka + 1, _$gg[0] - 1, _$dt);
+                    this._mainPattern._$4o(this._patternPositionType, this._panelIndex + 1, _$gg[0] - 1, _$dt);
                 } else {
                     panel._$5q();
                     if (this._patternPositionType == EnumPatternPositionType.Right || this._patternPositionType == EnumPatternPositionType.Bottom) {
                         _$dt = -_$dt;
                     }
-                    this._mainPattern._$4n(this._patternPositionType, this._$ka + 1, _$dt);
+                    this._mainPattern._$4n(this._patternPositionType, this._panelIndex + 1, _$dt);
                 }
                 this._mainPattern._$6x(_$9w, _$ey, _$eB);
                 this._mainPattern._$6x((_$9w + 2), _$ey, _$eB);
@@ -296,7 +288,7 @@ _$N.prototype._$sb = function () {
                 if (this._patternPositionType == EnumPatternPositionType.Right || this._patternPositionType == EnumPatternPositionType.Bottom) {
                     _$dt = -_$dt;
                 }
-                this._mainPattern._$4n(this._patternPositionType, this._$ka + 1, _$dt);
+                this._mainPattern._$4n(this._patternPositionType, this._panelIndex + 1, _$dt);
                 this._mainPattern._$6x(_$9w, _$ey, _$eB);
                 this._mainPattern._$6x((_$9w + 2), _$ey, _$eB);
                 this._mainPattern.refreshFixedPanel();
@@ -375,8 +367,8 @@ _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
     for (var i = panelNum - 1; i >= 0; i--) {
         panel = this._mainPattern._panelList[this._patternPositionType]._list[i];
         if (panel._isVisible) {
-            if (panel._$le == this) {
-                this._$ka = i;
+            if (panel.m$N == this) {
+                this._panelIndex = i;
                 return panel;
             } else {
                 _$89[0] = false;
@@ -397,16 +389,10 @@ _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
     }
     return null;
 };
-_$N.prototype._$T = function () {
-    this._$1p();
-};
 _$N.prototype._$1p = function () {
-    var vrc = this._$lx;
-    WidgetDockElementController.setElementLeftTop(this._panelStateElement, vrc.left, vrc.top);
-    WidgetDockElementController.setElementSize(this._panelStateElement, vrc.right - vrc.left, vrc.bottom - vrc.top);
-    return;
-};
-_$N.prototype._$3B = function () {
+    var rect = this._$lx;
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, rect.left, rect.top);
+    WidgetDockElementController.setElementSize(this._panelStateElement, rect.right - rect.left, rect.bottom - rect.top);
 };
 _$N.prototype.refresh = function () {
     var iw, ih;

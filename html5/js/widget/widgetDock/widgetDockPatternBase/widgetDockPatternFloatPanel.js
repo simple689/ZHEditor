@@ -92,7 +92,7 @@ WidgetDockPatternFloatPanel.prototype._$01 = function () {
     if (this._$it) {
         var panel = this._panelList[0]._list[0];
         if (!panel._isVisible) {
-            _$lq = _$he._$bZ();
+            _$lq = _$he.getPoint();
             _$ln = _$he.getSize();
             _$10();
         }
@@ -127,7 +127,7 @@ WidgetDockPatternFloatPanel.prototype._$R = function (_$mX, floatPanel, pt, _$nz
     _$qf.top += this._signLenList[1];
     _$qf.bottom -= this._signLenList[3];
     var _$9j = WidgetDockPatternBase._$m(_$qf, pt);
-    _$mX._$ka = 0;
+    _$mX._panelIndex = 0;
     _$mX._$ky = null;
     _$mX._$j1 = 0xff;
     if ((_$9j != 0xff) && ((_$9j % 2) == 0)) {
@@ -188,8 +188,8 @@ WidgetDockPatternFloatPanel.prototype._$mC = function (_$eu, _$gC, iw, ih) {
     var panelNum = this._panelList[0].getSize();
     if (panelNum == 1) {
         var panel = this._panelList[0]._list[0];
-        if (panel._$le != null) {
-            panel._$le.setSize(0, 0);
+        if (panel.m$N != null) {
+            panel.m$N.setSize(0, 0);
         }
         var rc = new WidgetDockRect();
         rc.left = _$eu;
@@ -232,7 +232,7 @@ WidgetDockPatternFloatPanel.prototype._$3G = function (_$nc, _$mX, _$n1) {
     if (_$mX._$j1 == EnumPatternPositionType.Top || _$mX._$j1 == EnumPatternPositionType.Left) {
         _$8E = true;
     }
-    _$mX._$ka = 0;
+    _$mX._panelIndex = 0;
     _$pp._$3F(_$nc, _$mX._$j1, _$8E, _$n1);
     _$mX._$j1 = 0;
     _$nc._$6m(0, this);

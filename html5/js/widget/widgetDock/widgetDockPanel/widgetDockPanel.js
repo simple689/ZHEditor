@@ -1,5 +1,5 @@
 function WidgetDockPanel() {
-    this._$le = null;
+    this.m$N = null;
     this._$kI = null;
     this._$kR;
     this._$l8;
@@ -22,26 +22,26 @@ WidgetDockPanel.prototype._$3E = function (_$p9, pt, _$de) {
     var _$9z = WidgetDockPatternBase._$m(_$p9, pt);
     _$de[0] = 0;
     if (_$9z != 0xff) {
-        if (this._$le._patternPositionType == EnumPatternPositionType.Top) {
+        if (this.m$N._patternPositionType == EnumPatternPositionType.Top) {
             if (_$9z == WidgetDockPatternBase._$3h) {
                 _$de[0] = 1;
             } else if (_$9z == WidgetDockPatternBase._$3b) {
                 _$de[0] = 2;
             }
-        } else if (this._$le._patternPositionType == EnumPatternPositionType.Bottom) {
+        } else if (this.m$N._patternPositionType == EnumPatternPositionType.Bottom) {
             if (_$9z == WidgetDockPatternBase._$3h) {
                 _$de[0] = 2;
             } else if (_$9z == WidgetDockPatternBase._$3b) {
                 _$de[0] = 1;
             }
-        } else if (this._$le._patternPositionType == EnumPatternPositionType.Left) {
+        } else if (this.m$N._patternPositionType == EnumPatternPositionType.Left) {
             if (_$9z == WidgetDockPatternBase._$3d) {
                 _$de[0] = 1;
             }
             if (_$9z == WidgetDockPatternBase._$3f) {
                 _$de[0] = 2;
             }
-        } else if (this._$le._patternPositionType == EnumPatternPositionType.Right) {
+        } else if (this.m$N._patternPositionType == EnumPatternPositionType.Right) {
             if (_$9z == WidgetDockPatternBase._$3d) {
                 _$de[0] = 2;
             }
@@ -52,23 +52,23 @@ WidgetDockPanel.prototype._$3E = function (_$p9, pt, _$de) {
         if (_$de[0] == 0) {
             return 0xff;
         }
-        _$9z = (2 * this._$le._patternPositionType + 1);
+        _$9z = (2 * this.m$N._patternPositionType + 1);
     }
     return _$9z;
 };
 WidgetDockPanel.prototype._$ah = function (patternBase, patternPositionType) {
-    this._$le = new _$N();
-    this._$le._patternPositionType = patternPositionType;
-    this._$le._$rh(patternBase);
-    this._$le._$rG(this._$km);
+    this.m$N = new _$N();
+    this.m$N._patternPositionType = patternPositionType;
+    this.m$N._$rh(patternBase);
+    this.m$N._$rG(this._$km);
 };
 WidgetDockPanel.prototype._$qI = function () {
-    if (this._$le != null) {
-        if (this._$le._mainPattern != null) {
-            this._$le._mainPattern._$5E(this._$le);
+    if (this.m$N != null) {
+        if (this.m$N._mainPattern != null) {
+            this.m$N._mainPattern._$5E(this.m$N);
         }
-        this._$le._$ap();
-        this._$le = null;
+        this.m$N._$ap();
+        this.m$N = null;
     }
     this._isVisible = false;
 };
@@ -108,7 +108,7 @@ WidgetDockPanel.prototype._$6u = function (patternBase, rcWindow, patternPositio
             this.rect.bottom = rcWindow.bottom - irb;
         }
         if ((_$dW >= top) && (_$dW <= bottom)) {
-            this._$le.getRect(_$qt);
+            this.m$N.getRect(_$qt);
             if ((patternPositionType == EnumPatternPositionType.Top) || (patternPositionType == EnumPatternPositionType.Bottom)) {
                 _$qt.left = this.rect.left;
                 _$qt.right = this.rect.right;
@@ -126,7 +126,7 @@ WidgetDockPanel.prototype._$6u = function (patternBase, rcWindow, patternPositio
                 _$qt.top = this.rect.top;
                 _$qt.bottom = _$qt.top + this.rect.bottom - this.rect.top;
             }
-            this._$le._$6q(_$qt);
+            this.m$N._$6q(_$qt);
         }
     }
 };
@@ -339,7 +339,7 @@ WidgetDockPanel.prototype._$4i = function (mainPattern, patternPositionType, _$d
         if (patternPositionType == EnumPatternPositionType.Right || patternPositionType == EnumPatternPositionType.Bottom) {
             _$gz = -_$cY;
         }
-        this._$le._$4q(_$gz);
+        this.m$N._$4q(_$gz);
     }
 };
 WidgetDockPanel.prototype._$6v = function (patternBase, _$9c, _$cA) {
