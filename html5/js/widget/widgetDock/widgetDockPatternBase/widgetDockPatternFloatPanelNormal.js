@@ -74,7 +74,7 @@ WidgetDockPatternFloatPanelNormal.prototype._$74 = function () {
 };
 WidgetDockPatternFloatPanelNormal._$0x = function (frame) {
     var patternFloatPanelNormal = new WidgetDockPatternFloatPanelNormal(false);
-    patternFloatPanelNormal._location = new WidgetDockLocation();
+    patternFloatPanelNormal._location = new WidgetDockPoint();
     patternFloatPanelNormal._location.x = frame.x;
     patternFloatPanelNormal._location.y = frame.y;
     patternFloatPanelNormal._size = new WidgetDockSize();
@@ -126,25 +126,25 @@ WidgetDockPatternFloatPanelNormal.prototype._$n = function (floatPanel) {
     if (!this.getVisible()) {
         if (this._size == null) {
             this._size = new WidgetDockSize();
-            this._size.width = floatPanel._$lK.cx;
-            this._size.height = floatPanel._$lK.cy;
-            this._location = new WidgetDockLocation();
-            this._location.x = floatPanel._$lt.x;
-            this._location.y = floatPanel._$lt.y;
+            this._size.width = floatPanel._$lK.x;
+            this._size.height = floatPanel._$lK.y;
+            this._location = new WidgetDockPoint();
+            this._location.x = floatPanel._point.x;
+            this._location.y = floatPanel._point.y;
         } else {
-            floatPanel._$lt.x = this._location.x;
-            floatPanel._$lt.y = this._location.y;
-            floatPanel._$lK.cx = this._size.width;
-            floatPanel._$lK.cy = this._size.height;
+            floatPanel._point.x = this._location.x;
+            floatPanel._point.y = this._location.y;
+            floatPanel._$lK.x = this._size.width;
+            floatPanel._$lK.y = this._size.height;
         }
-        var pt = new WidgetDockLocation();
-        pt.x = floatPanel._$lt.x;
-        pt.y = floatPanel._$lt.y;
+        var pt = new WidgetDockPoint();
+        pt.x = floatPanel._point.x;
+        pt.y = floatPanel._point.y;
         if (pt.y < 0) {
             pt.y = 0;
         }
         this.setVisible(true);
-        this._$6p(pt.x, pt.y, floatPanel._$lK.cx, floatPanel._$lK.cy);
+        this._$6p(pt.x, pt.y, floatPanel._$lK.x, floatPanel._$lK.y);
     }
     if (floatPanel._$kA != null && floatPanel._$kA._tabController != null) {
         floatPanel._$kA._tabController._$5z();

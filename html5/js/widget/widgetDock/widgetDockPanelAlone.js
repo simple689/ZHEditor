@@ -1,7 +1,7 @@
 function WidgetDockPanelAlone(elementId) {
     this._resizeType = 0;
     this._isMouseDown = false;
-    this._location = new WidgetDockLocation();
+    this._location = new WidgetDockPoint();
     this._frame = new WidgetDockFrame();
     this._$kQ = null;
     this._$l5 = null;
@@ -38,7 +38,7 @@ WidgetDockPanelAlone.prototype.mouseDown = function (e) {
     if (this._isMouseDown) return;
     WidgetDockWindow._movePanelStateController = this;
     this._isMouseDown = true;
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     if (this._resizeType >= 0) {
         this._location.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
@@ -55,7 +55,7 @@ WidgetDockPanelAlone.prototype.mouseUp = function (e) {
     this._isMouseDown = false;
 };
 WidgetDockPanelAlone.prototype.mouseMove = function (e) {
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     if (!this._isMouseDown) {
         this._$f4(pt);
@@ -87,7 +87,7 @@ WidgetDockPanelAlone.prototype.getRect = function (rc) {
 WidgetDockPanelAlone.prototype._$ms = function (e) {
     if (!this._isMouseDown) return;
     if (this._resizeType < 0) return;
-    var _$pL = new WidgetDockLocation();
+    var _$pL = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, _$pL);
     var rt = new WidgetDockFrame();
     rt.x = this._frame.x;

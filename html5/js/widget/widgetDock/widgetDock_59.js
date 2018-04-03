@@ -59,7 +59,7 @@ _$59.prototype.mouseMove = function (e) {
     if (this._$iJ) return;
     var rc = new WidgetDockRect();
     this._$lc.getRect(rc);
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     if (!WidgetDockPatternBase.isInRect(rc, pt)) {
         if (!this._$la._$3u(pt, this._$kx)) {
@@ -73,7 +73,7 @@ _$59.prototype.mouseMove = function (e) {
     _$59.prototype._$09 = function (e) {
         var rc = new WidgetDockRect();
         this._$lc.getRect(rc);
-        var pt = new WidgetDockLocation();
+        var pt = new WidgetDockPoint();
         WidgetDockElementController.getMousePoint(e, pt);
         if (WidgetDockPatternBase.isInRect(rc, pt)) {
             this._$iJ = true;

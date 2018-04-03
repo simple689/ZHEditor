@@ -22,11 +22,10 @@ WidgetDockListController
 WidgetDockElementController
 WidgetDockController
 _$M
-WidgetDockLocation
+WidgetDockPoint
 WidgetDockSize
 WidgetDockFrame
 WidgetDockRect
-_$5Y
 _$N
 WidgetDockTabController
 _$F

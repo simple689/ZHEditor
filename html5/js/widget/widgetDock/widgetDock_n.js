@@ -90,7 +90,7 @@ _$N.prototype._$rh = function (mainPattern) {
 };
 _$N.prototype._$ms = function (e) {
     if (!this._$iG) return;
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     this._$4i(pt);
     this.refresh();
@@ -99,7 +99,7 @@ _$N.prototype._$4N = function () {
     return this._mainPattern._$s9(this);
 };
 _$N.prototype._$bZ = function () {
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     pt.x = WidgetDockElementController.getElementLeft(this._panelStateElement);
     pt.y = WidgetDockElementController.getElementTop(this._panelStateElement);
     return pt;

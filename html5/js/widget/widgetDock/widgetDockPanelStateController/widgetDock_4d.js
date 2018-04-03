@@ -20,7 +20,7 @@ _$4d.prototype.isInRectWithPanelState = function (pts) {
     var _$po = this._$kY._panelList[0]._list[0]._$kI;
     var left = WidgetDockElementController.getElementLeft(this._panelStateElement);
     var top = WidgetDockElementController.getElementTop(this._panelStateElement);
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     pt.x = pts.x - left;
     pt.y = pts.y - top;
     if (WidgetDockPatternBase.isInRect(this._buttonCloseRect, pt)) {

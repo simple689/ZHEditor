@@ -107,7 +107,7 @@ WidgetDockTabController.prototype.mouseUp = function (e) {
         this._floatPanel._$T();
         return;
     }
-    var _$pH = new WidgetDockLocation();
+    var _$pH = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, _$pH);
     this._isMouseDown = false;
     this._floatPanel._$1x();
@@ -324,19 +324,19 @@ WidgetDockTabController.prototype._$V = function (_$cN) {
     }
 };
 WidgetDockTabController.prototype._$37 = function (e) {
-    var _$pL = new WidgetDockLocation();
+    var _$pL = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, _$pL);
     WidgetDockFloatPanel._$jy = WidgetDockFloatPanel._$0X;
     this._floatPanel._$lf._$iC = true;
     return this._floatPanel._$4R(_$pL);
 };
 WidgetDockTabController.prototype._$ms = function (e) {
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     this._floatPanel._$4i(pt);
 };
 WidgetDockTabController.prototype._$0i = function (e) {
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     pt.x = pt.x - WidgetDockElementController.getElementLeft(this._tabControllerElement);
     var _$e1 = this._tabList.length;
@@ -365,7 +365,7 @@ WidgetDockTabController.prototype._$c6 = function () {
     }
 };
 WidgetDockTabController.prototype._$0d = function (floatPanel, pt) {
-    var _$sw = new WidgetDockLocation();
+    var _$sw = new WidgetDockPoint();
     _$sw.x = pt.x;
     _$sw.y = pt.y;
     _$sw.x = _$sw.x - WidgetDockElementController.getElementLeft(this._tabControllerElement);

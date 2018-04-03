@@ -7,7 +7,7 @@ function _$M() {
     this._heightSec = 0;
     this._$g6 = 0;
 };
-function WidgetDockLocation() {
+function WidgetDockPoint() {
     this.x = 0;
     this.y = 0;
 };
@@ -32,10 +32,6 @@ WidgetDockRect.prototype.setRect = function (rc) {
     this.top = rc.top;
     this.right = rc.right;
     this.bottom = rc.bottom;
-};
-function _$5Y() {
-    this.cx = 0;
-    this.cy = 0;
 };
 
 WidgetDockPrototype = {};

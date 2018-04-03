@@ -352,11 +352,11 @@ WidgetDockPanel.prototype._$4j = function (mainPattern, _$cY, patternPositionTyp
 WidgetDockPanel.prototype._$0e = function (_$mS) {
     if (_$mS == null) return false;
     if (_$mS._floatPanel != null) return true;
-    if (_$mS._$od == null && _$mS._$pr == null && _$mS._$l1 != null) {
-        var _$e1 = _$mS._$l1.length;
+    if (_$mS._$od == null && _$mS._$pr == null && _$mS._$57List != null) {
+        var _$e1 = _$mS._$57List.length;
         if (_$e1 > 0) {
             for (var i = 0; i < _$e1; i++) {
-                var p = _$mS._$l1[i];
+                var p = _$mS._$57List[i];
                 var sz;
                 if (p._title != null) {
                     sz = p._title;
@@ -418,11 +418,11 @@ WidgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index
 };
 WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
     var _$7D = null;
-    if (_$mS._$l1 != null && _$mS._$l1.length >= 1) {
-        var _$gi = _$mS._$l1.length;
+    if (_$mS._$57List != null && _$mS._$57List.length >= 1) {
+        var _$gi = _$mS._$57List.length;
         _$7D = new Array(_$gi);
         for (var i = 0; i < _$gi; i++) {
-            _$7D[i] = _$mS._$l1[i];
+            _$7D[i] = _$mS._$57List[i];
         }
     } else {
         _$7D = new Array(1);
@@ -485,16 +485,18 @@ WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _$mS) {
         layout.addContent(_$aS);
         if (mainPattern._isMain) {
             if (_$7D[i]._floatPanel != null) {
-                layout.addContent(_$7D[i]._floatPanel._$lt.x);
-                layout.addContent(_$7D[i]._floatPanel._$lt.y);
-                layout.addContent(_$7D[i]._floatPanel._$lK.cx);
-                layout.addContent(_$7D[i]._floatPanel._$lK.cy);
+                layout.addContent(_$7D[i]._floatPanel._point.x);
+                layout.addContent(_$7D[i]._floatPanel._point.y);
+                layout.addContent(_$7D[i]._floatPanel._$lK.x);
+                layout.addContent(_$7D[i]._floatPanel._$lK.y);
             } else {
-                if (_$7D[i]._$pA == null) _$7D[i]._$pA = new WidgetDockLocation(100, 200);
-                layout.addContent(_$7D[i]._$pA.x);
-                layout.addContent(_$7D[i]._$pA.y);
-                layout.addContent(_$7D[i]._$rM);
-                layout.addContent(_$7D[i]._$rN);
+                if (_$7D[i]._point == null) {
+                    _$7D[i]._point = new WidgetDockPoint(100, 200);
+                }
+                layout.addContent(_$7D[i]._point.x);
+                layout.addContent(_$7D[i]._point.y);
+                layout.addContent(_$7D[i]._x);
+                layout.addContent(_$7D[i]._y);
             }
         }
     }

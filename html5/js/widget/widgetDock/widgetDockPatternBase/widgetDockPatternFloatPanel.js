@@ -21,7 +21,7 @@ WidgetDockPatternFloatPanel.prototype._$bE = function () {
 };
 WidgetDockPatternFloatPanel.prototype.setLocationSize = function (left, top, right, bottom) {
     if (this._location == null) {
-        this._location = new WidgetDockLocation();
+        this._location = new WidgetDockPoint();
     }
     this._location.x = left;
     this._location.y = top;
@@ -68,7 +68,7 @@ WidgetDockPatternFloatPanel.prototype._$7p = function () {
 };
 WidgetDockPatternFloatPanel._$0y = function (frame) {
     var patternFloatPanel = new WidgetDockPatternFloatPanel(false);
-    patternFloatPanel._location = new WidgetDockLocation();
+    patternFloatPanel._location = new WidgetDockPoint();
     patternFloatPanel._location.x = frame.x;
     patternFloatPanel._location.y = frame.y;
     patternFloatPanel._size = new WidgetDockSize();
@@ -116,8 +116,8 @@ WidgetDockPatternFloatPanel.prototype._$R = function (_$mX, floatPanel, pt, _$nz
     var _$gK = WidgetDockPatternBase.getWidth(_$qe);
     var _$gk = _$gK < _$el ? _$gK : _$el;
     _$mX._$iM = false;
-    _$nz.cx = _$gK;
-    _$nz.cy = _$el;
+    _$nz.x = _$gK;
+    _$nz.y = _$el;
     if (!this._$1h(_$mX, _$nz, _$gK, _$el, _$qe, pt)) {
         return _$mX._$j1;
     }
@@ -158,8 +158,8 @@ WidgetDockPatternFloatPanel.prototype._$R = function (_$mX, floatPanel, pt, _$nz
         floatPanel._$2w(_$nz, _$gk, _$qf, true);
     } else {
         _$qf.left = _$qf.top = 0;
-        _$qf.right = _$nz.cx;
-        _$qf.bottom = _$nz.cy;
+        _$qf.right = _$nz.x;
+        _$qf.bottom = _$nz.y;
         floatPanel._$2w(_$nz, _$gk, _$qf, false);
     }
     floatPanel._$69(0, _$o4, parseInt(_$9z / 2));
@@ -256,7 +256,7 @@ WidgetDockPatternFloatPanel.prototype._$53 = function (floatPanel) {
     var _$e1 = this._panelList[0].getSize();
     if (_$e1 > 0) {
         var panel = this._panelList[0]._list[0];
-        if (panel._$kI._$od == null && panel._$kI._$pr == null && panel._$kI._floatPanel == null && (panel._$kI._$l1 == null || (panel._$kI._$l1 != null && panel._$kI._$l1.length < 1))) {
+        if (panel._$kI._$od == null && panel._$kI._$pr == null && panel._$kI._floatPanel == null && (panel._$kI._$57List == null || (panel._$kI._$57List != null && panel._$kI._$57List.length < 1))) {
             _$e1 = WidgetDockPatternFloatPanel._$kL.length;
             for (var i = 0; i < _$e1; i++) {
                 if (WidgetDockPatternFloatPanel._$kL[i] == this) {

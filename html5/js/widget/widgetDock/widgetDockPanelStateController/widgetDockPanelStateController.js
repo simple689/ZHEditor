@@ -78,7 +78,7 @@ WidgetDockPanelStateController.prototype.mouseDown = function (e) {
         }
     }
     WidgetDockWindow._movePanelStateController = this;
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     if (this.isInRectWithPanelState(pt) >= 0) {
         this._$ms(e);
@@ -103,7 +103,7 @@ WidgetDockPanelStateController.prototype.mouseUp = function (e) {
         this._$T();
         return;
     }
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     this._isMouseDown = false;
     this._floatPanel._$1x();
@@ -148,7 +148,7 @@ WidgetDockPanelStateController.prototype.mouseMove = function (e) {
     if (!this._isMouseDown) {
         var left = WidgetDockElementController.getElementLeft(this._panelStateElement);
         var top = WidgetDockElementController.getElementTop(this._panelStateElement);
-        var location = new WidgetDockLocation();
+        var location = new WidgetDockPoint();
         WidgetDockElementController.getMousePoint(e, location);
         location.x = location.x - left;
         location.y = location.y - top;
@@ -174,7 +174,7 @@ WidgetDockPanelStateController.prototype.mouseMove = function (e) {
 WidgetDockPanelStateController.prototype.isInRectWithPanelState = function (pt) {
     var left = WidgetDockElementController.getElementLeft(this._panelStateElement);
     var top = WidgetDockElementController.getElementTop(this._panelStateElement);
-    var location = new WidgetDockLocation();
+    var location = new WidgetDockPoint();
     location.x = pt.x - left;
     location.y = pt.y - top;
     if (this._floatPanel._pinType != EnumPinType.None && WidgetDockPatternBase.isInRect(this._buttonPinRect, location)) {
@@ -198,7 +198,7 @@ WidgetDockPanelStateController.prototype.isInRectWithPanelState = function (pt) 
 };
 WidgetDockPanelStateController.prototype._$ms = function (e) {
     if (!this._isMouseDown) return;
-    var pt = new WidgetDockLocation();
+    var pt = new WidgetDockPoint();
     WidgetDockElementController.getMousePoint(e, pt);
     this._floatPanel._$4i(pt);
 };
