@@ -4,7 +4,7 @@ function WidgetDockPanelAlone(elementId) {
     this._location = new WidgetDockPoint();
     this._frame = new WidgetDockFrame();
     this._$kQ = null;
-    this._$l5 = null;
+    this.m$59 = null;
     this._panelStateElement = WidgetDockElementController.createElementWithParentId("div", elementId);
     this._panelStateElement.style.border = "1px solid";
     this._panelStateElement._panelAlone = this;
@@ -151,8 +151,8 @@ WidgetDockPanelAlone.prototype._$sC = function (_$pL, rt) {
     }
     if (this._$kQ != null) {
         this._$kQ._$6p(rt.x, rt.y, rt.width, rt.height);
-    } else if (this._$l5 != null) {
-        this._$l5.resize(rt.x, rt.y, rt.width, rt.height);
+    } else if (this.m$59 != null) {
+        this.m$59.resize(rt.x, rt.y, rt.width, rt.height);
     }
 };
 WidgetDockPanelAlone.prototype._$f4 = function (pt) {

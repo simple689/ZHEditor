@@ -126,33 +126,33 @@ _$N.prototype._$s9 = function () {
         var _$g8 = this._mainPattern._$2F(this._patternPositionType, panel) + 1;
         if (_$pv[0] == null) {
             if (this._patternPositionType == EnumPatternPositionType.Left) {
-                this._$jR = panel.rect.left + 2 * WidgetDockPatternBase._$5Z;
+                this._$jR = panel._rect.left + 2 * WidgetDockPatternBase._$5Z;
                 this._$jS = this._mainPattern._rect.right - 2 * WidgetDockPatternBase._$5Z - this._mainPattern._$2J(this._patternPositionType, _$g8, 0xffffffff);
             } else if (this._patternPositionType == EnumPatternPositionType.Right) {
                 this._$jR = this._mainPattern._rect.left + this._mainPattern._$2J(this._patternPositionType, _$g8, 0xffffffff) + WidgetDockPatternBase._$5Z;
-                this._$jS = panel.rect.right - 2 * WidgetDockPatternBase._$5Z;
+                this._$jS = panel._rect.right - 2 * WidgetDockPatternBase._$5Z;
             } else if (this._patternPositionType == EnumPatternPositionType.Top) {
-                this._$jR = panel.rect.top + 2 * WidgetDockPatternBase._$5Z;
+                this._$jR = panel._rect.top + 2 * WidgetDockPatternBase._$5Z;
                 this._$jS = this._mainPattern._rect.bottom - 2 * WidgetDockPatternBase._$5Z - this._mainPattern._$2J(this._patternPositionType, _$g8, 0xffffffff);
             } else {
                 this._$jR = this._mainPattern._rect.top + this._mainPattern._$2J(this._patternPositionType, _$g8, 0xffffffff) + WidgetDockPatternBase._$5Z;
-                this._$jS = panel.rect.bottom - 2 * WidgetDockPatternBase._$5Z;
+                this._$jS = panel._rect.bottom - 2 * WidgetDockPatternBase._$5Z;
             }
         } else {
-            var iw = _$pv[0].rect.right - _$pv[0].rect.left;
-            var ih = _$pv[0].rect.bottom - _$pv[0].rect.top;
+            var iw = _$pv[0]._rect.right - _$pv[0]._rect.left;
+            var ih = _$pv[0]._rect.bottom - _$pv[0]._rect.top;
             if (this._patternPositionType == EnumPatternPositionType.Left) {
-                this._$jR = panel.rect.left + 2 * WidgetDockPatternBase._$5Z;
-                this._$jS = panel.rect.right + iw - 2 * WidgetDockPatternBase._$5Z;
+                this._$jR = panel._rect.left + 2 * WidgetDockPatternBase._$5Z;
+                this._$jS = panel._rect.right + iw - 2 * WidgetDockPatternBase._$5Z;
             } else if (this._patternPositionType == EnumPatternPositionType.Right) {
-                this._$jR = panel.rect.left - iw + WidgetDockPatternBase._$5Z;
-                this._$jS = panel.rect.right - 2 * WidgetDockPatternBase._$5Z;
+                this._$jR = panel._rect.left - iw + WidgetDockPatternBase._$5Z;
+                this._$jS = panel._rect.right - 2 * WidgetDockPatternBase._$5Z;
             } else if (this._patternPositionType == EnumPatternPositionType.Top) {
-                this._$jR = panel.rect.top + 2 * WidgetDockPatternBase._$5Z;
-                this._$jS = panel.rect.bottom + ih - 2 * WidgetDockPatternBase._$5Z;
+                this._$jR = panel._rect.top + 2 * WidgetDockPatternBase._$5Z;
+                this._$jS = panel._rect.bottom + ih - 2 * WidgetDockPatternBase._$5Z;
             } else {
-                this._$jR = panel.rect.top - ih + WidgetDockPatternBase._$5Z;
-                this._$jS = panel.rect.bottom - 2 * WidgetDockPatternBase._$5Z;
+                this._$jR = panel._rect.top - ih + WidgetDockPatternBase._$5Z;
+                this._$jS = panel._rect.bottom - 2 * WidgetDockPatternBase._$5Z;
             }
         }
     } else if (this._$iI) {
@@ -390,9 +390,9 @@ _$N.prototype._$2a = function (_$89, _$nC, _$dj) {
     return null;
 };
 _$N.prototype._$1p = function () {
-    var rect = this._$lx;
-    WidgetDockElementController.setElementLeftTop(this._panelStateElement, rect.left, rect.top);
-    WidgetDockElementController.setElementSize(this._panelStateElement, rect.right - rect.left, rect.bottom - rect.top);
+    var _rect = this._$lx;
+    WidgetDockElementController.setElementLeftTop(this._panelStateElement, _rect.left, _rect.top);
+    WidgetDockElementController.setElementSize(this._panelStateElement, _rect.right - _rect.left, _rect.bottom - _rect.top);
 };
 _$N.prototype.refresh = function () {
     var iw, ih;

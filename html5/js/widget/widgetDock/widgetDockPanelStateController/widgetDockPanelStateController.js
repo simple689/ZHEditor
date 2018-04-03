@@ -450,7 +450,7 @@ WidgetDockPanelStateController.prototype._$6z = function () {
 WidgetDockPanelStateController.prototype._$aF = function (iw, ih, _$8a, _$cD) {
     var _$8H = false;
     var _$8n = true;
-    if (WidgetDockPatternBase._$l2 != null && WidgetDockPatternBase._$l2._$kx == this._floatPanel) {
+    if (WidgetDockPatternBase._$l2 != null && WidgetDockPatternBase._$l2._floatPanel == this._floatPanel) {
         _$8n = false;
     }
     if (_$8n && _$8a) {

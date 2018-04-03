@@ -2,10 +2,10 @@ function _$5g() {
 };
 
 function _$6P() {
-    this._$lC = new _$5g();
+    this.m$5g = new _$5g();
     this._$ir = false;
     this._$it = false;
-    this._$kx = null;
+    this._floatPanel = null;
     this._$jr = 0;
     this._patternPositionType = 0;
     this._$kA = null;

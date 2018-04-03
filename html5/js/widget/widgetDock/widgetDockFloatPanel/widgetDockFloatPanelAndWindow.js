@@ -255,7 +255,7 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
     this._$lf._patternPositionType = this._patternPositionType;
     this._$lf._$jr = this._$jr;
     this._$lf._$kA = this._$kA;
-    this._$lf._$kx = this;
+    this._$lf._floatPanel = this;
     this._$lf._$ir = this._$ir;
     if (!this._$Q()) {
         this._$lf._$it = true;
@@ -263,9 +263,9 @@ WidgetDockFloatPanel.prototype._$R = function (pt, patternPositionType, _$nz) {
         this._$lf._$it = false;
     }
     if (WidgetDockFloatPanel._$jy != WidgetDockFloatPanel._$0W) {
-        this.getRect(this._$lf._$lC);
+        this.getRect(this._$lf.m$5g);
     } else {
-        this._pattern.getWindowRect(this._$lf._$lC);
+        this._pattern.getWindowRect(this._$lf.m$5g);
     }
     var _$og = null;
     var _$oh = null;
@@ -673,7 +673,7 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
             return;
         }
     }
-    var _$8s = false;
+    var sch = false;
     this._$lf._$ij = false;
     this._$lf._$iC = false;
     this._$lf._$kM = this._$R(pt, this._$lN, WidgetDockFloatPanel._$lL);
@@ -742,7 +742,7 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
                 }
                 var rca = new WidgetDockRect();
                 if (_$pY != null) {
-                    rca.setRect(_$pY.rect);
+                    rca.setRect(_$pY._rect);
                 } else {
                     this._$lf._$kM.getWindowRect(rca);
                     rca.left += this._$lf._$kM._signLenList[0];
@@ -767,7 +767,7 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
         this._$lx.top = this._$lf._$kq;
         this._$lx.right = this._$lx.left + WidgetDockFloatPanel._$lL.x;
         this._$lx.bottom = this._$lx.top + WidgetDockFloatPanel._$lL.y;
-        _$8s = true;
+        sch = true;
     }
     if (WidgetDockFloatPanel._$jy == WidgetDockFloatPanel._$0X) {
         if (this._$lf._$iC) {
@@ -778,20 +778,20 @@ WidgetDockFloatPanel.prototype._$4i = function (pt) {
         }
     }
     if (this._windowType == EnumWindowType.Normal) {
-        this._$4l(_$8s);
+        this._$4l(sch);
         return;
     }
-    _$lY._$ri(_$8s, this._$id);
-    _$lR._$ri(_$8s, this._$id);
-    _$lU._$ri(_$8s, this._$id);
-    _$lV._$ri(_$8s, this._$id);
+    _$lY._$ri(sch, this._$id);
+    _$lR._$ri(sch, this._$id);
+    _$lU._$ri(sch, this._$id);
+    _$lV._$ri(sch, this._$id);
     this._$m6(this._$lx.left, this._$lx.top, this._$lx.right - this._$lx.left, this._$lx.bottom - this._$lx.top);
 };
-WidgetDockFloatPanel.prototype._$4l = function (_$8s) {
-    WidgetDockFloatPanel._$hT._$ri(_$8s, this._$id);
-    WidgetDockFloatPanel._$hM._$ri(_$8s, this._$id);
-    WidgetDockFloatPanel._$hP._$ri(_$8s, this._$id);
-    WidgetDockFloatPanel._$hQ._$ri(_$8s, this._$id);
+WidgetDockFloatPanel.prototype._$4l = function (sch) {
+    WidgetDockFloatPanel._$hT._$ri(sch, this._$id);
+    WidgetDockFloatPanel._$hM._$ri(sch, this._$id);
+    WidgetDockFloatPanel._$hP._$ri(sch, this._$id);
+    WidgetDockFloatPanel._$hQ._$ri(sch, this._$id);
     var pt = new WidgetDockPoint();
     pt.x = this._$lx.left;
     pt.y = this._$lx.top;
@@ -1566,8 +1566,8 @@ WidgetDockFloatPanel.prototype._$0C = function () {
     }
     var ih, iw;
     if (panel != null) {
-        iw = panel.rect.right - panel.rect.left;
-        ih = panel.rect.bottom - panel.rect.top;
+        iw = panel._rect.right - panel._rect.left;
+        ih = panel._rect.bottom - panel._rect.top;
         if (this._$kj <= WidgetDockFloatPanel._$q) {
             if (this.isTopOrBottom(_patternPositionType) && !this.isTopOrBottom(_$9u)) {
                 iw = 200;
@@ -2167,9 +2167,9 @@ WidgetDockWindow.prototype.getWindowRect = function (rc) {
 
 WidgetDockWindow.prototype._$3C = function () {
     window.onresize = windowResize;
-    var rect = new WidgetDockRect();
-    this.getWindowRect(rect);
-    this._patternMain.setSize(rect.right - rect.left, rect.bottom - rect.top);
+    var _rect = new WidgetDockRect();
+    this.getWindowRect(_rect);
+    this._patternMain.setSize(_rect.right - _rect.left, _rect.bottom - _rect.top);
     for (var i = 0; i < 4; i++) {
         this._floatPanelControllerList[i] = new WidgetDockListController();
     }

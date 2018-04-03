@@ -119,47 +119,47 @@ WidgetDockElementController.getOffsetHeightWithFontStyle = function (fontStyle) 
         size.width = _$sr.width;
     }
 };
-WidgetDockElementController._$1q = function (_$tB, _$tD, _$tA, _$tC, cxt) {
-    cxt.beginPath();
-    cxt.moveTo(_$tB, _$tD);
-    cxt.lineTo(_$tA, _$tC);
-    cxt.lineWidth = 1;
-    cxt.closePath();
-    cxt.stroke();
+WidgetDockElementController._$1q = function (left, top, width, height, element) {
+    element.beginPath();
+    element.moveTo(left, top);
+    element.lineTo(width, height);
+    element.lineWidth = 1;
+    element.closePath();
+    element.stroke();
 };
-WidgetDockElementController._$1n = function (_$tB, _$tD, _$tA, _$tC, cxt) {
-    cxt.beginPath();
+WidgetDockElementController._$1n = function (left, top, width, height, element) {
+    element.beginPath();
     var _$ta = 2;
     var _$t3 = 5;
     var vno;
-    if (_$tB == _$tA) {
-        vno = (_$tC - _$tD) / (_$ta + _$t3);
+    if (left == width) {
+        vno = (height - top) / (_$ta + _$t3);
         if (vno < 0) {
             vno = -vno;
-            var _$tm = _$tD;
-            _$tD = _$tC;
-            _$tC = _$tm;
+            var _$tm = top;
+            top = height;
+            height = _$tm;
         }
         for (var i = 0; i < vno; i++) {
-            cxt.moveTo(_$tB, _$tD + i * (_$ta + _$t3));
-            cxt.lineTo(_$tA, _$tD + i * (_$ta + _$t3) + _$t3);
+            element.moveTo(left, top + i * (_$ta + _$t3));
+            element.lineTo(width, top + i * (_$ta + _$t3) + _$t3);
         }
     } else {
-        vno = (_$tA - _$tB) / (_$ta + _$t3);
+        vno = (width - left) / (_$ta + _$t3);
         if (vno < 0) {
             vno = -vno;
-            var _$tm = _$tB;
-            _$tB = _$tA;
-            _$tA = _$tm;
+            var _$tm = left;
+            left = width;
+            width = _$tm;
         }
         for (var i = 0; i < vno; i++) {
-            cxt.moveTo(_$tB + i * (_$ta + _$t3), _$tD);
-            cxt.lineTo(_$tB + i * (_$ta + _$t3) + _$t3, _$tC);
+            element.moveTo(left + i * (_$ta + _$t3), top);
+            element.lineTo(left + i * (_$ta + _$t3) + _$t3, height);
         }
     }
-    cxt.lineWidth = 1;
-    cxt.closePath();
-    cxt.stroke();
+    element.lineWidth = 1;
+    element.closePath();
+    element.stroke();
 };
 WidgetDockElementController.getMousePoint = function (e, pt) {
     pt.x = e.clientX;
