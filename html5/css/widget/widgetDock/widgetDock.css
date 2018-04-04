@@ -2,6 +2,10 @@
     position: absolute;
     background-color: #66dd99;
 }
+.panelCenter {
+    overflow:auto;
+    background-color: #66dd99;
+}
 .panelFloat {
     overflow: auto;
     background-color: #66dd66;

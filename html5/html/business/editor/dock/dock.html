@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../../../../css/common/base.css">
     <!-- [css] widget -->
     <link rel="stylesheet" href="../../../../css/widget/widgetDock/widgetDock.css">
+    <style type="text/css" title="currentStyle">
+        @import "../../../../css/widget/widgetDock/widgetDockStyle.css";
+    </style>
     <link rel="stylesheet" href="../../../../css/widget/widgetTab.css">
     <link rel="stylesheet" href="../../../../css/widget/widgetDrop.css">
     <!-- [css] business -->
@@ -18,32 +21,7 @@
     <!-- [js] common -->
     <script src="../../../../js/common/log.js"></script>
     <!-- [js] widget -->
-    <script src="../../../../js/widget/widgetDock/widgetDockBase.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockLayout/widgetDockLayoutWriter.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockLayout/widgetDockLayoutReader.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockElementController.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockListController.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockController.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockFloatPanel/widgetDockFloatPanelAndWindow.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPatternBase/widgetDockPatternBase.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPatternBase/widgetDockPatternMain.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDock.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockTab.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPanelAlone.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDock_6c.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDock_57.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDock_f.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockTabController.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPatternBase/widgetDockPatternFloatPanel.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPatternBase/widgetDockPatternFloatPanelNormal.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDock_n.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPanelStateController/widgetDockPanelStateController.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPanelStateController/widgetDock_4d.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPanel/widgetDockPanel.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPanel/widgetDockPanelState.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDockPanel/widgetDockPanelStatePanel.js"></script>
-    <script src="../../../../js/widget/widgetDock/widgetDock_59.js"></script>
-
+    <script src="../../../../js/widget/widgetDock.js"></script>
     <script src="../../../../js/widget/widgetTab.js"></script>
     <script src="../../../../js/widget/widgetDrop.js"></script>
     <!-- [js] business -->
@@ -56,9 +34,10 @@
     <script src="../../../../js/business/editor/panel/panelFileEditor.js"></script>
     <script src="../../../../js/business/editor/panel/panelFileBrowser.js"></script>
 </head>
-<body onload = "initWidgetDock()">
+<body onload = "initWidgetDock()" onbeforeunload="onBeforeUnload()">
+<div class="panelCenter" id="panelCenter"></div>
+
 <div class="panelFixed" id="panelFixedTop" style="height:60px;"></div>
-<div class="panelFixed" id="panelFixedCenter"></div>
 <div class="panelFixed" id="panelFixedBottom" style="height:20px;"></div>
 
 <div class="panelFloat" id="panelTest"></div>
