@@ -1,46 +1,27 @@
-var logController = {
-    // log: function(...args) {
-    //     console.log(...args);
-    // },
-    // logDebug: function(...args) {
-    //     console.debug(...args);
-    // },
-    // logInfo: function(...args) {
-    //     console.info(...args);
-    // },
-    // logWarn: function(...args) {
-    //     console.warn(...args);
-    // },
-    // logError: function(...args) {
-    //     console.error(...args);
-    // },
-    log: function (args) {
-        console.log(args);
-    },
-    logDebug: function (args) {
-        console.debug(args);
-    },
-    logInfo: function (args) {
-        console.info(args);
-    },
-    logWarn: function (args) {
-        console.warn(args);
-    },
-    logError: function (args) {
-        console.error(args);
-    },
-    logFunc: function (str) {
-        var regular = /function\s*(\w*)/i;
-        var matches = regular.exec(str);
-        if (matches[1].length) {
-            console.debug(matches[1]);
-        } else {
-            console.debug(str);
-        }
-    },
+function LogController() {
 };
-
-// exe
-//========
-$(function () {
-});
+LogController.log = function (...args) {
+    console.log(...args);
+};
+LogController.debug = function (...args) {
+    console.debug(...args);
+};
+LogController.info = function (...args) {
+    console.info(...args);
+};
+LogController.warn = function (...args) {
+    console.warn(...args);
+};
+LogController.error = function (...args) {
+    console.error(...args);
+};
+LogController.func = function () {
+    // LogController.log(arguments.callee.caller);
+    // var regular = /function\s*(\w*)/i;
+    // var matches = regular.exec(str);
+    // if (matches[1].length) {
+    //     console.debug(matches[1]);
+    // } else {
+    //     console.debug(str);
+    // }
+};

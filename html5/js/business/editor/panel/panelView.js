@@ -1,7 +1,5 @@
-var panelViewController = {
-    name: "panelViewController",
-
-    init: function () {
-        logController.log(this.name, "->", arguments.callee.name);
-    }
+function PanelViewController() {
+};
+PanelViewController.prototype.init = function () {
+    LogController.func();
 };

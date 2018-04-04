@@ -5,10 +5,22 @@ var panelFileEditor = null;
 var panelFileBrowser = null;
 var dockLayoutKey = "dockLayout";
 
+var panelFileBrowserController = null;
+var panelFileEditorController = null;
+var panelMenuController = null;
+var panelStateController = null;
+var panelTestController = null;
+var panelToolBarController = null;
+var panelViewController = null;
+
 function initWidgetDock() {
     dock = DSXDFUtil.createDSXDFUtil();
     loadLayout();
-
+    initPanel();
+    initLayout();
+    initPanelController();
+}
+function initPanel() {
     dock.addFixedPanel(document.getElementById("panelCenter"), DSXDFUtil.fixedCenter);
 
     dock.addFixedPanel(document.getElementById("panelFixedTop"), DSXDFUtil.fixedTop);
@@ -25,14 +37,24 @@ function initWidgetDock() {
 
     panelFileBrowser = dock.createDFPanel("文件浏览器", "");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
-
-    initLayout();
 }
-
-function onBeforeUnload() {
-    saveLayout();
+function initLayout() {
+    panelFileEditor.enableNormalHiddenButton(false);
+    panelTest.initLayout(0, 0, 300, 300, DSXDFPanel.dockRight);
+    panelFileBrowser.initLayout(0, 0, 300, 300, DSXDFPanel.dockBottom);
+    panelView.initLayout(0, 0, 300, 300, DSXDFPanel.dockLeft);
+    // panelFileEditor.setInitialLayoutReference(panelView);
+    panelFileEditor.initLayout(0, 0, 2000, 2000, DSXDFPanel.dockLeft);
 }
-
+function initPanelController() {
+    panelFileBrowserController = new PanelFileBrowserController();
+    panelFileEditorController = new PanelFileEditorController();
+    panelMenuController = new PanelMenuController();
+    panelStateController = new PanelStateController();
+    panelTestController = new PanelTestController();
+    panelToolBarController = new PanelToolBarController();
+    panelViewController = new PanelViewController();
+}
 function loadLayout() {
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
@@ -45,24 +67,15 @@ function loadLayout() {
         }
     }
 }
-
 function saveLayout() {
     if (dock != null) {
         dock.saveStatesIntoKey(dockLayoutKey);
         var sessionStorage = window['sessionStorage'];
     }
 }
-
-function initLayout() {
-    panelFileEditor.enableNormalHiddenButton(false);
-
-    panelTest.initLayout(0, 0, 881, 864, DSXDFPanel.dockRight);
-    panelFileBrowser.initLayout(0, 0, 300, 300, DSXDFPanel.dockBottom);
-    panelView.initLayout(0, 0, 600, 600, DSXDFPanel.dockLeft);
-    // panelFileEditor.setInitialLayoutReference(panelView);
-    panelFileEditor.initLayout(0, 0, 2000, 2000, DSXDFPanel.dockLeft);
+function onBeforeUnload() {
+    saveLayout();
 }
-
 function setVisible(panel, sch) {
     panel.setVisible(sch);
 }

@@ -1,7 +1,5 @@
-var panelStateController = {
-    name: "panelStateController",
-
-    init: function () {
-        logController.log(this.name, "->", arguments.callee.name);
-    }
+function PanelStateController() {
+};
+PanelStateController.prototype.init = function () {
+    LogController.func();
 };

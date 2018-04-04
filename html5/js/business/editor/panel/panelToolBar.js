@@ -1,7 +1,5 @@
-var panelToolBarController = {
-    name: "panelToolBarController",
-
-    init: function () {
-        logController.log(this.name, "->", arguments.callee.name);
-    }
+function PanelToolBarController() {
+};
+PanelToolBarController.prototype.init = function () {
+    LogController.func();
 };

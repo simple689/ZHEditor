@@ -1,10 +1,6 @@
 function WidgetDropController() {
 };
-WidgetDropController.name = "WidgetDropController";
-
 WidgetDropController.prototype.init = function (d) {
-    logController.log(this.name, "->", arguments.callee.name);
-
     // 拖拽的目标对象document监听drop并防止浏览器打开客户端的图片
     document.ondragover = this.documentOndragover;
     document.ondrop = this.documentOndrop;
