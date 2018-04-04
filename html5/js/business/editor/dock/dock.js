@@ -47,12 +47,12 @@ function loadLayout() {
 }
 
 function initLayout() {
-    panelTest.enableNormalHiddenButton(false);
+    // panelTest.enableNormalHiddenButton(false);
 
     panelTest.initLayout(0, 0, 881, 864, DSXDFPanel.dockRight);
     panelFileBrowser.initLayout(0, 0, 300, 300, DSXDFPanel.dockBottom);
     panelView.initLayout(0, 0, 600, 600, DSXDFPanel.dockLeft);
-    panelFileEditor.setInitialLayoutReference(panelView);
+    // panelFileEditor.setInitialLayoutReference(panelView);
     panelFileEditor.initLayout(0, 0, 2000, 2000, DSXDFPanel.dockLeft);
 }
 
