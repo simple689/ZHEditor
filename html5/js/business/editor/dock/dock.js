@@ -55,7 +55,7 @@ function saveLayout() {
 
 function initLayout() {
     panelFileEditor.enableNormalHiddenButton(false);
-    
+
     panelTest.initLayout(0, 0, 881, 864, DSXDFPanel.dockRight);
     panelFileBrowser.initLayout(0, 0, 300, 300, DSXDFPanel.dockBottom);
     panelView.initLayout(0, 0, 600, 600, DSXDFPanel.dockLeft);
