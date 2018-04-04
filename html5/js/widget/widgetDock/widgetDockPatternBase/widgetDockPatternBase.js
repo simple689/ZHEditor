@@ -238,11 +238,11 @@ WidgetDockPatternBase.prototype._$mB = function (iw, ih) {
     }
     return 1;
 };
-WidgetDockPatternBase.prototype._$72 = function (_m$F) {
-    if (!_m$F._$8y) {
-        while (_m$F != null) {
-            _m$F._$8y = false;
-            _m$F = _m$F._m$FParent;
+WidgetDockPatternBase.prototype._$72 = function (m$F) {
+    if (!m$F._$8y) {
+        while (m$F != null) {
+            m$F._$8y = false;
+            m$F = m$F._m$FParent;
         }
     }
 };
@@ -312,16 +312,16 @@ WidgetDockPatternBase.prototype._$5H = function (floatPanel, _$ng) {
         return;
     }
 };
-WidgetDockPatternBase.prototype._$55 = function (_m$F, floatPanel, _$sg, patternPositionType, _$dg) {
-    if (_$dg < 0) return;
-    var _$st = _m$F;
-    if (_$st == null) return;
-    var _$pj = this._panelList[patternPositionType]._list[_$dg];
+WidgetDockPatternBase.prototype._$55 = function (m$F, floatPanel, title, patternPositionType, floatPanelIndex) {
+    if (m$F == null) return;
+    if (floatPanelIndex < 0) return;
+    var m$FTmp = m$F;
+    var _$pj = this._panelList[patternPositionType]._list[floatPanelIndex];
     var _$gs;
     if (floatPanel != null) {
-        _$gs = _m$F._$56(floatPanel);
+        _$gs = m$F._$56(floatPanel);
     } else {
-        _$gs = _m$F._$56(_$sg);
+        _$gs = m$F._$56(title);
     }
     if (_$gs > 0) {
         if (floatPanel != null) {
@@ -329,29 +329,29 @@ WidgetDockPatternBase.prototype._$55 = function (_m$F, floatPanel, _$sg, pattern
         }
         return;
     }
-    var _$93 = _$pj._$53(_$st);
+    var _$93 = _$pj._$53(m$FTmp);
     if (floatPanel != null) {
         floatPanel._m$F = null;
     }
     if (_$93) {
-        if (floatPanel != null && _$sg == null) {
+        if (floatPanel != null && title == null) {
             if (floatPanel._patternPositionType == floatPanel.m$6P._$j1 && floatPanel._$jr < floatPanel.m$6P._panelIndex && floatPanel.m$6P._panelIndex != -1 && floatPanel.m$6P._panelIndex != 0xffffffff) {
                 floatPanel.m$6P._panelIndex -= 1;
             }
         }
         var _$pU;
-        this._panelList[patternPositionType]._list[_$dg]._m$F = null;
-        this._panelList[patternPositionType].delete(_$dg);
-        for (var i = _$dg; i < this._panelList[patternPositionType].getSize(); i++) {
+        this._panelList[patternPositionType]._list[floatPanelIndex]._m$F = null;
+        this._panelList[patternPositionType].delete(floatPanelIndex);
+        for (var i = floatPanelIndex; i < this._panelList[patternPositionType].getSize(); i++) {
             _$pU = this._panelList[patternPositionType]._list[i];
             var pb = _$pU._m$F;
             this._$6m(pb, i);
         }
         var _$oF;
-        if (_$dg == 0) {
+        if (floatPanelIndex == 0) {
             _$oF = null;
         } else {
-            _$oF = this._panelList[patternPositionType]._list[_$dg - 1];
+            _$oF = this._panelList[patternPositionType]._list[floatPanelIndex - 1];
         }
         if (patternPositionType == EnumPatternPositionType.Left || patternPositionType == EnumPatternPositionType.Right) {
             this._$5L(EnumPatternPositionType.Top, _$pj, _$oF);
@@ -440,8 +440,7 @@ WidgetDockPatternBase.prototype._$19 = function (_m$F, patternPositionType, _$9e
         this._panelList[patternPositionType].insert(panel, _$9e);
         this._$6m(_m$F, _$9e);
         var _$pU;
-        var i;
-        for (i = _$9e + 1; i < this._panelList[patternPositionType].getSize(); i++) {
+        for (var i = _$9e + 1; i < this._panelList[patternPositionType].getSize(); i++) {
             _$pU = this._panelList[patternPositionType]._list[i];
             this._$6m(_$pU._m$F, i);
         }
@@ -1861,52 +1860,54 @@ WidgetDockPatternBase.prototype.loadLayout = function (layoutReader) {
         }
     }
 };
-WidgetDockPatternBase.prototype._$0b = function (patternPositionPanelNumList, positionNum, floatPanelController) {
+WidgetDockPatternBase.prototype._$0b = function (patternPositionPanelNumList, floatPanelController) {
     if (floatPanelController == null) return;
-    var _$dD = new Array(4);
-    for (var i = 0; i < positionNum; i++) {
-        _$dD[i] = this._panelList[i].getSize();
+    var ary = new Array(4);
+    for (var i = 0; i < 4; i++) {
+        ary[i] = this._panelList[i].getSize();
     }
-    var _$fz = floatPanelController.getSize();
-    for (var nn = 0; nn < _$fz; nn++) {
-        var _$si = floatPanelController._list[nn].getTitle();
-        var _$8G = false;
-        for (var i = 0; i < positionNum; i++) {
-            if (_$8G) break;
-            for (var s = patternPositionPanelNumList[i]; s < _$dD[i]; s++) {
-                var pbf = this._$1N(_$si, this._panelList[i]._list[s]._m$F);
-                if (pbf != null) {
-                    _$8G = true;
-                    this._$55(pbf, null, _$si, i, s);
-                    _$dD[i] = this._panelList[i].getSize();
+    var len = floatPanelController.getSize();
+    for (var i = 0; i < len; i++) {
+        var title = floatPanelController._list[i].getTitle();
+        var isFind = false;
+        for (var j = 0; j < 4; j++) {
+            if (isFind) break;
+            for (var k = patternPositionPanelNumList[i]; k < ary[j]; k++) {
+                var m$F = this._$1N(title, this._panelList[j]._list[k]._m$F);
+                if (m$F != null) {
+                    isFind = true;
+                    this._$55(m$F, floatPanelController._list[i], title, j, k);
+                    ary[j] = this._panelList[j].getSize();
                     break;
                 }
             }
         }
     }
 };
-WidgetDockPatternBase.prototype._$1N = function (title, _m$F) {
-    if (_m$F == null) {
+WidgetDockPatternBase.prototype._$1N = function (title, m$F) {
+    if (m$F == null) {
         return null;
     }
-    var _$pO = null;
-    if (_m$F._m$F_1 != null) {
-        _$pO = this._$1N(title, _m$F._m$F_1);
+    if (m$F._m$F_1 != null) {
+        var m$F_1 = this._$1N(title, m$F._m$F_1);
+        if (m$F_1 != null) {
+            return m$F_1;
+        }
     }
-    if (_$pO != null) {
-        return _$pO;
+    if (m$F._m$F_2 != null) {
+        var m$F_2 = this._$1N(title, m$F._m$F_2);
+        if (m$F_2 != null) {
+            return m$F_2;
+        }
     }
-    if (_m$F._m$F_2 != null) {
-        return this._$1N(title, _m$F._m$F_2);
-    }
-    if (_m$F._title != null && _m$F._title.lastIndexOf(title) == 0) {
-        return _m$F;
-    } else if (_m$F._$57List != null && _m$F._$57List.length > 0) {
-        var _$e1 = _m$F._$57List.length;
-        for (var i = 0; i < _$e1; i++) {
-            var _$so = _m$F._$57List[i]._title;
-            if (_$so != null && _$so.lastIndexOf(title) == 0) {
-                return _m$F;
+    if (m$F._title != null && m$F._title.lastIndexOf(title) == 0) {
+        return m$F;
+    } else if (m$F._$57List != null && m$F._$57List.length > 0) {
+        var len = m$F._$57List.length;
+        for (var i = 0; i < len; i++) {
+            var title$57 = m$F._$57List[i]._title;
+            if (title$57 != null && title$57.lastIndexOf(title) == 0) {
+                return m$F;
             }
         }
     }

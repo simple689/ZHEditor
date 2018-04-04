@@ -540,11 +540,11 @@ WidgetDockFloatPanel.prototype._$6F = function () {
     this._$qz();
 };
 WidgetDockFloatPanel.prototype._$4L = function () {
-    _$5d();
+    this._$5d();
 };
 WidgetDockFloatPanel.prototype._$5d = function () {
-    if (_pinType == EnumPinType.Hide) return;
-    _$6F();
+    if (this._pinType == EnumPinType.Hide) return;
+    this._$6F();
 };
 WidgetDockFloatPanel.prototype.clickButtonClose = function () {
     if (this._pinType == EnumPinType.Hide) {
@@ -2302,7 +2302,7 @@ WidgetDockWindow.prototype.loadLayout = function (layoutReader) {
             }
         }
     }
-    this._patternMain._$0b(patternPositionPanelNumList, 4, floatPanelController);
+    this._patternMain._$0b(patternPositionPanelNumList, floatPanelController);
     var _$rS = layoutReader.read();
     var _$e1 = parseInt(layoutReader.read());
     var _$aj = new WidgetDockListController();

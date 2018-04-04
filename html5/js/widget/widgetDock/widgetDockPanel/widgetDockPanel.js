@@ -173,12 +173,12 @@ WidgetDockPanel.prototype._$03 = function (mainPattern, _$mX, pt, _$nz, _$dk, _$
         return _$9z;
     }
 };
-WidgetDockPanel.prototype._$53 = function (_m$F) {
-    var _m$FParent = _m$F._m$FParent;
+WidgetDockPanel.prototype._$53 = function (m$F) {
+    var _m$FParent = m$F._m$FParent;
     if (_m$FParent == null) {
         return true;
     }
-    if (_m$F == _m$FParent._m$F_1) {
+    if (m$F == _m$FParent._m$F_1) {
         _m$FParent._m$F_1 = null;
         if (_m$FParent._m$F_2 == null) {
             return this._$53(_m$FParent);

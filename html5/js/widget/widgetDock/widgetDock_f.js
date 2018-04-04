@@ -345,50 +345,52 @@ _$F.prototype._$20 = function () {
     }
     return false;
 };
-_$F.prototype._$56 = function (_$sg) {
+_$F.prototype._$56 = function (title) {
     if (this._$57List == null || this._$57List.length == 0) {
         return 0;
     }
-    var _$gi = this._$57List.length;
-    var _$sm;
-    for (var i = 0; i < _$gi; i++) {
-        _$sm = this._$57List[i]._title;
-        if (_$sm != null && (_$sm == _$sg)) {
+    var len = this._$57List.length;
+    var title$57;
+    for (var i = 0; i < len; i++) {
+        title$57 = this._$57List[i]._title;
+        if (title$57 != null && (title$57 == title)) {
             this._$57List.splice(i, 1);
             break;
         }
     }
-    _$gi = this._$57List.length;
-    return _$gi;
+    len = this._$57List.length;
+    return len;
 };
 _$F.prototype._$56 = function (floatPanel) {
-    if (this._$57List == null || this._$57List.length == 0) return 0;
-    var _$pN;
-    var _$gi = this._$57List.length;
+    if (this._$57List == null || this._$57List.length == 0) {
+        return 0;
+    }
+    var len = this._$57List.length;
+    var floatPanel$57;
     if (floatPanel == null) {
-        while (_$gi > 0) {
-            _$pN = this._$57List[0]._floatPanel;
-            if (_$pN != null) {
-                _$pN._m$F = null;
+        while (len > 0) {
+            floatPanel$57 = this._$57List[0]._floatPanel;
+            if (floatPanel$57 != null) {
+                floatPanel$57._m$F = null;
                 this._$57List.splice(0, 1);
-                _$gi = this._$57List.length;
+                len = this._$57List.length;
             }
         }
         return 0;
     }
-    for (var i = 0; i < _$gi; i++) {
-        _$pN = this._$57List[i]._floatPanel;
-        if (_$pN == floatPanel) {
+    for (var i = 0; i < len; i++) {
+        floatPanel$57 = this._$57List[i]._floatPanel;
+        if (floatPanel$57 == floatPanel) {
             this._$57List.splice(i, 1);
-            _$pN._m$F = null;
+            floatPanel$57._m$F = null;
             if (floatPanel == this._floatPanel) {
                 this._floatPanel = null;
             }
             break;
         }
     }
-    _$gi = this._$57List.length;
-    return _$gi;
+    len = this._$57List.length;
+    return len;
 };
 _$F.prototype._$31 = function (floatPanel, pt) {
     if (this._tabController != null && this._tabController._tabList.length >= 2) {
