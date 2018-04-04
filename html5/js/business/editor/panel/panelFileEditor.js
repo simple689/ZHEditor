@@ -1,12 +1,13 @@
 function PanelFileEditorController() {
-    this.widgetTabController = new WidgetTabController();
+    this._widgetTabController = new WidgetTabController();
     // widgetDropController = new WidgetDropController();
 };
 PanelFileEditorController.prototype.init = function () {
     LogController.func();
 
     // appendWidgetTab();
-    this.widgetTabController.init(this);
+    var elementTab = document.getElementsByClassName("widgetTab");
+    this._widgetTabController.init(elementTab);
     // widgetDropController.init(this);
 
     // var input = document.createElement("input");

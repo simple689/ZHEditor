@@ -1,25 +1,25 @@
 function WidgetTabController() {
+    this._elementTab = null;
 };
 WidgetTabController.slideSpeed = 200;
 
-WidgetTabController.prototype.init = function (d) {
+WidgetTabController.prototype.init = function (elementTab) {
+    this._elementTab = elementTab;
     var eventList = new Array();
     eventList["bindUIAction"] = this.bindUIAction;
     eventList["hideInactive"] = this.hideInactive;
     this.tabEvent(eventList);
 };
 WidgetTabController.prototype.tabEvent = function (eventList) {
-    var tabList = document.getElementsByClassName("widgetTab");
-    var $tabList = $(tabList);
-    $tabList.each(function (tabIndex) {
-        var $tabItem = $(tabList[tabIndex]);
+    $(this._elementTab).each(function (tabIndex) {
+        var $tabItem = $(this);
 
         var childList = $tabItem.context.childNodes;
-        var $childList = $(childList);
         var ulTitleGroup = null;
         var divContentGroup = null;
-        $childList.each(function (childIndex) {
+        $(childList).each(function (childIndex) {
             var $childItem = $(childList[childIndex]);
+
             if ($childItem.is("ul") && $childItem.hasClass("widgetTabTitleGroup")) {
                 LogController.log("ul.widgetTabTitleGroup = %d", tabIndex);
                 ulTitleGroup = $childItem;
