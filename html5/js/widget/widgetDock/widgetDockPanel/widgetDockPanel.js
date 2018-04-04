@@ -88,7 +88,7 @@ WidgetDockPanel.prototype._$2B = function (floatPanel, pRC) {
     }
     floatPanel.getRect(pRC);
 };
-WidgetDockPanel.prototype._$6u = function (patternBase, rcWindow, patternPositionType, top, bottom, _$cA) {
+WidgetDockPanel.prototype._$6u = function (patternBase, windowRect, patternPositionType, top, bottom, _$cA) {
     if (this._isVisible) {
         var ilt, irb;
         var _$dW;
@@ -98,14 +98,14 @@ WidgetDockPanel.prototype._$6u = function (patternBase, rcWindow, patternPositio
             _$dW = (this._rect.top + this._rect.bottom) / 2;
             ilt = patternBase._$2I(EnumPatternPositionType.Left, this._$kR);
             irb = patternBase._$2I(EnumPatternPositionType.Right, this._$l8);
-            this._rect.left = rcWindow.left + ilt;
-            this._rect.right = rcWindow.right - irb;
+            this._rect.left = windowRect.left + ilt;
+            this._rect.right = windowRect.right - irb;
         } else {
             _$dW = (this._rect.left + this._rect.right) / 2;
             ilt = patternBase._$2I(EnumPatternPositionType.Top, this._$kR);
             irb = patternBase._$2I(EnumPatternPositionType.Bottom, this._$l8);
-            this._rect.top = rcWindow.top + ilt;
-            this._rect.bottom = rcWindow.bottom - irb;
+            this._rect.top = windowRect.top + ilt;
+            this._rect.bottom = windowRect.bottom - irb;
         }
         if ((_$dW >= top) && (_$dW <= bottom)) {
             this.m$N.getRect(_$qt);
@@ -384,13 +384,13 @@ WidgetDockPanel.prototype._$0e = function (_m$F) {
     }
     return b;
 };
-WidgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index, patternPositionType_0, patternPositionType_1) {
+WidgetDockPanel.prototype.initPanelLayout = function (mainPattern, layoutWriter, index, patternPositionType_0, patternPositionType_1) {
     if (!this._$0e(this._m$F)) {
         return index;
     }
-    layout.addContent("SEC" + index);
-    layout.addContent(this._rect.right - this._rect.left);
-    layout.addContent(this._rect.bottom - this._rect.top);
+    layoutWriter.write("SEC" + index);
+    layoutWriter.write(this._rect.right - this._rect.left);
+    layoutWriter.write(this._rect.bottom - this._rect.top);
     var _$aR = -1;
     if (this._$kR != null) {
         _$aR = mainPattern._$2F(patternPositionType_0, this._$kR);
@@ -399,7 +399,7 @@ WidgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index
             if (_$aR > _$fp) _$aR--;
         }
     }
-    layout.addContent(_$aR);
+    layoutWriter.write(_$aR);
     _$aR = -1;
     if (this._$l8 != null) {
         _$aR = mainPattern._$2F(patternPositionType_1, this._$l8);
@@ -408,15 +408,15 @@ WidgetDockPanel.prototype.initPanelLayout = function (mainPattern, layout, index
             if (_$aR > _$fp) _$aR--;
         }
     }
-    layout.addContent(_$aR);
-    this._$66(layout);
+    layoutWriter.write(_$aR);
+    this._$66(layoutWriter);
     var _$nT = this._m$F;
-    layout.addContent("ROOTBLOCK");
-    this.initPanelInfoLayout(mainPattern, layout, _$nT);
+    layoutWriter.write("ROOTBLOCK");
+    this.initPanelInfoLayout(mainPattern, layoutWriter, _$nT);
     index++;
     return index;
 };
-WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _m$F) {
+WidgetDockPanel.prototype._$63 = function (mainPattern, layoutWriter, _m$F) {
     var _$7D = null;
     if (_m$F._$57List != null && _m$F._$57List.length >= 1) {
         var _$gi = _m$F._$57List.length;
@@ -429,7 +429,7 @@ WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _m$F) {
         _$7D[0] = new _$57();
         _$7D[0]._floatPanel = _m$F._floatPanel;
     }
-    layout.addContent(_$7D.length);
+    layoutWriter.write(_$7D.length);
     for (var i = 0; i < _$7D.length; i++) {
         var sTitle;
         var _$aS = 0xFFF00000;
@@ -481,28 +481,28 @@ WidgetDockPanel.prototype._$63 = function (mainPattern, layout, _m$F) {
         } else {
             _$aS &= ~WidgetDockFloatPanel._$1B;
         }
-        layout.addContent(sTitle);
-        layout.addContent(_$aS);
+        layoutWriter.write(sTitle);
+        layoutWriter.write(_$aS);
         if (mainPattern._isMain) {
             if (_$7D[i]._floatPanel != null) {
-                layout.addContent(_$7D[i]._floatPanel._point.x);
-                layout.addContent(_$7D[i]._floatPanel._point.y);
-                layout.addContent(_$7D[i]._floatPanel._$lK.x);
-                layout.addContent(_$7D[i]._floatPanel._$lK.y);
+                layoutWriter.write(_$7D[i]._floatPanel._point.x);
+                layoutWriter.write(_$7D[i]._floatPanel._point.y);
+                layoutWriter.write(_$7D[i]._floatPanel._$lK.x);
+                layoutWriter.write(_$7D[i]._floatPanel._$lK.y);
             } else {
                 if (_$7D[i]._point == null) {
                     _$7D[i]._point = new WidgetDockPoint(100, 200);
                 }
-                layout.addContent(_$7D[i]._point.x);
-                layout.addContent(_$7D[i]._point.y);
-                layout.addContent(_$7D[i]._x);
-                layout.addContent(_$7D[i]._y);
+                layoutWriter.write(_$7D[i]._point.x);
+                layoutWriter.write(_$7D[i]._point.y);
+                layoutWriter.write(_$7D[i]._x);
+                layoutWriter.write(_$7D[i]._y);
             }
         }
     }
 };
-WidgetDockPanel.prototype.initPanelInfoLayout = function (mainPattern, layout, _m$F) {
-    layout.addContent(_m$F._$br * 1000);
+WidgetDockPanel.prototype.initPanelInfoLayout = function (mainPattern, layoutWriter, _m$F) {
+    layoutWriter.write(_m$F._$br * 1000);
     var _$aS = new Array(1);
     _$aS[0] = _m$F._positionType_2;
     _$aS[0] <<= 8;
@@ -510,24 +510,24 @@ WidgetDockPanel.prototype.initPanelInfoLayout = function (mainPattern, layout, _
     _$aS[0] <<= 8;
     if (_m$F._m$F_1 != null || _m$F._m$F_2 != null) {
         if (_m$F._m$F_1 != null) {
-            layout.addContent("LEFTBLOCK");
-            this.initPanelInfoLayout(mainPattern, layout, _m$F._m$F_1);
+            layoutWriter.write("LEFTBLOCK");
+            this.initPanelInfoLayout(mainPattern, layoutWriter, _m$F._m$F_1);
         } else {
-            layout.addContent("LEFTNONE");
+            layoutWriter.write("LEFTNONE");
         }
         if (_m$F._m$F_2 != null) {
-            layout.addContent("RIGHTBLOCK");
-            this.initPanelInfoLayout(mainPattern, layout, _m$F._m$F_2);
+            layoutWriter.write("RIGHTBLOCK");
+            this.initPanelInfoLayout(mainPattern, layoutWriter, _m$F._m$F_2);
         } else {
-            layout.addContent("RIGHTNONE");
+            layoutWriter.write("RIGHTNONE");
         }
     } else {
-        layout.addContent("LEFTNONE");
-        layout.addContent("RIGHTNONE");
-        this._$63(mainPattern, layout, _m$F);
+        layoutWriter.write("LEFTNONE");
+        layoutWriter.write("RIGHTNONE");
+        this._$63(mainPattern, layoutWriter, _m$F);
     }
-    layout.addContent(_$aS[0]);
+    layoutWriter.write(_$aS[0]);
 };
-WidgetDockPanel.prototype._$66 = function (layout) {
-    layout.addContent(0);
+WidgetDockPanel.prototype._$66 = function (layoutWriter) {
+    layoutWriter.write(0);
 };

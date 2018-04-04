@@ -1240,9 +1240,9 @@ WidgetDockPanelState.prototype._$ah = function (patternBase, patternPositionType
     this._$km = 0;
     WidgetDockPanel.prototype._$ah.call(this, patternBase, patternPositionType);
 };
-WidgetDockPanelState.prototype._$66 = function (layout) {
+WidgetDockPanelState.prototype._$66 = function (layoutWriter) {
 };
-WidgetDockPanelState.prototype._$63 = function (mainPattern, layout, _m$F) {
+WidgetDockPanelState.prototype._$63 = function (mainPattern, layoutWriter, _m$F) {
 };
-WidgetDockPanelState.prototype.initPanelInfoLayout = function (mainPattern, layout, _m$F) {
+WidgetDockPanelState.prototype.initPanelInfoLayout = function (mainPattern, layoutWriter, _m$F) {
 };

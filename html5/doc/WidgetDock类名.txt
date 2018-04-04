@@ -15,8 +15,8 @@ _$4d（WidgetDockPanelStateController）
 WidgetDockFloatPanel
 WidgetDockWindow（WidgetDockFloatPanel）特殊
 
-WidgetDockLayoutController
-WidgetDockLayout
+WidgetDockLayoutReader
+WidgetDockLayoutWriter
 WidgetDockTab
 WidgetDockListController
 WidgetDockElementController

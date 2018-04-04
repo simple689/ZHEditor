@@ -19,8 +19,8 @@ function initWidgetDock() {
     // panelFileEditor = dock.createFloatPanel("文件编辑");
     // panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"));
 
-    panelFileBrowser = dock.createFloatPanel("文件浏览器");
-    panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
+    // panelFileBrowser = dock.createFloatPanel("文件浏览器");
+    // panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
 
     loadLayout();
 }
@@ -31,7 +31,7 @@ function loadLayout() {
         // sessionStorage.setItem(dockLayoutKey, dockLayoutStr);
         var item = sessionStorage.getItem(dockLayoutKey);
         if (item != null) {
-            dock.loadLayoutFromKey(dockLayoutKey);
+            dock.loadLayout(dockLayoutKey);
         } else {
             initLayout();
         }
@@ -40,13 +40,13 @@ function loadLayout() {
 
 function initLayout() {
     panelTest.initLayout(0,0,881,864,EnumPatternPositionType.Right);
-    panelFileBrowser.initLayout(0,0,300,300,EnumPatternPositionType.Bottom);
+    // panelFileBrowser.initLayout(0,0,300,300,EnumPatternPositionType.Bottom);
     // panelView.initLayout(0,0,600,600,EnumPatternPositionType.Left);
     // panelFileEditor.initLayout(0,0,2000,2000,EnumPatternPositionType.Left);
 }
 
 function saveLayout() {
-    dock.saveLayoutIntoKey(dockLayoutKey);
+    dock.saveLayout(dockLayoutKey);
     // var sessionStorage = window['sessionStorage'];
     // alert(sessionStorage.getItem(dockLayoutKey));
 }

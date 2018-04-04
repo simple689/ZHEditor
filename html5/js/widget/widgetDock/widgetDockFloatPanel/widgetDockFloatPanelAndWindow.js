@@ -185,10 +185,10 @@ WidgetDockFloatPanel.prototype._$r6 = function (sch) {
 WidgetDockFloatPanel.prototype.createPanel = function () {
     return new WidgetDockPanel();
 };
-WidgetDockFloatPanel.prototype._$69 = function (_$9g, layoutController, _$97) {
+WidgetDockFloatPanel.prototype._$69 = function (_$9g, layoutReader, _$97) {
     this.m$6P._$j1 = _$9g;
-    if (layoutController != null) {
-        this.m$6P._$ky = layoutController._m$F;
+    if (layoutReader != null) {
+        this.m$6P._$ky = layoutReader._m$F;
         this.m$6P._$j2 = _$97;
     } else {
         this.m$6P._$ky = null;
@@ -651,9 +651,9 @@ WidgetDockFloatPanel.prototype._$15 = function () {
 WidgetDockFloatPanel.prototype._$4i = function (pt) {
     this._$iL = true;
     if (this._windowType == EnumWindowType.Normal) {
-        var rcWindow = new WidgetDockRect();
-        this._window.getWindowRect(rcWindow);
-        if (!WidgetDockPatternBase.isInRect(rcWindow, pt)) {
+        var windowRect = new WidgetDockRect();
+        this._window.getWindowRect(windowRect);
+        if (!WidgetDockPatternBase.isInRect(windowRect, pt)) {
             return;
         }
     }
@@ -2230,12 +2230,68 @@ WidgetDockWindow.prototype.resizeWindow = function (e) {
 WidgetDockWindow.prototype._$qF = function (_$a0) {
     this._patternMain._$qF(_$a0);
 };
-WidgetDockWindow.prototype.loadStatesFromLayoutController = function (layoutController) {
+WidgetDockWindow.prototype.saveLayout = function (layoutWriter) {
+    layoutWriter.write("WidgetDockIdentifier");
+    var windowRect = new WidgetDockRect();
+    this.getWindowRect(windowRect);
+    layoutWriter.write(windowRect.left);
+    layoutWriter.write(windowRect.top);
+    layoutWriter.write(windowRect.right);
+    layoutWriter.write(windowRect.bottom);
+    var patternPositionType_0, patternPositionType_1;
+    for (var i = 0; i < 4; i++) {
+        if (i == 0 || i == 2) {
+            patternPositionType_0 = EnumPatternPositionType.Top;
+            patternPositionType_1 = EnumPatternPositionType.Bottom;
+        } else {
+            patternPositionType_0 = EnumPatternPositionType.Left;
+            patternPositionType_1 = EnumPatternPositionType.Right;
+        }
+        var len = this._patternMain._panelList[i].getSize();
+        var panel;
+        var index = 0;
+        for (var j = 0; j < len; j++) {
+            panel = this._patternMain._panelList[i]._list[j];
+            index = panel.initPanelLayout(this._patternMain, layoutWriter, index, patternPositionType_0, patternPositionType_1);
+        }
+        layoutWriter.write("SECTIONNONE");
+    }
+    layoutWriter.write("MINIFRAMES");
+    var _$e1 = this._$kL.length;
+    var panel;
+    var ino = 0;
+    var panelNum;
+    for (var i = 0; i < _$e1; i++) {
+        panelNum = this._$kL[i]._panelList[0].getSize();
+        if (panelNum == 1) {
+            ino++;
+        }
+    }
+    layoutWriter.write(ino);
+    patternPositionType_0 = 1;
+    patternPositionType_1 = 3;
+    for (var i = 0; i < _$e1; i++) {
+        panelNum = this._$kL[i]._panelList[0].getSize();
+        if (panelNum == 1) {
+            var _$og = this._$kL[i];
+            _$og.getWindowRect(windowRect);
+            layoutWriter.write(windowRect.left);
+            layoutWriter.write(windowRect.top);
+            layoutWriter.write(windowRect.right);
+            layoutWriter.write(windowRect.bottom);
+            panel = _$og._panelList[0]._list[0];
+            panel.initPanelLayout(_$og, layoutWriter, 0, patternPositionType_0, patternPositionType_1);
+            layoutWriter.write("SECTIONNONE");
+        }
+    }
+    layoutWriter.getLayoutStr();
+};
+WidgetDockWindow.prototype.loadLayout = function (layoutReader) {
     var patternPositionPanelNumList = new Array(4);
     for (var i = 0; i < 4; i++) {
         patternPositionPanelNumList[i] = this._patternMain._panelList[i].getSize();
     }
-    this._patternMain._$41(layoutController);
+    this._patternMain.loadLayout(layoutReader);
     var floatPanelController = new WidgetDockListController();
     if (WidgetDockFloatPanel._floatPanelList != null) {
         var panelNum = WidgetDockFloatPanel._floatPanelList.getSize();
@@ -2247,12 +2303,12 @@ WidgetDockWindow.prototype.loadStatesFromLayoutController = function (layoutCont
         }
     }
     this._patternMain._$0b(patternPositionPanelNumList, 4, floatPanelController);
-    var _$rS = layoutController.read();
-    var _$e1 = parseInt(layoutController.read());
+    var _$rS = layoutReader.read();
+    var _$e1 = parseInt(layoutReader.read());
     var _$aj = new WidgetDockListController();
     for (var i = 0; i < _$e1; i++) {
         var _$ox = new WidgetDockPatternFloatPanelNormal(false);
-        _$ox._$41(layoutController);
+        _$ox.loadLayout(layoutReader);
         this._$kL.push(_$ox);
         _$aj.add(_$ox);
     }
@@ -2284,62 +2340,6 @@ WidgetDockWindow.prototype.loadStatesFromLayoutController = function (layoutCont
             }
         }
     }
-};
-WidgetDockWindow.prototype.createLayout = function (layout) {
-    layout.addContent("DFIdentifier");
-    var rcWindow = new WidgetDockRect();
-    this.getWindowRect(rcWindow);
-    layout.addContent(rcWindow.left);
-    layout.addContent(rcWindow.top);
-    layout.addContent(rcWindow.right);
-    layout.addContent(rcWindow.bottom);
-    var patternPositionType_0, patternPositionType_1;
-    for (var i = 0; i < 4; i++) {
-        if (i == 0 || i == 2) {
-            patternPositionType_0 = EnumPatternPositionType.Top;
-            patternPositionType_1 = EnumPatternPositionType.Bottom;
-        } else {
-            patternPositionType_0 = EnumPatternPositionType.Left;
-            patternPositionType_1 = EnumPatternPositionType.Right;
-        }
-        var panelNum = this._patternMain._panelList[i].getSize();
-        var panel;
-        var index = 0;
-        for (var j = 0; j < panelNum; j++) {
-            panel = this._patternMain._panelList[i]._list[j];
-            index = panel.initPanelLayout(this._patternMain, layout, index, patternPositionType_0, patternPositionType_1);
-        }
-        layout.addContent("SECTIONNONE");
-    }
-    layout.addContent("MINIFRAMES");
-    var _$e1 = this._$kL.length;
-    var panel;
-    var ino = 0;
-    var panelNum;
-    for (var i = 0; i < _$e1; i++) {
-        panelNum = this._$kL[i]._panelList[0].getSize();
-        if (panelNum == 1) {
-            ino++;
-        }
-    }
-    layout.addContent(ino);
-    patternPositionType_0 = 1;
-    patternPositionType_1 = 3;
-    for (var i = 0; i < _$e1; i++) {
-        panelNum = this._$kL[i]._panelList[0].getSize();
-        if (panelNum == 1) {
-            var _$og = this._$kL[i];
-            _$og.getWindowRect(rcWindow);
-            layout.addContent(rcWindow.left);
-            layout.addContent(rcWindow.top);
-            layout.addContent(rcWindow.right);
-            layout.addContent(rcWindow.bottom);
-            panel = _$og._panelList[0]._list[0];
-            panel.initPanelLayout(_$og, layout, 0, patternPositionType_0, patternPositionType_1);
-            layout.addContent("SECTIONNONE");
-        }
-    }
-    layout.getContent();
 };
 WidgetDockWindow.prototype._$1O = function (floatPanel, title, _$nO, _$dA, _$dC, patternList, _$cX) {
     var len = this._$kL.length;

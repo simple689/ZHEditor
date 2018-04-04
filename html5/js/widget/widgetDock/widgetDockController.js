@@ -115,21 +115,21 @@ WidgetDockController.prototype.addFixedPanel = function (element, type) {
 WidgetDockController.prototype.createFloatPanel = function (title) {
     return new WidgetDockFloatPanel(WidgetDockController._window, title);
 };
-WidgetDockController.prototype.saveLayoutIntoKey = function (key) {
-    var layout = new WidgetDockLayout();
-    WidgetDockController._window.createLayout(layout);
+WidgetDockController.prototype.saveLayout = function (key) {
+    var layoutWriter = new WidgetDockLayoutWriter();
+    WidgetDockController._window.saveLayout(layoutWriter);
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
-        sessionStorage.setItem(key, layout.getContent());
+        sessionStorage.setItem(key, layoutWriter.getLayoutStr());
     }
 };
-WidgetDockController.prototype.loadLayoutFromKey = function (key) {
+WidgetDockController.prototype.loadLayout = function (key) {
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
         var layoutStr = sessionStorage.getItem(key);
         if (layoutStr != null) {
-            var layoutController = new WidgetDockLayoutController(layoutStr);
-            WidgetDockController._window.loadStatesFromLayoutController(layoutController);
+            var layoutReader = new WidgetDockLayoutReader(layoutStr);
+            WidgetDockController._window.loadLayout(layoutReader);
         }
     }
 };
