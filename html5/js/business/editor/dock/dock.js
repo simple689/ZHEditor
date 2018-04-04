@@ -7,7 +7,7 @@ var dockLayoutKey = "dockLayout";
 
 function initWidgetDock() {
     dock = DSXDFUtil.createDSXDFUtil();
-    dock.loadStatesFromKey(dockLayoutKey);
+    loadLayout();
 
     dock.addFixedPanel(document.getElementById("panelCenter"), DSXDFUtil.fixedCenter);
 
@@ -26,7 +26,7 @@ function initWidgetDock() {
     panelFileBrowser = dock.createDFPanel("文件浏览器", "");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
 
-    loadLayout();
+    initLayout();
 }
 
 function onBeforeUnload() {
@@ -34,33 +34,33 @@ function onBeforeUnload() {
 }
 
 function loadLayout() {
-    // var sessionStorage = window['sessionStorage'];
-    // if (sessionStorage != null) {
-    //     // sessionStorage.setItem(dockLayoutKey, dockLayoutStr);
-    //     var item = sessionStorage.getItem(dockLayoutKey);
-    //     if (item != null) {
-    //         dock.loadStatesFromKey(dockLayoutKey);
-    //     } else {
-    initLayout();
-    //     }
-    // }
+    var sessionStorage = window['sessionStorage'];
+    if (sessionStorage != null) {
+        var item = sessionStorage.getItem(dockLayoutKey);
+        if (item != null) {
+            dock.loadStatesFromKey(dockLayoutKey);
+        } else {
+            var dockLayoutStr = "";
+            sessionStorage.setItem(dockLayoutKey, dockLayoutStr);
+        }
+    }
+}
+
+function saveLayout() {
+    if (dock != null) {
+        dock.saveStatesIntoKey(dockLayoutKey);
+        var sessionStorage = window['sessionStorage'];
+    }
 }
 
 function initLayout() {
-    // panelTest.enableNormalHiddenButton(false);
-
+    panelFileEditor.enableNormalHiddenButton(false);
+    
     panelTest.initLayout(0, 0, 881, 864, DSXDFPanel.dockRight);
     panelFileBrowser.initLayout(0, 0, 300, 300, DSXDFPanel.dockBottom);
     panelView.initLayout(0, 0, 600, 600, DSXDFPanel.dockLeft);
     // panelFileEditor.setInitialLayoutReference(panelView);
     panelFileEditor.initLayout(0, 0, 2000, 2000, DSXDFPanel.dockLeft);
-}
-
-function saveLayout() {
-    if (dock != null)
-        dock.saveStatesIntoKey(dockLayoutKey);
-    // var sessionStorage = window['sessionStorage'];
-    // alert(sessionStorage.getItem(dockLayoutKey));
 }
 
 function setVisible(panel, sch) {
@@ -85,12 +85,12 @@ $(document).ready(function () {
     $('#panelTest').load("../panel/panelTest.html", function () {
         panelTestController.init();
     });
-    // $('#panelView').load("../panel/panelView.html", function() {
-    //     panelViewController.init();
-    // });
-    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-    //     panelFileEditorController.init();
-    // });
+    $('#panelView').load("../panel/panelView.html", function() {
+        panelViewController.init();
+    });
+    $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
+        panelFileEditorController.init();
+    });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
         panelFileBrowserController.init();
     });
