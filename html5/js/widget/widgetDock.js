@@ -6315,6 +6315,7 @@ DSXDFUtil.createDSXDFUtil = function () {
                 var _$ti = _$tG.indexOf("widgetDock.js");
                 if (_$ti >= 0) {
                     DSXDFUtil._$i0 = _$tG.substr(0, _$ti);
+                    DSXDFUtil._$i0 += "../../"
                     break;
                 }
             }
