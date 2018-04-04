@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css" title="currentStyle">
+        @import "../../../../css/widget/widgetDock/widgetDockStyle.css";
+    </style>
+    <script type="text/javascript" src="../../../../js/widget/widgetDock.js"></script>
+    <script type="text/javascript">
+        var dfp = null;
+        var dfwa;
+        var dfwb;
+        var dfwc;
+        var dfwd;
+        function ShowDFWA(bshow) {
+            dfwa.setVisible(bshow);
+        }
+        function onleavepage() {
+            if (dfp != null)
+                dfp.saveStatesIntoKey("MyKey");
+        }
+        function init() {
+            dfp = DSXDFUtil.createDSXDFUtil();
+
+            dfp.loadStatesFromKey("MyKey");
+            dfp.addFixedPanel(document.getElementById("centerdiv"), DSXDFUtil.fixedCenter);
+            dfp.addFixedPanel(document.getElementById("fixedontop"), DSXDFUtil.fixedTop);
+            dfp.addFixedPanel(document.getElementById("fixedonbottom"), DSXDFUtil.fixedBottom);
+            dfp.addFixedPanel(document.getElementById("fixedonleft"), DSXDFUtil.fixedLeft);
+            dfp.addFixedPanel(document.getElementById("fixedonright"), DSXDFUtil.fixedRight);
+
+            dfwa = dfp.createDFPanel("Panel A", "mydfa");
+            // dfwa.enableNormalHiddenButton(false);
+            dfwa.addContentDiv(document.getElementById("dockfloatdiva"));
+            dfwa.initLayout(150, 300, 400, 200, DSXDFPanel.dockLeft);
+            // dfwa.initLayout(150, 300, 400, 200, DSXDFPanel.floated);
+
+            dfwb = dfp.createDFPanel("Panel B", "mydfa");
+            // dfwb.enableNormalHiddenButton(false);
+            dfwb.addContentDiv(document.getElementById("dockfloatdivb"));
+            dfwb.initLayout(150, 300, 200, 200, DSXDFPanel.dockBottom);
+
+            dfwc = dfp.createDFPanel("Panel C", "mydfa");
+            // dfwc.enableNormalHiddenButton(false);
+            // dfwc.setInitialLayoutReference(dfwb);
+            dfwc.addContentDiv(document.getElementById("dockfloatdivc"));
+            dfwc.initLayout(150, 300, 200, 200, DSXDFPanel.dockRight);
+
+            dfwd = dfp.createDFPanel("Panel D", "mydfa");
+            // dfwd.enableNormalHiddenButton(false);
+            // dfwd.setInitialLayoutReference(dfwa);
+            dfwd.addContentDiv(document.getElementById("dockfloatdivd"));
+            dfwd.initLayout(150, 300, 200, 200, DSXDFPanel.tabbed);
+        }
+    </script>
+</head>
+<body onload="init()" onbeforeunload="onleavepage()">
+<DIV ID="dockfloatdiva" STYLE="overflow:auto; background-color:#00ff00">
+    here
+</DIV>
+<DIV ID="dockfloatdivb" STYLE=" overflow:auto;background-color:#ffffff">
+    here
+</DIV>
+<DIV ID="dockfloatdivc" STYLE="overflow:auto;background-color:#ffffff">
+    here
+</DIV>
+<DIV ID="dockfloatdivd" STYLE="overflow:auto;background-color:#ffffff">
+    here
+</DIV>
+<div id="fixedontop" STYLE="position:absolute;height:36px;background-color:#00ffff">
+    here
+</div>
+<div id="fixedonbottom" STYLE="position:absolute;height:46px;background-color:#00ffff">
+    here
+</div>
+<div id="fixedonleft" STYLE="position:absolute;width:36px;background-color:#ff0000">
+    here
+</div>
+<div id="fixedonright" STYLE="position:absolute;width:36px;background-color:#ff0000">
+    here
+</div>
+<DIV ID="centerdiv" STYLE="border:solid 1px; overflow:auto;
+background-color:#00ffff; layer-background-color: #00ffff">
+    <input type="button" value="Show Panel A" , onclick="ShowDFWA(true)"/>
+    <input type="button" value="Hide Panel A" , onclick="ShowDFWA(false)"/>
+</DIV>
+</body>
+</html>

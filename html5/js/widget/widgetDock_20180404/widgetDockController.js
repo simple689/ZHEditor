@@ -35,7 +35,7 @@ WidgetDockController.init = function () {
 
     var elementDiv = document.createElement("div");
     document.body.appendChild(elementDiv);
-    elementDiv.id = "widgetDock";
+    elementDiv.id = "widgetDock_20180404";
     WidgetDockController._elementRootId = elementDiv.id;
 
     WidgetDockController.setStyle();
