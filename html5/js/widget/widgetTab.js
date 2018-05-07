@@ -2,35 +2,89 @@ function WidgetTabController() {
     this._elementTab = null;
 };
 WidgetTabController.slideSpeed = 200;
+WidgetTabController.prototype.init = function (elementParent, panel) {
+    this._elementTab = document.createElement("figure");
+    elementParent.appendChild(this._elementTab);
 
-WidgetTabController.prototype.init = function (elementTab) {
-    this._elementTab = elementTab;
+    this._panel = panel;
+    this._elementTab._widgetTabController = this;
+
+    this._elementTab.className += " ";
+    this._elementTab.className += "widgetTab";
+
+    this.initTitleGroup();
+    this.initTitle();
+    this.initContentGroup();
+    this.initContent();
+
     var eventList = new Array();
     eventList["bindUIAction"] = this.bindUIAction;
     eventList["hideInactive"] = this.hideInactive;
     this.tabEvent(eventList);
 };
+WidgetTabController.prototype.initTitleGroup = function () {
+    this._elementTabTitleGroup = document.createElement("ul");
+    this._elementTab.appendChild(this._elementTabTitleGroup);
+
+    this._elementTabTitleGroup._widgetTabController = this;
+
+    this._elementTabTitleGroup.className += " ";
+    this._elementTabTitleGroup.className += "widgetTabTitleGroup";
+};
+WidgetTabController.prototype.initTitle = function () {
+    this._elementTabTitle = document.createElement("li");
+    this._elementTabTitleGroup.appendChild(this._elementTabTitle);
+
+    this._elementTabTitle._widgetTabController = this;
+
+    this._elementTabTitle.className += " ";
+    this._elementTabTitle.className += "widgetTabTitle";
+    this._elementTabTitle.className += " ";
+    this._elementTabTitle.className += "isActive";
+
+    this._elementTabTitle.textContent = "首页";
+};
+WidgetTabController.prototype.initContentGroup = function () {
+    this._elementTabContentGroup = document.createElement("div");
+    this._elementTab.appendChild(this._elementTabContentGroup);
+
+    this._elementTabContentGroup._widgetTabController = this;
+
+    this._elementTabContentGroup.className += " ";
+    this._elementTabContentGroup.className += "widgetTabContentGroup";
+};
+WidgetTabController.prototype.initContent = function () {
+    this._elementTabContent = document.createElement("div");
+    this._elementTabContentGroup.appendChild(this._elementTabContent);
+
+    this._elementTabContent._widgetTabController = this;
+
+    this._elementTabContent.className += " ";
+    this._elementTabContent.className += "widgetTabContent";
+
+    this._elementTabContent.textContent = "首页内容";
+};
 WidgetTabController.prototype.tabEvent = function (eventList) {
-    $(this._elementTab).each(function (tabIndex) {
-        var $tabItem = $(this);
-
-        var childList = $tabItem.context.childNodes;
-        var ulTitleGroup = null;
-        var divContentGroup = null;
-        $(childList).each(function (childIndex) {
-            var $childItem = $(childList[childIndex]);
-
-            if ($childItem.is("ul") && $childItem.hasClass("widgetTabTitleGroup")) {
-                LogController.log("ul.widgetTabTitleGroup = %d", tabIndex);
-                ulTitleGroup = $childItem;
-            } else if ($childItem.is("div") && $childItem.hasClass("widgetTabContentGroup")) {
-                LogController.log("div.widgetTabContentGroup = %d", tabIndex);
-                divContentGroup = $childItem;
-            }
-        })
-        this.titleGroupEvent(ulTitleGroup, divContentGroup, eventList);
-        this.contentGroupEvent(ulTitleGroup, divContentGroup, eventList);
-    })
+    // $(this._elementTab).each(function (tabIndex) {
+    //     var $tabItem = $(this);
+    //
+    //     var childList = $tabItem.context.childNodes;
+    //     var ulTitleGroup = null;
+    //     var divContentGroup = null;
+    //     $(childList).each(function (childIndex) {
+    //         var $childItem = $(childList[childIndex]);
+    //
+    //         if ($childItem.is("ul") && $childItem.hasClass("widgetTabTitleGroup")) {
+    //             LogController.log("ul.widgetTabTitleGroup = %d", tabIndex);
+    //             ulTitleGroup = $childItem;
+    //         } else if ($childItem.is("div") && $childItem.hasClass("widgetTabContentGroup")) {
+    //             LogController.log("div.widgetTabContentGroup = %d", tabIndex);
+    //             divContentGroup = $childItem;
+    //         }
+    //     })
+    //     this.titleGroupEvent(ulTitleGroup, divContentGroup, eventList);
+    //     this.contentGroupEvent(ulTitleGroup, divContentGroup, eventList);
+    // })
 };
 WidgetTabController.prototype.titleGroupEvent = function (ulTitleGroup, divContentGroup, eventList) {
     var childList = ulTitleGroup.context.childNodes;
