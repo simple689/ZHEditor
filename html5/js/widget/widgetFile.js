@@ -2,7 +2,19 @@ function WidgetFileController() {
 };
 WidgetFileController.prototype.init = function () {
 };
-WidgetFileController.prototype.readFile = function (file) {
+WidgetFileController.prototype.readFile = function (file, elementParent, widgetTabController) {
+    var elementTabContent = document.createElement("div");
+    elementParent.appendChild(elementTabContent);
+
+    elementTabContent._widgetTabController = widgetTabController;
+
+    elementTabContent.className += " ";
+    elementTabContent.className += "widgetTabContent";
+
+    elementTabContent.textContent = "新内容";
+
+    widgetTabController._elementTabContentList.push(elementTabContent);
+
     if (file.type.match(/image*/)) {
         var img = document.createElement("img");
         img.classList.add("obj");

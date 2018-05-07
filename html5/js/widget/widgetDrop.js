@@ -35,20 +35,20 @@ WidgetDropController.itemOnDragOver = function (e) {
     e.preventDefault();
 };
 WidgetDropController.itemOnDragEnter = function (e) {
-    e.currentTarget.style.borderColor = 'silver';
-    // e.currentTarget.style.backgroundColor = 'transparent';
+    this._widgetDropController._elementDrop.style.borderColor = 'silver';
+    // this._widgetDropController._elementDrop.style.backgroundColor = 'transparent';
     e.stopPropagation();
     e.preventDefault();
 };
 WidgetDropController.itemOnDragLeave = function (e) {
-    e.currentTarget.style.borderColor = 'gray';
-    // e.currentTarget.style.backgroundColor = 'gray';
+    this._widgetDropController._elementDrop.style.borderColor = 'gray';
+    // this._widgetDropController._elementDrop.backgroundColor = 'gray';
     e.stopPropagation();
     e.preventDefault();
 };
 WidgetDropController.itemOnDrop = function (e) {
-    e.currentTarget.style.borderColor = 'silver';
-    // e.currentTarget.style.backgroundColor = 'transparent';
+    this._widgetDropController._elementDrop.style.borderColor = 'gray';
+    // this._widgetDropController._elementDrop.style.backgroundColor = 'transparent';
     e.stopPropagation();
     e.preventDefault();
     this._widgetDropController._panel.handleFiles(e.dataTransfer.files);

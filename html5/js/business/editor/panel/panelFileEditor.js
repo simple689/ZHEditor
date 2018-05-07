@@ -19,7 +19,7 @@ PanelFileEditorController.prototype.init = function () {
 PanelFileEditorController.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        this._widgetFileController.readFile(file);
+        this._widgetTabController.addTab(file);
     }
 };
 

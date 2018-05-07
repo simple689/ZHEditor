@@ -32,17 +32,22 @@ WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup.className += "widgetTabTitleGroup";
 };
 WidgetTabController.prototype.initTitle = function () {
-    this._elementTabTitle = document.createElement("li");
-    this._elementTabTitleGroup.appendChild(this._elementTabTitle);
+    var elementTabTitle = document.createElement("li");
+    this._elementTabTitleGroup.appendChild(elementTabTitle);
 
-    this._elementTabTitle._widgetTabController = this;
+    elementTabTitle._widgetTabController = this;
 
-    this._elementTabTitle.className += " ";
-    this._elementTabTitle.className += "widgetTabTitle";
-    this._elementTabTitle.className += " ";
-    this._elementTabTitle.className += "isActive";
+    elementTabTitle.className += " ";
+    elementTabTitle.className += "widgetTabTitle";
+    elementTabTitle.className += " ";
+    elementTabTitle.className += "isActive";
 
-    this._elementTabTitle.textContent = "首页";
+    elementTabTitle.textContent = "首页";
+
+    this._elementTabTitleList = new Array();
+    this._elementTabTitleList.push(elementTabTitle);
+
+    this._elementActive = elementTabTitle;
 };
 WidgetTabController.prototype.initContentGroup = function () {
     this._elementTabContentGroup = document.createElement("div");
@@ -54,15 +59,65 @@ WidgetTabController.prototype.initContentGroup = function () {
     this._elementTabContentGroup.className += "widgetTabContentGroup";
 };
 WidgetTabController.prototype.initContent = function () {
-    this._elementTabContent = document.createElement("div");
-    this._elementTabContentGroup.appendChild(this._elementTabContent);
+    var elementTabContent = document.createElement("div");
+    this._elementTabContentGroup.appendChild(elementTabContent);
 
-    this._elementTabContent._widgetTabController = this;
+    elementTabContent._widgetTabController = this;
 
-    this._elementTabContent.className += " ";
-    this._elementTabContent.className += "widgetTabContent";
+    elementTabContent.className += " ";
+    elementTabContent.className += "widgetTabContent";
 
-    this._elementTabContent.textContent = "首页内容";
+    elementTabContent.textContent = "首页内容";
+
+    this._elementTabContentList = new Array();
+    this._elementTabContentList.push(elementTabContent);
+};
+WidgetTabController.prototype.addTab = function (file) {
+    this.addTitle(file.name);
+    this.addContent(file);
+};
+WidgetTabController.prototype.addTitle = function (title) {
+    var elementTabTitle = document.createElement("li");
+    this._elementTabTitleGroup.appendChild(elementTabTitle);
+
+    elementTabTitle._widgetTabController = this;
+
+    elementTabTitle.className += " ";
+    elementTabTitle.className += "widgetTabTitle";
+    elementTabTitle.className += " ";
+    elementTabTitle.className += "isActive";
+
+    elementTabTitle.textContent = title;
+
+    this._elementTabTitleList.push(elementTabTitle);
+
+    var classNameOld = this._elementActive.className;
+    var classNameOldAry = classNameOld.split(" ");
+    this._elementActive.className = "";
+    for (var i = 0; i < classNameOldAry.length; i++) {
+        if (classNameOldAry[i] == "isActive") {
+            continue;
+        }
+        this._elementActive.className += " ";
+        this._elementActive.className += classNameOldAry[i];
+    }
+    this._elementActive = elementTabTitle;
+};
+WidgetTabController.prototype.addContent = function (file) {
+    var elementTabContent = document.createElement("div");
+    this._elementTabContentGroup.appendChild(elementTabContent);
+
+    elementTabContent._widgetTabController = this;
+
+    elementTabContent.className += " ";
+    elementTabContent.className += "widgetTabContent";
+
+    this.addFile(file, elementTabContent);
+
+    this._elementTabContentList.push(elementTabContent);
+};
+WidgetTabController.prototype.addFile = function (file, elementParent) {
+    this._panel._widgetFileController.readFile(file, elementParent, this);
 };
 WidgetTabController.prototype.tabEvent = function (eventList) {
     // $(this._elementTab).each(function (tabIndex) {
