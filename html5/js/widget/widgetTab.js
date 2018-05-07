@@ -18,9 +18,9 @@ WidgetTabController.prototype.init = function (elementParent, panel) {
     $(this._elementTab).addClass(WidgetTabController._classWidgetTab);
 
     this.initTitleGroup();
-    var elementTabTitle = this.initTitle();
     this.initContentGroup();
-    this.initContent(elementTabTitle);
+    this._elementTabList = new Array();
+    this.addHomePage();
 };
 WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
@@ -29,11 +29,6 @@ WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup._widgetTabController = this;
 
     $(this._elementTabTitleGroup).addClass(WidgetTabController._classWidgetTabTitleGroup);
-
-};
-WidgetTabController.prototype.initTitle = function () {
-    this._elementTabTitleList = new Array();
-    return this.addTitle("首页");
 };
 WidgetTabController.prototype.initContentGroup = function () {
     this._elementTabContentGroup = document.createElement("div");
@@ -42,10 +37,9 @@ WidgetTabController.prototype.initContentGroup = function () {
     this._elementTabContentGroup._widgetTabController = this;
 
     $(this._elementTabContentGroup).addClass(WidgetTabController._classWidgetTabContentGroup);
-
 };
-WidgetTabController.prototype.initContent = function (elementTabTitle) {
-    this._elementTabContentList = new Array();
+WidgetTabController.prototype.addHomePage = function () {
+    var elementTabTitle = this.addTitle("首页");
     this.addContent(elementTabTitle, "首页内容", false);
 };
 WidgetTabController.prototype.addTab = function (file) {
@@ -62,16 +56,11 @@ WidgetTabController.prototype.addTitle = function (title) {
 
     elementTabTitle.textContent = title;
 
-    this._elementTabTitleList.push(elementTabTitle);
+    this._elementTabList.push(elementTabTitle);
 
-    if (this._elementActive && $(this._elementActive).hasClass(WidgetTabController._classIsActive)) {
-        $(this._elementActive).removeClass(WidgetTabController._classIsActive);
-        $(this._elementActive._elementContent).hide();
-    }
-    this._elementActive = elementTabTitle;
-    $(elementTabTitle).addClass(WidgetTabController._classIsActive);
+    this.setActiveElement(elementTabTitle);
 
-    this.bindUIAction(elementTabTitle);
+    elementTabTitle.onclick = WidgetTabController.tabTitleOnClick;
 
     return elementTabTitle;
 };
@@ -83,65 +72,33 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, i
 
     $(elementTabContent).addClass(WidgetTabController._classWidgetTabContent);
 
+    elementTabTitle._elementTabContent = elementTabContent;
+
     if (isFile) {
         this.addFile(content, elementTabContent);
     } else {
         elementTabContent.textContent = content;
     }
-
-    this._elementTabContentList.push(elementTabContent);
-
-    this.hideInactive(elementTabTitle, elementTabContent);
+};
+WidgetTabController.prototype.setActiveElement = function (elementActive) {
+    this.hideActiveElement();
+    this._elementActive = elementActive;
+    $(elementActive).addClass(WidgetTabController._classIsActive);
+    // $(elementActive._elementTabContent).show();
+    $(elementActive._elementTabContent).slideDown(WidgetTabController._slideSpeed);
+};
+WidgetTabController.prototype.hideActiveElement = function () {
+    if (this._elementActive && $(this._elementActive).hasClass(WidgetTabController._classIsActive)) {
+        $(this._elementActive).removeClass(WidgetTabController._classIsActive);
+        // $(this._elementActive._elementTabContent).hide();
+        $(this._elementActive._elementTabContent).slideUp(WidgetTabController._slideSpeed);
+    }
+};
+WidgetTabController.tabTitleOnClick = function (e) {
+    if (!$(this).hasClass(WidgetTabController._classIsActive)) {
+        this._widgetTabController.setActiveElement(this);
+    }
 };
 WidgetTabController.prototype.addFile = function (file, elementParent) {
     this._panel._widgetFileController.readFile(file, elementParent, this);
-};
-WidgetTabController.prototype.bindUIAction = function (elementTabTitle) {
-    elementTabTitle.onclick = WidgetTabController.switchTitle;
-};
-WidgetTabController.prototype.hideInactive = function (elementTabTitle, elementTabContent) {
-    $(elementTabContent).hide();
-    if ($(elementTabTitle).hasClass(WidgetTabController._classIsActive)) {
-        $(elementTabContent).show();
-    }
-};
-WidgetTabController.switchTitle = function (e) {
-    if (!$(this).hasClass(WidgetTabController._classIsActive)) {
-        $(this).siblings().removeClass(WidgetTabController._classIsActive);
-        $(this).addClass(WidgetTabController._classIsActive);
-
-        this.showContent(this.index(), this._widgetTabController);
-    }
-};
-WidgetTabController.prototype.showContent = function (index, tabItem) {
-    var childList = tabItem.context.childNodes;
-    var $childList = $(childList);
-    var divContentGroup = null;
-    $childList.each(function (childIndex) {
-        var $childItem = $(childList[childIndex]);
-        if ($childItem.is("div") && $childItem.hasClass(WidgetTabController._classWidgetTabContentGroup)) {
-            divContentGroup = $childItem;
-
-            var contentGroupChildList = divContentGroup.context.childNodes;
-            var $contentGroupChildList = $(contentGroupChildList);
-            $contentGroupChildList.each(function (contentGroupChildIndex) {
-                var $contentGroupChildItem = $(contentGroupChildList[contentGroupChildIndex]);
-
-                if ($contentGroupChildItem.hasClass(WidgetTabController._classWidgetTabContent)) {
-                    LogController.log("widgetTabContent = %d", $contentGroupChildItem.index());
-
-                    if ($contentGroupChildItem.index() == index) {
-                        $contentGroupChildItem.slideDown(this.slideSpeed);
-                    } else {
-                        $contentGroupChildItem.slideUp(this.slideSpeed);
-                    }
-                    // eventList.each(function(eventIndex) {
-                    //     LogController.log("eventList = %d", eventIndex);
-                    //     var eventItem = eventList[eventIndex];
-                    //     eventItem && eventItem($childItem);
-                    // })
-                }
-            })
-        }
-    })
 };

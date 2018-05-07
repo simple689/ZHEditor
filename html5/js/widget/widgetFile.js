@@ -13,8 +13,6 @@ WidgetFileController.prototype.readFile = function (file, elementParent, widgetT
 
     elementTabContent.textContent = "新内容";
 
-    widgetTabController._elementTabContentList.push(elementTabContent);
-
     if (file.type.match(/image*/)) {
         var img = document.createElement("img");
         img.classList.add("obj");
