@@ -4,7 +4,6 @@
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetTab.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,11 +29,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="101" selection-start-line="101" selection-end-line="101" />
+            <state relative-caret-position="150">
+              <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFile.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-275">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -174,8 +182,8 @@
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelFileEditor.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetDrop.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFile.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile.js" />
       </list>
     </option>
   </component>
@@ -431,12 +439,12 @@
       <workItem from="1524448915541" duration="1268000" />
       <workItem from="1525332283951" duration="599000" />
       <workItem from="1525659577363" duration="14730000" />
-      <workItem from="1525702940256" duration="3906000" />
+      <workItem from="1525702940256" duration="5050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="428565000" />
+    <option name="totallyTimeSpent" value="429709000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -460,7 +468,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32919955" />
       <window_info id="Structure" order="1" sideWeight="0.49411765" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49583334" weight="0.083775185" />
-      <window_info anchor="bottom" x="0" y="328" width="1440" height="203" id="Debug" order="4" type="SLIDING" weight="0.27248323" />
+      <window_info anchor="bottom" x="0" y="328" width="1440" height="203" id="Debug" order="4" type="SLIDING" weight="0.27236843" />
       <window_info id="Favorites" order="2" sideWeight="0.5120773" side_tool="true" weight="0.20595238" />
       <window_info anchor="bottom" id="找到" order="13" sideWeight="0.34739584" weight="0.2055866" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -794,7 +802,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="899" />
+      <option name="time" value="902" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1048,13 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDrop.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
@@ -1064,8 +1065,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        <state relative-caret-position="150">
+          <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-275">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>

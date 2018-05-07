@@ -3,37 +3,16 @@ function WidgetFileController() {
 WidgetFileController.prototype.init = function () {
 };
 WidgetFileController.prototype.readFile = function (file, elementParent, widgetTabController) {
-    var elementTabContent = document.createElement("div");
-    elementParent.appendChild(elementTabContent);
+    var elementContent = document.createElement("div");
+    elementParent.appendChild(elementContent);
 
-    elementTabContent._widgetTabController = widgetTabController;
+    elementContent.textContent = "新内容";
 
-    elementTabContent.className += " ";
-    elementTabContent.className += "widgetTabContent";
-
-    elementTabContent.textContent = "新内容";
-
-    if (file.type.match(/image*/)) {
-        var img = document.createElement("img");
-        img.classList.add("obj");
-        img.file = file;
-
-        var item = document.getElementById("widgetDrop_root");
-        item.appendChild(img);
-
-        var reader = new FileReader();
-        reader.onload = function () {
-            console.log(reader.result);
-            img.src = reader.result;
-        }
-        reader.readAsDataURL(file);
-    } else {
-        // <input id="File1" type="file" value="" name ="file"/ >
+    if (file.type.match("application/json")) {
         var input = document.createElement("input");
         input.classList.add("obj");
 
-        var item = document.getElementById("editBox");
-        item.appendChild(input);
+        elementContent.appendChild(input);
 
         var reader = new FileReader();
         reader.onload = function () {
@@ -69,4 +48,19 @@ WidgetFileController.prototype.readFile = function (file, elementParent, widgetT
         }
         reader.readAsText(file);
     }
+    // if (file.type.match(/image*/)) {
+    //     var img = document.createElement("img");
+    //     img.classList.add("obj");
+    //     img.file = file;
+    //
+    //     var item = document.getElementById("widgetDrop_root");
+    //     item.appendChild(img);
+    //
+    //     var reader = new FileReader();
+    //     reader.onload = function () {
+    //         console.log(reader.result);
+    //         img.src = reader.result;
+    //     }
+    //     reader.readAsDataURL(file);
+    // }
 };
