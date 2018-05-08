@@ -40,11 +40,11 @@ function initPanel() {
 }
 function initLayout() {
     panelFileEditor.enableNormalHiddenButton(false);
-    panelTest.initLayout(0, 0, 300, 300, DSXDFPanel.dockRight);
-    panelFileBrowser.initLayout(0, 0, 300, 300, DSXDFPanel.dockBottom);
-    panelView.initLayout(0, 0, 300, 300, DSXDFPanel.dockLeft);
+    panelView.initLayout(0, 0, 50, 50, DSXDFPanel.dockLeft);
+    panelTest.initLayout(0, 0, 50, 50, DSXDFPanel.dockRight);
+    panelFileBrowser.initLayout(0, 0, 50, 50, DSXDFPanel.dockBottom);
+    panelFileEditor.initLayout(0, 0, 1000, 1000, DSXDFPanel.dockLeft);
     // panelFileEditor.setInitialLayoutReference(panelView);
-    panelFileEditor.initLayout(0, 0, 2000, 2000, DSXDFPanel.dockLeft);
 }
 function initPanelController() {
     panelFileBrowserController = new PanelFileBrowserController();
