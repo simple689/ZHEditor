@@ -7,27 +7,26 @@ WidgetFileJsonController.prototype.init = function (elementTabTitle, fileStr) {
 };
 WidgetFileJsonController.prototype.initControl = function () {
     var elementContent = this._elementTabTitle._elementContent;
-    elementContent.textContent = "新内容";
 
     var input = document.createElement("input");
     elementContent.appendChild(input);
     input.value = this._fileStr;
 
     var jsonObj = eval('(' + this._fileStr + ')');
-    console.log(jsonObj);
-    for (var j = 0; j < jsonObj.length; j++) {
-        alert(jsonObj[j].id);
-        alert(jsonObj[j].name);
-    }
+    // LogController.log(jsonObj);
+    this.readObject(jsonObj, "");
+};
+WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent) {
     for (var o in jsonObj) {
-        console.log(o);
-        console.log(jsonObj[o]);
-        console.log(typeof(jsonObj[o]));
-        if (typeof(jsonObj[o]) == "object") {
-            for (var o1 in jsonObj[o]) {
-                console.log(o1);
-                console.log(jsonObj[o][o1]);
-            }
+        var key = o;
+        var value = jsonObj[o]
+        LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+        if (typeof(value) == "object") {
+            var keyChild = keyParent;
+            keyChild += "->";
+            keyChild += key;
+            keyChild += "->";
+            this.readObject(value, keyChild);
         }
     }
 };

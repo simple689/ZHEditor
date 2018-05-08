@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelState.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelState.js" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelTest.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelTest.js" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelToolBar.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelToolBar.js" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelView.js" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelView.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile.js" afterPath="$PROJECT_DIR$/js/widget/widgetFile.js" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFileJson.js" afterPath="$PROJECT_DIR$/js/widget/widgetFileJson.js" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetTab.js" afterPath="$PROJECT_DIR$/js/widget/widgetTab.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetFile.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetFile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+            <state relative-caret-position="884">
+              <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -88,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetFileJson.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="widgetFileJson.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="250">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -263,8 +254,8 @@
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDrop.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFileJson.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFileJson.js" />
       </list>
     </option>
   </component>
@@ -533,12 +524,12 @@
       <workItem from="1524448915541" duration="1268000" />
       <workItem from="1525332283951" duration="599000" />
       <workItem from="1525659577363" duration="14730000" />
-      <workItem from="1525744391134" duration="10844000" />
+      <workItem from="1525744391134" duration="12372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="435503000" />
+    <option name="totallyTimeSpent" value="437031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -887,12 +878,6 @@
           <line>11111</line>
           <option name="timeStamp" value="802" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>16</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="906" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -902,7 +887,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="912" />
+      <option name="time" value="913" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1245,18 +1230,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="884">
+          <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        <state relative-caret-position="250">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding />
         </state>
       </provider>
