@@ -2,13 +2,14 @@ function PanelFileEditorController() {
     this._widgetDropController = new WidgetDropController();
     this._widgetFileController = new WidgetFileController();
     this._widgetTabController = new WidgetTabController();
+    this._widgetHistotyController = new WidgetHistoryController();
 };
 PanelFileEditorController.prototype.init = function () {
     var rootElement = document.getElementById("panelFileEditor");
     var dropElement = this._widgetDropController.init(this, rootElement);
 
     var tapElement = this._widgetTabController.init(this, dropElement);
-
+    this._widgetHistotyController.init();
     // appendWidgetTab();
 };
 PanelFileEditorController.prototype.handleFiles = function (files) {
