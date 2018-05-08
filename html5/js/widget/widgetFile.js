@@ -1,17 +1,15 @@
 function WidgetFileController() {
 };
 WidgetFileController.prototype.init = function () {
-};
-WidgetFileController.prototype.readFile = function (file, elementParent, widgetTabController) {
+};WidgetFileController.prototype.readFile = function (file, elementTabContent, widgetTabController) {
     var elementContent = document.createElement("div");
-    elementParent.appendChild(elementContent);
+    elementTabContent.appendChild(elementContent);
 
     elementContent.textContent = "新内容";
 
     if (file.type.match("application/json")) {
         var input = document.createElement("input");
         input.classList.add("obj");
-
         elementContent.appendChild(input);
 
         var reader = new FileReader();

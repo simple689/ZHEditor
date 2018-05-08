@@ -7,9 +7,9 @@ PanelFileEditorController.prototype.init = function () {
     LogController.func();
 
     var rootElement = document.getElementById("panelFileEditor");
-    var dropElement = this._widgetDropController.init(rootElement, this);
+    var dropElement = this._widgetDropController.init(this, rootElement);
 
-    var tapElement = this._widgetTabController.init(dropElement, this);
+    var tapElement = this._widgetTabController.init(this, dropElement);
 
     // appendWidgetTab();
     // var input = document.createElement("input");
