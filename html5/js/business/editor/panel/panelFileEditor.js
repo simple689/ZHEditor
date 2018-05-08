@@ -4,17 +4,12 @@ function PanelFileEditorController() {
     this._widgetTabController = new WidgetTabController();
 };
 PanelFileEditorController.prototype.init = function () {
-    LogController.func();
-
     var rootElement = document.getElementById("panelFileEditor");
     var dropElement = this._widgetDropController.init(this, rootElement);
 
     var tapElement = this._widgetTabController.init(this, dropElement);
 
     // appendWidgetTab();
-    // var input = document.createElement("input");
-    // input.classList.add("obj");
-    // widgetTabContentHome.appendChild(input);
 };
 PanelFileEditorController.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {

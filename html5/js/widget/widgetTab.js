@@ -65,7 +65,7 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, i
     elementTabTitle._elementTabContent = elementTabContent;
 
     if (isFile) {
-        this.addFile(content, elementTabContent);
+        this.addFile(content, elementTabTitle);
     } else {
         elementTabContent.textContent = content;
     }
@@ -92,6 +92,6 @@ WidgetTabController.tabTitleOnClick = function (e) {
         this._widgetTabController.setActiveElement(this);
     }
 };
-WidgetTabController.prototype.addFile = function (file, elementTabContent) {
-    this._panel._widgetFileController.readFile(file, elementTabContent, this);
+WidgetTabController.prototype.addFile = function (file, elementTabTitle) {
+    this._panel._widgetFileController.readFile(file, elementTabTitle);
 };
