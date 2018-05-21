@@ -13,7 +13,7 @@ WidgetFileJsonController.prototype.initControl = function () {
 WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent) {
     for (var o in jsonObj) {
         var key = o;
-        var value = jsonObj[o]
+        var value = jsonObj[key]
         LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         if (typeof(value) == "object") {
             var keyChild = keyParent;

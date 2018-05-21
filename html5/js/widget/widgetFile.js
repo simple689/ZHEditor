@@ -2,11 +2,16 @@ function WidgetFileController() {
 };
 WidgetFileController.prototype.init = function () {
 };
-WidgetFileController.prototype.readFile = function (file, elementTabTitle) {
+WidgetFileController.prototype.readFileContent = function (fileContent, elementTabTitle) {
     var elementContent = document.createElement("div");
     elementTabTitle._elementTabContent.appendChild(elementContent);
     elementTabTitle._elementContent = elementContent;
 
+    elementTabTitle._fileJsonController = new WidgetFileJsonController();
+    elementTabTitle._fileJsonController.init(elementTabTitle, fileContent);
+    WidgetHistoryController.addFile(elementTabTitle.textContent, fileContent);
+};
+WidgetFileController.prototype.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");
     var extendIndex = fileNameAry.length - 1;
     var extend = "";
@@ -16,6 +21,7 @@ WidgetFileController.prototype.readFile = function (file, elementTabTitle) {
     }
 
     var reader = new FileReader();
+    reader._widgetFileController = this;
     reader._elementTabTitle = elementTabTitle;
 
     if (file.type.match("application/json") || extend.match("json")) {
@@ -29,6 +35,25 @@ WidgetFileController.prototype.readFile = function (file, elementTabTitle) {
         reader.readAsText(file);
     }
 };
+WidgetFileController.loadJson = function () {
+    WidgetFileController.createFileJsonController(this);
+};
+WidgetFileController.loadImg = function () {
+    // var img = document.createElement("img");
+    // img.classList.add("obj");
+    // img.file = file;
+    // console.log(reader.result);
+    // img.src = reader.result;
+};
+WidgetFileController.load = function (e) {
+    if (WidgetFileController.isJson(this.result)) {
+        WidgetFileController.createFileJsonController(this);
+    }
+};
+WidgetFileController.createFileJsonController = function (fileReader) {
+    // LogController.log(fileReader.result);
+    fileReader._widgetFileController.readFileContent(fileReader.result, fileReader._elementTabTitle);
+};
 WidgetFileController.isJson = function (fileStr) {
     var isjson = false;
     try {
@@ -39,24 +64,4 @@ WidgetFileController.isJson = function (fileStr) {
     }
     LogController.log("isjson = " + isjson);
     return isjson;
-};
-WidgetFileController.load = function (e) {
-    if (WidgetFileController.isJson(this.result)) {
-        WidgetFileController.createFileJsonController(this);
-    }
-};
-WidgetFileController.loadJson = function () {
-    WidgetFileController.createFileJsonController(this);
-};
-WidgetFileController.loadImg = function () {
-    // var img = document.createElement("img");
-    // img.classList.add("obj");
-    // img.file = file;
-    // console.log(reader.result);
-    // img.src = reader.result;
-}
-WidgetFileController.createFileJsonController = function (fileReader) {
-    // LogController.log(fileReader.result);
-    fileReader._elementTabTitle._fileJsonController = new WidgetFileJsonController();
-    fileReader._elementTabTitle._fileJsonController.init(fileReader._elementTabTitle, fileReader.result);
 };
