@@ -28,14 +28,22 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent) {
             elementContent.appendChild(nodeRoot);
             nodeRoot.classList.add("nodeRoot");
 
+            var nodeRow = document.createElement("div");
+            nodeRoot.appendChild(nodeRow);
+            nodeRow.classList.add("nodeItem");
+
             var nodeTitle = document.createElement("div");
-            nodeRoot.appendChild(nodeTitle);
+            nodeRow.appendChild(nodeTitle);
             nodeTitle.innerHTML = key;
             nodeTitle.classList.add("nodeTitle");
             var nodeInput = document.createElement("input");
-            nodeRoot.appendChild(nodeInput);
+            nodeRow.appendChild(nodeInput);
             nodeInput.value = value;
             nodeInput.classList.add("nodeInput");
+            nodeInput.onchange = WidgetFileJsonController.changeInput;
         }
     }
 };
+WidgetFileJsonController.changeInput = function(e) {
+    // alert(this.value);
+}

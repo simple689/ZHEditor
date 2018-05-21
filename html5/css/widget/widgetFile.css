@@ -1,13 +1,19 @@
 .nodeRoot {
     background: #777777;
 }
-.nodeTitle {
+.nodeRow {
     background: #66dd99;
+    width: 100%;
+    float: left;
+}
+.nodeTitle {
+    background: #66dd66;
     width: 100px;
-    height: 50px;
+    height: 30px;
+    float: left;
 }
 .nodeInput {
-    background: #66dd66;
+    background: #66dd33;
     width: 300px;
-    height: 50px;
+    height: 20px;
 }
