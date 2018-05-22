@@ -11,27 +11,35 @@ WidgetFileJsonController.prototype.initControl = function () {
     var nodeRoot = this._elementTabTitle._elementContent;
     var isShowDemo = false;
     if (isShowDemo) {
-        widgetHtmlControlTable.addTitleTitle(nodeRoot, "demo", "demo");
-        widgetHtmlControlTable.addTitleInput(nodeRoot, "demo", "demo");
+        WidgetHtmlControlTable.addTitleTitle(nodeRoot, "demo", "demo");
+        WidgetHtmlControlTable.addTitleInput(nodeRoot, "demo", "demo");
     }
     this.readObject(jsonObj, "", nodeRoot);
 };
 WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, elementParent) {
-    var nodeTable = widgetHtmlControl.addTable(elementParent);
+    var nodeTable = WidgetHtmlControl.addTable(elementParent);
     for (var o in jsonObj) {
         var key = o;
-        var value = jsonObj[key]
-        LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+        var isStart = key.indexOf("$");
+        if (isStart == 0) {
+            continue;
+        }
+        var value = jsonObj[key];
         if (typeof(value) == "object") {
             var keyChild = keyParent;
             keyChild += "->";
             keyChild += key;
             keyChild += "->";
-            var nodeRow = widgetHtmlControlRow.addTitle(nodeTable, key);
+            var nodeRow = WidgetHtmlControlRow.addTitle(nodeTable, key);
             var nodeCell = nodeRow.insertCell();
             this.readObject(value, keyChild, nodeCell);
         } else if (typeof(value) == "string") {
-            widgetHtmlControlRow.addTitleInput(nodeTable, key, value);
+            WidgetHtmlControlRow.addTitleInput(nodeTable, key, value, WidgetHtmlControl._inputValueType.string);
+        } else if (typeof(value) == "number") {
+            WidgetHtmlControlRow.addTitleInput(nodeTable, key, value, WidgetHtmlControl._inputValueType.number);
+        } else {
+            var strType = typeof(value);
+            LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
 };

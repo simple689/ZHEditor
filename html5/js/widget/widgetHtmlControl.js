@@ -1,36 +1,54 @@
-function widgetHtmlControl() {
+function WidgetHtmlControl() {
 };
-widgetHtmlControl.changeInput = function(e) {
-    alert(this.value);
+WidgetHtmlControl._inputValueType = {
+    string : 0,
+    number : 1
+};
+WidgetHtmlControl.changeInput = function(e) {
+    switch(this._valueType) {
+        case WidgetHtmlControl._inputValueType.string : {
+            break;
+        }
+        case WidgetHtmlControl._inputValueType.number : {
+            var valueOld = this.value;
+            this.value = this.value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'');
+            if (this.value != valueOld) {
+                alert("该控件内容为数字类型。自动修正完毕。");
+            }
+            break;
+        }
+    }
+    // alert(this.value);
 }
-widgetHtmlControl.addTable = function(nodeParent) {
+WidgetHtmlControl.addTable = function(nodeParent) {
     var nodeTable = document.createElement("table");
     nodeParent.appendChild(nodeTable);
     nodeTable.classList.add("nodeTable");
     return nodeTable;
 }
-widgetHtmlControl.addRow = function(nodeTable) {
+WidgetHtmlControl.addRow = function(nodeTable) {
     var nodeRow = nodeTable.insertRow();
     nodeRow.classList.add("nodeRow");
     return nodeRow;
 }
-widgetHtmlControl.addCell = function(nodeRow) {
+WidgetHtmlControl.addCell = function(nodeRow) {
     var nodeCell = nodeRow.insertCell();
     nodeCell.classList.add("nodeCell");
     return nodeCell;
 }
-widgetHtmlControl.addTitle = function(nodeRow, value) {
-    var nodeCell = widgetHtmlControl.addCell(nodeRow);
+WidgetHtmlControl.addTitle = function(nodeRow, value) {
+    var nodeCell = WidgetHtmlControl.addCell(nodeRow);
     var nodeTitle = document.createElement("div");
     nodeCell.appendChild(nodeTitle);
     nodeTitle.classList.add("nodeTitle");
     nodeTitle.innerHTML = value;
 }
-widgetHtmlControl.addInput = function(nodeRow, value) {
-    var nodeCell = widgetHtmlControl.addCell(nodeRow);
+WidgetHtmlControl.addInput = function(nodeRow, value, inputValueType) {
+    var nodeCell = WidgetHtmlControl.addCell(nodeRow);
     var nodeInput = document.createElement("input");
     nodeCell.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
     nodeInput.value = value;
-    nodeInput.onchange = widgetHtmlControl.changeInput;
+    nodeInput.onchange = WidgetHtmlControl.changeInput;
+    nodeInput._valueType = inputValueType;
 }

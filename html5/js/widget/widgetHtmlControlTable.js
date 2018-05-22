@@ -1,12 +1,12 @@
-function widgetHtmlControlTable() {
+function WidgetHtmlControlTable() {
 };
-widgetHtmlControlTable.addTitleTitle = function(elementParent, key, value) {
-    var nodeTable = widgetHtmlControl.addTable(elementParent);
-    widgetHtmlControlRow.addTitleTitle(nodeTable, key, value);
+WidgetHtmlControlTable.addTitleTitle = function(elementParent, key, value) {
+    var nodeTable = WidgetHtmlControl.addTable(elementParent);
+    WidgetHtmlControlRow.addTitleTitle(nodeTable, key, value);
     return nodeTable;
 }
-widgetHtmlControlTable.addTitleInput = function(elementParent, key, value) {
-    var nodeTable = widgetHtmlControl.addTable(elementParent);
-    widgetHtmlControlRow.addTitleInput(nodeTable, key, value);
+WidgetHtmlControlTable.addTitleInput = function(elementParent, key, value, inputValueType) {
+    var nodeTable = WidgetHtmlControl.addTable(elementParent);
+    WidgetHtmlControlRow.addTitleInput(nodeTable, key, value, inputValueType);
     return nodeTable;
 }

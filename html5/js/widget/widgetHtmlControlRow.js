@@ -1,19 +1,19 @@
-function widgetHtmlControlRow() {
+function WidgetHtmlControlRow() {
 };
-widgetHtmlControlRow.addTitle = function(nodeTable, key) {
-    var nodeRow = widgetHtmlControl.addRow(nodeTable);
-    widgetHtmlControl.addTitle(nodeRow, key);
+WidgetHtmlControlRow.addTitle = function(nodeTable, key) {
+    var nodeRow = WidgetHtmlControl.addRow(nodeTable);
+    WidgetHtmlControl.addTitle(nodeRow, key);
     return nodeRow;
 }
-widgetHtmlControlRow.addTitleTitle = function(nodeTable, key, value) {
-    var nodeRow = widgetHtmlControl.addRow(nodeTable);
-    widgetHtmlControl.addTitle(nodeRow, key);
-    widgetHtmlControl.addTitle(nodeRow, value);
+WidgetHtmlControlRow.addTitleTitle = function(nodeTable, key, value) {
+    var nodeRow = WidgetHtmlControl.addRow(nodeTable);
+    WidgetHtmlControl.addTitle(nodeRow, key);
+    WidgetHtmlControl.addTitle(nodeRow, value);
     return nodeRow;
 }
-widgetHtmlControlRow.addTitleInput = function(nodeTable, key, value) {
-    var nodeRow = widgetHtmlControl.addRow(nodeTable);
-    widgetHtmlControl.addTitle(nodeRow, key);
-    widgetHtmlControl.addInput(nodeRow, value);
+WidgetHtmlControlRow.addTitleInput = function(nodeTable, key, value, inputValueType) {
+    var nodeRow = WidgetHtmlControl.addRow(nodeTable);
+    WidgetHtmlControl.addTitle(nodeRow, key);
+    WidgetHtmlControl.addInput(nodeRow, value, inputValueType);
     return nodeRow;
 }
