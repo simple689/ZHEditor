@@ -4,7 +4,7 @@ WidgetHtmlControl._inputValueType = {
     string : 0,
     number : 1
 };
-WidgetHtmlControl.changeInput = function(e) {
+WidgetHtmlControl.inputOnChange = function(e) {
     switch(this._valueType) {
         case WidgetHtmlControl._inputValueType.string : {
             break;
@@ -49,6 +49,6 @@ WidgetHtmlControl.addInput = function(nodeRow, value, inputValueType) {
     nodeCell.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
     nodeInput.value = value;
-    nodeInput.onchange = WidgetHtmlControl.changeInput;
+    nodeInput.onchange = WidgetHtmlControl.inputOnChange;
     nodeInput._valueType = inputValueType;
 }

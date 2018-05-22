@@ -26,6 +26,28 @@ WidgetTabController.prototype.init = function (panel, elementParent) {
     this._elementTabList = new Array();
     this.addHomePage();
     this.addHistory();
+
+    this._rightMenu = document.createElement("div");
+    elementParent.appendChild(this._rightMenu);
+    this._rightMenu.classList.add("rightMenu");
+
+    var elementUL = document.createElement("ul");
+    this._rightMenu.appendChild(elementUL);
+
+    var elementLi = document.createElement("li");
+    elementUL.appendChild(elementLi);
+    elementLi.innerHTML = "aaa";
+
+    var elementLi_0 = document.createElement("li");
+    elementUL.appendChild(elementLi_0);
+    elementLi_0.innerHTML = "bbb";
+
+    var elementUL_0 = document.createElement("ul");
+    elementLi_0.appendChild(elementUL_0);
+
+    var elementLi_1 = document.createElement("li");
+    elementUL_0.appendChild(elementLi_1);
+    elementLi_1.innerHTML = "ccc";
 };
 WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
@@ -75,6 +97,19 @@ WidgetTabController.prototype.addTitle = function (title) {
     this.setActiveElement(elementTabTitle);
 
     elementTabTitle.textContent = title;
+
+    elementTabTitle.oncontextmenu = WidgetTabController.tabTitleOnContextMenu;
+
+   //  var li = document.getElementsByTagName('li');
+   //  for(var i=0;i<li.length;i++){
+   //      li.onmouseover = function(){
+   //          this.classname = "active";
+   //      }
+   //      li.onmouseout = function(){
+   //          this.classname = "";
+   //      }
+   //  }
+
     return elementTabTitle;
 };
 WidgetTabController.prototype.addContent = function (elementTabTitle, content, contentType) {
@@ -114,6 +149,15 @@ WidgetTabController.tabTitleOnClick = function (e) {
     if (!this.classList.contains(WidgetTabController._classIsActive)) {
         this._widgetTabController.setActiveElement(this);
     }
+    this._widgetTabController._rightMenu.style.display = 'none'; //再次点击，菜单消失
+};
+WidgetTabController.tabTitleOnContextMenu = function (e) {
+    var e = e || window.event;
+    this._widgetTabController._rightMenu.style.display = "block"; //显示菜单
+    this._widgetTabController._rightMenu.style.left = e.clientX+'px'; //菜单定位
+    this._widgetTabController._rightMenu.style.top = '8px'; //菜单定位
+    // this._widgetTabController._rightMenu.style.top = e.clientY+'px'; //菜单定位
+    return false; //取消右键点击的默认事件
 };
 WidgetTabController.prototype.addFileContent = function (fileContent, elementTabTitle) {
     this._panel._widgetFileController.readFileContent(fileContent, elementTabTitle);

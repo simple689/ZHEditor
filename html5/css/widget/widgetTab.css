@@ -94,3 +94,15 @@
 .widgetTabContent > :last-child {
     margin-bottom: 0;
 }
+
+.rightMenu {
+    position: absolute;
+    z-index: 99999;
+    overflow: hidden;
+    width: 200px;
+    background-color: #FFFFFF;
+    border: dimgray 1px solid !important;
+    font-size: 16px;
+    list-style-type: none;
+    display: none;
+}
