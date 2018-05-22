@@ -1,0 +1,14 @@
+.nodeRoot{
+}
+.nodeTable {
+    background: #777777;
+}
+.nodeRow {
+    background: #66dd99;
+}
+.nodeTitle {
+    background: #66dd66;
+}
+.nodeInput {
+    background: #66dd33;
+}

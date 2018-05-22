@@ -6,6 +6,7 @@ WidgetFileController.prototype.readFileContent = function (fileContent, elementT
     var elementContent = document.createElement("div");
     elementTabTitle._elementTabContent.appendChild(elementContent);
     elementTabTitle._elementContent = elementContent;
+    elementContent.classList.add("nodeRoot");
 
     elementTabTitle._fileJsonController = new WidgetFileJsonController();
     elementTabTitle._fileJsonController.init(elementTabTitle, fileContent);

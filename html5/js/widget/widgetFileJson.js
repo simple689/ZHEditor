@@ -8,14 +8,11 @@ WidgetFileJsonController.prototype.init = function (elementTabTitle, fileStr) {
 WidgetFileJsonController.prototype.initControl = function () {
     var jsonObj = eval('(' + this._fileStr + ')');
     // LogController.log(jsonObj);
-
-    var nodeRoot = document.createElement("div");
-    this._elementTabTitle._elementContent.appendChild(nodeRoot);
-    nodeRoot.classList.add("nodeRoot");
-
-    WidgetFileJsonController.toControl_titleTitle(nodeRoot, "demo", "demo");
-    WidgetFileJsonController.toControl_titleInput(nodeRoot, "demo", "demo");
-    this.readObject(jsonObj, "", nodeRoot);
+    var nodeRoot = this._elementTabTitle._elementContent;
+    WidgetFileJsonController.addControlTable_titleTitle(nodeRoot, "demo", "demo");
+    WidgetFileJsonController.addControlTable_titleInput(nodeRoot, "demo", "demo");
+    var nodeTable = WidgetFileJsonController.insertNodeTable(nodeRoot);
+    this.readObject(jsonObj, "", nodeTable);
 };
 WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, elementParent) {
     for (var o in jsonObj) {
@@ -29,43 +26,67 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             keyChild += "->";
             this.readObject(value, keyChild, elementParent);
         } else if (typeof(value) == "string") {
-            WidgetFileJsonController.toControl_titleInput(elementParent, key, value);
+            WidgetFileJsonController.addControlRow_titleInput(elementParent, key, value);
         }
     }
 };
 WidgetFileJsonController.changeInput = function(e) {
     alert(this.value);
 }
-WidgetFileJsonController.createNodeRow = function(elementParent) {
-    var nodeRow = document.createElement("div");
-    elementParent.appendChild(nodeRow);
-    nodeRow.classList.add("nodeItem");
+WidgetFileJsonController.insertNodeTable = function(nodeParent) {
+    var nodeTable = document.createElement("table");
+    nodeParent.appendChild(nodeTable);
+    nodeTable.classList.add("nodeTable");
+    return nodeTable;
+}
+WidgetFileJsonController.insertNodeRow = function(nodeTable) {
+    var nodeRow = nodeTable.insertRow();
+    nodeRow.classList.add("nodeRow");
     return nodeRow;
 }
-WidgetFileJsonController.toControl_titleTitle = function(elementParent, key, value) {
-    var nodeRow = WidgetFileJsonController.createNodeRow(elementParent);
-    var nodeTitle = document.createElement("div");
-    nodeRow.appendChild(nodeTitle);
-    nodeTitle.innerHTML = key;
-    nodeTitle.classList.add("nodeTitle");
-    var nodeTitle_0 = document.createElement("div");
-    nodeRow.appendChild(nodeTitle_0);
-    nodeTitle_0.innerHTML = value;
-    nodeTitle_0.classList.add("nodeTitle");
+WidgetFileJsonController.insertNodeCell = function(nodeRow) {
+    var nodeCell = nodeRow.insertCell();
+    nodeCell.classList.add("nodeCell");
+    return nodeCell;
 }
-WidgetFileJsonController.toJson_titleTitle = function(elementParent, key, value) {
-}
-WidgetFileJsonController.toControl_titleInput = function(elementParent, key, value) {
-    var nodeRow = WidgetFileJsonController.createNodeRow(elementParent);
+WidgetFileJsonController.addControl_title = function(nodeRow, value) {
+    var nodeCell = WidgetFileJsonController.insertNodeCell(nodeRow);
     var nodeTitle = document.createElement("div");
-    nodeRow.appendChild(nodeTitle);
-    nodeTitle.innerHTML = key;
+    nodeCell.appendChild(nodeTitle);
+    nodeTitle.innerHTML = value;
     nodeTitle.classList.add("nodeTitle");
+}
+WidgetFileJsonController.addControl_input = function(nodeRow, value) {
+    var nodeCell = WidgetFileJsonController.insertNodeCell(nodeRow);
     var nodeInput = document.createElement("input");
-    nodeRow.appendChild(nodeInput);
+    nodeCell.appendChild(nodeInput);
     nodeInput.value = value;
     nodeInput.classList.add("nodeInput");
     nodeInput.onchange = WidgetFileJsonController.changeInput;
 }
-WidgetFileJsonController.toJson_titleInput = function(elementParent, key, value) {
+WidgetFileJsonController.addControlRow_titleTitle = function(nodeTable, key, value) {
+    var nodeRow = WidgetFileJsonController.insertNodeRow(nodeTable);
+    WidgetFileJsonController.addControl_title(nodeRow, key);
+    WidgetFileJsonController.addControl_title(nodeRow, value);
+    return nodeRow;
+}
+WidgetFileJsonController.addControlRow_titleInput = function(nodeTable, key, value) {
+    var nodeRow = WidgetFileJsonController.insertNodeRow(nodeTable);
+    WidgetFileJsonController.addControl_title(nodeRow, key);
+    WidgetFileJsonController.addControl_input(nodeRow, value);
+    return nodeRow;
+}
+WidgetFileJsonController.addControlTable_titleTitle = function(elementParent, key, value) {
+    var nodeTable = WidgetFileJsonController.insertNodeTable(elementParent);
+    WidgetFileJsonController.addControlRow_titleTitle(nodeTable, key, value);
+    return nodeTable;
+}
+WidgetFileJsonController.addControlTable_titleInput = function(elementParent, key, value) {
+    var nodeTable = WidgetFileJsonController.insertNodeTable(elementParent);
+    WidgetFileJsonController.addControlRow_titleInput(nodeTable, key, value);
+    return nodeTable;
+}
+WidgetFileJsonController.toJson_titleTitle = function(nodeTable, key, value) {
+}
+WidgetFileJsonController.toJson_titleInput = function(nodeTable, key, value) {
 }
