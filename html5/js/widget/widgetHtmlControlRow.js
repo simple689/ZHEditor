@@ -1,5 +1,10 @@
 function widgetHtmlControlRow() {
 };
+widgetHtmlControlRow.addTitle = function(nodeTable, key) {
+    var nodeRow = widgetHtmlControl.addRow(nodeTable);
+    widgetHtmlControl.addTitle(nodeRow, key);
+    return nodeRow;
+}
 widgetHtmlControlRow.addTitleTitle = function(nodeTable, key, value) {
     var nodeRow = widgetHtmlControl.addRow(nodeTable);
     widgetHtmlControl.addTitle(nodeRow, key);

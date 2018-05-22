@@ -3,6 +3,13 @@
   "version": "2018.01.03",
   "main": "./src/ZHMain.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "version": "2018.01.03",
+    "main": "./src/ZHMain.js",
+    "scripts": {
+      "start": "electron .",
+      "version": "2018.01.03",
+      "main": "./src/ZHMain.js"
+    }
   }
 }

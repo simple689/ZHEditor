@@ -34,5 +34,3 @@ widgetHtmlControl.addInput = function(nodeRow, value) {
     nodeInput.value = value;
     nodeInput.onchange = widgetHtmlControl.changeInput;
 }
-widgetHtmlControl.jsonTitle = function(nodeTable, key, value) {
-}
