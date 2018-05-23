@@ -25,29 +25,8 @@ WidgetTabController.prototype.init = function (panel, elementParent) {
     this.initContentGroup();
     this._elementTabList = new Array();
     this.addHomePage();
-    this.addHistory();
-
-    this._rightMenu = document.createElement("div");
-    elementParent.appendChild(this._rightMenu);
-    this._rightMenu.classList.add("rightMenu");
-
-    var elementUL = document.createElement("ul");
-    this._rightMenu.appendChild(elementUL);
-
-    var elementLi = document.createElement("li");
-    elementUL.appendChild(elementLi);
-    elementLi.innerHTML = "aaa";
-
-    var elementLi_0 = document.createElement("li");
-    elementUL.appendChild(elementLi_0);
-    elementLi_0.innerHTML = "bbb";
-
-    var elementUL_0 = document.createElement("ul");
-    elementLi_0.appendChild(elementUL_0);
-
-    var elementLi_1 = document.createElement("li");
-    elementUL_0.appendChild(elementLi_1);
-    elementLi_1.innerHTML = "ccc";
+    this.addHistoryPage();
+    this.initRightMenu();
 };
 WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
@@ -65,7 +44,7 @@ WidgetTabController.prototype.addHomePage = function () {
     var elementTabTitle = this.addTitle("首页");
     this.addContent(elementTabTitle, "首页内容", WidgetTabController._addContentType.string);
 };
-WidgetTabController.prototype.addHistory = function () {
+WidgetTabController.prototype.addHistoryPage = function () {
     var fileList = WidgetHistoryController.getFile();
     if (!fileList) {
         return;
@@ -99,17 +78,6 @@ WidgetTabController.prototype.addTitle = function (title) {
     elementTabTitle.textContent = title;
 
     elementTabTitle.oncontextmenu = WidgetTabController.tabTitleOnContextMenu;
-
-   //  var li = document.getElementsByTagName('li');
-   //  for(var i=0;i<li.length;i++){
-   //      li.onmouseover = function(){
-   //          this.classname = "active";
-   //      }
-   //      li.onmouseout = function(){
-   //          this.classname = "";
-   //      }
-   //  }
-
     return elementTabTitle;
 };
 WidgetTabController.prototype.addContent = function (elementTabTitle, content, contentType) {
@@ -164,4 +132,37 @@ WidgetTabController.prototype.addFileContent = function (fileContent, elementTab
 };
 WidgetTabController.prototype.addFile = function (file, elementTabTitle) {
     this._panel._widgetFileController.readFile(file, elementTabTitle);
+};
+WidgetTabController.prototype.initRightMenu = function () {
+    this._rightMenu = document.createElement("div");
+    elementParent.appendChild(this._rightMenu);
+    this._rightMenu.classList.add("rightMenu");
+
+    var elementUL = document.createElement("ul");
+    this._rightMenu.appendChild(elementUL);
+
+    var elementLi = document.createElement("li");
+    elementUL.appendChild(elementLi);
+    elementLi.innerHTML = "aaa";
+
+    var elementLi_0 = document.createElement("li");
+    elementUL.appendChild(elementLi_0);
+    elementLi_0.innerHTML = "bbb";
+
+    var elementUL_0 = document.createElement("ul");
+    elementLi_0.appendChild(elementUL_0);
+
+    var elementLi_1 = document.createElement("li");
+    elementUL_0.appendChild(elementLi_1);
+    elementLi_1.innerHTML = "ccc";
+
+    //  var li = document.getElementsByTagName('li');
+    //  for(var i=0;i<li.length;i++){
+    //      li.onmouseover = function(){
+    //          this.classname = "active";
+    //      }
+    //      li.onmouseout = function(){
+    //          this.classname = "";
+    //      }
+    //  }
 };
