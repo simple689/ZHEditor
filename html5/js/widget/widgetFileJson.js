@@ -1,10 +1,10 @@
 function WidgetFileJsonController() {
-};
+}
 WidgetFileJsonController.prototype.init = function (elementTabTitle, fileStr) {
     this._elementTabTitle = elementTabTitle;
     this._fileStr = fileStr;
     this.initControl();
-};
+}
 WidgetFileJsonController.prototype.initControl = function () {
     var jsonObj = eval('(' + this._fileStr + ')');
     // LogController.log(jsonObj);
@@ -15,7 +15,7 @@ WidgetFileJsonController.prototype.initControl = function () {
         WidgetHtmlControlTable.addTitleInput(nodeRoot, "demo", "demo");
     }
     this.readObject(jsonObj, "", nodeRoot);
-};
+}
 WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, elementParent) {
     var nodeTable = WidgetHtmlControl.addTable(elementParent);
     for (var o in jsonObj) {
@@ -42,4 +42,4 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
-};
+}

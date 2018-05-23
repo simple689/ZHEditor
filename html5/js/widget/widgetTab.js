@@ -1,6 +1,6 @@
 function WidgetTabController() {
     this._elementTab = null;
-};
+}
 WidgetTabController._classWidgetTab = "widgetTab";
 WidgetTabController._classWidgetTabTitleGroup = "widgetTabTitleGroup";
 WidgetTabController._classWidgetTabContentGroup = "widgetTabContentGroup";
@@ -12,7 +12,7 @@ WidgetTabController._addContentType = {
     string : 0,
     fileContent : 1,
     file : 2
-};
+}
 WidgetTabController.prototype.init = function (panel, elementParent) {
     this._panel = panel;
 
@@ -27,23 +27,23 @@ WidgetTabController.prototype.init = function (panel, elementParent) {
     this.addHomePage();
     this.addHistoryPage();
     this.initRightMenu();
-};
+}
 WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
     this._elementTab.appendChild(this._elementTabTitleGroup);
     this._elementTabTitleGroup.classList.add(WidgetTabController._classWidgetTabTitleGroup);
     this._elementTabTitleGroup._widgetTabController = this;
-};
+}
 WidgetTabController.prototype.initContentGroup = function () {
     this._elementTabContentGroup = document.createElement("div");
     this._elementTab.appendChild(this._elementTabContentGroup);
     this._elementTabContentGroup.classList.add(WidgetTabController._classWidgetTabContentGroup);
     this._elementTabContentGroup._widgetTabController = this;
-};
+}
 WidgetTabController.prototype.addHomePage = function () {
     var elementTabTitle = this.addTitle("首页");
     this.addContent(elementTabTitle, "首页内容", WidgetTabController._addContentType.string);
-};
+}
 WidgetTabController.prototype.addHistoryPage = function () {
     var fileList = WidgetHistoryController.getFile();
     if (!fileList) {
@@ -58,11 +58,11 @@ WidgetTabController.prototype.addHistoryPage = function () {
         var elementTabTitle = this.addTitle(value[WidgetHistoryController._keyFileName]);
         this.addContent(elementTabTitle, value[WidgetHistoryController._keyFileContent], WidgetTabController._addContentType.fileContent);
     }
-};
+}
 WidgetTabController.prototype.addTab = function (file) {
     var elementTabTitle = this.addTitle(file.name);
     this.addContent(elementTabTitle, file, WidgetTabController._addContentType.file);
-};
+}
 WidgetTabController.prototype.addTitle = function (title) {
     var elementTabTitle = document.createElement("li");
     this._elementTabTitleGroup.appendChild(elementTabTitle);
@@ -79,7 +79,7 @@ WidgetTabController.prototype.addTitle = function (title) {
 
     elementTabTitle.oncontextmenu = WidgetTabController.tabTitleOnContextMenu;
     return elementTabTitle;
-};
+}
 WidgetTabController.prototype.addContent = function (elementTabTitle, content, contentType) {
     var elementTabContent = document.createElement("div");
     this._elementTabContentGroup.appendChild(elementTabContent);
@@ -95,30 +95,30 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
     } else if (contentType == WidgetTabController._addContentType.file) {
         this.addFile(content, elementTabTitle);
     }
-};
+}
 WidgetTabController.prototype.setActiveElement = function (elementActive) {
     this.hideActiveElement();
     this._elementActive = elementActive;
     this.showActiveElement();
-};
+}
 WidgetTabController.prototype.hideActiveElement = function () {
     if (this._elementActive && this._elementActive.classList.contains(WidgetTabController._classIsActive)) {
         this._elementActive.classList.remove(WidgetTabController._classIsActive);
         // $(this._elementActive._elementTabContent).hide();
         $(this._elementActive._elementTabContent).slideUp(WidgetTabController._slideSpeed);
     }
-};
+}
 WidgetTabController.prototype.showActiveElement = function () {
     this._elementActive.classList.add(WidgetTabController._classIsActive);
     // $(elementActive._elementTabContent).show();
     $(this._elementActive._elementTabContent).slideDown(WidgetTabController._slideSpeed);
-};
+}
 WidgetTabController.tabTitleOnClick = function (e) {
     if (!this.classList.contains(WidgetTabController._classIsActive)) {
         this._widgetTabController.setActiveElement(this);
     }
     this._widgetTabController._rightMenu.style.display = 'none'; //再次点击，菜单消失
-};
+}
 WidgetTabController.tabTitleOnContextMenu = function (e) {
     var e = e || window.event;
     this._widgetTabController._rightMenu.style.display = "block"; //显示菜单
@@ -126,13 +126,13 @@ WidgetTabController.tabTitleOnContextMenu = function (e) {
     this._widgetTabController._rightMenu.style.top = '8px'; //菜单定位
     // this._widgetTabController._rightMenu.style.top = e.clientY+'px'; //菜单定位
     return false; //取消右键点击的默认事件
-};
+}
 WidgetTabController.prototype.addFileContent = function (fileContent, elementTabTitle) {
     this._panel._widgetFileController.readFileContent(fileContent, elementTabTitle);
-};
+}
 WidgetTabController.prototype.addFile = function (file, elementTabTitle) {
     this._panel._widgetFileController.readFile(file, elementTabTitle);
-};
+}
 WidgetTabController.prototype.initRightMenu = function () {
     this._rightMenu = document.createElement("div");
     elementParent.appendChild(this._rightMenu);
@@ -165,4 +165,4 @@ WidgetTabController.prototype.initRightMenu = function () {
     //          this.classname = "";
     //      }
     //  }
-};
+}

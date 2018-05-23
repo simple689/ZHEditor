@@ -1,5 +1,5 @@
 function WidgetHtmlControlTable() {
-};
+}
 WidgetHtmlControlTable.addTitleTitle = function(elementParent, key, value) {
     var nodeTable = WidgetHtmlControl.addTable(elementParent);
     WidgetHtmlControlRow.addTitleTitle(nodeTable, key, value);

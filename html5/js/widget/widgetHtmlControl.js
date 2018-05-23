@@ -1,9 +1,9 @@
 function WidgetHtmlControl() {
-};
+}
 WidgetHtmlControl._inputValueType = {
     string : 0,
     number : 1
-};
+}
 WidgetHtmlControl.inputOnChange = function(e) {
     switch(this._valueType) {
         case WidgetHtmlControl._inputValueType.string : {

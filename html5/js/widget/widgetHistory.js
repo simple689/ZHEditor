@@ -1,5 +1,5 @@
 function WidgetHistoryController() {
-};
+}
 WidgetHistoryController._localStorage = null;
 
 WidgetHistoryController._keyFileEdit = "fileEdit";
@@ -39,10 +39,10 @@ WidgetHistoryController.prototype.init = function () {
     //         document.write(localStorage.key(i)+ " : " + localStorage.getItem(localStorage.key(i)) + "<br>");
     //     }
     // }
-};
+}
 WidgetHistoryController.setItem = function (key, value) {
     WidgetHistoryController._localStorage.setItem(key, value);
-};
+}
 WidgetHistoryController.addFile = function (fileName, fileContent) {
     var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
     if (!fileEditItem) {
@@ -66,7 +66,7 @@ WidgetHistoryController.addFile = function (fileName, fileContent) {
         fileList[len - 1][WidgetHistoryController._keyFileContent] = fileContent;
     }
     WidgetHistoryController._localStorage.setItem(WidgetHistoryController._keyFileEdit, JSON.stringify(fileEditJson)); //转变为字符串存储
-};
+}
 WidgetHistoryController.getFile = function () {
     var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
     if (!fileEditItem) {
@@ -75,4 +75,4 @@ WidgetHistoryController.getFile = function () {
     var fileEditJson = JSON.parse(fileEditItem);
     var fileList = fileEditJson[WidgetHistoryController._keyFileList];
     return fileList;
-};
+}
