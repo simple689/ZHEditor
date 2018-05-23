@@ -36,7 +36,6 @@ WidgetMenuController.showMenu = function (menu, e) {
     var e = e || window.event;
     WidgetMenuController.hideMenu(menu);
 
-    var showTimer = hideTimer = null;
     var maxWidth = maxHeight = 0;
     var docSize = [document.documentElement.offsetWidth, document.documentElement.offsetHeight];
     var getOffset = {
@@ -48,6 +47,7 @@ WidgetMenuController.showMenu = function (menu, e) {
         }
     };
 
+    var showTimer = hideTimer = null;
     var liList = menu.getElementsByTagName("li");
     for (var i = 0; i < liList.length; i++){
         var li = liList[i];
@@ -60,17 +60,18 @@ WidgetMenuController.showMenu = function (menu, e) {
         li.onmouseover = function (){
             var liThis = this;
             var ulList = liThis.getElementsByTagName("ul");
-            // 鼠标移入样式
             liThis.classList.add("active");
             // 显示子菜单
             if (ulList[0]){
                 clearTimeout(hideTimer);
                 showTimer = setTimeout(function (){
+                    // 隐藏其他
                     for (var i = 0; i < liThis.parentNode.children.length; i++){
                         if (liThis.parentNode.children[i].getElementsByTagName("ul")[0]) {
                             liThis.parentNode.children[i].getElementsByTagName("ul")[0].style.display = "none";
                         }
                     }
+                    // 显示当前
                     ulList[0].style.display = "block";
                     /*
                      * offsetHeight/Width、offsetTop/offsetLeft
@@ -78,6 +79,7 @@ WidgetMenuController.showMenu = function (menu, e) {
                      * */
                     ulList[0].style.top = liThis.offsetTop + "px";
                     ulList[0].style.left = liThis.offsetWidth + "px";
+
                     setWidth(ulList[0]);
                     //最大显示范围
                     maxWidth = docSize[0] - ulList[0].offsetWidth;
@@ -92,7 +94,6 @@ WidgetMenuController.showMenu = function (menu, e) {
         // 鼠标移出
         li.onmouseout = function (){
             var liThis = this;
-            // 鼠标移出样式
             liThis.classList.remove("active");
             clearTimeout(showTimer);
             hideTimer = setTimeout(function (){
@@ -108,7 +109,6 @@ WidgetMenuController.showMenu = function (menu, e) {
     menu.style.display = "block"; //显示菜单
     menu.style.left = e.clientX+'px'; //菜单定位
     menu.style.top = e.clientY+'px'; //菜单定位
-    menu.style.top = '8px'; //菜单定位
 
     /*	setWidth(aUl[0]);
         //最大显示范围

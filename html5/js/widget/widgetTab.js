@@ -26,8 +26,8 @@ WidgetTabController.prototype.init = function (panel, elementParent) {
     this._elementTabList = new Array();
     this.addHomePage();
     this.addHistoryPage();
-    this._menuRightTitle = WidgetMenuController.createMenu(elementParent, "../../editor/menu/menuFileEditorTitle.html");
-    this._menuRightContent = WidgetMenuController.createMenu(elementParent, "../../editor/menu/menuFileEditorContent.html");
+    this._menuRightTitle = WidgetMenuController.createMenu(document.documentElement, "../../editor/menu/menuFileEditorTitle.html");
+    this._menuRightContent = WidgetMenuController.createMenu(document.documentElement, "../../editor/menu/menuFileEditorContent.html");
 }
 WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
