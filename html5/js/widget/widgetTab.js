@@ -26,7 +26,8 @@ WidgetTabController.prototype.init = function (panel, elementParent) {
     this._elementTabList = new Array();
     this.addHomePage();
     this.addHistoryPage();
-    this.initRightMenu();
+    this._menuRightTitle = WidgetMenuController.createMenu(elementParent, "../../editor/menu/menuFileEditorTitle.html");
+    this._menuRightContent = WidgetMenuController.createMenu(elementParent, "../../editor/menu/menuFileEditorContent.html");
 }
 WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
@@ -68,16 +69,13 @@ WidgetTabController.prototype.addTitle = function (title) {
     this._elementTabTitleGroup.appendChild(elementTabTitle);
     elementTabTitle.classList.add(WidgetTabController._classWidgetTabTitle);
     elementTabTitle._widgetTabController = this;
+    elementTabTitle.onclick = WidgetTabController.tabTitleOnClick;
+    elementTabTitle.oncontextmenu = WidgetTabController.tabTitleOnContextMenu;
+    this.setActiveElement(elementTabTitle);
 
     this._elementTabList.push(elementTabTitle);
 
-    elementTabTitle.onclick = WidgetTabController.tabTitleOnClick;
-
-    this.setActiveElement(elementTabTitle);
-
     elementTabTitle.textContent = title;
-
-    elementTabTitle.oncontextmenu = WidgetTabController.tabTitleOnContextMenu;
     return elementTabTitle;
 }
 WidgetTabController.prototype.addContent = function (elementTabTitle, content, contentType) {
@@ -85,6 +83,8 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
     this._elementTabContentGroup.appendChild(elementTabContent);
     elementTabContent.classList.add(WidgetTabController._classWidgetTabContent);
     elementTabContent._widgetTabController = this;
+    elementTabContent.onclick = WidgetTabController.tabContentOnClick;
+    elementTabContent.oncontextmenu = WidgetTabController.tabContentOnContextMenu;
 
     elementTabTitle._elementTabContent = elementTabContent;
 
@@ -117,14 +117,19 @@ WidgetTabController.tabTitleOnClick = function (e) {
     if (!this.classList.contains(WidgetTabController._classIsActive)) {
         this._widgetTabController.setActiveElement(this);
     }
-    this._widgetTabController._rightMenu.style.display = 'none'; //再次点击，菜单消失
+    this._widgetTabController.hideMenu();
+}
+WidgetTabController.tabContentOnClick = function (e) {
+    this._widgetTabController.hideMenu();
 }
 WidgetTabController.tabTitleOnContextMenu = function (e) {
-    var e = e || window.event;
-    this._widgetTabController._rightMenu.style.display = "block"; //显示菜单
-    this._widgetTabController._rightMenu.style.left = e.clientX+'px'; //菜单定位
-    this._widgetTabController._rightMenu.style.top = '8px'; //菜单定位
-    // this._widgetTabController._rightMenu.style.top = e.clientY+'px'; //菜单定位
+    this._widgetTabController.hideMenu();
+    WidgetMenuController.showMenu(this._widgetTabController._menuRightTitle, e);
+    return false; //取消右键点击的默认事件
+}
+WidgetTabController.tabContentOnContextMenu = function (e) {
+    this._widgetTabController.hideMenu();
+    WidgetMenuController.showMenu(this._widgetTabController._menuRightContent, e);
     return false; //取消右键点击的默认事件
 }
 WidgetTabController.prototype.addFileContent = function (fileContent, elementTabTitle) {
@@ -133,36 +138,7 @@ WidgetTabController.prototype.addFileContent = function (fileContent, elementTab
 WidgetTabController.prototype.addFile = function (file, elementTabTitle) {
     this._panel._widgetFileController.readFile(file, elementTabTitle);
 }
-WidgetTabController.prototype.initRightMenu = function () {
-    this._rightMenu = document.createElement("div");
-    elementParent.appendChild(this._rightMenu);
-    this._rightMenu.classList.add("rightMenu");
-
-    var elementUL = document.createElement("ul");
-    this._rightMenu.appendChild(elementUL);
-
-    var elementLi = document.createElement("li");
-    elementUL.appendChild(elementLi);
-    elementLi.innerHTML = "aaa";
-
-    var elementLi_0 = document.createElement("li");
-    elementUL.appendChild(elementLi_0);
-    elementLi_0.innerHTML = "bbb";
-
-    var elementUL_0 = document.createElement("ul");
-    elementLi_0.appendChild(elementUL_0);
-
-    var elementLi_1 = document.createElement("li");
-    elementUL_0.appendChild(elementLi_1);
-    elementLi_1.innerHTML = "ccc";
-
-    //  var li = document.getElementsByTagName('li');
-    //  for(var i=0;i<li.length;i++){
-    //      li.onmouseover = function(){
-    //          this.classname = "active";
-    //      }
-    //      li.onmouseout = function(){
-    //          this.classname = "";
-    //      }
-    //  }
+WidgetTabController.prototype.hideMenu = function () {
+    WidgetMenuController.hideMenu(this._menuRightTitle);
+    WidgetMenuController.hideMenu(this._menuRightContent);
 }
