@@ -80,13 +80,18 @@ WidgetMenuController.showMenu = function (menu, e) {
                     ulList[0].style.top = liThis.offsetTop + "px";
                     ulList[0].style.left = liThis.offsetWidth + "px";
 
+
                     setWidth(ulList[0]);
                     //最大显示范围
                     maxWidth = docSize[0] - ulList[0].offsetWidth;
                     maxHeight = docSize[1] - ulList[0].offsetHeight;
                     //防止溢出
-                    maxWidth < getOffset.left(ulList[0]) && (ulList[0].style.left = -ulList[0].clientWidth + "px");
-                    maxHeight < getOffset.top(ulList[0]) && (ulList[0].style.top = -ulList[0].clientHeight + liThis.offsetTop + liThis.clientHeight + "px")
+                    if (maxWidth < getOffset.left(ulList[0])) {
+                        ulList[0].style.left = -ulList[0].clientWidth + "px";
+                    }
+                    if (maxHeight < getOffset.top(ulList[0])) {
+                        ulList[0].style.top = -ulList[0].clientHeight + liThis.offsetTop + liThis.clientHeight + "px"
+                    }
                 },300);
             }
         };
