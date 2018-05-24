@@ -1,5 +1,7 @@
 function LogController() {
 }
+LogController.init = function () {
+}
 LogController.log = function (...args) {
     console.log(...args);
 }

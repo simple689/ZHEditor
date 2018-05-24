@@ -8,25 +8,26 @@
  * */
 function WidgetMenuController() {
 }
+WidgetMenuController._menuList = new Array();
+WidgetMenuController._menuPadding = 6;
+WidgetMenuController.init = function () {
+}
 WidgetMenuController.createMenu = function (elementParent, html) {
     var menu = document.createElement("div");
     elementParent.appendChild(menu);
     menu.classList.add("menu");
     $(menu).load(html, function() {
-        // var liList = menu.getElementsByTagName('li');
-        // for (var li in liList) {
-        //     $(li).onmouseover = function () {
-        //         this.classList.add("menuItemActive");
-        //     }
-        //     $(li).onmouseout = function () {
-        //         this.classList.remove("menuItemActive");
-        //     }
-        // }
     });
+    WidgetMenuController._menuList.push(menu);
     return menu;
 }
 WidgetMenuController.hideMenu = function (menu) {
     menu.style.display = 'none'; //再次点击，菜单消失
+}
+WidgetMenuController.hideMenuAll = function () {
+    for (var i in WidgetMenuController._menuList) {
+        WidgetMenuController.hideMenu(WidgetMenuController._menuList[i]);
+    }
 }
 /*
  * 弹出菜单
@@ -34,20 +35,12 @@ WidgetMenuController.hideMenu = function (menu) {
  * */
 WidgetMenuController.showMenu = function (menu, e) {
     var e = e || window.event;
+    e.cancelBubble = true; // 屏蔽向上一层发送事件
     WidgetMenuController.hideMenu(menu);
 
     var maxWidth = maxHeight = 0;
     var docSize = [document.documentElement.offsetWidth, document.documentElement.offsetHeight];
-    var getOffset = {
-        top: function (obj) {
-            return obj.offsetTop + (obj.offsetParent ? arguments.callee(obj.offsetParent) : 0)
-        },
-        left: function (obj) {
-            return obj.offsetLeft + (obj.offsetParent ? arguments.callee(obj.offsetParent) : 0)
-        }
-    };
 
-    var showTimer = hideTimer = null;
     var liList = menu.getElementsByTagName("li");
     for (var i = 0; i < liList.length; i++){
         var li = liList[i];
@@ -56,61 +49,49 @@ WidgetMenuController.showMenu = function (menu, e) {
         if (ulList[0]) {
             li.classList.add("sub");
         }
+        li._menu = menu;
         // 鼠标移入
-        li.onmouseover = function (){
+        li.onmouseenter = function (){
             var liThis = this;
             var ulList = liThis.getElementsByTagName("ul");
             liThis.classList.add("active");
+            WidgetMenuController.hideMenuLi(liThis);
             // 显示子菜单
             if (ulList[0]){
-                clearTimeout(hideTimer);
-                showTimer = setTimeout(function (){
-                    // 隐藏其他
-                    for (var i = 0; i < liThis.parentNode.children.length; i++){
-                        if (liThis.parentNode.children[i].getElementsByTagName("ul")[0]) {
-                            liThis.parentNode.children[i].getElementsByTagName("ul")[0].style.display = "none";
-                        }
-                    }
-                    // 显示当前
-                    ulList[0].style.display = "block";
-                    /*
-                     * offsetHeight/Width、offsetTop/offsetLeft
-                     * 等返回的都是只读的并且以数字的形式返回像素值（例如，返回12，而不是'12px'）。
-                     * */
-                    ulList[0].style.top = liThis.offsetTop + "px";
-                    ulList[0].style.left = liThis.offsetWidth + "px";
+                // 显示当前
+                ulList[0].style.display = "block";
+                /*
+                 * offsetHeight/Width、offsetTop/offsetLeft
+                 * 等返回的都是只读的并且以数字的形式返回像素值（例如，返回12，而不是'12px'）。
+                 * */
+                ulList[0].style.top = liThis.offsetTop + "px";
+                ulList[0].style.left = liThis.offsetWidth + "px";
 
+                var offsetTop = getOffsetTopToParent(ulList[0], liThis._menu);
+                var offsetLeft = getOffsetLeftToParent(ulList[0], liThis._menu);
+                liThis._menu.style.width = offsetLeft + ulList[0].offsetWidth + WidgetMenuController._menuPadding + "px";
+                liThis._menu.style.height = offsetTop + ulList[0].offsetHeight + WidgetMenuController._menuPadding +"px";
+                // LogController.log("top = " + offsetTop + " ; left = " + offsetLeft);
 
-                    setWidth(ulList[0]);
-                    //最大显示范围
-                    maxWidth = docSize[0] - ulList[0].offsetWidth;
-                    maxHeight = docSize[1] - ulList[0].offsetHeight;
-                    //防止溢出
-                    if (maxWidth < getOffset.left(ulList[0])) {
-                        ulList[0].style.left = -ulList[0].clientWidth + "px";
-                    }
-                    if (maxHeight < getOffset.top(ulList[0])) {
-                        ulList[0].style.top = -ulList[0].clientHeight + liThis.offsetTop + liThis.clientHeight + "px"
-                    }
-                },300);
+                // setWidth(ulList[0]);
+                // //最大显示范围
+                // maxWidth = docSize[0] - ulList[0].offsetWidth;
+                // maxHeight = docSize[1] - ulList[0].offsetHeight;
+                // //防止溢出
+                // if (maxWidth < getOffset.left(ulList[0])) {
+                //     ulList[0].style.left = -ulList[0].clientWidth + "px";
+                // }
+                // if (maxHeight < getOffset.top(ulList[0])) {
+                //     ulList[0].style.top = -ulList[0].clientHeight + liThis.offsetTop + liThis.clientHeight + "px"
+                // }
             }
         };
-
         // 鼠标移出
         li.onmouseout = function (){
             var liThis = this;
             liThis.classList.remove("active");
-            clearTimeout(showTimer);
-            hideTimer = setTimeout(function (){
-                for (i = 0; i < liThis.parentNode.children.length; i++){
-                    if (liThis.parentNode.children[i].getElementsByTagName("ul")[0]) {
-                        liThis.parentNode.children[i].getElementsByTagName("ul")[0].style.display = "none";
-                    }
-                }
-            },300);
         };
     }
-
     menu.style.display = "block"; //显示菜单
     menu.style.left = e.clientX+'px'; //菜单定位
     menu.style.top = e.clientY+'px'; //菜单定位
@@ -123,6 +104,20 @@ WidgetMenuController.showMenu = function (menu, e) {
         menu.offsetTop > maxHeight && (menu.style.top = maxHeight + "px");
         menu.offsetLeft > maxWidth && (menu.style.left = maxWidth + "px");*/
     return false;
+}
+// 隐藏其他
+WidgetMenuController.hideMenuLi = function (li) {
+    for (var i = 0; i < li.parentNode.children.length; i++){
+        if (li.parentNode.children[i].getElementsByTagName("ul")[0]) {
+            li.parentNode.children[i].getElementsByTagName("ul")[0].style.display = "none";
+        }
+    }
+}
+function getOffsetTopToParent(element, parentElement) {
+    return element.offsetTop + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
+}
+function getOffsetLeftToParent(element, parentElement) {
+    return element.offsetLeft + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
 }
 //取li中最大的宽度, 并赋给同级所有li
 function setWidth(obj){

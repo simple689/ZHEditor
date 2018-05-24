@@ -1,3 +1,5 @@
+// dock
+//========
 var dock = null;
 var panelTest = null;
 var panelView = null;
@@ -80,10 +82,24 @@ function setVisible(panel, sch) {
     panel.setVisible(sch);
 }
 
+// document
+//========
+function documentOnClick() {
+    WidgetMenuController.hideMenuAll();
+    return true;
+}
+
+function documentOnContextMenu() {
+    WidgetMenuController.hideMenuAll();
+    return true;
+}
+
 // exe
 //========
 $(document).ready(function () {
     console.log("[dock] start");
+    LogController.init();
+    WidgetMenuController.init();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
         $('#panelToolBar').load("../panel/panelToolBar.html", function () {
@@ -107,6 +123,9 @@ $(document).ready(function () {
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
         panelFileBrowserController.init();
     });
+
+    document.onclick = documentOnClick;
+    document.oncontextmenu = documentOnContextMenu;
 
     console.log("[dock] end");
 })
