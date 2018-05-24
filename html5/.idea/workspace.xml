@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/widget/widgetMenu.css" afterPath="$PROJECT_DIR$/css/widget/widgetMenu.css" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetMenu.js" afterPath="$PROJECT_DIR$/js/widget/widgetMenu.js" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetTab.js" afterPath="$PROJECT_DIR$/js/widget/widgetTab.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,6 +40,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="124" column="25" lean-forward="false" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="widgetMenu.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/widget/widgetMenu.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,8 +63,8 @@
       <file leaf-file-name="widgetMenu.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+            <state relative-caret-position="134">
+              <caret line="103" column="44" lean-forward="false" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -73,7 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fileList</find>
       <find>fileContent</find>
       <find>widgetHtmlControl</find>
       <find>};</find>
@@ -103,6 +112,7 @@
       <find>createDrop</find>
       <find>init</find>
       <find>dock_close</find>
+      <find>display</find>
     </findStrings>
     <replaceStrings>
       <replace>_m$59</replace>
@@ -191,12 +201,12 @@
         <option value="$PROJECT_DIR$/js/widget/widgetDrop.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHistory.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetMenu.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/dock.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
         <option value="$PROJECT_DIR$/css/common/base.css" />
         <option value="$PROJECT_DIR$/css/widget/widgetMenu.css" />
+        <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetMenu.js" />
       </list>
     </option>
   </component>
@@ -513,12 +523,12 @@
       <workItem from="1527043464106" duration="16375000" />
       <workItem from="1527127037908" duration="14026000" />
       <workItem from="1527151126307" duration="108000" />
-      <workItem from="1527151259643" duration="1204000" />
+      <workItem from="1527151259643" duration="1719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="516675000" />
+    <option name="totallyTimeSpent" value="517190000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -900,7 +910,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="1100" />
+      <option name="time" value="1103" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1218,14 +1228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="61" lean-forward="false" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileEditorTitle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -1282,10 +1284,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="124" column="25" lean-forward="false" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="134">
+          <caret line="103" column="44" lean-forward="false" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
           <folding />
         </state>
       </provider>

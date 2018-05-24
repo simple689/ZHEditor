@@ -122,12 +122,10 @@ WidgetTabController.tabContentOnClick = function (e) {
     this._widgetTabController.hideMenu();
 }
 WidgetTabController.tabTitleOnContextMenu = function (e) {
-    this._widgetTabController.hideMenu();
     WidgetMenuController.showMenu(this._widgetTabController._menuRightTitle, e);
     return false; //取消右键点击的默认事件
 }
 WidgetTabController.tabContentOnContextMenu = function (e) {
-    this._widgetTabController.hideMenu();
     WidgetMenuController.showMenu(this._widgetTabController._menuRightContent, e);
     return false; //取消右键点击的默认事件
 }
@@ -136,8 +134,4 @@ WidgetTabController.prototype.addFileContent = function (fileContent, elementTab
 }
 WidgetTabController.prototype.addFile = function (file, elementTabTitle) {
     WidgetFileController.readFile(file, elementTabTitle);
-}
-WidgetTabController.prototype.hideMenu = function () {
-    WidgetMenuController.hideMenu(this._menuRightTitle);
-    WidgetMenuController.hideMenu(this._menuRightContent);
 }

@@ -19,14 +19,6 @@ WidgetMenuController.createMenu = function (elementParent, html) {
     WidgetMenuController._menuList.push(menu);
     return menu;
 }
-WidgetMenuController.hideMenu = function (menu) {
-    menu.style.display = 'none'; //再次点击，菜单消失
-}
-WidgetMenuController.hideMenuAll = function () {
-    for (var i in WidgetMenuController._menuList) {
-        WidgetMenuController.hideMenu(WidgetMenuController._menuList[i]);
-    }
-}
 /*
  * 弹出菜单
  * menu：菜单
@@ -34,7 +26,7 @@ WidgetMenuController.hideMenuAll = function () {
 WidgetMenuController.showMenu = function (menu, e) {
     var e = e || window.event;
     e.cancelBubble = true; // 屏蔽向上一层发送事件
-    WidgetMenuController.hideMenu(menu);
+    WidgetMenuController.hideMenuAll();
 
     var maxWidth = maxHeight = 0;
     var docSize = [document.documentElement.offsetWidth, document.documentElement.offsetHeight];
@@ -103,7 +95,14 @@ WidgetMenuController.showMenu = function (menu, e) {
         menu.offsetLeft > maxWidth && (menu.style.left = maxWidth + "px");*/
     return false;
 }
-// 隐藏其他
+WidgetMenuController.hideMenuAll = function () {
+    for (var i in WidgetMenuController._menuList) {
+        WidgetMenuController.hideMenu(WidgetMenuController._menuList[i]);
+    }
+}
+WidgetMenuController.hideMenu = function (menu) {
+    menu.style.display = 'none'; //再次点击，菜单消失
+}
 WidgetMenuController.hideMenuLi = function (li) {
     for (var i = 0; i < li.parentNode.children.length; i++){
         if (li.parentNode.children[i].getElementsByTagName("ul")[0]) {
