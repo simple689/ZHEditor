@@ -29,9 +29,6 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
     menu._exec = exec;
     WidgetMenuController.hideMenuAll();
 
-    var maxWidth = maxHeight = 0;
-    var docSize = [document.documentElement.offsetWidth, document.documentElement.offsetHeight];
-
     var liList = menu.getElementsByTagName("li");
     for (var i = 0; i < liList.length; i++){
         var li = liList[i];
@@ -47,35 +44,31 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
             var ulList = liThis.getElementsByTagName("ul");
             liThis.classList.add("active");
             WidgetMenuController.hideMenuLi(liThis);
+            var ul;
             // 显示子菜单
             if (ulList[0]){
+                ul = ulList[0];
                 // 显示当前
                 ulList[0].style.display = "block";
                 /*
                  * offsetHeight/Width、offsetTop/offsetLeft
                  * 等返回的都是只读的并且以数字的形式返回像素值（例如，返回12，而不是'12px'）。
                  * */
-                ulList[0].style.top = liThis.offsetTop + "px";
                 ulList[0].style.left = liThis.offsetWidth + "px";
-
-                var offsetTop = getOffsetTopToParent(ulList[0], liThis._menu);
-                var offsetLeft = getOffsetLeftToParent(ulList[0], liThis._menu);
-                liThis._menu.style.width = offsetLeft + ulList[0].offsetWidth + WidgetMenuController._menuPadding + "px";
-                liThis._menu.style.height = offsetTop + ulList[0].offsetHeight + WidgetMenuController._menuPadding +"px";
-                // LogController.log("top = " + offsetTop + " ; left = " + offsetLeft);
-
-                // setWidth(ulList[0]);
-                // //最大显示范围
-                // maxWidth = docSize[0] - ulList[0].offsetWidth;
-                // maxHeight = docSize[1] - ulList[0].offsetHeight;
-                // //防止溢出
-                // if (maxWidth < getOffset.left(ulList[0])) {
-                //     ulList[0].style.left = -ulList[0].clientWidth + "px";
-                // }
-                // if (maxHeight < getOffset.top(ulList[0])) {
-                //     ulList[0].style.top = -ulList[0].clientHeight + liThis.offsetTop + liThis.clientHeight + "px"
-                // }
+                ulList[0].style.top = liThis.offsetTop + "px";
+            } else {
+                ul = getParentWithTag(liThis, "UL");
             }
+            var ulLeft = getOffsetLeftToParent(ul, liThis._menu);
+            var ulTop = getOffsetTopToParent(ul, liThis._menu);
+            var ulWidth = ul.offsetWidth;
+            var ulHeight = ul.offsetHeight;
+            // LogController.log("ulTop = " + ulTop + " ; ulLeft = " + ulLeft);
+            liThis._menu.style.width = ulLeft + ulWidth + WidgetMenuController._menuPadding + "px";
+            liThis._menu.style.height = ulTop + ulHeight + WidgetMenuController._menuPadding +"px";
+
+            // setPosition(menu, null, e.clientX, e.clientY);
+            // setPosition(menu, null, e.clientX, e.clientY);
         };
         // 鼠标移出
         li.onmouseout = function (){
@@ -84,16 +77,16 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
         };
     }
     menu.style.display = "block"; //显示菜单
-    menu.style.left = e.clientX+'px'; //菜单定位
-    menu.style.top = e.clientY+'px'; //菜单定位
-
-    /*	setWidth(aUl[0]);
-        //最大显示范围
-        maxWidth = docSize[0] - menu.offsetWidth;
-        maxHeight = docSize[1] - menu.offsetHeight;
-        //防止菜单溢出
-        menu.offsetTop > maxHeight && (menu.style.top = maxHeight + "px");
-        menu.offsetLeft > maxWidth && (menu.style.left = maxWidth + "px");*/
+    var menuUlList = menu.getElementsByTagName("ul");
+    if (menuUlList[0]) {
+        var ulLeft = getOffsetLeftToParent(menuUlList[0], menu);
+        var ulTop = getOffsetTopToParent(menuUlList[0], menu);
+        var ulWidth = menuUlList[0].offsetWidth;
+        var ulHeight = menuUlList[0].offsetHeight;
+        menu.style.width = ulLeft + ulWidth + WidgetMenuController._menuPadding + "px";
+        menu.style.height = ulTop + ulHeight + WidgetMenuController._menuPadding +"px";
+    }
+    setPosition(menu, null, e.clientX, e.clientY);
     return false;
 }
 WidgetMenuController.hideMenuAll = function () {
@@ -103,6 +96,10 @@ WidgetMenuController.hideMenuAll = function () {
 }
 WidgetMenuController.hideMenu = function (menu) {
     menu.style.display = 'none'; //再次点击，菜单消失
+    var ulList = menu.getElementsByTagName("ul");
+    for (var i = 1; i < ulList.length; i++){
+        ulList[i].style.display = "none";
+    }
 }
 WidgetMenuController.hideMenuLi = function (li) {
     for (var i = 0; i < li.parentNode.children.length; i++){
@@ -111,15 +108,34 @@ WidgetMenuController.hideMenuLi = function (li) {
         }
     }
 }
-//取li中最大的宽度, 并赋给同级所有li
-function setWidth(obj){
-    maxWidth = 0;
-    for (i = 0; i < obj.children.length; i++){
-        var oLi = obj.children[i];
-        var iWidth = oLi.clientWidth - parseInt(oLi.currentStyle ? oLi.currentStyle["paddingLeft"] : getComputedStyle(oLi,null)["paddingLeft"]) * 2
-        if (iWidth > maxWidth) maxWidth = iWidth;
+function setPosition(element, parentElement, left, top) {
+    var leftCheck = left;
+    var topCheck = top;
+    if (leftCheck < 0) {
+        leftCheck = 0;
     }
-    for (i = 0; i < obj.children.length; i++){
-        obj.children[i].style.width = maxWidth + "px";
+    if (topCheck < 0) {
+        topCheck = 0;
+    }
+    element.style.left = leftCheck + 'px';
+    element.style.top = topCheck + 'px';
+
+    var offsetRight = element.offsetLeft + element.offsetWidth;
+    var offsetBottom = element.offsetTop + element.offsetHeight;
+    var docWidth = document.documentElement.clientWidth;
+    var docHeight = document.documentElement.clientHeight;
+    if (offsetRight > docWidth) {
+        LogController.log("offsetRight = " + offsetRight + " ; docWidth = " + docWidth);
+        leftCheck = element.offsetLeft - (offsetRight - docWidth);
+        if (leftCheck >= 0) {
+            element.style.left = leftCheck + 'px';
+        }
+    }
+    if (offsetBottom > docHeight) {
+        LogController.log("offsetBottom = " + offsetBottom + " ; docHeight = " + docHeight);
+        topCheck = element.offsetTop - (offsetBottom - docHeight);
+        if (topCheck >= 0) {
+            element.style.top = topCheck + "px";
+        }
     }
 }
