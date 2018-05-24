@@ -5,7 +5,7 @@
  *  1、需要用到直线和箭头两个图片,在images目录下可以找到
  *  2、如要使用菜单样式，在页面导入css
  *  3、程序支持多级菜单，所以定义菜单时请使用div+ul标签进行定义:最外层用div，菜单内容用ul+li标签
- * */
+ **/
 function WidgetMenuController() {
 }
 WidgetMenuController._menuList = new Array();
