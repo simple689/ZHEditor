@@ -113,12 +113,6 @@ WidgetMenuController.hideMenuLi = function (li) {
         }
     }
 }
-function getOffsetTopToParent(element, parentElement) {
-    return element.offsetTop + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
-}
-function getOffsetLeftToParent(element, parentElement) {
-    return element.offsetLeft + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
-}
 //取li中最大的宽度, 并赋给同级所有li
 function setWidth(obj){
     maxWidth = 0;
