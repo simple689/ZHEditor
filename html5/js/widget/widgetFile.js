@@ -1,8 +1,6 @@
 function WidgetFileController() {
 }
-WidgetFileController.prototype.init = function () {
-}
-WidgetFileController.prototype.readFileContent = function (fileContent, elementTabTitle) {
+WidgetFileController.readFileContent = function (fileContent, elementTabTitle) {
     var elementContent = document.createElement("div");
     elementTabTitle._elementTabContent.appendChild(elementContent);
     elementTabTitle._elementContent = elementContent;
@@ -12,7 +10,7 @@ WidgetFileController.prototype.readFileContent = function (fileContent, elementT
     elementTabTitle._fileJsonController.init(elementTabTitle, fileContent);
     WidgetHistoryController.addFile(elementTabTitle.textContent, fileContent);
 }
-WidgetFileController.prototype.readFile = function (file, elementTabTitle) {
+WidgetFileController.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");
     var extendIndex = fileNameAry.length - 1;
     var extend = "";
@@ -22,7 +20,6 @@ WidgetFileController.prototype.readFile = function (file, elementTabTitle) {
     }
 
     var reader = new FileReader();
-    reader._widgetFileController = this;
     reader._elementTabTitle = elementTabTitle;
 
     if (file.type.match("application/json") || extend.match("json")) {
@@ -53,7 +50,7 @@ WidgetFileController.load = function (e) {
 }
 WidgetFileController.createFileJsonController = function (fileReader) {
     // LogController.log(fileReader.result);
-    fileReader._widgetFileController.readFileContent(fileReader.result, fileReader._elementTabTitle);
+    WidgetFileController.readFileContent(fileReader.result, fileReader._elementTabTitle);
 }
 WidgetFileController.isJson = function (fileStr) {
     var isjson = false;

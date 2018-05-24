@@ -13,13 +13,12 @@ WidgetTabController._addContentType = {
     fileContent : 1,
     file : 2
 }
-WidgetTabController.prototype.init = function (panel, elementParent) {
-    this._panel = panel;
-
+WidgetTabController.prototype.init = function (elementParent, panel) {
     this._elementTab = document.createElement("figure");
     elementParent.appendChild(this._elementTab);
     this._elementTab.classList.add(WidgetTabController._classWidgetTab);
     this._elementTab._widgetTabController = this;
+    this._panel = panel;
 
     this.initTitleGroup();
     this.initContentGroup();
@@ -133,10 +132,10 @@ WidgetTabController.tabContentOnContextMenu = function (e) {
     return false; //取消右键点击的默认事件
 }
 WidgetTabController.prototype.addFileContent = function (fileContent, elementTabTitle) {
-    this._panel._widgetFileController.readFileContent(fileContent, elementTabTitle);
+    WidgetFileController.readFileContent(fileContent, elementTabTitle);
 }
 WidgetTabController.prototype.addFile = function (file, elementTabTitle) {
-    this._panel._widgetFileController.readFile(file, elementTabTitle);
+    WidgetFileController.readFile(file, elementTabTitle);
 }
 WidgetTabController.prototype.hideMenu = function () {
     WidgetMenuController.hideMenu(this._menuRightTitle);

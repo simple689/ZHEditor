@@ -99,7 +99,7 @@ function documentOnContextMenu() {
 $(document).ready(function () {
     console.log("[dock] start");
     LogController.init();
-    WidgetMenuController.init();
+    WidgetHistoryController.init();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
         $('#panelToolBar').load("../panel/panelToolBar.html", function () {

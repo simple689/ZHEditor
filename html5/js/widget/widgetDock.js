@@ -6782,14 +6782,14 @@ _$1q.prototype._$r9 = function () {
         this._$ii = _$mP._$0w("div", this._$hu);
         this._$ii.className = this._$bA.sID + "Pin";
         this._$i8 = _$mP._$26(this._$ii);
-        this._$ii.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/pinnedt.gif)";
+        this._$ii.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/widget/widgetDock/dock_pinned.gif)";
         this._$ii.style.backgroundPosition = 'center';
         this._$ii._$4C = this;
         this._$hx = _$mP._$0w("div", this._$hu);
         this._$hx.className = this._$bA.sID + "Close";
         this._$iz = _$mP._$26(this._$hx);
         this._$hx._$4C = this;
-        this._$hx.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/closet.gif)";
+        this._$hx.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/widget/widgetDock/dock_close.gif)";
         this._$hx.style.backgroundPosition = 'center';
     }
     ;this._$kz = _$mP._$cD(this._$ii, "height");
@@ -7100,9 +7100,9 @@ _$1q.prototype._$aW = function (_$pG, _$dF, _$7V) {
             _$mP._$6z(this._$ii, _$pG.right - _$pG.left - this._$i8[0] - this._$i8[2], _$pG.bottom - _$pG.top - this._$i8[1] - this._$i8[3], false);
         }
         if (_$dF == _$1j._$78) {
-            this._$ii.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/unpinnedt.gif)";
+            this._$ii.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/widget/widgetDock/dock_unpinned.gif)";
         } else {
-            this._$ii.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/pinnedt.gif)";
+            this._$ii.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/widget/widgetDock/dock_pinned.gif)";
         }
         return;
     }
@@ -11108,7 +11108,7 @@ _$4l.prototype._$r9 = function () {
         this._$iz = _$mP._$26(this._$hx);
         this._$hx.style.backgroundPosition = 'center';
         this._$hx._$4C = this;
-        this._$hx.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/closet.gif)";
+        this._$hx.style.backgroundImage = "url(" + DSXDFUtil._$i0 + "img/widget/widgetDock/dock_close.gif)";
     }
     var si = new _$4F();
     this._$2X(si);

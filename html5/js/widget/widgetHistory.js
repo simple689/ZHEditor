@@ -7,7 +7,7 @@ WidgetHistoryController._keyFileList = "fileList";
 WidgetHistoryController._keyFileName = "fileName";
 WidgetHistoryController._keyFileContent = "fileContent";
 
-WidgetHistoryController.prototype.init = function () {
+WidgetHistoryController.init = function () {
     WidgetHistoryController._localStorage = window.localStorage;
     if (WidgetHistoryController._localStorage) {
         LogController.log('This browser supports localStorage');

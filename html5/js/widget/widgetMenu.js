@@ -10,8 +10,6 @@ function WidgetMenuController() {
 }
 WidgetMenuController._menuList = new Array();
 WidgetMenuController._menuPadding = 6;
-WidgetMenuController.init = function () {
-}
 WidgetMenuController.createMenu = function (elementParent, html) {
     var menu = document.createElement("div");
     elementParent.appendChild(menu);
