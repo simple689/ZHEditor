@@ -116,10 +116,10 @@ WidgetTabController.tabTitleOnClick = function (e) {
     if (!this.classList.contains(WidgetTabController._classIsActive)) {
         this._widgetTabController.setActiveElement(this);
     }
-    this._widgetTabController.hideMenu();
+    WidgetMenuController.hideMenuAll();
 }
 WidgetTabController.tabContentOnClick = function (e) {
-    this._widgetTabController.hideMenu();
+    WidgetMenuController.hideMenuAll();
 }
 WidgetTabController.tabTitleOnContextMenu = function (e) {
     WidgetMenuController.showMenu(this._widgetTabController._menuRightTitle, e);
