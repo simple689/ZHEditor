@@ -1,5 +1,8 @@
 function MenuFileEditorTitleController() {
 }
-MenuFileEditorTitleController.close = function () {
-    alert("关闭");
+MenuFileEditorTitleController.close = function (li) {
+    if (li._menu._exec) {
+        var elementTabTitle = li._menu._exec;
+        elementTabTitle._widgetTabController.closeTitle(elementTabTitle);
+    }
 }

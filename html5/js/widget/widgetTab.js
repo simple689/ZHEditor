@@ -77,6 +77,21 @@ WidgetTabController.prototype.addTitle = function (title) {
     elementTabTitle.textContent = title;
     return elementTabTitle;
 }
+WidgetTabController.prototype.closeTitle = function (elementTabTitle) {
+    var index = this._elementTabList.indexOf(elementTabTitle);
+    var indexActive;
+    if (index == (this._elementTabList.length - 1)) { // 最后一位，找前一位
+        indexActive = index - 1;
+    } else { // 不是最后一位，找后一位
+        indexActive = index + 1;
+    }
+    if (indexActive >= 0) {
+        this.setActiveElement(this._elementTabList[indexActive]);
+    }
+    this._elementTabList.splice(index, 1);
+    elementTabTitle._widgetTabController._elementTabContentGroup.removeChild(elementTabTitle._elementTabContent);
+    elementTabTitle._widgetTabController._elementTabTitleGroup.removeChild(elementTabTitle);
+}
 WidgetTabController.prototype.addContent = function (elementTabTitle, content, contentType) {
     var elementTabContent = document.createElement("div");
     this._elementTabContentGroup.appendChild(elementTabContent);
@@ -122,11 +137,11 @@ WidgetTabController.tabContentOnClick = function (e) {
     WidgetMenuController.hideMenuAll();
 }
 WidgetTabController.tabTitleOnContextMenu = function (e) {
-    WidgetMenuController.showMenu(this._widgetTabController._menuRightTitle, e);
+    WidgetMenuController.showMenu(this._widgetTabController._menuRightTitle, e, this);
     return false; //取消右键点击的默认事件
 }
 WidgetTabController.tabContentOnContextMenu = function (e) {
-    WidgetMenuController.showMenu(this._widgetTabController._menuRightContent, e);
+    WidgetMenuController.showMenu(this._widgetTabController._menuRightContent, e, this);
     return false; //取消右键点击的默认事件
 }
 WidgetTabController.prototype.addFileContent = function (fileContent, elementTabTitle) {

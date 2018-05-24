@@ -23,9 +23,10 @@ WidgetMenuController.createMenu = function (elementParent, html) {
  * 弹出菜单
  * menu：菜单
  * */
-WidgetMenuController.showMenu = function (menu, e) {
+WidgetMenuController.showMenu = function (menu, e, exec) {
     var e = e || window.event;
     e.cancelBubble = true; // 屏蔽向上一层发送事件
+    menu._exec = exec;
     WidgetMenuController.hideMenuAll();
 
     var maxWidth = maxHeight = 0;
