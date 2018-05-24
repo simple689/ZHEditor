@@ -46,29 +46,15 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
             WidgetMenuController.hideMenuLi(liThis);
             var ul;
             // 显示子菜单
-            if (ulList[0]){
+            if (ulList[0]) {
                 ul = ulList[0];
                 // 显示当前
-                ulList[0].style.display = "block";
-                /*
-                 * offsetHeight/Width、offsetTop/offsetLeft
-                 * 等返回的都是只读的并且以数字的形式返回像素值（例如，返回12，而不是'12px'）。
-                 * */
-                ulList[0].style.left = liThis.offsetWidth + "px";
-                ulList[0].style.top = liThis.offsetTop + "px";
+                ul.style.display = "block";
+                setPosition(ul, liThis, liThis.offsetWidth, liThis.offsetTop);
             } else {
                 ul = getParentWithTag(liThis, "UL");
             }
-            var ulLeft = getOffsetLeftToParent(ul, liThis._menu);
-            var ulTop = getOffsetTopToParent(ul, liThis._menu);
-            var ulWidth = ul.offsetWidth;
-            var ulHeight = ul.offsetHeight;
-            // LogController.log("ulTop = " + ulTop + " ; ulLeft = " + ulLeft);
-            liThis._menu.style.width = ulLeft + ulWidth + WidgetMenuController._menuPadding + "px";
-            liThis._menu.style.height = ulTop + ulHeight + WidgetMenuController._menuPadding +"px";
-
-            // setPosition(menu, null, e.clientX, e.clientY);
-            // setPosition(menu, null, e.clientX, e.clientY);
+            setSize(liThis._menu, ul, liThis._menu);
         };
         // 鼠标移出
         li.onmouseout = function (){
@@ -79,12 +65,7 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
     menu.style.display = "block"; //显示菜单
     var menuUlList = menu.getElementsByTagName("ul");
     if (menuUlList[0]) {
-        var ulLeft = getOffsetLeftToParent(menuUlList[0], menu);
-        var ulTop = getOffsetTopToParent(menuUlList[0], menu);
-        var ulWidth = menuUlList[0].offsetWidth;
-        var ulHeight = menuUlList[0].offsetHeight;
-        menu.style.width = ulLeft + ulWidth + WidgetMenuController._menuPadding + "px";
-        menu.style.height = ulTop + ulHeight + WidgetMenuController._menuPadding +"px";
+        setSize(menu, menuUlList[0], menu)
     }
     setPosition(menu, null, e.clientX, e.clientY);
     return false;
@@ -107,6 +88,15 @@ WidgetMenuController.hideMenuLi = function (li) {
             li.parentNode.children[i].getElementsByTagName("ul")[0].style.display = "none";
         }
     }
+}
+function setSize(element, elementCheck, elementCheckParent) {
+    var left = getOffsetLeftToParent(elementCheck, elementCheckParent);
+    var top = getOffsetTopToParent(elementCheck, elementCheckParent);
+    var width = elementCheck.offsetWidth;
+    var height = elementCheck.offsetHeight;
+    // LogController.log("top = " + top + " ; left = " + left);
+    element.style.width = left + width + WidgetMenuController._menuPadding + "px";
+    element.style.height = top + height + WidgetMenuController._menuPadding +"px";
 }
 function setPosition(element, parentElement, left, top) {
     var leftCheck = left;
