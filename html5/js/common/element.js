@@ -1,8 +1,16 @@
 function getOffsetTopToParent(element, parentElement) {
+    // return element.offsetTop + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
     return element.offsetTop + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
 }
 function getOffsetLeftToParent(element, parentElement) {
-    return element.offsetLeft + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
+    // return element.offsetLeft + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
+    var left = element.offsetLeft;
+    if (element.offsetParent) {
+        if (element.offsetParent != parentElement) {
+            left += arguments.callee(element.offsetParent, parentElement);
+        }
+    }
+    return left;
 }
 function getParentWithTag(element, parentTag) {
     var parentElement = element.parentNode;
