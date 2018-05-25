@@ -1,28 +1,35 @@
 .menu {
-    display: none;
+    z-index: 1000;
     position: absolute;
-    z-index: 99999;
-    overflow: hidden;
-    font-size: 16px;
-    background: red;
+    left: 0px;
+    top: 0px;
 }
 .menu ul{
-    list-style-type: none;
-    float: left;
-    margin: 0;
-    padding: 2px 0 2px 0;
-    box-shadow: 2px 2px 2px rgba(0,0,0,.6);
+    display: none;
+    position: absolute;
+    font-size: 16px;
+    padding: 2px 0;
+    text-align: left;
+    list-style: none;
     border: 1px solid #979797;
+    border-radius: 6px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.2);
+    margin: 0;
+    min-width: 150px;
     background: #F1F1F1;
     background-image: url(../../img/widget/widgetMenu/menu_line.png);
     background-repeat: repeat-y;
     background-position: 24px 0;
 }
+.menu ul ul{
+    display: none;
+}
+.menu ul ul ul{
+     display: none;
+ }
 .menu ul li{
     cursor: pointer;
-    padding: 0 30px;
-    float: left;
-    clear: both;
+    padding: 0 10px;
     white-space: nowrap;
 }
 .menu ul li.sub{
@@ -34,10 +41,5 @@
     border: 1px solid #AECFF7;
     border-radius: 3px;
     background: #F1F3F6;
-    background-position: right -8px;
-    padding: 0 29px;
 }
-.menu ul ul{
-    display: none;
-    position: absolute;
-}
+
