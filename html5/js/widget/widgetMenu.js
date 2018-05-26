@@ -9,7 +9,7 @@
 function WidgetMenuController() {
 }
 WidgetMenuController._menuList = new Array();
-// WidgetMenuController._menuPadding = 6;
+WidgetMenuController._menuPadding = 6;
 WidgetMenuController.createMenu = function (elementParent, html) {
     var menu = document.createElement("div");
     elementParent.appendChild(menu);
@@ -111,7 +111,7 @@ function setUlPosition(ul, ulParent, left, top) {
             leftCheck = 0;
             leftCheck -= ul.offsetWidth;
         } else {
-            leftCheck = ul.offsetLeft - (offsetRight - docWidth) - 6;
+            leftCheck = ul.offsetLeft - (offsetRight - docWidth) - WidgetMenuController._menuPadding;
             if (leftCheck < 0) {
                 leftCheck = 0;
             }
