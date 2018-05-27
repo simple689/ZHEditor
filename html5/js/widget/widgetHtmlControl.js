@@ -2,7 +2,8 @@ function WidgetHtmlControl() {
 }
 WidgetHtmlControl._inputValueType = {
     string : 0,
-    number : 1
+    number : 1,
+    bool : 2
 }
 WidgetHtmlControl.inputOnChange = function(e) {
     switch(this._valueType) {
@@ -48,7 +49,16 @@ WidgetHtmlControl.addInput = function(nodeRow, value, inputValueType) {
     var nodeInput = document.createElement("input");
     nodeCell.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
-    nodeInput.value = value;
     nodeInput.onchange = WidgetHtmlControl.inputOnChange;
     nodeInput._valueType = inputValueType;
+    if (inputValueType == WidgetHtmlControl._inputValueType.bool) {
+        nodeInput.type = "checkbox";
+        if (value) {
+            nodeInput.checked = true;
+        } else {
+            nodeInput.checked = false;
+        }
+    } else {
+        nodeInput.value = value;
+    }
 }

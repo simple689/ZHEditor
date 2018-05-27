@@ -45,7 +45,7 @@ function initLayout() {
     panelView.initLayout(0, 0, 50, 50, DSXDFPanel.dockLeft);
     panelTest.initLayout(0, 0, 50, 50, DSXDFPanel.dockRight);
     panelFileBrowser.initLayout(0, 0, 50, 50, DSXDFPanel.dockBottom);
-    panelFileEditor.initLayout(0, 0, 1000, 1000, DSXDFPanel.dockLeft);
+    panelFileEditor.initLayout(0, 0, 6000, 6000, DSXDFPanel.dockLeft);
     // panelFileEditor.setInitialLayoutReference(panelView);
 }
 function initPanelController() {

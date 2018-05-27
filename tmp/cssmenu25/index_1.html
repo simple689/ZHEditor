@@ -1,0 +1,140 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" src="jquery.js"></script>
+<!--<style type="text/css">  
+    .tree {
+		margin: 0;
+		padding: 0;
+		background-color:#f2f2f2;
+		overflow: hidden;
+	}  
+    /*隐藏input*/
+    .tree dt input{
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		z-index: 2;
+		cursor: pointer;
+		height: 1em;
+		width:1em;
+		top: 0;
+	}  
+    /*所有菜单项设置统一样式*/
+    .tree dt {
+		position: relative;
+		list-style: none;
+	}   
+    /*一级菜单加下边线*/
+    .tree>dt{
+		border-bottom: 1px solid #d9d9d9;
+	}
+    /*给有子菜单的菜单项添加背景图标*/
+    .tree dt label {
+		max-width:999px;
+		cursor: pointer;
+		display: block;
+		margin:0 0 0 -50px;
+		padding: 15px 10px 15px 70px;
+		background: url(../../images/cp-detail-arrow-b.png) no-repeat right center;
+		background-position:95% 50%;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow: ellipsis; 
+	}  
+    .tree dt label:hover,dt label:focus{
+		background-color:#a7a7a7;
+		color:#fff;
+	}
+    /*清除所有展开的子菜单的display*/
+    .tree dt input + dl{
+		display: none;
+	}  
+    /*当input被选中时，给所有展开的子菜单设置样式*/
+    .tree input:checked + dl {
+		padding-left: 14px;
+		height: auto;
+		display: block;
+	}  
+    .tree input:checked + dl > dt { 
+		height: auto;
+	}  
+    /*末层菜单为A标签，设置样式*/
+    .tree dt.file a {
+		margin: 0 -10px 0 -50px;
+		padding: 15px 20px 15px 70px;
+		text-decoration: none;
+		display: block;
+		color:#333333;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	} 
+    .tree dt.file a:hover,dt.file a:focus {
+		background-color:#a7a7a7;
+		color:#fff;
+	} 
+</style>-->
+</head>
+<body>
+	<dl class="tree">  
+    	<dt>1
+			<input type="checkbox"/> 
+    	</dt>
+		<dd>
+			<dl>
+				<dt>11
+					<input type="checkbox"/>   
+				</dt>
+				<label>aa</label>
+                <dd class="file">111</dd> 
+            	<dd>  
+					<table>
+  						<tr>
+    						<th>121</th>
+							<th>122</th>
+						</tr>
+					</table>
+            	</dd>
+				<dd>
+					<dl>
+						<dt>113
+							<input type="checkbox"/>   
+						</dt>
+                		<dd class="file">1131</dd> 
+                		<dd class="file">1132</dd> 
+                		<dd class="file">1133</dd> 
+					</dl>
+				</dd>
+        	</dl> 
+		</dd>
+	</dl>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+    	$(".tree dt").click(function() { //每个有子菜单的菜单项添加点击事件
+			var a = this.nextElementSibling;
+			if (a.tagName != "DD") {
+				a = a.nextElementSibling;
+				var aa = a.tagName;
+				console.log(aa);
+			}
+        	//获取当前菜单旁边input的check状态
+			// $(this).next("dd").css('background-color', 'red');
+			$(a).css('background-color', 'red');
+        	var isChecked = $(this).next("input[type='checkbox']").is(':checked');
+        	//展开和收齐的不同状态下更换右侧小图标
+        	if (isChecked) {
+            	$(this).css(
+                	"background-image","url(../images/cp-detail-arrow-b.png)"
+            	);
+        	} else {
+            	$(this).css(
+                	"background-image","url(../images/cp-detail-arrow-t.png)"
+            	);
+        	}
+    	});
+	});
+</script>
+</body>
+</html>

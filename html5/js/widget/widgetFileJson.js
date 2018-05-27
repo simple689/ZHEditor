@@ -37,6 +37,8 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             WidgetHtmlControlRow.addTitleInput(nodeTable, key, value, WidgetHtmlControl._inputValueType.string);
         } else if (typeof(value) == "number") {
             WidgetHtmlControlRow.addTitleInput(nodeTable, key, value, WidgetHtmlControl._inputValueType.number);
+        } else if (typeof(value) == "boolean") {
+            WidgetHtmlControlRow.addTitleInput(nodeTable, key, value, WidgetHtmlControl._inputValueType.bool);
         } else {
             var strType = typeof(value);
             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
