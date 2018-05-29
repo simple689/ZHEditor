@@ -3,54 +3,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <script type="text/javascript" src="jquery.js"></script>
 <style type="text/css">  
-    .tree {
-		margin: 0;
-		padding: 0;
-	} 
 	/*所有菜单项设置统一样式*/
-    /*给有子菜单的菜单项添加背景图标*/
-	.tree dt {
+	.menuFold dt {
 		display: block;
 		cursor: pointer;
 		white-space:nowrap;
 		text-overflow: ellipsis;
 		padding: 2px 2px;
-		/* background: url(../img/arrow_b.jpg) no-repeat right center; */
-		background: url(../img/arrow_t.jpg) no-repeat right center;
+		background: url(../img/arrow_b.jpg) no-repeat right center;
 		background-position:95% 50%; 
 	} 
-	.tree dt:hover, dt:focus{
+	.menuFold dt:hover, dt:focus{
 		background-color:#a7a7a7;
 		color:#fff;
 	}   
-    /*一级菜单加下边线*/
-    .tree>dt{
-	}
-    /*隐藏input*/
-    .tree dt input {
-		position: absolute;
-		cursor: pointer;
-		left: 0;
-		top: 0;
-		opacity: 0;
-	}  
 </style>
 </head>
 <body>
-	<dl class="tree">  
+	<div class="menuFold">
+	<dl>  
     	<dt>1</dt>
 		<dd>
 			<dl>
 				<dt>11</dt>
                 <dd>111</dd> 
             	<dd>  
-    				<label>121</label><label>122</label>
+					<label>121</label>
+					<label>122</label>
             	</dd>
 				<dd>
 					<dl>
 						<dt>113</dt>
                 		<dd>
-							<label>a</label><input>55</input><br/><label>aa</label>
+							<label>a</label>
+							<input>55</input><br/><label>aa</label>
 						</dd> 
                 		<dd>1132</dd> 
                 		<dd>1133</dd> 
@@ -59,6 +45,8 @@
         	</dl> 
 		</dd>
 	</dl>
+	</div>
+	
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -69,7 +57,7 @@
 				console.log(list[i]);
 		}
 
-    	$(".tree dt").click(function() { //每个有子菜单的菜单项添加点击事件
+    	$(".menuFold dt").click(function() { //每个有子菜单的菜单项添加点击事件
 			var ddList = new Array();
 			var nextNode = this.nextSibling;
 			while(nextNode) {
