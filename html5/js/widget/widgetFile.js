@@ -1,10 +1,10 @@
 function WidgetFileController() {
 }
 WidgetFileController.readFileContent = function (fileContent, elementTabTitle) {
-    var elementContent = document.createElement("div");
-    elementTabTitle._elementTabContent.appendChild(elementContent);
-    elementTabTitle._elementContent = elementContent;
-    elementContent.classList.add("nodeRoot");
+    var elementFileRoot = document.createElement("div");
+    elementTabTitle._elementTabContent.appendChild(elementFileRoot);
+    elementTabTitle._elementFileRoot = elementFileRoot;
+    elementFileRoot.classList.add("widgetFileRoot");
 
     elementTabTitle._fileJsonController = new WidgetFileJsonController();
     elementTabTitle._fileJsonController.init(elementTabTitle, fileContent);

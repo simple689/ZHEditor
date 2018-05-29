@@ -3,6 +3,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
+    color: lightgray;
 }
 .menu ul{
     display: none;
@@ -12,11 +13,11 @@
     text-align: left;
     list-style: none;
     border: 1px solid #979797;
-    border-radius: 6px;
+    border-radius: 2px;
     box-shadow: 0 6px 12px rgba(0,0,0,.2);
     margin: 0;
     min-width: 150px;
-    background: #F1F1F1;
+    background: gray;
     background-image: url(../../img/widget/widgetMenu/menu_line.png);
     background-repeat: repeat-y;
     background-position: 24px 0;
@@ -29,7 +30,7 @@
  }
 .menu ul li{
     cursor: pointer;
-    padding: 0 10px;
+    padding: 0 30px;
     white-space: nowrap;
 }
 .menu ul li.sub{
@@ -38,8 +39,8 @@
     background-position: right 9px;
 }
 .menu ul li.active{
-    border: 1px solid #AECFF7;
+    border: 1px solid #5588cc;
     border-radius: 3px;
-    background: #F1F3F6;
+    background: #5588cc;
 }
 

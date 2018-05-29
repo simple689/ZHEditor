@@ -21,33 +21,15 @@ WidgetHtmlControl.inputOnChange = function(e) {
     }
     // alert(this.value);
 }
-WidgetHtmlControl.addTable = function(nodeParent) {
-    var nodeTable = document.createElement("table");
-    nodeParent.appendChild(nodeTable);
-    nodeTable.classList.add("nodeTable");
-    return nodeTable;
-}
-WidgetHtmlControl.addRow = function(nodeTable) {
-    var nodeRow = nodeTable.insertRow();
-    nodeRow.classList.add("nodeRow");
-    return nodeRow;
-}
-WidgetHtmlControl.addCell = function(nodeRow) {
-    var nodeCell = nodeRow.insertCell();
-    nodeCell.classList.add("nodeCell");
-    return nodeCell;
-}
-WidgetHtmlControl.addTitle = function(nodeRow, value) {
-    var nodeCell = WidgetHtmlControl.addCell(nodeRow);
+WidgetHtmlControl.addTitle = function(nodeParent, value) {
     var nodeTitle = document.createElement("div");
-    nodeCell.appendChild(nodeTitle);
+    nodeParent.appendChild(nodeTitle);
     nodeTitle.classList.add("nodeTitle");
     nodeTitle.innerHTML = value;
 }
-WidgetHtmlControl.addInput = function(nodeRow, value, inputValueType) {
-    var nodeCell = WidgetHtmlControl.addCell(nodeRow);
+WidgetHtmlControl.addInput = function(nodeParent, value, inputValueType) {
     var nodeInput = document.createElement("input");
-    nodeCell.appendChild(nodeInput);
+    nodeParent.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
     nodeInput.onchange = WidgetHtmlControl.inputOnChange;
     nodeInput._valueType = inputValueType;

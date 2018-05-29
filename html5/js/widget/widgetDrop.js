@@ -6,7 +6,6 @@ WidgetDropController.createDrop = function (elementParent, panel ) {
     var elementDrop = document.createElement("div");
     elementParent.appendChild(elementDrop);
     elementDrop.classList.add("widgetDrop");
-    elementDrop.classList.add("widgetDropBox");
     elementDrop._panel = panel;
 
     // 拖拽的目标对象document监听drop并防止浏览器打开客户端的图片

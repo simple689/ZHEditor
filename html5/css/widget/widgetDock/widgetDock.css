@@ -1,12 +1,12 @@
 .panelFixed {
     position: absolute;
-    background-color: #66dd99;
+    background: #666666;
 }
 .panelCenter {
     overflow:auto;
-    background-color: #66dd99;
+    background: #666666;
 }
 .panelFloat {
     overflow: auto;
-    background-color: #66dd66;
+    background: #666666;
 }

@@ -103,7 +103,7 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
     elementTabTitle._elementTabContent = elementTabContent;
 
     if (contentType == WidgetTabController._addContentType.string) {
-        elementTabContent.textContent = content;
+        elementTabContent.innerHTML = content;
     } else if (contentType == WidgetTabController._addContentType.fileContent) {
         this.addFileContent(content, elementTabTitle);
     } else if (contentType == WidgetTabController._addContentType.file) {
