@@ -21,11 +21,11 @@ WidgetHtmlControl.inputOnChange = function(e) {
     }
     // alert(this.value);
 }
-WidgetHtmlControl.addTitle = function(nodeParent, value) {
-    var nodeTitle = document.createElement("div");
-    nodeParent.appendChild(nodeTitle);
-    nodeTitle.classList.add("nodeTitle");
-    nodeTitle.innerHTML = value;
+WidgetHtmlControl.addLabel = function(nodeParent, value) {
+    var nodeLabel = document.createElement("label");
+    nodeParent.appendChild(nodeLabel);
+    nodeLabel.classList.add("nodeLabel");
+    nodeLabel.innerHTML = value;
 }
 WidgetHtmlControl.addInput = function(nodeParent, value, inputValueType) {
     var nodeInput = document.createElement("input");

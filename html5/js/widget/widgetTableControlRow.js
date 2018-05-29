@@ -1,19 +1,19 @@
 function WidgetTableControlRow() {
 }
-WidgetTableControlRow.addTitle = function(nodeTable, key) {
+WidgetTableControlRow.addLabel = function(nodeTable, key) {
     var nodeRow = WidgetTableControlHtml.addRow(nodeTable);
-    WidgetTableControlHtml.addTitle(nodeRow, key);
+    WidgetTableControlHtml.addLabel(nodeRow, key);
     return nodeRow;
 }
-WidgetTableControlRow.addTitleTitle = function(nodeTable, key, value) {
+WidgetTableControlRow.addLabelLabel = function(nodeTable, key, value) {
     var nodeRow = WidgetTableControlHtml.addRow(nodeTable);
-    WidgetTableControlHtml.addTitle(nodeRow, key);
-    WidgetTableControlHtml.addTitle(nodeRow, value);
+    WidgetTableControlHtml.addLabel(nodeRow, key);
+    WidgetTableControlHtml.addLabel(nodeRow, value);
     return nodeRow;
 }
-WidgetTableControlRow.addTitleInput = function(nodeTable, key, value, inputValueType) {
+WidgetTableControlRow.addLabelInput = function(nodeTable, key, value, inputValueType) {
     var nodeRow = WidgetTableControlHtml.addRow(nodeTable);
-    WidgetTableControlHtml.addTitle(nodeRow, key);
+    WidgetTableControlHtml.addLabel(nodeRow, key);
     WidgetTableControlHtml.addInput(nodeRow, value, inputValueType);
     return nodeRow;
 }

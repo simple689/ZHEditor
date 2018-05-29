@@ -6,9 +6,8 @@
     cursor: pointer;
     white-space:nowrap;
     text-overflow: ellipsis;
-    padding: 2px 2px;
-    background: url(../../img/widget/widgetMenuFold/menuFold_arrowTop.jpg) no-repeat right center;
-    background-position:95% 50%;
+    padding-left: 30px;
+    background: url(../../img/widget/widgetMenuFold/menuFold_arrowBottom.jpg) no-repeat left center;
 }
 /*一级菜单加下边线*/
 .widgetMenuFold>dl>dt{
