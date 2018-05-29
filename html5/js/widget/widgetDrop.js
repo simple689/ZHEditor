@@ -1,10 +1,14 @@
 function WidgetDropController() {
 }
-WidgetDropController._borderColorNormal = "#666666";
-WidgetDropController._borderColorFocus = "silver";
+WidgetDropController._borderColorNormal = "rgba(102,102,102,0)";
+WidgetDropController._borderColorFocus = "rgba(102,102,102,1)";
 WidgetDropController.createDrop = function (elementParent, panel ) {
     var elementDrop = document.createElement("div");
     elementParent.appendChild(elementDrop);
+    this.addDrop(elementDrop, panel);
+    return elementDrop;
+}
+WidgetDropController.addDrop = function (elementDrop, panel ) {
     elementDrop.classList.add("widgetDrop");
     elementDrop._panel = panel;
 
@@ -18,6 +22,7 @@ WidgetDropController.createDrop = function (elementParent, panel ) {
 
     return elementDrop;
 }
+
 WidgetDropController.documentOnDragOver = function (e) {
     e.preventDefault(); // 只有在onDragOver中阻止默认行为才能触发onDrop而不是onDragLeave
 }
@@ -25,6 +30,7 @@ WidgetDropController.documentOnDrop = function (e) {
     e.preventDefault(); // 阻止onDrop的默认行为（在新窗口中打开拖进的图片）
 }
 WidgetDropController.itemOnDragOver = function (e) {
+    this.style.borderColor = WidgetDropController._borderColorFocus;
     e.stopPropagation();
     e.preventDefault();
 }

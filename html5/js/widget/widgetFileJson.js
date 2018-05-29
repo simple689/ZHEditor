@@ -17,6 +17,8 @@ WidgetFileJsonController.prototype.initControl = function () {
     // }
     var foldItem = this._menuFoldController.createMenuFold(elementFileRoot);
     this.readObject(jsonObj, "", foldItem);
+
+    this.refreshHeight();
 }
 // WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, elementParent) {
 //     var nodeTable = WidgetTableControlHtml.addTable(elementParent);
@@ -76,4 +78,11 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
+}
+WidgetFileJsonController.prototype.refreshHeight = function () {
+    var elementTabContentGroup = this._elementTabTitle._widgetTabController._elementTabContentGroup;
+    var top = elementTabContentGroup.offsetTop;
+    var height = elementTabContentGroup.offsetHeight;
+    // var widgetDropController = this._elementTabTitle._widgetTabController._elementTab.parentNode;
+    // widgetDropController.style.height = top + height + "px";
 }

@@ -3,7 +3,7 @@ function PanelFileEditorController() {
 }
 PanelFileEditorController.prototype.init = function () {
     var rootElement = document.getElementById("panelFileEditor");
-    var dropElement = WidgetDropController.createDrop(rootElement, this);
+    var dropElement = WidgetDropController.addDrop(rootElement, this);
     this._widgetTabController.init(dropElement, this);
 }
 PanelFileEditorController.prototype.handleFiles = function (files) {
