@@ -67,6 +67,23 @@ WidgetHistoryController.addFile = function (fileName, fileContent) {
     }
     WidgetHistoryController._localStorage.setItem(WidgetHistoryController._keyFileEdit, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
+WidgetHistoryController.delFile = function (elementTabTitle) {
+    var fileName = elementTabTitle.innerHTML;
+    var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
+    if (!fileEditItem) {
+        return;
+    }
+    var fileEditJson = JSON.parse(fileEditItem);
+    var fileList = fileEditJson[WidgetHistoryController._keyFileList];
+    for (var o in fileList) {
+        var key = o;
+        if (fileList[key][WidgetHistoryController._keyFileName] == fileName) {
+            fileList.splice(key, 1);
+            break;
+        }
+    }
+    WidgetHistoryController._localStorage.setItem(WidgetHistoryController._keyFileEdit, JSON.stringify(fileEditJson)); //转变为字符串存储
+}
 WidgetHistoryController.getFile = function () {
     var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
     if (!fileEditItem) {

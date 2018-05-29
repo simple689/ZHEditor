@@ -1,6 +1,6 @@
 function WidgetDropController() {
 }
-WidgetDropController._borderColorNormal = "gray";
+WidgetDropController._borderColorNormal = "#666666";
 WidgetDropController._borderColorFocus = "silver";
 WidgetDropController.createDrop = function (elementParent, panel ) {
     var elementDrop = document.createElement("div");

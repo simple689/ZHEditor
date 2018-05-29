@@ -91,6 +91,9 @@ WidgetTabController.prototype.closeTitle = function (elementTabTitle) {
     this._elementTabList.splice(index, 1);
     elementTabTitle._widgetTabController._elementTabContentGroup.removeChild(elementTabTitle._elementTabContent);
     elementTabTitle._widgetTabController._elementTabTitleGroup.removeChild(elementTabTitle);
+
+    WidgetHistoryController.delFile(elementTabTitle);
+
 }
 WidgetTabController.prototype.addContent = function (elementTabTitle, content, contentType) {
     var elementTabContent = document.createElement("div");
