@@ -3,7 +3,7 @@
 var dock = null;
 var panelTest = null;
 var panelView = null;
-var panelFileEditor = null;
+// var panelFileEditor = null;
 var panelFileBrowser = null;
 var dockLayoutKey = "dockLayout";
 
@@ -34,18 +34,18 @@ function initPanel() {
     panelView = dock.createDFPanel("视图", "");
     panelView.addContentDiv(document.getElementById("panelView"));
 
-    panelFileEditor = dock.createDFPanel("文件编辑", "");
-    panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"));
+    // panelFileEditor = dock.createDFPanel("文件编辑", "");
+    // panelFileEditor.addContentDiv(document.getElementById("panelFileEditor"));
 
     panelFileBrowser = dock.createDFPanel("文件浏览器", "");
     panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
 }
 function initLayout() {
-    panelFileEditor.enableNormalHiddenButton(false);
+    // panelFileEditor.enableNormalHiddenButton(false);
     panelView.initLayout(0, 0, 50, 50, DSXDFPanel.dockLeft);
     panelTest.initLayout(0, 0, 50, 50, DSXDFPanel.dockRight);
     panelFileBrowser.initLayout(0, 0, 50, 50, DSXDFPanel.dockBottom);
-    panelFileEditor.initLayout(0, 0, 6000, 6000, DSXDFPanel.dockLeft);
+    // panelFileEditor.initLayout(0, 0, 6000, 6000, DSXDFPanel.dockLeft);
     // panelFileEditor.setInitialLayoutReference(panelView);
 }
 function initPanelController() {
@@ -117,7 +117,10 @@ $(document).ready(function () {
     $('#panelView').load("../panel/panelView.html", function() {
         panelViewController.init();
     });
-    $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
+    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
+    //     panelFileEditorController.init();
+    // });
+    $('#panelCenter').load("../panel/panelFileEditor.html", function() {
         panelFileEditorController.init();
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {

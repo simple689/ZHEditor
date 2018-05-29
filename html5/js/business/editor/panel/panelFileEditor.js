@@ -2,7 +2,8 @@ function PanelFileEditorController() {
     this._widgetTabController = new WidgetTabController();
 }
 PanelFileEditorController.prototype.init = function () {
-    var rootElement = document.getElementById("panelFileEditor");
+    // var rootElement = document.getElementById("panelFileEditor");
+    var rootElement = document.getElementById("panelCenter");
     var dropElement = WidgetDropController.addDrop(rootElement, this);
     this._widgetTabController.init(dropElement, this);
 }
