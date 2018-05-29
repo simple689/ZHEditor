@@ -6,14 +6,15 @@
     cursor: pointer;
     white-space:nowrap;
     text-overflow: ellipsis;
-    /*padding: 2px 2px;*/
+    padding: 2px 2px;
     background: url(../../img/widget/widgetMenuFold/menuFold_arrowTop.jpg) no-repeat right center;
     background-position:95% 50%;
 }
 /*一级菜单加下边线*/
-.widgetMenuFold>dt{
+.widgetMenuFold>dl>dt{
+    display: none;
 }
 .widgetMenuFold dt:hover, dt:focus{
-    /*background-color:#a7a7a7;*/
-    /*color:#fff;*/
+    background-color:#a7a7a7;
+    color:#fff;
 }

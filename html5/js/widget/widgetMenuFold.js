@@ -16,13 +16,45 @@ WidgetMenuFoldController.prototype.addFold = function (elementParent, foldTitle)
 
     var dt = document.createElement("dt");
     dl.appendChild(dt);
+    dt._dl = dl;
+    dt.onclick = WidgetMenuFoldController.dtOnClick;
     dt.innerHTML = foldTitle;
 
-    var dd = this.addFoldItem(dt);
+    var dd = this.addFoldItem(dl);
     return dd;
 }
-WidgetMenuFoldController.prototype.addFoldItem = function (elementParent) {
+WidgetMenuFoldController.prototype.addFoldItem = function (dl) {
     var dd = document.createElement("dd");
-    elementParent.appendChild(dd);
+    dl.appendChild(dd);
+    dd._dl = dl;
+    dd.style.display = "block";
+    dd.isCheck = true;
     return dd;
+}
+WidgetMenuFoldController.dtOnClick = function () {
+    var ddList = new Array();
+    var nextNode = this.nextSibling;
+    while(nextNode) {
+        var tagName = nextNode.tagName;
+        if (tagName == "DD") {
+            ddList.push(nextNode);
+            nextNode.isCheck = !nextNode.isCheck;
+            //展开和收齐的不同状态下更换右侧小图标
+            if (nextNode.isCheck) {
+                nextNode.style.display = "block";
+                $(this).css(
+                    "background-image","url(../../img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
+                );
+            } else {
+                nextNode.style.display = "none";
+                $(this).css(
+                    "background-image","url(../../img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
+                );
+            }
+            // $(nextNode).css('background-color', 'red');
+        } else if (tagName == "DT") {
+            break;
+        }
+        nextNode = nextNode.nextSibling;
+    }
 }
