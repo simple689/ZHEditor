@@ -1,6 +1,9 @@
 .nodeLabel {
-    /*background: #66dd66;*/
+    margin-right: 10px;
 }
 .nodeInput {
-    /*background: #66dd33;*/
+    margin-right: 10px;
+    background: #666666;
+    color: #aaaaaa;
+    border: 1px;
 }

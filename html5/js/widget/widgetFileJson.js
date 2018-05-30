@@ -10,11 +10,14 @@ WidgetFileJsonController.prototype.initControl = function () {
     var jsonObj = eval('(' + this._fileStr + ')');
     // LogController.log(jsonObj);
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
-    // var isShowDemo = false;
-    // if (isShowDemo) {
-    //     WidgetTableControl.addLabelLabel(fileContent, "demo", "demo");
-    //     WidgetTableControl.addLabelInput(fileContent, "demo", "demo");
-    // }
+    var isShowDemo = true;
+    if (isShowDemo) {
+        WidgetHtmlControl.addLabel(elementFileRoot, "demo");
+        WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.textString);
+        WidgetHtmlControl.addInput(elementFileRoot, 689, WidgetHtmlControl._inputType.textNumber);
+        WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.checkbox);
+        WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.button);
+    }
     var foldItem = this._menuFoldController.createMenuFold(elementFileRoot);
     this.readObject(jsonObj, "", foldItem);
 }
@@ -36,11 +39,11 @@ WidgetFileJsonController.prototype.initControl = function () {
 //             var nodeCell = nodeRow.insertCell();
 //             this.readObject(value, keyChild, nodeCell);
 //         } else if (typeof(value) == "string") {
-//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputValueType.string);
+//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputType.textString);
 //         } else if (typeof(value) == "number") {
-//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputValueType.number);
+//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputType.textNumber);
 //         } else if (typeof(value) == "boolean") {
-//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputValueType.bool);
+//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputType.checkbox);
 //         } else {
 //             var strType = typeof(value);
 //             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
@@ -64,13 +67,13 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
             WidgetHtmlControl.addLabel(elementParent, key);
-            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputValueType.string);
+            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.textString);
         } else if (typeof(value) == "number") {
             WidgetHtmlControl.addLabel(elementParent, key);
-            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputValueType.number);
+            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.textNumber);
         } else if (typeof(value) == "boolean") {
             WidgetHtmlControl.addLabel(elementParent, key);
-            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputValueType.bool);
+            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.checkbox);
         } else {
             var strType = typeof(value);
             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);

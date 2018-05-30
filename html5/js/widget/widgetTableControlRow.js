@@ -11,9 +11,9 @@ WidgetTableControlRow.addLabelLabel = function(nodeTable, key, value) {
     WidgetTableControlHtml.addLabel(nodeRow, value);
     return nodeRow;
 }
-WidgetTableControlRow.addLabelInput = function(nodeTable, key, value, inputValueType) {
+WidgetTableControlRow.addLabelInput = function(nodeTable, key, value, inputType) {
     var nodeRow = WidgetTableControlHtml.addRow(nodeTable);
     WidgetTableControlHtml.addLabel(nodeRow, key);
-    WidgetTableControlHtml.addInput(nodeRow, value, inputValueType);
+    WidgetTableControlHtml.addInput(nodeRow, value, inputType);
     return nodeRow;
 }

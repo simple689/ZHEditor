@@ -5,8 +5,8 @@ WidgetTableControl.addLabelLabel = function(elementParent, key, value) {
     WidgetTableControlRow.addLabelLabel(nodeTable, key, value);
     return nodeTable;
 }
-WidgetTableControl.addLabelInput = function(elementParent, key, value, inputValueType) {
+WidgetTableControl.addLabelInput = function(elementParent, key, value, inputType) {
     var nodeTable = WidgetTableControlHtml.addTable(elementParent);
-    WidgetTableControlRow.addLabelInput(nodeTable, key, value, inputValueType);
+    WidgetTableControlRow.addLabelInput(nodeTable, key, value, inputType);
     return nodeTable;
 }
