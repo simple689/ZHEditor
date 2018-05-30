@@ -3,7 +3,7 @@
     background: #666666;
 }
 .panelCenter {
-    overflow:auto;
+    overflow:hidden;
     background: #666666;
 }
 .panelFloat {
