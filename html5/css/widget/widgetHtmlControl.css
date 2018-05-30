@@ -5,5 +5,19 @@
     margin-right: 10px;
     background: #666666;
     color: #aaaaaa;
-    border: 1px;
+}
+.nodeInputDefault {
+    border: 0;
+}
+.nodeInputButton {
+    border-width: 1px;
+    border-color: #aaaaaa;
+}
+.nodeInputCheckbox {
+
+}
+.nodeInputColor {
+    border-width: 1px;
+    border-color: #aaaaaa;
+    border-radius: 5px;
 }

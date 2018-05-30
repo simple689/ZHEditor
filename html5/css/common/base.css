@@ -12,7 +12,7 @@ div {
 }
 input {
     margin: 2px;
-    padding: 2px;
+    padding: 2px 5px;
 }
 dl {
     margin: 0;

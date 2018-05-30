@@ -17,6 +17,8 @@ WidgetFileJsonController.prototype.initControl = function () {
         WidgetHtmlControl.addInput(elementFileRoot, 689, WidgetHtmlControl._inputType.textNumber);
         WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.checkbox);
         WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.button);
+        WidgetHtmlControl.addInput(elementFileRoot, "#336699", WidgetHtmlControl._inputType.color);
+        WidgetHtmlControl.addInput(elementFileRoot, "rgba(0, 255, 0, 0.6)", WidgetHtmlControl._inputType.color);
     }
     var foldItem = this._menuFoldController.createMenuFold(elementFileRoot);
     this.readObject(jsonObj, "", foldItem);
