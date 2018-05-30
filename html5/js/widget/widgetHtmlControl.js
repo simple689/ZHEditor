@@ -77,21 +77,43 @@ WidgetHtmlControl.addInput = function (nodeParent, value, inputType) {
             break;
         }
         case WidgetHtmlControl._inputType.radio : {
+            nodeInput.classList.add("nodeInputRadio");
+            nodeInput.type = "radio";
+            if (value) {
+                nodeInput.checked = true;
+            } else {
+                nodeInput.checked = false;
+            }
             break;
         }
         case WidgetHtmlControl._inputType.file : {
+            nodeInput.classList.add("nodeInputFile");
+            nodeInput.type = "file";
+            nodeInput.value = value;
             break;
         }
         case WidgetHtmlControl._inputType.image : {
+            nodeInput.classList.add("nodeInputImage");
+            nodeInput.type = "image";
+            nodeInput.value = value;
             break;
         }
         case WidgetHtmlControl._inputType.password : {
+            nodeInput.classList.add("nodeInputPassword");
+            nodeInput.type = "password";
+            nodeInput.value = value;
             break;
         }
         case WidgetHtmlControl._inputType.submit : {
+            nodeInput.classList.add("nodeInputSubmit");
+            nodeInput.type = "submit";
+            nodeInput.value = value;
             break;
         }
         case WidgetHtmlControl._inputType.reset : {
+            nodeInput.classList.add("nodeInputReset");
+            nodeInput.type = "reset";
+            nodeInput.value = value;
             break;
         }
         case WidgetHtmlControl._inputType.color : {
@@ -111,6 +133,23 @@ WidgetHtmlControl.addInput = function (nodeParent, value, inputType) {
             nodeInput.classList.add("nodeInputDefault");
             nodeInput.value = value;
             break
+        }
+    }
+}
+WidgetHtmlControl.addSelect = function (nodeParent, valueList, selectIndex) {
+    var nodeSelect = document.createElement("select");
+    nodeParent.appendChild(nodeSelect);
+    nodeSelect.classList.add("nodeSelect");
+    for (var i = 0; i < valueList.length; i++) {
+        var nodeOption = document.createElement("option");
+        nodeSelect.appendChild(nodeOption);
+        nodeOption.classList.add("nodeOption");
+
+        nodeOption.value = valueList[i];
+        nodeOption.innerHTML = valueList[i];
+
+        if (i == selectIndex) {
+            nodeOption.selected = true;
         }
     }
 }

@@ -15,10 +15,17 @@ WidgetFileJsonController.prototype.initControl = function () {
         WidgetHtmlControl.addLabel(elementFileRoot, "demo");
         WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.textString);
         WidgetHtmlControl.addInput(elementFileRoot, 689, WidgetHtmlControl._inputType.textNumber);
-        WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.checkbox);
         WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.button);
+        WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.checkbox);
+        WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.radio);
+        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.file);
+        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.image);
+        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.password);
+        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.submit);
+        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.reset);
         WidgetHtmlControl.addInput(elementFileRoot, "#336699", WidgetHtmlControl._inputType.color);
         WidgetHtmlControl.addInput(elementFileRoot, "rgba(0, 255, 0, 0.6)", WidgetHtmlControl._inputType.color);
+        WidgetHtmlControl.addSelect(elementFileRoot, "0123456", 6);
     }
     var foldItem = this._menuFoldController.createMenuFold(elementFileRoot);
     this.readObject(jsonObj, "", foldItem);

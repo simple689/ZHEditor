@@ -16,8 +16,32 @@
 .nodeInputCheckbox {
 
 }
+.nodeInputRadio {
+
+}
+.nodeInputFile {
+
+}
+.nodeInputImage {
+
+}
+.nodeInputPassword {
+
+}
+.nodeInputSubmit {
+
+}
+.nodeInputReset {
+
+ }
 .nodeInputColor {
     border-width: 1px;
     border-color: #aaaaaa;
     border-radius: 5px;
+}
+.nodeSelect {
+
+}
+.nodeOption {
+
 }
