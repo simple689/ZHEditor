@@ -117,7 +117,7 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
         elementHtmlRoot.classList.add("htmlRoot");
         elementHtmlRoot._elementTabTitle = elementTabTitle;
         $(elementHtmlRoot).load(content, function () {
-            this._elementTabTitle._widgetTabController._panel.loadedHtml(this);
+            // this._elementTabTitle._widgetTabController._panel.loadedHtml(this);
         });
     } else if (contentType == WidgetTabController._addContentType.fileContent) {
         this.addFileContent(content, elementTabTitle);

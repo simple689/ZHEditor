@@ -52,7 +52,7 @@ function initLayout() {
     panelFileTemplate.initLayout(0, 0, 500, 1, DSXDFPanel.dockLeft);
     // panelView.initLayout(0, 0, 50, 50, DSXDFPanel.dockLeft);
     // panelTest.initLayout(0, 0, 50, 50, DSXDFPanel.dockRight);
-    panelFileBrowser.initLayout(0, 0, 1, 50, DSXDFPanel.dockBottom);
+    panelFileBrowser.initLayout(0, 0, 1, 200, DSXDFPanel.dockBottom);
     // panelFileEditor.initLayout(0, 0, 6000, 6000, DSXDFPanel.dockLeft);
     // panelFileEditor.setInitialLayoutReference(panelView);
 }
@@ -135,6 +135,22 @@ $(document).ready(function () {
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
         panelFileBrowserController.init();
+        angular.module('FileManagerApp').config(['fileManagerConfigProvider', function (config) {
+            var defaults = config.$get();
+            config.set({
+                appName: 'angular-filemanager',
+                pickCallback: function (item) {
+                    var msg = 'Picked %s "%s" for external use'
+                        .replace('%s', item.type)
+                        .replace('%s', item.fullPath());
+                    window.alert(msg);
+                },
+                allowedActions: angular.extend(defaults.allowedActions, {
+                    pickFiles: true,
+                    pickFolders: false,
+                }),
+            });
+        }]);
     });
     $('#panelView').load("../panel/panelView.html", function () {
         panelViewController.init();
