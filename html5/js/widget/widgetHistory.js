@@ -2,7 +2,9 @@ function WidgetHistoryController() {
 }
 WidgetHistoryController._localStorage = null;
 
-WidgetHistoryController._keyFileEdit = "fileEdit";
+WidgetHistoryController._itemFileEditor = "fileEditor";
+WidgetHistoryController._itemFileTemplate = "fileTemplate";
+
 WidgetHistoryController._keyFileList = "fileList";
 WidgetHistoryController._keyFileName = "fileName";
 WidgetHistoryController._keyFileContent = "fileContent";
@@ -43,8 +45,8 @@ WidgetHistoryController.init = function () {
 WidgetHistoryController.setItem = function (key, value) {
     WidgetHistoryController._localStorage.setItem(key, value);
 }
-WidgetHistoryController.addFile = function (fileName, fileContent) {
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
+WidgetHistoryController.addFile = function (fileName, fileContent, historyItem) {
+    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItem);
     if (!fileEditItem) {
         fileEditItem = '{"'+WidgetHistoryController._keyFileList+'":[{"'+WidgetHistoryController._keyFileName+'":"首页","'+WidgetHistoryController._keyFileContent+'":"首页内容"}]}';
     }
@@ -65,9 +67,9 @@ WidgetHistoryController.addFile = function (fileName, fileContent) {
         var len = fileList.length;
         fileList[len - 1][WidgetHistoryController._keyFileContent] = fileContent;
     }
-    WidgetHistoryController._localStorage.setItem(WidgetHistoryController._keyFileEdit, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistoryController._localStorage.setItem(historyItem, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
-WidgetHistoryController.delFile = function (elementTabTitle) {
+WidgetHistoryController.delFile = function (elementTabTitle, historyItem) {
     var fileName = elementTabTitle.innerHTML;
     var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
     if (!fileEditItem) {
@@ -82,10 +84,10 @@ WidgetHistoryController.delFile = function (elementTabTitle) {
             break;
         }
     }
-    WidgetHistoryController._localStorage.setItem(WidgetHistoryController._keyFileEdit, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistoryController._localStorage.setItem(historyItem, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
-WidgetHistoryController.getFile = function () {
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
+WidgetHistoryController.getFile = function (historyItem) {
+    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItem);
     if (!fileEditItem) {
         return null;
     }
