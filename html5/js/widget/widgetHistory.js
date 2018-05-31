@@ -45,8 +45,8 @@ WidgetHistoryController.init = function () {
 WidgetHistoryController.setItem = function (key, value) {
     WidgetHistoryController._localStorage.setItem(key, value);
 }
-WidgetHistoryController.addFile = function (fileName, fileContent, historyItem) {
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItem);
+WidgetHistoryController.addFile = function (fileName, fileContent, historyItemFile) {
+    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
         fileEditItem = '{"'+WidgetHistoryController._keyFileList+'":[{"'+WidgetHistoryController._keyFileName+'":"首页","'+WidgetHistoryController._keyFileContent+'":"首页内容"}]}';
     }
@@ -67,11 +67,11 @@ WidgetHistoryController.addFile = function (fileName, fileContent, historyItem) 
         var len = fileList.length;
         fileList[len - 1][WidgetHistoryController._keyFileContent] = fileContent;
     }
-    WidgetHistoryController._localStorage.setItem(historyItem, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistoryController._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
-WidgetHistoryController.delFile = function (elementTabTitle, historyItem) {
+WidgetHistoryController.delFile = function (elementTabTitle, historyItemFile) {
     var fileName = elementTabTitle.innerHTML;
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(WidgetHistoryController._keyFileEdit);
+    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
         return;
     }
@@ -84,10 +84,10 @@ WidgetHistoryController.delFile = function (elementTabTitle, historyItem) {
             break;
         }
     }
-    WidgetHistoryController._localStorage.setItem(historyItem, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistoryController._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
-WidgetHistoryController.getFile = function (historyItem) {
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItem);
+WidgetHistoryController.getFile = function (historyItemFile) {
+    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
         return null;
     }

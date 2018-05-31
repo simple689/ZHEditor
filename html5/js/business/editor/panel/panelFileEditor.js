@@ -5,7 +5,9 @@ PanelFileEditorController.prototype.init = function () {
     // var rootElement = document.getElementById("panelFileEditor");
     var rootElement = document.getElementById("panelCenter");
     var dropElement = WidgetDropController.addDrop(rootElement, this);
-    this._widgetTabController.init(dropElement, this, "../../editor/home/homeFileEditor.html", WidgetHistoryController._itemFileEditor);
+    this._historyItemFile = WidgetHistoryController._itemFileEditor;
+    this._widgetTabController.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItemFile);
+
 
     this._menuRightTitle = WidgetMenuController.createMenu(document.body, "../../editor/menu/menuFileEditorTitle.html");
     this._menuRightContent = WidgetMenuController.createMenu(document.body, "../../editor/menu/menuFileEditorContent.html");

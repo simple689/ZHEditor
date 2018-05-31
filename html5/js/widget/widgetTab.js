@@ -18,7 +18,7 @@ WidgetTabController._onContextMenuType = {
     tabTitle : 0,
     tabContent : 1
 }
-WidgetTabController.prototype.init = function (elementParent, panel, htmlHome, historyItem) {
+WidgetTabController.prototype.init = function (elementParent, panel, htmlHome, historyItemFile) {
     this._elementTab = document.createElement("figure");
     elementParent.appendChild(this._elementTab);
     this._elementTab.classList.add(WidgetTabController._classWidgetTab);
@@ -29,7 +29,7 @@ WidgetTabController.prototype.init = function (elementParent, panel, htmlHome, h
     this.initContentGroup();
     this._elementTabList = new Array();
     this.addHomePage(htmlHome);
-    // this.addHistoryPage(historyItem);
+    this.addHistoryPage(historyItemFile);
 }
 WidgetTabController.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
@@ -47,8 +47,8 @@ WidgetTabController.prototype.addHomePage = function (html) {
     var elementTabTitle = this.addTitle("首页");
     this.addContent(elementTabTitle, html, WidgetTabController._addContentType.html);
 }
-WidgetTabController.prototype.addHistoryPage = function (historyItem) {
-    var fileList = WidgetHistoryController.getFile(historyItem);
+WidgetTabController.prototype.addHistoryPage = function (historyItemFile) {
+    var fileList = WidgetHistoryController.getFile(historyItemFile);
     if (!fileList) {
         return;
     }
@@ -92,11 +92,10 @@ WidgetTabController.prototype.closeTitle = function (elementTabTitle) {
         this.setActiveElement(this._elementTabList[indexActive]);
     }
     this._elementTabList.splice(index, 1);
-    elementTabTitle._widgetTabController._elementTabContentGroup.removeChild(elementTabTitle._elementTabContent);
-    elementTabTitle._widgetTabController._elementTabTitleGroup.removeChild(elementTabTitle);
+    this._elementTabContentGroup.removeChild(elementTabTitle._elementTabContent);
+    this._elementTabTitleGroup.removeChild(elementTabTitle);
 
-    WidgetHistoryController.delFile(elementTabTitle);
-
+    WidgetHistoryController.delFile(elementTabTitle, this._panel._historyItemFile);
 }
 WidgetTabController.prototype.addContent = function (elementTabTitle, content, contentType) {
     var elementTabContent = document.createElement("div");
@@ -117,7 +116,7 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
         elementHtmlRoot.classList.add("htmlRoot");
         elementHtmlRoot._elementTabTitle = elementTabTitle;
         $(elementHtmlRoot).load(content, function() {
-            this._elementTabTitle._widgetTabController._panel.loadedHtml(this);
+            this._panel.loadedHtml(this);
         });
     } else if (contentType == WidgetTabController._addContentType.fileContent) {
         this.addFileContent(content, elementTabTitle);

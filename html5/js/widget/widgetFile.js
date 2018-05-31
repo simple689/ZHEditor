@@ -8,7 +8,7 @@ WidgetFileController.readFileContent = function (fileContent, elementTabTitle) {
 
     elementTabTitle._fileJsonController = new WidgetFileJsonController();
     elementTabTitle._fileJsonController.init(elementTabTitle, fileContent);
-    WidgetHistoryController.addFile(elementTabTitle.textContent, fileContent);
+    WidgetHistoryController.addFile(elementTabTitle.textContent, fileContent, elementTabTitle._widgetTabController._panel._historyItemFile);
 }
 WidgetFileController.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");

@@ -4,7 +4,8 @@ function PanelFileTemplateController() {
 PanelFileTemplateController.prototype.init = function () {
     var rootElement = document.getElementById("panelFileTemplate");
     var dropElement = WidgetDropController.addDrop(rootElement, this);
-    this._widgetTabController.init(dropElement, this, "../../editor/home/homeFileTemplate.html", WidgetHistoryController._itemFileTemplate);
+    this._historyItemFile = WidgetHistoryController._itemFileTemplate;
+    this._widgetTabController.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
 
     this._menuRightTitle = WidgetMenuController.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
     this._menuRightContent = WidgetMenuController.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");

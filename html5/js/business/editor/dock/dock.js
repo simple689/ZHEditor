@@ -47,10 +47,10 @@ function initPanel() {
 }
 function initLayout() {
     // panelFileEditor.enableNormalHiddenButton(false);
-    panelFileTemplate.initLayout(0, 0, 200, 200, DSXDFPanel.dockLeft);
+    panelFileTemplate.initLayout(0, 0, 500, 1, DSXDFPanel.dockLeft);
     // panelView.initLayout(0, 0, 50, 50, DSXDFPanel.dockLeft);
     // panelTest.initLayout(0, 0, 50, 50, DSXDFPanel.dockRight);
-    panelFileBrowser.initLayout(0, 0, 50, 50, DSXDFPanel.dockBottom);
+    panelFileBrowser.initLayout(0, 0, 1, 50, DSXDFPanel.dockBottom);
     // panelFileEditor.initLayout(0, 0, 6000, 6000, DSXDFPanel.dockLeft);
     // panelFileEditor.setInitialLayoutReference(panelView);
 }
