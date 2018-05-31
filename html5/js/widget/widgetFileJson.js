@@ -1,6 +1,7 @@
 function WidgetFileJsonController() {
     this._menuFoldController = new WidgetMenuFoldController();
 }
+
 WidgetFileJsonController.prototype.init = function (elementTabTitle, fileStr) {
     this._elementTabTitle = elementTabTitle;
     this._fileStr = fileStr;

@@ -5,7 +5,8 @@
     top: 0px;
     color: lightgray;
 }
-.menu ul{
+
+.menu ul {
     display: none;
     position: absolute;
     font-size: 16px;
@@ -14,7 +15,7 @@
     list-style: none;
     border: 1px solid #979797;
     border-radius: 2px;
-    box-shadow: 0 6px 12px rgba(0,0,0,.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .2);
     margin: 0;
     min-width: 150px;
     background: gray;
@@ -22,23 +23,28 @@
     background-repeat: repeat-y;
     background-position: 24px 0;
 }
-.menu ul ul{
+
+.menu ul ul {
     display: none;
 }
-.menu ul ul ul{
-     display: none;
- }
-.menu ul li{
+
+.menu ul ul ul {
+    display: none;
+}
+
+.menu ul li {
     cursor: pointer;
     padding: 0 30px;
     white-space: nowrap;
 }
-.menu ul li.sub{
+
+.menu ul li.sub {
     background-image: url(../../img/widget/widgetMenu/menu_arrow.png);
     background-repeat: no-repeat;
     background-position: right 9px;
 }
-.menu ul li.active{
+
+.menu ul li.active {
     border: 1px solid #5588cc;
     border-radius: 3px;
     background: #5588cc;

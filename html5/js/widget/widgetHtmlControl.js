@@ -121,11 +121,11 @@ WidgetHtmlControl.addInput = function (nodeParent, value, inputType) {
             nodeInput.value = value;
             nodeInput.style.background = value;
             $(nodeInput).colorPicker({
-                init: function(element, color) { // colors is a different instance (not connected to colorPicker)
+                init: function (element, color) { // colors is a different instance (not connected to colorPicker)
                     element.style.backgroundColor = color;
                     element.style.color = color.rgbaMixCustom.luminance > 0.22 ? '#222' : '#ddd';
                 },
-            }).each(function(idx, elm) {
+            }).each(function (idx, elm) {
             });
             break;
         }

@@ -1,6 +1,7 @@
 function WidgetTabController() {
     this._elementTab = null;
 }
+
 WidgetTabController._classWidgetTab = "widgetTab";
 WidgetTabController._classWidgetTabTitleGroup = "widgetTabTitleGroup";
 WidgetTabController._classWidgetTabContentGroup = "widgetTabContentGroup";
@@ -9,14 +10,14 @@ WidgetTabController._classWidgetTabContent = "widgetTabContent";
 WidgetTabController._classIsActive = "isActive";
 WidgetTabController._slideSpeed = 200;
 WidgetTabController._addContentType = {
-    string : 0,
-    html : 1,
-    fileContent : 2,
-    file : 3
+    string: 0,
+    html: 1,
+    fileContent: 2,
+    file: 3
 }
 WidgetTabController._onContextMenuType = {
-    tabTitle : 0,
-    tabContent : 1
+    tabTitle: 0,
+    tabContent: 1
 }
 WidgetTabController.prototype.init = function (elementParent, panel, htmlHome, historyItemFile) {
     this._elementTab = document.createElement("figure");
@@ -115,7 +116,7 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
         elementTabTitle._elementHtmlRoot = elementHtmlRoot;
         elementHtmlRoot.classList.add("htmlRoot");
         elementHtmlRoot._elementTabTitle = elementTabTitle;
-        $(elementHtmlRoot).load(content, function() {
+        $(elementHtmlRoot).load(content, function () {
             this._panel.loadedHtml(this);
         });
     } else if (contentType == WidgetTabController._addContentType.fileContent) {

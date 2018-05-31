@@ -1,14 +1,15 @@
 function WidgetDropController() {
 }
+
 WidgetDropController._borderColorNormal = "rgba(102,102,102,0)";
 WidgetDropController._borderColorFocus = "rgba(102,102,102,1)";
-WidgetDropController.createDrop = function (elementParent, panel ) {
+WidgetDropController.createDrop = function (elementParent, panel) {
     var elementDrop = document.createElement("div");
     elementParent.appendChild(elementDrop);
     this.addDrop(elementDrop, panel);
     return elementDrop;
 }
-WidgetDropController.addDrop = function (elementDrop, panel ) {
+WidgetDropController.addDrop = function (elementDrop, panel) {
     elementDrop.classList.add("widgetDrop");
     elementDrop._panel = panel;
 

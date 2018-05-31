@@ -2,6 +2,7 @@ function getElementOffsetTopToParent(element, parentElement) {
     // return element.offsetTop + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
     return element.offsetTop + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
 }
+
 function getElementOffsetLeftToParent(element, parentElement) {
     // return element.offsetLeft + ((element.offsetParent && element.offsetParent != parentElement) ? arguments.callee(element.offsetParent, parentElement) : 0);
     var left = element.offsetLeft;
@@ -12,6 +13,7 @@ function getElementOffsetLeftToParent(element, parentElement) {
     }
     return left;
 }
+
 function getElementParentWithTag(element, parentTag) {
     var parentElement = element.parentNode;
     if (!parentElement) {
@@ -25,6 +27,7 @@ function getElementParentWithTag(element, parentTag) {
     }
     return null;
 }
+
 function setElementDisplay(element, enable) {
     if (enable) {
         element.style.display = 'block';
@@ -32,6 +35,7 @@ function setElementDisplay(element, enable) {
         element.style.display = 'none';
     }
 }
+
 // function setSize(element, elementCheck, elementCheckParent, padding) {
 //     var left = getOffsetLeftToParent(elementCheck, elementCheckParent);
 //     var top = getOffsetTopToParent(elementCheck, elementCheckParent);

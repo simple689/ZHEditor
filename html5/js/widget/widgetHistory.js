@@ -1,5 +1,6 @@
 function WidgetHistoryController() {
 }
+
 WidgetHistoryController._localStorage = null;
 
 WidgetHistoryController._itemFileEditor = "fileEditor";
@@ -48,7 +49,7 @@ WidgetHistoryController.setItem = function (key, value) {
 WidgetHistoryController.addFile = function (fileName, fileContent, historyItemFile) {
     var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
-        fileEditItem = '{"'+WidgetHistoryController._keyFileList+'":[{"'+WidgetHistoryController._keyFileName+'":"首页","'+WidgetHistoryController._keyFileContent+'":"首页内容"}]}';
+        fileEditItem = '{"' + WidgetHistoryController._keyFileList + '":[{"' + WidgetHistoryController._keyFileName + '":"首页","' + WidgetHistoryController._keyFileContent + '":"首页内容"}]}';
     }
     var fileEditJson = JSON.parse(fileEditItem);
     var fileList = fileEditJson[WidgetHistoryController._keyFileList];
@@ -62,7 +63,7 @@ WidgetHistoryController.addFile = function (fileName, fileContent, historyItemFi
         }
     }
     if (!isExist) {
-        var newFileJson='{"'+WidgetHistoryController._keyFileName+'":"'+ fileName +'","'+WidgetHistoryController._keyFileContent+'":""}';
+        var newFileJson = '{"' + WidgetHistoryController._keyFileName + '":"' + fileName + '","' + WidgetHistoryController._keyFileContent + '":""}';
         fileList.push(JSON.parse(newFileJson));
         var len = fileList.length;
         fileList[len - 1][WidgetHistoryController._keyFileContent] = fileContent;

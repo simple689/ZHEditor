@@ -1,5 +1,6 @@
 function WidgetFileController() {
 }
+
 WidgetFileController.readFileContent = function (fileContent, elementTabTitle) {
     var elementFileRoot = document.createElement("div");
     elementTabTitle._elementTabContent.appendChild(elementFileRoot);
@@ -57,7 +58,7 @@ WidgetFileController.isJson = function (fileStr) {
     try {
         var jsonObj = eval('(' + fileStr + ')');
         isjson = typeof(jsonObj) == "object" && Object.prototype.toString.call(jsonObj).toLowerCase() == "[object object]" && fileStr.length > 0;
-    } catch(exception) {
+    } catch (exception) {
         isjson = false;
     }
     LogController.log("isjson = " + isjson);

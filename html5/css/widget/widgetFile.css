@@ -1,5 +1,6 @@
-.widgetFileRoot{
+.widgetFileRoot {
     margin: 0;
     padding: 10px 0;
     overflow: auto;
+    white-space: nowrap;
 }

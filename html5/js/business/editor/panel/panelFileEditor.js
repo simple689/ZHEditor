@@ -1,6 +1,7 @@
 function PanelFileEditorController() {
     this._widgetTabController = new WidgetTabController();
 }
+
 PanelFileEditorController.prototype.init = function () {
     // var rootElement = document.getElementById("panelFileEditor");
     var rootElement = document.getElementById("panelCenter");

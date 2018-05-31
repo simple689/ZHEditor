@@ -8,13 +8,14 @@
  **/
 function WidgetMenuController() {
 }
+
 WidgetMenuController._menuList = new Array();
 WidgetMenuController._menuPadding = 6;
 WidgetMenuController.createMenu = function (elementParent, html) {
     var menu = document.createElement("div");
     elementParent.appendChild(menu);
     menu.classList.add("menu");
-    $(menu).load(html, function() {
+    $(menu).load(html, function () {
     });
     WidgetMenuController._menuList.push(menu);
     return menu;
@@ -30,7 +31,7 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
     WidgetMenuController.hideMenuAll();
 
     var menuLiList = menu.getElementsByTagName("li");
-    for (var i = 0; i < menuLiList.length; i++){
+    for (var i = 0; i < menuLiList.length; i++) {
         var li = menuLiList[i];
         var ulList = li.getElementsByTagName("ul");
         if (ulList[0]) {
@@ -67,17 +68,18 @@ WidgetMenuController.hideMenuAll = function () {
 }
 WidgetMenuController.hideMenu = function (menu) {
     var ulList = menu.getElementsByTagName("ul");
-    for (var i = 0; i < ulList.length; i++){
+    for (var i = 0; i < ulList.length; i++) {
         setElementDisplay(ulList[i], false);
     }
 }
 WidgetMenuController.hideMenuLi = function (li) {
-    for (var i = 0; i < li.parentNode.children.length; i++){
+    for (var i = 0; i < li.parentNode.children.length; i++) {
         if (li.parentNode.children[i].getElementsByTagName("ul")[0]) {
             setElementDisplay(li.parentNode.children[i].getElementsByTagName("ul")[0], false);
         }
     }
 }
+
 function setUlPosition(ul, ulParent, left, top) {
     setElementDisplay(ul, true); // 显示菜单
 

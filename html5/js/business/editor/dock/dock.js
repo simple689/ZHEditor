@@ -24,6 +24,7 @@ function initWidgetDock() {
     initLayout();
     initPanelController();
 }
+
 function initPanel() {
     dock.addFixedPanel(document.getElementById("panelCenter"), DSXDFUtil.fixedCenter);
 
@@ -45,6 +46,7 @@ function initPanel() {
     // panelTest = dock.createDFPanel("测试", "");
     // panelTest.addContentDiv(document.getElementById("panelTest"));
 }
+
 function initLayout() {
     // panelFileEditor.enableNormalHiddenButton(false);
     panelFileTemplate.initLayout(0, 0, 500, 1, DSXDFPanel.dockLeft);
@@ -54,6 +56,7 @@ function initLayout() {
     // panelFileEditor.initLayout(0, 0, 6000, 6000, DSXDFPanel.dockLeft);
     // panelFileEditor.setInitialLayoutReference(panelView);
 }
+
 function initPanelController() {
     panelMenuController = new PanelMenuController();
     panelToolBarController = new PanelToolBarController();
@@ -64,6 +67,7 @@ function initPanelController() {
     panelViewController = new PanelViewController();
     panelTestController = new PanelTestController();
 }
+
 function loadLayout() {
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
@@ -76,15 +80,18 @@ function loadLayout() {
         }
     }
 }
+
 function saveLayout() {
     if (dock != null) {
         dock.saveStatesIntoKey(dockLayoutKey);
         // var sessionStorage = window['sessionStorage'];
     }
 }
+
 function onBeforeUnload() {
     saveLayout();
 }
+
 function setVisible(panel, sch) {
     panel.setVisible(sch);
 }
@@ -120,16 +127,16 @@ $(document).ready(function () {
     // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
     //     panelFileEditorController.init();
     // });
-    $('#panelCenter').load("../panel/panelFileEditor.html", function() {
+    $('#panelCenter').load("../panel/panelFileEditor.html", function () {
         panelFileEditorController.init();
     });
-    $('#panelFileTemplate').load("../panel/panelFileTemplate.html", function() {
+    $('#panelFileTemplate').load("../panel/panelFileTemplate.html", function () {
         panelFileTemplateController.init();
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
         panelFileBrowserController.init();
     });
-    $('#panelView').load("../panel/panelView.html", function() {
+    $('#panelView').load("../panel/panelView.html", function () {
         panelViewController.init();
     });
     $('#panelTest').load("../panel/panelTest.html", function () {

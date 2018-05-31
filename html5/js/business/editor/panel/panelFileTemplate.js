@@ -1,6 +1,7 @@
 function PanelFileTemplateController() {
     this._widgetTabController = new WidgetTabController();
 }
+
 PanelFileTemplateController.prototype.init = function () {
     var rootElement = document.getElementById("panelFileTemplate");
     var dropElement = WidgetDropController.addDrop(rootElement, this);

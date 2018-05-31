@@ -3,6 +3,7 @@
  **/
 function WidgetMenuFoldController() {
 }
+
 WidgetMenuFoldController.prototype.createMenuFold = function (elementParent) {
     this._menuFold = document.createElement("div");
     elementParent.appendChild(this._menuFold);
@@ -33,7 +34,7 @@ WidgetMenuFoldController.prototype.addFoldItem = function (dl) {
 }
 WidgetMenuFoldController.dtOnClick = function () {
     var nextNode = this.nextSibling;
-    while(nextNode) {
+    while (nextNode) {
         var tagName = nextNode.tagName;
         if (tagName == "DD") {
             nextNode.isCheck = !nextNode.isCheck;
@@ -41,12 +42,12 @@ WidgetMenuFoldController.dtOnClick = function () {
             if (nextNode.isCheck) {
                 nextNode.style.display = "block";
                 $(this).css(
-                    "background-image","url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
+                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
                 );
             } else {
                 nextNode.style.display = "none";
                 $(this).css(
-                    "background-image","url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
+                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
                 );
             }
         } else if (tagName == "DT") {
