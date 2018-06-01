@@ -4,8 +4,8 @@ var dock = null;
 // var panelFileEditor = null;
 var panelFileTemplate = null;
 var panelFileBrowser = null;
-var panelView = null;
-var panelTest = null;
+// var panelView = null;
+// var panelTest = null;
 var dockLayoutKey = "dockLayout";
 
 var panelMenuController = null;
@@ -18,10 +18,10 @@ var panelViewController = null;
 var panelTestController = null;
 
 function initWidgetDock() {
-    // dock = DSXDFUtil.createDSXDFUtil();
-    // loadLayout();
-    // initPanel();
-    // initLayout();
+    dock = DSXDFUtil.createDSXDFUtil();
+    loadLayout();
+    initPanel();
+    initLayout();
     initPanelController();
 }
 
@@ -115,27 +115,27 @@ $(document).ready(function () {
     LogController.init();
     WidgetHistoryController.init();
 
-    // $('#panelFixedTop').load("../panel/panelMenu.html", function () {
-    //     $('#panelToolBar').load("../panel/panelToolBar.html", function () {
-    //         panelMenuController.init();
-    //         panelToolBarController.init();
-    //     });
-    // });
-    // $('#panelFixedBottom').load("../panel/panelState.html", function () {
-    //     panelStateController.init();
-    // });
-    // // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-    // //     panelFileEditorController.init();
-    // // });
-    // $('#panelCenter').load("../panel/panelFileEditor.html", function () {
+    $('#panelFixedTop').load("../panel/panelMenu.html", function () {
+        $('#panelToolBar').load("../panel/panelToolBar.html", function () {
+            panelMenuController.init();
+            panelToolBarController.init();
+        });
+    });
+    $('#panelFixedBottom').load("../panel/panelState.html", function () {
+        panelStateController.init();
+    });
+    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
     //     panelFileEditorController.init();
     // });
-    // $('#panelFileTemplate').load("../panel/panelFileTemplate.html", function () {
-    //     panelFileTemplateController.init();
-    // });
-    $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
-        panelFileBrowserController.init();
+    $('#panelCenter').load("../panel/panelFileEditor.html", function () {
+        panelFileEditorController.init();
     });
+    $('#panelFileTemplate').load("../panel/panelFileTemplate.html", function () {
+        panelFileTemplateController.init();
+    });
+    // $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
+    //     panelFileBrowserController.init();
+    // });
     // $('#panelView').load("../panel/panelView.html", function () {
     //     panelViewController.init();
     // });

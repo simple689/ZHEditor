@@ -25,3 +25,7 @@ dl {
 * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.ng-scope {
+    z-index: 99999;
+}

@@ -4,6 +4,7 @@ function PanelFileBrowserController() {
 PanelFileBrowserController.prototype.init = function () {
     // 重写默认Config配置
     angular.module('FileManagerApp').config(['fileManagerConfigProvider', function (config) {
+        alert("a");
         var defaults = config.$get();
         config.set({
             appName: 'angular-filemanager',
