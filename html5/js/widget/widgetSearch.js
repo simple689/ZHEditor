@@ -11,8 +11,6 @@ WidgetSearchController.prototype.createSearch = function (panel, elementBrother)
     this._searchText.classList.add("searchText");
     $(this._searchText).on("keyup", WidgetSearchController.searchTextOnKeyUp);
     $(this._searchText).on("focus", WidgetSearchController.searchTextOnFocus);
-    this._searchText.placeholder = "搜索内容";
-    this._searchText.autocomplete = "off"
 
     this._searchBtn = document.createElement("input");
     this._searchText.after(this._searchBtn);
@@ -25,19 +23,17 @@ WidgetSearchController.prototype.createSearch = function (panel, elementBrother)
     this._searchHistoryBox = document.createElement("div");
     this._searchBtn.after(this._searchHistoryBox);
     this._searchHistoryBox.classList.add("searchHistoryBox");
-    setElementDisplay(this._searchHistoryBox, false);
 
     this._searchHistory = document.createElement("ul");
     this._searchHistoryBox.appendChild(this._searchHistory);
-    this._searchHistory.classList.add("searchHistory");
 
     this._searchHistoryIndex = 0;
 
     WidgetSearchController._searchList.push(this);
     return this;
 }
-// 获取缓存历史记录
-WidgetSearchController.getCookie = function (itemKey) {
+// 获取历史记录
+WidgetSearchController.getHistory = function (itemKey) {
     var cookieStr = document.cookie;
     var cookieList = cookieStr.split("; ");
     for (var i = 0; i < cookieList.length; i++) {
@@ -47,9 +43,9 @@ WidgetSearchController.getCookie = function (itemKey) {
         }
     }
 }
-// 点击搜索事件
+// 点击搜索按钮
 WidgetSearchController.searchBtnOnClick = function () {
-    var res = WidgetSearchController.getCookie("searchHistory");
+    var res = WidgetSearchController.getHistory("searchHistory");
     var list = decodeURI(res).split(',');
     if (list.length > 19) {
         list.pop();
@@ -113,7 +109,7 @@ WidgetSearchController.searchTextOnKeyUp = function (event) {
 }
 // 搜索框聚焦
 WidgetSearchController.searchTextOnFocus = function () {
-    WidgetSearchController.showHistory(this._widgetSearchController);
+    WidgetSearchController.showHistory(this._widgetSearchController, null);
 }
 // 点击选中搜索词语(后隐藏历史记录)
 WidgetSearchController.searchHistoryItemOnClick = function () {
@@ -122,6 +118,14 @@ WidgetSearchController.searchHistoryItemOnClick = function () {
     var str = this.innerHTML;
     searchText.value = str;
     setElementDisplay(searchHistoryBox, false);
+}
+WidgetSearchController.searchHistoryItemOnMouseEnter = function () {
+    var liThis = this;
+    liThis.classList.add("active");
+}
+WidgetSearchController.searchHistoryItemOnMouseOut = function () {
+    var liThis = this;
+    liThis.classList.remove("active");
 }
 // 展示全部记录
 WidgetSearchController.showHistory = function (controller, searchValue) {
@@ -134,19 +138,19 @@ WidgetSearchController.showHistory = function (controller, searchValue) {
     }
     controller._searchHistoryItemList = new Array();
 
-    var res = decodeURI(WidgetSearchController.getCookie("searchHistory")).split(',');
-    if (res[0] === "undefined" || res[0] === "" || res[0] === "null") {
+    var list = decodeURI(WidgetSearchController.getHistory("searchHistory")).split(',');
+    if (list[0] === "undefined" || list[0] === "" || list[0] === "null" || list[0] === null) {
         setElementDisplay(controller._searchHistoryBox, false);
     } else {
         var isFind = true;
-        if (searchValue === "" || searchValue === "null") {
+        if (searchValue === "" || searchValue === "null" || searchValue === null) {
             isFind = false;
         }
         var len = 0;
-        for (var i in res) {
+        for (var i in list) {
             var isAdd = false;
             if (isFind) {
-                if (res[i].indexOf(searchValue) > -1) {
+                if (list[i].indexOf(searchValue) > -1) {
                     isAdd = true;
                 }
             } else {
@@ -157,13 +161,17 @@ WidgetSearchController.showHistory = function (controller, searchValue) {
                 controller._searchHistory.append(li);
                 li._widgetSearchController = controller;
                 $(li).on("click", WidgetSearchController.searchHistoryItemOnClick);
-                li.innerHTML = res[i];
+                $(li).on("mouseenter", WidgetSearchController.searchHistoryItemOnMouseEnter);
+                $(li).on("mouseout", WidgetSearchController.searchHistoryItemOnMouseOut);
+                li.innerHTML = list[i];
                 controller._searchHistoryItemList.push(li);
                 len++;
             }
         }
         controller._searchHistoryIndex = 0;
         if (len > 0) {
+            controller._searchHistoryBox.style.left = "10px";
+            controller._searchHistoryBox.style.top = "10px";
             setElementDisplay(controller._searchHistoryBox, true);
         } else {
             setElementDisplay(controller._searchHistoryBox, false);

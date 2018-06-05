@@ -12,6 +12,7 @@
     left: 0px;
     top: 0px;
     color: lightgray;
+    display: none;
 }
 
 .searchHistoryBox ul {

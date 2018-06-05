@@ -100,7 +100,7 @@ function setVisible(panel, sch) {
 //========
 function documentOnClick() {
     WidgetMenuController.hideMenuAll();
-    WidgetSearchController.hideSearchAll();
+    // WidgetSearchController.hideSearchAll();
     return true;
 }
 
