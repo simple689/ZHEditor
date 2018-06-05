@@ -100,6 +100,7 @@ function setVisible(panel, sch) {
 //========
 function documentOnClick() {
     WidgetMenuController.hideMenuAll();
+    WidgetSearchController.hideSearchAll();
     return true;
 }
 
@@ -135,22 +136,6 @@ $(document).ready(function () {
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
         panelFileBrowserController.init();
-        angular.module('FileManagerApp').config(['fileManagerConfigProvider', function (config) {
-            var defaults = config.$get();
-            config.set({
-                appName: 'angular-filemanager',
-                pickCallback: function (item) {
-                    var msg = 'Picked %s "%s" for external use'
-                        .replace('%s', item.type)
-                        .replace('%s', item.fullPath());
-                    window.alert(msg);
-                },
-                allowedActions: angular.extend(defaults.allowedActions, {
-                    pickFiles: true,
-                    pickFolders: false,
-                }),
-            });
-        }]);
     });
     $('#panelView').load("../panel/panelView.html", function () {
         panelViewController.init();
@@ -159,8 +144,9 @@ $(document).ready(function () {
         panelTestController.init();
     });
 
-    document.onclick = documentOnClick;
-    document.oncontextmenu = documentOnContextMenu;
+    // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
+    $(document).bind('click', documentOnClick);
+    $(document).bind('contextmenu', documentOnContextMenu);
 
     console.log("[dock] end");
 })
