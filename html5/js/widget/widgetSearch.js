@@ -8,6 +8,7 @@ WidgetSearchController.prototype.createSearch = function (panel, elementBrother)
     this._searchText = document.createElement("input");
     elementBrother.after(this._searchText);
     this._searchText._widgetSearchController = this;
+    this._searchText.classList.add("searchText");
     $(this._searchText).on("keyup", WidgetSearchController.searchTextOnKeyUp);
     $(this._searchText).on("focus", WidgetSearchController.searchTextOnFocus);
     this._searchText.placeholder = "搜索内容";
@@ -16,17 +17,19 @@ WidgetSearchController.prototype.createSearch = function (panel, elementBrother)
     this._searchBtn = document.createElement("input");
     this._searchText.after(this._searchBtn);
     this._searchBtn._widgetSearchController = this;
+    this._searchBtn.classList.add("searchBtn");
     $(this._searchBtn).on("click", WidgetSearchController.searchBtnOnClick);
     this._searchBtn.type = "button";
     this._searchBtn.value = "搜索";
 
     this._searchHistoryBox = document.createElement("div");
     this._searchBtn.after(this._searchHistoryBox);
+    this._searchHistoryBox.classList.add("searchHistoryBox");
     setElementDisplay(this._searchHistoryBox, false);
-    this._searchHistoryBox.style.cssFloat = "left";
 
     this._searchHistory = document.createElement("ul");
     this._searchHistoryBox.appendChild(this._searchHistory);
+    this._searchHistory.classList.add("searchHistory");
 
     this._searchHistoryIndex = 0;
 
