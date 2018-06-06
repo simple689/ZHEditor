@@ -28,7 +28,7 @@ WidgetFileJsonController.prototype.initControl = function () {
         WidgetHtmlControl.addInput(elementFileRoot, "rgba(0, 255, 0, 0.6)", WidgetHtmlControl._inputType.color);
         WidgetHtmlControl.addSelect(elementFileRoot, "0123456", 6);
     }
-    var foldItem = this._menuFoldController.createMenuFold(elementFileRoot);
+    var foldItem = this._menuFoldController.createMenuFold(elementFileRoot, '');
     this.readObject(jsonObj, "", foldItem);
 }
 // WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, elementParent) {

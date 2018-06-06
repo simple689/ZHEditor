@@ -4,11 +4,11 @@
 function WidgetMenuFoldController() {
 }
 
-WidgetMenuFoldController.prototype.createMenuFold = function (elementParent) {
+WidgetMenuFoldController.prototype.createMenuFold = function (elementParent, foldTitle) {
     this._menuFold = document.createElement("div");
     elementParent.appendChild(this._menuFold);
     this._menuFold.classList.add("widgetMenuFold");
-    var dd = this.addFold(this._menuFold, "");
+    var dd = this.addFold(this._menuFold, foldTitle);
     return dd;
 }
 WidgetMenuFoldController.prototype.addFold = function (elementParent, foldTitle) {

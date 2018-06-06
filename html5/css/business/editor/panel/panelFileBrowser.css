@@ -13,20 +13,22 @@
     flex: 1;
     display: flex;
     display: -webkit-flex;
-    background: #ccc;
+    overflow: auto;
 }
 
 #left {
     width: 300px;
+    overflow: auto;
 }
 
 #right {
     flex: 1;
+    overflow: auto;
 }
 
 #middle {
     width: 3px;
-    background: #666;
+    background: #ccc;
 }
 
 #middle:hover {
