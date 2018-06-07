@@ -1,7 +1,13 @@
 .widgetFlexContainer {
-    /*flex-wrap: wrap;*/
-    /*align-content: flex-start;*/
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 6px;
+    padding-top: 6px;
 }
 
 .widgetFlexItem {
+    margin-right: 6px;
+    margin-bottom: 6px;
+    text-align: center;
 }

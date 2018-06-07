@@ -43,5 +43,5 @@
 .rightContent {
     width: 100px;
     height: 100px;
-    float: left;
+    background: #666;
 }

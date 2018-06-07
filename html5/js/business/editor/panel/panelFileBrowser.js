@@ -68,11 +68,6 @@ PanelFileBrowserController.prototype.initBottomRight = function () {
         rightContent.innerHTML = "文件 : " + i;
         var flexItem = this._flexController.addFlexItem(rightContent);
         flexItem.classList.add("rightContent");
-        if (i % 2 == 0) {
-            flexItem.style.background = '#ccc';
-        } else {
-            flexItem.style.background = '#666';
-        }
 
         var rightContentNew = document.createElement("div");
         rightContentNew.innerHTML = "新文件 : " + i;
