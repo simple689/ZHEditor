@@ -78,7 +78,7 @@ WidgetTabController.prototype.addTitle = function (title) {
 
     this._elementTabList.push(elementTabTitle);
 
-    elementTabTitle.textContent = title;
+    elementTabTitle.innerHTML = title;
     return elementTabTitle;
 }
 WidgetTabController.prototype.closeTitle = function (elementTabTitle) {
@@ -117,7 +117,11 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
         elementHtmlRoot.classList.add("htmlRoot");
         elementHtmlRoot._elementTabTitle = elementTabTitle;
         $(elementHtmlRoot).load(content, function () {
-            // this._elementTabTitle._widgetTabController._panel.loadedHtml(this);
+            //判断是否为函数
+            try {
+                this[0]._elementTabTitle._widgetTabController._panel.loadedHtml(this);
+            } catch (e) {
+            }
         });
     } else if (contentType == WidgetTabController._addContentType.fileContent) {
         this.addFileContent(content, elementTabTitle);

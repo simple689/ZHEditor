@@ -13,7 +13,7 @@ WidgetHistoryController._keyFileContent = "fileContent";
 WidgetHistoryController.init = function () {
     WidgetHistoryController._localStorage = window.localStorage;
     if (WidgetHistoryController._localStorage) {
-        LogController.log('This browser supports localStorage');
+        // LogController.log('This browser supports localStorage');
     } else {
         LogController.log('This browser does NOT support localStorage');
     }

@@ -125,12 +125,6 @@ $(document).ready(function () {
     $('#panelFixedBottom').load("../panel/panelState.html", function () {
         panelStateController.init();
     });
-    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-    //     panelFileEditorController.init();
-    // });
-    $('#panelCenter').load("../panel/panelFileEditor.html", function () {
-        panelFileEditorController.init();
-    });
     $('#panelFileTemplate').load("../panel/panelFileTemplate.html", function () {
         panelFileTemplateController.init();
     });
@@ -142,6 +136,12 @@ $(document).ready(function () {
     });
     $('#panelTest').load("../panel/panelTest.html", function () {
         panelTestController.init();
+    });
+    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
+    //     panelFileEditorController.init();
+    // });
+    $('#panelCenter').load("../panel/panelFileEditor.html", function () {
+        panelFileEditorController.init(panelFileTemplateController);
     });
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
