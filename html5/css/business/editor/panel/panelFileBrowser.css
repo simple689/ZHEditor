@@ -4,6 +4,7 @@
     display: flex;
     display: -webkit-flex;
     flex-direction: column;
+    background-color: #393939;
 }
 
 #top {
@@ -19,11 +20,15 @@
 #left {
     width: 300px;
     overflow: auto;
+    border: 1px solid #ccc;
+    border-right: 0px;
 }
 
 #right {
     flex: 1;
     overflow: auto;
+    border: 1px solid #ccc;
+    border-left: 0px;
 }
 
 #middle {

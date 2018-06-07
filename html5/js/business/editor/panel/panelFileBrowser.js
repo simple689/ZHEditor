@@ -77,7 +77,7 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, keyPar
             this.readFileBrowser(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
             WidgetHtmlControl.addLabel(elementParent, key);
-            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.textString);
+            WidgetHtmlControl.addLabel(elementParent, value);
         } else if (typeof(value) == "number") {
             WidgetHtmlControl.addLabel(elementParent, key);
             WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.textNumber);
