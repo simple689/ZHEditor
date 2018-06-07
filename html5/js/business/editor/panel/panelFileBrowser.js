@@ -1,6 +1,7 @@
 function PanelFileBrowserController() {
     this._widgetSearchController = new WidgetSearchController();
     this._menuFoldController = new WidgetMenuFoldController();
+    this._flexController = new WidgetFlexController();
 }
 
 PanelFileBrowserController.prototype.init = function () {
@@ -44,18 +45,40 @@ PanelFileBrowserController.prototype.initBottom = function () {
 };
 PanelFileBrowserController.prototype.initBottomLeft = function () {
     var left = document.getElementById("left");
-    var foldItem = this._menuFoldController.createMenuFold(left, '/');
+    var foldItem = this._menuFoldController.createMenuFold(left, '全部文件');
     this._fileBrowserStr = '{}';
     var jsonObj = JSON.parse(this._fileBrowserStr, null); // 通过parse获取json对应键值
-    // alert("The jsonObject value is " + jsonObj.a + ";" + jsonObj.b + ";" + jsonObj.c);
-    jsonObj.version = "1.00.00";
-    jsonObj.array1=[{"a":"1"}, {"b":"2"}];// 增加一个新属性，此属性是数组
-    jsonObj.array1[jsonObj.array1.length]='6';// 数组追加一个元素
+    jsonObj.folderList = new Array();
+    jsonObj.folderList.push({"Json":"/json"});
+    jsonObj.folderList.push({"Json模版":"/jsonTemplate"});
+    jsonObj.folderList.push({"文档":"/document"});
+    jsonObj.folderList.push({"图片":"/picture"});
+    jsonObj.folderList.push({"音乐":"/music"});
+    jsonObj.folderList.push({"视频":"/video"});
+    jsonObj.folderList.push({"其他":"/other"});
     // var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
     this.readFileBrowser(jsonObj, "", foldItem);
 };
 PanelFileBrowserController.prototype.initBottomRight = function () {
     var right = document.getElementById("right");
+    this._flexController.createFlex(right, '全部文件');
+
+    for (var i = 0; i < 10; i++) {
+        var rightContent = document.createElement("div");
+        rightContent.innerHTML = "文件 : " + i;
+        var flexItem = this._flexController.addFlexItem(rightContent);
+        flexItem.classList.add("rightContent");
+        if (i % 2 == 0) {
+            flexItem.style.background = '#ccc';
+        } else {
+            flexItem.style.background = '#666';
+        }
+
+        var rightContentNew = document.createElement("div");
+        rightContentNew.innerHTML = "新文件 : " + i;
+        flexItem.removeChild(flexItem.childNodes[0]);
+        flexItem.appendChild(rightContentNew);
+    }
 };
 PanelFileBrowserController.create = function () {
     WidgetMenuController.showMenu(this._panelFileBrowserController._menuLeftCreate, null, this._panelFileBrowserController);

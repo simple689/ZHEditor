@@ -39,3 +39,9 @@
 #middle:hover {
     cursor: w-resize;
 }
+
+.rightContent {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
