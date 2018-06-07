@@ -18,7 +18,6 @@ PanelFileTemplateController.prototype.handleFiles = function (files) {
     }
 }
 PanelFileTemplateController.prototype.loadedHtml = function (htmlRoot) {
-    console.log("PanelFileTemplateController");
 }
 PanelFileTemplateController.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {

@@ -22,8 +22,6 @@ PanelFileEditorController.prototype.handleFiles = function (files) {
     }
 }
 PanelFileEditorController.prototype.loadedHtml = function (htmlRoot) {
-    console.log("PanelFileEditorController");
-
     var homeFileEditor = document.getElementById("homeFileEditor");
     var elementFileRoot = homeFileEditor;
     WidgetHtmlControl.addLabel(elementFileRoot, "demo");

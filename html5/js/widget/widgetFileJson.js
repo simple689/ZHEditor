@@ -6,6 +6,8 @@ WidgetFileJsonController.prototype.init = function (elementTabTitle, fileStr) {
     this._elementTabTitle = elementTabTitle;
     this._fileStr = fileStr;
     this.initControl();
+    this._menuLabel = WidgetMenuController.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonLabel.html");
+    this._menuInput = WidgetMenuController.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonInput.html");
 }
 WidgetFileJsonController.prototype.initControl = function () {
     var jsonObj = eval('(' + this._fileStr + ')');
@@ -77,22 +79,33 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             keyChild += "->";
             keyChild += key;
             keyChild += "->";
+            if (Array.isArray(value)) {
+                LogController.log(value);
+            }
             var foldItem = this._menuFoldController.addFold(elementParent, key);
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
-            WidgetHtmlControl.addLabel(elementParent, key);
-            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.textString);
+            WidgetHtmlControl.addLabel(elementParent, this, WidgetFileJsonController.elementLabelOnContextMenu, key);
+            WidgetHtmlControl.addInput(elementParent, this, WidgetFileJsonController.elementInputOnContextMenu, value, WidgetHtmlControl._inputType.textString);
         } else if (typeof(value) == "number") {
-            WidgetHtmlControl.addLabel(elementParent, key);
-            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.textNumber);
+            WidgetHtmlControl.addLabel(elementParent, this, WidgetFileJsonController.elementLabelOnContextMenu, key);
+            WidgetHtmlControl.addInput(elementParent, this, WidgetFileJsonController.elementInputOnContextMenu, value, WidgetHtmlControl._inputType.textNumber);
         } else if (typeof(value) == "boolean") {
-            WidgetHtmlControl.addLabel(elementParent, key);
-            WidgetHtmlControl.addInput(elementParent, value, WidgetHtmlControl._inputType.checkbox);
+            WidgetHtmlControl.addLabel(elementParent, this, WidgetFileJsonController.elementLabelOnContextMenu, key);
+            WidgetHtmlControl.addInput(elementParent, this, WidgetFileJsonController.elementInputOnContextMenu, value, WidgetHtmlControl._inputType.checkbox);
         } else {
             var strType = typeof(value);
             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
+}
+WidgetFileJsonController.elementLabelOnContextMenu = function (e) {
+    WidgetMenuController.showMenu(this._fileController._menuLabel, e, this);
+    return false; //取消右键点击的默认事件
+}
+WidgetFileJsonController.elementInputOnContextMenu = function (e) {
+    WidgetMenuController.showMenu(this._fileController._menuInput, e, this);
+    return false; //取消右键点击的默认事件
 }
 WidgetFileJsonController.prototype.initFileTemplate = function (jsonObj) {
     this._jsonTemplateStr = '{}';

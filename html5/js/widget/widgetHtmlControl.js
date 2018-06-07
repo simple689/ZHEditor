@@ -46,16 +46,21 @@ WidgetHtmlControl.inputOnClick = function (e) {
         }
     }
 }
-WidgetHtmlControl.addLabel = function (nodeParent, value) {
+WidgetHtmlControl.addLabel = function (nodeParent, fileController, contextMenu, value) {
     var nodeLabel = document.createElement("label");
     nodeParent.appendChild(nodeLabel);
     nodeLabel.classList.add("nodeLabel");
+    nodeLabel._fileController = fileController;
+    nodeLabel.oncontextmenu = contextMenu;
     nodeLabel.innerHTML = value;
+    return nodeLabel;
 }
-WidgetHtmlControl.addInput = function (nodeParent, value, inputType) {
+WidgetHtmlControl.addInput = function (nodeParent, fileController, contextMenu, value, inputType) {
     var nodeInput = document.createElement("input");
     nodeParent.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
+    nodeInput._fileController = fileController;
+    nodeInput.oncontextmenu = contextMenu;
     nodeInput.onchange = WidgetHtmlControl.inputOnChange;
     nodeInput.onclick = WidgetHtmlControl.inputOnClick;
     nodeInput._inputType = inputType;
@@ -135,6 +140,7 @@ WidgetHtmlControl.addInput = function (nodeParent, value, inputType) {
             break
         }
     }
+    return nodeInput;
 }
 WidgetHtmlControl.addSelect = function (nodeParent, valueList, selectIndex) {
     var nodeSelect = document.createElement("select");
