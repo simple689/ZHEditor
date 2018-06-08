@@ -13,23 +13,6 @@ WidgetFileJsonController.prototype.initControl = function () {
     var jsonObj = eval('(' + this._fileStr + ')');
     // LogController.log(jsonObj);
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
-    var isShowDemo = false;
-    if (isShowDemo) {
-        WidgetHtmlControl.addLabel(elementFileRoot, "demo");
-        WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.textString);
-        WidgetHtmlControl.addInput(elementFileRoot, 689, WidgetHtmlControl._inputType.textNumber);
-        WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.button);
-        WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.checkbox);
-        WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.radio);
-        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.file);
-        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.image);
-        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.password);
-        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.submit);
-        // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.reset);
-        WidgetHtmlControl.addInput(elementFileRoot, "#336699", WidgetHtmlControl._inputType.color);
-        WidgetHtmlControl.addInput(elementFileRoot, "rgba(0, 255, 0, 0.6)", WidgetHtmlControl._inputType.color);
-        WidgetHtmlControl.addSelect(elementFileRoot, "0123456", 6);
-    }
     var foldItem = this._menuFoldController.createMenuFold(elementFileRoot, '');
     this.readObject(jsonObj, "", foldItem);
 
@@ -82,17 +65,22 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             if (Array.isArray(value)) {
                 LogController.log(value);
             }
-            var foldItem = this._menuFoldController.addFold(elementParent, key);
+            var foldItem = this._menuFoldController.addFoldAndItem(elementParent, key);
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
-            WidgetHtmlControl.addLabel(elementParent, this, WidgetFileJsonController.elementLabelOnContextMenu, key);
-            WidgetHtmlControl.addInput(elementParent, this, WidgetFileJsonController.elementInputOnContextMenu, value, WidgetHtmlControl._inputType.textString);
+            WidgetHtmlControl.addLabel(elementParent, this, key, null, WidgetFileJsonController.elementLabelOnContextMenu);
+            WidgetHtmlControl.addInput(elementParent, this, value, WidgetHtmlControl._inputType.textString, null, WidgetFileJsonController.contextMenuInput);
+            WidgetHtmlControl.addBr(elementParent);
         } else if (typeof(value) == "number") {
-            WidgetHtmlControl.addLabel(elementParent, this, WidgetFileJsonController.elementLabelOnContextMenu, key);
-            WidgetHtmlControl.addInput(elementParent, this, WidgetFileJsonController.elementInputOnContextMenu, value, WidgetHtmlControl._inputType.textNumber);
+            WidgetHtmlControl.addLabel(elementParent, this, key, null, WidgetFileJsonController.elementLabelOnContextMenu);
+            WidgetHtmlControl.addInput(elementParent, this, value, WidgetHtmlControl._inputType.textNumber, null, WidgetFileJsonController.contextMenuInput);
+            if (!(key == 'x' || key == 'y' || key == 'z')) {
+                WidgetHtmlControl.addBr(elementParent);
+            }
         } else if (typeof(value) == "boolean") {
-            WidgetHtmlControl.addLabel(elementParent, this, WidgetFileJsonController.elementLabelOnContextMenu, key);
-            WidgetHtmlControl.addInput(elementParent, this, WidgetFileJsonController.elementInputOnContextMenu, value, WidgetHtmlControl._inputType.checkbox);
+            WidgetHtmlControl.addLabel(elementParent, this, key, null, WidgetFileJsonController.elementLabelOnContextMenu);
+            WidgetHtmlControl.addInput(elementParent, this, value, WidgetHtmlControl._inputType.checkbox, null, WidgetFileJsonController.contextMenuInput);
+            WidgetHtmlControl.addBr(elementParent);
         } else {
             var strType = typeof(value);
             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
@@ -103,7 +91,7 @@ WidgetFileJsonController.elementLabelOnContextMenu = function (e) {
     WidgetMenuController.showMenu(this._fileController._menuLabel, e, this);
     return false; //取消右键点击的默认事件
 }
-WidgetFileJsonController.elementInputOnContextMenu = function (e) {
+WidgetFileJsonController.contextMenuInput = function (e) {
     WidgetMenuController.showMenu(this._fileController._menuInput, e, this);
     return false; //取消右键点击的默认事件
 }

@@ -24,20 +24,23 @@ PanelFileEditorController.prototype.handleFiles = function (files) {
 PanelFileEditorController.prototype.loadedHtml = function (htmlRoot) {
     var homeFileEditor = document.getElementById("homeFileEditor");
     var elementFileRoot = homeFileEditor;
-    WidgetHtmlControl.addLabel(elementFileRoot, "demo");
-    WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.textString);
-    WidgetHtmlControl.addInput(elementFileRoot, 689, WidgetHtmlControl._inputType.textNumber);
-    WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.button);
-    WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.checkbox);
-    WidgetHtmlControl.addInput(elementFileRoot, false, WidgetHtmlControl._inputType.radio);
-    // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.file);
-    // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.image);
-    // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.password);
-    // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.submit);
-    // WidgetHtmlControl.addInput(elementFileRoot, "demo", WidgetHtmlControl._inputType.reset);
-    WidgetHtmlControl.addInput(elementFileRoot, "#336699", WidgetHtmlControl._inputType.color);
-    WidgetHtmlControl.addInput(elementFileRoot, "rgba(0, 255, 0, 0.6)", WidgetHtmlControl._inputType.color);
-    WidgetHtmlControl.addSelect(elementFileRoot, "0123456", 6);
+    var isShowDemo = false;
+    if (isShowDemo) {
+        WidgetHtmlControl.addLabel(elementFileRoot, this, "demo", null, null);
+        WidgetHtmlControl.addInput(elementFileRoot, this, "demo", WidgetHtmlControl._inputType.textString, null, null);
+        WidgetHtmlControl.addInput(elementFileRoot, this, 689, WidgetHtmlControl._inputType.textNumber, null, null);
+        WidgetHtmlControl.addInput(elementFileRoot, this, "demo", WidgetHtmlControl._inputType.button, null, null);
+        WidgetHtmlControl.addInput(elementFileRoot, this, false, WidgetHtmlControl._inputType.checkbox, null, null);
+        WidgetHtmlControl.addInput(elementFileRoot, this, false, WidgetHtmlControl._inputType.radio, null, null);
+        // WidgetHtmlControl.addInput(elementFileRoot, this, "demo", WidgetHtmlControl._inputType.file, null, null);
+        // WidgetHtmlControl.addInput(elementFileRoot, this, "demo", WidgetHtmlControl._inputType.image, null, null);
+        // WidgetHtmlControl.addInput(elementFileRoot, this, "demo", WidgetHtmlControl._inputType.password, null, null);
+        // WidgetHtmlControl.addInput(elementFileRoot, this, "demo", WidgetHtmlControl._inputType.submit, null, null);
+        // WidgetHtmlControl.addInput(elementFileRoot, this, "demo", WidgetHtmlControl._inputType.reset, null, null);
+        WidgetHtmlControl.addInput(elementFileRoot, this, "#336699", WidgetHtmlControl._inputType.color, null, null);
+        WidgetHtmlControl.addInput(elementFileRoot, this, "rgba(0, 255, 0, 0.6)", WidgetHtmlControl._inputType.color, null, null);
+        WidgetHtmlControl.addSelect(elementFileRoot, this, "0123456", 6, null, null);
+    }
 }
 PanelFileEditorController.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {

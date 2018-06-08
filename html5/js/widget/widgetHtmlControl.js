@@ -33,36 +33,30 @@ WidgetHtmlControl.inputOnChange = function (e) {
         }
     }
 }
-WidgetHtmlControl.inputOnClick = function (e) {
-    switch (this._inputType) {
-        case WidgetHtmlControl._inputType.textString : {
-            break;
-        }
-        case WidgetHtmlControl._inputType.textNumber : {
-            break;
-        }
-        case WidgetHtmlControl._inputType.color : {
-            break;
-        }
-    }
+WidgetHtmlControl.addBr = function (nodeParent) {
+    var nodeBr = document.createElement("br");
+    nodeParent.appendChild(nodeBr);
+    nodeBr.classList.add("nodeBr");
+    return nodeBr;
 }
-WidgetHtmlControl.addLabel = function (nodeParent, fileController, contextMenu, value) {
+WidgetHtmlControl.addLabel = function (nodeParent, fileController, value, onClick, onContextMenu) {
     var nodeLabel = document.createElement("label");
     nodeParent.appendChild(nodeLabel);
     nodeLabel.classList.add("nodeLabel");
     nodeLabel._fileController = fileController;
-    nodeLabel.oncontextmenu = contextMenu;
+    nodeLabel.onclick = onClick;
+    nodeLabel.oncontextmenu = onContextMenu;
     nodeLabel.innerHTML = value;
     return nodeLabel;
 }
-WidgetHtmlControl.addInput = function (nodeParent, fileController, contextMenu, value, inputType) {
+WidgetHtmlControl.addInput = function (nodeParent, fileController, value, inputType, onClick, onContextMenu) {
     var nodeInput = document.createElement("input");
     nodeParent.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
     nodeInput._fileController = fileController;
-    nodeInput.oncontextmenu = contextMenu;
+    nodeInput.onclick = onClick;
+    nodeInput.oncontextmenu = onContextMenu;
     nodeInput.onchange = WidgetHtmlControl.inputOnChange;
-    nodeInput.onclick = WidgetHtmlControl.inputOnClick;
     nodeInput._inputType = inputType;
     switch (inputType) {
         case WidgetHtmlControl._inputType.button : {

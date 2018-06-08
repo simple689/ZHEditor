@@ -8,10 +8,10 @@ WidgetMenuFoldController.prototype.createMenuFold = function (elementParent, fol
     this._menuFold = document.createElement("div");
     elementParent.appendChild(this._menuFold);
     this._menuFold.classList.add("widgetMenuFold");
-    var dd = this.addFold(this._menuFold, foldTitle);
+    var dd = this.addFoldAndItem(this._menuFold, foldTitle);
     return dd;
 }
-WidgetMenuFoldController.prototype.addFold = function (elementParent, foldTitle) {
+WidgetMenuFoldController.prototype.addFoldAndItem = function (elementParent, foldTitle) {
     var dl = document.createElement("dl");
     elementParent.appendChild(dl);
 
@@ -23,6 +23,17 @@ WidgetMenuFoldController.prototype.addFold = function (elementParent, foldTitle)
 
     var dd = this.addFoldItem(dl);
     return dd;
+}
+WidgetMenuFoldController.prototype.addFold = function (elementParent) {
+    var dl = document.createElement("dl");
+    elementParent.appendChild(dl);
+
+    var dt = document.createElement("dt");
+    dl.appendChild(dt);
+    dt._dl = dl;
+    dt.onclick = WidgetMenuFoldController.dtOnClick;
+
+    return dt;
 }
 WidgetMenuFoldController.prototype.addFoldItem = function (dl) {
     var dd = document.createElement("dd");
