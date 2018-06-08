@@ -19,6 +19,7 @@ PanelFileEditorController.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         this._widgetTabController.addTab(file);
+
     }
 }
 PanelFileEditorController.prototype.loadedHtml = function (htmlRoot) {

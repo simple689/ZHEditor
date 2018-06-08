@@ -46,52 +46,10 @@ PanelFileBrowserController.prototype.initBottom = function () {
 PanelFileBrowserController.prototype.initBottomLeft = function () {
     var left = document.getElementById("left");
     var foldItem = this._menuFoldController.createMenuFold(left, '全部文件');
-    this._fileBrowserStr = '{}';
-    var jsonObj = JSON.parse(this._fileBrowserStr, null); // 通过parse获取json对应键值
-    jsonObj["json"] = {};
-    jsonObj["json"]["type"] = "folder";
-    jsonObj["json"]["name"] = "json"
-    jsonObj["jsonTemplate"] = {};
-    jsonObj["jsonTemplate"]["type"] = "folder";
-    jsonObj["jsonTemplate"]["name"] = "json模版";
-    // jsonObj.folderList.push({"文档":"/document"});
-    // jsonObj.folderList.push({"图片":"/picture"});
-    // jsonObj.folderList.push({"音乐":"/music"});
-    // jsonObj.folderList.push({"视频":"/video"});
-    // jsonObj.folderList.push({"其他":"/other"});
-    jsonObj["personal"] = {};
-    jsonObj["personal"]["type"] = "folder";
-    jsonObj["personal"]["name"] = "个人文件夹";
-    jsonObj["personal"]["folderList"] = new Array();
-    jsonObj["personal"]["fileList"] = new Array();
 
-    var jsonList = jsonObj["personal"]["folderList"];
-    jsonList.push({});
-    var index = jsonList.length - 1;
-    jsonList[index]["type"] = "folder";
-    jsonList[index]["name"] = "json";
-
-    jsonList.push({});
-    index = jsonList.length - 1;
-    jsonList[index]["type"] = "folder";
-    jsonList[index]["name"] = "json模版";
-
-    jsonList = jsonObj["personal"]["fileList"];
-    jsonList.push({});
-    var index = jsonList.length - 1;
-    jsonList[index]["type"] = "file";
-    jsonList[index]["name"] = "zhaoHuan";
-    jsonList[index]["extend"] = ".json";
-
-    jsonList.push({});
-    index = jsonList.length - 1;
-    jsonList[index]["type"] = "file";
-    jsonList[index]["name"] = "zhaoHuan";
-    jsonList[index]["extend"] = ".jsonConf";
-
-    // var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
+    this._jsonFileBrowser = WidgetHistoryController.getFileBrowser();
     // LogController.log(JSON.stringify(jsonObj, null, 2));
-    this.readFileBrowser(jsonObj, "/", foldItem);
+    this.readFileBrowser(this._jsonFileBrowser, "/", foldItem);
 };
 PanelFileBrowserController.prototype.initBottomRight = function () {
     var right = document.getElementById("right");
@@ -132,15 +90,13 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, pathPa
                 var element = WidgetHtmlControl.addLabel(fold, this, name, PanelFileBrowserController.onClickFolderName, null);
                 element._panel = this;
                 element._jsonObj = value;
-                element = WidgetHtmlControl.addLabel(fold, this, pathChild, PanelFileBrowserController.onClickFolderPath, null);
-                element.classList.add("folderPath");
+                element.classList.add("folderName");
+                // element = WidgetHtmlControl.addLabel(fold, this, pathChild, PanelFileBrowserController.onClickFolderPath, null);
+                // element.classList.add("folderPath");
                 WidgetHtmlControl.addBr(fold);
                 if (isHasChild) {
                     fold = this._menuFoldController.addFoldItem(fold._dl);
                 }
-                // } else if (type == "file") {
-                // var extend = value["extend"];
-                // LogController.log("[" + typeof(value) + "]" + pathChild + name + extend);
             }
             this.readFileBrowser(value, pathChild, fold);
         }
@@ -162,7 +118,7 @@ PanelFileBrowserController.prototype.refreshBottomRight = function (jsonObj) {
                 var extend = value["extend"];
                 if (type == "file") {
                     var rightContent = document.createElement("div");
-                    rightContent.innerHTML = path + name + extend;
+                    rightContent.innerHTML = name + extend;
                     var flexItem = this._flexController.addFlexItem(rightContent);
                     flexItem.classList.add("rightContent");
                 }
@@ -175,8 +131,7 @@ PanelFileBrowserController.onClickCreateBtn = function () {
 }
 PanelFileBrowserController.onClickFolderName = function () {
     this._panel.refreshBottomRight(this._jsonObj);
-    // LogController.log(JSON.stringify(this._jsonObj, null, 2));
 }
 PanelFileBrowserController.onClickFolderPath = function () {
-    // LogController.log(JSON.stringify(this._jsonObj, null, 2));
+    this._panel.refreshBottomRight(this._jsonObj);
 }

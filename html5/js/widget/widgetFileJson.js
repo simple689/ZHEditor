@@ -10,7 +10,7 @@ WidgetFileJsonController.prototype.init = function (elementTabTitle, fileStr) {
     this._menuInput = WidgetMenuController.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonInput.html");
 }
 WidgetFileJsonController.prototype.initControl = function () {
-    var jsonObj = eval('(' + this._fileStr + ')');
+    var jsonObj = JSON.parse(this._fileStr);
     // LogController.log(jsonObj);
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
     var foldItem = this._menuFoldController.createMenuFold(elementFileRoot, '');

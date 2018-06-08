@@ -41,9 +41,12 @@
 }
 
 .rightContent {
-    width: 300px;
+    width: 100px;
     height: 100px;
     background: #666;
+}
+.folderName {
+    cursor: pointer;
 }
 .folderPath {
     font-size: 6px;

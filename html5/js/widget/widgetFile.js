@@ -36,6 +36,7 @@ WidgetFileController.readFile = function (file, elementTabTitle) {
 }
 WidgetFileController.loadJson = function () {
     WidgetFileController.createFileJsonController(this);
+    panelFileBrowser
 }
 WidgetFileController.loadImg = function () {
     // var img = document.createElement("img");
@@ -56,7 +57,7 @@ WidgetFileController.createFileJsonController = function (fileReader) {
 WidgetFileController.isJson = function (fileStr) {
     var isjson = false;
     try {
-        var jsonObj = eval('(' + fileStr + ')');
+        var jsonObj = JSON.parse(fileStr);
         isjson = typeof(jsonObj) == "object" && Object.prototype.toString.call(jsonObj).toLowerCase() == "[object object]" && fileStr.length > 0;
     } catch (exception) {
         isjson = false;
