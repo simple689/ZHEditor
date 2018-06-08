@@ -83,7 +83,7 @@ PanelFileBrowserController.prototype.initBottomLeft = function () {
 
     // var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
     // LogController.log(JSON.stringify(jsonObj, null, 2));
-    this.readFileBrowser(jsonObj, "", foldItem);
+    this.readFileBrowser(jsonObj, foldItem);
 };
 PanelFileBrowserController.prototype.initBottomRight = function () {
     var right = document.getElementById("right");
@@ -105,7 +105,7 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, elemen
     for (var o in jsonObj) {
         var value = jsonObj[o];
         if (typeof(value) == "object") {
-            var element = elementParent;
+            var fold = elementParent;
             var type = value["type"];
             var name = value["name"];
             var path = value["path"];
@@ -114,17 +114,17 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, elemen
                 var isHasChild = false
                 if (list && list.length > 0) {
                     isHasChild = true;
-                    element = this._menuFoldController.addFold(elementParent);
+                    fold = this._menuFoldController.addFold(elementParent);
                 }
-                WidgetHtmlControl.addLabel(element, this, name, PanelFileBrowserController.clickFolderName, null);
-                var element = WidgetHtmlControl.addLabel(element, this, path + name, PanelFileBrowserController.clickFolderPath, null);
+                WidgetHtmlControl.addLabel(fold, this, name, PanelFileBrowserController.clickFolderName, null);
+                var element = WidgetHtmlControl.addLabel(fold, this, path + name, PanelFileBrowserController.clickFolderPath, null);
                 element.classList.add("folderPath");
-                WidgetHtmlControl.addBr(element);
+                WidgetHtmlControl.addBr(fold);
                 if (isHasChild) {
-                    element = this._menuFoldController.addFoldItem(element._dl);
+                    fold = this._menuFoldController.addFoldItem(fold._dl);
                 }
             }
-            this.readFileBrowser(value, element);
+            this.readFileBrowser(value, fold);
         }
     }
 }
