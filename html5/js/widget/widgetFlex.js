@@ -47,6 +47,13 @@ WidgetFlexController.prototype.setItemFlexShrink = function (flexItem, flexShrin
 WidgetFlexController.prototype.setItemFlexAlignSelf = function (flexItem, itemFlexAlignSelf) {
     flexItem.style.alignSelf = itemFlexAlignSelf;
 }
+WidgetFlexController.prototype.clearFlexItem = function () {
+    var len = this._flexContainer.childNodes.length;
+    for (var i = 0; i < len; i++) {
+        this._flexContainer.removeChild(this._flexContainer.childNodes[0]);
+    }
+    this._flexItemList.splice(0, this._flexItemList.length);
+}
 WidgetFlexController.onClickDt = function () {
     var nextNode = this.nextSibling;
     while (nextNode) {

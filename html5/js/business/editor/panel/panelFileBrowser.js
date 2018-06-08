@@ -97,17 +97,17 @@ PanelFileBrowserController.prototype.initBottomRight = function () {
     var right = document.getElementById("right");
     this._flexController.createFlex(right, '全部文件');
 
-    for (var i = 0; i < 10; i++) {
-        var rightContent = document.createElement("div");
-        rightContent.innerHTML = "文件 : " + i;
-        var flexItem = this._flexController.addFlexItem(rightContent);
-        flexItem.classList.add("rightContent");
-
-        var rightContentNew = document.createElement("div");
-        rightContentNew.innerHTML = "新文件 : " + i;
-        flexItem.removeChild(flexItem.childNodes[0]);
-        flexItem.appendChild(rightContentNew);
-    }
+    // for (var i = 0; i < 10; i++) {
+    //     var rightContent = document.createElement("div");
+    //     rightContent.innerHTML = "文件 : " + i;
+    //     var flexItem = this._flexController.addFlexItem(rightContent);
+    //     flexItem.classList.add("rightContent");
+    //
+    //     var rightContentNew = document.createElement("div");
+    //     rightContentNew.innerHTML = "新文件 : " + i;
+    //     flexItem.removeChild(flexItem.childNodes[0]);
+    //     flexItem.appendChild(rightContentNew);
+    // }
 };
 PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
     for (var o in jsonObj) {
@@ -117,12 +117,12 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, pathPa
             var fold = elementParent;
             var type = value["type"];
             var name = value["name"];
-            var extend = value["extend"];
 
             var folderList = value["folderList"];
             if (type == "folder") {
                 pathChild += name;
                 pathChild += "/";
+                value["path"] = pathChild;
 
                 var isHasChild = false
                 if (folderList && folderList.length > 0) {
@@ -130,6 +130,7 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, pathPa
                     fold = this._menuFoldController.addFold(elementParent, null);
                 }
                 var element = WidgetHtmlControl.addLabel(fold, this, name, PanelFileBrowserController.onClickFolderName, null);
+                element._panel = this;
                 element._jsonObj = value;
                 element = WidgetHtmlControl.addLabel(fold, this, pathChild, PanelFileBrowserController.onClickFolderPath, null);
                 element.classList.add("folderPath");
@@ -137,17 +138,43 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, pathPa
                 if (isHasChild) {
                     fold = this._menuFoldController.addFoldItem(fold._dl);
                 }
-            } else if (type == "file") {
-                LogController.log("[" + typeof(value) + "]" + pathChild + name + extend);
+                // } else if (type == "file") {
+                // var extend = value["extend"];
+                // LogController.log("[" + typeof(value) + "]" + pathChild + name + extend);
             }
             this.readFileBrowser(value, pathChild, fold);
         }
     }
 }
+PanelFileBrowserController.prototype.refreshBottomRight = function (jsonObj) {
+    this._flexController.clearFlexItem();
+
+    if (typeof(jsonObj) == "object") {
+        var path = jsonObj["path"];
+
+        var folderList = jsonObj["folderList"];
+        var fileList = jsonObj["fileList"];
+        for (var o in fileList) {
+            var value = fileList[o];
+            if (typeof(value) == "object") {
+                var type = value["type"];
+                var name = value["name"];
+                var extend = value["extend"];
+                if (type == "file") {
+                    var rightContent = document.createElement("div");
+                    rightContent.innerHTML = path + name + extend;
+                    var flexItem = this._flexController.addFlexItem(rightContent);
+                    flexItem.classList.add("rightContent");
+                }
+            }
+        }
+    }
+};
 PanelFileBrowserController.onClickCreateBtn = function () {
     WidgetMenuController.showMenu(this._panelFileBrowserController._menuLeftCreate, null, this._panelFileBrowserController);
 }
 PanelFileBrowserController.onClickFolderName = function () {
+    this._panel.refreshBottomRight(this._jsonObj);
     // LogController.log(JSON.stringify(this._jsonObj, null, 2));
 }
 PanelFileBrowserController.onClickFolderPath = function () {
