@@ -14,7 +14,7 @@ WidgetHtmlControl._inputType = {
     reset: 9,
     color: 10
 }
-WidgetHtmlControl.inputOnChange = function (e) {
+WidgetHtmlControl.onChangeInput = function (e) {
     switch (this._inputType) {
         case WidgetHtmlControl._inputType.textString : {
             break;
@@ -56,7 +56,7 @@ WidgetHtmlControl.addInput = function (nodeParent, fileController, value, inputT
     nodeInput._fileController = fileController;
     nodeInput.onclick = onClick;
     nodeInput.oncontextmenu = onContextMenu;
-    nodeInput.onchange = WidgetHtmlControl.inputOnChange;
+    nodeInput.onchange = WidgetHtmlControl.onChangeInput;
     nodeInput._inputType = inputType;
     switch (inputType) {
         case WidgetHtmlControl._inputType.button : {

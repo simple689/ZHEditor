@@ -9,14 +9,14 @@ WidgetSearchController.prototype.createSearch = function (panel, elementBrother)
     elementBrother.after(this._searchText);
     this._searchText._widgetSearchController = this;
     this._searchText.classList.add("searchText");
-    $(this._searchText).on("keyup", WidgetSearchController.searchTextOnKeyUp);
-    $(this._searchText).on("focus", WidgetSearchController.searchTextOnFocus);
+    $(this._searchText).on("keyup", WidgetSearchController.onKeyUpSearchText);
+    $(this._searchText).on("focus", WidgetSearchController.onFocusSearchText);
 
     this._searchBtn = document.createElement("input");
     this._searchText.after(this._searchBtn);
     this._searchBtn._widgetSearchController = this;
     this._searchBtn.classList.add("searchBtn");
-    $(this._searchBtn).on("click", WidgetSearchController.searchBtnOnClick);
+    $(this._searchBtn).on("click", WidgetSearchController.onClickSearchBtn);
     this._searchBtn.type = "button";
     this._searchBtn.value = "搜索";
 
@@ -44,7 +44,7 @@ WidgetSearchController.getHistory = function (itemKey) {
     }
 }
 // 点击搜索按钮
-WidgetSearchController.searchBtnOnClick = function () {
+WidgetSearchController.onClickSearchBtn = function () {
     var res = WidgetSearchController.getHistory("searchHistory");
     var list = decodeURI(res).split(',');
     if (list.length > 19) {
@@ -69,14 +69,14 @@ WidgetSearchController.searchBtnOnClick = function () {
     date.setTime(date.getTime() + 10 * 24 * 3600 * 1000);
     document.cookie = 'searchHistory=' + encodeURI(valNew) + ';expires=' + date.toGMTString() + ';path=/';
 }
-WidgetSearchController.searchTextOnKeyUp = function (event) {
+WidgetSearchController.onKeyUpSearchText = function (event) {
     //键盘事件 key == 13 (回车) key == 38 (向上) key== 40 (向下)
     var controller = this._widgetSearchController;
     var searchHistoryItemListLen = controller._searchHistoryItemList.length;
 
     var key = event.keyCode;
     if (key == 13) {
-        WidgetSearchController.searchBtnOnClick(); //cookie记录
+        WidgetSearchController.onClickSearchBtn(); //cookie记录
         if (controller._searchHistoryIndex < searchHistoryItemListLen) {
             var item = controller._searchHistoryItemList[controller._searchHistoryIndex];
             var text = item.innerHTML;
@@ -108,22 +108,22 @@ WidgetSearchController.searchTextOnKeyUp = function (event) {
     }
 }
 // 搜索框聚焦
-WidgetSearchController.searchTextOnFocus = function () {
+WidgetSearchController.onFocusSearchText = function () {
     WidgetSearchController.showHistory(this._widgetSearchController, null);
 }
 // 点击选中搜索词语(后隐藏历史记录)
-WidgetSearchController.searchHistoryItemOnClick = function () {
+WidgetSearchController.onClickSearchHistoryItem = function () {
     var searchText = this._widgetSearchController._searchText;
     var searchHistoryBox = this._widgetSearchController._searchHistoryBox;
     var str = this.innerHTML;
     searchText.value = str;
     setElementDisplay(searchHistoryBox, false);
 }
-WidgetSearchController.searchHistoryItemOnMouseEnter = function () {
+WidgetSearchController.onMouseEnterSearchHistoryItem = function () {
     var liThis = this;
     liThis.classList.add("active");
 }
-WidgetSearchController.searchHistoryItemOnMouseOut = function () {
+WidgetSearchController.onMouseOutSearchHistoryItem = function () {
     var liThis = this;
     liThis.classList.remove("active");
 }
@@ -160,9 +160,9 @@ WidgetSearchController.showHistory = function (controller, searchValue) {
                 var li = document.createElement("li");
                 controller._searchHistory.append(li);
                 li._widgetSearchController = controller;
-                $(li).on("click", WidgetSearchController.searchHistoryItemOnClick);
-                $(li).on("mouseenter", WidgetSearchController.searchHistoryItemOnMouseEnter);
-                $(li).on("mouseout", WidgetSearchController.searchHistoryItemOnMouseOut);
+                $(li).on("click", WidgetSearchController.onClickSearchHistoryItem);
+                $(li).on("mouseenter", WidgetSearchController.onMouseEnterSearchHistoryItem);
+                $(li).on("mouseout", WidgetSearchController.onMouseOutSearchHistoryItem);
                 li.innerHTML = list[i];
                 controller._searchHistoryItemList.push(li);
                 len++;

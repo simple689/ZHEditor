@@ -72,8 +72,8 @@ WidgetTabController.prototype.addTitle = function (title) {
     this._elementTabTitleGroup.appendChild(elementTabTitle);
     elementTabTitle.classList.add(WidgetTabController._classWidgetTabTitle);
     elementTabTitle._widgetTabController = this;
-    elementTabTitle.onclick = WidgetTabController.tabTitleOnClick;
-    elementTabTitle.oncontextmenu = WidgetTabController.tabTitleOnContextMenu;
+    elementTabTitle.onclick = WidgetTabController.onClickTabTitle;
+    elementTabTitle.oncontextmenu = WidgetTabController.onContextMenuTabTitle;
     this.setActiveElement(elementTabTitle);
 
     this._elementTabList.push(elementTabTitle);
@@ -103,8 +103,8 @@ WidgetTabController.prototype.addContent = function (elementTabTitle, content, c
     this._elementTabContentGroup.appendChild(elementTabContent);
     elementTabContent.classList.add(WidgetTabController._classWidgetTabContent);
     elementTabContent._widgetTabController = this;
-    elementTabContent.onclick = WidgetTabController.tabContentOnClick;
-    elementTabContent.oncontextmenu = WidgetTabController.tabContentOnContextMenu;
+    elementTabContent.onclick = WidgetTabController.onClickTabContent;
+    elementTabContent.oncontextmenu = WidgetTabController.onContextMenuTabContent;
 
     elementTabTitle._elementTabContent = elementTabContent;
 
@@ -146,20 +146,20 @@ WidgetTabController.prototype.showActiveElement = function () {
     // $(elementActive._elementTabContent).show();
     $(this._elementActive._elementTabContent).slideDown(WidgetTabController._slideSpeed);
 }
-WidgetTabController.tabTitleOnClick = function (e) {
+WidgetTabController.onClickTabTitle = function (e) {
     if (!this.classList.contains(WidgetTabController._classIsActive)) {
         this._widgetTabController.setActiveElement(this);
     }
     WidgetMenuController.hideMenuAll();
 }
-WidgetTabController.tabContentOnClick = function (e) {
+WidgetTabController.onClickTabContent = function (e) {
     WidgetMenuController.hideMenuAll();
 }
-WidgetTabController.tabTitleOnContextMenu = function (e) {
+WidgetTabController.onContextMenuTabTitle = function (e) {
     this._widgetTabController._panel.tabOnContextMenu(this, e, WidgetTabController._onContextMenuType.tabTitle);
     return false; //取消右键点击的默认事件
 }
-WidgetTabController.tabContentOnContextMenu = function (e) {
+WidgetTabController.onContextMenuTabContent = function (e) {
     this._widgetTabController._panel.tabOnContextMenu(this, e, WidgetTabController._onContextMenuType.tabContent);
     return false; //取消右键点击的默认事件
 }

@@ -98,13 +98,13 @@ function setVisible(panel, sch) {
 
 // document
 //========
-function documentOnClick() {
+function onClickDocument() {
     WidgetMenuController.hideMenuAll();
     // WidgetSearchController.hideSearchAll();
     return true;
 }
 
-function documentOnContextMenu() {
+function onContextMenuDocument() {
     WidgetMenuController.hideMenuAll();
     return true;
 }
@@ -145,8 +145,8 @@ $(document).ready(function () {
     });
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
-    $(document).bind('click', documentOnClick);
-    $(document).bind('contextmenu', documentOnContextMenu);
+    $(document).bind('click', onClickDocument);
+    $(document).bind('contextmenu', onContextMenuDocument);
 
     console.log("[dock] end");
 })

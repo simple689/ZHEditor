@@ -63,7 +63,7 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             keyChild += key;
             keyChild += "->";
             if (Array.isArray(value)) {
-                LogController.log(value);
+                // LogController.log(value);
             }
             var foldItem = this._menuFoldController.addFoldAndItem(elementParent, key);
             this.readObject(value, keyChild, foldItem);

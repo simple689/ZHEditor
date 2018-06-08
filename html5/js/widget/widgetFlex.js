@@ -47,7 +47,7 @@ WidgetFlexController.prototype.setItemFlexShrink = function (flexItem, flexShrin
 WidgetFlexController.prototype.setItemFlexAlignSelf = function (flexItem, itemFlexAlignSelf) {
     flexItem.style.alignSelf = itemFlexAlignSelf;
 }
-WidgetFlexController.dtOnClick = function () {
+WidgetFlexController.onClickDt = function () {
     var nextNode = this.nextSibling;
     while (nextNode) {
         var tagName = nextNode.tagName;
