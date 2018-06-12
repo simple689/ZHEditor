@@ -1,5 +1,5 @@
-function PanelStateController() {
+function PanelStateCtrl() {
 }
 
-PanelStateController.prototype.init = function () {
+PanelStateCtrl.prototype.init = function () {
 }

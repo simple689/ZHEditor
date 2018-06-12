@@ -508,12 +508,12 @@
 
         onOffEvent(_nodes.colorPicker, 'keydown', function (e) {
             focusInstance(THIS);
-            keyControl(e);
+            keyCtrl(e);
         });
 
         // keydown is before keypress and focuses already
-        onOffEvent(_nodes.colorPicker, 'keypress', keyControl);
-        // onOffEvent(_nodes.colorPicker, 'keyup', keyControl);
+        onOffEvent(_nodes.colorPicker, 'keypress', keyCtrl);
+        // onOffEvent(_nodes.colorPicker, 'keyup', keyCtrl);
 
         onOffEvent(_nodes.colorPicker, 'paste', function (e) {
             e.target.firstChild.data = e.clipboardData.getData('Text');
@@ -651,7 +651,7 @@
         }
     }
 
-    function keyControl(e) { // this is quite big for what it does...
+    function keyCtrl(e) { // this is quite big for what it does...
         var event = e || window.event,
             keyCode = event.which || event.keyCode,
             key = String.fromCharCode(keyCode),

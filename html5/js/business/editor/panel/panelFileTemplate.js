@@ -1,38 +1,38 @@
-function PanelFileTemplateController() {
-    this._widgetTabController = new WidgetTabController();
+function PanelFileTemplateCtrl() {
+    this._widgetTabCtrl = new WidgetTabCtrl();
 }
 
-PanelFileTemplateController.prototype.init = function () {
+PanelFileTemplateCtrl.prototype.init = function () {
     var rootElement = document.getElementById("panelFileTemplate");
-    var dropElement = WidgetDropController.addDrop(rootElement, this);
-    this._historyItemFile = WidgetHistoryController._itemFileTemplate;
-    this._widgetTabController.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
+    var dropElement = WidgetDropCtrl.addDrop(rootElement, this);
+    this._historyItemFile = WidgetHistoryCtrl._itemFileTemplate;
+    this._widgetTabCtrl.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
 
-    this._menuRightTitle = WidgetMenuController.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
-    this._menuRightContent = WidgetMenuController.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");
+    this._menuRightTitle = WidgetMenuCtrl.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
+    this._menuRightContent = WidgetMenuCtrl.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");
 }
-PanelFileTemplateController.prototype.handleFiles = function (files) {
+PanelFileTemplateCtrl.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        this._widgetTabController.addTab(file);
+        this._widgetTabCtrl.addTab(file);
     }
 }
-PanelFileTemplateController.prototype.loadedHtml = function (htmlRoot) {
+PanelFileTemplateCtrl.prototype.loadedHtml = function (htmlRoot) {
 }
-PanelFileTemplateController.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
+PanelFileTemplateCtrl.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {
-        case WidgetTabController._onContextMenuType.tabTitle : {
-            WidgetMenuController.showMenu(this._menuRightTitle, e, ele);
+        case WidgetTabCtrl._onContextMenuType.tabTitle : {
+            WidgetMenuCtrl.showMenu(this._menuRightTitle, e, ele);
             break;
         }
-        case WidgetTabController._onContextMenuType.tabTitle : {
-            WidgetMenuController.showMenu(this._menuRightContent, e, ele);
+        case WidgetTabCtrl._onContextMenuType.tabTitle : {
+            WidgetMenuCtrl.showMenu(this._menuRightContent, e, ele);
             break;
         }
     }
 }
-PanelFileTemplateController.prototype.loadedJson = function (fileReader) {
+PanelFileTemplateCtrl.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
-    var obj = panelFileBrowser._jsonFileBrowser[WidgetHistoryController._keyJsonTemplate];
+    var obj = panelFileBrowser._jsonFileBrowser[WidgetHistoryCtrl._keyJsonTemplate];
     panelFileBrowser.refreshBottomRight();
 }

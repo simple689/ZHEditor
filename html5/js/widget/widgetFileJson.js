@@ -1,27 +1,27 @@
-function WidgetFileJsonController() {
-    this._menuFoldController = new WidgetMenuFoldController();
+function WidgetFileJsonCtrl() {
+    this._menuFoldCtrl = new WidgetMenuFoldCtrl();
 }
 
-WidgetFileJsonController.prototype.init = function (elementTabTitle, fileStr) {
+WidgetFileJsonCtrl.prototype.init = function (elementTabTitle, fileStr) {
     this._elementTabTitle = elementTabTitle;
     this._fileStr = fileStr;
-    this.initControl();
-    this._menuLabel = WidgetMenuController.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonLabel.html");
-    this._menuInput = WidgetMenuController.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonInput.html");
+    this.initCtrl();
+    this._menuLabel = WidgetMenuCtrl.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonLabel.html");
+    this._menuInput = WidgetMenuCtrl.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonInput.html");
 }
-WidgetFileJsonController.prototype.initControl = function () {
+WidgetFileJsonCtrl.prototype.initCtrl = function () {
     var jsonObj = JSON.parse(this._fileStr);
-    // LogController.log(jsonObj);
+    // LogCtrl.log(jsonObj);
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
-    var foldItem = this._menuFoldController.createMenuFold(elementFileRoot, '');
+    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, '');
     this.readObject(jsonObj, "", foldItem);
 
-    if (this._elementTabTitle._widgetTabController._panel._fileTemplatePanel) {
+    if (this._elementTabTitle._widgetTabCtrl._panel._fileTemplatePanel) {
         this.initFileTemplate(jsonObj);
     }
 }
-// WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, elementParent) {
-//     var nodeTable = WidgetTableControlHtml.addTable(elementParent);
+// WidgetFileJsonCtrl.prototype.readObject = function (jsonObj, keyParent, elementParent) {
+//     var nodeTable = WidgetTableCtrlHtml.addTable(elementParent);
 //     for (var o in jsonObj) {
 //         var key = o;
 //         var isStart = key.indexOf("$");
@@ -34,22 +34,22 @@ WidgetFileJsonController.prototype.initControl = function () {
 //             keyChild += "->";
 //             keyChild += key;
 //             keyChild += "->";
-//             var nodeRow = WidgetTableControlRow.addLabel(nodeTable, key);
+//             var nodeRow = WidgetTableCtrlRow.addLabel(nodeTable, key);
 //             var nodeCell = nodeRow.insertCell();
 //             this.readObject(value, keyChild, nodeCell);
 //         } else if (typeof(value) == "string") {
-//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputType.textString);
+//             WidgetTableCtrlRow.addLabelInput(nodeTable, key, value, WidgetTableCtrlHtml._inputType.textString);
 //         } else if (typeof(value) == "number") {
-//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputType.textNumber);
+//             WidgetTableCtrlRow.addLabelInput(nodeTable, key, value, WidgetTableCtrlHtml._inputType.textNumber);
 //         } else if (typeof(value) == "boolean") {
-//             WidgetTableControlRow.addLabelInput(nodeTable, key, value, WidgetTableControlHtml._inputType.checkbox);
+//             WidgetTableCtrlRow.addLabelInput(nodeTable, key, value, WidgetTableCtrlHtml._inputType.checkbox);
 //         } else {
 //             var strType = typeof(value);
-//             LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+//             LogCtrl.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
 //         }
 //     }
 // }
-WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, elementParent) {
+WidgetFileJsonCtrl.prototype.readObject = function (jsonObj, keyParent, elementParent) {
     for (var o in jsonObj) {
         var key = o;
         var isStart = key.indexOf("$");
@@ -63,39 +63,39 @@ WidgetFileJsonController.prototype.readObject = function (jsonObj, keyParent, el
             keyChild += key;
             keyChild += "->";
             if (Array.isArray(value)) {
-                // LogController.log(value);
+                // LogCtrl.log(value);
             }
-            var foldItem = this._menuFoldController.addFoldAndItem(elementParent, key);
+            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, key);
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
-            WidgetHtmlControl.addLabel(elementParent, this, key, null, WidgetFileJsonController.elementLabelOnContextMenu);
-            WidgetHtmlControl.addInput(elementParent, this, value, WidgetHtmlControl._inputType.textString, null, WidgetFileJsonController.contextMenuInput);
-            WidgetHtmlControl.addBr(elementParent);
+            WidgetHtmlCtrl.addLabel(elementParent, this, key, null, WidgetFileJsonCtrl.elementLabelOnContextMenu);
+            WidgetHtmlCtrl.addInput(elementParent, this, value, WidgetHtmlCtrl._inputType.textString, null, WidgetFileJsonCtrl.contextMenuInput);
+            WidgetHtmlCtrl.addBr(elementParent);
         } else if (typeof(value) == "number") {
-            WidgetHtmlControl.addLabel(elementParent, this, key, null, WidgetFileJsonController.elementLabelOnContextMenu);
-            WidgetHtmlControl.addInput(elementParent, this, value, WidgetHtmlControl._inputType.textNumber, null, WidgetFileJsonController.contextMenuInput);
+            WidgetHtmlCtrl.addLabel(elementParent, this, key, null, WidgetFileJsonCtrl.elementLabelOnContextMenu);
+            WidgetHtmlCtrl.addInput(elementParent, this, value, WidgetHtmlCtrl._inputType.textNumber, null, WidgetFileJsonCtrl.contextMenuInput);
             if (!(key == 'x' || key == 'y' || key == 'z')) {
-                WidgetHtmlControl.addBr(elementParent);
+                WidgetHtmlCtrl.addBr(elementParent);
             }
         } else if (typeof(value) == "boolean") {
-            WidgetHtmlControl.addLabel(elementParent, this, key, null, WidgetFileJsonController.elementLabelOnContextMenu);
-            WidgetHtmlControl.addInput(elementParent, this, value, WidgetHtmlControl._inputType.checkbox, null, WidgetFileJsonController.contextMenuInput);
-            WidgetHtmlControl.addBr(elementParent);
+            WidgetHtmlCtrl.addLabel(elementParent, this, key, null, WidgetFileJsonCtrl.elementLabelOnContextMenu);
+            WidgetHtmlCtrl.addInput(elementParent, this, value, WidgetHtmlCtrl._inputType.checkbox, null, WidgetFileJsonCtrl.contextMenuInput);
+            WidgetHtmlCtrl.addBr(elementParent);
         } else {
             var strType = typeof(value);
-            LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+            LogCtrl.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
 }
-WidgetFileJsonController.elementLabelOnContextMenu = function (e) {
-    WidgetMenuController.showMenu(this._fileController._menuLabel, e, this);
+WidgetFileJsonCtrl.elementLabelOnContextMenu = function (e) {
+    WidgetMenuCtrl.showMenu(this._fileCtrl._menuLabel, e, this);
     return false; //取消右键点击的默认事件
 }
-WidgetFileJsonController.contextMenuInput = function (e) {
-    WidgetMenuController.showMenu(this._fileController._menuInput, e, this);
+WidgetFileJsonCtrl.contextMenuInput = function (e) {
+    WidgetMenuCtrl.showMenu(this._fileCtrl._menuInput, e, this);
     return false; //取消右键点击的默认事件
 }
-WidgetFileJsonController.prototype.initFileTemplate = function (jsonObj) {
+WidgetFileJsonCtrl.prototype.initFileTemplate = function (jsonObj) {
     this._jsonTemplateStr = '{}';
     var jsonTemplateObj = JSON.parse(this._jsonTemplateStr, null); // 通过parse获取json对应键值
 
@@ -107,15 +107,15 @@ WidgetFileJsonController.prototype.initFileTemplate = function (jsonObj) {
     this.createFileTemplate(jsonObj, jsonTemplateObj, "", jsonTemplateObj["file"]);
 
     this._jsonTemplateStr = JSON.stringify(jsonTemplateObj); // 将字符串对象转换为JSON对象
-    // LogController.log("========================================");
-    // LogController.log(JSON.stringify(jsonTemplateObj, null, 2));
-    // LogController.log("========================================");
+    // LogCtrl.log("========================================");
+    // LogCtrl.log(JSON.stringify(jsonTemplateObj, null, 2));
+    // LogCtrl.log("========================================");
 
-    var templatePanel = this._elementTabTitle._widgetTabController._panel._fileTemplatePanel;
-    var elementTabTitle = templatePanel._widgetTabController.addTitle(this._elementTabTitle.innerHTML + ".jsonConf");
-    templatePanel._widgetTabController.addContent(elementTabTitle, this._jsonTemplateStr, WidgetTabController._addContentType.fileContent);
+    var templatePanel = this._elementTabTitle._widgetTabCtrl._panel._fileTemplatePanel;
+    var elementTabTitle = templatePanel._widgetTabCtrl.addTitle(this._elementTabTitle.innerHTML + ".jsonConf");
+    templatePanel._widgetTabCtrl.addContent(elementTabTitle, this._jsonTemplateStr, WidgetTabCtrl._addContentType.fileContent);
 }
-WidgetFileJsonController.prototype.createFileTemplate = function (jsonObj, jsonTemplateObj, keyParent, jsonObjParent) {
+WidgetFileJsonCtrl.prototype.createFileTemplate = function (jsonObj, jsonTemplateObj, keyParent, jsonObjParent) {
     for (var o in jsonObj) {
         var key = o;
 
@@ -133,7 +133,7 @@ WidgetFileJsonController.prototype.createFileTemplate = function (jsonObj, jsonT
         }
 
         var value = jsonObj[key];
-        // LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+        // LogCtrl.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         if (typeof(value) == "object") {
             var keyChild = keyParent;
             keyChild += "->";
@@ -150,7 +150,7 @@ WidgetFileJsonController.prototype.createFileTemplate = function (jsonObj, jsonT
         } else {
             var strType = typeof(value);
             jsonObjParent[key] = {"showTitle": key, "valueType": strType};
-            LogController.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+            LogCtrl.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
 }

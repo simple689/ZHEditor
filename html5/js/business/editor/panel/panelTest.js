@@ -1,5 +1,5 @@
-function PanelTestController() {
+function PanelTestCtrl() {
 }
 
-PanelTestController.prototype.init = function () {
+PanelTestCtrl.prototype.init = function () {
 }

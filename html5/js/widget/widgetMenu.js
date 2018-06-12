@@ -6,29 +6,29 @@
  *  2、如要使用菜单样式，在页面导入css
  *  3、程序支持多级菜单，所以定义菜单时请使用div+ul标签进行定义:最外层用div，菜单内容用ul+li标签
  **/
-function WidgetMenuController() {
+function WidgetMenuCtrl() {
 }
 
-WidgetMenuController._menuList = new Array();
-WidgetMenuController._menuPadding = 6;
-WidgetMenuController.createMenu = function (elementParent, html) {
+WidgetMenuCtrl._menuList = new Array();
+WidgetMenuCtrl._menuPadding = 6;
+WidgetMenuCtrl.createMenu = function (elementParent, html) {
     var menu = document.createElement("div");
     elementParent.appendChild(menu);
     menu.classList.add("menu");
     $(menu).load(html, function () {
     });
-    WidgetMenuController._menuList.push(menu);
+    WidgetMenuCtrl._menuList.push(menu);
     return menu;
 }
 /*
  * 弹出菜单
  * menu：菜单
  * */
-WidgetMenuController.showMenu = function (menu, e, exec) {
+WidgetMenuCtrl.showMenu = function (menu, e, exec) {
     var e = e || window.event;
     e.cancelBubble = true; // 屏蔽向上一层发送事件
     menu._exec = exec;
-    WidgetMenuController.hideMenuAll();
+    WidgetMenuCtrl.hideMenuAll();
 
     var menuLiList = menu.getElementsByTagName("li");
     for (var i = 0; i < menuLiList.length; i++) {
@@ -41,7 +41,7 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
         li.onmouseenter = function () { // 鼠标移入
             var liThis = this;
             liThis.classList.add("active");
-            WidgetMenuController.hideMenuLi(liThis);
+            WidgetMenuCtrl.hideMenuLi(liThis);
             var ulList = liThis.getElementsByTagName("ul");
             if (ulList[0]) {
                 var ulParent = getElementParentWithTag(liThis, "UL");
@@ -61,18 +61,18 @@ WidgetMenuController.showMenu = function (menu, e, exec) {
     }
     return false;
 }
-WidgetMenuController.hideMenuAll = function () {
-    for (var i in WidgetMenuController._menuList) {
-        WidgetMenuController.hideMenu(WidgetMenuController._menuList[i]);
+WidgetMenuCtrl.hideMenuAll = function () {
+    for (var i in WidgetMenuCtrl._menuList) {
+        WidgetMenuCtrl.hideMenu(WidgetMenuCtrl._menuList[i]);
     }
 }
-WidgetMenuController.hideMenu = function (menu) {
+WidgetMenuCtrl.hideMenu = function (menu) {
     var ulList = menu.getElementsByTagName("ul");
     for (var i = 0; i < ulList.length; i++) {
         setElementDisplay(ulList[i], false);
     }
 }
-WidgetMenuController.hideMenuLi = function (li) {
+WidgetMenuCtrl.hideMenuLi = function (li) {
     for (var i = 0; i < li.parentNode.children.length; i++) {
         if (li.parentNode.children[i].getElementsByTagName("ul")[0]) {
             setElementDisplay(li.parentNode.children[i].getElementsByTagName("ul")[0], false);
@@ -108,12 +108,12 @@ function setUlPosition(ul, ulParent, left, top) {
     var docWidth = document.documentElement.clientWidth;
     var docHeight = document.documentElement.clientHeight;
     if (offsetRight > docWidth) {
-        // LogController.log("offsetRight = " + offsetRight + " ; docWidth = " + docWidth);
+        // LogCtrl.log("offsetRight = " + offsetRight + " ; docWidth = " + docWidth);
         if (ulParent) {
             leftCheck = 0;
             leftCheck -= ul.offsetWidth;
         } else {
-            leftCheck = ul.offsetLeft - (offsetRight - docWidth) - WidgetMenuController._menuPadding;
+            leftCheck = ul.offsetLeft - (offsetRight - docWidth) - WidgetMenuCtrl._menuPadding;
             if (leftCheck < 0) {
                 leftCheck = 0;
             }
@@ -121,7 +121,7 @@ function setUlPosition(ul, ulParent, left, top) {
         ul.style.left = leftCheck + 'px';
     }
     if (offsetBottom > docHeight) {
-        // LogController.log("offsetBottom = " + offsetBottom + " ; docHeight = " + docHeight);
+        // LogCtrl.log("offsetBottom = " + offsetBottom + " ; docHeight = " + docHeight);
         topCheck = ul.offsetTop - (offsetBottom - docHeight);
         if (ulParent) {
         } else {

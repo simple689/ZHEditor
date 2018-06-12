@@ -1,29 +1,29 @@
-function WidgetFlexController() {
+function WidgetFlexCtrl() {
 }
 
-WidgetFlexController.prototype.createFlex = function (elementParent) {
+WidgetFlexCtrl.prototype.createFlex = function (elementParent) {
     this._flexContainer = document.createElement("div");
     elementParent.appendChild(this._flexContainer);
     this._flexContainer.classList.add("widgetFlexContainer");
 
     this._flexItemList = new Array();
 }
-WidgetFlexController.prototype.setFlexDirection = function (flexDirection) {
+WidgetFlexCtrl.prototype.setFlexDirection = function (flexDirection) {
     this._flexContainer.style.flexDirection = flexDirection;
 }
-WidgetFlexController.prototype.setFlexWrap = function (flexWrap) {
+WidgetFlexCtrl.prototype.setFlexWrap = function (flexWrap) {
     this._flexContainer.style.flexWrap = flexWrap;
 }
-WidgetFlexController.prototype.setFlexJustifyContent = function (flexJustifyContent) {
+WidgetFlexCtrl.prototype.setFlexJustifyContent = function (flexJustifyContent) {
     this._flexContainer.style.justifyContent = flexJustifyContent;
 }
-WidgetFlexController.prototype.setFlexAlignItems = function (flexAlignItems) {
+WidgetFlexCtrl.prototype.setFlexAlignItems = function (flexAlignItems) {
     this._flexContainer.style.alignItems = flexAlignItems;
 }
-WidgetFlexController.prototype.setFlexAlignContent = function (flexAlignContent) {
+WidgetFlexCtrl.prototype.setFlexAlignContent = function (flexAlignContent) {
     this._flexContainer.style.alignContent = flexAlignContent;
 }
-WidgetFlexController.prototype.addFlexItem = function (element) {
+WidgetFlexCtrl.prototype.addFlexItem = function (element) {
     var flexItem = document.createElement("div");
     this._flexContainer.appendChild(flexItem);
     flexItem.classList.add("widgetFlexItem");
@@ -34,27 +34,27 @@ WidgetFlexController.prototype.addFlexItem = function (element) {
     }
     return flexItem;
 }
-WidgetFlexController.prototype.setItemFlexOrder = function (flexItem, flexOrder) {
+WidgetFlexCtrl.prototype.setItemFlexOrder = function (flexItem, flexOrder) {
     flexItem.style.order = flexOrder;
     // flexItem.style.flex = flexOrder;
 }
-WidgetFlexController.prototype.setItemFlexGrow = function (flexItem, flexGrow) {
+WidgetFlexCtrl.prototype.setItemFlexGrow = function (flexItem, flexGrow) {
     flexItem.style.flexGrow = flexGrow;
 }
-WidgetFlexController.prototype.setItemFlexShrink = function (flexItem, flexShrink) {
+WidgetFlexCtrl.prototype.setItemFlexShrink = function (flexItem, flexShrink) {
     flexItem.style.flexShrink = flexShrink;
 }
-WidgetFlexController.prototype.setItemFlexAlignSelf = function (flexItem, itemFlexAlignSelf) {
+WidgetFlexCtrl.prototype.setItemFlexAlignSelf = function (flexItem, itemFlexAlignSelf) {
     flexItem.style.alignSelf = itemFlexAlignSelf;
 }
-WidgetFlexController.prototype.clearFlexItem = function () {
+WidgetFlexCtrl.prototype.clearFlexItem = function () {
     var len = this._flexContainer.childNodes.length;
     for (var i = 0; i < len; i++) {
         this._flexContainer.removeChild(this._flexContainer.childNodes[0]);
     }
     this._flexItemList.splice(0, this._flexItemList.length);
 }
-WidgetFlexController.onClickDt = function () {
+WidgetFlexCtrl.onClickDt = function () {
     var nextNode = this.nextSibling;
     while (nextNode) {
         var tagName = nextNode.tagName;

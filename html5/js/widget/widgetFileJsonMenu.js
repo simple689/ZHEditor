@@ -1,8 +1,8 @@
-function WidgetFileJsonMenuController() {
+function WidgetFileJsonMenuCtrl() {
 }
 
-WidgetFileJsonMenuController.editor = function (element) {
+WidgetFileJsonMenuCtrl.editor = function (element) {
     var exec = element._menu._exec;
-    var fileController = element._menu._exec._fileController;
-    LogController.log(exec);
+    var fileCtrl = element._menu._exec._fileCtrl;
+    LogCtrl.log(exec);
 }

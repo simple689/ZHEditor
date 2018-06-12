@@ -1,33 +1,33 @@
-function WidgetHistoryController() {
+function WidgetHistoryCtrl() {
 }
 
-WidgetHistoryController._localStorage = null;
+WidgetHistoryCtrl._localStorage = null;
 
-WidgetHistoryController._itemFileEditor = "fileEditor";
-WidgetHistoryController._itemFileTemplate = "fileTemplate";
-WidgetHistoryController._itemFileBrowser = "fileBrowser";
+WidgetHistoryCtrl._itemFileEditor = "fileEditor";
+WidgetHistoryCtrl._itemFileTemplate = "fileTemplate";
+WidgetHistoryCtrl._itemFileBrowser = "fileBrowser";
 
-WidgetHistoryController._keyFileList = "fileList";
-WidgetHistoryController._keyFileName = "fileName";
-WidgetHistoryController._keyFileContent = "fileContent";
+WidgetHistoryCtrl._keyFileList = "fileList";
+WidgetHistoryCtrl._keyFileName = "fileName";
+WidgetHistoryCtrl._keyFileContent = "fileContent";
 
-WidgetHistoryController._keyJson = "json";
-WidgetHistoryController._keyJsonTemplate = "jsonTemplate";
+WidgetHistoryCtrl._keyJson = "json";
+WidgetHistoryCtrl._keyJsonTemplate = "jsonTemplate";
 
-WidgetHistoryController._keyType = "type";
-WidgetHistoryController._keyName = "name";
-WidgetHistoryController._keyFolder = "folder";
-WidgetHistoryController._keyFile = "file";
+WidgetHistoryCtrl._keyType = "type";
+WidgetHistoryCtrl._keyName = "name";
+WidgetHistoryCtrl._keyFolder = "folder";
+WidgetHistoryCtrl._keyFile = "file";
 
-WidgetHistoryController.init = function () {
-    WidgetHistoryController._localStorage = window.localStorage;
-    if (WidgetHistoryController._localStorage) {
-        // LogController.log('This browser supports localStorage');
+WidgetHistoryCtrl.init = function () {
+    WidgetHistoryCtrl._localStorage = window.localStorage;
+    if (WidgetHistoryCtrl._localStorage) {
+        // LogCtrl.log('This browser supports localStorage');
     } else {
-        LogController.log('This browser does NOT support localStorage');
+        LogCtrl.log('This browser does NOT support localStorage');
     }
-    // WidgetHistoryController._localStorage.clear();
-    // alert(WidgetHistoryController._localStorage);
+    // WidgetHistoryCtrl._localStorage.clear();
+    // alert(WidgetHistoryCtrl._localStorage);
 
     // localStorage.setItem("b","isaac");//设置b为"isaac"
     // var b = localStorage.getItem("b");//获取b的值
@@ -52,88 +52,88 @@ WidgetHistoryController.init = function () {
     //     }
     // }
 }
-WidgetHistoryController.setItem = function (key, value) {
-    WidgetHistoryController._localStorage.setItem(key, value);
+WidgetHistoryCtrl.setItem = function (key, value) {
+    WidgetHistoryCtrl._localStorage.setItem(key, value);
 }
-WidgetHistoryController.getItem = function (key) {
-    return WidgetHistoryController._localStorage.getItem(key);
+WidgetHistoryCtrl.getItem = function (key) {
+    return WidgetHistoryCtrl._localStorage.getItem(key);
 }
-WidgetHistoryController.addFile = function (fileName, fileContent, historyItemFile) {
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItemFile);
+WidgetHistoryCtrl.addFile = function (fileName, fileContent, historyItemFile) {
+    var fileEditItem = WidgetHistoryCtrl._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
-        fileEditItem = '{"' + WidgetHistoryController._keyFileList + '":[{"' + WidgetHistoryController._keyFileName + '":"首页","' + WidgetHistoryController._keyFileContent + '":"首页内容"}]}';
+        fileEditItem = '{"' + WidgetHistoryCtrl._keyFileList + '":[{"' + WidgetHistoryCtrl._keyFileName + '":"首页","' + WidgetHistoryCtrl._keyFileContent + '":"首页内容"}]}';
     }
     var fileEditJson = JSON.parse(fileEditItem);
-    var fileList = fileEditJson[WidgetHistoryController._keyFileList];
+    var fileList = fileEditJson[WidgetHistoryCtrl._keyFileList];
     var isExist = false;
     for (var o in fileList) {
         var key = o;
-        if (fileList[key][WidgetHistoryController._keyFileName] == fileName) {
+        if (fileList[key][WidgetHistoryCtrl._keyFileName] == fileName) {
             isExist = true;
-            fileList[key][WidgetHistoryController._keyFileContent] = fileContent;
+            fileList[key][WidgetHistoryCtrl._keyFileContent] = fileContent;
             break;
         }
     }
     if (!isExist) {
-        var newFileJson = '{"' + WidgetHistoryController._keyFileName + '":"' + fileName + '","' + WidgetHistoryController._keyFileContent + '":""}';
+        var newFileJson = '{"' + WidgetHistoryCtrl._keyFileName + '":"' + fileName + '","' + WidgetHistoryCtrl._keyFileContent + '":""}';
         fileList.push(JSON.parse(newFileJson));
         var len = fileList.length;
-        fileList[len - 1][WidgetHistoryController._keyFileContent] = fileContent;
+        fileList[len - 1][WidgetHistoryCtrl._keyFileContent] = fileContent;
     }
-    WidgetHistoryController._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistoryCtrl._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
-WidgetHistoryController.delFile = function (elementTabTitle, historyItemFile) {
+WidgetHistoryCtrl.delFile = function (elementTabTitle, historyItemFile) {
     var fileName = elementTabTitle.innerHTML;
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItemFile);
+    var fileEditItem = WidgetHistoryCtrl._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
         return;
     }
     var fileEditJson = JSON.parse(fileEditItem);
-    var fileList = fileEditJson[WidgetHistoryController._keyFileList];
+    var fileList = fileEditJson[WidgetHistoryCtrl._keyFileList];
     for (var o in fileList) {
         var key = o;
-        if (fileList[key][WidgetHistoryController._keyFileName] == fileName) {
+        if (fileList[key][WidgetHistoryCtrl._keyFileName] == fileName) {
             fileList.splice(key, 1);
             break;
         }
     }
-    WidgetHistoryController._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistoryCtrl._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
-WidgetHistoryController.getFile = function (historyItemFile) {
-    var fileEditItem = WidgetHistoryController._localStorage.getItem(historyItemFile);
+WidgetHistoryCtrl.getFile = function (historyItemFile) {
+    var fileEditItem = WidgetHistoryCtrl._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
         return null;
     }
     var fileEditJson = JSON.parse(fileEditItem);
-    var fileList = fileEditJson[WidgetHistoryController._keyFileList];
+    var fileList = fileEditJson[WidgetHistoryCtrl._keyFileList];
     return fileList;
 }
-WidgetHistoryController.getFileBrowser = function () {
-    var item = WidgetHistoryController.getItem(WidgetHistoryController._itemFileBrowser);
+WidgetHistoryCtrl.getFileBrowser = function () {
+    var item = WidgetHistoryCtrl.getItem(WidgetHistoryCtrl._itemFileBrowser);
     var jsonObj = JSON.parse('{}');
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     } else {
         var obj, list, index;
 
-        jsonObj[WidgetHistoryController._keyJson] = {};
-        obj = jsonObj[WidgetHistoryController._keyJson];
-        obj[WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
-        obj[WidgetHistoryController._keyName] = "json"
+        jsonObj[WidgetHistoryCtrl._keyJson] = {};
+        obj = jsonObj[WidgetHistoryCtrl._keyJson];
+        obj[WidgetHistoryCtrl._keyType] = WidgetHistoryCtrl._keyFolder;
+        obj[WidgetHistoryCtrl._keyName] = "json"
         obj["folderList"] = new Array();
         obj["fileList"] = new Array();
 
-        jsonObj[WidgetHistoryController._keyJsonTemplate] = {};
-        obj = jsonObj[WidgetHistoryController._keyJsonTemplate];
-        obj[WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
-        obj[WidgetHistoryController._keyName] = "json模版";
+        jsonObj[WidgetHistoryCtrl._keyJsonTemplate] = {};
+        obj = jsonObj[WidgetHistoryCtrl._keyJsonTemplate];
+        obj[WidgetHistoryCtrl._keyType] = WidgetHistoryCtrl._keyFolder;
+        obj[WidgetHistoryCtrl._keyName] = "json模版";
         obj["folderList"] = new Array();
         obj["fileList"] = new Array();
 
         jsonObj["personal"] = {};
         obj = jsonObj["personal"];
-        obj[WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
-        obj[WidgetHistoryController._keyName] = "个人文件夹";
+        obj[WidgetHistoryCtrl._keyType] = WidgetHistoryCtrl._keyFolder;
+        obj[WidgetHistoryCtrl._keyName] = "个人文件夹";
         obj["folderList"] = new Array();
         obj["fileList"] = new Array();
 
@@ -141,35 +141,35 @@ WidgetHistoryController.getFileBrowser = function () {
 
         list.push({});
         index = list.length - 1;
-        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
-        list[index][WidgetHistoryController._keyName] = "json";
+        list[index][WidgetHistoryCtrl._keyType] = WidgetHistoryCtrl._keyFolder;
+        list[index][WidgetHistoryCtrl._keyName] = "json";
 
         list.push({});
         index = list.length - 1;
-        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
-        list[index][WidgetHistoryController._keyName] = "json模版";
+        list[index][WidgetHistoryCtrl._keyType] = WidgetHistoryCtrl._keyFolder;
+        list[index][WidgetHistoryCtrl._keyName] = "json模版";
 
-        list = jsonObj[WidgetHistoryController._keyJson]["fileList"];
+        list = jsonObj[WidgetHistoryCtrl._keyJson]["fileList"];
 
         list.push({});
         index = list.length - 1;
-        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFile;
-        list[index][WidgetHistoryController._keyName] = "demo";
+        list[index][WidgetHistoryCtrl._keyType] = WidgetHistoryCtrl._keyFile;
+        list[index][WidgetHistoryCtrl._keyName] = "demo";
         list[index]["extend"] = ".json";
 
-        list = jsonObj[WidgetHistoryController._keyJsonTemplate]["fileList"];
+        list = jsonObj[WidgetHistoryCtrl._keyJsonTemplate]["fileList"];
 
         list.push({});
         index = list.length - 1;
-        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFile;
-        list[index][WidgetHistoryController._keyName] = "demo";
+        list[index][WidgetHistoryCtrl._keyType] = WidgetHistoryCtrl._keyFile;
+        list[index][WidgetHistoryCtrl._keyName] = "demo";
         list[index]["extend"] = ".jsonConf";
 
-        WidgetHistoryController.setFileBrowser(jsonObj);
+        WidgetHistoryCtrl.setFileBrowser(jsonObj);
     }
     return jsonObj;
 }
-WidgetHistoryController.setFileBrowser = function (jsonObj) {
+WidgetHistoryCtrl.setFileBrowser = function (jsonObj) {
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
-    WidgetHistoryController.setItem(WidgetHistoryController._itemFileBrowser, jsonStr);
+    WidgetHistoryCtrl.setItem(WidgetHistoryCtrl._itemFileBrowser, jsonStr);
 }

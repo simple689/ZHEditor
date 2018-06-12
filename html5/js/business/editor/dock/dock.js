@@ -8,21 +8,21 @@ var panelView = null;
 var panelTest = null;
 var dockLayoutKey = "dockLayout";
 
-var panelMenuController = null;
-var panelToolBarController = null;
-var panelStateController = null;
-var panelFileEditorController = null;
-var panelFileTemplateController = null;
-var panelFileBrowserController = null;
-var panelViewController = null;
-var panelTestController = null;
+var panelMenuCtrl = null;
+var panelToolBarCtrl = null;
+var panelStateCtrl = null;
+var panelFileEditorCtrl = null;
+var panelFileTemplateCtrl = null;
+var panelFileBrowserCtrl = null;
+var panelViewCtrl = null;
+var panelTestCtrl = null;
 
 function initWidgetDock() {
     dock = DSXDFUtil.createDSXDFUtil();
     loadLayout();
     initPanel();
     initLayout();
-    initPanelController();
+    initPanelCtrl();
 }
 
 function initPanel() {
@@ -57,15 +57,15 @@ function initLayout() {
     // panelFileEditor.setInitialLayoutReference(panelView);
 }
 
-function initPanelController() {
-    panelMenuController = new PanelMenuController();
-    panelToolBarController = new PanelToolBarController();
-    panelStateController = new PanelStateController();
-    panelFileEditorController = new PanelFileEditorController();
-    panelFileTemplateController = new PanelFileTemplateController();
-    panelFileBrowserController = new PanelFileBrowserController();
-    panelViewController = new PanelViewController();
-    panelTestController = new PanelTestController();
+function initPanelCtrl() {
+    panelMenuCtrl = new PanelMenuCtrl();
+    panelToolBarCtrl = new PanelToolBarCtrl();
+    panelStateCtrl = new PanelStateCtrl();
+    panelFileEditorCtrl = new PanelFileEditorCtrl();
+    panelFileTemplateCtrl = new PanelFileTemplateCtrl();
+    panelFileBrowserCtrl = new PanelFileBrowserCtrl();
+    panelViewCtrl = new PanelViewCtrl();
+    panelTestCtrl = new PanelTestCtrl();
 }
 
 function loadLayout() {
@@ -99,13 +99,13 @@ function setVisible(panel, sch) {
 // document
 //========
 function onClickDocument() {
-    WidgetMenuController.hideMenuAll();
-    // WidgetSearchController.hideSearchAll();
+    WidgetMenuCtrl.hideMenuAll();
+    // WidgetSearchCtrl.hideSearchAll();
     return true;
 }
 
 function onContextMenuDocument() {
-    WidgetMenuController.hideMenuAll();
+    WidgetMenuCtrl.hideMenuAll();
     return true;
 }
 
@@ -113,35 +113,35 @@ function onContextMenuDocument() {
 //========
 $(document).ready(function () {
     console.log("[dock] start");
-    LogController.init();
-    WidgetHistoryController.init();
+    LogCtrl.init();
+    WidgetHistoryCtrl.init();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
         $('#panelToolBar').load("../panel/panelToolBar.html", function () {
-            panelMenuController.init();
-            panelToolBarController.init();
+            panelMenuCtrl.init();
+            panelToolBarCtrl.init();
         });
     });
     $('#panelFixedBottom').load("../panel/panelState.html", function () {
-        panelStateController.init();
+        panelStateCtrl.init();
     });
     $('#panelFileTemplate').load("../panel/panelFileTemplate.html", function () {
-        panelFileTemplateController.init();
+        panelFileTemplateCtrl.init();
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
-        panelFileBrowserController.init();
+        panelFileBrowserCtrl.init();
     });
     $('#panelView').load("../panel/panelView.html", function () {
-        panelViewController.init();
+        panelViewCtrl.init();
     });
     $('#panelTest').load("../panel/panelTest.html", function () {
-        panelTestController.init();
+        panelTestCtrl.init();
     });
     // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-    //     panelFileEditorController.init();
+    //     panelFileEditorCtrl.init();
     // });
     $('#panelCenter').load("../panel/panelFileEditor.html", function () {
-        panelFileEditorController.init(panelFileTemplateController);
+        panelFileEditorCtrl.init(panelFileTemplateCtrl);
     });
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu

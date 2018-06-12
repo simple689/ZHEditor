@@ -1,17 +1,17 @@
-function WidgetFileController() {
+function WidgetFileCtrl() {
 }
 
-WidgetFileController.readFileContent = function (fileContent, elementTabTitle) {
+WidgetFileCtrl.readFileContent = function (fileContent, elementTabTitle) {
     var elementFileRoot = document.createElement("div");
     elementTabTitle._elementTabContent.appendChild(elementFileRoot);
     elementTabTitle._elementFileRoot = elementFileRoot;
     elementFileRoot.classList.add("widgetFileRoot");
 
-    elementTabTitle._fileJsonController = new WidgetFileJsonController();
-    elementTabTitle._fileJsonController.init(elementTabTitle, fileContent);
-    WidgetHistoryController.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._widgetTabController._panel._historyItemFile);
+    elementTabTitle._fileJsonCtrl = new WidgetFileJsonCtrl();
+    elementTabTitle._fileJsonCtrl.init(elementTabTitle, fileContent);
+    WidgetHistoryCtrl.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._widgetTabCtrl._panel._historyItemFile);
 }
-WidgetFileController.readFile = function (file, elementTabTitle) {
+WidgetFileCtrl.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");
     var extendIndex = fileNameAry.length - 1;
     var extend = "";
@@ -24,37 +24,37 @@ WidgetFileController.readFile = function (file, elementTabTitle) {
     reader._elementTabTitle = elementTabTitle;
 
     if (file.type.match("application/json") || extend.match("json")) {
-        reader.onload = WidgetFileController.loadedJson;
+        reader.onload = WidgetFileCtrl.loadedJson;
         reader.readAsText(file);
     } else if (file.type.match(/image*/)) {
-        reader.onload = WidgetFileController.loadedImg;
+        reader.onload = WidgetFileCtrl.loadedImg;
         reader.readAsDataURL(file);
     } else {
-        reader.onload = WidgetFileController.loadedFile;
+        reader.onload = WidgetFileCtrl.loadedFile;
         reader.readAsText(file);
     }
 }
-WidgetFileController.loadedJson = function () {
-    WidgetFileController.createFileJsonController(this);
-    this._elementTabTitle._widgetTabController._panel.loadedJson(this);
+WidgetFileCtrl.loadedJson = function () {
+    WidgetFileCtrl.createFileJsonCtrl(this);
+    this._elementTabTitle._widgetTabCtrl._panel.loadedJson(this);
 }
-WidgetFileController.loadedImg = function () {
+WidgetFileCtrl.loadedImg = function () {
     // var img = document.createElement("img");
     // img.classList.add("obj");
     // img.file = file;
     // console.log(reader.result);
     // img.src = reader.result;
 }
-WidgetFileController.loadedFile = function (e) {
-    if (WidgetFileController.isJson(this.result)) {
-        WidgetFileController.createFileJsonController(this);
+WidgetFileCtrl.loadedFile = function (e) {
+    if (WidgetFileCtrl.isJson(this.result)) {
+        WidgetFileCtrl.createFileJsonCtrl(this);
     }
 }
-WidgetFileController.createFileJsonController = function (fileReader) {
-    // LogController.log(fileReader.result);
-    WidgetFileController.readFileContent(fileReader.result, fileReader._elementTabTitle);
+WidgetFileCtrl.createFileJsonCtrl = function (fileReader) {
+    // LogCtrl.log(fileReader.result);
+    WidgetFileCtrl.readFileContent(fileReader.result, fileReader._elementTabTitle);
 }
-WidgetFileController.isJson = function (fileStr) {
+WidgetFileCtrl.isJson = function (fileStr) {
     var isjson = false;
     try {
         var jsonObj = JSON.parse(fileStr);
@@ -62,6 +62,6 @@ WidgetFileController.isJson = function (fileStr) {
     } catch (exception) {
         isjson = false;
     }
-    LogController.log("isjson = " + isjson);
+    LogCtrl.log("isjson = " + isjson);
     return isjson;
 }

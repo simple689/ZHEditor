@@ -1,5 +1,5 @@
-function PanelMenuController() {
+function PanelMenuCtrl() {
 }
 
-PanelMenuController.prototype.init = function () {
+PanelMenuCtrl.prototype.init = function () {
 }
