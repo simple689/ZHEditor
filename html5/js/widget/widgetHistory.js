@@ -10,8 +10,8 @@ WidgetHistory.init = function () {
     } else {
         Log.log('This browser does NOT support localStorage');
     }
-    WidgetHistory._localStorage.clear();
-    alert(WidgetHistory._localStorage);
+    // WidgetHistory._localStorage.clear();
+    // alert(WidgetHistory._localStorage);
 
     // localStorage.removeItem("b");//清除b的值
     // localStorage.pageLoadCount = parseInt(localStorage.getItem("pageLoadCount")) + 1;//必须格式转换

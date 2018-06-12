@@ -57,7 +57,6 @@ PanelFileEditor.prototype.tabOnContextMenu = function (ele, e, onContextMenuType
 PanelFileEditor.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
     var obj = panelFileBrowser._jsonFileBrowser[WidgetKey._json];
-    obj = obj[WidgetKey._json];
 
     WidgetHistory.addFileBrowserFile(obj, fileName, WidgetFile._extendJson);
 
