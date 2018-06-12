@@ -24,28 +24,28 @@ WidgetFileController.readFile = function (file, elementTabTitle) {
     reader._elementTabTitle = elementTabTitle;
 
     if (file.type.match("application/json") || extend.match("json")) {
-        reader.onload = WidgetFileController.loadJson;
+        reader.onload = WidgetFileController.loadedJson;
         reader.readAsText(file);
     } else if (file.type.match(/image*/)) {
-        reader.onload = WidgetFileController.loadImg;
+        reader.onload = WidgetFileController.loadedImg;
         reader.readAsDataURL(file);
     } else {
-        reader.onload = WidgetFileController.load;
+        reader.onload = WidgetFileController.loadedFile;
         reader.readAsText(file);
     }
 }
-WidgetFileController.loadJson = function () {
+WidgetFileController.loadedJson = function () {
     WidgetFileController.createFileJsonController(this);
-    panelFileBrowser
+    this._elementTabTitle._widgetTabController._panel.loadedJson(this);
 }
-WidgetFileController.loadImg = function () {
+WidgetFileController.loadedImg = function () {
     // var img = document.createElement("img");
     // img.classList.add("obj");
     // img.file = file;
     // console.log(reader.result);
     // img.src = reader.result;
 }
-WidgetFileController.load = function (e) {
+WidgetFileController.loadedFile = function (e) {
     if (WidgetFileController.isJson(this.result)) {
         WidgetFileController.createFileJsonController(this);
     }

@@ -73,11 +73,11 @@ PanelFileBrowserController.prototype.readFileBrowser = function (jsonObj, pathPa
         if (typeof(value) == "object") {
             var pathChild = pathParent;
             var fold = elementParent;
-            var type = value["type"];
-            var name = value["name"];
+            var type = value[WidgetHistoryController._keyType];
+            var name = value[WidgetHistoryController._keyName];
 
             var folderList = value["folderList"];
-            if (type == "folder") {
+            if (type == WidgetHistoryController._keyFolder) {
                 pathChild += name;
                 pathChild += "/";
                 value["path"] = pathChild;
@@ -113,10 +113,10 @@ PanelFileBrowserController.prototype.refreshBottomRight = function (jsonObj) {
         for (var o in fileList) {
             var value = fileList[o];
             if (typeof(value) == "object") {
-                var type = value["type"];
-                var name = value["name"];
+                var type = value[WidgetHistoryController._keyType];
+                var name = value[WidgetHistoryController._keyName];
                 var extend = value["extend"];
-                if (type == "file") {
+                if (type == WidgetHistoryController._keyFile) {
                     var rightContent = document.createElement("div");
                     rightContent.innerHTML = name + extend;
                     var flexItem = this._flexController.addFlexItem(rightContent);

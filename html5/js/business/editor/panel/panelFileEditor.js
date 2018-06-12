@@ -19,7 +19,6 @@ PanelFileEditorController.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         this._widgetTabController.addTab(file);
-
     }
 }
 PanelFileEditorController.prototype.loadedHtml = function (htmlRoot) {
@@ -54,4 +53,9 @@ PanelFileEditorController.prototype.tabOnContextMenu = function (ele, e, onConte
             break;
         }
     }
+}
+PanelFileEditorController.prototype.loadedJson = function (fileReader) {
+    var fileName = fileReader._elementTabTitle.innerHTML;
+    var obj = panelFileBrowser._jsonFileBrowser[WidgetHistoryController._keyJson];
+    panelFileBrowser.refreshBottomRight();
 }

@@ -11,6 +11,14 @@ WidgetHistoryController._keyFileList = "fileList";
 WidgetHistoryController._keyFileName = "fileName";
 WidgetHistoryController._keyFileContent = "fileContent";
 
+WidgetHistoryController._keyJson = "json";
+WidgetHistoryController._keyJsonTemplate = "jsonTemplate";
+
+WidgetHistoryController._keyType = "type";
+WidgetHistoryController._keyName = "name";
+WidgetHistoryController._keyFolder = "folder";
+WidgetHistoryController._keyFile = "file";
+
 WidgetHistoryController.init = function () {
     WidgetHistoryController._localStorage = window.localStorage;
     if (WidgetHistoryController._localStorage) {
@@ -108,24 +116,24 @@ WidgetHistoryController.getFileBrowser = function () {
     } else {
         var obj, list, index;
 
-        jsonObj["json"] = {};
-        obj = jsonObj["json"];
-        obj["type"] = "folder";
-        obj["name"] = "json"
+        jsonObj[WidgetHistoryController._keyJson] = {};
+        obj = jsonObj[WidgetHistoryController._keyJson];
+        obj[WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
+        obj[WidgetHistoryController._keyName] = "json"
         obj["folderList"] = new Array();
         obj["fileList"] = new Array();
 
-        jsonObj["jsonTemplate"] = {};
-        obj = jsonObj["jsonTemplate"];
-        obj["type"] = "folder";
-        obj["name"] = "json模版";
+        jsonObj[WidgetHistoryController._keyJsonTemplate] = {};
+        obj = jsonObj[WidgetHistoryController._keyJsonTemplate];
+        obj[WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
+        obj[WidgetHistoryController._keyName] = "json模版";
         obj["folderList"] = new Array();
         obj["fileList"] = new Array();
 
         jsonObj["personal"] = {};
         obj = jsonObj["personal"];
-        obj["type"] = "folder";
-        obj["name"] = "个人文件夹";
+        obj[WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
+        obj[WidgetHistoryController._keyName] = "个人文件夹";
         obj["folderList"] = new Array();
         obj["fileList"] = new Array();
 
@@ -133,28 +141,28 @@ WidgetHistoryController.getFileBrowser = function () {
 
         list.push({});
         index = list.length - 1;
-        list[index]["type"] = "folder";
-        list[index]["name"] = "json";
+        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
+        list[index][WidgetHistoryController._keyName] = "json";
 
         list.push({});
         index = list.length - 1;
-        list[index]["type"] = "folder";
-        list[index]["name"] = "json模版";
+        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFolder;
+        list[index][WidgetHistoryController._keyName] = "json模版";
 
-        list = jsonObj["json"]["fileList"];
+        list = jsonObj[WidgetHistoryController._keyJson]["fileList"];
 
         list.push({});
         index = list.length - 1;
-        list[index]["type"] = "file";
-        list[index]["name"] = "demo";
+        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFile;
+        list[index][WidgetHistoryController._keyName] = "demo";
         list[index]["extend"] = ".json";
 
-        list = jsonObj["jsonTemplate"]["fileList"];
+        list = jsonObj[WidgetHistoryController._keyJsonTemplate]["fileList"];
 
         list.push({});
         index = list.length - 1;
-        list[index]["type"] = "file";
-        list[index]["name"] = "demo";
+        list[index][WidgetHistoryController._keyType] = WidgetHistoryController._keyFile;
+        list[index][WidgetHistoryController._keyName] = "demo";
         list[index]["extend"] = ".jsonConf";
 
         WidgetHistoryController.setFileBrowser(jsonObj);

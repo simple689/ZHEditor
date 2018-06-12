@@ -31,3 +31,8 @@ PanelFileTemplateController.prototype.tabOnContextMenu = function (ele, e, onCon
         }
     }
 }
+PanelFileTemplateController.prototype.loadedJson = function (fileReader) {
+    var fileName = fileReader._elementTabTitle.innerHTML;
+    var obj = panelFileBrowser._jsonFileBrowser[WidgetHistoryController._keyJsonTemplate];
+    panelFileBrowser.refreshBottomRight();
+}
