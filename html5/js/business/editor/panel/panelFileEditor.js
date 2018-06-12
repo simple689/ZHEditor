@@ -58,7 +58,11 @@ PanelFileEditor.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
     var obj = panelFileBrowser._jsonFileBrowser[WidgetKey._json];
 
-    WidgetHistory.addFileBrowserFile(obj, fileName, WidgetFile._extendJson);
-
+    var title = getFileTitle(fileName);
+    var extend = getFileExtend(fileName);
+    if (!WidgetHistory.existFileBrowserFile(obj, title, extend)) {
+        WidgetHistory.addFileBrowserFile(obj, title, extend);
+        WidgetHistory.setFileBrowser(panelFileBrowser._jsonFileBrowser);
+    }
     panelFileBrowser.refreshBottomRight(obj);
 }

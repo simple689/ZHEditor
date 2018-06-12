@@ -14,7 +14,7 @@ WidgetKey._json = "json";
 WidgetKey._jsonTemplate = "jsonTemplate";
 
 WidgetKey._type = "type";
-WidgetKey._name = "name";
+WidgetKey._title = "title";
 WidgetKey._extend = "extend";
 
 WidgetKey._folder = "folder";

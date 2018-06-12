@@ -62,11 +62,11 @@ PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elem
             var pathChild = pathParent;
             var fold = elementParent;
             var type = value[WidgetKey._type];
-            var name = value[WidgetKey._name];
+            var title = value[WidgetKey._title];
 
             var folderList = value[WidgetKey._folderList];
             if (type == WidgetKey._folder) {
-                pathChild += name;
+                pathChild += title;
                 pathChild += "/";
                 value["path"] = pathChild;
 
@@ -75,7 +75,7 @@ PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elem
                     isHasChild = true;
                     fold = this._menuFoldCtrl.addFold(elementParent, null);
                 }
-                var element = WidgetHtml.addLabel(fold, this, name, PanelFileBrowser.onClickFolderName, null);
+                var element = WidgetHtml.addLabel(fold, this, title, PanelFileBrowser.onClickFolderName, null);
                 element._panel = this;
                 element._jsonObj = value;
                 element.classList.add("folderName");
@@ -96,15 +96,15 @@ PanelFileBrowser.prototype.refreshBottomRight = function (jsonObj) {
     if (typeof(jsonObj) == "object") {
         var path = jsonObj["path"];
 
-        var folderList = jsonObj[WidgetKey._folderList];
         var fileList = jsonObj[WidgetKey._fileList];
         for (var o in fileList) {
             var value = fileList[o];
             if (typeof(value) == "object") {
-                var name = value[WidgetKey._name];
+                var title = value[WidgetKey._title];
                 var extend = value[WidgetKey._extend];
                 var rightContent = document.createElement("div");
-                rightContent.innerHTML = path + name + extend;
+                // rightContent.innerHTML = path + title + extend;
+                rightContent.innerHTML = title + extend;
                 var flexItem = this._flexCtrl.addFlexItem(rightContent);
                 flexItem.classList.add("rightContent");
             }

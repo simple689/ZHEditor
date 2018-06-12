@@ -34,5 +34,12 @@ PanelFileTemplate.prototype.tabOnContextMenu = function (ele, e, onContextMenuTy
 PanelFileTemplate.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
     var obj = panelFileBrowser._jsonFileBrowser[WidgetKey._jsonTemplate];
-    panelFileBrowser.refreshBottomRight();
+
+    var title = getFileTitle(fileName);
+    var extend = getFileExtend(fileName);
+    if (!WidgetHistory.existFileBrowserFile(obj, title, extend)) {
+        WidgetHistory.addFileBrowserFile(obj, title, extend);
+        WidgetHistory.setFileBrowser(panelFileBrowser._jsonFileBrowser);
+    }
+    panelFileBrowser.refreshBottomRight(obj);
 }

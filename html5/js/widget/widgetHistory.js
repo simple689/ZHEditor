@@ -10,8 +10,8 @@ WidgetHistory.init = function () {
     } else {
         Log.log('This browser does NOT support localStorage');
     }
-    // WidgetHistory._localStorage.clear();
-    // alert(WidgetHistory._localStorage);
+    WidgetHistory._localStorage.clear();
+    alert(WidgetHistory._localStorage);
 
     // localStorage.removeItem("b");//清除b的值
     // localStorage.pageLoadCount = parseInt(localStorage.getItem("pageLoadCount")) + 1;//必须格式转换
@@ -109,27 +109,37 @@ WidgetHistory.setFileBrowser = function (jsonObj) {
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
     WidgetHistory.setItem(WidgetKey._fileBrowser, jsonStr);
 }
-WidgetHistory.addFileBrowserRootFolder = function (jsonObj, key, name) {
+WidgetHistory.addFileBrowserRootFolder = function (jsonObj, key, title) {
     jsonObj[key] = {};
     var obj = jsonObj[key];
     obj[WidgetKey._type] = WidgetKey._folder;
-    obj[WidgetKey._name] = name
+    obj[WidgetKey._title] = title
     obj[WidgetKey._folderList] = new Array();
     obj[WidgetKey._fileList] = new Array();
 }
-WidgetHistory.addFileBrowserFolder = function (jsonObj, name) {
+WidgetHistory.addFileBrowserFolder = function (jsonObj, title) {
     var list = jsonObj[WidgetKey._folderList];
     list.push({});
     var index = list.length - 1;
     list[index][WidgetKey._type] = WidgetKey._folder;
-    list[index][WidgetKey._name] = name;
+    list[index][WidgetKey._title] = title;
     list[index][WidgetKey._folderList] = new Array();
     list[index][WidgetKey._fileList] = new Array();
 }
-WidgetHistory.addFileBrowserFile = function (jsonObj, name, extend) {
+WidgetHistory.existFileBrowserFile = function (jsonObj, title, extend) {
+    var list = jsonObj[WidgetKey._fileList];
+    for (var i in list) {
+        var obj = list[i];
+        if (obj[WidgetKey._title] == title && obj[WidgetKey._extend] == extend) {
+            return true;
+        }
+    }
+    return false;
+}
+WidgetHistory.addFileBrowserFile = function (jsonObj, title, extend) {
     var list = jsonObj[WidgetKey._fileList];
     list.push({});
     var index = list.length - 1;
-    list[index][WidgetKey._name] = name;
+    list[index][WidgetKey._title] = title;
     list[index][WidgetKey._extend] = extend;
 }
