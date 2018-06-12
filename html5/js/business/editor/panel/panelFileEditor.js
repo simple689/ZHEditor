@@ -1,61 +1,61 @@
-function PanelFileEditorCtrl() {
-    this._widgetTabCtrl = new WidgetTabCtrl();
+function PanelFileEditor() {
+    this._WidgetTab = new WidgetTab();
 }
 
-PanelFileEditorCtrl.prototype.init = function (fileTemplatePanel) {
+PanelFileEditor.prototype.init = function (fileTemplatePanel) {
     // var rootElement = document.getElementById("panelFileEditor");
     var rootElement = document.getElementById("panelCenter");
-    var dropElement = WidgetDropCtrl.addDrop(rootElement, this);
+    var dropElement = WidgetDrop.addDrop(rootElement, this);
 
     this._fileTemplatePanel = fileTemplatePanel;
 
-    this._historyItemFile = WidgetHistoryCtrl._itemFileEditor;
-    this._widgetTabCtrl.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItemFile);
+    this._historyItemFile = WidgetKey._fileEditor;
+    this._WidgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItemFile);
 
-    this._menuRightTitle = WidgetMenuCtrl.createMenu(document.body, "../../editor/menu/menuFileEditorTitle.html");
-    this._menuRightContent = WidgetMenuCtrl.createMenu(document.body, "../../editor/menu/menuFileEditorContent.html");
+    this._menuRightTitle = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileEditorTitle.html");
+    this._menuRightContent = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileEditorContent.html");
 }
-PanelFileEditorCtrl.prototype.handleFiles = function (files) {
+PanelFileEditor.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        this._widgetTabCtrl.addTab(file);
+        this._WidgetTab.addTab(file);
     }
 }
-PanelFileEditorCtrl.prototype.loadedHtml = function (htmlRoot) {
+PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {
     var homeFileEditor = document.getElementById("homeFileEditor");
     var elementFileRoot = homeFileEditor;
     var isShowDemo = false;
     if (isShowDemo) {
-        WidgetHtmlCtrl.addLabel(elementFileRoot, this, "demo", null, null);
-        WidgetHtmlCtrl.addInput(elementFileRoot, this, "demo", WidgetHtmlCtrl._inputType.textString, null, null);
-        WidgetHtmlCtrl.addInput(elementFileRoot, this, 689, WidgetHtmlCtrl._inputType.textNumber, null, null);
-        WidgetHtmlCtrl.addInput(elementFileRoot, this, "demo", WidgetHtmlCtrl._inputType.button, null, null);
-        WidgetHtmlCtrl.addInput(elementFileRoot, this, false, WidgetHtmlCtrl._inputType.checkbox, null, null);
-        WidgetHtmlCtrl.addInput(elementFileRoot, this, false, WidgetHtmlCtrl._inputType.radio, null, null);
-        // WidgetHtmlCtrl.addInput(elementFileRoot, this, "demo", WidgetHtmlCtrl._inputType.file, null, null);
-        // WidgetHtmlCtrl.addInput(elementFileRoot, this, "demo", WidgetHtmlCtrl._inputType.image, null, null);
-        // WidgetHtmlCtrl.addInput(elementFileRoot, this, "demo", WidgetHtmlCtrl._inputType.password, null, null);
-        // WidgetHtmlCtrl.addInput(elementFileRoot, this, "demo", WidgetHtmlCtrl._inputType.submit, null, null);
-        // WidgetHtmlCtrl.addInput(elementFileRoot, this, "demo", WidgetHtmlCtrl._inputType.reset, null, null);
-        WidgetHtmlCtrl.addInput(elementFileRoot, this, "#336699", WidgetHtmlCtrl._inputType.color, null, null);
-        WidgetHtmlCtrl.addInput(elementFileRoot, this, "rgba(0, 255, 0, 0.6)", WidgetHtmlCtrl._inputType.color, null, null);
-        WidgetHtmlCtrl.addSelect(elementFileRoot, this, "0123456", 6, null, null);
+        WidgetHtml.addLabel(elementFileRoot, this, "demo", null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.textString, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, 689, WidgetHtml._inputType.textNumber, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.button, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, false, WidgetHtml._inputType.checkbox, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, false, WidgetHtml._inputType.radio, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.file, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.image, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.password, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.submit, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.reset, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "#336699", WidgetHtml._inputType.color, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "rgba(0, 255, 0, 0.6)", WidgetHtml._inputType.color, null, null);
+        WidgetHtml.addSelect(elementFileRoot, this, "0123456", 6, null, null);
     }
 }
-PanelFileEditorCtrl.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
+PanelFileEditor.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {
-        case WidgetTabCtrl._onContextMenuType.tabTitle : {
-            WidgetMenuCtrl.showMenu(this._menuRightTitle, e, ele);
+        case WidgetTab._onContextMenuType.tabTitle : {
+            WidgetMenu.showMenu(this._menuRightTitle, e, ele);
             break;
         }
-        case WidgetTabCtrl._onContextMenuType.tabTitle : {
-            WidgetMenuCtrl.showMenu(this._menuRightContent, e, ele);
+        case WidgetTab._onContextMenuType.tabTitle : {
+            WidgetMenu.showMenu(this._menuRightContent, e, ele);
             break;
         }
     }
 }
-PanelFileEditorCtrl.prototype.loadedJson = function (fileReader) {
+PanelFileEditor.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
-    var obj = panelFileBrowser._jsonFileBrowser[WidgetHistoryCtrl._keyJson];
+    var obj = panelFileBrowser._jsonFileBrowser[WidgetKey._json];
     panelFileBrowser.refreshBottomRight();
 }

@@ -1,9 +1,9 @@
-function MenuFileEditorCtrl() {
+function MenuFileEditor() {
 }
 
-MenuFileEditorCtrl.closeTitle = function (li) {
+MenuFileEditor.closeTitle = function (li) {
     if (li._menu._exec) {
         var elementTabTitle = li._menu._exec;
-        elementTabTitle._widgetTabCtrl.closeTitle(elementTabTitle);
+        elementTabTitle._WidgetTab.closeTitle(elementTabTitle);
     }
 }

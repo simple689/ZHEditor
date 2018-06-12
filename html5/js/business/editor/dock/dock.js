@@ -8,14 +8,14 @@ var panelView = null;
 var panelTest = null;
 var dockLayoutKey = "dockLayout";
 
-var panelMenuCtrl = null;
-var panelToolBarCtrl = null;
-var panelStateCtrl = null;
-var panelFileEditorCtrl = null;
-var panelFileTemplateCtrl = null;
-var panelFileBrowserCtrl = null;
-var panelViewCtrl = null;
-var panelTestCtrl = null;
+var PanelMenu = null;
+var PanelToolBar = null;
+var PanelState = null;
+var PanelFileEditor = null;
+var PanelFileTemplate = null;
+var PanelFileBrowser = null;
+var PanelView = null;
+var PanelTest = null;
 
 function initWidgetDock() {
     dock = DSXDFUtil.createDSXDFUtil();
@@ -58,14 +58,14 @@ function initLayout() {
 }
 
 function initPanelCtrl() {
-    panelMenuCtrl = new PanelMenuCtrl();
-    panelToolBarCtrl = new PanelToolBarCtrl();
-    panelStateCtrl = new PanelStateCtrl();
-    panelFileEditorCtrl = new PanelFileEditorCtrl();
-    panelFileTemplateCtrl = new PanelFileTemplateCtrl();
-    panelFileBrowserCtrl = new PanelFileBrowserCtrl();
-    panelViewCtrl = new PanelViewCtrl();
-    panelTestCtrl = new PanelTestCtrl();
+    PanelMenu = new PanelMenu();
+    PanelToolBar = new PanelToolBar();
+    PanelState = new PanelState();
+    PanelFileEditor = new PanelFileEditor();
+    PanelFileTemplate = new PanelFileTemplate();
+    PanelFileBrowser = new PanelFileBrowser();
+    PanelView = new PanelView();
+    PanelTest = new PanelTest();
 }
 
 function loadLayout() {
@@ -99,13 +99,13 @@ function setVisible(panel, sch) {
 // document
 //========
 function onClickDocument() {
-    WidgetMenuCtrl.hideMenuAll();
-    // WidgetSearchCtrl.hideSearchAll();
+    WidgetMenu.hideMenuAll();
+    // WidgetSearch.hideSearchAll();
     return true;
 }
 
 function onContextMenuDocument() {
-    WidgetMenuCtrl.hideMenuAll();
+    WidgetMenu.hideMenuAll();
     return true;
 }
 
@@ -113,35 +113,35 @@ function onContextMenuDocument() {
 //========
 $(document).ready(function () {
     console.log("[dock] start");
-    LogCtrl.init();
-    WidgetHistoryCtrl.init();
+    Log.init();
+    WidgetHistory.init();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
         $('#panelToolBar').load("../panel/panelToolBar.html", function () {
-            panelMenuCtrl.init();
-            panelToolBarCtrl.init();
+            PanelMenu.init();
+            PanelToolBar.init();
         });
     });
     $('#panelFixedBottom').load("../panel/panelState.html", function () {
-        panelStateCtrl.init();
+        PanelState.init();
     });
     $('#panelFileTemplate').load("../panel/panelFileTemplate.html", function () {
-        panelFileTemplateCtrl.init();
+        PanelFileTemplate.init();
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
-        panelFileBrowserCtrl.init();
+        PanelFileBrowser.init();
     });
     $('#panelView').load("../panel/panelView.html", function () {
-        panelViewCtrl.init();
+        PanelView.init();
     });
     $('#panelTest').load("../panel/panelTest.html", function () {
-        panelTestCtrl.init();
+        PanelTest.init();
     });
     // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-    //     panelFileEditorCtrl.init();
+    //     PanelFileEditor.init();
     // });
     $('#panelCenter').load("../panel/panelFileEditor.html", function () {
-        panelFileEditorCtrl.init(panelFileTemplateCtrl);
+        PanelFileEditor.init(PanelFileTemplate);
     });
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu

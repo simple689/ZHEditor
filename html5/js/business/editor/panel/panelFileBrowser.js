@@ -1,25 +1,25 @@
-function PanelFileBrowserCtrl() {
-    this._widgetSearchCtrl = new WidgetSearchCtrl();
-    this._menuFoldCtrl = new WidgetMenuFoldCtrl();
-    this._flexCtrl = new WidgetFlexCtrl();
+function PanelFileBrowser() {
+    this._WidgetSearch = new WidgetSearch();
+    this._menuFoldCtrl = new WidgetMenuFold();
+    this._flexCtrl = new WidgetFlex();
 }
 
-PanelFileBrowserCtrl.prototype.init = function () {
+PanelFileBrowser.prototype.init = function () {
     this.initTop();
     this.initBottom();
     this.initBottomLeft();
     this.initBottomRight();
 }
-PanelFileBrowserCtrl.prototype.initTop = function () {
-    this._menuLeftCreate = WidgetMenuCtrl.createMenu(document.body, "../../editor/menu/menuFileBrowserCreate.html");
+PanelFileBrowser.prototype.initTop = function () {
+    this._menuLeftCreate = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileBrowserCreate.html");
 
     var createBtn = document.getElementById("createBtn");
-    createBtn._panelFileBrowserCtrl = this;
-    $(createBtn).on("click", PanelFileBrowserCtrl.onClickCreateBtn);
+    createBtn._PanelFileBrowser = this;
+    $(createBtn).on("click", PanelFileBrowser.onClickCreateBtn);
 
-    this._widgetSearchCtrl.createSearch(this, createBtn);
+    this._WidgetSearch.createSearch(this, createBtn);
 }
-PanelFileBrowserCtrl.prototype.initBottom = function () {
+PanelFileBrowser.prototype.initBottom = function () {
     var left = document.getElementById("left");
     var middle = document.getElementById("middle");
 
@@ -43,41 +43,29 @@ PanelFileBrowserCtrl.prototype.initBottom = function () {
         return false
     };
 };
-PanelFileBrowserCtrl.prototype.initBottomLeft = function () {
+PanelFileBrowser.prototype.initBottomLeft = function () {
     var left = document.getElementById("left");
     var foldItem = this._menuFoldCtrl.createMenuFold(left, '全部文件');
 
-    this._jsonFileBrowser = WidgetHistoryCtrl.getFileBrowser();
-    // LogCtrl.log(JSON.stringify(jsonObj, null, 2));
+    this._jsonFileBrowser = WidgetHistory.getFileBrowser();
+    // Log.log(JSON.stringify(jsonObj, null, 2));
     this.readFileBrowser(this._jsonFileBrowser, "/", foldItem);
 };
-PanelFileBrowserCtrl.prototype.initBottomRight = function () {
+PanelFileBrowser.prototype.initBottomRight = function () {
     var right = document.getElementById("right");
     this._flexCtrl.createFlex(right, '全部文件');
-
-    // for (var i = 0; i < 10; i++) {
-    //     var rightContent = document.createElement("div");
-    //     rightContent.innerHTML = "文件 : " + i;
-    //     var flexItem = this._flexCtrl.addFlexItem(rightContent);
-    //     flexItem.classList.add("rightContent");
-    //
-    //     var rightContentNew = document.createElement("div");
-    //     rightContentNew.innerHTML = "新文件 : " + i;
-    //     flexItem.removeChild(flexItem.childNodes[0]);
-    //     flexItem.appendChild(rightContentNew);
-    // }
 };
-PanelFileBrowserCtrl.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
+PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
     for (var o in jsonObj) {
         var value = jsonObj[o];
         if (typeof(value) == "object") {
             var pathChild = pathParent;
             var fold = elementParent;
-            var type = value[WidgetHistoryCtrl._keyType];
-            var name = value[WidgetHistoryCtrl._keyName];
+            var type = value[WidgetKey._type];
+            var name = value[WidgetKey._name];
 
-            var folderList = value["folderList"];
-            if (type == WidgetHistoryCtrl._keyFolder) {
+            var folderList = value[WidgetKey._folderList];
+            if (type == WidgetKey._folder) {
                 pathChild += name;
                 pathChild += "/";
                 value["path"] = pathChild;
@@ -87,13 +75,13 @@ PanelFileBrowserCtrl.prototype.readFileBrowser = function (jsonObj, pathParent, 
                     isHasChild = true;
                     fold = this._menuFoldCtrl.addFold(elementParent, null);
                 }
-                var element = WidgetHtmlCtrl.addLabel(fold, this, name, PanelFileBrowserCtrl.onClickFolderName, null);
+                var element = WidgetHtml.addLabel(fold, this, name, PanelFileBrowser.onClickFolderName, null);
                 element._panel = this;
                 element._jsonObj = value;
                 element.classList.add("folderName");
-                // element = WidgetHtmlCtrl.addLabel(fold, this, pathChild, PanelFileBrowserCtrl.onClickFolderPath, null);
+                // element = WidgetHtml.addLabel(fold, this, pathChild, PanelFileBrowser.onClickFolderPath, null);
                 // element.classList.add("folderPath");
-                WidgetHtmlCtrl.addBr(fold);
+                WidgetHtml.addBr(fold);
                 if (isHasChild) {
                     fold = this._menuFoldCtrl.addFoldItem(fold._dl);
                 }
@@ -102,21 +90,21 @@ PanelFileBrowserCtrl.prototype.readFileBrowser = function (jsonObj, pathParent, 
         }
     }
 }
-PanelFileBrowserCtrl.prototype.refreshBottomRight = function (jsonObj) {
+PanelFileBrowser.prototype.refreshBottomRight = function (jsonObj) {
     this._flexCtrl.clearFlexItem();
 
     if (typeof(jsonObj) == "object") {
         var path = jsonObj["path"];
 
-        var folderList = jsonObj["folderList"];
-        var fileList = jsonObj["fileList"];
+        var folderList = jsonObj[WidgetKey._folderList];
+        var fileList = jsonObj[WidgetKey._fileList];
         for (var o in fileList) {
             var value = fileList[o];
             if (typeof(value) == "object") {
-                var type = value[WidgetHistoryCtrl._keyType];
-                var name = value[WidgetHistoryCtrl._keyName];
-                var extend = value["extend"];
-                if (type == WidgetHistoryCtrl._keyFile) {
+                var type = value[WidgetKey._type];
+                var name = value[WidgetKey._name];
+                var extend = value[WidgetKey._extend];
+                if (type == WidgetKey._file) {
                     var rightContent = document.createElement("div");
                     rightContent.innerHTML = name + extend;
                     var flexItem = this._flexCtrl.addFlexItem(rightContent);
@@ -126,12 +114,12 @@ PanelFileBrowserCtrl.prototype.refreshBottomRight = function (jsonObj) {
         }
     }
 };
-PanelFileBrowserCtrl.onClickCreateBtn = function () {
-    WidgetMenuCtrl.showMenu(this._panelFileBrowserCtrl._menuLeftCreate, null, this._panelFileBrowserCtrl);
+PanelFileBrowser.onClickCreateBtn = function () {
+    WidgetMenu.showMenu(this._PanelFileBrowser._menuLeftCreate, null, this._PanelFileBrowser);
 }
-PanelFileBrowserCtrl.onClickFolderName = function () {
+PanelFileBrowser.onClickFolderName = function () {
     this._panel.refreshBottomRight(this._jsonObj);
 }
-PanelFileBrowserCtrl.onClickFolderPath = function () {
+PanelFileBrowser.onClickFolderPath = function () {
     this._panel.refreshBottomRight(this._jsonObj);
 }

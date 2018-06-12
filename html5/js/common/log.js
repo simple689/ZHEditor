@@ -1,24 +1,24 @@
-function LogCtrl() {
+function Log() {
 }
-LogCtrl.init = function () {
+Log.init = function () {
 }
-LogCtrl.log = function (...args) {
+Log.log = function (...args) {
     console.log(...args);
 }
-LogCtrl.debug = function (...args) {
+Log.debug = function (...args) {
     console.debug(...args);
 }
-LogCtrl.info = function (...args) {
+Log.info = function (...args) {
     console.info(...args);
 }
-LogCtrl.warn = function (...args) {
+Log.warn = function (...args) {
     console.warn(...args);
 }
-LogCtrl.error = function (...args) {
+Log.error = function (...args) {
     console.error(...args);
 }
-LogCtrl.func = function () {
-    // LogCtrl.log(arguments.callee.caller);
+Log.func = function () {
+    // Log.log(arguments.callee.caller);
     // var regular = /function\s*(\w*)/i;
     // var matches = regular.exec(str);
     // if (matches[1].length) {

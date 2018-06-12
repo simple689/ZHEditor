@@ -1,42 +1,42 @@
 /**
  * 菜单折叠
  **/
-function WidgetMenuFoldCtrl() {
+function WidgetMenuFold() {
 }
 
-WidgetMenuFoldCtrl.prototype.createMenuFold = function (elementParent, foldTitle) {
+WidgetMenuFold.prototype.createMenuFold = function (elementParent, foldTitle) {
     this._menuFold = document.createElement("div");
     elementParent.appendChild(this._menuFold);
     this._menuFold.classList.add("widgetMenuFold");
     var dd = this.addFoldAndItem(this._menuFold, foldTitle);
     return dd;
 }
-WidgetMenuFoldCtrl.prototype.addFoldAndItem = function (elementParent, foldTitle) {
+WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, foldTitle) {
     var dl = document.createElement("dl");
     elementParent.appendChild(dl);
 
     var dt = document.createElement("dt");
     dl.appendChild(dt);
     dt._dl = dl;
-    dt.onclick = WidgetMenuFoldCtrl.onClickDt;
+    dt.onclick = WidgetMenuFold.onClickDt;
     dt.innerHTML = foldTitle;
 
     var dd = this.addFoldItem(dl);
     return dd;
 }
-WidgetMenuFoldCtrl.prototype.addFold = function (elementParent, onClick) {
+WidgetMenuFold.prototype.addFold = function (elementParent, onClick) {
     var dl = document.createElement("dl");
     elementParent.appendChild(dl);
 
     var dt = document.createElement("dt");
     dl.appendChild(dt);
     dt._dl = dl;
-    dt.onclick = WidgetMenuFoldCtrl.onClickDt;
+    dt.onclick = WidgetMenuFold.onClickDt;
     dt._onClick = onClick;
 
     return dt;
 }
-WidgetMenuFoldCtrl.prototype.addFoldItem = function (dl) {
+WidgetMenuFold.prototype.addFoldItem = function (dl) {
     var dd = document.createElement("dd");
     dl.appendChild(dd);
     dd._dl = dl;
@@ -44,7 +44,7 @@ WidgetMenuFoldCtrl.prototype.addFoldItem = function (dl) {
     dd.isCheck = true;
     return dd;
 }
-WidgetMenuFoldCtrl.onClickDt = function (e) {
+WidgetMenuFold.onClickDt = function (e) {
     // // 与触发事件的对象相关的鼠标位置的XY坐标;
     // var x = e.x;
     // var y = e.y;

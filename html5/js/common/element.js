@@ -41,7 +41,7 @@ function setElementDisplay(element, enable) {
 //     var top = getOffsetTopToParent(elementCheck, elementCheckParent);
 //     var width = elementCheck.offsetWidth;
 //     var height = elementCheck.offsetHeight;
-//     // LogCtrl.log("top = " + top + " ; left = " + left);
+//     // Log.log("top = " + top + " ; left = " + left);
 //     element.style.width = left + width + padding + "px";
 //     element.style.height = top + height + padding +"px";
 // }

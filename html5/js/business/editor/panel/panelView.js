@@ -1,5 +1,5 @@
-function PanelViewCtrl() {
+function PanelView() {
 }
 
-PanelViewCtrl.prototype.init = function () {
+PanelView.prototype.init = function () {
 }

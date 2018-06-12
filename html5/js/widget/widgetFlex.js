@@ -1,29 +1,29 @@
-function WidgetFlexCtrl() {
+function WidgetFlex() {
 }
 
-WidgetFlexCtrl.prototype.createFlex = function (elementParent) {
+WidgetFlex.prototype.createFlex = function (elementParent) {
     this._flexContainer = document.createElement("div");
     elementParent.appendChild(this._flexContainer);
     this._flexContainer.classList.add("widgetFlexContainer");
 
     this._flexItemList = new Array();
 }
-WidgetFlexCtrl.prototype.setFlexDirection = function (flexDirection) {
+WidgetFlex.prototype.setFlexDirection = function (flexDirection) {
     this._flexContainer.style.flexDirection = flexDirection;
 }
-WidgetFlexCtrl.prototype.setFlexWrap = function (flexWrap) {
+WidgetFlex.prototype.setFlexWrap = function (flexWrap) {
     this._flexContainer.style.flexWrap = flexWrap;
 }
-WidgetFlexCtrl.prototype.setFlexJustifyContent = function (flexJustifyContent) {
+WidgetFlex.prototype.setFlexJustifyContent = function (flexJustifyContent) {
     this._flexContainer.style.justifyContent = flexJustifyContent;
 }
-WidgetFlexCtrl.prototype.setFlexAlignItems = function (flexAlignItems) {
+WidgetFlex.prototype.setFlexAlignItems = function (flexAlignItems) {
     this._flexContainer.style.alignItems = flexAlignItems;
 }
-WidgetFlexCtrl.prototype.setFlexAlignContent = function (flexAlignContent) {
+WidgetFlex.prototype.setFlexAlignContent = function (flexAlignContent) {
     this._flexContainer.style.alignContent = flexAlignContent;
 }
-WidgetFlexCtrl.prototype.addFlexItem = function (element) {
+WidgetFlex.prototype.addFlexItem = function (element) {
     var flexItem = document.createElement("div");
     this._flexContainer.appendChild(flexItem);
     flexItem.classList.add("widgetFlexItem");
@@ -34,27 +34,27 @@ WidgetFlexCtrl.prototype.addFlexItem = function (element) {
     }
     return flexItem;
 }
-WidgetFlexCtrl.prototype.setItemFlexOrder = function (flexItem, flexOrder) {
+WidgetFlex.prototype.setItemFlexOrder = function (flexItem, flexOrder) {
     flexItem.style.order = flexOrder;
     // flexItem.style.flex = flexOrder;
 }
-WidgetFlexCtrl.prototype.setItemFlexGrow = function (flexItem, flexGrow) {
+WidgetFlex.prototype.setItemFlexGrow = function (flexItem, flexGrow) {
     flexItem.style.flexGrow = flexGrow;
 }
-WidgetFlexCtrl.prototype.setItemFlexShrink = function (flexItem, flexShrink) {
+WidgetFlex.prototype.setItemFlexShrink = function (flexItem, flexShrink) {
     flexItem.style.flexShrink = flexShrink;
 }
-WidgetFlexCtrl.prototype.setItemFlexAlignSelf = function (flexItem, itemFlexAlignSelf) {
+WidgetFlex.prototype.setItemFlexAlignSelf = function (flexItem, itemFlexAlignSelf) {
     flexItem.style.alignSelf = itemFlexAlignSelf;
 }
-WidgetFlexCtrl.prototype.clearFlexItem = function () {
+WidgetFlex.prototype.clearFlexItem = function () {
     var len = this._flexContainer.childNodes.length;
     for (var i = 0; i < len; i++) {
         this._flexContainer.removeChild(this._flexContainer.childNodes[0]);
     }
     this._flexItemList.splice(0, this._flexItemList.length);
 }
-WidgetFlexCtrl.onClickDt = function () {
+WidgetFlex.onClickDt = function () {
     var nextNode = this.nextSibling;
     while (nextNode) {
         var tagName = nextNode.tagName;

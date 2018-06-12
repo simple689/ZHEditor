@@ -1,5 +1,5 @@
-function PanelToolBarCtrl() {
+function PanelToolBar() {
 }
 
-PanelToolBarCtrl.prototype.init = function () {
+PanelToolBar.prototype.init = function () {
 }

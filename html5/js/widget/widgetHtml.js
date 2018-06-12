@@ -1,7 +1,7 @@
-function WidgetHtmlCtrl() {
+function WidgetHtml() {
 }
 
-WidgetHtmlCtrl._inputType = {
+WidgetHtml._inputType = {
     textString: 0,
     textNumber: 1,
     button: 2,
@@ -14,12 +14,12 @@ WidgetHtmlCtrl._inputType = {
     reset: 9,
     color: 10
 }
-WidgetHtmlCtrl.onChangeInput = function (e) {
+WidgetHtml.onChangeInput = function (e) {
     switch (this._inputType) {
-        case WidgetHtmlCtrl._inputType.textString : {
+        case WidgetHtml._inputType.textString : {
             break;
         }
-        case WidgetHtmlCtrl._inputType.textNumber : {
+        case WidgetHtml._inputType.textNumber : {
             var valueOld = this.value;
             this.value = this.value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g, '');
             if (this.value != valueOld) {
@@ -27,19 +27,19 @@ WidgetHtmlCtrl.onChangeInput = function (e) {
             }
             break;
         }
-        case WidgetHtmlCtrl._inputType.color : {
+        case WidgetHtml._inputType.color : {
             this.style.background = this.value;
             break;
         }
     }
 }
-WidgetHtmlCtrl.addBr = function (nodeParent) {
+WidgetHtml.addBr = function (nodeParent) {
     var nodeBr = document.createElement("br");
     nodeParent.appendChild(nodeBr);
     nodeBr.classList.add("nodeBr");
     return nodeBr;
 }
-WidgetHtmlCtrl.addLabel = function (nodeParent, fileCtrl, value, onClick, onContextMenu) {
+WidgetHtml.addLabel = function (nodeParent, fileCtrl, value, onClick, onContextMenu) {
     var nodeLabel = document.createElement("label");
     nodeParent.appendChild(nodeLabel);
     nodeLabel.classList.add("nodeLabel");
@@ -49,23 +49,23 @@ WidgetHtmlCtrl.addLabel = function (nodeParent, fileCtrl, value, onClick, onCont
     nodeLabel.innerHTML = value;
     return nodeLabel;
 }
-WidgetHtmlCtrl.addInput = function (nodeParent, fileCtrl, value, inputType, onClick, onContextMenu) {
+WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, onClick, onContextMenu) {
     var nodeInput = document.createElement("input");
     nodeParent.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
     nodeInput._fileCtrl = fileCtrl;
     nodeInput.onclick = onClick;
     nodeInput.oncontextmenu = onContextMenu;
-    nodeInput.onchange = WidgetHtmlCtrl.onChangeInput;
+    nodeInput.onchange = WidgetHtml.onChangeInput;
     nodeInput._inputType = inputType;
     switch (inputType) {
-        case WidgetHtmlCtrl._inputType.button : {
+        case WidgetHtml._inputType.button : {
             nodeInput.classList.add("nodeInputButton");
             nodeInput.type = "button";
             nodeInput.value = value;
             break;
         }
-        case WidgetHtmlCtrl._inputType.checkbox : {
+        case WidgetHtml._inputType.checkbox : {
             nodeInput.classList.add("nodeInputCheckbox");
             nodeInput.type = "checkbox";
             if (value) {
@@ -75,7 +75,7 @@ WidgetHtmlCtrl.addInput = function (nodeParent, fileCtrl, value, inputType, onCl
             }
             break;
         }
-        case WidgetHtmlCtrl._inputType.radio : {
+        case WidgetHtml._inputType.radio : {
             nodeInput.classList.add("nodeInputRadio");
             nodeInput.type = "radio";
             if (value) {
@@ -85,37 +85,37 @@ WidgetHtmlCtrl.addInput = function (nodeParent, fileCtrl, value, inputType, onCl
             }
             break;
         }
-        case WidgetHtmlCtrl._inputType.file : {
+        case WidgetHtml._inputType.file : {
             nodeInput.classList.add("nodeInputFile");
             nodeInput.type = "file";
             nodeInput.value = value;
             break;
         }
-        case WidgetHtmlCtrl._inputType.image : {
+        case WidgetHtml._inputType.image : {
             nodeInput.classList.add("nodeInputImage");
             nodeInput.type = "image";
             nodeInput.value = value;
             break;
         }
-        case WidgetHtmlCtrl._inputType.password : {
+        case WidgetHtml._inputType.password : {
             nodeInput.classList.add("nodeInputPassword");
             nodeInput.type = "password";
             nodeInput.value = value;
             break;
         }
-        case WidgetHtmlCtrl._inputType.submit : {
+        case WidgetHtml._inputType.submit : {
             nodeInput.classList.add("nodeInputSubmit");
             nodeInput.type = "submit";
             nodeInput.value = value;
             break;
         }
-        case WidgetHtmlCtrl._inputType.reset : {
+        case WidgetHtml._inputType.reset : {
             nodeInput.classList.add("nodeInputReset");
             nodeInput.type = "reset";
             nodeInput.value = value;
             break;
         }
-        case WidgetHtmlCtrl._inputType.color : {
+        case WidgetHtml._inputType.color : {
             nodeInput.classList.add("nodeInputColor");
             nodeInput.value = value;
             nodeInput.style.background = value;
@@ -136,7 +136,7 @@ WidgetHtmlCtrl.addInput = function (nodeParent, fileCtrl, value, inputType, onCl
     }
     return nodeInput;
 }
-WidgetHtmlCtrl.addSelect = function (nodeParent, valueList, selectIndex) {
+WidgetHtml.addSelect = function (nodeParent, valueList, selectIndex) {
     var nodeSelect = document.createElement("select");
     nodeParent.appendChild(nodeSelect);
     nodeSelect.classList.add("nodeSelect");
