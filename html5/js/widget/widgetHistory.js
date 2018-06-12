@@ -121,6 +121,7 @@ WidgetHistory.addFileBrowserFolder = function (jsonObj, name) {
     var list = jsonObj[WidgetKey._folderList];
     list.push({});
     var index = list.length - 1;
+    list[index][WidgetKey._type] = WidgetKey._folder;
     list[index][WidgetKey._name] = name;
     list[index][WidgetKey._folderList] = new Array();
     list[index][WidgetKey._fileList] = new Array();
