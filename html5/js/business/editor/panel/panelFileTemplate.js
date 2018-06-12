@@ -1,12 +1,12 @@
 function PanelFileTemplate() {
-    this._WidgetTab = new WidgetTab();
+    this._widgetTab = new WidgetTab();
 }
 
 PanelFileTemplate.prototype.init = function () {
     var rootElement = document.getElementById("panelFileTemplate");
     var dropElement = WidgetDrop.addDrop(rootElement, this);
     this._historyItemFile = WidgetKey._fileTemplate;
-    this._WidgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
+    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
 
     this._menuRightTitle = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
     this._menuRightContent = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");
@@ -14,7 +14,7 @@ PanelFileTemplate.prototype.init = function () {
 PanelFileTemplate.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        this._WidgetTab.addTab(file);
+        this._widgetTab.addTab(file);
     }
 }
 PanelFileTemplate.prototype.loadedHtml = function (htmlRoot) {

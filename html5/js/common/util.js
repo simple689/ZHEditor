@@ -12,7 +12,7 @@ function removeFileFolder(str) {
 }
 function removeFileExtend(str) {
     var index = str.lastIndexOf(".");
-    var strNew = str.substring(0, index - 1);
+    var strNew = str.substring(0, index);
     return strNew;
 }
 function getFileExtend(str) {

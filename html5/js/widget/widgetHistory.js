@@ -10,8 +10,8 @@ WidgetHistory.init = function () {
     } else {
         Log.log('This browser does NOT support localStorage');
     }
-    WidgetHistory._localStorage.clear();
-    alert(WidgetHistory._localStorage);
+    // WidgetHistory._localStorage.clear();
+    // alert(WidgetHistory._localStorage);
 
     // localStorage.removeItem("b");//清除b的值
     // localStorage.pageLoadCount = parseInt(localStorage.getItem("pageLoadCount")) + 1;//必须格式转换
@@ -142,4 +142,22 @@ WidgetHistory.addFileBrowserFile = function (jsonObj, title, extend) {
     var index = list.length - 1;
     list[index][WidgetKey._title] = title;
     list[index][WidgetKey._extend] = extend;
+}
+WidgetHistory.getFileJsonTemplate = function (fileName) {
+    var item = WidgetHistory.getItem(WidgetKey._fileJsonTemplate);
+    var jsonObj = JSON.parse('{}');
+    if (item) {
+        jsonObj = JSON.parse(item); // 通过parse获取json对应键值
+    }
+    return jsonObj[fileName];
+}
+WidgetHistory.setFileJsonTemplate = function (fileName, fileContent) {
+    var item = WidgetHistory.getItem(WidgetKey._fileJsonTemplate);
+    var jsonObj = JSON.parse('{}');
+    if (item) {
+        jsonObj = JSON.parse(item); // 通过parse获取json对应键值
+    }
+    jsonObj[fileName] = fileContent;
+    var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
+    WidgetHistory.setItem(WidgetKey._fileJsonTemplate, jsonStr);
 }

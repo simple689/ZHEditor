@@ -4,6 +4,7 @@ function WidgetKey() {
 WidgetKey._fileEditor = "fileEditor";
 WidgetKey._fileTemplate = "fileTemplate";
 WidgetKey._fileBrowser = "fileBrowser";
+WidgetKey._fileJsonTemplate = "fileJsonTemplate";
 
 WidgetKey._fileList = "fileList";
 WidgetKey._folderList = "folderList";

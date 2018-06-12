@@ -1,5 +1,5 @@
 function PanelFileEditor() {
-    this._WidgetTab = new WidgetTab();
+    this._widgetTab = new WidgetTab();
 }
 
 PanelFileEditor.prototype.init = function (fileTemplatePanel) {
@@ -10,7 +10,7 @@ PanelFileEditor.prototype.init = function (fileTemplatePanel) {
     this._fileTemplatePanel = fileTemplatePanel;
 
     this._historyItemFile = WidgetKey._fileEditor;
-    this._WidgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItemFile);
+    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItemFile);
 
     this._menuRightTitle = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileEditorTitle.html");
     this._menuRightContent = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileEditorContent.html");
@@ -18,7 +18,7 @@ PanelFileEditor.prototype.init = function (fileTemplatePanel) {
 PanelFileEditor.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        this._WidgetTab.addTab(file);
+        this._widgetTab.addTab(file);
     }
 }
 PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {

@@ -24,7 +24,7 @@ WidgetTab.prototype.init = function (elementParent, panel, htmlHome, historyItem
     this._elementTab = document.createElement("figure");
     elementParent.appendChild(this._elementTab);
     this._elementTab.classList.add(WidgetTab._classWidgetTab);
-    this._elementTab._WidgetTab = this;
+    this._elementTab._widgetTab = this;
     this._panel = panel;
 
     this.initTitleGroup();
@@ -37,13 +37,13 @@ WidgetTab.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");
     this._elementTab.appendChild(this._elementTabTitleGroup);
     this._elementTabTitleGroup.classList.add(WidgetTab._classWidgetTabTitleGroup);
-    this._elementTabTitleGroup._WidgetTab = this;
+    this._elementTabTitleGroup._widgetTab = this;
 }
 WidgetTab.prototype.initContentGroup = function () {
     this._elementTabContentGroup = document.createElement("div");
     this._elementTab.appendChild(this._elementTabContentGroup);
     this._elementTabContentGroup.classList.add(WidgetTab._classWidgetTabContentGroup);
-    this._elementTabContentGroup._WidgetTab = this;
+    this._elementTabContentGroup._widgetTab = this;
 }
 WidgetTab.prototype.addHomePage = function (html) {
     var elementTabTitle = this.addTitle("首页");
@@ -72,7 +72,7 @@ WidgetTab.prototype.addTitle = function (title) {
     var elementTabTitle = document.createElement("li");
     this._elementTabTitleGroup.appendChild(elementTabTitle);
     elementTabTitle.classList.add(WidgetTab._classWidgetTabTitle);
-    elementTabTitle._WidgetTab = this;
+    elementTabTitle._widgetTab = this;
     elementTabTitle.onclick = WidgetTab.onClickTabTitle;
     elementTabTitle.oncontextmenu = WidgetTab.onContextMenuTabTitle;
     this.setActiveElement(elementTabTitle);
@@ -103,7 +103,7 @@ WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType
     var elementTabContent = document.createElement("div");
     this._elementTabContentGroup.appendChild(elementTabContent);
     elementTabContent.classList.add(WidgetTab._classWidgetTabContent);
-    elementTabContent._WidgetTab = this;
+    elementTabContent._widgetTab = this;
     elementTabContent.onclick = WidgetTab.onClickTabContent;
     elementTabContent.oncontextmenu = WidgetTab.onContextMenuTabContent;
 
@@ -120,7 +120,7 @@ WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType
         $(elementHtmlRoot).load(content, function () {
             //判断是否为函数
             try {
-                this[0]._elementTabTitle._WidgetTab._panel.loadedHtml(this);
+                this[0]._elementTabTitle._widgetTab._panel.loadedHtml(this);
             } catch (e) {
             }
         });
@@ -149,7 +149,7 @@ WidgetTab.prototype.showActiveElement = function () {
 }
 WidgetTab.onClickTabTitle = function (e) {
     if (!this.classList.contains(WidgetTab._classIsActive)) {
-        this._WidgetTab.setActiveElement(this);
+        this._widgetTab.setActiveElement(this);
     }
     WidgetMenu.hideMenuAll();
 }
@@ -157,11 +157,11 @@ WidgetTab.onClickTabContent = function (e) {
     WidgetMenu.hideMenuAll();
 }
 WidgetTab.onContextMenuTabTitle = function (e) {
-    this._WidgetTab._panel.tabOnContextMenu(this, e, WidgetTab._onContextMenuType.tabTitle);
+    this._widgetTab._panel.tabOnContextMenu(this, e, WidgetTab._onContextMenuType.tabTitle);
     return false; //取消右键点击的默认事件
 }
 WidgetTab.onContextMenuTabContent = function (e) {
-    this._WidgetTab._panel.tabOnContextMenu(this, e, WidgetTab._onContextMenuType.tabContent);
+    this._widgetTab._panel.tabOnContextMenu(this, e, WidgetTab._onContextMenuType.tabContent);
     return false; //取消右键点击的默认事件
 }
 WidgetTab.prototype.addFileContent = function (fileContent, elementTabTitle) {

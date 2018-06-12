@@ -12,7 +12,7 @@ WidgetFile.readFileContent = function (fileContent, elementTabTitle) {
 
     elementTabTitle._fileJsonCtrl = new WidgetFileJson();
     elementTabTitle._fileJsonCtrl.init(elementTabTitle, fileContent);
-    WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._WidgetTab._panel._historyItemFile);
+    WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._widgetTab._panel._historyItemFile);
 }
 WidgetFile.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");
@@ -39,7 +39,7 @@ WidgetFile.readFile = function (file, elementTabTitle) {
 }
 WidgetFile.loadedJson = function () {
     WidgetFile.createFileJsonCtrl(this);
-    this._elementTabTitle._WidgetTab._panel.loadedJson(this);
+    this._elementTabTitle._widgetTab._panel.loadedJson(this);
 }
 WidgetFile.loadedImg = function () {
     // var img = document.createElement("img");

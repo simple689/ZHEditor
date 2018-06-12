@@ -4,21 +4,36 @@ function WidgetFileJson() {
 
 WidgetFileJson.prototype.init = function (elementTabTitle, fileStr) {
     this._elementTabTitle = elementTabTitle;
-    this._fileStr = fileStr;
+    this._jsonObj = JSON.parse(fileStr);
     this.initCtrl();
     this._menuLabel = WidgetMenu.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonLabel.html");
     this._menuInput = WidgetMenu.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonInput.html");
 }
 WidgetFileJson.prototype.initCtrl = function () {
-    var jsonObj = JSON.parse(this._fileStr);
-    // Log.log(jsonObj);
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
     var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, '');
-    this.readObject(jsonObj, "", foldItem);
 
-    if (this._elementTabTitle._WidgetTab._panel._fileTemplatePanel) {
-        this.initFileTemplate(jsonObj);
+    var jsonTemlateName = this._jsonObj[WidgetKey._jsonTemplate];
+    if (!jsonTemlateName) {
+        jsonTemlateName = this._elementTabTitle.innerHTML;
+        jsonTemlateName = removeFileExtend(jsonTemlateName);
+        jsonTemlateName += WidgetFile._extendJsonConf;
     }
+    this._jsonTemplateObj = WidgetHistory.getFileJsonTemplate(jsonTemlateName);
+    if (!this._jsonTemplateObj) {
+        this.initFileTemplate();
+    }
+    var jsonTemplateStr = JSON.stringify(this._jsonTemplateObj);
+    WidgetHistory.setFileJsonTemplate(jsonTemlateName, jsonTemplateStr);
+    // Log.log("========================================");
+    // Log.log(JSON.stringify(this._jsonTemplateObj, null, 2));
+    // Log.log("========================================");
+
+    this.readObject(this._jsonObj, "", foldItem);
+
+    var templatePanel = this._elementTabTitle._widgetTab._panel._fileTemplatePanel;
+    var elementTabTitle = templatePanel._widgetTab.addTitle(this._elementTabTitle.innerHTML + ".jsonConf");
+    templatePanel._widgetTab.addContent(elementTabTitle, jsonTemplateStr, WidgetTab._addContentType.fileContent);
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent) {
 //     var nodeTable = WidgetTableHtml.addTable(elementParent);
@@ -95,25 +110,14 @@ WidgetFileJson.contextMenuInput = function (e) {
     WidgetMenu.showMenu(this._fileCtrl._menuInput, e, this);
     return false; //取消右键点击的默认事件
 }
-WidgetFileJson.prototype.initFileTemplate = function (jsonObj) {
-    this._jsonTemplateStr = '{}';
-    var jsonTemplateObj = JSON.parse(this._jsonTemplateStr, null); // 通过parse获取json对应键值
+WidgetFileJson.prototype.initFileTemplate = function () {
+    this._jsonTemplateObj = {};
+    this._jsonTemplateObj["ignore"] = {};
+    this._jsonTemplateObj["ignore"]["beginList"] = new Array();
+    this._jsonTemplateObj["ignore"]["beginList"].push("$");
 
-    jsonTemplateObj["ignore"] = {};
-    jsonTemplateObj["ignore"]["beginList"] = new Array();
-    jsonTemplateObj["ignore"]["beginList"].push("$");
-
-    jsonTemplateObj["file"] = {};
-    this.createFileTemplate(jsonObj, jsonTemplateObj, "", jsonTemplateObj["file"]);
-
-    this._jsonTemplateStr = JSON.stringify(jsonTemplateObj); // 将字符串对象转换为JSON对象
-    // Log.log("========================================");
-    // Log.log(JSON.stringify(jsonTemplateObj, null, 2));
-    // Log.log("========================================");
-
-    var templatePanel = this._elementTabTitle._WidgetTab._panel._fileTemplatePanel;
-    var elementTabTitle = templatePanel._WidgetTab.addTitle(this._elementTabTitle.innerHTML + ".jsonConf");
-    templatePanel._WidgetTab.addContent(elementTabTitle, this._jsonTemplateStr, WidgetTab._addContentType.fileContent);
+    this._jsonTemplateObj["file"] = {};
+    this.createFileTemplate(this._jsonObj, this._jsonTemplateObj, "", this._jsonTemplateObj["file"]);
 }
 WidgetFileJson.prototype.createFileTemplate = function (jsonObj, jsonTemplateObj, keyParent, jsonObjParent) {
     for (var o in jsonObj) {
