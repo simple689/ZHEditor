@@ -101,15 +101,12 @@ PanelFileBrowser.prototype.refreshBottomRight = function (jsonObj) {
         for (var o in fileList) {
             var value = fileList[o];
             if (typeof(value) == "object") {
-                var type = value[WidgetKey._type];
                 var name = value[WidgetKey._name];
                 var extend = value[WidgetKey._extend];
-                if (type == WidgetKey._file) {
-                    var rightContent = document.createElement("div");
-                    rightContent.innerHTML = name + extend;
-                    var flexItem = this._flexCtrl.addFlexItem(rightContent);
-                    flexItem.classList.add("rightContent");
-                }
+                var rightContent = document.createElement("div");
+                rightContent.innerHTML = path + name + extend;
+                var flexItem = this._flexCtrl.addFlexItem(rightContent);
+                flexItem.classList.add("rightContent");
             }
         }
     }

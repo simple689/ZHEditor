@@ -1,6 +1,9 @@
 function WidgetFile() {
 }
 
+WidgetFile._extendJson = ".json";
+WidgetFile._extendJsonConf = ".jsonConf";
+
 WidgetFile.readFileContent = function (fileContent, elementTabTitle) {
     var elementFileRoot = document.createElement("div");
     elementTabTitle._elementTabContent.appendChild(elementFileRoot);
