@@ -15,6 +15,11 @@ function removeFileExtend(str) {
     var strNew = str.substring(0, index);
     return strNew;
 }
+function changeFileExtend(str, extend) {
+    var strNew = removeFileExtend(str);
+    strNew += extend;
+    return strNew;
+}
 function getFileExtend(str) {
     var index = str.lastIndexOf(".");
     var strNew = str.substring(index, str.length);

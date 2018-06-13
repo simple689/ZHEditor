@@ -31,7 +31,9 @@ WidgetTab.prototype.init = function (elementParent, panel, htmlHome, historyItem
     this.initContentGroup();
     this._elementTabList = new Array();
     this.addHomePage(htmlHome);
-    this.addHistoryPage(historyItemFile);
+    if (historyItemFile) {
+        this.addHistoryPage(historyItemFile);
+    }
 }
 WidgetTab.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = document.createElement("ul");

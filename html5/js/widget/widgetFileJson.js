@@ -13,27 +13,35 @@ WidgetFileJson.prototype.initCtrl = function () {
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
     var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, '');
 
-    var jsonTemlateName = this._jsonObj[WidgetKey._jsonTemplate];
-    if (!jsonTemlateName) {
-        jsonTemlateName = this._elementTabTitle.innerHTML;
-        jsonTemlateName = removeFileExtend(jsonTemlateName);
-        jsonTemlateName += WidgetFile._extendJsonConf;
+    var isLoadTemplate = true;
+    var extend = getFileExtend(this._elementTabTitle.innerHTML);
+    if (extend == WidgetFile._extendJsonConf) {
+        isLoadTemplate = false;
     }
-    this._jsonTemplateObj = WidgetHistory.getFileJsonTemplate(jsonTemlateName);
-    if (!this._jsonTemplateObj) {
-        this.initFileTemplate();
+    if (isLoadTemplate) {
+        var jsonTemlateName = this._jsonObj[WidgetKey._jsonTemplate];
+        if (!jsonTemlateName) {
+            jsonTemlateName = this._elementTabTitle.innerHTML;
+            jsonTemlateName = changeFileExtend(jsonTemlateName, WidgetFile._extendJsonConf);
+        }
+        this._jsonTemplateObj = WidgetHistory.getFileJsonTemplate(jsonTemlateName);
+        if (!this._jsonTemplateObj) {
+            this.initFileTemplate();
+        }
+        WidgetHistory.setFileJsonTemplate(jsonTemlateName, this._jsonTemplateObj);
+        // Log.log("========================================");
+        // Log.log(JSON.stringify(this._jsonTemplateObj, null, 2));
+        // Log.log("========================================");
     }
-    var jsonTemplateStr = JSON.stringify(this._jsonTemplateObj);
-    WidgetHistory.setFileJsonTemplate(jsonTemlateName, jsonTemplateStr);
-    // Log.log("========================================");
-    // Log.log(JSON.stringify(this._jsonTemplateObj, null, 2));
-    // Log.log("========================================");
 
     this.readObject(this._jsonObj, "", foldItem);
 
-    var templatePanel = this._elementTabTitle._widgetTab._panel._fileTemplatePanel;
-    var elementTabTitle = templatePanel._widgetTab.addTitle(this._elementTabTitle.innerHTML + ".jsonConf");
-    templatePanel._widgetTab.addContent(elementTabTitle, jsonTemplateStr, WidgetTab._addContentType.fileContent);
+    if (isLoadTemplate) {
+        var templatePanel = this._elementTabTitle._widgetTab._panel._fileTemplatePanel;
+        var elementTabTitle = templatePanel._widgetTab.addTitle(this._elementTabTitle.innerHTML + ".jsonConf");
+        var jsonTemplateStr = JSON.stringify(this._jsonTemplateObj);
+        templatePanel._widgetTab.addContent(elementTabTitle, jsonTemplateStr, WidgetTab._addContentType.fileContent);
+    }
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent) {
 //     var nodeTable = WidgetTableHtml.addTable(elementParent);

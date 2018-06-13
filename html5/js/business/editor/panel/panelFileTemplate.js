@@ -6,7 +6,8 @@ PanelFileTemplate.prototype.init = function () {
     var rootElement = document.getElementById("panelFileTemplate");
     var dropElement = WidgetDrop.addDrop(rootElement, this);
     this._historyItemFile = WidgetKey._fileTemplate;
-    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
+    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", null);
+    // this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
 
     this._menuRightTitle = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
     this._menuRightContent = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");
