@@ -36,7 +36,10 @@ WidgetMenu.showMenu = function (menu, e, exec) {
         var ulList = li.getElementsByTagName("ul");
         if (ulList[0]) {
             li.classList.add("sub"); // 为含有子菜单的li加上箭头
+        } else {
+            li.classList.add("checked");
         }
+
         li._menu = menu;
         li.onmouseenter = function () { // 鼠标移入
             var liThis = this;
