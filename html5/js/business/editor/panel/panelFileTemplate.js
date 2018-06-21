@@ -9,8 +9,10 @@ PanelFileTemplate.prototype.init = function () {
     this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", null);
     // this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItemFile);
 
-    this._menuRightTitle = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
-    this._menuRightContent = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");
+    this._menuRightTitle = new WidgetMenu();
+    this._menuRightContent = new WidgetMenu();
+    this._menuRightTitle.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
+    this._menuRightContent.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");
 }
 PanelFileTemplate.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {

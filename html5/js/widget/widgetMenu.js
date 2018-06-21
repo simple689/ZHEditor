@@ -11,14 +11,30 @@ function WidgetMenu() {
 
 WidgetMenu._menuList = new Array();
 WidgetMenu._menuPadding = 6;
-WidgetMenu.createMenu = function (elementParent, html) {
-    var menu = document.createElement("div");
-    elementParent.appendChild(menu);
-    menu.classList.add("menu");
-    $(menu).load(html, function () {
+WidgetMenu.prototype.createMenu = function (elementParent) {
+    this._elementRoot = document.createElement("div");
+    elementParent.appendChild(this._elementRoot);
+    this._elementRoot.classList.add("widgetMenu");
+    WidgetMenu._menuList.push(this);
+}
+WidgetMenu.prototype,createMenu = function (elementParent, html) {
+    this.createMenu(elementParent);
+    if (!this._elementRoot) {
+        return;
+    }
+    $(this._elementRoot).load(html, function () {
     });
-    WidgetMenu._menuList.push(menu);
-    return menu;
+}
+WidgetMenu.prototype.addUl = function (elementParent) {
+    var ul = document.createElement("ul");
+    elementParent.appendChild(ul);
+    return ul;
+}
+WidgetMenu.prototype.addLi = function (elementParent, title) {
+    var li = document.createElement("li");
+    elementParent.appendChild(li);
+    li.innerHTML = title;
+    return li;
 }
 /*
  * 弹出菜单
@@ -30,7 +46,7 @@ WidgetMenu.showMenu = function (menu, e, exec) {
     menu._exec = exec;
     WidgetMenu.hideMenuAll();
 
-    var menuLiList = menu.getElementsByTagName("li");
+    var menuLiList = menu._elementRoot.getElementsByTagName("li");
     for (var i = 0; i < menuLiList.length; i++) {
         var li = menuLiList[i];
         var ulList = li.getElementsByTagName("ul");
@@ -58,7 +74,7 @@ WidgetMenu.showMenu = function (menu, e, exec) {
             liThis.classList.remove("active");
         };
     }
-    var menuUlList = menu.getElementsByTagName("ul");
+    var menuUlList = menu._elementRoot.getElementsByTagName("ul");
     if (menuUlList[0]) {
         setUlPosition(menuUlList[0], null, e.clientX, e.clientY);
     }
@@ -70,7 +86,7 @@ WidgetMenu.hideMenuAll = function () {
     }
 }
 WidgetMenu.hideMenu = function (menu) {
-    var ulList = menu.getElementsByTagName("ul");
+    var ulList = menu._elementRoot.getElementsByTagName("ul");
     for (var i = 0; i < ulList.length; i++) {
         setElementDisplay(ulList[i], false);
     }
@@ -82,7 +98,6 @@ WidgetMenu.hideMenuLi = function (li) {
         }
     }
 }
-
 function setUlPosition(ul, ulParent, left, top) {
     setElementDisplay(ul, true); // 显示菜单
 

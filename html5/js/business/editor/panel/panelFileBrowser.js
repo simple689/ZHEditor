@@ -11,7 +11,8 @@ PanelFileBrowser.prototype.init = function () {
     this.initBottomRight();
 }
 PanelFileBrowser.prototype.initTop = function () {
-    this._menuLeftCreate = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileBrowserCreate.html");
+    this._menuLeftCreate = new WidgetMenu();
+    this._menuLeftCreate.createMenu(document.body, "../../editor/menu/menuFileBrowserCreate.html");
 
     var createBtn = document.getElementById("createBtn");
     createBtn._PanelFileBrowser = this;

@@ -12,8 +12,10 @@ PanelFileEditor.prototype.init = function (fileTemplatePanel) {
     this._historyItemFile = WidgetKey._fileEditor;
     this._widgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItemFile);
 
-    this._menuRightTitle = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileEditorTitle.html");
-    this._menuRightContent = WidgetMenu.createMenu(document.body, "../../editor/menu/menuFileEditorContent.html");
+    this._menuRightTitle = new WidgetMenu();
+    this._menuRightContent = new WidgetMenu();
+    this._menuRightTitle.createMenu(document.body, "../../editor/menu/menuFileEditorTitle.html");
+    this._menuRightContent.createMenu(document.body, "../../editor/menu/menuFileEditorContent.html");
 }
 PanelFileEditor.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {

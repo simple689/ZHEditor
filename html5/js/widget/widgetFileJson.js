@@ -6,8 +6,6 @@ WidgetFileJson.prototype.init = function (elementTabTitle, fileStr) {
     this._elementTabTitle = elementTabTitle;
     this._jsonObj = JSON.parse(fileStr);
     this.initCtrl();
-    this._menuLabel = WidgetMenu.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonLabel.html");
-    this._menuInput = WidgetMenu.createMenu(document.body, "../../../widget/widgetFileJson/menuJsonInput.html");
 }
 WidgetFileJson.prototype.initCtrl = function () {
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
@@ -91,18 +89,18 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
             var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, key);
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
-            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJson.elementLabelOnContextMenu);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJson.contextMenuInput);
+            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJson.onContextMenuLabel);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJson.onContextMenuInput);
             WidgetHtml.addBr(elementParent);
         } else if (typeof(value) == "number") {
-            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJson.elementLabelOnContextMenu);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJson.contextMenuInput);
+            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJson.onContextMenuLabel);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJson.onContextMenuInput);
             if (!(key == 'x' || key == 'y' || key == 'z')) {
                 WidgetHtml.addBr(elementParent);
             }
         } else if (typeof(value) == "boolean") {
-            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJson.elementLabelOnContextMenu);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJson.contextMenuInput);
+            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJson.onContextMenuLabel);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJson.onContextMenuInput);
             WidgetHtml.addBr(elementParent);
         } else {
             var strType = typeof(value);
@@ -110,12 +108,40 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
         }
     }
 }
-WidgetFileJson.elementLabelOnContextMenu = function (e) {
-    WidgetMenu.showMenu(this._fileCtrl._menuLabel, e, this);
+WidgetFileJson.onContextMenuLabel = function (e) {
+    var menu = new WidgetMenu();
+    menu.createMenu(document.body);
+    var ul = menu.addUl(menu._elementRoot);
+    var li = menu.addLi(ul, "原始Key:");
+    li = menu.addLi(ul, "复制原始Key");
+    li = menu.addLi(ul, "编辑显示Key");
+    li = menu.addLi(ul, "下一个键值对不换行");
+    WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
-WidgetFileJson.contextMenuInput = function (e) {
-    WidgetMenu.showMenu(this._fileCtrl._menuInput, e, this);
+WidgetFileJson.onContextMenuInput = function (e) {
+    var menu = new WidgetMenu();
+    menu.createMenu(document.body);
+    var ul = menu.addUl(menu._elementRoot);
+    var li = menu.addLi(ul, "原始Key:");
+    li = menu.addLi(ul, "复制原始Key");
+    li = menu.addLi(ul, "编辑显示Key");
+    li = menu.addLi(ul, "值类型");
+
+    var ul_0 = menu.addUl(li);
+    li = menu.addLi(ul_0, "字符串");
+    li = menu.addLi(ul_0, "数字");
+    var ul_0_0 = menu.addUl(li);
+    li = menu.addLi(ul_0_0, "整数");
+    li = menu.addLi(ul_0_0, "小数");
+
+    li = menu.addLi(ul_0, "按钮");
+    li = menu.addLi(ul_0, "真假");
+    li = menu.addLi(ul_0, "单选");
+    li = menu.addLi(ul_0, "文件");
+    li = menu.addLi(ul_0, "颜色");
+
+    WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
 WidgetFileJson.prototype.initFileTemplate = function () {
