@@ -6,14 +6,14 @@ WidgetSearch.prototype.createSearch = function (panel, elementBrother) {
     this._panel = panel;
 
     this._searchText = document.createElement("input");
-    elementBrother.after(this._searchText);
+    $(elementBrother).after(this._searchText);
     this._searchText._WidgetSearch = this;
     this._searchText.classList.add("searchText");
     $(this._searchText).on("keyup", WidgetSearch.onKeyUpSearchText);
     $(this._searchText).on("focus", WidgetSearch.onFocusSearchText);
 
     this._searchBtn = document.createElement("input");
-    this._searchText.after(this._searchBtn);
+    $(this._searchText).after(this._searchBtn);
     this._searchBtn._WidgetSearch = this;
     this._searchBtn.classList.add("searchBtn");
     $(this._searchBtn).on("click", WidgetSearch.onClickSearchBtn);
@@ -21,7 +21,7 @@ WidgetSearch.prototype.createSearch = function (panel, elementBrother) {
     this._searchBtn.value = "搜索";
 
     this._searchHistoryBox = document.createElement("div");
-    this._searchBtn.after(this._searchHistoryBox);
+    $(this._searchBtn).after(this._searchHistoryBox);
     this._searchHistoryBox.classList.add("searchHistoryBox");
 
     this._searchHistory = document.createElement("ul");

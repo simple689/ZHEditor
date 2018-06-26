@@ -12,7 +12,7 @@ WidgetFile.readFileContent = function (fileContent, elementTabTitle) {
 
     elementTabTitle._fileJsonCtrl = new WidgetFileJson();
     elementTabTitle._fileJsonCtrl.init(elementTabTitle, fileContent);
-    WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._widgetTab._panel._historyItemFile);
+    WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._widgetTab._panel._historyItem);
 }
 WidgetFile.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");

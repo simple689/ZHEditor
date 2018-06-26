@@ -1,10 +1,10 @@
 function WidgetKey() {
 }
 
-WidgetKey._fileEditor = "fileEditor";
-WidgetKey._fileTemplate = "fileTemplate";
-WidgetKey._fileBrowser = "fileBrowser";
-WidgetKey._fileJsonTemplate = "fileJsonTemplate";
+WidgetKey._panelFileEditor = "panelFileEditor";
+WidgetKey._panelFileTemplate = "panelFileTemplate";
+WidgetKey._panelFileBrowser = "panelFileBrowser";
+WidgetKey._widgetFileJsonTemplate = "widgetFileJsonTemplate";
 
 WidgetKey._fileList = "fileList";
 WidgetKey._folderList = "folderList";

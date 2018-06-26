@@ -99,7 +99,7 @@ WidgetTab.prototype.closeTitle = function (elementTabTitle) {
     this._elementTabContentGroup.removeChild(elementTabTitle._elementTabContent);
     this._elementTabTitleGroup.removeChild(elementTabTitle);
 
-    WidgetHistory.delFile(elementTabTitle, this._panel._historyItemFile);
+    WidgetHistory.delFile(elementTabTitle, this._panel._historyItem);
 }
 WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType) {
     var elementTabContent = document.createElement("div");

@@ -9,8 +9,8 @@ PanelFileEditor.prototype.init = function (fileTemplatePanel) {
 
     this._fileTemplatePanel = fileTemplatePanel;
 
-    this._historyItemFile = WidgetKey._fileEditor;
-    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItemFile);
+    this._historyItem = WidgetKey._panelFileEditor;
+    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItem);
 
     this._menuRightTitle = new WidgetMenu();
     this._menuRightContent = new WidgetMenu();

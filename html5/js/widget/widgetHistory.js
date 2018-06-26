@@ -10,7 +10,6 @@ WidgetHistory.init = function () {
     } else {
         Log.log('This browser does NOT support localStorage');
     }
-    // localStorage.removeItem("b");//清除b的值
     // localStorage.pageLoadCount = parseInt(localStorage.getItem("pageLoadCount")) + 1;//必须格式转换
     // if(window.addEventListener){
     //     window.addEventListener("localStorage", handle_storage, false);
@@ -26,7 +25,11 @@ WidgetHistory.init = function () {
     // }
 }
 WidgetHistory.clear = function () {
-    WidgetHistory._localStorage.clear();
+    // WidgetHistory._localStorage.clear();
+    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
+    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileTemplate);
+    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileBrowser);
+    WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonTemplate);
     alert("清空历史记录完毕！");
 }
 WidgetHistory.setItem = function (key, value) {
@@ -57,7 +60,7 @@ WidgetHistory.addFile = function (fileName, fileContent, historyItemFile) {
         var len = fileList.length;
         fileList[len - 1][WidgetKey._fileContent] = fileContent;
     }
-    WidgetHistory._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistory.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
 WidgetHistory.delFile = function (elementTabTitle, historyItemFile) {
     var fileName = elementTabTitle.innerHTML;
@@ -74,7 +77,7 @@ WidgetHistory.delFile = function (elementTabTitle, historyItemFile) {
             break;
         }
     }
-    WidgetHistory._localStorage.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
+    WidgetHistory.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
 WidgetHistory.getFile = function (historyItemFile) {
     var fileEditItem = WidgetHistory._localStorage.getItem(historyItemFile);
@@ -86,7 +89,7 @@ WidgetHistory.getFile = function (historyItemFile) {
     return fileList;
 }
 WidgetHistory.getFileBrowser = function () {
-    var item = WidgetHistory.getItem(WidgetKey._fileBrowser);
+    var item = WidgetHistory.getItem(WidgetKey._panelFileBrowser);
     var jsonObj = JSON.parse('{}');
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
@@ -107,7 +110,7 @@ WidgetHistory.getFileBrowser = function () {
 }
 WidgetHistory.setFileBrowser = function (jsonObj) {
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
-    WidgetHistory.setItem(WidgetKey._fileBrowser, jsonStr);
+    WidgetHistory.setItem(WidgetKey._panelFileBrowser, jsonStr);
 }
 WidgetHistory.addFileBrowserRootFolder = function (jsonObj, key, title) {
     jsonObj[key] = {};
@@ -144,7 +147,7 @@ WidgetHistory.addFileBrowserFile = function (jsonObj, title, extend) {
     list[index][WidgetKey._extend] = extend;
 }
 WidgetHistory.getFileJsonTemplate = function (fileName) {
-    var item = WidgetHistory.getItem(WidgetKey._fileJsonTemplate);
+    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonTemplate);
     var jsonObj = JSON.parse('{}');
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
@@ -152,12 +155,12 @@ WidgetHistory.getFileJsonTemplate = function (fileName) {
     return jsonObj[fileName];
 }
 WidgetHistory.setFileJsonTemplate = function (fileName, jsonTemplateObj) {
-    var item = WidgetHistory.getItem(WidgetKey._fileJsonTemplate);
+    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonTemplate);
     var jsonObj = JSON.parse('{}');
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     }
     jsonObj[fileName] = jsonTemplateObj;
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
-    WidgetHistory.setItem(WidgetKey._fileJsonTemplate, jsonStr);
+    WidgetHistory.setItem(WidgetKey._widgetFileJsonTemplate, jsonStr);
 }
