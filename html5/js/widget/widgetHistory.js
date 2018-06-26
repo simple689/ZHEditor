@@ -10,12 +10,8 @@ WidgetHistory.init = function () {
     } else {
         Log.log('This browser does NOT support localStorage');
     }
-    // WidgetHistory._localStorage.clear();
-    // alert(WidgetHistory._localStorage);
-
     // localStorage.removeItem("b");//清除b的值
     // localStorage.pageLoadCount = parseInt(localStorage.getItem("pageLoadCount")) + 1;//必须格式转换
-    //
     // if(window.addEventListener){
     //     window.addEventListener("localStorage", handle_storage, false);
     // }else if(window.attachEvent){
@@ -28,6 +24,10 @@ WidgetHistory.init = function () {
     //         document.write(localStorage.key(i)+ " : " + localStorage.getItem(localStorage.key(i)) + "<br>");
     //     }
     // }
+}
+WidgetHistory.clear = function () {
+    WidgetHistory._localStorage.clear();
+    alert("清空历史记录完毕！");
 }
 WidgetHistory.setItem = function (key, value) {
     WidgetHistory._localStorage.setItem(key, value);

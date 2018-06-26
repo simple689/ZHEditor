@@ -105,7 +105,7 @@ $(document).ready(function () {
     WidgetHistory.init();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
-        $('#panelToolBar').load("../panel/panelToolBar.html", function () {
+        $('#panelToolBarTmp').load("../panel/panelToolBar.html", function () {
             panelMenu.init();
             panelToolBar.init();
         });
