@@ -1,23 +1,38 @@
 <div id="panelMenu" class="navMenu" style="height: 30px;">
     <ul>
-        <li class='navHasSub' onclick="MenuFileEditor.closeTitle(this)">庄严禅院
+        <li class='navHasSub'>文件
             <ul>
-                <li>缘起</li>
+                <li>新建</li>
+                <li>打开</li>
+                <li>保存</li>
+                <li>保存所有</li>
                 <span>------------------------------------------</span>
-                <li>出入账明细表</li>
+                <li>退出</li>
             </ul>
         </li>
-        <li class='navHasSub'>游戏人间
+        <li class='navHasSub'>编辑
             <ul>
-                <li>佛教电影/电视</li>
+                <li>撤销</li>
+                <li>重做</li>
                 <span>------------------------------------------</span>
-                <li class='navHasSub'>游戏
+                <li>剪切</li>
+                <li>复制</li>
+                <li>粘贴</li>
+            </ul>
+        </li>
+        <li class='navHasSub'>历史
+            <ul>
+                <li class='navHasSub'>清空历史记录
                     <ul>
-                        <li>共建极乐</li>
+                        <li onclick="PanelMenu.onClickHistoryClear()">所有</li>
                         <span>------------------------------------------</span>
-                        <li>猜迷语/猜字</li>
+                        <li>文件编辑</li>
+                        <li>文件模版</li>
+                        <li>文件浏览器</li>
+                        <li>json模版</li>
                     </ul>
                 </li>
+                <span>------------------------------------------</span>
             </ul>
         </li>
     </ul>
