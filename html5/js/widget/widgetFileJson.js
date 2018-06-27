@@ -9,29 +9,22 @@ WidgetFileJson.prototype.init = function (elementTabTitle, fileStr) {
 }
 WidgetFileJson.prototype.initCtrl = function () {
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
-    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, '');
+    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, this, '文件根节点', null);
 
-    this._isLoadTemplate = true;
-    var extend = getFileExtend(this._elementTabTitle.innerHTML);
-    if (extend == WidgetFile._extendJsonConf) {
-        this._isLoadTemplate = false;
+    var jsonTemplateName = this._jsonObj[WidgetKey._jsonTemplate];
+    if (!jsonTemplateName) {
+        jsonTemplateName = this._elementTabTitle.innerHTML;
+        jsonTemplateName = changeFileExtend(jsonTemplateName, WidgetFile._extendJsonConf);
     }
-    if (this._isLoadTemplate) {
-        var jsonTemplateName = this._jsonObj[WidgetKey._jsonTemplate];
-        if (!jsonTemplateName) {
-            jsonTemplateName = this._elementTabTitle.innerHTML;
-            jsonTemplateName = changeFileExtend(jsonTemplateName, WidgetFile._extendJsonConf);
-        }
-        this._fileJsonTemplateCtrl = new WidgetFileJsonTemplate();
-        this._fileJsonTemplateCtrl.init(this, jsonTemplateName);
-    }
+    this._fileJsonTemplateCtrl = new WidgetFileJsonTemplate();
+    this._fileJsonTemplateCtrl.getTemplate(jsonTemplateName, this._jsonObj);
+
     this.readObject(this._jsonObj, "", foldItem);
-    if (this._isLoadTemplate) {
-        var templatePanel = this._elementTabTitle._widgetTab._panel._fileTemplatePanel;
-        var elementTabTitle = templatePanel._widgetTab.addTitle(this._elementTabTitle.innerHTML + ".jsonConf");
-        var jsonTemplateStr = JSON.stringify(this._fileJsonTemplateCtrl._jsonTemplateObj);
-        templatePanel._widgetTab.addContent(elementTabTitle, jsonTemplateStr, WidgetTab._addContentType.fileContent);
-    }
+
+    var templatePanel = this._elementTabTitle._widgetTab._panel._fileTemplatePanel;
+    var elementTabTitle = templatePanel._widgetTab.addTitle(jsonTemplateName);
+    var jsonTemplateStr = JSON.stringify(this._fileJsonTemplateCtrl._jsonTemplateObj);
+    templatePanel._widgetTab.addContent(elementTabTitle, jsonTemplateStr, WidgetTab._addContentType.fileContent);
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent) {
 //     var nodeTable = WidgetTableHtml.addTable(elementParent);
@@ -66,11 +59,9 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
     for (var o in jsonObj) {
         var key = o;
 
-        if (this._isLoadTemplate) {
-            var isIgnore = this._fileJsonTemplateCtrl.isTemplateIgnore(key);
-            if (isIgnore) {
-                continue;
-            }
+        var isIgnore = this._fileJsonTemplateCtrl.isTemplateIgnore(key);
+        if (isIgnore) {
+            continue;
         }
 
         var value = jsonObj[key];
@@ -82,7 +73,7 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
             if (Array.isArray(value)) {
                 // Log.log(value);
             }
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, key);
+            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, this, key, null);
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
             WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJson.onContextMenuLabel);

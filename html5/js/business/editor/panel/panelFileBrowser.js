@@ -46,7 +46,7 @@ PanelFileBrowser.prototype.initBottom = function () {
 };
 PanelFileBrowser.prototype.initBottomLeft = function () {
     var left = document.getElementById("left");
-    var foldItem = this._menuFoldCtrl.createMenuFold(left, '全部文件');
+    var foldItem = this._menuFoldCtrl.createMenuFold(left, this, '全部文件', null);
 
     this._jsonFileBrowser = WidgetHistory.getFileBrowser();
     // Log.log(JSON.stringify(jsonObj, null, 2));

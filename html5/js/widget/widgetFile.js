@@ -10,8 +10,13 @@ WidgetFile.readFileContent = function (fileContent, elementTabTitle) {
     elementTabTitle._elementFileRoot = elementFileRoot;
     elementFileRoot.classList.add("widgetFileRoot");
 
-    elementTabTitle._fileJsonCtrl = new WidgetFileJson();
-    elementTabTitle._fileJsonCtrl.init(elementTabTitle, fileContent);
+    var extend = getFileExtend(elementTabTitle.innerHTML);
+    if (extend == WidgetFile._extendJson) {
+        elementTabTitle._fileCtrl = new WidgetFileJson();
+    } else if (extend == WidgetFile._extendJsonConf) {
+        elementTabTitle._fileCtrl = new WidgetFileJsonTemplate();
+    }
+    elementTabTitle._fileCtrl.init(elementTabTitle, fileContent);
     WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._widgetTab._panel._historyItem);
 }
 WidgetFile.readFile = function (file, elementTabTitle) {
