@@ -23,5 +23,5 @@ WidgetTableHtml.addLabel = function (nodeRow, key, keyShow) {
 }
 WidgetTableHtml.addInput = function (nodeRow, value, inputType) {
     var nodeCell = WidgetTableHtml.addCell(nodeRow);
-    WidgetHtml.addInput(nodeCell, this, value, inputType, null, null);
+    WidgetHtml.addInput(nodeCell, this, value, inputType, null, null, null);
 }

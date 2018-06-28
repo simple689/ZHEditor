@@ -51,17 +51,17 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
             WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJsonTemplate.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJsonTemplate.onContextMenuInput);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJsonTemplate.onContextMenuInput, WidgetFileJsonTemplate.onChangeInput);
             WidgetHtml.addBr(elementParent);
         } else if (typeof(value) == "number") {
             WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJsonTemplate.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJsonTemplate.onContextMenuInput);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJsonTemplate.onContextMenuInput, WidgetFileJsonTemplate.onChangeInput);
             if (!(key == 'x' || key == 'y' || key == 'z')) {
                 WidgetHtml.addBr(elementParent);
             }
         } else if (typeof(value) == "boolean") {
             WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJsonTemplate.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJsonTemplate.onContextMenuInput);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJsonTemplate.onContextMenuInput, WidgetFileJsonTemplate.onChangeInput);
             WidgetHtml.addBr(elementParent);
         } else {
             var strType = typeof(value);
@@ -157,6 +157,21 @@ WidgetFileJsonTemplate.onClickArrayClear = function (e) {
     var dt = this._menu._exec;
     var jsonObj = dt._value;
     jsonObj.splice(0, jsonObj.length);
+    var widgetFileJsonTemplate = this._menu._exec._fileCtrl;
+    widgetFileJsonTemplate.refreshContent();
+}
+WidgetFileJsonTemplate.onChangeInput = function (e) {
+    var inputType = this._inputType;
+    var value = this.value;
+    switch (inputType) {
+        case WidgetHtml._inputType.checkbox :
+        case WidgetHtml._inputType.radio : {
+            value = this.checked;
+            break;
+        }
+    }
+    var jsonObj = this._value;
+    jsonObj = value;
     var widgetFileJsonTemplate = this._menu._exec._fileCtrl;
     widgetFileJsonTemplate.refreshContent();
 }

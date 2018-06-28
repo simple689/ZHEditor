@@ -14,6 +14,17 @@ WidgetHtml._inputType = {
     reset: 9,
     color: 10
 }
+WidgetHtmlObj = function () {
+    this._ctrl = null;
+    this._obj = null;
+    this._key = null;
+    this._keyShow = null;
+};
+WidgetHtmlOnEvent = function () {
+    this._onClick = null;
+    this._onContextMenu = null;
+    this._onChange = null;
+};
 WidgetHtml.onChangeInput = function (e) {
     switch (this._inputType) {
         case WidgetHtml._inputType.textString : {
@@ -32,6 +43,9 @@ WidgetHtml.onChangeInput = function (e) {
             break;
         }
     }
+    if (this._onChange) {
+        this._onChange();
+    }
 }
 WidgetHtml.addBr = function (nodeParent) {
     var nodeBr = document.createElement("br");
@@ -39,25 +53,27 @@ WidgetHtml.addBr = function (nodeParent) {
     nodeBr.classList.add("nodeBr");
     return nodeBr;
 }
-WidgetHtml.addLabel = function (nodeParent, fileCtrl, key, keyShow, onClick, onContextMenu) {
+WidgetHtml.addLabel = function (nodeParent, fileCtrl, widgetHtmlObj, widgetHtmlOnEvent) {
     var nodeLabel = document.createElement("label");
     nodeParent.appendChild(nodeLabel);
     nodeLabel.classList.add("nodeLabel");
     nodeLabel._fileCtrl = fileCtrl;
-    nodeLabel.onclick = onClick;
-    nodeLabel.oncontextmenu = onContextMenu;
+    nodeLabel.onclick = widgetHtmlOnEvent._onClick;
+    nodeLabel.oncontextmenu = widgetHtmlOnEvent._onContextMenu;
     nodeLabel._key = key;
     nodeLabel.innerHTML = keyShow;
     return nodeLabel;
 }
-WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, onClick, onContextMenu) {
+WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, widgetHtmlOnEvent) {
     var nodeInput = document.createElement("input");
     nodeParent.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
     nodeInput._fileCtrl = fileCtrl;
-    nodeInput.onclick = onClick;
-    nodeInput.oncontextmenu = onContextMenu;
+    nodeInput._value = value;
+    nodeInput.onclick = widgetHtmlOnEvent._onClick;
+    nodeInput.oncontextmenu = widgetHtmlOnEvent._onContextMenu;
     nodeInput.onchange = WidgetHtml.onChangeInput;
+    nodeInput._onChange = widgetHtmlOnEvent._onChange;
     nodeInput._inputType = inputType;
     switch (inputType) {
         case WidgetHtml._inputType.button : {

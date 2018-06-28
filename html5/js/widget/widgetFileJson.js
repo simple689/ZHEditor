@@ -81,17 +81,17 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
             WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJson.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJson.onContextMenuInput);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJson.onContextMenuInput, null);
             WidgetHtml.addBr(elementParent);
         } else if (typeof(value) == "number") {
             WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJson.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJson.onContextMenuInput);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJson.onContextMenuInput, null);
             if (!(key == 'x' || key == 'y' || key == 'z')) {
                 WidgetHtml.addBr(elementParent);
             }
         } else if (typeof(value) == "boolean") {
             WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJson.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJson.onContextMenuInput);
+            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJson.onContextMenuInput, null);
             WidgetHtml.addBr(elementParent);
         } else {
             var strType = typeof(value);
