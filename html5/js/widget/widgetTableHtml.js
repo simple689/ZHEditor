@@ -17,9 +17,9 @@ WidgetTableHtml.addCell = function (nodeRow) {
     nodeCell.classList.add("nodeCell");
     return nodeCell;
 }
-WidgetTableHtml.addLabel = function (nodeRow, value) {
+WidgetTableHtml.addLabel = function (nodeRow, key, keyShow) {
     var nodeCell = WidgetTableHtml.addCell(nodeRow);
-    WidgetHtml.addLabel(nodeCell, this, value, null, null);
+    WidgetHtml.addLabel(nodeCell, this, key, keyShow, null, null);
 }
 WidgetTableHtml.addInput = function (nodeRow, value, inputType) {
     var nodeCell = WidgetTableHtml.addCell(nodeRow);

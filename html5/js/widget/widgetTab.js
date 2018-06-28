@@ -13,8 +13,9 @@ WidgetTab._slideSpeed = 200;
 WidgetTab._addContentType = {
     string: 0,
     html: 1,
-    fileContent: 2,
-    file: 3
+    file: 2,
+    fileContent: 3,
+    fileJsonObj: 4
 }
 WidgetTab._onContextMenuType = {
     tabTitle: 0,
@@ -111,11 +112,20 @@ WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType
 
     elementTabTitle._elementTabContent = elementTabContent;
 
+    this.refreshContent(elementTabTitle, content, contentType);
+}
+WidgetTab.prototype.refreshContent = function (elementTabTitle, content, contentType) {
+    var elementTabContent = elementTabTitle._elementTabContent;
+    var len = elementTabContent.childNodes.length;
+    for (var i = 0; i < len; i++) {
+        elementTabContent.removeChild(elementTabContent.childNodes[0]);
+    }
+
     if (contentType == WidgetTab._addContentType.string) {
         elementTabContent.innerHTML = content;
     } else if (contentType == WidgetTab._addContentType.html) {
         var elementHtmlRoot = document.createElement("div");
-        elementTabTitle._elementTabContent.appendChild(elementHtmlRoot);
+        elementTabContent.appendChild(elementHtmlRoot);
         elementTabTitle._elementHtmlRoot = elementHtmlRoot;
         elementHtmlRoot.classList.add("htmlRoot");
         elementHtmlRoot._elementTabTitle = elementTabTitle;
@@ -126,10 +136,10 @@ WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType
             } catch (e) {
             }
         });
-    } else if (contentType == WidgetTab._addContentType.fileContent) {
-        this.addFileContent(content, elementTabTitle);
     } else if (contentType == WidgetTab._addContentType.file) {
         this.addFile(content, elementTabTitle);
+    } else if (contentType == WidgetTab._addContentType.fileContent || contentType == WidgetTab._addContentType.fileJsonObj) {
+        this.addFileContent(content, elementTabTitle, contentType);
     }
 }
 WidgetTab.prototype.setActiveElement = function (elementActive) {
@@ -166,9 +176,9 @@ WidgetTab.onContextMenuTabContent = function (e) {
     this._widgetTab._panel.tabOnContextMenu(this, e, WidgetTab._onContextMenuType.tabContent);
     return false; //取消右键点击的默认事件
 }
-WidgetTab.prototype.addFileContent = function (fileContent, elementTabTitle) {
-    WidgetFile.readFileContent(fileContent, elementTabTitle);
-}
 WidgetTab.prototype.addFile = function (file, elementTabTitle) {
     WidgetFile.readFile(file, elementTabTitle);
+}
+WidgetTab.prototype.addFileContent = function (fileContent, elementTabTitle, contentType) {
+    WidgetFile.readFileContent(fileContent, elementTabTitle, contentType);
 }

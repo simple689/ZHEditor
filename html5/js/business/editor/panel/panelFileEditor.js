@@ -28,7 +28,7 @@ PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {
     var elementFileRoot = homeFileEditor;
     var isShowDemo = false;
     if (isShowDemo) {
-        WidgetHtml.addLabel(elementFileRoot, this, "demo", null, null);
+        WidgetHtml.addLabel(elementFileRoot, this, "demo", "demo", null, null);
         WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.textString, null, null);
         WidgetHtml.addInput(elementFileRoot, this, 689, WidgetHtml._inputType.textNumber, null, null);
         WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType.button, null, null);

@@ -46,7 +46,7 @@ PanelFileBrowser.prototype.initBottom = function () {
 };
 PanelFileBrowser.prototype.initBottomLeft = function () {
     var left = document.getElementById("left");
-    var foldItem = this._menuFoldCtrl.createMenuFold(left, this, '全部文件', null);
+    var foldItem = this._menuFoldCtrl.createMenuFold(left, this, "root", "全部文件", null, null);
 
     this._jsonFileBrowser = WidgetHistory.getFileBrowser();
     // Log.log(JSON.stringify(jsonObj, null, 2));
@@ -76,11 +76,11 @@ PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elem
                     isHasChild = true;
                     fold = this._menuFoldCtrl.addFold(elementParent, null);
                 }
-                var element = WidgetHtml.addLabel(fold, this, title, PanelFileBrowser.onClickFolderName, null);
+                var element = WidgetHtml.addLabel(fold, this, title, title, PanelFileBrowser.onClickFolderName, null);
                 element._panel = this;
                 element._jsonObj = value;
                 element.classList.add("folderName");
-                // element = WidgetHtml.addLabel(fold, this, pathChild, PanelFileBrowser.onClickFolderPath, null);
+                // element = WidgetHtml.addLabel(fold, this, pathChild, pathChild, PanelFileBrowser.onClickFolderPath, null);
                 // element.classList.add("folderPath");
                 WidgetHtml.addBr(fold);
                 if (isHasChild) {

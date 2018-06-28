@@ -38,7 +38,7 @@ WidgetHistory.setItem = function (key, value) {
 WidgetHistory.getItem = function (key) {
     return WidgetHistory._localStorage.getItem(key);
 }
-WidgetHistory.addFile = function (fileName, fileContent, historyItemFile) {
+WidgetHistory.addFile = function (fileName, fileContent, contentType, historyItemFile) {
     var fileEditItem = WidgetHistory._localStorage.getItem(historyItemFile);
     if (!fileEditItem) {
         fileEditItem = '{"' + WidgetKey._fileList + '":[{"' + WidgetKey._fileName + '":"首页","' + WidgetKey._fileContent + '":"首页内容"}]}';
@@ -50,7 +50,11 @@ WidgetHistory.addFile = function (fileName, fileContent, historyItemFile) {
         var key = o;
         if (fileList[key][WidgetKey._fileName] == fileName) {
             isExist = true;
-            fileList[key][WidgetKey._fileContent] = fileContent;
+            var fileStr = fileContent;
+            if (contentType == WidgetTab._addContentType.fileJsonObj) {
+                fileStr = JSON.stringify(fileContent);
+            }
+            fileList[key][WidgetKey._fileContent] = fileStr;
             break;
         }
     }

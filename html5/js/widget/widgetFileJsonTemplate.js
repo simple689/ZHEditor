@@ -2,20 +2,37 @@ function WidgetFileJsonTemplate() {
     this._menuFoldCtrl = new WidgetMenuFold();
 }
 
-WidgetFileJsonTemplate.prototype.init = function (elementTabTitle, fileStr) {
+WidgetFileJsonTemplate.prototype.init = function (elementTabTitle, fileContent, contentType) {
     this._elementTabTitle = elementTabTitle;
-    this._jsonObj = JSON.parse(fileStr);
+    if (contentType == WidgetTab._addContentType.fileContent) {
+        this._jsonObj = JSON.parse(fileContent);
+    } else if (contentType == WidgetTab._addContentType.fileJsonObj) {
+        this._jsonObj = fileContent;
+    }
     this.initCtrl();
 }
 WidgetFileJsonTemplate.prototype.initCtrl = function () {
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
-    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, this, '文件根节点', WidgetFileJsonTemplate.onContextMenuRoot);
+    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, this, "root", "文件根节点", this._jsonObj, WidgetFileJsonTemplate.onContextMenuRoot);
 
     this.readObject(this._jsonObj, "", foldItem);
 }
 WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elementParent) {
     for (var o in jsonObj) {
         var key = o;
+        var keyShow = key;
+        var onContextMenuFunc = null;
+        if (key == "ignore") {
+            keyShow = "忽略";
+        } else if (key == "beginList") {
+            keyShow = "开头字符串列表";
+        } else if (key == "file") {
+            keyShow = "文件";
+        } else if (key == "showTitle") {
+            keyShow = "显示名字";
+        } else if (key == "valueType") {
+            keyShow = "值类型";
+        }
 
         var value = jsonObj[key];
         if (typeof(value) == "object") {
@@ -23,25 +40,27 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
             keyChild += "->";
             keyChild += key;
             keyChild += "->";
-            var onContextMenuFunc = WidgetFileJsonTemplate.onContextMenuObject;
             if (Array.isArray(value)) {
                 Log.log(value);
                 onContextMenuFunc = WidgetFileJsonTemplate.onContextMenuArray;
+            } else {
+                onContextMenuFunc = WidgetFileJsonTemplate.onContextMenuObject;
             }
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, this, key, onContextMenuFunc);
+
+            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, this, key, keyShow, value, onContextMenuFunc);
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
-            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJsonTemplate.onContextMenuLabel);
+            WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJsonTemplate.onContextMenuLabel);
             WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJsonTemplate.onContextMenuInput);
             WidgetHtml.addBr(elementParent);
         } else if (typeof(value) == "number") {
-            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJsonTemplate.onContextMenuLabel);
+            WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJsonTemplate.onContextMenuLabel);
             WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJsonTemplate.onContextMenuInput);
             if (!(key == 'x' || key == 'y' || key == 'z')) {
                 WidgetHtml.addBr(elementParent);
             }
         } else if (typeof(value) == "boolean") {
-            WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJsonTemplate.onContextMenuLabel);
+            WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJsonTemplate.onContextMenuLabel);
             WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJsonTemplate.onContextMenuInput);
             WidgetHtml.addBr(elementParent);
         } else {
@@ -54,7 +73,8 @@ WidgetFileJsonTemplate.onContextMenuRoot = function (e) {
     var menu = new WidgetMenu();
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
-    var li = menu.addLi(ul, "刷新");
+    var li = menu.addLi(ul, "刷新", WidgetFileJsonTemplate.onClickRefresh);
+    li = menu.addLi(ul, "保存", WidgetFileJsonTemplate.onClickSave);
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
@@ -62,8 +82,13 @@ WidgetFileJsonTemplate.onContextMenuObject = function (e) {
     var menu = new WidgetMenu();
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
-    var li = menu.addLi(ul, "添加对象");
-    li = menu.addLi(ul, "添加数组");
+    var li = null;
+    if (this._key == "ignore") {
+        li = menu.addLi(ul, "暂无功能", null);
+    } else {
+        li = menu.addLi(ul, "添加对象", null);
+        li = menu.addLi(ul, "添加数组", null);
+    }
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
@@ -71,8 +96,8 @@ WidgetFileJsonTemplate.onContextMenuArray = function (e) {
     var menu = new WidgetMenu();
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
-    var li = menu.addLi(ul, "数组中添加对象");
-    li = menu.addLi(ul, "数组中清空对象");
+    var li = menu.addLi(ul, "数组中添加对象", WidgetFileJsonTemplate.onClickArrayAdd);
+    li = menu.addLi(ul, "数组中清空对象", WidgetFileJsonTemplate.onClickArrayClear);
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
@@ -80,10 +105,10 @@ WidgetFileJsonTemplate.onContextMenuLabel = function (e) {
     var menu = new WidgetMenu();
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
-    var li = menu.addLi(ul, "原始Key:");
-    li = menu.addLi(ul, "复制原始Key");
-    li = menu.addLi(ul, "编辑显示Key");
-    li = menu.addLi(ul, "下一个键值对不换行");
+    var li = menu.addLi(ul, "原始Key:", null);
+    li = menu.addLi(ul, "复制原始Key", null);
+    li = menu.addLi(ul, "编辑显示Key", null);
+    li = menu.addLi(ul, "下一个键值对不换行", null);
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
@@ -91,26 +116,53 @@ WidgetFileJsonTemplate.onContextMenuInput = function (e) {
     var menu = new WidgetMenu();
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
-    var li = menu.addLi(ul, "原始Key:");
-    li = menu.addLi(ul, "复制原始Key");
-    li = menu.addLi(ul, "编辑显示Key");
-    li = menu.addLi(ul, "值类型");
+    var li = menu.addLi(ul, "原始Key:", null);
+    li = menu.addLi(ul, "复制原始Key", null);
+    li = menu.addLi(ul, "编辑显示Key", null);
+    li = menu.addLi(ul, "值类型", null);
 
     var ul_0 = menu.addUl(li);
-    li = menu.addLi(ul_0, "字符串");
-    li = menu.addLi(ul_0, "数字");
+    li = menu.addLi(ul_0, "字符串", null);
+    li = menu.addLi(ul_0, "数字", null);
     var ul_0_0 = menu.addUl(li);
-    li = menu.addLi(ul_0_0, "整数");
-    li = menu.addLi(ul_0_0, "小数");
+    li = menu.addLi(ul_0_0, "整数", null);
+    li = menu.addLi(ul_0_0, "小数", null);
 
-    li = menu.addLi(ul_0, "按钮");
-    li = menu.addLi(ul_0, "真假");
-    li = menu.addLi(ul_0, "单选");
-    li = menu.addLi(ul_0, "文件");
-    li = menu.addLi(ul_0, "颜色");
+    li = menu.addLi(ul_0, "按钮", null);
+    li = menu.addLi(ul_0, "真假", null);
+    li = menu.addLi(ul_0, "单选", null);
+    li = menu.addLi(ul_0, "文件", null);
+    li = menu.addLi(ul_0, "颜色", null);
 
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
+}
+WidgetFileJsonTemplate.onClickRefresh = function (e) {
+    var widgetFileJsonTemplate = this._menu._exec._fileCtrl;
+    widgetFileJsonTemplate.refreshContent();
+}
+WidgetFileJsonTemplate.onClickSave = function (e) {
+    var widgetFileJsonTemplate = this._menu._exec._fileCtrl;
+    var title = widgetFileJsonTemplate._elementTabTitle.innerHTML;
+    WidgetHistory.setFileJsonTemplate(title, widgetFileJsonTemplate._jsonObj);
+}
+WidgetFileJsonTemplate.onClickArrayAdd = function (e) {
+    var dt = this._menu._exec;
+    var jsonObj = dt._value;
+    jsonObj[jsonObj.length] = "";
+    var widgetFileJsonTemplate = this._menu._exec._fileCtrl;
+    widgetFileJsonTemplate.refreshContent();
+}
+WidgetFileJsonTemplate.onClickArrayClear = function (e) {
+    var dt = this._menu._exec;
+    var jsonObj = dt._value;
+    jsonObj.splice(0, jsonObj.length);
+    var widgetFileJsonTemplate = this._menu._exec._fileCtrl;
+    widgetFileJsonTemplate.refreshContent();
+}
+WidgetFileJsonTemplate.prototype.refreshContent = function () {
+    var widgetTab = this._elementTabTitle._widgetTab;
+    widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._addContentType.fileJsonObj);
 }
 WidgetFileJsonTemplate.prototype.getTemplate = function (fileName, jsonObj) {
     this._fileName = fileName;

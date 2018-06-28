@@ -39,14 +39,15 @@ WidgetHtml.addBr = function (nodeParent) {
     nodeBr.classList.add("nodeBr");
     return nodeBr;
 }
-WidgetHtml.addLabel = function (nodeParent, fileCtrl, value, onClick, onContextMenu) {
+WidgetHtml.addLabel = function (nodeParent, fileCtrl, key, keyShow, onClick, onContextMenu) {
     var nodeLabel = document.createElement("label");
     nodeParent.appendChild(nodeLabel);
     nodeLabel.classList.add("nodeLabel");
     nodeLabel._fileCtrl = fileCtrl;
     nodeLabel.onclick = onClick;
     nodeLabel.oncontextmenu = onContextMenu;
-    nodeLabel.innerHTML = value;
+    nodeLabel._key = key;
+    nodeLabel.innerHTML = keyShow;
     return nodeLabel;
 }
 WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, onClick, onContextMenu) {

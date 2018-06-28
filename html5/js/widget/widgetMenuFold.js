@@ -4,14 +4,14 @@
 function WidgetMenuFold() {
 }
 
-WidgetMenuFold.prototype.createMenuFold = function (elementParent, fileCtrl, foldTitle, onContextMenu) {
+WidgetMenuFold.prototype.createMenuFold = function (elementParent, fileCtrl, foldTitle, foldTitleShow, value, onContextMenu) {
     this._menuFold = document.createElement("div");
     elementParent.appendChild(this._menuFold);
     this._menuFold.classList.add("widgetMenuFold");
-    var dd = this.addFoldAndItem(this._menuFold, fileCtrl, foldTitle, onContextMenu);
+    var dd = this.addFoldAndItem(this._menuFold, fileCtrl, foldTitle, foldTitleShow, value, onContextMenu);
     return dd;
 }
-WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, fileCtrl, foldTitle, onContextMenu) {
+WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, fileCtrl, key, foldTitle, value, onContextMenu) {
     var dl = document.createElement("dl");
     elementParent.appendChild(dl);
 
@@ -21,6 +21,8 @@ WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, fileCtrl, fol
     dt._fileCtrl = fileCtrl;
     dt.onclick = WidgetMenuFold.onClickDt;
     dt.oncontextmenu = onContextMenu;
+    dt._key = key;
+    dt._value = value;
     dt.innerHTML = foldTitle;
 
     var dd = this.addFoldItem(dl);

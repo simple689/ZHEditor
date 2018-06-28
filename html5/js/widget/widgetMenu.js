@@ -30,9 +30,10 @@ WidgetMenu.prototype.addUl = function (elementParent) {
     elementParent.appendChild(ul);
     return ul;
 }
-WidgetMenu.prototype.addLi = function (elementParent, title) {
+WidgetMenu.prototype.addLi = function (elementParent, title, onClick) {
     var li = document.createElement("li");
     elementParent.appendChild(li);
+    li.onclick = onClick;
     li.innerHTML = title;
     return li;
 }

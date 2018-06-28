@@ -4,21 +4,6 @@ function WidgetFile() {
 WidgetFile._extendJson = ".json";
 WidgetFile._extendJsonConf = ".jsonConf";
 
-WidgetFile.readFileContent = function (fileContent, elementTabTitle) {
-    var elementFileRoot = document.createElement("div");
-    elementTabTitle._elementTabContent.appendChild(elementFileRoot);
-    elementTabTitle._elementFileRoot = elementFileRoot;
-    elementFileRoot.classList.add("widgetFileRoot");
-
-    var extend = getFileExtend(elementTabTitle.innerHTML);
-    if (extend == WidgetFile._extendJson) {
-        elementTabTitle._fileCtrl = new WidgetFileJson();
-    } else if (extend == WidgetFile._extendJsonConf) {
-        elementTabTitle._fileCtrl = new WidgetFileJsonTemplate();
-    }
-    elementTabTitle._fileCtrl.init(elementTabTitle, fileContent);
-    WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, elementTabTitle._widgetTab._panel._historyItem);
-}
 WidgetFile.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");
     var extendIndex = fileNameAry.length - 1;
@@ -41,6 +26,21 @@ WidgetFile.readFile = function (file, elementTabTitle) {
         reader.onload = WidgetFile.loadedFile;
         reader.readAsText(file);
     }
+}
+WidgetFile.readFileContent = function (fileContent, elementTabTitle, contentType) {
+    var elementFileRoot = document.createElement("div");
+    elementTabTitle._elementTabContent.appendChild(elementFileRoot);
+    elementTabTitle._elementFileRoot = elementFileRoot;
+    elementFileRoot.classList.add("widgetFileRoot");
+
+    var extend = getFileExtend(elementTabTitle.innerHTML);
+    if (extend == WidgetFile._extendJson) {
+        elementTabTitle._fileCtrl = new WidgetFileJson();
+    } else if (extend == WidgetFile._extendJsonConf) {
+        elementTabTitle._fileCtrl = new WidgetFileJsonTemplate();
+    }
+    elementTabTitle._fileCtrl.init(elementTabTitle, fileContent, contentType);
+    WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, contentType, elementTabTitle._widgetTab._panel._historyItem);
 }
 WidgetFile.loadedJson = function () {
     WidgetFile.createFileJsonCtrl(this);
