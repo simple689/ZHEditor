@@ -9,7 +9,7 @@ WidgetFileJsonTemplate.prototype.init = function (elementTabTitle, fileStr) {
 }
 WidgetFileJsonTemplate.prototype.initCtrl = function () {
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
-    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, this, '文件根节点', WidgetFileJsonTemplate.onContextMenuLabel);
+    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, this, '文件根节点', WidgetFileJsonTemplate.onContextMenuRoot);
 
     this.readObject(this._jsonObj, "", foldItem);
 }
@@ -23,10 +23,12 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
             keyChild += "->";
             keyChild += key;
             keyChild += "->";
+            var onContextMenuFunc = WidgetFileJsonTemplate.onContextMenuObject;
             if (Array.isArray(value)) {
-                // Log.log(value);
+                Log.log(value);
+                onContextMenuFunc = WidgetFileJsonTemplate.onContextMenuArray;
             }
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, this, key, WidgetFileJsonTemplate.onContextMenuLabel);
+            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, this, key, onContextMenuFunc);
             this.readObject(value, keyChild, foldItem);
         } else if (typeof(value) == "string") {
             WidgetHtml.addLabel(elementParent, this, key, null, WidgetFileJsonTemplate.onContextMenuLabel);
@@ -47,6 +49,32 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
             Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
+}
+WidgetFileJsonTemplate.onContextMenuRoot = function (e) {
+    var menu = new WidgetMenu();
+    menu.createMenu(document.body);
+    var ul = menu.addUl(menu._elementRoot);
+    var li = menu.addLi(ul, "刷新");
+    WidgetMenu.showMenu(menu, e, this);
+    return false; //取消右键点击的默认事件
+}
+WidgetFileJsonTemplate.onContextMenuObject = function (e) {
+    var menu = new WidgetMenu();
+    menu.createMenu(document.body);
+    var ul = menu.addUl(menu._elementRoot);
+    var li = menu.addLi(ul, "添加对象");
+    li = menu.addLi(ul, "添加数组");
+    WidgetMenu.showMenu(menu, e, this);
+    return false; //取消右键点击的默认事件
+}
+WidgetFileJsonTemplate.onContextMenuArray = function (e) {
+    var menu = new WidgetMenu();
+    menu.createMenu(document.body);
+    var ul = menu.addUl(menu._elementRoot);
+    var li = menu.addLi(ul, "数组中添加对象");
+    li = menu.addLi(ul, "数组中清空对象");
+    WidgetMenu.showMenu(menu, e, this);
+    return false; //取消右键点击的默认事件
 }
 WidgetFileJsonTemplate.onContextMenuLabel = function (e) {
     var menu = new WidgetMenu();

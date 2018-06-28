@@ -94,7 +94,8 @@ function onClickDocument() {
 
 function onContextMenuDocument() {
     WidgetMenu.hideMenuAll();
-    return true;
+    // return true;
+    return false;
 }
 
 // exe
