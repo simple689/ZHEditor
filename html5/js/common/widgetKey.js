@@ -23,6 +23,9 @@ WidgetKey._file = "file";
 
 WidgetKey._personal = "personal";
 
+WidgetKey._key = "key";
+WidgetKey._keyShow = "keyShow";
+
 WidgetKey._ignore = "ignore";
 WidgetKey._beginList = "beginList";
 WidgetKey._showTitle = "showTitle";

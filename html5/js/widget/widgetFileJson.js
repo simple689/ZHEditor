@@ -57,7 +57,7 @@ WidgetFileJson.prototype.initCtrl = function () {
 //             WidgetTableRow.addLabelInput(nodeTable, key, value, WidgetTableHtml._inputType.checkbox);
 //         } else {
 //             var strType = typeof(value);
-//             Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+//             WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
 //         }
 //     }
 // }
@@ -81,7 +81,7 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
             jsonObjCtrl._value = value;
             var isArray = false;
             if (Array.isArray(value)) {
-                Log.log(value);
+                WidgetLog.log(value);
                 isArray = true;
                 // jsonObjCtrl._onContextMenu = WidgetFileJsonTemplate.onContextMenuArray;
             } else {
@@ -107,7 +107,7 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
                 WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType.checkbox);
             } else {
                 var strType = typeof(value);
-                Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+                WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
             }
             if (this.isAddBr(key)) {
                 WidgetHtml.addBr(elementParent);

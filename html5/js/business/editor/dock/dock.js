@@ -102,7 +102,7 @@ function onContextMenuDocument() {
 //========
 $(document).ready(function () {
     console.log("[dock] start");
-    Log.init();
+    WidgetLog.init();
     WidgetHistory.init();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {

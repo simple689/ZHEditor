@@ -37,7 +37,7 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
             jsonObjCtrl._value = value;
             var isArray = false;
             if (Array.isArray(value)) {
-                Log.log(value);
+                WidgetLog.log(value);
                 isArray = true;
                 jsonObjCtrl._onContextMenu = WidgetFileJsonTemplate.onContextMenuArray;
             } else {
@@ -57,12 +57,10 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
             jsonObjCtrl._onChange = WidgetFileJsonTemplate.onChangeInput;
 
             if (key == WidgetKey._valueType) {
-                // jsonObjCtrl._valueList = JsonObjCtrl._valueTypeList[WidgetKey._keyShow];
-                jsonObjCtrl._valueList = JsonObjCtrl._valueTypeListShow;
+                jsonObjCtrl._valueList = JsonObjCtrl._valueTypeList;
                 jsonObjCtrl._onContextMenu = WidgetFileJsonTemplate.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileJsonTemplate.onChangeSelect;
 
-                Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
                 if (value == WidgetKey._object) {
                     jsonObjCtrl._selectIndex = 0;
                 } else if (value == WidgetKey._array) {
@@ -85,7 +83,7 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
                     WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType.checkbox);
                 } else {
                     var strType = typeof(value);
-                    Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+                    WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
                 }
             }
 
@@ -279,9 +277,9 @@ WidgetFileJsonTemplate.prototype.getTemplate = function (fileName, jsonObj) {
         this.initTemplate(jsonObj);
     }
     WidgetHistory.setFileJsonTemplate(this._fileName, this._jsonTemplateObj);
-    // Log.log("========================================");
-    // Log.log(JSON.stringify(this._jsonTemplateObj, null, 2));
-    // Log.log("========================================");
+    // WidgetLog.log("========================================");
+    // WidgetLog.log(JSON.stringify(this._jsonTemplateObj, null, 2));
+    // WidgetLog.log("========================================");
 }
 WidgetFileJsonTemplate.prototype.initTemplate = function (jsonObj) {
     this._jsonTemplateObj = {};
@@ -310,7 +308,7 @@ WidgetFileJsonTemplate.prototype.createTemplate = function (jsonObj, jsonTemplat
         }
 
         var value = jsonObj[key];
-        // Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+        // WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         if (typeof(value) == "object") {
             var keyChild = keyParent;
             keyChild += "->";
@@ -322,7 +320,7 @@ WidgetFileJsonTemplate.prototype.createTemplate = function (jsonObj, jsonTemplat
 
             var isArray = false;
             if (Array.isArray(value)) {
-                Log.log(value);
+                WidgetLog.log(value);
                 isArray = true;
                 jsonObjParent[key][WidgetKey._valueType] = WidgetKey._array;
                 jsonObjParent[key][WidgetKey._value] = new Array();
@@ -344,7 +342,7 @@ WidgetFileJsonTemplate.prototype.createTemplate = function (jsonObj, jsonTemplat
             } else {
                 var strType = typeof(value);
                 jsonObjParent[key][WidgetKey._valueType] = strType;
-                Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+                WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
             }
         }
     }

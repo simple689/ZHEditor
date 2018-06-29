@@ -1,39 +1,39 @@
-function Log() {
+function WidgetLog() {
 }
-Log.init = function () {
+WidgetLog.init = function () {
 }
-Log.log = function (args) {
+WidgetLog.log = function (args) {
     console.log(args);
 }
-Log.debug = function (args) {
+WidgetLog.debug = function (args) {
     console.debug(args);
 }
-Log.info = function (args) {
+WidgetLog.info = function (args) {
     console.info(args);
 }
-Log.warn = function (args) {
+WidgetLog.warn = function (args) {
     console.warn(args);
 }
-Log.error = function (args) {
+WidgetLog.error = function (args) {
     console.error(args);
 }
-// Log.log = function (...args) {
+// WidgetLog.log = function (...args) {
 //     console.log(...args);
 // }
-// Log.debug = function (...args) {
+// WidgetLog.debug = function (...args) {
 //     console.debug(...args);
 // }
-// Log.info = function (...args) {
+// WidgetLog.info = function (...args) {
 //     console.info(...args);
 // }
-// Log.warn = function (...args) {
+// WidgetLog.warn = function (...args) {
 //     console.warn(...args);
 // }
-// Log.error = function (...args) {
+// WidgetLog.error = function (...args) {
 //     console.error(...args);
 // }
-Log.func = function () {
-    // Log.log(arguments.callee.caller);
+WidgetLog.func = function () {
+    // WidgetLog.log(arguments.callee.caller);
     // var regular = /function\s*(\w*)/i;
     // var matches = regular.exec(str);
     // if (matches[1].length) {

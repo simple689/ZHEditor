@@ -152,8 +152,8 @@ WidgetHtml.addSelect = function (nodeParent, jsonObjCtrl) {
         nodeSelect.appendChild(nodeOption);
         nodeOption.classList.add("nodeOption");
 
-        nodeOption.value = jsonObjCtrl._valueList[i];
-        nodeOption.innerHTML = jsonObjCtrl._valueList[i];
+        nodeOption.value = jsonObjCtrl._valueList[i]._key;
+        nodeOption.innerHTML = jsonObjCtrl._valueList[i]._keyShow;
 
         if (i == jsonObjCtrl._selectIndex) {
             nodeOption.selected = true;

@@ -6,9 +6,9 @@ WidgetHistory._localStorage = null;
 WidgetHistory.init = function () {
     WidgetHistory._localStorage = window.localStorage;
     if (WidgetHistory._localStorage) {
-        // Log.log('This browser supports localStorage');
+        // WidgetLog.log('This browser supports localStorage');
     } else {
-        Log.log('This browser does NOT support localStorage');
+        WidgetLog.log('This browser does NOT support localStorage');
     }
     // localStorage.pageLoadCount = parseInt(localStorage.getItem("pageLoadCount")) + 1;//必须格式转换
     // if(window.addEventListener){

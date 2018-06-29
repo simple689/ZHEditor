@@ -127,7 +127,7 @@ function setUlPosition(ul, ulParent, left, top) {
     var docWidth = document.documentElement.clientWidth;
     var docHeight = document.documentElement.clientHeight;
     if (offsetRight > docWidth) {
-        // Log.log("offsetRight = " + offsetRight + " ; docWidth = " + docWidth);
+        // WidgetLog.log("offsetRight = " + offsetRight + " ; docWidth = " + docWidth);
         if (ulParent) {
             leftCheck = 0;
             leftCheck -= ul.offsetWidth;
@@ -140,7 +140,7 @@ function setUlPosition(ul, ulParent, left, top) {
         ul.style.left = leftCheck + 'px';
     }
     if (offsetBottom > docHeight) {
-        // Log.log("offsetBottom = " + offsetBottom + " ; docHeight = " + docHeight);
+        // WidgetLog.log("offsetBottom = " + offsetBottom + " ; docHeight = " + docHeight);
         topCheck = ul.offsetTop - (offsetBottom - docHeight);
         if (ulParent) {
         } else {

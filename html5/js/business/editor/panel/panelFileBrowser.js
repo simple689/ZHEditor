@@ -49,7 +49,7 @@ PanelFileBrowser.prototype.initBottomLeft = function () {
     var foldItem = this._menuFoldCtrl.createMenuFold(left, this, "root", "全部文件", null, null);
 
     this._jsonFileBrowser = WidgetHistory.getFileBrowser();
-    // Log.log(JSON.stringify(jsonObj, null, 2));
+    // WidgetLog.log(JSON.stringify(jsonObj, null, 2));
     this.readFileBrowser(this._jsonFileBrowser, "/", foldItem);
 };
 PanelFileBrowser.prototype.initBottomRight = function () {
