@@ -7,9 +7,7 @@ function JsonObjCtrl(exec, obj, isArrayParent, key) {
     this._keyShow = null;
 
     this._value = null;
-
     this._valueList = null;
-    this._selectIndex = null;
 
     this._onClick = null;
     this._onContextMenu = null;

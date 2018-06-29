@@ -57,21 +57,10 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
             jsonObjCtrl._onChange = WidgetFileJsonTemplate.onChangeInput;
 
             if (key == WidgetKey._valueType) {
+                jsonObjCtrl._value = value;
                 jsonObjCtrl._valueList = JsonObjCtrl._valueTypeList;
                 jsonObjCtrl._onContextMenu = WidgetFileJsonTemplate.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileJsonTemplate.onChangeSelect;
-
-                if (value == WidgetKey._object) {
-                    jsonObjCtrl._selectIndex = 0;
-                } else if (value == WidgetKey._array) {
-                    jsonObjCtrl._selectIndex = 1;
-                } else if (value == WidgetKey._string) {
-                    jsonObjCtrl._selectIndex = 2;
-                } else if (value == WidgetKey._number) {
-                    jsonObjCtrl._selectIndex = 3;
-                } else if (value == WidgetKey._boolean) {
-                    jsonObjCtrl._selectIndex = 4;
-                }
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
             } else {
@@ -225,8 +214,21 @@ WidgetFileJsonTemplate.onChangeInput = function (e) {
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonTemplate.onChangeSelect = function (e) {
-    var jsonObjCtrl = this;
+    var jsonObjCtrl = this._jsonObjCtrl;
     var jsonObj = jsonObjCtrl._obj;
+    var jsonObjValue = jsonObj[WidgetKey._value];
+    var isHasObj = false;
+    if (jsonObjValue) {
+        for(var i in jsonObjValue){
+            isHasObj = true;
+        }
+    }
+    if (isHasObj) {
+        if (!confirm("当前 Key 存在值，如果继续改变，值会被清空，确定执行操作吗？")) { //利用对话框返回的值 （true 或者 false）
+            return;
+        }
+    }
+    var value = this.value;
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonTemplate.onClickAddObject = function (e) {

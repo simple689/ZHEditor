@@ -144,7 +144,6 @@ WidgetHtml.addSelect = function (nodeParent, jsonObjCtrl) {
     nodeParent.appendChild(nodeSelect);
     nodeSelect.classList.add("nodeSelect");
     nodeSelect._jsonObjCtrl = jsonObjCtrl;
-    nodeSelect.onclick = jsonObjCtrl._onClick;
     nodeSelect.oncontextmenu = jsonObjCtrl._onContextMenu;
     nodeSelect.onchange = jsonObjCtrl._onChange;
     for (var i = 0; i < jsonObjCtrl._valueList.length; i++) {
@@ -155,7 +154,7 @@ WidgetHtml.addSelect = function (nodeParent, jsonObjCtrl) {
         nodeOption.value = jsonObjCtrl._valueList[i]._key;
         nodeOption.innerHTML = jsonObjCtrl._valueList[i]._keyShow;
 
-        if (i == jsonObjCtrl._selectIndex) {
+        if (nodeOption.value == jsonObjCtrl._value) {
             nodeOption.selected = true;
         }
     }
