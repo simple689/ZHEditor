@@ -4,26 +4,24 @@
 function WidgetMenuFold() {
 }
 
-WidgetMenuFold.prototype.createMenuFold = function (elementParent, fileCtrl, foldTitle, foldTitleShow, value, onContextMenu) {
+WidgetMenuFold.prototype.createMenuFold = function (elementParent, jsonObjCtrl) {
     this._menuFold = document.createElement("div");
     elementParent.appendChild(this._menuFold);
     this._menuFold.classList.add("widgetMenuFold");
-    var dd = this.addFoldAndItem(this._menuFold, fileCtrl, foldTitle, foldTitleShow, value, onContextMenu);
+    var dd = this.addFoldAndItem(this._menuFold, jsonObjCtrl);
     return dd;
 }
-WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, fileCtrl, key, foldTitle, value, onContextMenu) {
+WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, jsonObjCtrl) {
     var dl = document.createElement("dl");
     elementParent.appendChild(dl);
 
     var dt = document.createElement("dt");
     dl.appendChild(dt);
     dt._dl = dl;
-    dt._fileCtrl = fileCtrl;
+    dt._jsonObjCtrl = jsonObjCtrl;
     dt.onclick = WidgetMenuFold.onClickDt;
-    dt.oncontextmenu = onContextMenu;
-    dt._key = key;
-    dt._value = value;
-    dt.innerHTML = foldTitle;
+    dt.oncontextmenu = jsonObjCtrl._onContextMenu;
+    dt.innerHTML = jsonObjCtrl._keyShow;
 
     var dd = this.addFoldItem(dl);
     return dd;

@@ -13,7 +13,13 @@ WidgetFileJson.prototype.init = function (elementTabTitle, fileContent, contentT
 }
 WidgetFileJson.prototype.initCtrl = function () {
     var elementFileRoot = this._elementTabTitle._elementFileRoot;
-    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, this, "root", "文件根节点", this._jsonObj, null);
+
+    var jsonObjCtrl = new JsonObjCtrl();
+    jsonObjCtrl._ctrl = this;
+    jsonObjCtrl._obj = this._jsonObj;
+    jsonObjCtrl._key = "root";
+    jsonObjCtrl._keyShow = "文件根节点";
+    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, jsonObjCtrl);
 
     var jsonTemplateName = this._jsonObj[WidgetKey._jsonTemplate];
     if (!jsonTemplateName) {
@@ -61,43 +67,83 @@ WidgetFileJson.prototype.initCtrl = function () {
 WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent) {
     for (var o in jsonObj) {
         var key = o;
-        var keyShow = key;
-
         var isIgnore = this._fileJsonTemplateCtrl.isTemplateIgnore(key);
         if (isIgnore) {
             continue;
         }
-
+        var keyShow = this.getKeyShow(key);
         var value = jsonObj[key];
         if (typeof(value) == "object") {
             var keyChild = keyParent;
             keyChild += "->";
             keyChild += key;
             keyChild += "->";
-            if (Array.isArray(value)) {
-                // Log.log(value);
-            }
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, this, key, keyShow, value, null);
+
+            var jsonObjCtrl = new JsonObjCtrl();
+            jsonObjCtrl._ctrl = this;
+            jsonObjCtrl._key = key;
+            jsonObjCtrl._keyShow = keyShow;
+            jsonObjCtrl._value = value;
+            // if (Array.isArray(value)) {
+            //     Log.log(value);
+            //     jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuArray;
+            // } else {
+            //     jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuObject;
+            // }
+
+            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
             this.readObject(value, keyChild, foldItem);
-        } else if (typeof(value) == "string") {
-            WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJson.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textString, null, WidgetFileJson.onContextMenuInput, null);
-            WidgetHtml.addBr(elementParent);
-        } else if (typeof(value) == "number") {
-            WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJson.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.textNumber, null, WidgetFileJson.onContextMenuInput, null);
-            if (!(key == 'x' || key == 'y' || key == 'z')) {
+        } else {
+            var jsonObjCtrl = new JsonObjCtrl();
+            jsonObjCtrl._ctrl = this;
+            jsonObjCtrl._key = key;
+            jsonObjCtrl._keyShow = keyShow;
+            jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuLabel;
+            WidgetHtml.addLabel(elementParent, jsonObjCtrl);
+            jsonObjCtrl = new JsonObjCtrl();
+            jsonObjCtrl._ctrl = this;
+            jsonObjCtrl._key = key;
+            jsonObjCtrl._value = value;
+            jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuInput;
+            jsonObjCtrl._onChange = WidgetFileJson.onChangeInput;
+
+            if (typeof(value) == "string") {
+                WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textString);
+            } else if (typeof(value) == "number") {
+                WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textNumber);
+            } else if (typeof(value) == "boolean") {
+                WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType.checkbox);
+            } else {
+                var strType = typeof(value);
+                Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+            }
+            if (this.isAddBr(key)) {
                 WidgetHtml.addBr(elementParent);
             }
-        } else if (typeof(value) == "boolean") {
-            WidgetHtml.addLabel(elementParent, this, key, keyShow, null, WidgetFileJson.onContextMenuLabel);
-            WidgetHtml.addInput(elementParent, this, value, WidgetHtml._inputType.checkbox, null, WidgetFileJson.onContextMenuInput, null);
-            WidgetHtml.addBr(elementParent);
-        } else {
-            var strType = typeof(value);
-            Log.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
         }
     }
+}
+WidgetFileJson.prototype.getKeyShow = function (key) {
+    var keyShow = key;
+    if (key == "ignore") {
+        keyShow = "忽略";
+    } else if (key == "beginList") {
+        keyShow = "开头字符串列表";
+    } else if (key == "file") {
+        keyShow = "文件";
+    } else if (key == "showTitle") {
+        keyShow = "显示名字";
+    } else if (key == "valueType") {
+        keyShow = "值类型";
+    }
+    return keyShow;
+}
+WidgetFileJson.prototype.isAddBr = function (key) {
+    var isAdd = true;
+    if (key == 'x' || key == 'y' || key == 'z') {
+        isAdd = false;
+    }
+    return isAdd;
 }
 WidgetFileJson.onContextMenuLabel = function (e) {
     var menu = new WidgetMenu();

@@ -14,17 +14,6 @@ WidgetHtml._inputType = {
     reset: 9,
     color: 10
 }
-WidgetHtmlObj = function () {
-    this._ctrl = null;
-    this._obj = null;
-    this._key = null;
-    this._keyShow = null;
-};
-WidgetHtmlOnEvent = function () {
-    this._onClick = null;
-    this._onContextMenu = null;
-    this._onChange = null;
-};
 WidgetHtml.onChangeInput = function (e) {
     switch (this._inputType) {
         case WidgetHtml._inputType.textString : {
@@ -43,8 +32,8 @@ WidgetHtml.onChangeInput = function (e) {
             break;
         }
     }
-    if (this._onChange) {
-        this._onChange();
+    if (this._jsonObjCtrl._onChange) {
+        this._jsonObjCtrl._onChange(this);
     }
 }
 WidgetHtml.addBr = function (nodeParent) {
@@ -53,39 +42,36 @@ WidgetHtml.addBr = function (nodeParent) {
     nodeBr.classList.add("nodeBr");
     return nodeBr;
 }
-WidgetHtml.addLabel = function (nodeParent, fileCtrl, widgetHtmlObj, widgetHtmlOnEvent) {
+WidgetHtml.addLabel = function (nodeParent, jsonObjCtrl) {
     var nodeLabel = document.createElement("label");
     nodeParent.appendChild(nodeLabel);
     nodeLabel.classList.add("nodeLabel");
-    nodeLabel._fileCtrl = fileCtrl;
-    nodeLabel.onclick = widgetHtmlOnEvent._onClick;
-    nodeLabel.oncontextmenu = widgetHtmlOnEvent._onContextMenu;
-    nodeLabel._key = key;
-    nodeLabel.innerHTML = keyShow;
+    nodeLabel._jsonObjCtrl = jsonObjCtrl;
+    nodeLabel.onclick = jsonObjCtrl._onClick;
+    nodeLabel.oncontextmenu = jsonObjCtrl._onContextMenu;
+    nodeLabel.innerHTML = jsonObjCtrl._keyShow;
     return nodeLabel;
 }
-WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, widgetHtmlOnEvent) {
+WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     var nodeInput = document.createElement("input");
     nodeParent.appendChild(nodeInput);
     nodeInput.classList.add("nodeInput");
-    nodeInput._fileCtrl = fileCtrl;
-    nodeInput._value = value;
-    nodeInput.onclick = widgetHtmlOnEvent._onClick;
-    nodeInput.oncontextmenu = widgetHtmlOnEvent._onContextMenu;
+    nodeInput._jsonObjCtrl = jsonObjCtrl;
+    nodeInput.onclick = jsonObjCtrl._onClick;
+    nodeInput.oncontextmenu = jsonObjCtrl._onContextMenu;
     nodeInput.onchange = WidgetHtml.onChangeInput;
-    nodeInput._onChange = widgetHtmlOnEvent._onChange;
     nodeInput._inputType = inputType;
     switch (inputType) {
         case WidgetHtml._inputType.button : {
             nodeInput.classList.add("nodeInputButton");
             nodeInput.type = "button";
-            nodeInput.value = value;
+            nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._inputType.checkbox : {
             nodeInput.classList.add("nodeInputCheckbox");
             nodeInput.type = "checkbox";
-            if (value) {
+            if (jsonObjCtrl._value) {
                 nodeInput.checked = true;
             } else {
                 nodeInput.checked = false;
@@ -95,7 +81,7 @@ WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, widgetHt
         case WidgetHtml._inputType.radio : {
             nodeInput.classList.add("nodeInputRadio");
             nodeInput.type = "radio";
-            if (value) {
+            if (jsonObjCtrl._value) {
                 nodeInput.checked = true;
             } else {
                 nodeInput.checked = false;
@@ -105,37 +91,37 @@ WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, widgetHt
         case WidgetHtml._inputType.file : {
             nodeInput.classList.add("nodeInputFile");
             nodeInput.type = "file";
-            nodeInput.value = value;
+            nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._inputType.image : {
             nodeInput.classList.add("nodeInputImage");
             nodeInput.type = "image";
-            nodeInput.value = value;
+            nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._inputType.password : {
             nodeInput.classList.add("nodeInputPassword");
             nodeInput.type = "password";
-            nodeInput.value = value;
+            nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._inputType.submit : {
             nodeInput.classList.add("nodeInputSubmit");
             nodeInput.type = "submit";
-            nodeInput.value = value;
+            nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._inputType.reset : {
             nodeInput.classList.add("nodeInputReset");
             nodeInput.type = "reset";
-            nodeInput.value = value;
+            nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._inputType.color : {
             nodeInput.classList.add("nodeInputColor");
-            nodeInput.value = value;
-            nodeInput.style.background = value;
+            nodeInput.value = jsonObjCtrl._value;
+            nodeInput.style.background = jsonObjCtrl._value;
             $(nodeInput).colorPicker({
                 init: function (element, color) { // colors is a different instance (not connected to colorPicker)
                     element.style.backgroundColor = color;
@@ -147,26 +133,30 @@ WidgetHtml.addInput = function (nodeParent, fileCtrl, value, inputType, widgetHt
         }
         default : {
             nodeInput.classList.add("nodeInputDefault");
-            nodeInput.value = value;
+            nodeInput.value = jsonObjCtrl._value;
             break
         }
     }
     return nodeInput;
 }
-WidgetHtml.addSelect = function (nodeParent, valueList, selectIndex) {
+WidgetHtml.addSelect = function (nodeParent, jsonObjCtrl) {
     var nodeSelect = document.createElement("select");
     nodeParent.appendChild(nodeSelect);
     nodeSelect.classList.add("nodeSelect");
-    for (var i = 0; i < valueList.length; i++) {
+    nodeSelect._jsonObjCtrl = jsonObjCtrl;
+    nodeSelect.onclick = jsonObjCtrl._onClick;
+    nodeSelect.oncontextmenu = jsonObjCtrl._onContextMenu;
+    for (var i = 0; i < jsonObjCtrl._valueList.length; i++) {
         var nodeOption = document.createElement("option");
         nodeSelect.appendChild(nodeOption);
         nodeOption.classList.add("nodeOption");
 
-        nodeOption.value = valueList[i];
-        nodeOption.innerHTML = valueList[i];
+        nodeOption.value = jsonObjCtrl._valueList[i];
+        nodeOption.innerHTML = jsonObjCtrl._valueList[i];
 
-        if (i == selectIndex) {
+        if (i == jsonObjCtrl._selectIndex) {
             nodeOption.selected = true;
         }
     }
+    return nodeSelect;
 }
