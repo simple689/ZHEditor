@@ -22,3 +22,15 @@ WidgetKey._folder = "folder";
 WidgetKey._file = "file";
 
 WidgetKey._personal = "personal";
+
+WidgetKey._ignore = "ignore";
+WidgetKey._beginList = "beginList";
+WidgetKey._showTitle = "showTitle";
+WidgetKey._valueType = "valueType";
+WidgetKey._value = "value";
+
+WidgetKey._object = "object";
+WidgetKey._array = "array";
+WidgetKey._string = "string";
+WidgetKey._number = "number";
+WidgetKey._boolean = "boolean";

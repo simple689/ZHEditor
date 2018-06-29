@@ -60,7 +60,7 @@ WidgetFile.loadedFile = function (e) {
 }
 WidgetFile.createFileJsonCtrl = function (fileReader) {
     // Log.log(fileReader.result);
-    WidgetFile.readFileContent(fileReader.result, fileReader._elementTabTitle);
+    WidgetFile.readFileContent(fileReader.result, fileReader._elementTabTitle, WidgetTab._addContentType.fileContent);
 }
 WidgetFile.isJson = function (fileStr) {
     var isjson = false;

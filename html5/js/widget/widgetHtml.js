@@ -90,7 +90,7 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
         }
         case WidgetHtml._inputType.file : {
             nodeInput.classList.add("nodeInputFile");
-            nodeInput.type = "file";
+            nodeInput.type = WidgetKey._file;
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
@@ -146,6 +146,7 @@ WidgetHtml.addSelect = function (nodeParent, jsonObjCtrl) {
     nodeSelect._jsonObjCtrl = jsonObjCtrl;
     nodeSelect.onclick = jsonObjCtrl._onClick;
     nodeSelect.oncontextmenu = jsonObjCtrl._onContextMenu;
+    nodeSelect.onchange = jsonObjCtrl._onChange;
     for (var i = 0; i < jsonObjCtrl._valueList.length; i++) {
         var nodeOption = document.createElement("option");
         nodeSelect.appendChild(nodeOption);

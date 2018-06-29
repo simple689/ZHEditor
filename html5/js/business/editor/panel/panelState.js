@@ -3,5 +3,9 @@ function PanelState() {
 
 PanelState.prototype.init = function () {
     var panelState = document.getElementById("panelState");
-    WidgetHtml.addInput(panelState, this, "清空历史记录", WidgetHtml._inputType.button, PanelMenu.onClickHistoryClear, null, null);
+
+    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "清空历史记录";
+    jsonObjCtrl._onClick = PanelMenu.onClickHistoryClear;
+    WidgetHtml.addInput(panelState, jsonObjCtrl, WidgetHtml._inputType.button);
 }
