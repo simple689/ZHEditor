@@ -38,9 +38,9 @@ WidgetKey._string = "string";
 WidgetKey._number = "number";
 WidgetKey._boolean = "boolean";
 WidgetKey._enum = "enum";
+WidgetKey._link = "link";
 
 WidgetKey._enumKey = "enumKey";
 WidgetKey._enumKeyShow = "enumKeyShow";
 WidgetKey._enumParamList = "enumParamList";
-WidgetKey._enumParamItem = "enumParamItem";
 WidgetKey._enumParamShow = "enumParamShow";

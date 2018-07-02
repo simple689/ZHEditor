@@ -94,6 +94,8 @@ WidgetFileJsonMould.prototype.getKeyShow = function (key) {
         keyShow = "显示名字";
     } else if (key == WidgetKey._valueType) {
         keyShow = "值类型";
+    } else if (key == WidgetKey._key) {
+        keyShow = "唯一key";
     } else if (key == WidgetKey._value) {
         keyShow = "值";
     } else if (key == WidgetKey._enumKey) {
@@ -102,8 +104,6 @@ WidgetFileJsonMould.prototype.getKeyShow = function (key) {
         keyShow = "枚举名字显示";
     } else if (key == WidgetKey._enumParamList) {
         keyShow = "枚举特有参数列表";
-    } else if (key == WidgetKey._enumParamItem) {
-        keyShow = "枚举特有参数";
     } else if (key == WidgetKey._enumParamShow) {
         keyShow = "显示名字";
     } else if (key == WidgetKey._valueType) {
@@ -124,6 +124,7 @@ WidgetFileJsonMould.onContextMenuRoot = function (e) {
     var ul = menu.addUl(menu._elementRoot);
     var li = menu.addLi(ul, "刷新", WidgetFileJsonMould.onClickRefresh);
     li = menu.addLi(ul, "保存", WidgetFileJsonMould.onClickSave);
+    li = menu.addLi(ul, "另存为", WidgetFileJsonMould.onClickSaveAs);
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
@@ -138,6 +139,7 @@ WidgetFileJsonMould.onContextMenuObject = function (e) {
         li = menu.addLi(ul, "添加对象", WidgetFileJsonMould.onClickAddObject);
         li = menu.addLi(ul, "数组中删除此对象", WidgetFileJsonMould.onClickArrayDel);
     } else {
+        li = menu.addLi(ul, "重命名Key", WidgetFileJsonMould.onClickRenameKey);
         li = menu.addLi(ul, "添加对象", WidgetFileJsonMould.onClickAddObject);
         li = menu.addLi(ul, "删除对象", WidgetFileJsonMould.onClickDelObject);
     }
@@ -192,6 +194,11 @@ WidgetFileJsonMould.onClickSave = function (e) {
     var title = jsonObjCtrl._exec._elementTabTitle.innerHTML;
     WidgetHistory.setFileJsonMould(title, jsonObjCtrl._obj);
 }
+WidgetFileJsonMould.onClickSaveAs = function (e) {
+    var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
+    var title = jsonObjCtrl._exec._elementTabTitle.innerHTML;
+    WidgetHistory.setFileJsonMould(title, jsonObjCtrl._obj);
+}
 WidgetFileJsonMould.onClickArrayAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     var jsonObjKey = jsonObjCtrl._key;
@@ -199,9 +206,14 @@ WidgetFileJsonMould.onClickArrayAdd = function (e) {
     if (jsonObjKey == WidgetKey._enumParamList) {
         jsonObjValue[jsonObjValue.length] = {};
         var jsonItem = jsonObjValue[jsonObjValue.length - 1];
-        jsonItem[WidgetKey._enumParamItem] = {};
-        jsonItem[WidgetKey._enumParamItem][WidgetKey._enumParamShow] = "";
-        jsonItem[WidgetKey._enumParamItem][WidgetKey._valueType] = WidgetKey._string;
+
+        var keyNew = prompt("请输入 Key 的新名字 ：");
+        if (!keyNew) {
+            return;
+        }
+        jsonItem[keyNew] = {};
+        jsonItem[keyNew][WidgetKey._enumParamShow] = "";
+        jsonItem[keyNew][WidgetKey._valueType] = WidgetKey._string;
     } else {
         var jsonObjValueType = jsonObjCtrl._obj[WidgetKey._valueType];
         if (jsonObjValueType == WidgetKey._enum) {
@@ -264,13 +276,35 @@ WidgetFileJsonMould.onChangeSelect = function (e) {
     }
     var value = this.value;
     jsonObj[WidgetKey._valueType] = value;
-    if (jsonObj[WidgetKey._valueType] == WidgetKey._object || jsonObj[WidgetKey._valueType] == WidgetKey._array) {
+    var jsonObjValueType = jsonObj[WidgetKey._valueType];
+    if (jsonObjValueType == WidgetKey._object || jsonObjValueType == WidgetKey._array) {
         jsonObj[WidgetKey._value] = {};
-    } else if (jsonObj[WidgetKey._valueType] == WidgetKey._enum) {
+    } else if (jsonObjValueType == WidgetKey._enum) {
         jsonObj[WidgetKey._value] = new Array();
+    } else if (jsonObjValueType == WidgetKey._link) {
+        jsonObj[WidgetKey._value] = {};
+        jsonObjValue = jsonObj[WidgetKey._value];
+        jsonObjValue[WidgetKey._file] = "";
+        jsonObjValue[WidgetKey._key] = "";
     } else {
         delete jsonObj[WidgetKey._value];
     }
+    jsonObjCtrl._exec.refreshContent();
+}
+WidgetFileJsonMould.onClickRenameKey = function (e) {
+    var keyNew = prompt("请输入 Key 的新名字 ：");
+    if (!keyNew) {
+        return;
+    }
+
+    var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
+    var jsonObj = jsonObjCtrl._obj;
+    if (jsonObj[keyNew]) {
+        alert("此 Key 已经存在，请更换 Key 重试！");
+        return;
+    }
+    jsonObj[keyNew] = jsonObj[jsonObjCtrl._key];
+    delete jsonObj[jsonObjCtrl._key];
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.onClickAddObject = function (e) {
@@ -278,7 +312,6 @@ WidgetFileJsonMould.onClickAddObject = function (e) {
     var jsonObj = jsonObjCtrl._obj;
     var valueType = jsonObj[WidgetKey._valueType];
     if (valueType) {
-
     } else {
         jsonObj = jsonObjCtrl._obj[jsonObjCtrl._key];
         valueType = jsonObj[WidgetKey._valueType];
@@ -326,6 +359,10 @@ WidgetFileJsonMould.onClickAddObject = function (e) {
 
     var keyNew = prompt("请输入添加的 Key ：");
     if (!keyNew) {
+        return;
+    }
+    if (jsonObjValue[keyNew]) {
+        alert("此 Key 已经存在，请更换 Key 重试！");
         return;
     }
 
