@@ -197,7 +197,7 @@ WidgetFileJsonMould.onClickSave = function (e) {
 WidgetFileJsonMould.onClickSaveAs = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     var title = jsonObjCtrl._exec._elementTabTitle.innerHTML;
-    WidgetHistory.setFileJsonMould(title, jsonObjCtrl._obj);
+    PanelFileBrowser.saveAs(title, jsonObjCtrl._obj);
 }
 WidgetFileJsonMould.onClickArrayAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;

@@ -46,7 +46,11 @@ PanelFileBrowser.prototype.initBottom = function () {
 };
 PanelFileBrowser.prototype.initBottomLeft = function () {
     var left = document.getElementById("left");
-    var foldItem = this._menuFoldCtrl.createMenuFold(left, this, "root", "全部文件", null, null);
+
+    var jsonObjCtrl = new JsonObjCtrl(this, null, false, "root");
+    jsonObjCtrl._keyShow = "全部文件";
+    jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuRoot;
+    var foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl);
 
     this._jsonFileBrowser = WidgetHistory.getFileBrowser();
     // WidgetLog.log(JSON.stringify(jsonObj, null, 2));
@@ -58,7 +62,8 @@ PanelFileBrowser.prototype.initBottomRight = function () {
 };
 PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
     for (var o in jsonObj) {
-        var value = jsonObj[o];
+        var key = o;
+        var value = jsonObj[key];
         if (typeof(value) == WidgetKey._object) {
             var pathChild = pathParent;
             var fold = elementParent;
@@ -76,7 +81,12 @@ PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elem
                     isHasChild = true;
                     fold = this._menuFoldCtrl.addFold(elementParent, null);
                 }
-                var element = WidgetHtml.addLabel(fold, this, title, title, PanelFileBrowser.onClickFolderName, null);
+
+                var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+                jsonObjCtrl._keyShow = title;
+                jsonObjCtrl._onClick = PanelFileBrowser.onClickFolderName;
+
+                var element = WidgetHtml.addLabel(fold, jsonObjCtrl);
                 element._panel = this;
                 element._jsonObj = value;
                 element.classList.add("folderName");
@@ -121,3 +131,8 @@ PanelFileBrowser.onClickFolderName = function () {
 PanelFileBrowser.onClickFolderPath = function () {
     this._panel.refreshBottomRight(this._jsonObj);
 }
+PanelFileBrowser.saveAs = function (title, jsonObj) {
+    if (false) {
+        WidgetHistory.setFileJsonMould(title, jsonObj);
+    }
+};
