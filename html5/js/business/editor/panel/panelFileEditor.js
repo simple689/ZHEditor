@@ -2,12 +2,12 @@ function PanelFileEditor() {
     this._widgetTab = new WidgetTab();
 }
 
-PanelFileEditor.prototype.init = function (fileTemplatePanel) {
+PanelFileEditor.prototype.init = function (fileMouldPanel) {
     // var rootElement = document.getElementById("panelFileEditor");
     var rootElement = document.getElementById("panelCenter");
     var dropElement = WidgetDrop.addDrop(rootElement, this);
 
-    this._fileTemplatePanel = fileTemplatePanel;
+    this._fileMouldPanel = fileMouldPanel;
 
     this._historyItem = WidgetKey._panelFileEditor;
     this._widgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItem);

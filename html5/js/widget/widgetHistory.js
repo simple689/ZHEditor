@@ -27,9 +27,9 @@ WidgetHistory.init = function () {
 WidgetHistory.clear = function () {
     // WidgetHistory._localStorage.clear();
     WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
-    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileTemplate);
+    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileMould);
     WidgetHistory._localStorage.removeItem(WidgetKey._panelFileBrowser);
-    WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonTemplate);
+    WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonMould);
     alert("清空历史记录完毕！");
 }
 WidgetHistory.setItem = function (key, value) {
@@ -99,14 +99,14 @@ WidgetHistory.getFileBrowser = function () {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     } else {
         WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._json, "json");
-        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._jsonTemplate, "json模版");
+        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._jsonMould, "json模版");
         WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._personal, "个人文件夹");
 
         WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personal], "json");
         WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personal], "json模版");
 
         WidgetHistory.addFileBrowserFile(jsonObj[WidgetKey._json], "demo", WidgetFile._extendJson);
-        WidgetHistory.addFileBrowserFile(jsonObj[WidgetKey._jsonTemplate], "demo", WidgetFile._extendJsonConf);
+        WidgetHistory.addFileBrowserFile(jsonObj[WidgetKey._jsonMould], "demo", WidgetFile._extendJsonMd);
 
         WidgetHistory.setFileBrowser(jsonObj);
     }
@@ -150,21 +150,21 @@ WidgetHistory.addFileBrowserFile = function (jsonObj, title, extend) {
     list[index][WidgetKey._title] = title;
     list[index][WidgetKey._extend] = extend;
 }
-WidgetHistory.getFileJsonTemplate = function (fileName) {
-    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonTemplate);
+WidgetHistory.getFileJsonMould = function (fileName) {
+    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
     var jsonObj = JSON.parse('{}');
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     }
     return jsonObj[fileName];
 }
-WidgetHistory.setFileJsonTemplate = function (fileName, jsonTemplateObj) {
-    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonTemplate);
+WidgetHistory.setFileJsonMould = function (fileName, jsonMouldObj) {
+    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
     var jsonObj = JSON.parse('{}');
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     }
-    jsonObj[fileName] = jsonTemplateObj;
+    jsonObj[fileName] = jsonMouldObj;
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
-    WidgetHistory.setItem(WidgetKey._widgetFileJsonTemplate, jsonStr);
+    WidgetHistory.setItem(WidgetKey._widgetFileJsonMould, jsonStr);
 }

@@ -1,28 +1,28 @@
-function PanelFileTemplate() {
+function PanelFileMould() {
     this._widgetTab = new WidgetTab();
 }
 
-PanelFileTemplate.prototype.init = function () {
-    var rootElement = document.getElementById("panelFileTemplate");
+PanelFileMould.prototype.init = function () {
+    var rootElement = document.getElementById("panelFileMould");
     var dropElement = WidgetDrop.addDrop(rootElement, this);
-    this._historyItem = WidgetKey._panelFileTemplate;
-    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", null);
-    // this._widgetTab.init(dropElement, this, "../../editor/home/homeFileTemplate.html", this._historyItem);
+    this._historyItem = WidgetKey._panelFileMould;
+    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileMould.html", null);
+    // this._widgetTab.init(dropElement, this, "../../editor/home/homeFileMould.html", this._historyItem);
 
     this._menuRightTitle = new WidgetMenu();
     this._menuRightContent = new WidgetMenu();
-    this._menuRightTitle.createMenu(document.body, "../../editor/menu/menuFileTemplateTitle.html");
-    this._menuRightContent.createMenu(document.body, "../../editor/menu/menuFileTemplateContent.html");
+    this._menuRightTitle.createMenu(document.body, "../../editor/menu/menuFileMouldTitle.html");
+    this._menuRightContent.createMenu(document.body, "../../editor/menu/menuFileMouldContent.html");
 }
-PanelFileTemplate.prototype.handleFiles = function (files) {
+PanelFileMould.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         this._widgetTab.addTab(file);
     }
 }
-PanelFileTemplate.prototype.loadedHtml = function (htmlRoot) {
+PanelFileMould.prototype.loadedHtml = function (htmlRoot) {
 }
-PanelFileTemplate.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
+PanelFileMould.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {
         case WidgetTab._onContextMenuType.tabTitle : {
             WidgetMenu.showMenu(this._menuRightTitle, e, ele);
@@ -34,9 +34,9 @@ PanelFileTemplate.prototype.tabOnContextMenu = function (ele, e, onContextMenuTy
         }
     }
 }
-PanelFileTemplate.prototype.loadedJson = function (fileReader) {
+PanelFileMould.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
-    var obj = panelFileBrowser._jsonFileBrowser[WidgetKey._jsonTemplate];
+    var obj = panelFileBrowser._jsonFileBrowser[WidgetKey._jsonMould];
 
     var title = getFileTitle(fileName);
     var extend = getFileExtend(fileName);

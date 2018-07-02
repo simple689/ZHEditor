@@ -2,7 +2,7 @@ function WidgetFile() {
 }
 
 WidgetFile._extendJson = ".json";
-WidgetFile._extendJsonConf = ".jsonConf";
+WidgetFile._extendJsonMd = ".jsonMd";
 
 WidgetFile.readFile = function (file, elementTabTitle) {
     var fileNameAry = file.name.split(".");
@@ -36,8 +36,8 @@ WidgetFile.readFileContent = function (fileContent, elementTabTitle, contentType
     var extend = getFileExtend(elementTabTitle.innerHTML);
     if (extend == WidgetFile._extendJson) {
         elementTabTitle._fileCtrl = new WidgetFileJson();
-    } else if (extend == WidgetFile._extendJsonConf) {
-        elementTabTitle._fileCtrl = new WidgetFileJsonTemplate();
+    } else if (extend == WidgetFile._extendJsonMd) {
+        elementTabTitle._fileCtrl = new WidgetFileJsonMould();
     }
     elementTabTitle._fileCtrl.init(elementTabTitle, fileContent, contentType);
     WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, contentType, elementTabTitle._widgetTab._panel._historyItem);

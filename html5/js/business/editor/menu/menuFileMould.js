@@ -1,7 +1,7 @@
-function MenuFileTemplate() {
+function MenuFileMould() {
 }
 
-MenuFileTemplate.closeTitle = function (li) {
+MenuFileMould.closeTitle = function (li) {
     if (li._menu._exec) {
         var elementTabTitle = li._menu._exec;
         elementTabTitle._widgetTab.closeTitle(elementTabTitle);

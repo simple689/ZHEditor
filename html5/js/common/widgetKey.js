@@ -2,9 +2,9 @@ function WidgetKey() {
 }
 
 WidgetKey._panelFileEditor = "panelFileEditor";
-WidgetKey._panelFileTemplate = "panelFileTemplate";
+WidgetKey._panelFileMould = "panelFileMould";
 WidgetKey._panelFileBrowser = "panelFileBrowser";
-WidgetKey._widgetFileJsonTemplate = "widgetFileJsonTemplate";
+WidgetKey._widgetFileJsonMould = "widgetFileJsonMould";
 
 WidgetKey._fileList = "fileList";
 WidgetKey._folderList = "folderList";
@@ -12,7 +12,7 @@ WidgetKey._fileName = "fileName";
 WidgetKey._fileContent = "fileContent";
 
 WidgetKey._json = "json";
-WidgetKey._jsonTemplate = "jsonTemplate";
+WidgetKey._jsonMould = "jsonMould";
 
 WidgetKey._type = "type";
 WidgetKey._title = "title";

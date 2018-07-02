@@ -18,19 +18,19 @@ WidgetFileJson.prototype.initCtrl = function () {
     jsonObjCtrl._keyShow = "文件根节点";
     var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, jsonObjCtrl);
 
-    var jsonTemplateName = this._jsonObj[WidgetKey._jsonTemplate];
-    if (!jsonTemplateName) {
-        jsonTemplateName = this._elementTabTitle.innerHTML;
-        jsonTemplateName = changeFileExtend(jsonTemplateName, WidgetFile._extendJsonConf);
+    var jsonMouldName = this._jsonObj[WidgetKey._jsonMould];
+    if (!jsonMouldName) {
+        jsonMouldName = this._elementTabTitle.innerHTML;
+        jsonMouldName = changeFileExtend(jsonMouldName, WidgetFile._extendJsonMd);
     }
-    this._fileJsonTemplateCtrl = new WidgetFileJsonTemplate();
-    this._fileJsonTemplateCtrl.getTemplate(jsonTemplateName, this._jsonObj);
+    this._fileJsonMouldCtrl = new WidgetFileJsonMould();
+    this._fileJsonMouldCtrl.getMould(jsonMouldName, this._jsonObj);
 
     this.readObject(this._jsonObj, "", foldItem, false);
 
-    var templatePanel = this._elementTabTitle._widgetTab._panel._fileTemplatePanel;
-    var elementTabTitle = templatePanel._widgetTab.addTitle(jsonTemplateName);
-    templatePanel._widgetTab.addContent(elementTabTitle, this._fileJsonTemplateCtrl._jsonTemplateObj, WidgetTab._addContentType.fileJsonObj);
+    var mouldPanel = this._elementTabTitle._widgetTab._panel._fileMouldPanel;
+    var elementTabTitle = mouldPanel._widgetTab.addTitle(jsonMouldName);
+    mouldPanel._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._addContentType.fileJsonObj);
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent) {
 //     var nodeTable = WidgetTableHtml.addTable(elementParent);
@@ -64,7 +64,7 @@ WidgetFileJson.prototype.initCtrl = function () {
 WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isArrayParent) {
     for (var o in jsonObj) {
         var key = o;
-        var isIgnore = this._fileJsonTemplateCtrl.isTemplateIgnore(key);
+        var isIgnore = this._fileJsonMouldCtrl.isMouldIgnore(key);
         if (isIgnore) {
             continue;
         }
@@ -83,9 +83,9 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
             if (Array.isArray(value)) {
                 WidgetLog.log(value);
                 isArray = true;
-                // jsonObjCtrl._onContextMenu = WidgetFileJsonTemplate.onContextMenuArray;
+                // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuArray;
             } else {
-                // jsonObjCtrl._onContextMenu = WidgetFileJsonTemplate.onContextMenuObject;
+                // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuObject;
             }
 
             var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
