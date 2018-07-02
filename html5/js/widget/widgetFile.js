@@ -5,11 +5,11 @@ WidgetFile._extendJson = ".json";
 WidgetFile._extendJsonMd = ".jsonMd";
 
 WidgetFile.readFile = function (file, elementTabTitle) {
-    var fileNameAry = file.name.split(".");
-    var extendIndex = fileNameAry.length - 1;
+    var fileNameList = file.name.split(".");
+    var extendIndex = fileNameList.length - 1;
     var extend = "";
     if (extendIndex >= 0) {
-        extend = fileNameAry[extendIndex];
+        extend = fileNameList[extendIndex];
         extend = extend.toLowerCase();
     }
 

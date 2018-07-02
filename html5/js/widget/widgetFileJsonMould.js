@@ -65,12 +65,7 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
             } else {
                 if (typeof(value) == WidgetKey._string) {
-                    var jsonObjValueType = jsonObj[WidgetKey._valueType];
-                    // if (jsonObjValueType && jsonObjValueType == WidgetKey._enum) {
-                    //     WidgetHtml.addSelect(elementParent, jsonObjCtrl);
-                    // } else {
-                        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textString);
-                    // }
+                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textString);
                 } else if (typeof(value) == WidgetKey._number) {
                     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textNumber);
                 } else if (typeof(value) == WidgetKey._boolean) {
@@ -95,12 +90,24 @@ WidgetFileJsonMould.prototype.getKeyShow = function (key) {
         keyShow = "开头字符串列表";
     } else if (key == WidgetKey._file) {
         keyShow = "文件";
-    } else if (key == "showTitle") {
+    } else if (key == WidgetKey._showTitle) {
         keyShow = "显示名字";
-    } else if (key == "valueType") {
+    } else if (key == WidgetKey._valueType) {
         keyShow = "值类型";
-    } else if (key == "value") {
+    } else if (key == WidgetKey._value) {
         keyShow = "值";
+    } else if (key == WidgetKey._enumKey) {
+        keyShow = "枚举名字";
+    } else if (key == WidgetKey._enumKeyShow) {
+        keyShow = "枚举名字显示";
+    } else if (key == WidgetKey._enumParamList) {
+        keyShow = "枚举特有参数列表";
+    } else if (key == WidgetKey._enumParamItem) {
+        keyShow = "枚举特有参数";
+    } else if (key == WidgetKey._enumParamShow) {
+        keyShow = "显示名字";
+    } else if (key == WidgetKey._valueType) {
+        keyShow = "值类型";
     }
     return keyShow;
 }
@@ -127,9 +134,12 @@ WidgetFileJsonMould.onContextMenuObject = function (e) {
     var li = null;
     if (this._jsonObjCtrl._key == WidgetKey._ignore) {
         li = menu.addLi(ul, "暂无功能", null);
+    } else if (this._jsonObjCtrl._isArrayParent) {
+        li = menu.addLi(ul, "添加对象", WidgetFileJsonMould.onClickAddObject);
+        li = menu.addLi(ul, "数组中删除此对象", WidgetFileJsonMould.onClickArrayDel);
     } else {
-        li = menu.addLi(ul, "添加节点", WidgetFileJsonMould.onClickAddObject);
-        li = menu.addLi(ul, "删除节点", WidgetFileJsonMould.onClickDelObject);
+        li = menu.addLi(ul, "添加对象", WidgetFileJsonMould.onClickAddObject);
+        li = menu.addLi(ul, "删除对象", WidgetFileJsonMould.onClickDelObject);
     }
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
@@ -184,8 +194,26 @@ WidgetFileJsonMould.onClickSave = function (e) {
 }
 WidgetFileJsonMould.onClickArrayAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
-    var jsonObj = jsonObjCtrl._value;
-    jsonObj[jsonObj.length] = "";
+    var jsonObjKey = jsonObjCtrl._key;
+    var jsonObjValue = jsonObjCtrl._value;
+    if (jsonObjKey == WidgetKey._enumParamList) {
+        jsonObjValue[jsonObjValue.length] = {};
+        var jsonItem = jsonObjValue[jsonObjValue.length - 1];
+        jsonItem[WidgetKey._enumParamItem] = {};
+        jsonItem[WidgetKey._enumParamItem][WidgetKey._enumParamShow] = "";
+        jsonItem[WidgetKey._enumParamItem][WidgetKey._valueType] = WidgetKey._string;
+    } else {
+        var jsonObjValueType = jsonObjCtrl._obj[WidgetKey._valueType];
+        if (jsonObjValueType == WidgetKey._enum) {
+            jsonObjValue[jsonObjValue.length] = {};
+            var jsonItem = jsonObjValue[jsonObjValue.length - 1];
+            jsonItem[WidgetKey._enumKey] = "";
+            jsonItem[WidgetKey._enumKeyShow] = "";
+            jsonItem[WidgetKey._enumParamList] = new Array();
+        } else {
+            jsonObjValue[jsonObjValue.length] = "";
+        }
+    }
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.onClickArrayDel = function (e) {
@@ -274,7 +302,7 @@ WidgetFileJsonMould.onClickAddObject = function (e) {
                 jsonObj[WidgetKey._value] = {};
             }
             if (isHasObj) {
-                alert("当前 值类型 为 数组，只能存在一个节点作为此数组的模版！");
+                alert("当前 值类型 为 数组，只能存在一个对象作为此数组的模版！");
                 return;
             }
         } else if (valueType == WidgetKey._enum) {
@@ -308,7 +336,7 @@ WidgetFileJsonMould.onClickAddObject = function (e) {
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.onClickDelObject = function (e) {
-    if (!confirm("确定要 “删除节点” 吗？")) { //利用对话框返回的值 （true 或者 false）
+    if (!confirm("确定要 “删除对象” 吗？")) { //利用对话框返回的值 （true 或者 false）
         return;
     }
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
