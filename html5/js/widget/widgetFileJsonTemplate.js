@@ -26,7 +26,7 @@ WidgetFileJsonTemplate.prototype.readObject = function (jsonObj, keyParent, elem
         var key = o;
         var keyShow = this.getKeyShow(key);
         var value = jsonObj[key];
-        if (typeof(value) == "object") {
+        if (typeof(value) == WidgetKey._object) {
             var keyChild = keyParent;
             keyChild += "->";
             keyChild += key;
@@ -219,8 +219,9 @@ WidgetFileJsonTemplate.onChangeSelect = function (e) {
     var jsonObjValue = jsonObj[WidgetKey._value];
     var isHasObj = false;
     if (jsonObjValue) {
-        for(var i in jsonObjValue){
+        for (var i in jsonObjValue) {
             isHasObj = true;
+            break;
         }
     }
     if (isHasObj) {
@@ -229,28 +230,60 @@ WidgetFileJsonTemplate.onChangeSelect = function (e) {
         }
     }
     var value = this.value;
+    jsonObj[WidgetKey._valueType] = value;
+    if (jsonObj[WidgetKey._valueType] == WidgetKey._object || jsonObj[WidgetKey._valueType] == WidgetKey._array) {
+        jsonObj[WidgetKey._value] = {};
+    } else {
+        delete jsonObj[WidgetKey._value];
+    }
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonTemplate.onClickAddObject = function (e) {
-    var keyNew = prompt("请输入添加的 Key ：");
-    if (!keyNew) {
-        return;
-    }
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
-    var jsonObj = jsonObjCtrl._obj[jsonObjCtrl._key];
+    var jsonObj = jsonObjCtrl._obj;
     var valueType = jsonObj[WidgetKey._valueType];
-    var jsonObjValue = null;
     if (valueType) {
-        if (valueType != WidgetKey._object) {
+
+    } else {
+        jsonObj = jsonObjCtrl._obj[jsonObjCtrl._key];
+        valueType = jsonObj[WidgetKey._valueType];
+    }
+
+    var jsonObjValue = jsonObj;
+    if (valueType) {
+        if (valueType == WidgetKey._object) {
+            if (!jsonObj[WidgetKey._value]) {
+                jsonObj[WidgetKey._value] = {};
+            }
+        } else if (valueType == WidgetKey._array) {
+            var jsonObjValue = jsonObj[WidgetKey._value];
+            var isHasObj = false;
+            if (jsonObjValue) {
+                for (var i in jsonObjValue) {
+                    isHasObj = true;
+                    break;
+                }
+            } else {
+                jsonObj[WidgetKey._value] = {};
+            }
+            if (isHasObj) {
+                alert("当前 值类型 为 数组，只能存在一个节点作为此数组的模版！");
+                return;
+            }
+        } else {
             if (!confirm("当前 Key 的值类型不是对象，如果继续添加，值类型会变成对象，确定执行操作吗？")) { //利用对话框返回的值 （true 或者 false）
                 return;
             }
             jsonObj[WidgetKey._valueType] = WidgetKey._object;
             jsonObj[WidgetKey._value] = {};
         }
+
         jsonObjValue = jsonObj[WidgetKey._value];
-    } else {
-        jsonObjValue = jsonObj;
+    }
+
+    var keyNew = prompt("请输入添加的 Key ：");
+    if (!keyNew) {
+        return;
     }
 
     jsonObjValue[keyNew] = {};
@@ -311,14 +344,13 @@ WidgetFileJsonTemplate.prototype.createTemplate = function (jsonObj, jsonTemplat
 
         var value = jsonObj[key];
         // WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
-        if (typeof(value) == "object") {
+        jsonObjParent[key] = {};
+        jsonObjParent[key][WidgetKey._showTitle] = key;
+        if (typeof(value) == WidgetKey._object) {
             var keyChild = keyParent;
             keyChild += "->";
             keyChild += key;
             keyChild += "->";
-
-            jsonObjParent[key] = {};
-            jsonObjParent[key][WidgetKey._showTitle] = key;
 
             var isArray = false;
             if (Array.isArray(value)) {
@@ -327,14 +359,12 @@ WidgetFileJsonTemplate.prototype.createTemplate = function (jsonObj, jsonTemplat
                 jsonObjParent[key][WidgetKey._valueType] = WidgetKey._array;
                 jsonObjParent[key][WidgetKey._value] = new Array();
             } else {
-                jsonObjParent[key][WidgetKey._valueType] = "object";
+                jsonObjParent[key][WidgetKey._valueType] = WidgetKey._object;
                 jsonObjParent[key][WidgetKey._value] = {};
             }
 
             this.createTemplate(value, jsonTemplateObj, keyChild, jsonObjParent[key][WidgetKey._value], isArray);
         } else {
-            jsonObjParent[key] = {};
-            jsonObjParent[key][WidgetKey._showTitle] = key;
             if (typeof(value) == WidgetKey._string) {
                 jsonObjParent[key][WidgetKey._valueType] = WidgetKey._string;
             } else if (typeof(value) == WidgetKey._number) {
@@ -350,7 +380,7 @@ WidgetFileJsonTemplate.prototype.createTemplate = function (jsonObj, jsonTemplat
     }
 }
 WidgetFileJsonTemplate.prototype.isTemplateIgnore = function (key) {
-    for (var i in this._jsonTemplateObj.ignore.beginList) {
+    for (var i in this._jsonTemplateObj[WidgetKey._ignore][WidgetKey._beginList]) {
         var isStart = key[i].indexOf("$");
         if (isStart == 0) {
             return true;

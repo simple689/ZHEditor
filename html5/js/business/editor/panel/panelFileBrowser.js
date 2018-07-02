@@ -59,7 +59,7 @@ PanelFileBrowser.prototype.initBottomRight = function () {
 PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
     for (var o in jsonObj) {
         var value = jsonObj[o];
-        if (typeof(value) == "object") {
+        if (typeof(value) == WidgetKey._object) {
             var pathChild = pathParent;
             var fold = elementParent;
             var type = value[WidgetKey._type];
@@ -94,13 +94,13 @@ PanelFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elem
 PanelFileBrowser.prototype.refreshBottomRight = function (jsonObj) {
     this._flexCtrl.clearFlexItem();
 
-    if (typeof(jsonObj) == "object") {
+    if (typeof(jsonObj) == WidgetKey._object) {
         var path = jsonObj["path"];
 
         var fileList = jsonObj[WidgetKey._fileList];
         for (var o in fileList) {
             var value = fileList[o];
-            if (typeof(value) == "object") {
+            if (typeof(value) == WidgetKey._object) {
                 var title = value[WidgetKey._title];
                 var extend = value[WidgetKey._extend];
                 var rightContent = document.createElement("div");

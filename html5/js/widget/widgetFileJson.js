@@ -41,7 +41,7 @@ WidgetFileJson.prototype.initCtrl = function () {
 //             continue;
 //         }
 //         var value = jsonObj[key];
-//         if (typeof(value) == "object") {
+//         if (typeof(value) == WidgetKey._object) {
 //             var keyChild = keyParent;
 //             keyChild += "->";
 //             keyChild += key;
@@ -70,7 +70,7 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
         }
         var keyShow = this.getKeyShow(key);
         var value = jsonObj[key];
-        if (typeof(value) == "object") {
+        if (typeof(value) == WidgetKey._object) {
             var keyChild = keyParent;
             keyChild += "->";
             keyChild += key;
