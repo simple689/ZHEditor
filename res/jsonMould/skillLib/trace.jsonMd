@@ -1,10 +1,6 @@
 <root>
 	<!--轨迹库	-->
 	<unit id = "id_none">		
-
-	</unit>
-	<!--轨迹库	-->
-	<unit id = "id_beat">		
 		<!--轨迹类型
 			T_none							:无轨迹
 			T_diy							:自定义的从编辑器获取的轨迹信息.

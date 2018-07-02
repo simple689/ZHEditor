@@ -29,4 +29,5 @@ JsonObjCtrl._valueTypeList = JsonSelectList(
     new SelectItem(WidgetKey._array,"数组"),
     new SelectItem(WidgetKey._string,"字符串"),
     new SelectItem(WidgetKey._number,"数字"),
-    new SelectItem(WidgetKey._boolean,"真假"));
+    new SelectItem(WidgetKey._boolean,"真假"),
+    new SelectItem(WidgetKey._enum,"枚举"));

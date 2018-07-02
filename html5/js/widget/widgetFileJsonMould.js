@@ -65,7 +65,12 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
             } else {
                 if (typeof(value) == WidgetKey._string) {
-                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textString);
+                    var jsonObjValueType = jsonObj[WidgetKey._valueType];
+                    // if (jsonObjValueType && jsonObjValueType == WidgetKey._enum) {
+                    //     WidgetHtml.addSelect(elementParent, jsonObjCtrl);
+                    // } else {
+                        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textString);
+                    // }
                 } else if (typeof(value) == WidgetKey._number) {
                     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textNumber);
                 } else if (typeof(value) == WidgetKey._boolean) {
@@ -233,6 +238,8 @@ WidgetFileJsonMould.onChangeSelect = function (e) {
     jsonObj[WidgetKey._valueType] = value;
     if (jsonObj[WidgetKey._valueType] == WidgetKey._object || jsonObj[WidgetKey._valueType] == WidgetKey._array) {
         jsonObj[WidgetKey._value] = {};
+    } else if (jsonObj[WidgetKey._valueType] == WidgetKey._enum) {
+        jsonObj[WidgetKey._value] = new Array();
     } else {
         delete jsonObj[WidgetKey._value];
     }
@@ -270,6 +277,14 @@ WidgetFileJsonMould.onClickAddObject = function (e) {
                 alert("当前 值类型 为 数组，只能存在一个节点作为此数组的模版！");
                 return;
             }
+        } else if (valueType == WidgetKey._enum) {
+            if (!jsonObj[WidgetKey._value]) {
+                jsonObj[WidgetKey._value] = new Array();
+            }
+            jsonObjValue = jsonObj[WidgetKey._value];
+            jsonObjValue[jsonObjValue.length] = "";
+            jsonObjCtrl._exec.refreshContent();
+            return;
         } else {
             if (!confirm("当前 Key 的值类型不是对象，如果继续添加，值类型会变成对象，确定执行操作吗？")) { //利用对话框返回的值 （true 或者 false）
                 return;

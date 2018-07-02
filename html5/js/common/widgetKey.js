@@ -37,3 +37,4 @@ WidgetKey._array = "array";
 WidgetKey._string = "string";
 WidgetKey._number = "number";
 WidgetKey._boolean = "boolean";
+WidgetKey._enum = "enum";
