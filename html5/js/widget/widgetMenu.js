@@ -17,7 +17,7 @@ WidgetMenu.prototype.createMenu = function (elementParent) {
     this._elementRoot.classList.add("widgetMenu");
     WidgetMenu._menuList.push(this);
 }
-WidgetMenu.prototype,createMenu = function (elementParent, html) {
+WidgetMenu.prototype.createMenuWithHtml = function (elementParent, html) {
     this.createMenu(elementParent);
     if (!this._elementRoot) {
         return;

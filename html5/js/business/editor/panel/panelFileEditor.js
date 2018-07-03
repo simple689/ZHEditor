@@ -14,8 +14,8 @@ PanelFileEditor.prototype.init = function (fileMouldPanel) {
 
     this._menuRightTitle = new WidgetMenu();
     this._menuRightContent = new WidgetMenu();
-    this._menuRightTitle.createMenu(document.body, "../../editor/menu/menuFileEditorTitle.html");
-    this._menuRightContent.createMenu(document.body, "../../editor/menu/menuFileEditorContent.html");
+    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorTitle.html");
+    this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorContent.html");
 }
 PanelFileEditor.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {

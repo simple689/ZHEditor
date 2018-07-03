@@ -12,7 +12,7 @@ PanelFileBrowser.prototype.init = function () {
 }
 PanelFileBrowser.prototype.initTop = function () {
     this._menuLeftCreate = new WidgetMenu();
-    this._menuLeftCreate.createMenu(document.body, "../../editor/menu/menuFileBrowserCreate.html");
+    this._menuLeftCreate.createMenuWithHtml(document.body, "../../editor/menu/menuFileBrowserCreate.html");
 
     var createBtn = document.getElementById("createBtn");
     createBtn._PanelFileBrowser = this;
@@ -135,4 +135,6 @@ PanelFileBrowser.saveAs = function (title, jsonObj) {
     if (false) {
         WidgetHistory.setFileJsonMould(title, jsonObj);
     }
+    var widgetDialog = new WidgetDialog();
+    widgetDialog.createDialogWithHtml(document.body, "../../editor/dialog/dialogSaveAs.html");
 };
