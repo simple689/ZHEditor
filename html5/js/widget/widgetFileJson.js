@@ -81,7 +81,7 @@ WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParen
             jsonObjCtrl._value = value;
             var isArray = false;
             if (Array.isArray(value)) {
-                WidgetLog.log(value);
+                // WidgetLog.log(value);
                 isArray = true;
                 // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuArray;
             } else {

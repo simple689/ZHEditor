@@ -7,36 +7,33 @@
     background-color: #393939;
 }
 
-#top {
-}
-
-#bottom {
+.fileBrowser {
     flex: 1;
     display: flex;
     display: -webkit-flex;
     overflow: auto;
 }
 
-#left {
+.fileBrowserLeft {
     width: 300px;
     overflow: auto;
     border: 1px solid #ccc;
     border-right: 0px;
 }
 
-#right {
+.fileBrowserRight {
     flex: 1;
     overflow: auto;
     border: 1px solid #ccc;
     border-left: 0px;
 }
 
-#middle {
+.fileBrowserMiddle {
     width: 3px;
     background: #ccc;
 }
 
-#middle:hover {
+.fileBrowserMiddle:hover {
     cursor: w-resize;
 }
 

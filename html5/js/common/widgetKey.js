@@ -12,7 +12,9 @@ WidgetKey._fileName = "fileName";
 WidgetKey._fileContent = "fileContent";
 
 WidgetKey._json = "json";
+WidgetKey._jsonShow = "json";
 WidgetKey._jsonMould = "jsonMould";
+WidgetKey._jsonMouldShow = "json模版";
 
 WidgetKey._type = "type";
 WidgetKey._title = "title";
@@ -21,7 +23,8 @@ WidgetKey._extend = "extend";
 WidgetKey._folder = "folder";
 WidgetKey._file = "file";
 
-WidgetKey._personal = "personal";
+WidgetKey._personalFolder = "personalFolder";
+WidgetKey._personalFoldShow = "个人文件夹";
 
 WidgetKey._key = "key";
 WidgetKey._keyShow = "keyShow";

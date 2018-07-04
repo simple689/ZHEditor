@@ -42,6 +42,12 @@ WidgetHtml.addBr = function (nodeParent) {
     nodeBr.classList.add("nodeBr");
     return nodeBr;
 }
+WidgetHtml.addDiv = function (nodeParent) {
+    var nodeDiv = document.createElement("div");
+    nodeParent.appendChild(nodeDiv);
+    nodeDiv.classList.add("nodeDiv");
+    return nodeDiv;
+}
 WidgetHtml.addLabel = function (nodeParent, jsonObjCtrl) {
     var nodeLabel = document.createElement("label");
     nodeParent.appendChild(nodeLabel);

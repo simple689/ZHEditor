@@ -16,18 +16,18 @@
 
 .widgetDialog {
     position: absolute;
-    background: #999999;
+    background: #333333;
     border: 2px solid #333333;
 }
 
 .widgetDialogHead {
     height: 30px;
-    background: #393939;
+    background: #666666;
     /*cursor: move;*/
 }
 
 .widgetDialogContent {
-    background: #666666;
+    padding: 10px;
 }
 
 .widgetDialogHeadButton {

@@ -26,18 +26,18 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
         var key = o;
         var keyShow = this.getKeyShow(key);
         var value = jsonObj[key];
+        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isArrayParent, key);
+        jsonObjCtrl._keyShow = keyShow;
         if (typeof(value) == WidgetKey._object) {
             var keyChild = keyParent;
             keyChild += "->";
             keyChild += key;
             keyChild += "->";
 
-            var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isArrayParent, key);
-            jsonObjCtrl._keyShow = keyShow;
             jsonObjCtrl._value = value;
             var isArray = false;
             if (Array.isArray(value)) {
-                WidgetLog.log(value);
+                // WidgetLog.log(value);
                 isArray = true;
                 jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuArray;
             } else {
@@ -47,8 +47,6 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
             var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
             this.readObject(value, keyChild, foldItem, isArray);
         } else {
-            var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isArrayParent, key);
-            jsonObjCtrl._keyShow = keyShow;
             jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuLabel;
             WidgetHtml.addLabel(elementParent, jsonObjCtrl);
             jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isArrayParent, key);
@@ -434,7 +432,7 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
 
             var isArray = false;
             if (Array.isArray(value)) {
-                WidgetLog.log(value);
+                // WidgetLog.log(value);
                 isArray = true;
                 jsonObjParent[key][WidgetKey._valueType] = WidgetKey._array;
                 jsonObjParent[key][WidgetKey._value] = new Array();

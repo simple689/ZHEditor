@@ -29,6 +29,7 @@ WidgetDialog.prototype.createDialog = function (elementParent) {
     this._elementDialogClose.classList.add("widgetDialogHeadButton");
     this._elementDialogClose._widgetDialog = this;
     this._elementDialogClose.innerHTML = "X";
+    this._elementDialogClose.onclick = WidgetDialog.onClickClose;
 
     this._elementDialogContent = document.createElement("div");
     this._elementDialog.appendChild(this._elementDialogContent);
@@ -39,16 +40,18 @@ WidgetDialog.prototype.createDialog = function (elementParent) {
     // this._elementDialog.appendChild(this._elementDialogButton);
     // this._elementDialogButton.classList.add("widgetDialogButton");
 }
-WidgetDialog.prototype.createDialogWithHtml = function (elementParent, html) {
+WidgetDialog.prototype.createDialogWithHtml = function (elementParent, html, htmlLoaded) {
     this.createDialog(elementParent);
     if (!this._elementDialogContent) {
         return;
     }
     $(this._elementDialogContent).load(html, function () {
+        if (htmlLoaded) {
+            htmlLoaded(this._widgetDialog);
+        }
         WidgetDialog.autoCenter(this._widgetDialog._elementDialog);
     });
 }
-
 WidgetDialog.autoCenter = function (element) {
     //获取可见窗口大小
     var bodyW = document.documentElement.clientWidth;
@@ -60,9 +63,14 @@ WidgetDialog.autoCenter = function (element) {
     element.style.left = (bodyW - elementW)/2 + 'px';
     element.style.top = (bodyH - elementH)/2 + 'px';
 };
-
 WidgetDialog.resizeWindow = function () {
     for (var i in WidgetDialog._dialogList) {
         WidgetDialog.autoCenter(WidgetDialog._dialogList[i]._elementDialog);
     }
 };
+WidgetDialog.onClickClose = function () {
+    this._widgetDialog.close();
+}
+WidgetDialog.prototype.close = function () {
+    this._elementRoot.remove();
+}

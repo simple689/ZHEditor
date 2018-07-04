@@ -26,10 +26,10 @@ WidgetHistory.init = function () {
 }
 WidgetHistory.clear = function () {
     // WidgetHistory._localStorage.clear();
-    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
-    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileMould);
+    // WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
+    // WidgetHistory._localStorage.removeItem(WidgetKey._panelFileMould);
     WidgetHistory._localStorage.removeItem(WidgetKey._panelFileBrowser);
-    WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonMould);
+    // WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonMould);
     alert("清空历史记录完毕！");
 }
 WidgetHistory.setItem = function (key, value) {
@@ -98,12 +98,12 @@ WidgetHistory.getFileBrowser = function () {
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     } else {
-        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._json, "json");
-        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._jsonMould, "json模版");
-        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._personal, "个人文件夹");
+        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._json, WidgetKey._jsonShow);
+        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._jsonMould, WidgetKey._jsonMouldShow);
+        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._personalFolder, WidgetKey._personalFoldShow);
 
-        WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personal], "json");
-        WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personal], "json模版");
+        WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personalFolder], WidgetKey._jsonShow);
+        WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personalFolder], WidgetKey._jsonMouldShow);
 
         WidgetHistory.addFileBrowserFile(jsonObj[WidgetKey._json], "demo", WidgetFile._extendJson);
         WidgetHistory.addFileBrowserFile(jsonObj[WidgetKey._jsonMould], "demo", WidgetFile._extendJsonMd);

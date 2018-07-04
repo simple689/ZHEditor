@@ -44,5 +44,5 @@ PanelFileMould.prototype.loadedJson = function (fileReader) {
         WidgetHistory.addFileBrowserFile(obj, title, extend);
         WidgetHistory.setFileBrowser(panelFileBrowser._jsonFileBrowser);
     }
-    panelFileBrowser.refreshBottomRight(obj);
+    panelFileBrowser.refreshFileBrowserRight(obj);
 }
