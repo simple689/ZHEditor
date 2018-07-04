@@ -98,6 +98,11 @@ function onContextMenuDocument() {
     return false;
 }
 
+function onResizeWindow() {
+    WidgetDialog.resizeWindow();
+    return true;
+}
+
 // exe
 //========
 $(document).ready(function () {
@@ -136,6 +141,7 @@ $(document).ready(function () {
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
     $(document).bind('click', onClickDocument);
     $(document).bind('contextmenu', onContextMenuDocument);
+    window.onresize = onResizeWindow;
 
     console.log("[dock] end");
 })
