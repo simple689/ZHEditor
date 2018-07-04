@@ -36,6 +36,12 @@ function setElementDisplay(element, enable) {
     }
 }
 
+function removeElementChild(element) {
+    var len = element.childNodes.length;
+    for (var i = 0; i < len; i++) {
+        element.removeChild(element.childNodes[0]);
+    }
+}
 // function setSize(element, elementCheck, elementCheckParent, padding) {
 //     var left = getOffsetLeftToParent(elementCheck, elementCheckParent);
 //     var top = getOffsetTopToParent(elementCheck, elementCheckParent);

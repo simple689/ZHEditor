@@ -7,14 +7,14 @@ WidgetSearch.prototype.createSearch = function (panel, elementBrother) {
 
     this._searchText = document.createElement("input");
     $(elementBrother).after(this._searchText);
-    this._searchText._WidgetSearch = this;
+    this._searchText._widgetSearch = this;
     this._searchText.classList.add("searchText");
     $(this._searchText).on("keyup", WidgetSearch.onKeyUpSearchText);
     $(this._searchText).on("focus", WidgetSearch.onFocusSearchText);
 
     this._searchBtn = document.createElement("input");
     $(this._searchText).after(this._searchBtn);
-    this._searchBtn._WidgetSearch = this;
+    this._searchBtn._widgetSearch = this;
     this._searchBtn.classList.add("searchBtn");
     $(this._searchBtn).on("click", WidgetSearch.onClickSearchBtn);
     this._searchBtn.type = "button";
@@ -51,7 +51,7 @@ WidgetSearch.onClickSearchBtn = function () {
         list.pop();
     }
     list = list.join();
-    var searchText = this._WidgetSearch._searchText;
+    var searchText = this._widgetSearch._searchText;
     var value = searchText.value;
     if (res !== undefined) {
         value = value + "," + list;
@@ -71,7 +71,7 @@ WidgetSearch.onClickSearchBtn = function () {
 }
 WidgetSearch.onKeyUpSearchText = function (event) {
     // 键盘事件 key == 13 (回车) key == 38 (向上) key== 40 (向下)
-    var ctrl = this._WidgetSearch;
+    var ctrl = this._widgetSearch;
     var searchHistoryItemListLen = ctrl._searchHistoryItemList.length;
 
     var key = event.keyCode;
@@ -109,12 +109,12 @@ WidgetSearch.onKeyUpSearchText = function (event) {
 }
 // 搜索框聚焦
 WidgetSearch.onFocusSearchText = function () {
-    WidgetSearch.showHistory(this._WidgetSearch, null);
+    WidgetSearch.showHistory(this._widgetSearch, null);
 }
 // 点击选中搜索词语(后隐藏历史记录)
 WidgetSearch.onClickSearchHistoryItem = function () {
-    var searchText = this._WidgetSearch._searchText;
-    var searchHistoryBox = this._WidgetSearch._searchHistoryBox;
+    var searchText = this._widgetSearch._searchText;
+    var searchHistoryBox = this._widgetSearch._searchHistoryBox;
     var str = this.innerHTML;
     searchText.value = str;
     setElementDisplay(searchHistoryBox, false);
@@ -159,7 +159,7 @@ WidgetSearch.showHistory = function (ctrl, searchValue) {
             if (isAdd) {
                 var li = document.createElement("li");
                 ctrl._searchHistory.append(li);
-                li._WidgetSearch = ctrl;
+                li._widgetSearch = ctrl;
                 $(li).on("click", WidgetSearch.onClickSearchHistoryItem);
                 $(li).on("mouseenter", WidgetSearch.onMouseEnterSearchHistoryItem);
                 $(li).on("mouseout", WidgetSearch.onMouseOutSearchHistoryItem);

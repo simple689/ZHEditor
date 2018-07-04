@@ -48,10 +48,7 @@ WidgetFlex.prototype.setItemFlexAlignSelf = function (flexItem, itemFlexAlignSel
     flexItem.style.alignSelf = itemFlexAlignSelf;
 }
 WidgetFlex.prototype.clearFlexItem = function () {
-    var len = this._flexContainer.childNodes.length;
-    for (var i = 0; i < len; i++) {
-        this._flexContainer.removeChild(this._flexContainer.childNodes[0]);
-    }
+    removeElementChild(this._flexContainer);
     this._flexItemList.splice(0, this._flexItemList.length);
 }
 WidgetFlex.onClickDt = function () {

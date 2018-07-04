@@ -58,13 +58,13 @@ PanelFileEditor.prototype.tabOnContextMenu = function (ele, e, onContextMenuType
 }
 PanelFileEditor.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
-    var obj = panelFileBrowser._jsonFileBrowser[WidgetKey._json];
+    var obj = WidgetFileBrowser._jsonFileBrowser[WidgetKey._json];
 
     var title = getFileTitle(fileName);
     var extend = getFileExtend(fileName);
     if (!WidgetHistory.existFileBrowserFile(obj, title, extend)) {
         WidgetHistory.addFileBrowserFile(obj, title, extend);
-        WidgetHistory.setFileBrowser(panelFileBrowser._jsonFileBrowser);
+        WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
     }
     panelFileBrowser.refreshFileBrowserRight(obj);
 }

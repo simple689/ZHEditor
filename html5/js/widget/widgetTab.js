@@ -116,11 +116,7 @@ WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType
 }
 WidgetTab.prototype.refreshContent = function (elementTabTitle, content, contentType) {
     var elementTabContent = elementTabTitle._elementTabContent;
-    var len = elementTabContent.childNodes.length;
-    for (var i = 0; i < len; i++) {
-        elementTabContent.removeChild(elementTabContent.childNodes[0]);
-    }
-
+    removeElementChild(elementTabContent);
     if (contentType == WidgetTab._addContentType.string) {
         elementTabContent.innerHTML = content;
     } else if (contentType == WidgetTab._addContentType.html) {
