@@ -4,21 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" description="&#10;WidgetFileJsonTemplate.prototype.initFileTemplate..." line="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change afterPath="$PROJECT_DIR$/css/widget/widgetFileBrowser.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/business/editor/panel/panelFileBrowser.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/business/editor/panel/panelFileBrowser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/business/editor/panel/panelFileBrowser.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelFileBrowser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/common/widgetElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common/widgetElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetFlex.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFlex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetTab.js" afterDir="false" />
-    </list>
+    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -29,66 +15,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="panelFileBrowser.js" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="358">
-                    <caret line="104" column="65" selection-start-line="104" selection-start-column="65" selection-end-line="104" selection-end-column="65" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="widgetHistory.js" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="100">
-                    <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="widgetFileBrowser.css" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/css/widget/widgetFileBrowser.css">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state>
-                    <caret selection-end-line="5" selection-end-column="1" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="widgetElement.js" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/js/common/widgetElement.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="413">
-                    <caret line="39" column="32" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="32" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="491">
-                    <caret line="118" column="18" lean-forward="true" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="html5" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="panelFileBrowser.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="94" column="40" lean-forward="true" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="widgetDialog.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -134,15 +74,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetJsonCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/common/widgetJsonCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" selection-start-column="9" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="widgetDialog.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/widget/widgetDialog.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -161,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetFileBrowser.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetFileBrowser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="104" column="71" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="71" />
+            <state relative-caret-position="756">
+              <caret line="115" column="53" lean-forward="true" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -350,11 +281,6 @@
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
               <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,17 +322,6 @@
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="widget" type="462c0819:PsiDirectoryNode" />
               <item name="widgetDock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-              <item name="colorPicker" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
@@ -465,38 +380,6 @@
               <item name="business" type="462c0819:PsiDirectoryNode" />
               <item name="editor" type="462c0819:PsiDirectoryNode" />
               <item name="panel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widgetDock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widgetMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widgetMenuFold" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
@@ -799,12 +682,12 @@
       <workItem from="1530692646733" duration="1660000" />
       <workItem from="1530694552573" duration="1786000" />
       <workItem from="1530696373343" duration="1787000" />
-      <workItem from="1530698187636" duration="206000" />
+      <workItem from="1530698187636" duration="1052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="822547000" />
+    <option name="totallyTimeSpent" value="823393000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -819,7 +702,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14791666" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14791666" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50625" side_tool="true" weight="0.38723403" />
@@ -828,7 +711,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.3287234" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.3287234" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="找到" order="12" sideWeight="0.38883033" weight="0.32960895" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -855,6 +738,12 @@
           <line>5</line>
           <option name="timeStamp" value="1631" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js</url>
+          <line>94</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1684" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -864,7 +753,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="1684" />
+      <option name="time" value="1685" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1230,17 +1119,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="104" column="65" selection-start-line="104" selection-start-column="65" selection-end-line="104" selection-end-column="65" />
+        <state relative-caret-position="756">
+          <caret line="115" column="53" lean-forward="true" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+    <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="104" column="71" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="71" />
+        <state relative-caret-position="183">
+          <caret line="94" column="40" lean-forward="true" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
         </state>
       </provider>
     </entry>
