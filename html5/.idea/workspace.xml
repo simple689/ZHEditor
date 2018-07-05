@@ -7,13 +7,7 @@
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/common/widgetUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common/widgetUtil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHistory.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,21 +23,21 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="widgetFileJsonMould.js" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js">
+          <leaf>
+            <file leaf-file-name="widgetDialog.js" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="250">
-                    <caret line="261" selection-start-line="261" selection-end-line="267" selection-end-column="5" />
+                  <state relative-caret-position="275">
+                    <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="54" />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="panelFileBrowser.js" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
+            <file leaf-file-name="widgetHistory.js" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="321">
-                    <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="24" />
+                  <state relative-caret-position="662">
+                    <caret line="162" column="37" lean-forward="true" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
                   </state>
                 </provider>
               </entry>
@@ -58,29 +52,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="widgetFileJsonMould.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="214" column="9" lean-forward="true" selection-start-line="214" selection-start-column="9" selection-end-line="214" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="widgetUtil.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/common/widgetUtil.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="625">
               <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetHistory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="140" column="17" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetDialog.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-275">
-              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -103,6 +88,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="panelFileBrowser.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="panelFileBrowser.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/business/editor/panel/panelFileBrowser.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,10 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetFileBrowser.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetFileBrowser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
+            <state relative-caret-position="3800">
               <caret line="152" selection-start-line="152" selection-start-column="3" selection-end-line="172" selection-end-column="4" />
             </state>
           </provider>
@@ -143,7 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addFold</find>
       <find>refreshFileBrowserRight</find>
       <find>readFileBrowser</find>
       <find>initFileBrowserRight</find>
@@ -173,6 +166,7 @@
       <find>addFileBrowserRootFolder</find>
       <find>addFileBrowserFile</find>
       <find>_nowFolder</find>
+      <find>stringify</find>
     </findStrings>
     <replaceStrings>
       <replace>_historyItem</replace>
@@ -261,12 +255,12 @@
         <option value="$PROJECT_DIR$/js/common/widgetElement.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFlex.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDialog.js" />
         <option value="$PROJECT_DIR$/js/common/widgetUtil.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHistory.js" />
-        <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" />
+        <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
       </list>
     </option>
   </component>
@@ -291,68 +285,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="html5" type="cbb8eebc:String" user="html5" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
               <item name="html5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="editor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="editor" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widgetDock" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
@@ -465,6 +403,17 @@
               <item name="html5" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="html5" type="cbb8eebc:String" user="html5" />
             </path>
           </expand>
           <select />
@@ -706,12 +655,13 @@
       <workItem from="1530755470995" duration="1409000" />
       <workItem from="1530756912948" duration="1783000" />
       <workItem from="1530758725079" duration="1783000" />
-      <workItem from="1530760545447" duration="572000" />
+      <workItem from="1530760545447" duration="1787000" />
+      <workItem from="1530763378243" duration="894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="828940000" />
+    <option name="totallyTimeSpent" value="831049000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -730,6 +680,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50625" side_tool="true" weight="0.38723403" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -745,7 +696,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="调试" order="7" sideWeight="0.5827187" weight="0.31620112" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -771,7 +721,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="1714" />
+      <option name="time" value="1716" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1119,38 +1069,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="261" selection-start-line="261" selection-end-line="267" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="24" />
+        <state relative-caret-position="3800">
+          <caret line="152" selection-start-line="152" selection-start-column="3" selection-end-line="172" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        <state relative-caret-position="275">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="214" column="9" lean-forward="true" selection-start-line="214" selection-start-column="9" selection-end-line="214" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="140" column="17" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
+        <state relative-caret-position="662">
+          <caret line="162" column="37" lean-forward="true" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+    <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="152" selection-start-line="152" selection-start-column="3" selection-end-line="172" selection-end-column="4" />
+        <state relative-caret-position="387">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>

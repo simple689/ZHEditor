@@ -26,6 +26,14 @@ PanelFileBrowser.saveAs = function (jsonObjCtrl) {
     var widgetDialog = new WidgetDialog();
     widgetDialog.createDialogWithHtml(jsonObjCtrl, document.body, "../../editor/dialog/dialogSaveAs.html", PanelFileBrowser.saveAsHtmlLoaded);
 };
+PanelFileBrowser.downLoad = function (jsonObjCtrl) {
+    var name = jsonObjCtrl._exec._elementTabTitle.innerHTML;
+    var jsonStr = JSON.stringify(jsonObjCtrl._obj, null, 2); // 将字符串对象转换为JSON对象
+    var element = document.createElement("a");
+    element.setAttribute('href', 'data:text/paint; utf-8,' + jsonStr);
+    element.setAttribute('download', name);
+    element.click();
+};
 PanelFileBrowser.saveAsHtmlLoaded = function (widgetDialog) {
     var name = widgetDialog._jsonObjCtrl._exec._elementTabTitle.innerHTML;
 

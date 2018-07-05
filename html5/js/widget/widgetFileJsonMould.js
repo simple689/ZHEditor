@@ -123,6 +123,7 @@ WidgetFileJsonMould.onContextMenuRoot = function (e) {
     var li = menu.addLi(ul, "刷新", WidgetFileJsonMould.onClickRefresh);
     li = menu.addLi(ul, "保存", WidgetFileJsonMould.onClickSave);
     li = menu.addLi(ul, "另存为", WidgetFileJsonMould.onClickSaveAs);
+    li = menu.addLi(ul, "下载", WidgetFileJsonMould.onClickDownLoad);
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
@@ -195,6 +196,10 @@ WidgetFileJsonMould.onClickSave = function (e) {
 WidgetFileJsonMould.onClickSaveAs = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     PanelFileBrowser.saveAs(jsonObjCtrl);
+}
+WidgetFileJsonMould.onClickDownLoad = function (e) {
+    var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
+    PanelFileBrowser.downLoad(jsonObjCtrl);
 }
 WidgetFileJsonMould.onClickArrayAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
