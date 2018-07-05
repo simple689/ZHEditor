@@ -1,12 +1,13 @@
 <root>
-	<!--轨迹库	-->
-	<unit id = "id_none">		
+	<!--轨迹库-->
+	<unit id = "id_none">
+		<!--轨道Z轴旋转-->
+		<rotZ>text_field</rotZ>
 		<!--轨迹类型
-			T_none							:无轨迹
-			T_diy							:自定义的从编辑器获取的轨迹信息.
-				param[0]自定义轨迹库索引.
+			none	无轨迹
+			diy		自定义的轨迹信息
+				param[0]自定义轨迹库索引
 		-->
-		<RotZ>text_field</RotZ><!--轨道Z轴旋转-->
 		<type>drop_list</type>
 		<param>text_field</param>
 	</unit>

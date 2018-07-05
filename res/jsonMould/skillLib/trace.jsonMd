@@ -6,23 +6,23 @@
   },
   "file": {
     "unitList": {
-      "showTitle": "unitList",
+      "showTitle": "列表",
       "valueType": "array",
       "value": {
         "unit": {
-          "showTitle": "unit",
+          "showTitle": "列表成员",
           "valueType": "object",
           "value": {
             "id": {
-              "showTitle": "id",
+              "showTitle": "ID",
               "valueType": "string"
             },
             "rotZ": {
-              "showTitle": "rotZ",
+              "showTitle": "轨道Z轴旋转",
               "valueType": "number"
             },
             "traceType": {
-              "showTitle": "traceType",
+              "showTitle": "轨迹类型",
               "valueType": "enum",
               "value": [
                 {
@@ -32,7 +32,7 @@
                 },
                 {
                   "enumKey": "diy",
-                  "enumKeyShow": "自定义",
+                  "enumKeyShow": "自定义的轨迹信息",
                   "enumParamList": [
                     {
                       "traceDiyId": {
