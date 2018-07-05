@@ -122,15 +122,17 @@ WidgetFileJson.prototype.readObjectMould = function (jsonObjMd, jsonObj, keyPare
     for (var oMd in jsonObjMd) {
         var keyMd = oMd;
         var valueMd = jsonObjMd[keyMd];
+        var value = jsonObj[keyMd];
         if (typeof(valueMd) == WidgetKey._object) {
             var keyChildMd = keyParentMd;
             keyChildMd += "->";
             keyChildMd += keyMd;
             keyChildMd += "->";
 
-            var jsonObjCtrlMd = new JsonObjCtrl(this, jsonObjMd, isListParent, keyMd);
+            var jsonObjCtrlMd = new JsonObjCtrl(this, jsonObj, isListParent, keyMd);
             jsonObjCtrlMd._keyShow = valueMd[WidgetKey._showTitle];
             jsonObjCtrlMd._value = valueMd;
+            jsonObjCtrlMd._objMd = jsonObjMd;
             jsonObjCtrlMd._valueType = valueMd[WidgetKey._valueType];
 
             var isList = false;
@@ -145,15 +147,19 @@ WidgetFileJson.prototype.readObjectMould = function (jsonObjMd, jsonObj, keyPare
             var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrlMd);
             if (jsonObjCtrlMd._valueType == WidgetKey._array) {
                 isList = true;
-                var jsonObjCtrlTool = new JsonObjCtrl(this, jsonObjCtrlMd, false, "listTool");
+                var jsonObjCtrlTool = new JsonObjCtrl(this, jsonObj, false, keyMd);
                 jsonObjCtrlTool._keyShow = "列表工具";
+                jsonObjCtrlTool._objMd = jsonObjMd;
                 WidgetHtml.addLabel(foldItem, jsonObjCtrlTool);
-                jsonObjCtrlTool = new JsonObjCtrl(this, jsonObjCtrlMd, false, "listToolAdd");
+                jsonObjCtrlTool = new JsonObjCtrl(this, jsonObj, false, keyMd);
                 jsonObjCtrlTool._value = "添加成员";
+                jsonObjCtrlTool._objMd = valueMd;
                 jsonObjCtrlTool._onClick = WidgetFileJson.onClickListToolAdd;
                 WidgetHtml.addInput(foldItem, jsonObjCtrlTool, WidgetHtml._inputType._button);
-            }
-            if (isListParent) {
+                this.readObjectMouldList(valueMd[WidgetKey._value], value, keyChildMd, foldItem, isList);
+            } else if (isListParent) {
+                var a = 0;
+                // this.readObjectMouldList(valueMd[WidgetKey._value], value, keyChildMd, foldItem, isList);
                 // var jsonObjCtrlTool = new JsonObjCtrl(this, jsonObjCtrlMd, false, "listTool");
                 // jsonObjCtrlTool._keyShow = "列表成员工具";
                 // WidgetHtml.addLabel(foldItem, jsonObjCtrlTool);
@@ -161,7 +167,7 @@ WidgetFileJson.prototype.readObjectMould = function (jsonObjMd, jsonObj, keyPare
                 // jsonObjCtrlTool._value = "删除成员";
                 // WidgetHtml.addInput(foldItem, jsonObjCtrlTool, WidgetHtml._inputType._button);
             } else {
-                this.readObjectMould(valueMd[WidgetKey._value], valueMd, keyChildMd, foldItem, isList);
+                this.readObjectMould(valueMd[WidgetKey._value], value, keyChildMd, foldItem, isList);
             }
         } else {
             // var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
@@ -187,6 +193,8 @@ WidgetFileJson.prototype.readObjectMould = function (jsonObjMd, jsonObj, keyPare
             // }
         }
     }
+}
+WidgetFileJson.prototype.readObjectMouldList = function (jsonObjMd, jsonObj, keyParentMd, elementParent, isListParent) {
     // for (var o in jsonObj) {
     //     var key = o;
     //     var isIgnore = this._fileJsonMouldCtrl.isMouldIgnore(key);
@@ -214,7 +222,7 @@ WidgetFileJson.prototype.readObjectMould = function (jsonObjMd, jsonObj, keyPare
     //         }
     //
     //         var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
-    //         this.readObjectMould(jsonObjMd, value, keyChild, foldItem, isList);
+    //         // this.readObject(value, keyChild, foldItem, isList);
     //     } else {
     //         var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
     //         jsonObjCtrl._keyShow = keyShow;
@@ -297,4 +305,83 @@ WidgetFileJson.onContextMenuInput = function (e) {
 
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
+}
+WidgetFileJson.onClickListToolAdd = function (e) {
+    var jsonObjCtrl = this._jsonObjCtrl;
+    var jsonObj = jsonObjCtrl._obj;
+    var jsonObjKey = jsonObjCtrl._key;
+    var list = jsonObj[jsonObjKey];
+    if (!list) {
+        jsonObj[jsonObjKey] = new Array();
+        list = jsonObj[jsonObjKey];
+    }
+
+    for (var valueMd in jsonObjCtrl._objMd[WidgetKey._value]) {
+        var jsonObjUnitMd = jsonObjCtrl._objMd[WidgetKey._value][valueMd];
+        var valueTypeMd = jsonObjUnitMd[WidgetKey._valueType];
+        if (valueTypeMd == WidgetKey._object) {
+            list.push({});
+            var obj = list[list.length - 1];
+            WidgetFileJson.a(obj, jsonObjUnitMd);
+        } else if (valueTypeMd == WidgetKey._array) {
+            list.push(new Array());
+            var obj = list[list.length - 1];
+        } else if (valueTypeMd == WidgetKey._enum) {
+            list.push(new Array());
+            var obj = list[list.length - 1];
+        } else {
+            list.push("");
+        }
+        break;
+    }
+
+
+    // var jsonObjValue = jsonObjCtrl._value;
+    // if (jsonObjKey == WidgetKey._enumParamList) {
+    //     jsonObjValue[jsonObjValue.length] = {};
+    //     var jsonItem = jsonObjValue[jsonObjValue.length - 1];
+    //
+    //     var keyNew = prompt("请输入 Key 的新名字 ：");
+    //     if (!keyNew) {
+    //         return;
+    //     }
+    //     jsonItem[keyNew] = {};
+    //     jsonItem[keyNew][WidgetKey._enumParamShow] = "";
+    //     jsonItem[keyNew][WidgetKey._valueType] = WidgetKey._string;
+    // } else {
+    //     var jsonObjValueType = jsonObjCtrl._obj[WidgetKey._valueType];
+    //     if (jsonObjValueType == WidgetKey._enum) {
+    //         jsonObjValue[jsonObjValue.length] = {};
+    //         var jsonItem = jsonObjValue[jsonObjValue.length - 1];
+    //         jsonItem[WidgetKey._enumKey] = "";
+    //         jsonItem[WidgetKey._enumKeyShow] = "";
+    //         jsonItem[WidgetKey._enumParamList] = new Array();
+    //     } else {
+    //         jsonObjValue[jsonObjValue.length] = "";
+    //     }
+    // }
+    jsonObjCtrl._exec.refreshContent();
+}
+WidgetFileJson.prototype.refreshContent = function () {
+    var widgetTab = this._elementTabTitle._widgetTab;
+    widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._addContentType.fileJsonObj);
+}
+WidgetFileJson.a = function (jsonObj, jsonObjMd) {
+    var jsonObjValueMd = jsonObjMd[WidgetKey._value];
+    for (var o in jsonObjValueMd) {
+        var keyMd = o;
+        var valueMd = jsonObjValueMd[keyMd];
+
+        var valueTypeMd = valueMd[WidgetKey._valueType];
+        if (valueTypeMd == WidgetKey._object) {
+            jsonObj[keyMd] = {};
+            WidgetFileJson.a(jsonObj[keyMd], valueMd);
+        } else if (valueTypeMd == WidgetKey._array) {
+            jsonObj[keyMd] = new Array();
+        } else if (valueTypeMd == WidgetKey._enum) {
+            jsonObj[keyMd] = new Array();
+        } else {
+            jsonObj[keyMd] = "";
+        }
+    }
 }

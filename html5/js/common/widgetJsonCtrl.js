@@ -1,6 +1,7 @@
 function JsonObjCtrl(exec, obj, isListParent, key) {
     this._exec = exec;
     this._obj = obj;
+    this._objMd = null;
     this._isListParent = isListParent;
 
     this._key = key;
