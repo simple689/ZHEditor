@@ -22,7 +22,10 @@ function changeFileExtend(str, extend) {
 }
 function getFileExtend(str) {
     var index = str.lastIndexOf(".");
-    var strNew = str.substring(index, str.length);
+    var strNew = "";
+    if (index != -1) {
+        strNew = str.substring(index, str.length);
+    }
     return strNew;
 }
 function getFileTitle(str) {

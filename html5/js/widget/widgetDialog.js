@@ -40,11 +40,12 @@ WidgetDialog.prototype.createDialog = function (elementParent) {
     // this._elementDialog.appendChild(this._elementDialogButton);
     // this._elementDialogButton.classList.add("widgetDialogButton");
 }
-WidgetDialog.prototype.createDialogWithHtml = function (elementParent, html, htmlLoaded) {
+WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementParent, html, htmlLoaded) {
     this.createDialog(elementParent);
     if (!this._elementDialogContent) {
         return;
     }
+    this._jsonObjCtrl = jsonObjCtrl;
     $(this._elementDialogContent).load(html, function () {
         if (htmlLoaded) {
             htmlLoaded(this._widgetDialog);

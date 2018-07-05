@@ -98,15 +98,15 @@ WidgetHistory.getFileBrowser = function () {
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     } else {
-        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._json, WidgetKey._jsonShow);
-        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._jsonMould, WidgetKey._jsonMouldShow);
-        WidgetHistory.addFileBrowserRootFolder(jsonObj, WidgetKey._personalFolder, WidgetKey._personalFoldShow);
+        WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._jsonShow);
+        WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._jsonMouldShow);
+        WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._personalFoldShow);
 
-        WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personalFolder], WidgetKey._jsonShow);
-        WidgetHistory.addFileBrowserFolder(jsonObj[WidgetKey._personalFolder], WidgetKey._jsonMouldShow);
+        WidgetHistory.addFileBrowserFolderList(jsonObj[WidgetKey._personalFoldShow], WidgetKey._jsonShow);
+        WidgetHistory.addFileBrowserFolderList(jsonObj[WidgetKey._personalFoldShow], WidgetKey._jsonMouldShow);
 
-        WidgetHistory.addFileBrowserFile(jsonObj[WidgetKey._json], "demo", WidgetFile._extendJson);
-        WidgetHistory.addFileBrowserFile(jsonObj[WidgetKey._jsonMould], "demo", WidgetFile._extendJsonMd);
+        WidgetHistory.addFileBrowserFileList(jsonObj[WidgetKey._jsonShow], "demo", WidgetFile._extendJson);
+        WidgetHistory.addFileBrowserFileList(jsonObj[WidgetKey._jsonMouldShow], "demo", WidgetFile._extendJsonMd);
 
         WidgetHistory.setFileBrowser(jsonObj);
     }
@@ -116,39 +116,35 @@ WidgetHistory.setFileBrowser = function (jsonObj) {
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
     WidgetHistory.setItem(WidgetKey._panelFileBrowser, jsonStr);
 }
-WidgetHistory.addFileBrowserRootFolder = function (jsonObj, key, title) {
+WidgetHistory.addFileBrowserFolder = function (jsonObj, key) {
     jsonObj[key] = {};
     var obj = jsonObj[key];
     obj[WidgetKey._type] = WidgetKey._folder;
-    obj[WidgetKey._title] = title
-    obj[WidgetKey._folderList] = new Array();
-    obj[WidgetKey._fileList] = new Array();
+    obj[WidgetKey._folderList] = {};
+    obj[WidgetKey._fileList] = {};
 }
-WidgetHistory.addFileBrowserFolder = function (jsonObj, title) {
+WidgetHistory.addFileBrowserFolderList = function (jsonObj, key) {
     var list = jsonObj[WidgetKey._folderList];
-    list.push({});
-    var index = list.length - 1;
-    list[index][WidgetKey._type] = WidgetKey._folder;
-    list[index][WidgetKey._title] = title;
-    list[index][WidgetKey._folderList] = new Array();
-    list[index][WidgetKey._fileList] = new Array();
+    WidgetHistory.addFileBrowserFolder(list, key);
 }
-WidgetHistory.existFileBrowserFile = function (jsonObj, title, extend) {
+WidgetHistory.existFileBrowserFile = function (jsonObj, key, extend) {
     var list = jsonObj[WidgetKey._fileList];
     for (var i in list) {
         var obj = list[i];
-        if (obj[WidgetKey._title] == title && obj[WidgetKey._extend] == extend) {
+        if (obj[WidgetKey._key] == key && obj[WidgetKey._extend] == extend) {
             return true;
         }
     }
     return false;
 }
-WidgetHistory.addFileBrowserFile = function (jsonObj, title, extend) {
+WidgetHistory.addFileBrowserFile = function (jsonObj, key, extend) {
+    jsonObj[key] = {};
+    var obj = jsonObj[key];
+    obj[WidgetKey._extend] = extend;
+}
+WidgetHistory.addFileBrowserFileList = function (jsonObj, key, extend) {
     var list = jsonObj[WidgetKey._fileList];
-    list.push({});
-    var index = list.length - 1;
-    list[index][WidgetKey._title] = title;
-    list[index][WidgetKey._extend] = extend;
+    WidgetHistory.addFileBrowserFile(list, key, extend);
 }
 WidgetHistory.getFileJsonMould = function (fileName) {
     var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);

@@ -4,7 +4,17 @@
     <bookmark url="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" description="&#10;WidgetFileJsonTemplate.prototype.initFileTemplate..." line="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的" />
+    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/common/widgetUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common/widgetUtil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHistory.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,16 +25,53 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file leaf-file-name="widgetFileJsonMould.js" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="250">
+                    <caret line="261" selection-start-line="261" selection-end-line="267" selection-end-column="5" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="panelFileBrowser.js" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="321">
+                    <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="24" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="html5" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="panelFileBrowser.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
+      <file leaf-file-name="widgetUtil.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/common/widgetUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="94" column="40" lean-forward="true" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
+            <state relative-caret-position="625">
+              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetHistory.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="140" column="17" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -32,8 +79,8 @@
       <file leaf-file-name="widgetDialog.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1850">
-              <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+            <state relative-caret-position="-275">
+              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -43,33 +90,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
               <caret line="10" selection-start-line="10" selection-end-line="11" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetDrop.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetDrop.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="49" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dock.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/external/jquery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="1" column="39717" selection-start-line="1" selection-start-column="39717" selection-end-line="1" selection-end-column="39717" />
             </state>
           </provider>
         </entry>
@@ -92,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetFileBrowser.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="widgetFileBrowser.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="115" column="53" lean-forward="true" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
+            <state relative-caret-position="25">
+              <caret line="152" selection-start-line="152" selection-start-column="3" selection-end-line="172" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -104,7 +124,7 @@
       <file leaf-file-name="widgetFlex.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFlex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="1225">
               <caret line="49" column="50" lean-forward="true" selection-start-line="49" selection-start-column="50" selection-end-line="50" selection-end-column="44" />
             </state>
           </provider>
@@ -123,15 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createMenu</find>
-      <find>widgetDialogMask</find>
-      <find>border</find>
-      <find>createDialogWithHtml</find>
-      <find>addInput</find>
-      <find>refreshBottomRight</find>
-      <find>WidgetLog</find>
-      <find>saveAs</find>
-      <find>_flexCtrl</find>
       <find>addFold</find>
       <find>refreshFileBrowserRight</find>
       <find>readFileBrowser</find>
@@ -143,7 +154,6 @@
       <find>onClickFolderPath</find>
       <find>onClickFolderName</find>
       <find>split</find>
-      <find>getFileBrowser</find>
       <find>length</find>
       <find>_WidgetSearch</find>
       <find>rightContent</find>
@@ -153,13 +163,18 @@
       <find>_jsonFileBrowser</find>
       <find>_panel</find>
       <find>childNodes</find>
+      <find>onClickSaveAsButtonSave</find>
+      <find>saveAsHtmlLoaded</find>
+      <find>saveAs</find>
+      <find>_inputSaveType</find>
+      <find>labelSaveType</find>
+      <find>getFileBrowser</find>
+      <find>addFileBrowserFolder</find>
+      <find>addFileBrowserRootFolder</find>
+      <find>addFileBrowserFile</find>
+      <find>_nowFolder</find>
     </findStrings>
     <replaceStrings>
-      <replace>onContextMenuLabel</replace>
-      <replace>onContextMenuInput</replace>
-      <replace>this._elementRoot</replace>
-      <replace>initTemplate</replace>
-      <replace>createTemplate</replace>
       <replace>_historyItem</replace>
       <replace>WidgetKey._panelFileEditor</replace>
       <replace>WidgetKey._panelFileTemplate</replace>
@@ -185,6 +200,11 @@
       <replace>_valueType</replace>
       <replace>refreshFileBrowserRight</replace>
       <replace>_widgetSearch</replace>
+      <replace>_inputFileExtend</replace>
+      <replace>_labelFileExtend</replace>
+      <replace>addFileBrowserFolderList</replace>
+      <replace>addFileBrowserFolder</replace>
+      <replace>_nowFolderElement</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\Electron\ZHEditor\html5\js\widget\widgetDock</dir>
@@ -196,7 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/business/editor/panel/panelView.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelTest.js" />
         <option value="$PROJECT_DIR$/html/business/editor/home/homeFileTemplate.html" />
         <option value="$PROJECT_DIR$/html/business/editor/home/homeFileEditor.html" />
@@ -232,20 +251,21 @@
         <option value="$PROJECT_DIR$/html/business/editor/dialog/dialogSaveAs.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetHtml.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileJson.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" />
         <option value="$PROJECT_DIR$/css/widget/widgetHtml.css" />
         <option value="$PROJECT_DIR$/css/widget/widgetDialog.css" />
         <option value="$PROJECT_DIR$/js/common/widgetKey.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetDialog.js" />
         <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
         <option value="$PROJECT_DIR$/css/widget/widgetFileBrowser.css" />
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelFileBrowser.html" />
         <option value="$PROJECT_DIR$/css/business/editor/panel/panelFileBrowser.css" />
-        <option value="$PROJECT_DIR$/js/widget/widgetHistory.js" />
-        <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
         <option value="$PROJECT_DIR$/js/common/widgetElement.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFlex.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetDialog.js" />
+        <option value="$PROJECT_DIR$/js/common/widgetUtil.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetHistory.js" />
+        <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
       </list>
     </option>
@@ -271,6 +291,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="html5" type="cbb8eebc:String" user="html5" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -434,17 +465,6 @@
               <item name="html5" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="html5" type="cbb8eebc:String" user="html5" />
             </path>
           </expand>
           <select />
@@ -683,11 +703,15 @@
       <workItem from="1530694552573" duration="1786000" />
       <workItem from="1530696373343" duration="1787000" />
       <workItem from="1530698187636" duration="1052000" />
+      <workItem from="1530755470995" duration="1409000" />
+      <workItem from="1530756912948" duration="1783000" />
+      <workItem from="1530758725079" duration="1783000" />
+      <workItem from="1530760545447" duration="572000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="823393000" />
+    <option name="totallyTimeSpent" value="828940000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -702,16 +726,15 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14791666" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14791666" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50625" side_tool="true" weight="0.38723403" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.3287234" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.34893617" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="找到" order="12" sideWeight="0.38883033" weight="0.32960895" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -722,6 +745,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="调试" order="7" sideWeight="0.5827187" weight="0.31620112" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -738,12 +762,6 @@
           <line>5</line>
           <option name="timeStamp" value="1631" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js</url>
-          <line>94</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1684" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -753,23 +771,31 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="1685" />
+      <option name="time" value="1714" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
         <watch expression="this" language="JavaScript" />
-        <watch expression="dock" />
-        <watch expression="dock.__proto__.constructor._windowMain" />
-        <watch expression="dock.__proto__.constructor._window._patternMain._$lk" />
-        <watch expression="dock.__proto__.constructor._window._patternMain._panelList[&quot;2&quot;]._list[&quot;0&quot;].m$N._panelIndex" />
-        <watch expression="dock.__proto__.constructor._window._patternMain._panelList[&quot;2&quot;]._list[&quot;0&quot;].m$N._mainPattern" />
-        <watch expression="dock.__proto__.constructor._window._patternMain._panelList[&quot;2&quot;]._list[&quot;0&quot;].m$F._$od._$oV._$pr._$br" />
-        <watch expression="a" language="JavaScript" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>key</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dock</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>a</expression-string>
         <language-id>JavaScript</language-id>
@@ -787,11 +813,6 @@
       </expression>
       <expression>
         <expression-string>panelTest</expression-string>
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>this</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -893,13 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/common/widgetUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1042,17 +1056,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="27" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
-          <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1077,20 +1084,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1850">
-          <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/widget/widgetFileBrowser.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1107,29 +1100,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetFlex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="1225">
           <caret line="49" column="50" lean-forward="true" selection-start-line="49" selection-start-column="50" selection-end-line="50" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/common/widgetElement.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
+        <state relative-caret-position="975">
           <caret line="39" column="32" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+    <entry file="file://$PROJECT_DIR$/js/common/widgetUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="115" column="53" lean-forward="true" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
+        <state relative-caret-position="625">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="261" selection-start-line="261" selection-end-line="267" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="94" column="40" lean-forward="true" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
+        <state relative-caret-position="321">
+          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-275">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="140" column="17" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="152" selection-start-line="152" selection-start-column="3" selection-end-line="172" selection-end-column="4" />
         </state>
       </provider>
     </entry>
