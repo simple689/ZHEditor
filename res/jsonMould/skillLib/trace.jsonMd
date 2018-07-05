@@ -1,13 +1,56 @@
-<root>
-	<!--轨迹库	-->
-	<unit id = "id_none">		
-		<!--轨迹类型
-			T_none							:无轨迹
-			T_diy							:自定义的从编辑器获取的轨迹信息.
-				param[0]自定义轨迹库索引.
-		-->
-		<RotZ>text_field</RotZ><!--轨道Z轴旋转-->
-		<type>drop_list</type>
-		<param>text_field</param>
-	</unit>
-</root>
+{
+  "ignore": {
+    "beginList": [
+      "$"
+    ]
+  },
+  "file": {
+    "unitList": {
+      "showTitle": "unitList",
+      "valueType": "array",
+      "value": {
+        "unit": {
+          "showTitle": "unit",
+          "valueType": "object",
+          "value": {
+            "id": {
+              "showTitle": "id",
+              "valueType": "string"
+            },
+            "rotZ": {
+              "showTitle": "rotZ",
+              "valueType": "number"
+            },
+            "traceType": {
+              "showTitle": "traceType",
+              "valueType": "enum",
+              "value": [
+                {
+                  "enumKey": "none",
+                  "enumKeyShow": "无轨迹",
+                  "enumParamList": []
+                },
+                {
+                  "enumKey": "diy",
+                  "enumKeyShow": "自定义",
+                  "enumParamList": [
+                    {
+                      "traceDiyId": {
+                        "enumParamShow": "自定义轨迹库索引",
+                        "valueType": "link",
+                        "value": {
+                          "file": "traceDiy",
+                          "key": "unitList@unit@id"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
