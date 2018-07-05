@@ -2,24 +2,24 @@ function WidgetHtml() {
 }
 
 WidgetHtml._inputType = {
-    textString: 0,
-    textNumber: 1,
-    button: 2,
-    checkbox: 3,
-    radio: 4,
-    file: 5,
-    image: 6,
-    password: 7,
-    submit: 8,
-    reset: 9,
-    color: 10
+    _textString: 0,
+    _textNumber: 1,
+    _button: 2,
+    _checkbox: 3,
+    _radio: 4,
+    _file: 5,
+    _image: 6,
+    _password: 7,
+    _submit: 8,
+    _reset: 9,
+    _color: 10
 }
 WidgetHtml.onChangeInput = function (e) {
     switch (this._inputType) {
-        case WidgetHtml._inputType.textString : {
+        case WidgetHtml._inputType._textString : {
             break;
         }
-        case WidgetHtml._inputType.textNumber : {
+        case WidgetHtml._inputType._textNumber : {
             var valueOld = this.value;
             this.value = this.value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g, '');
             if (this.value != valueOld) {
@@ -27,7 +27,7 @@ WidgetHtml.onChangeInput = function (e) {
             }
             break;
         }
-        case WidgetHtml._inputType.color : {
+        case WidgetHtml._inputType._color : {
             this.style.background = this.value;
             break;
         }
@@ -68,13 +68,13 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     nodeInput.onchange = WidgetHtml.onChangeInput;
     nodeInput._inputType = inputType;
     switch (inputType) {
-        case WidgetHtml._inputType.button : {
+        case WidgetHtml._inputType._button : {
             nodeInput.classList.add("nodeInputButton");
             nodeInput.type = "button";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType.checkbox : {
+        case WidgetHtml._inputType._checkbox : {
             nodeInput.classList.add("nodeInputCheckbox");
             nodeInput.type = "checkbox";
             if (jsonObjCtrl._value) {
@@ -84,7 +84,7 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
             }
             break;
         }
-        case WidgetHtml._inputType.radio : {
+        case WidgetHtml._inputType._radio : {
             nodeInput.classList.add("nodeInputRadio");
             nodeInput.type = "radio";
             if (jsonObjCtrl._value) {
@@ -94,37 +94,37 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
             }
             break;
         }
-        case WidgetHtml._inputType.file : {
+        case WidgetHtml._inputType._file : {
             nodeInput.classList.add("nodeInputFile");
             nodeInput.type = WidgetKey._file;
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType.image : {
+        case WidgetHtml._inputType._image : {
             nodeInput.classList.add("nodeInputImage");
             nodeInput.type = "image";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType.password : {
+        case WidgetHtml._inputType._password : {
             nodeInput.classList.add("nodeInputPassword");
             nodeInput.type = "password";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType.submit : {
+        case WidgetHtml._inputType._submit : {
             nodeInput.classList.add("nodeInputSubmit");
             nodeInput.type = "submit";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType.reset : {
+        case WidgetHtml._inputType._reset : {
             nodeInput.classList.add("nodeInputReset");
             nodeInput.type = "reset";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType.color : {
+        case WidgetHtml._inputType._color : {
             nodeInput.classList.add("nodeInputColor");
             nodeInput.value = jsonObjCtrl._value;
             nodeInput.style.background = jsonObjCtrl._value;

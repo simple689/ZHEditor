@@ -1,13 +1,15 @@
-function JsonObjCtrl(exec, obj, isArrayParent, key) {
+function JsonObjCtrl(exec, obj, isListParent, key) {
     this._exec = exec;
     this._obj = obj;
-    this._isArrayParent = isArrayParent;
+    this._isListParent = isListParent;
 
     this._key = key;
     this._keyShow = null;
 
     this._value = null;
     this._valueList = null;
+
+    this._valueType = null;
 
     this._onClick = null;
     this._onContextMenu = null;
@@ -26,7 +28,7 @@ function JsonSelectList() {
 }
 JsonObjCtrl._valueTypeList = JsonSelectList(
     new SelectItem(WidgetKey._object,"对象"),
-    new SelectItem(WidgetKey._array,"数组"),
+    new SelectItem(WidgetKey._array,"列表"),
     new SelectItem(WidgetKey._string,"字符串"),
     new SelectItem(WidgetKey._number,"数字"),
     new SelectItem(WidgetKey._boolean,"真假"),

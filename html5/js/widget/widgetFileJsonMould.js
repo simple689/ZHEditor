@@ -21,12 +21,12 @@ WidgetFileJsonMould.prototype.initCtrl = function () {
 
     this.readObject(this._jsonObj, "", foldItem, false);
 }
-WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, elementParent, isArrayParent) {
+WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
     for (var o in jsonObj) {
         var key = o;
         var keyShow = this.getKeyShow(key);
         var value = jsonObj[key];
-        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isArrayParent, key);
+        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
         jsonObjCtrl._keyShow = keyShow;
         if (typeof(value) == WidgetKey._object) {
             var keyChild = keyParent;
@@ -35,21 +35,21 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
             keyChild += "->";
 
             jsonObjCtrl._value = value;
-            var isArray = false;
+            var isList = false;
             if (Array.isArray(value)) {
                 // WidgetLog.log(value);
-                isArray = true;
-                jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuArray;
+                isList = true;
+                jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuList;
             } else {
                 jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuObject;
             }
 
             var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
-            this.readObject(value, keyChild, foldItem, isArray);
+            this.readObject(value, keyChild, foldItem, isList);
         } else {
             jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuLabel;
             WidgetHtml.addLabel(elementParent, jsonObjCtrl);
-            jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isArrayParent, key);
+            jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
             jsonObjCtrl._value = value;
             jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuInput;
             jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeInput;
@@ -63,11 +63,11 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
             } else {
                 if (typeof(value) == WidgetKey._string) {
-                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textString);
+                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
                 } else if (typeof(value) == WidgetKey._number) {
-                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType.textNumber);
+                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
                 } else if (typeof(value) == WidgetKey._boolean) {
-                    WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType.checkbox);
+                    WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
                 } else {
                     var strType = typeof(value);
                     WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
@@ -134,9 +134,9 @@ WidgetFileJsonMould.onContextMenuObject = function (e) {
     var li = null;
     if (this._jsonObjCtrl._key == WidgetKey._ignore) {
         li = menu.addLi(ul, "暂无功能", null);
-    } else if (this._jsonObjCtrl._isArrayParent) {
+    } else if (this._jsonObjCtrl._isListParent) {
         li = menu.addLi(ul, "添加对象", WidgetFileJsonMould.onClickAddObject);
-        li = menu.addLi(ul, "数组中删除此对象", WidgetFileJsonMould.onClickArrayDel);
+        li = menu.addLi(ul, "列表中删除此对象", WidgetFileJsonMould.onClickListDel);
     } else {
         li = menu.addLi(ul, "重命名Key", WidgetFileJsonMould.onClickRenameKey);
         li = menu.addLi(ul, "添加对象", WidgetFileJsonMould.onClickAddObject);
@@ -145,12 +145,12 @@ WidgetFileJsonMould.onContextMenuObject = function (e) {
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
-WidgetFileJsonMould.onContextMenuArray = function (e) {
+WidgetFileJsonMould.onContextMenuList = function (e) {
     var menu = new WidgetMenu();
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
-    var li = menu.addLi(ul, "数组中添加对象", WidgetFileJsonMould.onClickArrayAdd);
-    li = menu.addLi(ul, "数组中清空对象", WidgetFileJsonMould.onClickArrayClear);
+    var li = menu.addLi(ul, "列表中添加对象", WidgetFileJsonMould.onClickListAdd);
+    li = menu.addLi(ul, "列表中清空对象", WidgetFileJsonMould.onClickListClear);
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
 }
@@ -159,8 +159,8 @@ WidgetFileJsonMould.onContextMenuLabel = function (e) {
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
     var li = null;
-    if (this._jsonObjCtrl._isArrayParent) {
-        li = menu.addLi(ul, "数组中删除此对象", WidgetFileJsonMould.onClickArrayDel);
+    if (this._jsonObjCtrl._isListParent) {
+        li = menu.addLi(ul, "列表中删除此对象", WidgetFileJsonMould.onClickListDel);
     }
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
@@ -170,8 +170,8 @@ WidgetFileJsonMould.onContextMenuInput = function (e) {
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
     var li = null;
-    if (this._jsonObjCtrl._isArrayParent) {
-        li = menu.addLi(ul, "数组中删除此对象", WidgetFileJsonMould.onClickArrayDel);
+    if (this._jsonObjCtrl._isListParent) {
+        li = menu.addLi(ul, "列表中删除此对象", WidgetFileJsonMould.onClickListDel);
     }
     WidgetMenu.showMenu(menu, e, this);
     return false; //取消右键点击的默认事件
@@ -201,7 +201,7 @@ WidgetFileJsonMould.onClickDownLoad = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     PanelFileBrowser.downLoad(jsonObjCtrl);
 }
-WidgetFileJsonMould.onClickArrayAdd = function (e) {
+WidgetFileJsonMould.onClickListAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     var jsonObjKey = jsonObjCtrl._key;
     var jsonObjValue = jsonObjCtrl._value;
@@ -230,14 +230,14 @@ WidgetFileJsonMould.onClickArrayAdd = function (e) {
     }
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJsonMould.onClickArrayDel = function (e) {
+WidgetFileJsonMould.onClickListDel = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     var jsonObj = jsonObjCtrl._obj;
     jsonObj.splice(jsonObjCtrl._key, 1);
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJsonMould.onClickArrayClear = function (e) {
-    if (!confirm("确定要 “数组中清空对象” 吗？")) { //利用对话框返回的值 （true 或者 false）
+WidgetFileJsonMould.onClickListClear = function (e) {
+    if (!confirm("确定要 “列表中清空对象” 吗？")) { //利用对话框返回的值 （true 或者 false）
         return;
     }
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
@@ -249,8 +249,8 @@ WidgetFileJsonMould.onChangeInput = function (e) {
     var inputType = e._inputType;
     var value = e.value;
     switch (inputType) {
-        case WidgetHtml._inputType.checkbox :
-        case WidgetHtml._inputType.radio : {
+        case WidgetHtml._inputType._checkbox :
+        case WidgetHtml._inputType._radio : {
             value = e.checked;
             break;
         }
@@ -337,7 +337,7 @@ WidgetFileJsonMould.onClickAddObject = function (e) {
                 jsonObj[WidgetKey._value] = {};
             }
             if (isHasObj) {
-                alert("当前 值类型 为 数组，只能存在一个对象作为此数组的模版！");
+                alert("当前 值类型 为 列表，只能存在一个对象作为此列表的模版！");
                 return;
             }
         } else if (valueType == WidgetKey._enum) {
@@ -388,15 +388,18 @@ WidgetFileJsonMould.prototype.refreshContent = function () {
     widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._addContentType.fileJsonObj);
 }
 WidgetFileJsonMould.prototype.getMould = function (fileName, jsonObj) {
+    var isNew = false;
     this._fileName = fileName;
     this._jsonMouldObj = WidgetHistory.getFileJsonMould(this._fileName);
     if (!this._jsonMouldObj) {
         this.initMould(jsonObj);
+        isNew = true;
     }
     WidgetHistory.setFileJsonMould(this._fileName, this._jsonMouldObj);
     // WidgetLog.log("========================================");
     // WidgetLog.log(JSON.stringify(this._jsonMouldObj, null, 2));
     // WidgetLog.log("========================================");
+    return isNew;
 }
 WidgetFileJsonMould.prototype.initMould = function (jsonObj) {
     this._jsonMouldObj = {};
@@ -407,7 +410,7 @@ WidgetFileJsonMould.prototype.initMould = function (jsonObj) {
     this._jsonMouldObj[WidgetKey._file] = {};
     this.createMould(jsonObj, this._jsonMouldObj, "", this._jsonMouldObj[WidgetKey._file]);
 }
-WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, keyParent, jsonObjParent, isArrayParent) {
+WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, keyParent, jsonObjParent, isListParent) {
     for (var o in jsonObj) {
         var key = o;
 
@@ -434,10 +437,10 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
             keyChild += key;
             keyChild += "->";
 
-            var isArray = false;
+            var isList = false;
             if (Array.isArray(value)) {
                 // WidgetLog.log(value);
-                isArray = true;
+                isList = true;
                 jsonObjParent[key][WidgetKey._valueType] = WidgetKey._array;
                 jsonObjParent[key][WidgetKey._value] = new Array();
             } else {
@@ -445,7 +448,7 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
                 jsonObjParent[key][WidgetKey._value] = {};
             }
 
-            this.createMould(value, jsonMouldObj, keyChild, jsonObjParent[key][WidgetKey._value], isArray);
+            this.createMould(value, jsonMouldObj, keyChild, jsonObjParent[key][WidgetKey._value], isList);
         } else {
             if (typeof(value) == WidgetKey._string) {
                 jsonObjParent[key][WidgetKey._valueType] = WidgetKey._string;
