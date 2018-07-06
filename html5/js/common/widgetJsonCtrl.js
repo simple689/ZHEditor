@@ -10,8 +10,6 @@ function JsonObjCtrl(exec, obj, isListParent, key) {
     this._value = null;
     this._valueList = null;
 
-    this._valueType = null;
-
     this._onClick = null;
     this._onContextMenu = null;
     this._onChange = null;
@@ -20,14 +18,21 @@ function SelectItem(key, keyShow) {
     this._key = key;
     this._keyShow = keyShow;
 };
-function JsonSelectList() {
+function JsonSelectList(len) {
+    var list = new Array();
+    for(var i = 0; i < len; i++){
+        list.push(new SelectItem(i,i));
+    }
+    return list;
+}
+function JsonSelectListItem() {
     var list = new Array();
     for(var i = 0; i < arguments.length; i++){
         list.push(arguments[i]);
     }
     return list;
 }
-JsonObjCtrl._valueTypeList = JsonSelectList(
+JsonObjCtrl._valueTypeList = JsonSelectListItem(
     new SelectItem(WidgetKey._object,"对象"),
     new SelectItem(WidgetKey._array,"列表"),
     new SelectItem(WidgetKey._string,"字符串"),

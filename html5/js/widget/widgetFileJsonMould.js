@@ -61,6 +61,15 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
+            } else if (key == WidgetKey._enumIndex) {
+                var enumList = jsonObj[WidgetKey._enumList];
+                var enumIndex = jsonObj[WidgetKey._enumIndex];
+                jsonObjCtrl._value = enumIndex;
+                jsonObjCtrl._valueList = JsonSelectList(enumList.length);
+                jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
+                jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
+
+                WidgetHtml.addSelect(elementParent, jsonObjCtrl);
             } else {
                 if (typeof(value) == WidgetKey._string) {
                     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
@@ -96,6 +105,10 @@ WidgetFileJsonMould.prototype.getKeyShow = function (key) {
         keyShow = "唯一key";
     } else if (key == WidgetKey._value) {
         keyShow = "值";
+    } else if (key == WidgetKey._enumIndex) {
+        keyShow = "默认枚举";
+    } else if (key == WidgetKey._enumList) {
+        keyShow = "枚举列表";
     } else if (key == WidgetKey._enumKey) {
         keyShow = "枚举名字";
     } else if (key == WidgetKey._enumKeyShow) {
@@ -205,7 +218,13 @@ WidgetFileJsonMould.onClickListAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     var jsonObjKey = jsonObjCtrl._key;
     var jsonObjValue = jsonObjCtrl._value;
-    if (jsonObjKey == WidgetKey._enumParamList) {
+    if (jsonObjKey == WidgetKey._enumList) {
+        jsonObjValue[jsonObjValue.length] = {};
+        var jsonItem = jsonObjValue[jsonObjValue.length - 1];
+        jsonItem[WidgetKey._enumKey] = "";
+        jsonItem[WidgetKey._enumKeyShow] = "";
+        jsonItem[WidgetKey._enumParamList] = new Array();
+    } else if (jsonObjKey == WidgetKey._enumParamList) {
         jsonObjValue[jsonObjValue.length] = {};
         var jsonItem = jsonObjValue[jsonObjValue.length - 1];
 
@@ -218,15 +237,7 @@ WidgetFileJsonMould.onClickListAdd = function (e) {
         jsonItem[keyNew][WidgetKey._valueType] = WidgetKey._string;
     } else {
         var jsonObjValueType = jsonObjCtrl._obj[WidgetKey._valueType];
-        if (jsonObjValueType == WidgetKey._enum) {
-            jsonObjValue[jsonObjValue.length] = {};
-            var jsonItem = jsonObjValue[jsonObjValue.length - 1];
-            jsonItem[WidgetKey._enumKey] = "";
-            jsonItem[WidgetKey._enumKeyShow] = "";
-            jsonItem[WidgetKey._enumParamList] = new Array();
-        } else {
-            jsonObjValue[jsonObjValue.length] = "";
-        }
+        jsonObjValue[jsonObjValue.length] = "";
     }
     jsonObjCtrl._exec.refreshContent();
 }
@@ -282,7 +293,9 @@ WidgetFileJsonMould.onChangeSelect = function (e) {
     if (jsonObjValueType == WidgetKey._object || jsonObjValueType == WidgetKey._array) {
         jsonObj[WidgetKey._value] = {};
     } else if (jsonObjValueType == WidgetKey._enum) {
-        jsonObj[WidgetKey._value] = new Array();
+        jsonObj[WidgetKey._value] = {};
+        jsonObj[WidgetKey._value][WidgetKey._enumIndex] = "0";
+        jsonObj[WidgetKey._value][WidgetKey._enumList] = new Array();
     } else if (jsonObjValueType == WidgetKey._link) {
         jsonObj[WidgetKey._value] = {};
         jsonObjValue = jsonObj[WidgetKey._value];
@@ -341,12 +354,7 @@ WidgetFileJsonMould.onClickAddObject = function (e) {
                 return;
             }
         } else if (valueType == WidgetKey._enum) {
-            if (!jsonObj[WidgetKey._value]) {
-                jsonObj[WidgetKey._value] = new Array();
-            }
-            jsonObjValue = jsonObj[WidgetKey._value];
-            jsonObjValue[jsonObjValue.length] = "";
-            jsonObjCtrl._exec.refreshContent();
+            alert("当前 Key 的值类型是 枚举，此节点不支持添加对象!");
             return;
         } else {
             if (!confirm("当前 Key 的值类型不是对象，如果继续添加，值类型会变成对象，确定执行操作吗？")) { //利用对话框返回的值 （true 或者 false）

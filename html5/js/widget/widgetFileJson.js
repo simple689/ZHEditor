@@ -26,7 +26,7 @@ WidgetFileJson.prototype.initCtrl = function () {
     this._fileJsonMouldCtrl = new WidgetFileJsonMould();
     var isNew = this._fileJsonMouldCtrl.getMould(jsonMouldName, this._jsonObj);
     if (isNew) {
-        this.readObject(this._jsonObj, "", foldItem, false);
+        //     this.readObject(this._jsonObj, "", foldItem, false);
     } else {
         this.readObjectMould(this._fileJsonMouldCtrl._jsonMouldObj[WidgetKey._file], this._jsonObj, "", foldItem, false);
     }
@@ -64,204 +64,163 @@ WidgetFileJson.prototype.initCtrl = function () {
 //         }
 //     }
 // }
-WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
-    for (var o in jsonObj) {
-        var key = o;
-        var isIgnore = this._fileJsonMouldCtrl.isMouldIgnore(key);
-        if (isIgnore) {
-            continue;
-        }
-        var keyShow = this.getKeyShow(key);
-        var value = jsonObj[key];
-        if (typeof(value) == WidgetKey._object) {
-            var keyChild = keyParent;
-            keyChild += "->";
-            keyChild += key;
-            keyChild += "->";
-
-            var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-            jsonObjCtrl._keyShow = keyShow;
-            jsonObjCtrl._value = value;
-            var isList = false;
-            if (Array.isArray(value)) {
-                // WidgetLog.log(value);
-                isList = true;
-                // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuList;
-            } else {
-                // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuObject;
-            }
-
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
-            this.readObject(value, keyChild, foldItem, isList);
-        } else {
-            var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-            jsonObjCtrl._keyShow = keyShow;
-            jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuLabel;
-            WidgetHtml.addLabel(elementParent, jsonObjCtrl);
-            jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-            jsonObjCtrl._value = value;
-            jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuInput;
-            jsonObjCtrl._onChange = WidgetFileJson.onChangeInput;
-            if (typeof(value) == WidgetKey._string) {
-                WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
-            } else if (typeof(value) == WidgetKey._number) {
-                WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
-            } else if (typeof(value) == WidgetKey._boolean) {
-                WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
-            } else {
-                var strType = typeof(value);
-                WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
-            }
-            if (this.isAddBr(key)) {
-                WidgetHtml.addBr(elementParent);
-            }
-        }
-    }
-}
+// WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
+//     for (var o in jsonObj) {
+//         var key = o;
+//         var isIgnore = this._fileJsonMouldCtrl.isMouldIgnore(key);
+//         if (isIgnore) {
+//             continue;
+//         }
+//         var keyShow = this.getKeyShow(key);
+//         var value = jsonObj[key];
+//         if (typeof(value) == WidgetKey._object) {
+//             var keyChild = keyParent;
+//             keyChild += "->";
+//             keyChild += key;
+//             keyChild += "->";
+//
+//             var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+//             jsonObjCtrl._keyShow = keyShow;
+//             jsonObjCtrl._value = value;
+//             var isList = false;
+//             if (Array.isArray(value)) {
+//                 // WidgetLog.log(value);
+//                 isList = true;
+//                 // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuList;
+//             } else {
+//                 // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuObject;
+//             }
+//
+//             var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
+//             this.readObject(value, keyChild, foldItem, isList);
+//         } else {
+//             var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+//             jsonObjCtrl._keyShow = keyShow;
+//             jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuLabel;
+//             WidgetHtml.addLabel(elementParent, jsonObjCtrl);
+//             jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+//             jsonObjCtrl._value = value;
+//             jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuInput;
+//             jsonObjCtrl._onChange = WidgetFileJson.onChangeInput;
+//             if (typeof(value) == WidgetKey._string) {
+//                 WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
+//             } else if (typeof(value) == WidgetKey._number) {
+//                 WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
+//             } else if (typeof(value) == WidgetKey._boolean) {
+//                 WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
+//             } else {
+//                 var strType = typeof(value);
+//                 WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+//             }
+//             if (this.isAddBr(key)) {
+//                 WidgetHtml.addBr(elementParent);
+//             }
+//         }
+//     }
+// }
 WidgetFileJson.prototype.readObjectMould = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent) {
     for (var oMd in jsonObjMd) {
-        var key = oMd;
-        var valueMd = jsonObjMd[key];
-        var valueTypeMd = valueMd[WidgetKey._valueType];
-        var value = jsonObj[key];
+        var keyMd = oMd;
+        var valueMd = jsonObjMd[keyMd];
         if (typeof(valueMd) == WidgetKey._object) {
             var keyChild = keyParent;
             keyChild += "->";
-            keyChild += key;
+            keyChild += keyMd;
             keyChild += "->";
+            this.readObjectMouldKey(valueMd, jsonObj, keyChild, elementParent, isListParent, keyMd);
+        }
+    }
+}
+WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key) {
+    var valueTypeMd = jsonObjMd[WidgetKey._valueType];
+    var valueMd = jsonObjMd[WidgetKey._value];
+    var value = jsonObj[key];
+    var isList = false;
+    if (valueTypeMd == WidgetKey._object) {
+        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
+        if (isListParent) {
+            jsonObjCtrl._keyShow += "_";
+            jsonObjCtrl._keyShow += key;
+        }
+        jsonObjCtrl._value = value;
+        jsonObjCtrl._objMd = jsonObjMd;
+        var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
+        for (var oItemMd in valueMd) {
+            var valueItemMd = valueMd[oItemMd];
+            this.readObjectMouldKey(valueItemMd, value, keyParent, foldItem, isList, oItemMd);
+        }
+    } else if (valueTypeMd == WidgetKey._array) {
+        isList = true;
+        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
+        jsonObjCtrl._value = value;
+        jsonObjCtrl._objMd = jsonObjMd;
+        var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
+        jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+        jsonObjCtrl._keyShow = "列表工具";
+        jsonObjCtrl._objMd = jsonObjMd;
+        WidgetHtml.addLabel(foldItem, jsonObjCtrl);
+        jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+        jsonObjCtrl._value = "添加成员";
+        jsonObjCtrl._objMd = jsonObjMd;
+        jsonObjCtrl._onClick = WidgetFileJson.onClickListToolAdd;
+        WidgetHtml.addInput(foldItem, jsonObjCtrl, WidgetHtml._inputType._button);
+        for (var oItemMd in valueMd) {
+            var valueItemMd = valueMd[oItemMd];
+            this.readObjectMouldList(valueItemMd, value, keyParent, foldItem, isList);
+            break;
+        }
+    } else if (valueTypeMd == WidgetKey._enum) {
+        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
+        jsonObjCtrl._value = value;
+        jsonObjCtrl._objMd = jsonObjMd;
+        var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
+        for (var oItemMd in valueMd) {
+            var valueItemMd = valueMd[oItemMd];
+            this.readObjectMouldEnum(valueItemMd, value, keyParent, foldItem, isList);
+        }
+    } else if (valueTypeMd == WidgetKey._link) {
+        var a = 0;
+    } else {
+        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
+        jsonObjCtrl._objMd = jsonObjMd;
+        jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuLabel;
+        WidgetHtml.addLabel(elementParent, jsonObjCtrl);
 
-            var jsonObjCtrlMd = new JsonObjCtrl(this, jsonObj, isListParent, key);
-            jsonObjCtrlMd._keyShow = valueMd[WidgetKey._showTitle];
-            jsonObjCtrlMd._value = valueMd;
-            jsonObjCtrlMd._objMd = jsonObjMd;
-            jsonObjCtrlMd._valueType = valueTypeMd;
-
-            var isList = false;
-            // if (Array.isArray(valueMd)) {
-            //     // WidgetLog.log(value);
-            //     isList = true;
-            //     // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuList;
-            // } else {
-            //     // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuObject;
-            // }
-
-
-            if (jsonObjCtrlMd._valueType == WidgetKey._object) {
-            } else if (jsonObjCtrlMd._valueType == WidgetKey._array) {
-                var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrlMd);
-                isList = true;
-                var jsonObjCtrlTool = new JsonObjCtrl(this, jsonObj, false, key);
-                jsonObjCtrlTool._keyShow = "列表工具";
-                jsonObjCtrlTool._objMd = jsonObjMd;
-                WidgetHtml.addLabel(foldItem, jsonObjCtrlTool);
-                jsonObjCtrlTool = new JsonObjCtrl(this, jsonObj, false, key);
-                jsonObjCtrlTool._value = "添加成员";
-                jsonObjCtrlTool._objMd = valueMd;
-                jsonObjCtrlTool._onClick = WidgetFileJson.onClickListToolAdd;
-                WidgetHtml.addInput(foldItem, jsonObjCtrlTool, WidgetHtml._inputType._button);
-
-                for (var valueUnitMd in valueMd[WidgetKey._value]) {
-                    var jsonObjUnitMd = valueMd[WidgetKey._value][valueUnitMd];
-                    this.readObjectMouldList(jsonObjUnitMd[WidgetKey._value], value, keyChild, foldItem, isList);
-                    break;
-                }
-            } else if (jsonObjCtrlMd._valueType == WidgetKey._enum) {
-            } else {
-                var a = 0;
-                var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-                jsonObjCtrl._keyShow = valueMd[WidgetKey._showTitle];
-                jsonObjCtrl._objMd = jsonObjMd;
-                jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuLabel;
-                WidgetHtml.addLabel(elementParent, jsonObjCtrl);
-
-                jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-                jsonObjCtrl._value = value;
-                jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuInput;
-                jsonObjCtrl._onChange = WidgetFileJson.onChangeInput;
-                if (valueTypeMd == WidgetKey._string) {
-                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
-                } else if (valueTypeMd == WidgetKey._number) {
-                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
-                } else if (valueTypeMd == WidgetKey._boolean) {
-                    WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
-                } else {
-                    var strType = valueTypeMd;
-                    WidgetLog.log("[" + valueTypeMd + "]" + keyParent + key + " = " + value);
-                }
-                if (this.isAddBr(key)) {
-                    WidgetHtml.addBr(elementParent);
-                }
-            }
-
-            // else if (isListParent) {
-            //     var a = 0;
-            //     // this.readObjectMouldList(valueMd[WidgetKey._value], value, keyChildMd, foldItem, isList);
-            //     // var jsonObjCtrlTool = new JsonObjCtrl(this, jsonObjCtrlMd, false, "listTool");
-            //     // jsonObjCtrlTool._keyShow = "列表成员工具";
-            //     // WidgetHtml.addLabel(foldItem, jsonObjCtrlTool);
-            //     // jsonObjCtrlTool = new JsonObjCtrl(this, jsonObjCtrlMd, false, "listToolDel");
-            //     // jsonObjCtrlTool._value = "删除成员";
-            //     // WidgetHtml.addInput(foldItem, jsonObjCtrlTool, WidgetHtml._inputType._button);
-            // } else {
-            //     this.readObjectMould(valueMd[WidgetKey._value], value, keyChildMd, foldItem, isList);
-            // }
+        jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        jsonObjCtrl._value = value;
+        jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuInput;
+        jsonObjCtrl._onChange = WidgetFileJson.onChangeInput;
+        if (valueTypeMd == WidgetKey._string) {
+            WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
+        } else if (valueTypeMd == WidgetKey._number) {
+            WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
+        } else if (valueTypeMd == WidgetKey._boolean) {
+            WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
+        } else {
+            WidgetLog.log("[" + valueTypeMd + "]" + keyParent + key + " = " + value);
+        }
+        if (this.isAddBr(key)) {
+            WidgetHtml.addBr(elementParent);
         }
     }
 }
 WidgetFileJson.prototype.readObjectMouldList = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent) {
     for (var o in jsonObj) {
         var key = o;
-        var isIgnore = this._fileJsonMouldCtrl.isMouldIgnore(key);
-        if (isIgnore) {
-            continue;
-        }
-        var keyShow = this.getKeyShow(key);
-        var value = jsonObj[key];
-        if (typeof(value) == WidgetKey._object) {
-            var keyChild = keyParent;
-            keyChild += "->";
-            keyChild += key;
-            keyChild += "->";
-
-            var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-            jsonObjCtrl._keyShow = keyShow;
-            jsonObjCtrl._value = value;
-            var isList = false;
-            if (Array.isArray(value)) {
-                // WidgetLog.log(value);
-                isList = true;
-                // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuList;
-            } else {
-                // jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuObject;
-            }
-
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
-            this.readObjectMould(jsonObjMd, value, keyChild, foldItem, isList);
-        } else {
-            var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-            jsonObjCtrl._keyShow = keyShow;
-            jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuLabel;
-            WidgetHtml.addLabel(elementParent, jsonObjCtrl);
-            jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
-            jsonObjCtrl._value = value;
-            jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuInput;
-            jsonObjCtrl._onChange = WidgetFileJson.onChangeInput;
-            if (typeof(value) == WidgetKey._string) {
-                WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
-            } else if (typeof(value) == WidgetKey._number) {
-                WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
-            } else if (typeof(value) == WidgetKey._boolean) {
-                WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
-            } else {
-                var strType = typeof(value);
-                WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
-            }
-            if (this.isAddBr(key)) {
-                WidgetHtml.addBr(elementParent);
-            }
-        }
+        this.readObjectMouldKey(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
     }
 }
+WidgetFileJson.prototype.readObjectMouldEnum = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent) {
+    for (var o in jsonObj) {
+        var key = o;
+        // this.readObjectMouldKey(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
+    }
+}
+
 WidgetFileJson.prototype.getKeyShow = function (key) {
     var keyShow = key;
     if (key == WidgetKey._ignore) {
@@ -329,27 +288,12 @@ WidgetFileJson.onClickListToolAdd = function (e) {
         jsonObj[jsonObjKey] = new Array();
         list = jsonObj[jsonObjKey];
     }
-
-    for (var valueMd in jsonObjCtrl._objMd[WidgetKey._value]) {
-        var jsonObjUnitMd = jsonObjCtrl._objMd[WidgetKey._value][valueMd];
-        var valueTypeMd = jsonObjUnitMd[WidgetKey._valueType];
-        if (valueTypeMd == WidgetKey._object) {
-            list.push({});
-            var obj = list[list.length - 1];
-            WidgetFileJson.a(obj, jsonObjUnitMd);
-        } else if (valueTypeMd == WidgetKey._array) {
-            list.push(new Array());
-            var obj = list[list.length - 1];
-        } else if (valueTypeMd == WidgetKey._enum) {
-            list.push(new Array());
-            var obj = list[list.length - 1];
-        } else {
-            list.push("");
-        }
+    for (var oItemMd in jsonObjCtrl._objMd[WidgetKey._value]) {
+        var valueItemMd = jsonObjCtrl._objMd[WidgetKey._value][oItemMd];
+        list.push("");
+        WidgetFileJson.a(valueItemMd, list, list.length - 1);
         break;
     }
-
-
     // var jsonObjValue = jsonObjCtrl._value;
     // if (jsonObjKey == WidgetKey._enumParamList) {
     //     jsonObjValue[jsonObjValue.length] = {};
@@ -376,26 +320,46 @@ WidgetFileJson.onClickListToolAdd = function (e) {
     // }
     jsonObjCtrl._exec.refreshContent();
 }
+WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
+    var valueTypeMd = jsonObjMd[WidgetKey._valueType];
+    var valueMd = jsonObjMd[WidgetKey._value];
+    if (valueTypeMd == WidgetKey._object) {
+        jsonObj[key] = {};
+        for (var oItemMd in valueMd) {
+            var valueItemMd = valueMd[oItemMd];
+            WidgetFileJson.a(valueItemMd, jsonObj[key], oItemMd);
+        }
+    } else if (valueTypeMd == WidgetKey._array) {
+        jsonObj[key] = new Array();
+        for (var oItemMd in valueMd) {
+            var valueItemMd = valueMd[oItemMd];
+            WidgetFileJson.a(valueItemMd, jsonObj[key], oItemMd);
+            break;
+        }
+    } else if (valueTypeMd == WidgetKey._enum) {
+        jsonObj[key] = {}
+        var index = 0;
+        var enumDefaultIndexMd = jsonObjMd[WidgetKey._enumIndex];
+        if (enumDefaultIndexMd) {
+            index = enumDefaultIndexMd;
+        }
+        if (valueMd.length > index) {
+            var valueItemMd = valueMd[index];
+
+            var jsonObjEnum = jsonObj[key];
+            jsonObjEnum[WidgetKey._enumKey] = valueItemMd[WidgetKey._enumKey];
+            jsonObjEnum[WidgetKey._enumParamList] = new Array();
+
+            for (var oItemMd in valueItemMd[WidgetKey._enumParamList]) {
+                var valueItemMd = valueItemMd[WidgetKey._enumParamList][oItemMd];
+                WidgetFileJson.a(valueItemMd, jsonObjEnum, oItemMd);
+            }
+        }
+    } else {
+        jsonObj[key] = "";
+    }
+}
 WidgetFileJson.prototype.refreshContent = function () {
     var widgetTab = this._elementTabTitle._widgetTab;
     widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._addContentType.fileJsonObj);
-}
-WidgetFileJson.a = function (jsonObj, jsonObjMd) {
-    var jsonObjValueMd = jsonObjMd[WidgetKey._value];
-    for (var o in jsonObjValueMd) {
-        var keyMd = o;
-        var valueMd = jsonObjValueMd[keyMd];
-
-        var valueTypeMd = valueMd[WidgetKey._valueType];
-        if (valueTypeMd == WidgetKey._object) {
-            jsonObj[keyMd] = {};
-            WidgetFileJson.a(jsonObj[keyMd], valueMd);
-        } else if (valueTypeMd == WidgetKey._array) {
-            jsonObj[keyMd] = new Array();
-        } else if (valueTypeMd == WidgetKey._enum) {
-            jsonObj[keyMd] = new Array();
-        } else {
-            jsonObj[keyMd] = "";
-        }
-    }
 }
