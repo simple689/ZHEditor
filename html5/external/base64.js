@@ -16,28 +16,26 @@ function base64encode(str) {
     len = str.length;
     i = 0;
     out = "";
-    while(i < len) {
+    while (i < len) {
         c1 = str.charCodeAt(i++) & 0xff;
-        if(i == len)
-        {
+        if (i == len) {
             out += base64EncodeChars.charAt(c1 >> 2);
             out += base64EncodeChars.charAt((c1 & 0x3) << 4);
             out += "==";
             break;
         }
         c2 = str.charCodeAt(i++);
-        if(i == len)
-        {
+        if (i == len) {
             out += base64EncodeChars.charAt(c1 >> 2);
-            out += base64EncodeChars.charAt(((c1 & 0x3)<< 4) | ((c2 & 0xF0) >> 4));
+            out += base64EncodeChars.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));
             out += base64EncodeChars.charAt((c2 & 0xF) << 2);
             out += "=";
             break;
         }
         c3 = str.charCodeAt(i++);
         out += base64EncodeChars.charAt(c1 >> 2);
-        out += base64EncodeChars.charAt(((c1 & 0x3)<< 4) | ((c2 & 0xF0) >> 4));
-        out += base64EncodeChars.charAt(((c2 & 0xF) << 2) | ((c3 & 0xC0) >>6));
+        out += base64EncodeChars.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));
+        out += base64EncodeChars.charAt(((c2 & 0xF) << 2) | ((c3 & 0xC0) >> 6));
         out += base64EncodeChars.charAt(c3 & 0x3F);
     }
     return out;
@@ -50,19 +48,19 @@ function base64decode(str) {
     len = str.length;
     i = 0;
     out = "";
-    while(i < len) {
+    while (i < len) {
         /* c1 */
         do {
             c1 = base64DecodeChars[str.charCodeAt(i++) & 0xff];
-        } while(i < len && c1 == -1);
-        if(c1 == -1)
+        } while (i < len && c1 == -1);
+        if (c1 == -1)
             break;
 
         /* c2 */
         do {
             c2 = base64DecodeChars[str.charCodeAt(i++) & 0xff];
-        } while(i < len && c2 == -1);
-        if(c2 == -1)
+        } while (i < len && c2 == -1);
+        if (c2 == -1)
             break;
 
         out += String.fromCharCode((c1 << 2) | ((c2 & 0x30) >> 4));
@@ -70,11 +68,11 @@ function base64decode(str) {
         /* c3 */
         do {
             c3 = str.charCodeAt(i++) & 0xff;
-            if(c3 == 61)
+            if (c3 == 61)
                 return out;
             c3 = base64DecodeChars[c3];
-        } while(i < len && c3 == -1);
-        if(c3 == -1)
+        } while (i < len && c3 == -1);
+        if (c3 == -1)
             break;
 
         out += String.fromCharCode(((c2 & 0XF) << 4) | ((c3 & 0x3C) >> 2));
@@ -82,11 +80,11 @@ function base64decode(str) {
         /* c4 */
         do {
             c4 = str.charCodeAt(i++) & 0xff;
-            if(c4 == 61)
+            if (c4 == 61)
                 return out;
             c4 = base64DecodeChars[c4];
-        } while(i < len && c4 == -1);
-        if(c4 == -1)
+        } while (i < len && c4 == -1);
+        if (c4 == -1)
             break;
         out += String.fromCharCode(((c3 & 0x03) << 6) | c4);
     }
@@ -98,7 +96,7 @@ function utf16to8(str) {
 
     out = "";
     len = str.length;
-    for(i = 0; i < len; i++) {
+    for (i = 0; i < len; i++) {
         c = str.charCodeAt(i);
         if ((c >= 0x0001) && (c <= 0x007F)) {
             out += str.charAt(i);
@@ -121,19 +119,26 @@ function utf8to16(str) {
     out = "";
     len = str.length;
     i = 0;
-    while(i < len) {
+    while (i < len) {
         c = str.charCodeAt(i++);
-        switch(c >> 4)
-        {
-            case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
-            // 0xxxxxxx
-            out += str.charAt(i-1);
-            break;
-            case 12: case 13:
-            // 110x xxxx   10xx xxxx
-            char2 = str.charCodeAt(i++);
-            out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
-            break;
+        switch (c >> 4) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+                // 0xxxxxxx
+                out += str.charAt(i - 1);
+                break;
+            case 12:
+            case 13:
+                // 110x xxxx   10xx xxxx
+                char2 = str.charCodeAt(i++);
+                out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
+                break;
             case 14:
                 // 1110 xxxx  10xx xxxx  10xx xxxx
                 char2 = str.charCodeAt(i++);
@@ -153,15 +158,14 @@ function CharToHex(str) {
     out = "";
     len = str.length;
     i = 0;
-    while(i < len)
-    {
+    while (i < len) {
         c = str.charCodeAt(i++);
         h = c.toString(16);
-        if(h.length < 2)
+        if (h.length < 2)
             h = "0" + h;
 
         out += "\\x" + h + " ";
-        if(i > 0 && i % 8 == 0)
+        if (i > 0 && i % 8 == 0)
             out += "\r\n";
     }
 
@@ -177,12 +181,10 @@ function doDecode() {
     var src = document.getElementById('src').value;
     var opts = document.getElementById('opt');
 
-    if(opts.checked)
-    {
+    if (opts.checked) {
         document.getElementById('dest').value = CharToHex(base64decode(src));
     }
-    else
-    {
+    else {
         document.getElementById('dest').value = utf8to16(base64decode(src));
     }
 }
