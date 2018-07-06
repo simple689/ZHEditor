@@ -115,7 +115,7 @@ PanelFileBrowser.onClickSaveAsButtonSave = function () {
     WidgetHistory.setFileJsonMould(folder + fileName + extend, widgetDialog._jsonObjCtrl._obj);
 
     panelFileBrowser._widgetFileBrowser.refreshFileBrowserLeft();
-    widgetDialog.close();o
+    widgetDialog.close();
 }
 PanelFileBrowser.onClickSaveAsButtonCancel = function () {
     this._jsonObjCtrl._exec.close();
