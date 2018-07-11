@@ -65,7 +65,7 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 var enumList = jsonObj[WidgetKey._enumList];
                 var enumIndex = jsonObj[WidgetKey._enumIndex];
                 jsonObjCtrl._value = enumIndex;
-                jsonObjCtrl._valueList = JsonSelectList(enumList.length);
+                jsonObjCtrl._valueList = JsonListCtrl(enumList.length);
                 jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
 
@@ -273,6 +273,15 @@ WidgetFileJsonMould.onChangeInput = function (e) {
 }
 WidgetFileJsonMould.onChangeSelect = function (e) {
     var jsonObjCtrl = this._jsonObjCtrl;
+    var key = jsonObjCtrl._key;
+    if (key == WidgetKey._valueType) {
+        WidgetFileJsonMould.changeSelectValueType(this);
+    } else if (key == WidgetKey._enumIndex) {
+        WidgetFileJsonMould.changeSelectEnumIndex(this);
+    }
+}
+WidgetFileJsonMould.changeSelectValueType = function (element) {
+    var jsonObjCtrl = element._jsonObjCtrl;
     var jsonObj = jsonObjCtrl._obj;
     var jsonObjValue = jsonObj[WidgetKey._value];
     var isHasObj = false;
@@ -287,7 +296,7 @@ WidgetFileJsonMould.onChangeSelect = function (e) {
             return;
         }
     }
-    var value = this.value;
+    var value = element.value;
     jsonObj[WidgetKey._valueType] = value;
     var jsonObjValueType = jsonObj[WidgetKey._valueType];
     if (jsonObjValueType == WidgetKey._object || jsonObjValueType == WidgetKey._array) {
@@ -304,6 +313,13 @@ WidgetFileJsonMould.onChangeSelect = function (e) {
     } else {
         delete jsonObj[WidgetKey._value];
     }
+    jsonObjCtrl._exec.refreshContent();
+}
+WidgetFileJsonMould.changeSelectEnumIndex = function (element) {
+    var jsonObjCtrl = element._jsonObjCtrl;
+    var jsonObj = jsonObjCtrl._obj;
+    var value = element.value;
+    jsonObj[WidgetKey._enumIndex] = value;
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.onClickRenameKey = function (e) {

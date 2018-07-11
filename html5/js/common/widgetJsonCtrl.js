@@ -14,29 +14,32 @@ function JsonObjCtrl(exec, obj, isListParent, key) {
     this._onContextMenu = null;
     this._onChange = null;
 };
-function SelectItem(key, keyShow) {
+function JsonListItem(key, keyShow) {
     this._key = key;
     this._keyShow = keyShow;
 };
-function JsonSelectList(len) {
-    var list = new Array();
+function JsonListCtrl(len) {
+    this._list = new Array();
     for(var i = 0; i < len; i++){
-        list.push(new SelectItem(i,i));
+        this._list.push(new JsonListItem(i,i));
     }
-    return list;
+    return this._list;
 }
-function JsonSelectListItem() {
+function JsonListCtrlStatic() {
     var list = new Array();
     for(var i = 0; i < arguments.length; i++){
         list.push(arguments[i]);
     }
     return list;
 }
-JsonObjCtrl._valueTypeList = JsonSelectListItem(
-    new SelectItem(WidgetKey._object,"对象"),
-    new SelectItem(WidgetKey._array,"列表"),
-    new SelectItem(WidgetKey._string,"字符串"),
-    new SelectItem(WidgetKey._number,"数字"),
-    new SelectItem(WidgetKey._boolean,"真假"),
-    new SelectItem(WidgetKey._enum,"枚举"),
-    new SelectItem(WidgetKey._link,"链接"));
+JsonListCtrl.prototype.insert = function(item) {
+    this._list.push(item);
+}
+JsonObjCtrl._valueTypeList = JsonListCtrlStatic(
+    new JsonListItem(WidgetKey._object,"对象"),
+    new JsonListItem(WidgetKey._array,"列表"),
+    new JsonListItem(WidgetKey._string,"字符串"),
+    new JsonListItem(WidgetKey._number,"数字"),
+    new JsonListItem(WidgetKey._boolean,"真假"),
+    new JsonListItem(WidgetKey._enum,"枚举"),
+    new JsonListItem(WidgetKey._link,"链接"));

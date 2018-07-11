@@ -177,10 +177,25 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
         jsonObjCtrl._value = value;
         jsonObjCtrl._objMd = jsonObjMd;
         var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
-        for (var oItemMd in valueMd) {
-            var valueItemMd = valueMd[oItemMd];
+
+        jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
+        jsonObjCtrl._value = valueMd[WidgetKey._enumIndex];
+        jsonObjCtrl._objMd = jsonObjMd;
+        jsonObjCtrl._valueList = JsonListCtrl(0);
+
+        var jsonEnumList = valueMd[WidgetKey._enumList];
+        for (var oItemMd in jsonEnumList) {
+            var valueItemMd = jsonEnumList[oItemMd];
             this.readObjectMouldEnum(valueItemMd, value, keyParent, foldItem, isList);
         }
+
+
+
+        jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
+        jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
+
+        WidgetHtml.addSelect(elementParent, jsonObjCtrl);
     } else if (valueTypeMd == WidgetKey._link) {
         var a = 0;
     } else {
