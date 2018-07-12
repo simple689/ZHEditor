@@ -37,7 +37,7 @@
                     "enumKeyShow": "自定义的轨迹信息",
                     "enumParamList": {
                       "traceDiyId": {
-                        "showTitle": "traceDiyId",
+                        "showTitle": "自定义轨迹",
                         "valueType": "link",
                         "value": {
                           "file": "traceDiy",
