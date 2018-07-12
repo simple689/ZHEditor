@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/dock/dock.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/dock/dock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFileJson.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileJson.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -51,16 +49,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetFileJson.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="widgetFileJson.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="196" column="47" selection-start-line="196" selection-start-column="47" selection-end-line="196" selection-end-column="47" />
+            <state relative-caret-position="152">
+              <caret line="218" column="51" lean-forward="true" selection-start-line="218" selection-start-column="51" selection-end-line="218" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetKey.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="widgetKey.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/common/widgetKey.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
@@ -249,8 +247,8 @@
         <option value="$PROJECT_DIR$/js/common/widgetJsonCtrl.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/dock.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFileJson.js" />
         <option value="$PROJECT_DIR$/js/common/widgetKey.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFileJson.js" />
       </list>
     </option>
   </component>
@@ -634,12 +632,12 @@
       <workItem from="1531378356618" duration="1784000" />
       <workItem from="1531380169030" duration="1819000" />
       <workItem from="1531382287841" duration="599000" />
-      <workItem from="1531385865397" duration="1014000" />
+      <workItem from="1531385865397" duration="1783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="879049000" />
+    <option name="totallyTimeSpent" value="879818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -687,23 +685,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>289</line>
+          <line>296</line>
           <option name="timeStamp" value="1832" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>413</line>
-          <option name="timeStamp" value="1851" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js</url>
           <line>224</line>
           <option name="timeStamp" value="1853" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>421</line>
-          <option name="timeStamp" value="1861" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetFileJsonMould.js</url>
@@ -712,20 +700,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>399</line>
+          <line>406</line>
           <option name="timeStamp" value="1878" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>203</line>
+          <line>195</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1884" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>196</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1885" />
+          <option name="timeStamp" value="1889" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -736,7 +718,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="1886" />
+      <option name="time" value="1893" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1109,17 +1091,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="196" column="47" selection-start-line="196" selection-start-column="47" selection-end-line="196" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/common/widgetKey.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="218" column="51" lean-forward="true" selection-start-line="218" selection-start-column="51" selection-end-line="218" selection-end-column="51" />
         </state>
       </provider>
     </entry>

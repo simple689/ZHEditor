@@ -135,6 +135,9 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
     var valueTypeMd = jsonObjMd[WidgetKey._valueType];
     var valueMd = jsonObjMd[WidgetKey._value];
     var value = jsonObj[key];
+    if (!value) {
+        value = "";
+    }
     var isList = false;
     if (valueTypeMd == WidgetKey._object) {
         var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
@@ -187,8 +190,12 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
         jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
         jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
         jsonObjCtrl._objMd = jsonObjMd;
-        var enumDefault = valueMd[WidgetKey._enumDefault];
-        jsonObjCtrl._value = enumDefault;
+
+        var enumValue = value[WidgetKey._value];
+        if ((enumValue && enumValue.length <= 0) || !enumValue) {
+            enumValue = valueMd[WidgetKey._enumDefault];
+        }
+        jsonObjCtrl._value = enumValue;
 
         var jsonListCtrl = new JsonListCtrl(0);
         var enumList = valueMd[WidgetKey._enumList];
@@ -205,7 +212,7 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
 
         WidgetHtml.addBr(foldItem);
 
-        var jsonEnumParamList = enumList[enumDefault][WidgetKey._enumParamList];
+        var jsonEnumParamList = enumList[enumValue][WidgetKey._enumParamList];
         if (jsonEnumParamList) {
             for (var oItemMd in jsonEnumParamList) {
                 var valueItemMd = jsonEnumParamList[oItemMd];
@@ -412,14 +419,14 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
 }
 WidgetFileJson.onChangeSelect = function (e) {
     var jsonObjCtrl = this._jsonObjCtrl;
-    var jsonObjMd = jsonObjCtrl._objMd;
-    var jsonEnumList = jsonObjMd[WidgetKey._value][WidgetKey._enumList];
-
-    var key = jsonObjCtrl._key;
     var jsonObj = jsonObjCtrl._obj;
+    var key = jsonObjCtrl._key;
+    var enumObj = jsonObj[key];
 
     var value = this.value;
-    jsonObj[WidgetKey._enumDefault] = value;
+    enumObj[WidgetKey._value] = value;
+    enumObj[WidgetKey._enumParamList] = {};
+
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJson.prototype.refreshContent = function () {
