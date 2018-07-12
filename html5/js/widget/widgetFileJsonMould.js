@@ -115,7 +115,7 @@ WidgetFileJsonMould.prototype.getKeyShow = function (key) {
     } else if (key == WidgetKey._enumKeyShow) {
         keyShow = "枚举名字显示";
     } else if (key == WidgetKey._enumParamList) {
-        keyShow = "枚举特有参数列表";
+        keyShow = "枚举参数列表";
     } else if (key == WidgetKey._enumParamShow) {
         keyShow = "显示名字";
     } else if (key == WidgetKey._valueType) {
@@ -224,18 +224,16 @@ WidgetFileJsonMould.onClickListAdd = function (e) {
         var jsonItem = jsonObjValue[jsonObjValue.length - 1];
         jsonItem[WidgetKey._enumKey] = "";
         jsonItem[WidgetKey._enumKeyShow] = "";
-        jsonItem[WidgetKey._enumParamList] = new Array();
+        jsonItem[WidgetKey._enumParamList] = {};
     } else if (jsonObjKey == WidgetKey._enumParamList) {
-        jsonObjValue[jsonObjValue.length] = {};
-        var jsonItem = jsonObjValue[jsonObjValue.length - 1];
-
         var keyNew = prompt("请输入 Key 的新名字 ：");
         if (!keyNew) {
             return;
         }
-        jsonItem[keyNew] = {};
-        jsonItem[keyNew][WidgetKey._enumParamShow] = "";
-        jsonItem[keyNew][WidgetKey._valueType] = WidgetKey._string;
+        jsonObjValue[keyNew] = {};
+        var jsonItem = jsonObjValue[keyNew];
+        jsonItem[WidgetKey._enumParamShow] = "";
+        jsonItem[WidgetKey._valueType] = WidgetKey._string;
     } else {
         var jsonObjValueType = jsonObjCtrl._obj[WidgetKey._valueType];
         jsonObjValue[jsonObjValue.length] = "";

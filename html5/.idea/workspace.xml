@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/common/widgetJsonCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common/widgetJsonCtrl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFileJson.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileJson.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" afterDir="false" />
     </list>
@@ -28,7 +27,7 @@
             <file leaf-file-name="widgetJsonCtrl.js" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/js/common/widgetJsonCtrl.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="721">
+                  <state relative-caret-position="975">
                     <caret line="39" selection-start-line="39" selection-end-line="39" />
                   </state>
                 </provider>
@@ -56,8 +55,8 @@
       <file leaf-file-name="widgetFileJson.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="215" column="26" selection-start-line="215" selection-start-column="26" selection-end-line="215" selection-end-column="26" />
+            <state relative-caret-position="106">
+              <caret line="217" column="13" lean-forward="true" selection-start-line="217" selection-start-column="13" selection-end-line="217" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -75,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/js/common/widgetLog.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="125">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -110,7 +109,7 @@
       <file leaf-file-name="widgetHtml.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetHtml.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
+            <state relative-caret-position="3850">
               <caret line="154" column="56" selection-start-line="154" selection-start-column="56" selection-end-line="154" selection-end-column="56" />
             </state>
           </provider>
@@ -138,7 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>readObjectMould</find>
       <find>jsonObjMould</find>
       <find>keyParentMould</find>
       <find>oMould</find>
@@ -168,6 +166,7 @@
       <find>SelectItem</find>
       <find>JsonSelectListItem</find>
       <find>JsonListCtrl</find>
+      <find>_enumParamList</find>
     </findStrings>
     <replaceStrings>
       <replace>List</replace>
@@ -653,12 +652,13 @@
       <workItem from="1531302559179" duration="1752000" />
       <workItem from="1531304496473" duration="488000" />
       <workItem from="1531364715319" duration="1784000" />
-      <workItem from="1531366533558" duration="1246000" />
+      <workItem from="1531366533558" duration="1780000" />
+      <workItem from="1531368344745" duration="63000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="867946000" />
+    <option name="totallyTimeSpent" value="868543000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -711,7 +711,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/widget/widgetFileJson.js</url>
-          <line>375</line>
+          <line>351</line>
           <option name="timeStamp" value="1780" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -728,7 +728,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="1817" />
+      <option name="time" value="1822" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -1045,13 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/common/widgetLog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/common/widgetKey.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
@@ -1087,9 +1080,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHtml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3850">
+          <caret line="154" column="56" selection-start-line="154" selection-start-column="56" selection-end-line="154" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/common/widgetJsonCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
+        <state relative-caret-position="975">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
@@ -1101,17 +1101,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHtml.js">
+    <entry file="file://$PROJECT_DIR$/js/common/widgetLog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="154" column="56" selection-start-line="154" selection-start-column="56" selection-end-line="154" selection-end-column="56" />
+        <state relative-caret-position="125">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="215" column="26" selection-start-line="215" selection-start-column="26" selection-end-line="215" selection-end-column="26" />
+        <state relative-caret-position="106">
+          <caret line="217" column="13" lean-forward="true" selection-start-line="217" selection-start-column="13" selection-end-line="217" selection-end-column="13" />
         </state>
       </provider>
     </entry>

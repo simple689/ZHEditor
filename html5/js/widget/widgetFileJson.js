@@ -330,30 +330,6 @@ WidgetFileJson.onClickListToolAdd = function (e) {
         WidgetFileJson.a(valueItemMd, list, list.length - 1);
         break;
     }
-    // var jsonObjValue = jsonObjCtrl._value;
-    // if (jsonObjKey == WidgetKey._enumParamList) {
-    //     jsonObjValue[jsonObjValue.length] = {};
-    //     var jsonItem = jsonObjValue[jsonObjValue.length - 1];
-    //
-    //     var keyNew = prompt("请输入 Key 的新名字 ：");
-    //     if (!keyNew) {
-    //         return;
-    //     }
-    //     jsonItem[keyNew] = {};
-    //     jsonItem[keyNew][WidgetKey._enumParamShow] = "";
-    //     jsonItem[keyNew][WidgetKey._valueType] = WidgetKey._string;
-    // } else {
-    //     var jsonObjValueType = jsonObjCtrl._obj[WidgetKey._valueType];
-    //     if (jsonObjValueType == WidgetKey._enum) {
-    //         jsonObjValue[jsonObjValue.length] = {};
-    //         var jsonItem = jsonObjValue[jsonObjValue.length - 1];
-    //         jsonItem[WidgetKey._enumKey] = "";
-    //         jsonItem[WidgetKey._enumKeyShow] = "";
-    //         jsonItem[WidgetKey._enumParamList] = new Array();
-    //     } else {
-    //         jsonObjValue[jsonObjValue.length] = "";
-    //     }
-    // }
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
@@ -384,7 +360,7 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
 
             var jsonObjEnum = jsonObj[key];
             jsonObjEnum[WidgetKey._enumKey] = valueItemMd[WidgetKey._enumKey];
-            jsonObjEnum[WidgetKey._enumParamList] = new Array();
+            jsonObjEnum[WidgetKey._enumParamList] = {};
 
             for (var oItemMd in valueItemMd[WidgetKey._enumParamList]) {
                 var valueItemMd = valueItemMd[WidgetKey._enumParamList][oItemMd];

@@ -25,28 +25,26 @@
               "showTitle": "轨迹类型",
               "valueType": "enum",
               "value": {
-                "enumIndex": "0",
+                "enumIndex": "1",
                 "enumList": [
                   {
                     "enumKey": "none",
                     "enumKeyShow": "无轨迹",
-                    "enumParamList": []
+                    "enumParamList": {}
                   },
                   {
                     "enumKey": "diy",
                     "enumKeyShow": "自定义的轨迹信息",
-                    "enumParamList": [
-                      {
-                        "traceDiyId": {
-                          "showTitle": "自定义轨迹库索引",
-                          "valueType": "link",
-                          "value": {
-                            "file": "traceDiy",
-                            "key": "unitList@unit@id"
-                          }
+                    "enumParamList": {
+                      "traceDiyId": {
+                        "showTitle": "traceDiyId",
+                        "valueType": "link",
+                        "value": {
+                          "file": "traceDiy",
+                          "key": "unitList@unit@id"
                         }
                       }
-                    ]
+                    }
                   }
                 ]
               }
