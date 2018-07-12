@@ -180,22 +180,43 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
 
         jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
         jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
-        jsonObjCtrl._value = valueMd[WidgetKey._enumIndex];
-        jsonObjCtrl._objMd = jsonObjMd;
-        jsonObjCtrl._valueList = JsonListCtrl(0);
+        jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuLabel;
+        WidgetHtml.addLabel(foldItem, jsonObjCtrl);
 
+        jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
+        jsonObjCtrl._objMd = jsonObjMd;
+        var jsonListCtrl = new JsonListCtrl(0);
+        var jsonEnumIndex = valueMd[WidgetKey._enumIndex];
         var jsonEnumList = valueMd[WidgetKey._enumList];
+        var jsonEnumParamList = null;
         for (var oItemMd in jsonEnumList) {
             var valueItemMd = jsonEnumList[oItemMd];
-            this.readObjectMouldEnum(valueItemMd, value, keyParent, foldItem, isList);
+            if (jsonEnumIndex == oItemMd) {
+                jsonObjCtrl._value = valueItemMd[WidgetKey._enumKey];
+                jsonEnumParamList = valueItemMd[WidgetKey._enumParamList];
+            }
+            var item = new JsonListItem(valueItemMd[WidgetKey._enumKey],valueItemMd[WidgetKey._enumKeyShow]);
+            item._paramList = valueItemMd[WidgetKey._enumParamList];
+            jsonListCtrl.insertItem(item);
         }
+        jsonObjCtrl._valueList = jsonListCtrl.getList();
+        jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuSelect;
+        jsonObjCtrl._onChange = WidgetFileJson.onChangeSelect;
+        WidgetHtml.addSelect(foldItem, jsonObjCtrl);
 
+        if (jsonEnumParamList && jsonEnumParamList.length > 0) {
+            jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+            jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle] + " 参数列表";
+            jsonObjCtrl._objMd = jsonEnumParamList;
+            var paramFoldItem = this._menuFoldCtrl.addFoldAndItem(foldItem, jsonObjCtrl);
 
-
-        jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
-        jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
-
-        WidgetHtml.addSelect(elementParent, jsonObjCtrl);
+            for (var oItemMd in jsonEnumParamList) {
+                var valueItemMd = jsonEnumParamList[oItemMd];
+                var a = 0;
+                // this.readObjectMouldKey(valueItemMd, value, keyParent, foldItem, isList, oItemMd);
+            }
+        }
     } else if (valueTypeMd == WidgetKey._link) {
         var a = 0;
     } else {

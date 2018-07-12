@@ -18,13 +18,6 @@ function JsonListItem(key, keyShow) {
     this._key = key;
     this._keyShow = keyShow;
 };
-function JsonListCtrl(len) {
-    this._list = new Array();
-    for(var i = 0; i < len; i++){
-        this._list.push(new JsonListItem(i,i));
-    }
-    return this._list;
-}
 function JsonListCtrlStatic() {
     var list = new Array();
     for(var i = 0; i < arguments.length; i++){
@@ -32,7 +25,17 @@ function JsonListCtrlStatic() {
     }
     return list;
 }
-JsonListCtrl.prototype.insert = function(item) {
+function JsonListCtrl(len) {
+    this._list = new Array();
+    for(var i = 0; i < len; i++){
+        this._list.push(new JsonListItem(i,i));
+    }
+    return this;
+}
+JsonListCtrl.prototype.getList = function() {
+    return this._list;
+}
+JsonListCtrl.prototype.insertItem = function(item) {
     this._list.push(item);
 }
 JsonObjCtrl._valueTypeList = JsonListCtrlStatic(

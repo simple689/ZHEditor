@@ -65,7 +65,8 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 var enumList = jsonObj[WidgetKey._enumList];
                 var enumIndex = jsonObj[WidgetKey._enumIndex];
                 jsonObjCtrl._value = enumIndex;
-                jsonObjCtrl._valueList = JsonListCtrl(enumList.length);
+                var jsonListCtrl = new JsonListCtrl(enumList.length);
+                jsonObjCtrl._valueList = jsonListCtrl.getList();
                 jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
 
