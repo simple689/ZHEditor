@@ -166,11 +166,11 @@ WidgetTab.onClickTabContent = function (e) {
 }
 WidgetTab.onContextMenuTabTitle = function (e) {
     this._widgetTab._panel.tabOnContextMenu(this, e, WidgetTab._onContextMenuType.tabTitle);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetTab.onContextMenuTabContent = function (e) {
     this._widgetTab._panel.tabOnContextMenu(this, e, WidgetTab._onContextMenuType.tabContent);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetTab.prototype.addFile = function (file, elementTabTitle) {
     WidgetFile.readFile(file, elementTabTitle);

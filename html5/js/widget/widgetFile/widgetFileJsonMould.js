@@ -24,7 +24,7 @@ WidgetFileJsonMould.prototype.initCtrl = function () {
 WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
     for (var o in jsonObj) {
         var key = o;
-        var keyShow = this.getKeyShow(key);
+        var keyShow = WidgetFileUtil.getKeyShow(key);
         var value = jsonObj[key];
         var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
         jsonObjCtrl._keyShow = keyShow;
@@ -93,45 +93,11 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 }
             }
 
-            if (this.isAddBr(key)) {
+            if (WidgetFileUtil.isAddBr(key)) {
                 WidgetHtml.addBr(elementParent);
             }
         }
     }
-}
-WidgetFileJsonMould.prototype.getKeyShow = function (key) {
-    var keyShow = key;
-    if (key == WidgetKey._ignore) {
-        keyShow = "忽略";
-    } else if (key == WidgetKey._beginList) {
-        keyShow = "开头字符串列表";
-    } else if (key == WidgetKey._file) {
-        keyShow = "文件";
-    } else if (key == WidgetKey._showTitle) {
-        keyShow = "显示名字";
-    } else if (key == WidgetKey._valueType) {
-        keyShow = "值类型";
-    } else if (key == WidgetKey._key) {
-        keyShow = "唯一key";
-    } else if (key == WidgetKey._value) {
-        keyShow = "值";
-    } else if (key == WidgetKey._enumDefault) {
-        keyShow = "默认枚举";
-    } else if (key == WidgetKey._enumList) {
-        keyShow = "枚举列表";
-    } else if (key == WidgetKey._enumParamList) {
-        keyShow = "枚举参数列表";
-    } else if (key == WidgetKey._valueType) {
-        keyShow = "值类型";
-    }
-    return keyShow;
-}
-WidgetFileJsonMould.prototype.isAddBr = function (key) {
-    var isAdd = true;
-    if (key == 'x' || key == 'y' || key == 'z') {
-        isAdd = false;
-    }
-    return isAdd;
 }
 WidgetFileJsonMould.onContextMenuRoot = function (e) {
     var menu = new WidgetMenu();
@@ -142,7 +108,7 @@ WidgetFileJsonMould.onContextMenuRoot = function (e) {
     li = menu.addLi(ul, "另存为", WidgetFileJsonMould.onClickSaveAs);
     li = menu.addLi(ul, "下载", WidgetFileJsonMould.onClickDownLoad);
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJsonMould.onContextMenuObject = function (e) {
     var menu = new WidgetMenu();
@@ -160,7 +126,7 @@ WidgetFileJsonMould.onContextMenuObject = function (e) {
         li = menu.addLi(ul, "删除对象", WidgetFileJsonMould.onClickDelObject);
     }
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJsonMould.onContextMenuList = function (e) {
     var menu = new WidgetMenu();
@@ -169,7 +135,7 @@ WidgetFileJsonMould.onContextMenuList = function (e) {
     var li = menu.addLi(ul, "列表中添加对象", WidgetFileJsonMould.onClickListAdd);
     li = menu.addLi(ul, "列表中清空对象", WidgetFileJsonMould.onClickListClear);
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJsonMould.onContextMenuLabel = function (e) {
     var menu = new WidgetMenu();
@@ -180,7 +146,7 @@ WidgetFileJsonMould.onContextMenuLabel = function (e) {
         li = menu.addLi(ul, "列表中删除此对象", WidgetFileJsonMould.onClickListDel);
     }
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJsonMould.onContextMenuInput = function (e) {
     var menu = new WidgetMenu();
@@ -191,7 +157,7 @@ WidgetFileJsonMould.onContextMenuInput = function (e) {
         li = menu.addLi(ul, "列表中删除此对象", WidgetFileJsonMould.onClickListDel);
     }
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJsonMould.onContextMenuSelect = function (e) {
     var menu = new WidgetMenu();
@@ -199,7 +165,7 @@ WidgetFileJsonMould.onContextMenuSelect = function (e) {
     var ul = menu.addUl(menu._elementRoot);
     var li = null;
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJsonMould.onClickRefresh = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;

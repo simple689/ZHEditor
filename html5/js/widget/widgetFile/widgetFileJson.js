@@ -71,7 +71,7 @@ WidgetFileJson.prototype.initCtrl = function () {
 //         if (isIgnore) {
 //             continue;
 //         }
-//         var keyShow = this.getKeyShow(key);
+//         var keyShow = WidgetFileUtil.getKeyShow(key);
 //         var value = jsonObj[key];
 //         if (typeof(value) == WidgetKey._object) {
 //             var keyChild = keyParent;
@@ -112,7 +112,7 @@ WidgetFileJson.prototype.initCtrl = function () {
 //                 var strType = typeof(value);
 //                 WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
 //             }
-//             if (this.isAddBr(key)) {
+//             if (WidgetFileUtil.isAddBr(key)) {
 //                 WidgetHtml.addBr(elementParent);
 //             }
 //         }
@@ -253,7 +253,7 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
         } else {
             WidgetLog.log("[" + valueTypeMd + "]" + keyParent + key + " = " + value);
         }
-        if (this.isAddBr(key)) {
+        if (WidgetFileUtil.isAddBr(key)) {
             WidgetHtml.addBr(elementParent);
         }
     }
@@ -269,29 +269,6 @@ WidgetFileJson.prototype.readObjectMouldEnum = function (jsonObjMd, jsonObj, key
         var key = o;
         // this.readObjectMouldKey(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
     }
-}
-
-WidgetFileJson.prototype.getKeyShow = function (key) {
-    var keyShow = key;
-    if (key == WidgetKey._ignore) {
-        keyShow = "忽略";
-    } else if (key == WidgetKey._beginList) {
-        keyShow = "开头字符串列表";
-    } else if (key == WidgetKey._file) {
-        keyShow = "文件";
-    } else if (key == "showTitle") {
-        keyShow = "显示名字";
-    } else if (key == "valueType") {
-        keyShow = "值类型";
-    }
-    return keyShow;
-}
-WidgetFileJson.prototype.isAddBr = function (key) {
-    var isAdd = true;
-    if (key == 'x' || key == 'y' || key == 'z') {
-        isAdd = false;
-    }
-    return isAdd;
 }
 WidgetFileJson.onContextMenuObject = function (e) {
     var menu = new WidgetMenu();
@@ -309,7 +286,7 @@ WidgetFileJson.onContextMenuObject = function (e) {
         li = menu.addLi(ul, "删除对象", WidgetFileJsonMould.onClickDelObject);
     }
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJson.onContextMenuList = function (e) {
     var menu = new WidgetMenu();
@@ -318,7 +295,7 @@ WidgetFileJson.onContextMenuList = function (e) {
     var li = menu.addLi(ul, "列表中添加对象", WidgetFileJson.onClickListAdd);
     li = menu.addLi(ul, "列表中清空对象", WidgetFileJsonMould.onClickListClear);
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJson.onContextMenuLabel = function (e) {
     var menu = new WidgetMenu();
@@ -329,7 +306,7 @@ WidgetFileJson.onContextMenuLabel = function (e) {
     li = menu.addLi(ul, "编辑显示Key", null);
     li = menu.addLi(ul, "下一个键值对不换行", null);
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJson.onContextMenuInput = function (e) {
     var menu = new WidgetMenu();
@@ -354,7 +331,7 @@ WidgetFileJson.onContextMenuInput = function (e) {
     li = menu.addLi(ul_0, "颜色", null);
 
     WidgetMenu.showMenu(menu, e, this);
-    return false; //取消右键点击的默认事件
+    return false; // 取消右键点击的默认事件
 }
 WidgetFileJson.onClickListAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
