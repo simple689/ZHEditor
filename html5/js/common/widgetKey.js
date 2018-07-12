@@ -45,5 +45,4 @@ WidgetKey._link = "link";
 
 WidgetKey._enumDefault = "enumDefault";
 WidgetKey._enumList = "enumList";
-WidgetKey._enumKey = "enumKey";
 WidgetKey._enumParamList = "enumParamList";

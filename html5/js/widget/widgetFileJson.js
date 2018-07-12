@@ -187,17 +187,14 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
         jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
         jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
         jsonObjCtrl._objMd = jsonObjMd;
+        var enumDefault = valueMd[WidgetKey._enumDefault];
+        jsonObjCtrl._value = enumDefault;
+
         var jsonListCtrl = new JsonListCtrl(0);
-        var jsonEnumIndex = valueMd[WidgetKey._enumDefault];
-        var jsonEnumList = valueMd[WidgetKey._enumList];
-        var jsonEnumParamList = null;
-        for (var oItemMd in jsonEnumList) {
-            var valueItemMd = jsonEnumList[oItemMd];
-            if (jsonEnumIndex == oItemMd) {
-                jsonObjCtrl._value = valueItemMd[WidgetKey._enumKey];
-                jsonEnumParamList = valueItemMd[WidgetKey._enumParamList];
-            }
-            var item = new JsonListItem(valueItemMd[WidgetKey._enumKey],valueItemMd[WidgetKey._showTitle]);
+        var enumList = valueMd[WidgetKey._enumList];
+        for (var oItemMd in enumList) {
+            var valueItemMd = enumList[oItemMd];
+            var item = new JsonListItem(oItemMd,valueItemMd[WidgetKey._showTitle]);
             item._paramList = valueItemMd[WidgetKey._enumParamList];
             jsonListCtrl.insertItem(item);
         }
@@ -208,6 +205,7 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
 
         WidgetHtml.addBr(foldItem);
 
+        var jsonEnumParamList = enumList[enumDefault][WidgetKey._enumParamList];
         if (jsonEnumParamList) {
             for (var oItemMd in jsonEnumParamList) {
                 var valueItemMd = jsonEnumParamList[oItemMd];
@@ -393,16 +391,13 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
         }
     } else if (valueTypeMd == WidgetKey._enum) {
         jsonObj[key] = {}
-        var index = 0;
         var enumDefaultMd = valueMd[WidgetKey._enumDefault];
-        if (enumDefaultMd && enumDefaultMd >= 0) {
-            index = enumDefaultMd;
-        }
         var enumListMd = valueMd[WidgetKey._enumList];
-        if (enumListMd.length > index) {
-            var enumItemMd = enumListMd[index];
+
+        var enumItemMd = enumListMd[enumDefaultMd];
+        if (enumListMd) {
             var jsonObjEnum = jsonObj[key];
-            jsonObjEnum[WidgetKey._enumKey] = enumItemMd[WidgetKey._enumKey];
+            jsonObjEnum[WidgetKey._value] = enumDefaultMd;
             jsonObjEnum[WidgetKey._enumParamList] = {};
             for (var oItemMd in enumItemMd[WidgetKey._enumParamList]) {
                 var valueItemMd = enumItemMd[WidgetKey._enumParamList][oItemMd];
