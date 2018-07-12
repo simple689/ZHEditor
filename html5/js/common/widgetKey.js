@@ -43,9 +43,7 @@ WidgetKey._boolean = "boolean";
 WidgetKey._enum = "enum";
 WidgetKey._link = "link";
 
-WidgetKey._enumIndex = "enumIndex";
+WidgetKey._enumDefault = "enumDefault";
 WidgetKey._enumList = "enumList";
 WidgetKey._enumKey = "enumKey";
-WidgetKey._enumKeyShow = "enumKeyShow";
 WidgetKey._enumParamList = "enumParamList";
-WidgetKey._enumParamShow = "enumParamShow";

@@ -188,7 +188,7 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
         jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
         jsonObjCtrl._objMd = jsonObjMd;
         var jsonListCtrl = new JsonListCtrl(0);
-        var jsonEnumIndex = valueMd[WidgetKey._enumIndex];
+        var jsonEnumIndex = valueMd[WidgetKey._enumDefault];
         var jsonEnumList = valueMd[WidgetKey._enumList];
         var jsonEnumParamList = null;
         for (var oItemMd in jsonEnumList) {
@@ -197,7 +197,7 @@ WidgetFileJson.prototype.readObjectMouldKey = function (jsonObjMd, jsonObj, keyP
                 jsonObjCtrl._value = valueItemMd[WidgetKey._enumKey];
                 jsonEnumParamList = valueItemMd[WidgetKey._enumParamList];
             }
-            var item = new JsonListItem(valueItemMd[WidgetKey._enumKey],valueItemMd[WidgetKey._enumKeyShow]);
+            var item = new JsonListItem(valueItemMd[WidgetKey._enumKey],valueItemMd[WidgetKey._showTitle]);
             item._paramList = valueItemMd[WidgetKey._enumParamList];
             jsonListCtrl.insertItem(item);
         }
@@ -394,9 +394,9 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
     } else if (valueTypeMd == WidgetKey._enum) {
         jsonObj[key] = {}
         var index = 0;
-        var enumIndexMd = valueMd[WidgetKey._enumIndex];
-        if (enumIndexMd && enumIndexMd >= 0) {
-            index = enumIndexMd;
+        var enumDefaultMd = valueMd[WidgetKey._enumDefault];
+        if (enumDefaultMd && enumDefaultMd >= 0) {
+            index = enumDefaultMd;
         }
         var enumListMd = valueMd[WidgetKey._enumList];
         if (enumListMd.length > index) {
@@ -414,6 +414,18 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
     } else {
         jsonObj[key] = "";
     }
+}
+WidgetFileJson.onChangeSelect = function (e) {
+    var jsonObjCtrl = this._jsonObjCtrl;
+    var jsonObjMd = jsonObjCtrl._objMd;
+    var jsonEnumList = jsonObjMd[WidgetKey._value][WidgetKey._enumList];
+
+    var key = jsonObjCtrl._key;
+    var jsonObj = jsonObjCtrl._obj;
+
+    var value = this.value;
+    jsonObj[WidgetKey._enumDefault] = value;
+    jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJson.prototype.refreshContent = function () {
     var widgetTab = this._elementTabTitle._widgetTab;

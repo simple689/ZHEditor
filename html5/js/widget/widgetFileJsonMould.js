@@ -61,11 +61,20 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
-            } else if (key == WidgetKey._enumIndex) {
+            } else if (key == WidgetKey._enumDefault) {
+                var enumDefault = jsonObj[WidgetKey._enumDefault];
                 var enumList = jsonObj[WidgetKey._enumList];
-                var enumIndex = jsonObj[WidgetKey._enumIndex];
-                jsonObjCtrl._value = enumIndex;
-                var jsonListCtrl = new JsonListCtrl(enumList.length);
+                var jsonListCtrl = new JsonListCtrl(0);
+                for (var oEnum in enumList) {
+                    if (enumDefault && enumDefault.length <= 0 || !enumDefault) {
+                        jsonObj[WidgetKey._enumDefault] = oEnum;
+                        enumDefault = jsonObj[WidgetKey._enumDefault];
+                    }
+                    var valueItemMd = enumList[oEnum];
+                    var item = new JsonListItem(oEnum,valueItemMd[WidgetKey._showTitle]);
+                    jsonListCtrl.insertItem(item);
+                }
+                jsonObjCtrl._value = enumDefault;
                 jsonObjCtrl._valueList = jsonListCtrl.getList();
                 jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
@@ -106,18 +115,12 @@ WidgetFileJsonMould.prototype.getKeyShow = function (key) {
         keyShow = "唯一key";
     } else if (key == WidgetKey._value) {
         keyShow = "值";
-    } else if (key == WidgetKey._enumIndex) {
+    } else if (key == WidgetKey._enumDefault) {
         keyShow = "默认枚举";
     } else if (key == WidgetKey._enumList) {
         keyShow = "枚举列表";
-    } else if (key == WidgetKey._enumKey) {
-        keyShow = "枚举名字";
-    } else if (key == WidgetKey._enumKeyShow) {
-        keyShow = "枚举名字显示";
     } else if (key == WidgetKey._enumParamList) {
         keyShow = "枚举参数列表";
-    } else if (key == WidgetKey._enumParamShow) {
-        keyShow = "显示名字";
     } else if (key == WidgetKey._valueType) {
         keyShow = "值类型";
     }
@@ -219,25 +222,23 @@ WidgetFileJsonMould.onClickListAdd = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
     var jsonObjKey = jsonObjCtrl._key;
     var jsonObjValue = jsonObjCtrl._value;
-    if (jsonObjKey == WidgetKey._enumList) {
-        jsonObjValue[jsonObjValue.length] = {};
-        var jsonItem = jsonObjValue[jsonObjValue.length - 1];
-        jsonItem[WidgetKey._enumKey] = "";
-        jsonItem[WidgetKey._enumKeyShow] = "";
-        jsonItem[WidgetKey._enumParamList] = {};
-    } else if (jsonObjKey == WidgetKey._enumParamList) {
-        var keyNew = prompt("请输入 Key 的新名字 ：");
-        if (!keyNew) {
-            return;
-        }
-        jsonObjValue[keyNew] = {};
-        var jsonItem = jsonObjValue[keyNew];
-        jsonItem[WidgetKey._enumParamShow] = "";
-        jsonItem[WidgetKey._valueType] = WidgetKey._string;
-    } else {
+    // if (jsonObjKey == WidgetKey._enumList) {
+    //     jsonObjValue[jsonObjValue.length] = {};
+    //     var jsonItem = jsonObjValue[jsonObjValue.length - 1];
+    //     jsonItem[WidgetKey._enumParamList] = {};
+    // } else if (jsonObjKey == WidgetKey._enumParamList) {
+    //     var keyNew = prompt("请输入 Key 的新名字 ：");
+    //     if (!keyNew) {
+    //         return;
+    //     }
+    //     jsonObjValue[keyNew] = {};
+    //     var jsonItem = jsonObjValue[keyNew];
+    //     jsonItem[WidgetKey._showTitle] = "";
+    //     jsonItem[WidgetKey._valueType] = WidgetKey._string;
+    // } else {
         var jsonObjValueType = jsonObjCtrl._obj[WidgetKey._valueType];
         jsonObjValue[jsonObjValue.length] = "";
-    }
+    // }
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.onClickListDel = function (e) {
@@ -275,8 +276,8 @@ WidgetFileJsonMould.onChangeSelect = function (e) {
     var key = jsonObjCtrl._key;
     if (key == WidgetKey._valueType) {
         WidgetFileJsonMould.changeSelectValueType(this);
-    } else if (key == WidgetKey._enumIndex) {
-        WidgetFileJsonMould.changeSelectEnumIndex(this);
+    } else if (key == WidgetKey._enumDefault) {
+        WidgetFileJsonMould.changeSelectEnumDefault(this);
     }
 }
 WidgetFileJsonMould.changeSelectValueType = function (element) {
@@ -302,8 +303,8 @@ WidgetFileJsonMould.changeSelectValueType = function (element) {
         jsonObj[WidgetKey._value] = {};
     } else if (jsonObjValueType == WidgetKey._enum) {
         jsonObj[WidgetKey._value] = {};
-        jsonObj[WidgetKey._value][WidgetKey._enumIndex] = "0";
-        jsonObj[WidgetKey._value][WidgetKey._enumList] = new Array();
+        jsonObj[WidgetKey._value][WidgetKey._enumDefault] = "";
+        jsonObj[WidgetKey._value][WidgetKey._enumList] = {};
     } else if (jsonObjValueType == WidgetKey._link) {
         jsonObj[WidgetKey._value] = {};
         jsonObjValue = jsonObj[WidgetKey._value];
@@ -314,11 +315,11 @@ WidgetFileJsonMould.changeSelectValueType = function (element) {
     }
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJsonMould.changeSelectEnumIndex = function (element) {
+WidgetFileJsonMould.changeSelectEnumDefault = function (element) {
     var jsonObjCtrl = element._jsonObjCtrl;
     var jsonObj = jsonObjCtrl._obj;
     var value = element.value;
-    jsonObj[WidgetKey._enumIndex] = value;
+    jsonObj[WidgetKey._enumDefault] = value;
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.onClickRenameKey = function (e) {
@@ -339,62 +340,83 @@ WidgetFileJsonMould.onClickRenameKey = function (e) {
 }
 WidgetFileJsonMould.onClickAddObject = function (e) {
     var jsonObjCtrl = this._menu._exec._jsonObjCtrl;
-    var jsonObj = jsonObjCtrl._obj;
-    var valueType = jsonObj[WidgetKey._valueType];
-    if (valueType) {
-    } else {
-        jsonObj = jsonObjCtrl._obj[jsonObjCtrl._key];
-        valueType = jsonObj[WidgetKey._valueType];
-    }
-
-    var jsonObjValue = jsonObj;
-    if (valueType) {
-        if (valueType == WidgetKey._object) {
-            if (!jsonObj[WidgetKey._value]) {
-                jsonObj[WidgetKey._value] = {};
-            }
-        } else if (valueType == WidgetKey._array) {
-            var jsonObjValue = jsonObj[WidgetKey._value];
-            var isHasObj = false;
-            if (jsonObjValue) {
-                for (var i in jsonObjValue) {
-                    isHasObj = true;
-                    break;
-                }
-            } else {
-                jsonObj[WidgetKey._value] = {};
-            }
-            if (isHasObj) {
-                alert("当前 值类型 为 列表，只能存在一个对象作为此列表的模版！");
-                return;
-            }
-        } else if (valueType == WidgetKey._enum) {
-            alert("当前 Key 的值类型是 枚举，此节点不支持添加对象!");
+    var jsonObjKey = jsonObjCtrl._key;
+    var jsonObjValue = jsonObjCtrl._value;
+    if (jsonObjKey == WidgetKey._enumList) {
+        var keyNew = prompt("请输入添加的 Key ：");
+        if (!keyNew) {
             return;
+        }
+        jsonObjValue[keyNew] = {};
+        var jsonItem = jsonObjValue[keyNew];
+        jsonItem[WidgetKey._showTitle] = keyNew;
+        jsonItem[WidgetKey._enumParamList] = {};
+    } else if (jsonObjKey == WidgetKey._enumParamList) {
+        var keyNew = prompt("请输入添加的 Key ：");
+        if (!keyNew) {
+            return;
+        }
+        jsonObjValue[keyNew] = {};
+        var jsonItem = jsonObjValue[keyNew];
+        jsonItem[WidgetKey._showTitle] = keyNew;
+        jsonItem[WidgetKey._valueType] = WidgetKey._string;
+    } else {
+        var jsonObj = jsonObjCtrl._obj;
+        var valueType = jsonObj[WidgetKey._valueType];
+        if (valueType) {
         } else {
-            if (!confirm("当前 Key 的值类型不是对象，如果继续添加，值类型会变成对象，确定执行操作吗？")) { //利用对话框返回的值 （true 或者 false）
+            jsonObj = jsonObjCtrl._obj[jsonObjCtrl._key];
+            valueType = jsonObj[WidgetKey._valueType];
+        }
+        var jsonObjValue = jsonObj;
+        if (valueType) {
+            if (valueType == WidgetKey._object) {
+                if (!jsonObj[WidgetKey._value]) {
+                    jsonObj[WidgetKey._value] = {};
+                }
+            } else if (valueType == WidgetKey._array) {
+                var jsonObjValue = jsonObj[WidgetKey._value];
+                var isHasObj = false;
+                if (jsonObjValue) {
+                    for (var i in jsonObjValue) {
+                        isHasObj = true;
+                        break;
+                    }
+                } else {
+                    jsonObj[WidgetKey._value] = {};
+                }
+                if (isHasObj) {
+                    alert("当前 值类型 为 列表，只能存在一个对象作为此列表的模版！");
+                    return;
+                }
+            } else if (valueType == WidgetKey._enum) {
+                alert("当前 Key 的值类型是 枚举，此节点不支持添加对象!");
                 return;
+            } else {
+                if (!confirm("当前 Key 的值类型不是对象，如果继续添加，值类型会变成对象，确定执行操作吗？")) { //利用对话框返回的值 （true 或者 false）
+                    return;
+                }
+                jsonObj[WidgetKey._valueType] = WidgetKey._object;
+                jsonObj[WidgetKey._value] = {};
             }
-            jsonObj[WidgetKey._valueType] = WidgetKey._object;
-            jsonObj[WidgetKey._value] = {};
+
+            jsonObjValue = jsonObj[WidgetKey._value];
         }
 
-        jsonObjValue = jsonObj[WidgetKey._value];
-    }
+        var keyNew = prompt("请输入添加的 Key ：");
+        if (!keyNew) {
+            return;
+        }
+        if (jsonObjValue[keyNew]) {
+            alert("此 Key 已经存在，请更换 Key 重试！");
+            return;
+        }
 
-    var keyNew = prompt("请输入添加的 Key ：");
-    if (!keyNew) {
-        return;
+        jsonObjValue[keyNew] = {};
+        jsonObjValue[keyNew][WidgetKey._showTitle] = keyNew;
+        jsonObjValue[keyNew][WidgetKey._valueType] = WidgetKey._object;
+        jsonObjValue[keyNew][WidgetKey._value] = {};
     }
-    if (jsonObjValue[keyNew]) {
-        alert("此 Key 已经存在，请更换 Key 重试！");
-        return;
-    }
-
-    jsonObjValue[keyNew] = {};
-    jsonObjValue[keyNew][WidgetKey._showTitle] = keyNew;
-    jsonObjValue[keyNew][WidgetKey._valueType] = WidgetKey._object;
-    jsonObjValue[keyNew][WidgetKey._value] = {};
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.onClickDelObject = function (e) {
