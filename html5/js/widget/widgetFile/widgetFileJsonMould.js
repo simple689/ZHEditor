@@ -16,7 +16,7 @@ WidgetFileJsonMould.prototype.initCtrl = function () {
 
     var jsonObjCtrl = new JsonObjCtrl(this, this._jsonObj, false, "root");
     jsonObjCtrl._keyShow = "文件根节点";
-    jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuRoot;
+    jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuRoot;
     var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, jsonObjCtrl);
 
     this.readObject(this._jsonObj, "", foldItem, false);
@@ -39,25 +39,25 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
             if (Array.isArray(value)) {
                 // WidgetLog.log(value);
                 isList = true;
-                jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuList;
+                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuList;
             } else {
-                jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuObject;
+                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuObject;
             }
 
             var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
             this.readObject(value, keyChild, foldItem, isList);
         } else {
-            jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuLabel;
+            jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuLabel;
             WidgetHtml.addLabel(elementParent, jsonObjCtrl);
             jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
             jsonObjCtrl._value = value;
-            jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuInput;
+            jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuInput;
             jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeInput;
 
             if (key == WidgetKey._valueType) {
                 jsonObjCtrl._value = value;
                 jsonObjCtrl._valueList = JsonObjCtrl._valueTypeList;
-                jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
+                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
@@ -76,7 +76,7 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 }
                 jsonObjCtrl._value = enumDefault;
                 jsonObjCtrl._valueList = jsonListCtrl.getList();
-                jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuSelect;
+                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileJsonMould.onChangeSelect;
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
@@ -99,16 +99,8 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
         }
     }
 }
-WidgetFileJsonMould.onContextMenuRoot = function (e) {
-    var menu = new WidgetMenu();
-    menu.createMenu(document.body);
-    var ul = menu.addUl(menu._elementRoot);
-    var li = menu.addLi(ul, "刷新", WidgetFileJsonMould.onClickRefresh);
-    li = menu.addLi(ul, "保存", WidgetFileJsonMould.onClickSave);
-    li = menu.addLi(ul, "另存为", WidgetFileJsonMould.onClickSaveAs);
-    li = menu.addLi(ul, "下载", WidgetFileJsonMould.onClickDownLoad);
-    WidgetMenu.showMenu(menu, e, this);
-    return false; // 取消右键点击的默认事件
+WidgetFileJsonMould.prototype.onContextMenuRoot = function (menu, ul) {
+    var li = menu.addLi(ul, "测试", WidgetFileOnClick.onClickDownLoad);
 }
 WidgetFileJsonMould.onContextMenuObject = function (e) {
     var menu = new WidgetMenu();

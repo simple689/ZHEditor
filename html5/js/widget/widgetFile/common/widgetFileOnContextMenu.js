@@ -2,6 +2,8 @@ function WidgetFileOnContextMenu() {
 }
 
 WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
+    var jsonObjCtrl = this._jsonObjCtrl;
+
     var menu = new WidgetMenu();
     menu.createMenu(document.body);
     var ul = menu.addUl(menu._elementRoot);
@@ -9,6 +11,8 @@ WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
     li = menu.addLi(ul, "保存", WidgetFileOnClick.onClickSave);
     li = menu.addLi(ul, "另存为", WidgetFileOnClick.onClickSaveAs);
     li = menu.addLi(ul, "下载", WidgetFileOnClick.onClickDownLoad);
+
+    jsonObjCtrl._exec.onContextMenuRoot(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件
 }
