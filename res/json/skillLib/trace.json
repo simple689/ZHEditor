@@ -1,0 +1,42 @@
+{
+	"unitList": [
+		{
+			"id": "",
+			"rotZ": "",
+			"traceType": {
+				"value": "diy",
+				"enumParamList": {
+					"traceDiyId": ""
+				}
+			}
+		}, {
+			"id": "",
+			"rotZ": "",
+			"traceType": {
+				"value": "diy",
+				"enumParamList": {
+					"traceDiyId": ""
+				}
+			}
+		}, {
+			"id": "",
+			"rotZ": "",
+			"traceType": {
+				"value": "diy",
+				"enumParamList": {
+					"traceDiyId": ""
+				}
+			}
+		}, {
+			"id": "",
+			"rotZ": "",
+			"traceType": {
+				"value": "diy",
+				"enumParamList": {
+					"traceDiyId": ""
+				}
+			}
+		}
+	],
+	"jsonMould": "trace.jsonMd"
+}

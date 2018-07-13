@@ -2,7 +2,10 @@ function WidgetFileOnClick() {
 }
 
 WidgetFileOnClick.getExec = function (e) {
-    return e._menu._exec._jsonObjCtrl._exec;
+    if (e._menu) {
+        return e._menu._exec._jsonObjCtrl._exec;
+    }
+    return e._jsonObjCtrl._exec;
 }
 WidgetFileOnClick.onClickRefresh = function (e) {
     var func = WidgetFileOnClick.getExec(this).onClickRefresh;
