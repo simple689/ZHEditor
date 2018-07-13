@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js" description="&#10;WidgetFileJsonTemplate.prototype.initFileTemplate..." line="3" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
+      <change afterPath="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileBase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnChange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnClick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnContextMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnChange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/jquery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnChange.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnChange.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnClick.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnClick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnContextMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnContextMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJson.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetTable/widgetTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetTableHtml.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetTable/widgetTableHtml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetTableRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetTable/widgetTableRow.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,107 +31,100 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="widgetFileJsonMould.js" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="259">
-                    <caret line="100" column="1" lean-forward="true" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="html5" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="widgetJsonCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/common/widgetJsonCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetFileUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetFileOnClick.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnClick.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="32" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetFileOnContextMenu.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnContextMenu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dock.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="widgetFileOnChange.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnChange.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" column="43" lean-forward="true" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFileJson.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+              <folding>
+                <element signature="e#1177#1264#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFileJsonMould.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFileOnContextMenu.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnContextMenu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFileJsonMouldOnClick.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="53">
+              <caret line="146" column="12" lean-forward="true" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFileJsonMouldOnChange.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnChange.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFileJsonMouldOnContextMenu.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnContextMenu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widgetFileBase.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileBase.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widgetKey.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/common/widgetKey.js">
+      <file leaf-file-name="widgetFileJsonOnChange.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnChange.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1175">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetTab.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetTab.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4125">
-              <caret line="165" selection-start-line="165" selection-end-line="165" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/external/jquery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="1" column="39717" selection-start-line="1" selection-start-column="39717" selection-end-line="1" selection-end-column="39717" />
+            <state relative-caret-position="50">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -137,15 +142,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_valueTypeList</find>
-      <find>WidgetKey._showTitle</find>
-      <find>_enum</find>
-      <find>_enumDefaultIndex</find>
-      <find>JsonSelectList</find>
-      <find>SelectItem</find>
-      <find>JsonSelectListItem</find>
       <find>onClickListClear</find>
-      <find>onClickListToolAdd</find>
       <find>onChangeSelect</find>
       <find>枚举</find>
       <find>_enumList</find>
@@ -167,12 +164,16 @@
       <find>//取消右键点击的默认事件</find>
       <find>onContextMenuObject</find>
       <find>onContextMenuRoot</find>
+      <find>onClickDelObject</find>
+      <find>onClickRenameKey</find>
+      <find>WidgetFileJson</find>
+      <find>initCtrl</find>
+      <find>getMould</find>
+      <find>onClickAddObject</find>
+      <find>onClickListToolAdd</find>
+      <find>getExec()</find>
     </findStrings>
     <replaceStrings>
-      <replace>_inputFileExtend</replace>
-      <replace>_labelFileExtend</replace>
-      <replace>addFileBrowserFolderList</replace>
-      <replace>addFileBrowserFolder</replace>
       <replace>_nowFolderElement</replace>
       <replace>readObjectMd</replace>
       <replace>jsonObjMd</replace>
@@ -199,6 +200,10 @@
       <replace>enumDefault</replace>
       <replace>changeSelectEnumDefault</replace>
       <replace>// 取消右键点击的默认事件</replace>
+      <replace>onClickObjectDel</replace>
+      <replace>initRoot</replace>
+      <replace>onClickObjectAdd</replace>
+      <replace>getExec(this)</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\Electron\ZHEditor\html5\js\widget\widgetDock</dir>
@@ -210,18 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/widget/widgetSearch.js" />
-        <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" />
-        <option value="$PROJECT_DIR$/js/common/log.js" />
-        <option value="$PROJECT_DIR$/css/common/base.css" />
-        <option value="$PROJECT_DIR$/css/business/editor/panel/panelMenu.css" />
-        <option value="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" />
-        <option value="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" />
-        <option value="$PROJECT_DIR$/js/common/jsonObj.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetMenuFold.js" />
-        <option value="$PROJECT_DIR$/js/business/editor/panel/panelToolBar.js" />
-        <option value="$PROJECT_DIR$/js/business/editor/panel/panelState.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetKey.js" />
         <option value="$PROJECT_DIR$/js/common/jsonCtrl.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileJsonTemplate.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile.js" />
@@ -249,18 +242,30 @@
         <option value="$PROJECT_DIR$/js/common/widgetKey.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileJson.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileBase.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileBase.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileUtil.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileOnContextMenu.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileOnClick.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileJsonMould.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJson.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileOnChange.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileBase.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJson.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMouldEvent.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonEvent.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonOnContextMenu.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonOnClick.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonOnChange.js" />
+        <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnContextMenu.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnContextMenu.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnClick.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnChange.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnChange.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnChange.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnClick.js" />
-        <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnContextMenu.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js" />
       </list>
     </option>
   </component>
@@ -285,17 +290,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="html5" type="cbb8eebc:String" user="html5" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -401,7 +395,26 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="widget" type="462c0819:PsiDirectoryNode" />
               <item name="widgetFile" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="json" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="html5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="widgetFile" type="462c0819:PsiDirectoryNode" />
+              <item name="jsonMould" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="html5" type="cbb8eebc:String" user="html5" />
             </path>
           </expand>
           <select />
@@ -421,11 +434,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Electron\ZHEditor\html5\js\widget\widgetTable" />
+      <recent name="F:\Electron\ZHEditor\html5\js\widget" />
       <recent name="F:\Electron\ZHEditor\html5\js\widget\widgetFile" />
       <recent name="F:\Electron\ZHEditor\html5\js\widget\widgetFile\common" />
-      <recent name="F:\Electron\ZHEditor\html5\html\business\editor" />
-      <recent name="F:\Electron\ZHEditor\html5\js\common" />
-      <recent name="F:\Electron\ZHEditor\html5\html\business\editor\home" />
+      <recent name="F:\Electron\ZHEditor\html5\js\widget\widgetFile\jsonMould" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Electron\ZHEditor\html5\js\widget\widgetFile" />
@@ -449,7 +462,7 @@
   </component>
   <component name="RunManager" selected="JavaScript Debug.dock.html?_ijt=ijk0apg0mcjhs1rlrt7f290c2u">
     <configuration name="dock.html?_ijt=ijk0apg0mcjhs1rlrt7f290c2u" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/html5/html/business/editor/dock/dock.html?_ijt=ijk0apg0mcjhs1rlrt7f290c2u" />
-    <configuration name="widgetFileJson.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/js/widget/widgetFile/widgetFileJson.js" working-dir="$PROJECT_DIR$/js/widget" />
+    <configuration name="widgetFileJson.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js" working-dir="$PROJECT_DIR$/js/widget" />
     <list>
       <item itemvalue="JavaScript Debug.dock.html?_ijt=ijk0apg0mcjhs1rlrt7f290c2u" />
       <item itemvalue="Node.js.widgetFileJson.js" />
@@ -677,11 +690,16 @@
       <workItem from="1531385865397" duration="1783000" />
       <workItem from="1531387813481" duration="1790000" />
       <workItem from="1531389684640" duration="1141000" />
+      <workItem from="1531447027111" duration="253000" />
+      <workItem from="1531449210601" duration="1750000" />
+      <workItem from="1531450992910" duration="1773000" />
+      <workItem from="1531452848217" duration="1763000" />
+      <workItem from="1531454629933" duration="1495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="882749000" />
+    <option name="totallyTimeSpent" value="889783000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -694,18 +712,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21979167" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50625" side_tool="true" weight="0.38723403" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32978722" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" weight="0.3319149" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.3319149" />
       <window_info anchor="bottom" id="找到" order="12" sideWeight="0.38883033" weight="0.32960895" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -725,6 +744,146 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1907" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1909" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>88</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1910" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>123</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1911" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>130</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1912" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>134</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1913" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>148</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1914" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>157</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1915" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js</url>
+          <line>211</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1916" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnChange.js</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1917" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnChange.js</url>
+          <line>16</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1918" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1919" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>5</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1920" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1921" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>14</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1922" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>18</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1923" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>99</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1924" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>108</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1925" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>131</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1926" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>137</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1927" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js</url>
+          <line>146</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1928" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/widgetFile.js</url>
+          <line>41</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1930" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetFile/widgetFile.js</url>
+          <line>39</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1931" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -733,7 +892,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="1896" />
+      <option name="time" value="1932" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -791,50 +950,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/widget/widgetDock/widgetDockStyle.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/widget/widgetDock/widgetDock.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/home/homeFileEditor.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/home/homeFileMould.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileBrowserCreate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/business/editor/panel/panelMenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/business/editor/panel/panelMenu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -971,13 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/external/base64.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
@@ -1010,13 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetMenuFold.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1070,53 +1171,132 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMenu.js" />
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFileJson.js" />
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileUtil.js">
+    <entry file="file://$PROJECT_DIR$/js/common/widgetJsonCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        <state relative-caret-position="700">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnChange.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetMenuFold.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="150">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnClick.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileJsonMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="32" />
+        <state relative-caret-position="175">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="1625">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/common/widgetJsonCtrl.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        <state relative-caret-position="450">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFileJsonMould.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnClick.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="100" column="1" lean-forward="true" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+        <state relative-caret-position="-897">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnContextMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnClick.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnChange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnChange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="43" lean-forward="true" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnChange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="146" column="12" lean-forward="true" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnContextMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileOnContextMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        <state relative-caret-position="625">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/common/widgetFileBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+          <folding>
+            <element signature="e#1177#1264#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/widgetFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMould.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
         </state>
       </provider>
     </entry>
