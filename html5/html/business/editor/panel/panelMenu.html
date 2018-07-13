@@ -2,7 +2,13 @@
     <ul>
         <li class='navHasSub'>文件
             <ul>
-                <li>新建</li>
+                <li class='navHasSub'>新建
+                    <ul>
+                        <li onclick="PanelMenu.onClickCreateFile(WidgetKey._json)">Json 文件</li>
+                        <li onclick="PanelMenu.onClickCreateFile(WidgetKey._jsonMould)">Json模版 文件</li>
+                        <span>------------------------------------------</span>
+                    </ul>
+                </li>
                 <li>打开</li>
                 <li>保存</li>
                 <li>保存所有</li>
