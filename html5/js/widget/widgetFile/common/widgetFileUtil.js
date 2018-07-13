@@ -17,7 +17,7 @@ WidgetFileUtil.getKeyShow = function (key) {
         keyShow = "唯一key";
     } else if (key == WidgetKey._value) {
         keyShow = "值";
-    } else if (key == WidgetKey._enumDefault) {
+    } else if (key == WidgetKey._enumTypeDefault) {
         keyShow = "默认枚举";
     } else if (key == WidgetKey._enumList) {
         keyShow = "枚举列表";

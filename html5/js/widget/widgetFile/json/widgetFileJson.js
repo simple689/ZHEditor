@@ -187,12 +187,12 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeEnum = function (jsonObjMd, jsonO
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     jsonObjCtrl._objMd = jsonObjMd;
 
-    var enumValue = value[WidgetKey._value];
-    if ((enumValue && enumValue.length <= 0) || !enumValue) {
-        value[WidgetKey._value] = valueMd[WidgetKey._enumDefault];
-        enumValue = value[WidgetKey._value];
+    var enumType = value[WidgetKey._enumType];
+    if ((enumType && enumType.length <= 0) || !enumType) {
+        value[WidgetKey._enumType] = valueMd[WidgetKey._enumTypeDefault];
+        enumType = value[WidgetKey._enumType];
     }
-    jsonObjCtrl._value = enumValue;
+    jsonObjCtrl._value = enumType;
 
     var jsonListCtrl = new JsonListCtrl(0);
     var enumList = valueMd[WidgetKey._enumList];
@@ -209,7 +209,7 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeEnum = function (jsonObjMd, jsonO
 
     WidgetHtml.addBr(foldItem);
 
-    var jsonEnumParamList = enumList[enumValue][WidgetKey._enumParamList];
+    var jsonEnumParamList = enumList[enumType][WidgetKey._enumParamList];
     if (jsonEnumParamList) {
         for (var oItemMd in jsonEnumParamList) {
             var valueItemMd = jsonEnumParamList[oItemMd];
@@ -307,13 +307,13 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
         }
     } else if (valueTypeMd == WidgetKey._enum) {
         jsonObj[key] = {}
-        var enumDefaultMd = valueMd[WidgetKey._enumDefault];
+        var enumTypeDefaultMd = valueMd[WidgetKey._enumTypeDefault];
         var enumListMd = valueMd[WidgetKey._enumList];
 
-        var enumItemMd = enumListMd[enumDefaultMd];
+        var enumItemMd = enumListMd[enumTypeDefaultMd];
         if (enumListMd) {
             var jsonObjEnum = jsonObj[key];
-            jsonObjEnum[WidgetKey._value] = enumDefaultMd;
+            jsonObjEnum[WidgetKey._enumType] = enumTypeDefaultMd;
             jsonObjEnum[WidgetKey._enumParamList] = {};
             for (var oItemMd in enumItemMd[WidgetKey._enumParamList]) {
                 var valueItemMd = enumItemMd[WidgetKey._enumParamList][oItemMd];

@@ -18,7 +18,7 @@ WidgetFileJsonMould.prototype.onChangeSelect = function (e) {
     var key = jsonObjCtrl._key;
     if (key == WidgetKey._valueType) {
         WidgetFileJsonMould.changeSelectValueType(this);
-    } else if (key == WidgetKey._enumDefault) {
+    } else if (key == WidgetKey._enumTypeDefault) {
         WidgetFileJsonMould.changeSelectEnumDefault(this);
     }
 }

@@ -47,20 +47,20 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
-            } else if (key == WidgetKey._enumDefault) {
-                var enumDefault = jsonObj[WidgetKey._enumDefault];
+            } else if (key == WidgetKey._enumTypeDefault) {
+                var enumTypeDefault = jsonObj[WidgetKey._enumTypeDefault];
                 var enumList = jsonObj[WidgetKey._enumList];
                 var jsonListCtrl = new JsonListCtrl(0);
                 for (var oEnum in enumList) {
-                    if (enumDefault && enumDefault.length <= 0 || !enumDefault) {
-                        jsonObj[WidgetKey._enumDefault] = oEnum;
-                        enumDefault = jsonObj[WidgetKey._enumDefault];
+                    if (enumTypeDefault && enumTypeDefault.length <= 0 || !enumTypeDefault) {
+                        jsonObj[WidgetKey._enumTypeDefault] = oEnum;
+                        enumTypeDefault = jsonObj[WidgetKey._enumTypeDefault];
                     }
                     var valueItemMd = enumList[oEnum];
                     var item = new JsonListItem(oEnum,valueItemMd[WidgetKey._showTitle]);
                     jsonListCtrl.insertItem(item);
                 }
-                jsonObjCtrl._value = enumDefault;
+                jsonObjCtrl._value = enumTypeDefault;
                 jsonObjCtrl._valueList = jsonListCtrl.getList();
                 jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
@@ -108,7 +108,7 @@ WidgetFileJsonMould.changeSelectValueType = function (element) {
         jsonObj[WidgetKey._value] = {};
     } else if (jsonObjValueType == WidgetKey._enum) {
         jsonObj[WidgetKey._value] = {};
-        jsonObj[WidgetKey._value][WidgetKey._enumDefault] = "";
+        jsonObj[WidgetKey._value][WidgetKey._enumTypeDefault] = "";
         jsonObj[WidgetKey._value][WidgetKey._enumList] = {};
     } else if (jsonObjValueType == WidgetKey._link) {
         jsonObj[WidgetKey._value] = {};
@@ -124,7 +124,7 @@ WidgetFileJsonMould.changeSelectEnumDefault = function (element) {
     var jsonObjCtrl = element._jsonObjCtrl;
     var jsonObj = jsonObjCtrl._obj;
     var value = element.value;
-    jsonObj[WidgetKey._enumDefault] = value;
+    jsonObj[WidgetKey._enumTypeDefault] = value;
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.prototype.refreshContent = function () {

@@ -20,7 +20,7 @@ WidgetFileJson.prototype.onChangeSelect = function (e) {
     var enumObj = jsonObj[key];
 
     var value = e.value;
-    enumObj[WidgetKey._value] = value;
+    enumObj[WidgetKey._enumType] = value;
     enumObj[WidgetKey._enumParamList] = {};
 
     jsonObjCtrl._exec.refreshContent();
