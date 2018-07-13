@@ -6,9 +6,10 @@ WidgetFileJsonMould.prototype.constructor = WidgetFileJsonMould;
 
 WidgetFileJsonMould.prototype.initRoot = function () {
     var foldItem = WidgetFileBase.prototype.initRoot.apply(this, arguments);
-    this.readObject(this._jsonObj, "", foldItem, false);
+    this.readObject(this._jsonObj, "root", foldItem, false);
 }
 WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
+    // WidgetLog.log(keyParent);
     for (var o in jsonObj) {
         var key = o;
         var keyShow = WidgetFileUtil.getKeyShow(key);
@@ -19,7 +20,6 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
             var keyChild = keyParent;
             keyChild += "->";
             keyChild += key;
-            keyChild += "->";
 
             jsonObjCtrl._value = value;
             var isList = false;
@@ -75,7 +75,7 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                     WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
                 } else {
                     var strType = typeof(value);
-                    WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+                    WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
                 }
             }
 
@@ -172,7 +172,7 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
         }
 
         var value = jsonObj[key];
-        // WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+        // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
         jsonObjParent[key] = {};
         jsonObjParent[key][WidgetKey._showTitle] = key;
         if (typeof(value) == WidgetKey._object) {
@@ -183,7 +183,6 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
 
             var isList = false;
             if (Array.isArray(value)) {
-                // WidgetLog.log(value);
                 isList = true;
                 jsonObjParent[key][WidgetKey._valueType] = WidgetKey._array;
                 jsonObjParent[key][WidgetKey._value] = new Array();
@@ -203,7 +202,7 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
             } else {
                 var strType = typeof(value);
                 jsonObjParent[key][WidgetKey._valueType] = strType;
-                WidgetLog.log("[" + typeof(value) + "]" + keyParent + key + " = " + value);
+                WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
             }
         }
     }
