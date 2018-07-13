@@ -108,8 +108,7 @@ WidgetFileBrowser.prototype.refreshFileBrowserLeft = function () {
     removeElementChild(this._divLeft);
     this.initFileBrowserLeft(this._divLeft);
 
-    var folderList = this._nowFolder.split("/");
-    var jsonObjFolder = WidgetFileBrowser.getJsonObjFolder(folderList, WidgetFileBrowser._jsonFileBrowser, WidgetFileBrowser._jsonFileBrowser);
+    var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(this._nowFolder);
     this.refreshFileBrowserRight(jsonObjFolder); // 记住当前选中文件夹，刷新
 };
 WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
@@ -133,23 +132,11 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
         }
     }
 };
-WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) {
-    for (var i = 0; i < folderList.length; i++) {
-        var item = folderList[i];
-        if (item.length > 0) {
-            var value = jsonObj[item];
-            if (value) {
-                var folderListNew = folderList.slice(i + 1, folderList.length + 1);
-                var jsonObjNew = value[WidgetKey._folderList];
-                return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
-            }
-        }
-        if (i == folderList.length - 1) {
-            return jsonObjOrg;
-        }
-    }
-    return null;
-}
+WidgetFileBrowser.prototype.refreshFileBrowserRightPath = function (path) {
+    this._nowFolder = path;
+    var jsonObj = WidgetFileBrowser.getJsonObjPath(path);
+    this.refreshFileBrowserRight(jsonObj);
+};
 // WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) {
 //     for (var i = 0; i < folderList.length; i++) {
 //         var item = folderList[i];
@@ -171,6 +158,28 @@ WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) 
 //     }
 //     return null;
 // }
+
+WidgetFileBrowser.getJsonObjPath = function (folder) {
+    var folderList = folder.split("/");
+    return WidgetFileBrowser.getJsonObjFolder(folderList, WidgetFileBrowser._jsonFileBrowser, WidgetFileBrowser._jsonFileBrowser);
+}
+WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) {
+    for (var i = 0; i < folderList.length; i++) {
+        var item = folderList[i];
+        if (item.length > 0) {
+            var value = jsonObj[item];
+            if (value) {
+                var folderListNew = folderList.slice(i + 1, folderList.length + 1);
+                var jsonObjNew = value[WidgetKey._folderList];
+                return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
+            }
+        }
+        if (i == folderList.length - 1) {
+            return jsonObjOrg;
+        }
+    }
+    return null;
+}
 WidgetFileBrowser.onClickFolderName = function () {
     var widgetFileBrowser = this._jsonObjCtrl._exec;
     widgetFileBrowser._nowFolder = this._jsonObj["path"];

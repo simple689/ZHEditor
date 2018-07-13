@@ -11,7 +11,7 @@ WidgetFileJson.prototype.initRoot = function () {
     var jsonMouldName = this._jsonObj[WidgetKey._jsonMould];
     if (!jsonMouldName) {
         jsonMouldName = this._elementTabTitle.innerHTML;
-        jsonMouldName = changeFileExtend(jsonMouldName, WidgetFile._extendJsonMd);
+        jsonMouldName = changeFileExtend(jsonMouldName, WidgetKey._extendJsonMd);
         this._jsonObj[WidgetKey._jsonMould] = jsonMouldName;
     }
     this._fileJsonMouldCtrl = new WidgetFileJsonMould();

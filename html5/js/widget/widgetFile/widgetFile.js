@@ -1,9 +1,6 @@
 function WidgetFile() {
 }
 
-WidgetFile._extendJson = ".json";
-WidgetFile._extendJsonMd = ".jsonMd";
-
 WidgetFile.readFile = function (file, elementTabTitle) {
     var fileNameList = file.name.split(".");
     var extendIndex = fileNameList.length - 1;
@@ -34,9 +31,9 @@ WidgetFile.readFileContent = function (fileContent, elementTabTitle, contentType
     elementFileRoot.classList.add("widgetFileRoot");
 
     var extend = getFileExtend(elementTabTitle.innerHTML);
-    if (extend == WidgetFile._extendJson) {
+    if (extend == WidgetKey._extendJson) {
         elementTabTitle._fileCtrl = new WidgetFileJson();
-    } else if (extend == WidgetFile._extendJsonMd) {
+    } else if (extend == WidgetKey._extendJsonMd) {
         elementTabTitle._fileCtrl = new WidgetFileJsonMould();
     }
     elementTabTitle._fileCtrl.init(elementTabTitle, fileContent, contentType);

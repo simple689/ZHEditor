@@ -35,8 +35,13 @@ PanelFileBrowser.downLoad = function (jsonObjCtrl) {
     element.click();
 };
 PanelFileBrowser.saveAsHtmlLoaded = function (widgetDialog) {
-    var name = widgetDialog._jsonObjCtrl._exec._elementTabTitle.innerHTML;
-
+    var name = widgetDialog._jsonObjCtrl._key;
+    var elementTabTitle = widgetDialog._jsonObjCtrl._exec._elementTabTitle;
+    if (elementTabTitle) {
+        name = elementTabTitle.innerHTML;
+    }
+    var title = getFileTitle(name)
+    var extend = getFileExtend(name);
     var widgetFileBrowser = new WidgetFileBrowser();
 
     var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelTitle");
@@ -46,7 +51,16 @@ PanelFileBrowser.saveAsHtmlLoaded = function (widgetDialog) {
     label.style.lineHeight = "30px";
 
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFolder");
-    jsonObjCtrl._value = "/";
+    var path = "/" + WidgetKey._personalFoldShow + "/";
+    if (extend.length > 0) {
+        if (extend == WidgetKey._extendJson) {
+            path += WidgetKey._jsonShow;
+        } else if (extend == WidgetKey._extendJsonMd) {
+            path += WidgetKey._jsonMouldShow;
+        }
+        path += "/";
+    }
+    jsonObjCtrl._value = path;
     var input =  WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
     widgetFileBrowser._nowFolderElement = input;
     widgetDialog._inputFolder = input;
@@ -67,7 +81,7 @@ PanelFileBrowser.saveAsHtmlLoaded = function (widgetDialog) {
     jsonObjCtrl._keyShow = "文件名：";
     WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileName");
-    jsonObjCtrl._value = getFileTitle(name);
+    jsonObjCtrl._value = title;
     input =  WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
     widgetDialog._inputFileName = input;
     input.style.width = "300px";
@@ -78,7 +92,7 @@ PanelFileBrowser.saveAsHtmlLoaded = function (widgetDialog) {
     jsonObjCtrl._keyShow = "保存类型：";
     WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileExtend");
-    jsonObjCtrl._value = getFileExtend(name);
+    jsonObjCtrl._value = extend;
     input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
     widgetDialog._inputFileExtend = input;
     input.style.width = "300px";
@@ -97,6 +111,8 @@ PanelFileBrowser.saveAsHtmlLoaded = function (widgetDialog) {
     jsonObjCtrl._value = "取消";
     jsonObjCtrl._onClick = PanelFileBrowser.onClickSaveAsButtonCancel;
     WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._inputType._button);
+
+    widgetFileBrowser.refreshFileBrowserRightPath(path);
 };
 PanelFileBrowser.onClickSaveAsButtonSave = function () {
     var widgetDialog = this._jsonObjCtrl._exec;
@@ -107,8 +123,7 @@ PanelFileBrowser.onClickSaveAsButtonSave = function () {
         extend = widgetDialog._inputFileExtend.value;
     }
 
-    var folderList = folder.split("/");
-    var jsonObjFolder = WidgetFileBrowser.getJsonObjFolder(folderList, WidgetFileBrowser._jsonFileBrowser, WidgetFileBrowser._jsonFileBrowser);
+    var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(folder);
     WidgetHistory.addFileBrowserFileList(jsonObjFolder, fileName, extend);
     WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
 

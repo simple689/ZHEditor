@@ -16,6 +16,9 @@ WidgetKey._jsonShow = "json";
 WidgetKey._jsonMould = "jsonMould";
 WidgetKey._jsonMouldShow = "json模版";
 
+WidgetKey._extendJson = ".json";
+WidgetKey._extendJsonMd = ".jsonMd";
+
 WidgetKey._type = "type";
 WidgetKey._title = "title";
 WidgetKey._extend = "extend";
