@@ -61,8 +61,7 @@ WidgetFileBrowser.prototype.initFileBrowserRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');
 };
 WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
-    for (var o in jsonObj) {
-        var key = o;
+    for (var key in jsonObj) {
         var value = jsonObj[key];
         if (typeof(value) == WidgetKey._object) {
             var pathChild = pathParent;
@@ -79,7 +78,8 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 if (folderList) {
                     for (var i in folderList) {
                         isHasChild = true;
-                        fold = this._menuFoldCtrl.addFold(elementParent, null);
+                        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+                        fold = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);
                         break;
                     }
                 }
@@ -95,7 +95,7 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 // element.classList.add("fileBrowserLeftFolderPath");
                 WidgetHtml.addBr(fold);
                 if (isHasChild) {
-                    fold = this._menuFoldCtrl.addFoldItem(fold._dl);
+                    fold = this._menuFoldCtrl.addFoldItem(fold);
                 }
             }
             if (isHasChild) {

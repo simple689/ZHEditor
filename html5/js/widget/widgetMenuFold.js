@@ -12,36 +12,34 @@ WidgetMenuFold.prototype.createMenuFold = function (elementParent, jsonObjCtrl) 
     return dd;
 }
 WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, jsonObjCtrl) {
-    var dl = document.createElement("dl");
-    elementParent.appendChild(dl);
-
-    var dt = document.createElement("dt");
-    dl.appendChild(dt);
-    dt._dl = dl;
-    dt._jsonObjCtrl = jsonObjCtrl;
-    dt.onclick = WidgetMenuFold.onClickDt;
-    dt.oncontextmenu = jsonObjCtrl._onContextMenu;
-    dt.innerHTML = jsonObjCtrl._keyShow;
-
-    var dd = this.addFoldItem(dl);
+    var dt = this.addFold(elementParent, jsonObjCtrl);
+    var dd = this.addFoldItem(dt);
     return dd;
 }
-WidgetMenuFold.prototype.addFold = function (elementParent, onClick) {
+WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     var dl = document.createElement("dl");
     elementParent.appendChild(dl);
 
     var dt = document.createElement("dt");
     dl.appendChild(dt);
     dt._dl = dl;
-    dt.onclick = WidgetMenuFold.onClickDt;
-    dt._onClick = onClick;
+
+    var jsonObjCtrlSub = new JsonObjCtrl(dt, null, false, "");
+    jsonObjCtrlSub._keyShow = jsonObjCtrl._keyShow;
+    jsonObjCtrlSub._onClick = WidgetMenuFold.onClickDt;
+    jsonObjCtrlSub._onContextMenu = jsonObjCtrl._onContextMenu;
+    var label = WidgetHtml.addLabel(dt, jsonObjCtrlSub);
+    label.classList.add("widgetMenuFoldLabel");
+    label._dt = dt;
+
+    dt._div = WidgetHtml.addDiv(dt);
 
     return dt;
 }
-WidgetMenuFold.prototype.addFoldItem = function (dl) {
+WidgetMenuFold.prototype.addFoldItem = function (dt) {
     var dd = document.createElement("dd");
-    dl.appendChild(dd);
-    dd._dl = dl;
+    dt._dl.appendChild(dd);
+    dd._dt = dt;
     dd.style.display = "block";
     dd.isCheck = true;
     return dd;
@@ -74,34 +72,26 @@ WidgetMenuFold.onClickDt = function (e) {
     if (!e) {
         return;
     }
-    var offsetX = e.offsetX;
-    var split_0 = 25;
-    if (offsetX >= 0 && offsetX < split_0) {
-        var nextNode = this.nextSibling;
-        while (nextNode) {
-            var tagName = nextNode.tagName;
-            if (tagName == "DD") {
-                nextNode.isCheck = !nextNode.isCheck;
-                //展开和收齐的不同状态下更换小图标
-                if (nextNode.isCheck) {
-                    nextNode.style.display = "block";
-                    $(this).css(
-                        "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
-                    );
-                } else {
-                    nextNode.style.display = "none";
-                    $(this).css(
-                        "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
-                    );
-                }
-            } else if (tagName == "DT") {
-                break;
+    var nextNode = this._dt.nextSibling;
+    while (nextNode) {
+        var tagName = nextNode.tagName;
+        if (tagName == "DD") {
+            nextNode.isCheck = !nextNode.isCheck;
+            //展开和收齐的不同状态下更换小图标
+            if (nextNode.isCheck) {
+                nextNode.style.display = "block";
+                $(this).css(
+                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
+                );
+            } else {
+                nextNode.style.display = "none";
+                $(this).css(
+                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
+                );
             }
-            nextNode = nextNode.nextSibling;
+        } else if (tagName == "DT") {
+            break;
         }
-    } else if (offsetX >= split_0) {
-        if (this._onClick) {
-            this._onClick(this);
-        }
+        nextNode = nextNode.nextSibling;
     }
 }

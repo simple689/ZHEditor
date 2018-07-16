@@ -148,16 +148,22 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeArray = function (jsonObjMd, json
     jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuList;
     var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
-    jsonObjCtrl._keyShow = "列表工具";
-    jsonObjCtrl._objMd = jsonObjMd;
-    WidgetHtml.addLabel(foldItem, jsonObjCtrl);
+    // jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+    // jsonObjCtrl._keyShow = "列表工具";
+    // jsonObjCtrl._objMd = jsonObjMd;
+    // WidgetHtml.addLabel(foldItem, jsonObjCtrl);
+    //
+    // jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+    // jsonObjCtrl._value = "添加成员";
+    // jsonObjCtrl._objMd = jsonObjMd;
+    // jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
+    // WidgetHtml.addInput(foldItem, jsonObjCtrl, WidgetHtml._inputType._button);
 
     jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
     jsonObjCtrl._value = "添加成员";
     jsonObjCtrl._objMd = jsonObjMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
-    WidgetHtml.addInput(foldItem, jsonObjCtrl, WidgetHtml._inputType._button);
+    WidgetHtml.addInput(foldItem._dt._div, jsonObjCtrl, WidgetHtml._inputType._button);
 
     for (var keyMd in valueMd) {
         var valueItemMd = valueMd[keyMd];
