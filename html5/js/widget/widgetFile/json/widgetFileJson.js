@@ -244,6 +244,7 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeLink = function (jsonObjMd, jsonO
 
     jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
     jsonObjCtrl._value = "链接";
+    jsonObjCtrl._objMd = valueMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickLink;
     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._button);
 

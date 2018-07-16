@@ -7,6 +7,10 @@
     background: dimgray;
 }
 
+.widgetMenuFold dd {
+    margin-left: 15px;
+}
+
 .widgetMenuFoldLabel {
     cursor: pointer;
     /*white-space: nowrap;*/

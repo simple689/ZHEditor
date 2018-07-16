@@ -143,5 +143,23 @@ WidgetFileJson.prototype.onClickListToolAdd = function (e) {
 }
 WidgetFileJson.prototype.onClickLink = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
-    WidgetFileJson.listAdd(jsonObjCtrl);
+    var file = jsonObjCtrl._objMd[WidgetKey._file];
+    var key = jsonObjCtrl._objMd[WidgetKey._key];
+
+    // var keyList = key.split("@");
+    // for (var i = 0; i < keyList.length; i++) {
+    //     var item = keyList[i];
+    //     if (item.length > 0) {
+    //         var value = jsonObj[item];
+    //         if (value) {
+    //             var folderListNew = folderList.slice(i + 1, folderList.length + 1);
+    //             var jsonObjNew = value[WidgetKey._folderList];
+    //             return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
+    //         }
+    //     }
+    //     if (i == folderList.length - 1) {
+    //         return jsonObjOrg;
+    //     }
+    // }
+    var a = 0;
 }
