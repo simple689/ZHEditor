@@ -2,6 +2,7 @@
 //========
 var dock = null;
 var dockPanelFileMould = null;
+var dockPanelFileLink = null;
 var dockPanelFileBrowser = null;
 var dockPanelView = null;
 var dockPanelTest = null;
@@ -12,6 +13,7 @@ var panelToolBar = null;
 var panelState = null;
 var panelFileEditor = null;
 var panelFileMould = null;
+var panelFileLink = null;
 var panelFileBrowser = null;
 var panelView = null;
 var panelTest = null;
@@ -49,6 +51,9 @@ function initDockPanel() {
     dockPanelFileMould = dock.createDFPanel("文件模版", "");
     dockPanelFileMould.addContentDiv(document.getElementById("panelFileMould"));
 
+    dockPanelFileLink = dock.createDFPanel("文件链接", "");
+    dockPanelFileLink.addContentDiv(document.getElementById("panelFileLink"));
+
     dockPanelFileBrowser = dock.createDFPanel("文件浏览器", "");
     dockPanelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
 
@@ -60,7 +65,9 @@ function initDockPanel() {
 }
 function initDockLayout() {
     // dockPanelFileEditor.enableNormalHiddenButton(false);
-    dockPanelFileMould.initLayout(0, 0, 500, 1, DSXDFPanel.dockLeft);
+    dockPanelFileMould.initLayout(0, 0, 300, 1, DSXDFPanel.dockLeft);
+    dockPanelFileLink.initLayout(0, 0, 300, 1, DSXDFPanel.dockRight);
+
     // dockPanelView.initLayout(0, 0, 50, 50, DSXDFPanel.dockLeft);
     // dockPanelTest.initLayout(0, 0, 50, 50, DSXDFPanel.dockRight);
     dockPanelFileBrowser.initLayout(0, 0, 1, 200, DSXDFPanel.dockBottom);
@@ -73,6 +80,7 @@ function initPanel() {
     panelState = new PanelState();
     panelFileEditor = new PanelFileEditor();
     panelFileMould = new PanelFileMould();
+    panelFileLink = new PanelFileLink();
     panelFileBrowser = new PanelFileBrowser();
     panelView = new PanelView();
     panelTest = new PanelTest();
@@ -121,6 +129,9 @@ $(document).ready(function () {
     });
     $('#panelFileMould').load("../panel/panelFileMould.html", function () {
         panelFileMould.init();
+    });
+    $('#panelFileLink').load("../panel/panelFileLink.html", function () {
+        panelFileLink.init();
     });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
         panelFileBrowser.init();

@@ -8,13 +8,13 @@ WidgetFileJsonMould.prototype.onChangeInput = function (e) {
             break;
         }
     }
-    var jsonObjCtrl = e;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     jsonObj[jsonObjCtrl._key] = value;
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.prototype.onChangeSelect = function (e) {
-    var jsonObjCtrl = e._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var key = jsonObjCtrl._key;
     if (key == WidgetKey._valueType) {
         WidgetFileJsonMould.changeSelectValueType(this);

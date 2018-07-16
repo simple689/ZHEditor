@@ -8,13 +8,13 @@ WidgetFileJson.prototype.onChangeInput = function (e) {
             break;
         }
     }
-    var jsonObjCtrl = e;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     jsonObj[jsonObjCtrl._key] = value;
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJson.prototype.onChangeSelect = function (e) {
-    var jsonObjCtrl = e._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     var key = jsonObjCtrl._key;
     var enumObj = jsonObj[key];

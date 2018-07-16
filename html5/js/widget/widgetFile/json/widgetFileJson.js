@@ -242,8 +242,12 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeLink = function (jsonObjMd, jsonO
     jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
 
-    WidgetHtml.addBr(elementParent);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    jsonObjCtrl._value = "链接";
+    jsonObjCtrl._onClick = WidgetFileOnClick.onClickLink;
+    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._button);
 
+    WidgetHtml.addBr(elementParent);
 }
 WidgetFileJson.prototype.readMouldObjectKeyTypeOther = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key) {
     var valueTypeMd = jsonObjMd[WidgetKey._valueType];

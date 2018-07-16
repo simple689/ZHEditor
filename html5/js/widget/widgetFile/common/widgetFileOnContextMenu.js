@@ -6,9 +6,6 @@ WidgetFileOnContextMenu.createMenu = function() {
     menu.createMenu(document.body);
     return menu;
 }
-WidgetFileOnContextMenu.getExec = function (e) {
-    return e._jsonObjCtrl._exec;
-}
 WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
     var ul = menu.addUl(menu._elementRoot);
@@ -17,7 +14,7 @@ WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
     li = menu.addLi(ul, "保存", WidgetFileOnClick.onClickSave);
     li = menu.addLi(ul, "另存为", WidgetFileOnClick.onClickSaveAs);
     li = menu.addLi(ul, "下载", WidgetFileOnClick.onClickDownLoad);
-    var func = WidgetFileOnContextMenu.getExec(this).onContextMenuRoot;
+    var func = WidgetFileUtil.getExec(this).onContextMenuRoot;
     if (func) func(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件
@@ -36,7 +33,7 @@ WidgetFileOnContextMenu.onContextMenuObject = function (e) {
         li = menu.addLi(ul, "添加对象", WidgetFileOnClick.onClickObjectAdd);
         li = menu.addLi(ul, "删除对象", WidgetFileOnClick.onClickObjectDel);
     }
-    var func = WidgetFileOnContextMenu.getExec(this).onContextMenuObject;
+    var func = WidgetFileUtil.getExec(this).onContextMenuObject;
     if (func) func(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件
@@ -47,7 +44,7 @@ WidgetFileOnContextMenu.onContextMenuList = function (e) {
     var li = null;
     li = menu.addLi(ul, "列表中添加对象", WidgetFileOnClick.onClickListAdd);
     li = menu.addLi(ul, "列表中清空对象", WidgetFileOnClick.onClickListClear);
-    var func = WidgetFileOnContextMenu.getExec(this).onContextMenuList;
+    var func = WidgetFileUtil.getExec(this).onContextMenuList;
     if (func) func(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件
@@ -59,7 +56,7 @@ WidgetFileOnContextMenu.onContextMenuLabel = function (e) {
     if (this._jsonObjCtrl._isListParent) {
         li = menu.addLi(ul, "列表中删除此对象", WidgetFileOnClick.onClickListDel);
     }
-    var func = WidgetFileOnContextMenu.getExec(this).onContextMenuLabel;
+    var func = WidgetFileUtil.getExec(this).onContextMenuLabel;
     if (func) func(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件
@@ -71,7 +68,7 @@ WidgetFileOnContextMenu.onContextMenuInput = function (e) {
     if (this._jsonObjCtrl._isListParent) {
         li = menu.addLi(ul, "列表中删除此对象", WidgetFileOnClick.onClickListDel);
     }
-    var func = WidgetFileOnContextMenu.getExec(this).onContextMenuInput;
+    var func = WidgetFileUtil.getExec(this).onContextMenuInput;
     if (func) func(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件
@@ -80,7 +77,7 @@ WidgetFileOnContextMenu.onContextMenuSelect = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
     var ul = menu.addUl(menu._elementRoot);
     var li = null;
-    var func = WidgetFileOnContextMenu.getExec(this).onContextMenuSelect;
+    var func = WidgetFileUtil.getExec(this).onContextMenuSelect;
     if (func) func(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件

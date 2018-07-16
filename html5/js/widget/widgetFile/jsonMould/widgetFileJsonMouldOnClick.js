@@ -1,22 +1,22 @@
 WidgetFileJsonMould.prototype.onClickRefresh = function (e) {
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.prototype.onClickSave = function (e) {
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var title = jsonObjCtrl._exec._elementTabTitle.innerHTML;
     WidgetHistory.setFileJsonMould(title, jsonObjCtrl._obj);
 }
 WidgetFileJsonMould.prototype.onClickSaveAs = function (e) {
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     PanelFileBrowser.saveAs(jsonObjCtrl);
 }
 WidgetFileJsonMould.prototype.onClickDownLoad = function (e) {
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     PanelFileBrowser.downLoad(jsonObjCtrl);
 }
 WidgetFileJsonMould.prototype.onClickObjectAdd = function (e) {
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObjKey = jsonObjCtrl._key;
     var jsonObjValue = jsonObjCtrl._value;
     if (jsonObjKey == WidgetKey._enumList) {
@@ -100,13 +100,13 @@ WidgetFileJsonMould.prototype.onClickObjectDel = function (e) {
     if (!confirm("确定要 “删除对象” 吗？")) { //利用对话框返回的值 （true 或者 false）
         return;
     }
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     delete jsonObj[jsonObjCtrl._key];
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.prototype.onClickListAdd = function (e) {
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObjKey = jsonObjCtrl._key;
     var jsonObjValue = jsonObjCtrl._value;
     // if (jsonObjKey == WidgetKey._enumList) {
@@ -129,7 +129,7 @@ WidgetFileJsonMould.prototype.onClickListAdd = function (e) {
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.prototype.onClickListDel = function (e) {
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     jsonObj.splice(jsonObjCtrl._key, 1);
     jsonObjCtrl._exec.refreshContent();
@@ -138,7 +138,7 @@ WidgetFileJsonMould.prototype.onClickListClear = function (e) {
     if (!confirm("确定要 “列表中清空对象” 吗？")) { //利用对话框返回的值 （true 或者 false）
         return;
     }
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._value;
     jsonObj.splice(0, jsonObj.length);
     jsonObjCtrl._exec.refreshContent();
@@ -149,7 +149,7 @@ WidgetFileJsonMould.prototype.onClickRenameKey = function (e) {
         return;
     }
 
-    var jsonObjCtrl = e._menu._exec._jsonObjCtrl;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     if (jsonObj[keyNew]) {
         alert("此 Key 已经存在，请更换 Key 重试！");

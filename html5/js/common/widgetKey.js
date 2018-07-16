@@ -3,6 +3,7 @@ function WidgetKey() {
 
 WidgetKey._panelFileEditor = "panelFileEditor";
 WidgetKey._panelFileMould = "panelFileMould";
+WidgetKey._panelFileLink = "panelFileLink";
 WidgetKey._panelFileBrowser = "panelFileBrowser";
 WidgetKey._widgetFileJsonMould = "widgetFileJsonMould";
 

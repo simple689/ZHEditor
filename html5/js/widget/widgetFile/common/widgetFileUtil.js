@@ -35,3 +35,12 @@ WidgetFileUtil.isAddBr = function (key) {
     }
     return isAdd;
 }
+WidgetFileUtil.getJsonObjCtrl = function (e) {
+    if (e._menu) {
+        return e._menu._exec._jsonObjCtrl;
+    }
+    return e._jsonObjCtrl;
+}
+WidgetFileUtil.getExec = function (e) {
+    return WidgetFileUtil.getJsonObjCtrl(e)._exec;
+}
