@@ -4,8 +4,8 @@ var dock = null;
 var dockPanelFileMould = null;
 var dockPanelFileLink = null;
 var dockPanelFileBrowser = null;
-var dockPanelView = null;
-var dockPanelTest = null;
+// var dockPanelView = null;
+// var dockPanelTest = null;
 var dockLayoutKey = "dockLayout";
 
 var panelMenu = null;
@@ -15,8 +15,8 @@ var panelFileEditor = null;
 var panelFileMould = null;
 var panelFileLink = null;
 var panelFileBrowser = null;
-var panelView = null;
-var panelTest = null;
+// var panelView = null;
+// var panelTest = null;
 function initWidgetDock() {
     dock = DSXDFUtil.createDSXDFUtil();
     loadDockLayout();
@@ -24,6 +24,7 @@ function initWidgetDock() {
     initDockLayout();
     initPanel();
 }
+
 function loadDockLayout() {
     var sessionStorage = window['sessionStorage'];
     if (sessionStorage != null) {
@@ -36,12 +37,14 @@ function loadDockLayout() {
         }
     }
 }
+
 function saveDockLayout() {
     if (dock != null) {
         dock.saveStatesIntoKey(dockLayoutKey);
         // var sessionStorage = window['sessionStorage'];
     }
 }
+
 function initDockPanel() {
     dock.addFixedPanel(document.getElementById("panelCenter"), DSXDFUtil.fixedCenter);
 
@@ -63,6 +66,7 @@ function initDockPanel() {
     // dockPanelTest = dock.createDFPanel("测试", "");
     // dockPanelTest.addContentDiv(document.getElementById("panelTest"));
 }
+
 function initDockLayout() {
     // dockPanelFileEditor.enableNormalHiddenButton(false);
     dockPanelFileMould.initLayout(0, 0, 300, 1, DSXDFPanel.dockLeft);
@@ -74,6 +78,7 @@ function initDockLayout() {
     // dockPanelFileEditor.initLayout(0, 0, 6000, 6000, DSXDFPanel.dockLeft);
     // dockPanelFileEditor.setInitialLayoutReference(panelView);
 }
+
 function initPanel() {
     panelMenu = new PanelMenu();
     panelToolBar = new PanelToolBar();
@@ -82,12 +87,14 @@ function initPanel() {
     panelFileMould = new PanelFileMould();
     panelFileLink = new PanelFileLink();
     panelFileBrowser = new PanelFileBrowser();
-    panelView = new PanelView();
-    panelTest = new PanelTest();
+    // panelView = new PanelView();
+    // panelTest = new PanelTest();
 }
+
 function onBeforeUnload() {
     saveDockLayout();
 }
+
 function setVisible(panel, sch) {
     panel.setVisible(sch);
 }
@@ -119,35 +126,22 @@ $(document).ready(function () {
     WidgetHistory.init();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
-        $('#panelToolBar').load("../panel/panelToolBar.html", function () {
-            panelMenu.init();
-            panelToolBar.init();
-        });
+        panelMenu.init();
+        panelToolBar.init();
     });
     $('#panelFixedBottom').load("../panel/panelState.html", function () {
         panelState.init();
     });
-    $('#panelFileMould').load("../panel/panelFileMould.html", function () {
-        panelFileMould.init();
-    });
-    $('#panelFileLink').load("../panel/panelFileLink.html", function () {
-        panelFileLink.init();
-    });
     $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
         panelFileBrowser.init();
     });
-    $('#panelView').load("../panel/panelView.html", function () {
-        panelView.init();
-    });
-    $('#panelTest').load("../panel/panelTest.html", function () {
-        panelTest.init();
-    });
-    // $('#panelFileEditor').load("../panel/panelFileEditor.html", function() {
-    //     panelFileEditor.init();
+    // panelView.init();
+    // $('#panelTest').load("../panel/panelTest.html", function () {
+    //     panelTest.init();
     // });
-    $('#panelCenter').load("../panel/panelFileEditor.html", function () {
-        panelFileEditor.init(panelFileMould);
-    });
+    panelFileMould.init();
+    panelFileLink.init();
+    panelFileEditor.init(panelFileMould);
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
     $(document).bind('click', onClickDocument);

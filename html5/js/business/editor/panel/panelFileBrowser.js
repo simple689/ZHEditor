@@ -24,7 +24,7 @@ PanelFileBrowser.onClickCreateBtn = function () {
 }
 PanelFileBrowser.saveAs = function (jsonObjCtrl) {
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogWithHtml(jsonObjCtrl, document.body, "../../editor/dialog/dialogSaveAs.html", PanelFileBrowser.saveAsHtmlLoaded);
+    widgetDialog.createDialogWithHtml(jsonObjCtrl, document.body, null, PanelFileBrowser.saveAsHtmlLoaded);
 };
 PanelFileBrowser.downLoad = function (jsonObjCtrl) {
     var name = jsonObjCtrl._exec._elementTabTitle.innerHTML;

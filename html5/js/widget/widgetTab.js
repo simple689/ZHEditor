@@ -125,17 +125,24 @@ WidgetTab.prototype.refreshContent = function (elementTabTitle, content, content
         elementTabTitle._elementHtmlRoot = elementHtmlRoot;
         elementHtmlRoot.classList.add("htmlRoot");
         elementHtmlRoot._elementTabTitle = elementTabTitle;
-        $(elementHtmlRoot).load(content, function () {
-            //判断是否为函数
-            try {
-                this[0]._elementTabTitle._widgetTab._panel.loadedHtml(this);
-            } catch (e) {
-            }
-        });
+        if (content) {
+            $(elementHtmlRoot).load(content, function () {
+                WidgetTab.htmlLoaded(this);
+            });
+        } else {
+            WidgetTab.htmlLoaded(elementHtmlRoot);
+        }
     } else if (contentType == WidgetTab._addContentType.file) {
         this.addFile(content, elementTabTitle);
     } else if (contentType == WidgetTab._addContentType.fileContent || contentType == WidgetTab._addContentType.fileJsonObj) {
         this.addFileContent(content, elementTabTitle, contentType);
+    }
+}
+WidgetTab.htmlLoaded = function (elementHtmlRoot) {
+    //判断是否为函数
+    try {
+        elementHtmlRoot[0]._elementTabTitle._widgetTab._panel.htmlLoaded(elementHtmlRoot);
+    } catch (e) {
     }
 }
 WidgetTab.prototype.setActiveElement = function (elementActive) {

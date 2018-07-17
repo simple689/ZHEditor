@@ -1,8 +1,7 @@
-@charset "utf-8";
 /*导航栏*/
-.navMenu,
-.navMenu ul,
-.navMenu ul li {
+.widgetMenuNav,
+.widgetMenuNav ul,
+.widgetMenuNav ul li {
     z-index: 100;
     margin: 0;
     padding: 0;
@@ -12,34 +11,34 @@
     position: relative;
     background: #666666;
 }
-.navMenu span {
+.widgetMenuNav span {
     white-space: nowrap;
 }
-.navMenu ul ul {
+.widgetMenuNav ul ul {
     position: absolute;
     display: none;
     margin-top: 5px;
 }
-.navMenu ul ul ul {
+.widgetMenuNav ul ul ul {
     top: -5px;
     left: 100%;
 }
-.navMenu ul li {
+.widgetMenuNav ul li {
     padding: 5px 10px;
     float: left;
 }
-.navMenu ul ul li {
+.widgetMenuNav ul ul li {
     width: 100%;
 }
-.navMenu ul li .navHasSub:after {
+.widgetMenuNav ul li .navHasSub:after {
     position: absolute;
     text-align: center;
     right: 10px;
     content: ">";
 }
-.navMenu ul li:hover {
+.widgetMenuNav ul li:hover {
     background: #999999;
 }
-.navMenu li:hover > ul {
+.widgetMenuNav li:hover > ul {
     display: block;
 }

@@ -20,7 +20,7 @@ PanelFileMould.prototype.handleFiles = function (files) {
         this._widgetTab.addTab(file);
     }
 }
-PanelFileMould.prototype.loadedHtml = function (htmlRoot) {
+PanelFileMould.prototype.htmlLoaded = function (htmlRoot) {
 }
 PanelFileMould.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {

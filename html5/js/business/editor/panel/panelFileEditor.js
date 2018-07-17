@@ -23,7 +23,7 @@ PanelFileEditor.prototype.handleFiles = function (files) {
         this._widgetTab.addTab(file);
     }
 }
-PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {
+PanelFileEditor.prototype.htmlLoaded = function (htmlRoot) {
     var homeFileEditor = document.getElementById("homeFileEditor");
     var elementFileRoot = homeFileEditor;
     var isShowDemo = false;
