@@ -24,8 +24,8 @@ WidgetHistory.init = function () {
     //     }
     // }
 }
-WidgetHistory.clear = function () {
-    // WidgetHistory._localStorage.clear();
+WidgetHistory.clearAll = function () {
+    // WidgetHistory._localStorage.clearAll();
     // WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
     // WidgetHistory._localStorage.removeItem(WidgetKey._panelFileMould);
     WidgetHistory._localStorage.removeItem(WidgetKey._panelFileBrowser);

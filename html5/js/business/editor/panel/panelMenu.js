@@ -10,6 +10,36 @@ PanelMenu.onClickCreateFile = function (fileExtend) {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, name);
     PanelFileBrowser.saveAs(jsonObjCtrl);
 }
-PanelMenu.onClickHistoryClear = function () {
-    WidgetHistory.clear();
+PanelMenu.onClickOpen = function () {
+}
+PanelMenu.onClickSave = function (panel) {
+}
+PanelMenu.onClickSaveAll = function () {
+}
+PanelMenu.onClickDownload = function (panel) {
+}
+PanelMenu.onClickSetting = function () {
+}
+PanelMenu.onClickExit = function () {
+}
+PanelMenu.onClickUndo = function () {
+}
+PanelMenu.onClickRedo = function () {
+}
+PanelMenu.onClickCut = function () {
+}
+PanelMenu.onClickCopy = function () {
+}
+PanelMenu.onClickPaste = function () {
+}
+PanelMenu.onClickFind = function () {
+}
+PanelMenu.onClickVisiblePanel = function (panel) {
+}
+PanelMenu.onClickHistoryClearAll = function () {
+    WidgetHistory.clearAll();
+}
+PanelMenu.onClickHistoryClear = function (item) {
+}
+PanelMenu.onClickHelp = function () {
 }

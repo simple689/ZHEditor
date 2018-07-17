@@ -30,12 +30,19 @@ WidgetMenu.prototype.addUl = function (elementParent) {
     elementParent.appendChild(ul);
     return ul;
 }
-WidgetMenu.prototype.addLi = function (elementParent, title, onClick) {
+WidgetMenu.prototype.addLi = function (elementParent, title, onClick, param) {
     var li = document.createElement("li");
     elementParent.appendChild(li);
-    li.onclick = onClick;
+    li.onclick = WidgetMenu.onClickLi;
+    li._onClick = onClick;
+    li._param = param;
     li.innerHTML = title;
     return li;
+}
+WidgetMenu.onClickLi = function () {
+    if (this._onClick) {
+        this._onClick(this._param);
+    }
 }
 /*
  * 弹出菜单

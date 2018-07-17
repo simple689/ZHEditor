@@ -30,7 +30,7 @@
 .widgetMenuNav ul ul li {
     width: 100%;
 }
-.widgetMenuNav ul li .navHasSub:after {
+.widgetMenuNav ul li .widgetMenuNavHasSub:after {
     position: absolute;
     text-align: center;
     right: 10px;

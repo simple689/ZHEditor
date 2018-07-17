@@ -5,14 +5,32 @@ WidgetHtml._inputType = {
     _textString: 0,
     _textNumber: 1,
     _button: 2,
-    _checkbox: 3,
-    _radio: 4,
-    _file: 5,
-    _image: 6,
-    _password: 7,
-    _submit: 8,
-    _reset: 9,
-    _color: 10
+    _buttonMenu: 3,
+    _checkbox: 4,
+    _radio: 5,
+    _file: 6,
+    _image: 7,
+    _password: 8,
+    _submit: 9,
+    _reset: 10,
+    _color: 11
+}
+WidgetHtml.onClickInput = function (e) {
+    switch (this._inputType) {
+        case WidgetHtml._inputType._buttonMenu : {
+            var menu = new WidgetMenu();
+            menu.createMenu(document.body);
+            var ul = menu.addUl(menu._elementRoot);
+            var li = null;
+            var list = this._jsonObjCtrl._valueList.getList();
+            for (var o in list) {
+                var menuListItem = list[o];
+                li = menu.addLi(ul, menuListItem._title, menuListItem._event, menuListItem._param);
+            }
+            WidgetMenu.showMenu(menu, null, this._jsonObjCtrl._exec);
+            break;
+        }
+    }
 }
 WidgetHtml.onChangeInput = function (e) {
     switch (this._inputType) {
@@ -76,6 +94,13 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     switch (inputType) {
         case WidgetHtml._inputType._button : {
             nodeInput.classList.add("nodeInputButton");
+            nodeInput.type = "button";
+            nodeInput.value = jsonObjCtrl._value;
+            break;
+        }
+        case WidgetHtml._inputType._buttonMenu : {
+            nodeInput.onclick = WidgetHtml.onClickInput;
+            nodeInput.classList.add("nodeInputButtonMenu");
             nodeInput.type = "button";
             nodeInput.value = jsonObjCtrl._value;
             break;

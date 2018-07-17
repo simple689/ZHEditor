@@ -25,6 +25,11 @@
     border-color: #aaaaaa;
 }
 
+.nodeInputButtonMenu {
+    border-width: 1px;
+    border-color: #aaaaaa;
+}
+
 .nodeInputCheckbox {
 
 }

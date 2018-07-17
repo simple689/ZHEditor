@@ -1,43 +1,78 @@
 <div id="panelMenu" class="widgetMenuNav" style="height: 30px;">
     <ul>
-        <li class='navHasSub'>文件
+        <li class='widgetMenuNavHasSub'>文件
             <ul>
-                <li class='navHasSub'>新建
+                <li class='widgetMenuNavHasSub'>新建
                     <ul>
-                        <li onclick="PanelMenu.onClickCreateFile(WidgetKey._extendJson)">Json 文件</li>
-                        <li onclick="PanelMenu.onClickCreateFile(WidgetKey._extendJsonMd)">Json模版 文件</li>
+                        <li onclick="PanelMenu.onClickCreateFile(WidgetKey._extendJson)">Json文件</li>
+                        <li onclick="PanelMenu.onClickCreateFile(WidgetKey._extendJsonMd)">Json模版文件</li>
                         <span>------------------------------------------</span>
                     </ul>
                 </li>
-                <li>打开</li>
-                <li>保存</li>
-                <li>保存所有</li>
-                <span>------------------------------------------</span>
-                <li>退出</li>
-            </ul>
-        </li>
-        <li class='navHasSub'>编辑
-            <ul>
-                <li>撤销</li>
-                <li>重做</li>
-                <span>------------------------------------------</span>
-                <li>剪切</li>
-                <li>复制</li>
-                <li>粘贴</li>
-            </ul>
-        </li>
-        <li class='navHasSub'>历史
-            <ul>
-                <li class='navHasSub'>清空历史记录
+                <li onclick="PanelMenu.onClickOpen()">打开</li>
+                <li class='widgetMenuNavHasSub'>保存
                     <ul>
-                        <li onclick="PanelMenu.onClickHistoryClear()">所有</li>
+                        <li onclick="PanelMenu.onClickSave(WidgetKey._extendJson)">Json文件</li>
+                        <li onclick="PanelMenu.onClickSave(WidgetKey._extendJsonMd)">Json模版文件</li>
                         <span>------------------------------------------</span>
-                        <li>文件编辑</li>
-                        <li>文件模版</li>
-                        <li>文件浏览器</li>
-                        <li>json模版</li>
                     </ul>
                 </li>
+                <li onclick="PanelMenu.onClickSaveAll()">保存所有</li>
+                <li class='widgetMenuNavHasSub'>下载
+                    <ul>
+                        <li onclick="PanelMenu.onClickDownload(WidgetKey._extendJson)">Json文件</li>
+                        <li onclick="PanelMenu.onClickDownload(WidgetKey._extendJsonMd)">Json模版文件</li>
+                        <span>------------------------------------------</span>
+                    </ul>
+                </li>
+                <span>------------------------------------------</span>
+                <li onclick="PanelMenu.onClickSetting()">设置</li>
+                <span>------------------------------------------</span>
+                <li onclick="PanelMenu.onClickExit()">退出</li>
+            </ul>
+        </li>
+        <li class='widgetMenuNavHasSub'>编辑
+            <ul>
+                <li onclick="PanelMenu.onClickUndo()">撤销</li>
+                <li onclick="PanelMenu.onClickRedo()">重做</li>
+                <span>------------------------------------------</span>
+                <li onclick="PanelMenu.onClickCut()">剪切</li>
+                <li onclick="PanelMenu.onClickCopy()">复制</li>
+                <li onclick="PanelMenu.onClickPaste()">粘贴</li>
+                <span>------------------------------------------</span>
+                <li onclick="PanelMenu.onClickFind()">查找</li>
+            </ul>
+        </li>
+        <li class='widgetMenuNavHasSub'>窗口
+            <ul>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelToolBar)">工具栏</li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelState)">状态栏</li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileEditor)">文件编辑</li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileMould)">文件模版编辑</li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileLink)">文件链接编辑</li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileBrowser)">文件浏览器</li>
+                <span>------------------------------------------</span>
+            </ul>
+        </li>
+        <li class='widgetMenuNavHasSub'>历史
+            <ul>
+                <li class='widgetMenuNavHasSub'>清空历史记录
+                    <ul>
+                        <li onclick="PanelMenu.onClickHistoryClearAll()">所有</li>
+                        <span>------------------------------------------</span>
+                        <li onclick="PanelMenu.onClickHistoryClear()">文件编辑</li>
+                        <li onclick="PanelMenu.onClickHistoryClear()">文件模版编辑</li>
+                        <li onclick="PanelMenu.onClickHistoryClear()">文件链接编辑</li>
+                        <li onclick="PanelMenu.onClickHistoryClear()">文件浏览器</li>
+                        <li onclick="PanelMenu.onClickHistoryClear()">文件模版</li>
+                    </ul>
+                </li>
+                <span>------------------------------------------</span>
+            </ul>
+        </li>
+        <li class='widgetMenuNavHasSub'>帮助
+            <ul>
+                <li onclick="PanelMenu.onClickHelp()">帮助</li>
                 <span>------------------------------------------</span>
             </ul>
         </li>
