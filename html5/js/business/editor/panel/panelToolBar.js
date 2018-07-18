@@ -6,7 +6,7 @@ PanelToolBar.prototype.init = function () {
 
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "新建";
-    jsonObjCtrl._valueList = new MenuListCtrl(0);
+    jsonObjCtrl._valueList = new MenuListCtrl();
     jsonObjCtrl._valueList.insertItem(new MenuListItem("Json文件", PanelMenu.onClickCreateFile, WidgetKey._extendJson));
     jsonObjCtrl._valueList.insertItem(new MenuListItem("Json模版文件", PanelMenu.onClickCreateFile, WidgetKey._extendJsonMd));
     WidgetHtml.addInput(panelToolBar, jsonObjCtrl, WidgetHtml._inputType._buttonMenu);
@@ -18,7 +18,7 @@ PanelToolBar.prototype.init = function () {
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "保存";
-    jsonObjCtrl._valueList = new MenuListCtrl(0);
+    jsonObjCtrl._valueList = new MenuListCtrl();
     jsonObjCtrl._valueList.insertItem(new MenuListItem("Json文件", PanelMenu.onClickSave, WidgetKey._extendJson));
     jsonObjCtrl._valueList.insertItem(new MenuListItem("Json模版文件", PanelMenu.onClickSave, WidgetKey._extendJsonMd));
     WidgetHtml.addInput(panelToolBar, jsonObjCtrl, WidgetHtml._inputType._buttonMenu);
@@ -30,7 +30,7 @@ PanelToolBar.prototype.init = function () {
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "下载";
-    jsonObjCtrl._valueList = new MenuListCtrl(0);
+    jsonObjCtrl._valueList = new MenuListCtrl();
     jsonObjCtrl._valueList.insertItem(new MenuListItem("Json文件", PanelMenu.onClickDownload, WidgetKey._extendJson));
     jsonObjCtrl._valueList.insertItem(new MenuListItem("Json模版文件", PanelMenu.onClickDownload, WidgetKey._extendJsonMd));
     WidgetHtml.addInput(panelToolBar, jsonObjCtrl, WidgetHtml._inputType._buttonMenu);

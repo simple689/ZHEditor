@@ -127,10 +127,10 @@ WidgetTab.prototype.refreshContent = function (elementTabTitle, content, content
         elementHtmlRoot._elementTabTitle = elementTabTitle;
         if (content) {
             $(elementHtmlRoot).load(content, function () {
-                WidgetTab.htmlLoaded(this);
+                WidgetTab.loadedHtml(this);
             });
         } else {
-            WidgetTab.htmlLoaded(elementHtmlRoot);
+            WidgetTab.loadedHtml(elementHtmlRoot);
         }
     } else if (contentType == WidgetTab._addContentType.file) {
         this.addFile(content, elementTabTitle);
@@ -138,10 +138,10 @@ WidgetTab.prototype.refreshContent = function (elementTabTitle, content, content
         this.addFileContent(content, elementTabTitle, contentType);
     }
 }
-WidgetTab.htmlLoaded = function (elementHtmlRoot) {
+WidgetTab.loadedHtml = function (elementHtmlRoot) {
     //判断是否为函数
     try {
-        elementHtmlRoot[0]._elementTabTitle._widgetTab._panel.htmlLoaded(elementHtmlRoot);
+        elementHtmlRoot[0]._elementTabTitle._widgetTab._panel.loadedHtml(elementHtmlRoot);
     } catch (e) {
     }
 }

@@ -20,13 +20,8 @@ WidgetHtml.onClickInput = function (e) {
         case WidgetHtml._inputType._buttonMenu : {
             var menu = new WidgetMenu();
             menu.createMenu(document.body);
-            var ul = menu.addUl(menu._elementRoot);
-            var li = null;
             var list = this._jsonObjCtrl._valueList.getList();
-            for (var o in list) {
-                var menuListItem = list[o];
-                li = menu.addLi(ul, menuListItem._title, menuListItem._event, menuListItem._param);
-            }
+            menu.parseList(list, menu._elementRoot);
             WidgetMenu.showMenu(menu, null, this._jsonObjCtrl._exec);
             break;
         }

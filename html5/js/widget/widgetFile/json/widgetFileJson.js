@@ -22,9 +22,8 @@ WidgetFileJson.prototype.initRoot = function () {
         this.readMouldObject(this._fileJsonMouldCtrl._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
     }
 
-    var mouldPanel = this._elementTabTitle._widgetTab._panel._fileMouldPanel;
-    var elementTabTitle = mouldPanel._widgetTab.addTitle(jsonMouldName);
-    mouldPanel._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._addContentType.fileJsonObj);
+    var elementTabTitle = panelFileMould._widgetTab.addTitle(jsonMouldName);
+    panelFileMould._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._addContentType.fileJsonObj);
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
 //     for (var o in jsonObj) {

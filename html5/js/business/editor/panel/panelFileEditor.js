@@ -1,29 +1,20 @@
 function PanelFileEditor() {
-    this._widgetTab = new WidgetTab();
+    WidgetPanelFileBase.call(this);
 }
 
-PanelFileEditor.prototype.init = function (fileMouldPanel) {
-    // var rootElement = document.getElementById("panelFileEditor");
-    var rootElement = document.getElementById("panelCenter");
-    var dropElement = WidgetDrop.addDrop(rootElement, this);
+PanelFileEditor.prototype = new WidgetPanelFileBase();
+PanelFileEditor.prototype.constructor = PanelFileEditor;
 
-    this._fileMouldPanel = fileMouldPanel;
+PanelFileEditor.prototype.init = function (elementRoot) {
+    WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = WidgetKey._panelFileEditor;
-    this._widgetTab.init(dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItem);
+    this._widgetTab.init(this._dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItem);
 
-    this._menuRightTitle = new WidgetMenu();
-    this._menuRightContent = new WidgetMenu();
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorTitle.html");
     this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorContent.html");
 }
-PanelFileEditor.prototype.handleFiles = function (files) {
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        this._widgetTab.addTab(file);
-    }
-}
-PanelFileEditor.prototype.htmlLoaded = function (htmlRoot) {
+PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {
     var homeFileEditor = document.getElementById("homeFileEditor");
     var elementFileRoot = homeFileEditor;
     var isShowDemo = false;
@@ -42,18 +33,6 @@ PanelFileEditor.prototype.htmlLoaded = function (htmlRoot) {
         WidgetHtml.addInput(elementFileRoot, this, "#336699", WidgetHtml._inputType._color, null, null, null);
         WidgetHtml.addInput(elementFileRoot, this, "rgba(0, 255, 0, 0.6)", WidgetHtml._inputType._color, null, null, null);
         WidgetHtml.addSelect(elementFileRoot, this, "0123456", 6, null, null);
-    }
-}
-PanelFileEditor.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
-    switch (onContextMenuType) {
-        case WidgetTab._onContextMenuType.tabTitle : {
-            WidgetMenu.showMenu(this._menuRightTitle, e, ele);
-            break;
-        }
-        case WidgetTab._onContextMenuType.tabTitle : {
-            WidgetMenu.showMenu(this._menuRightContent, e, ele);
-            break;
-        }
     }
 }
 PanelFileEditor.prototype.loadedJson = function (fileReader) {

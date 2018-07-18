@@ -41,7 +41,7 @@ WidgetDialog.prototype.createDialog = function (elementParent) {
     // this._elementDialog.appendChild(this._elementDialogButton);
     // this._elementDialogButton.classList.add("widgetDialogButton");
 }
-WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementParent, html, htmlLoaded) {
+WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementParent, html, loadedHtml) {
     this.createDialog(elementParent);
     if (!this._elementDialogContent) {
         return;
@@ -49,16 +49,16 @@ WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementPare
     this._jsonObjCtrl = jsonObjCtrl;
     if (html) {
         $(this._elementDialogContent).load(html, function () {
-            WidgetDialog.htmlLoaded(this._widgetDialog, htmlLoaded);
+            WidgetDialog.loadedHtml(this._widgetDialog, loadedHtml);
         });
     } else {
-        WidgetDialog.htmlLoaded(this, htmlLoaded);
+        WidgetDialog.loadedHtml(this, loadedHtml);
     }
 
 }
-WidgetDialog.htmlLoaded = function (widgetDialog, htmlLoaded) {
-    if (htmlLoaded) {
-        htmlLoaded(widgetDialog);
+WidgetDialog.loadedHtml = function (widgetDialog, loadedHtml) {
+    if (loadedHtml) {
+        loadedHtml(widgetDialog);
     }
     WidgetDialog.autoCenter(widgetDialog._elementDialog);
 }

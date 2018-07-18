@@ -2,7 +2,13 @@ function MenuListItem(title, event, param) {
     this._title = title;
     this._event = event;
     this._param = param;
-};
+    this._listParent = null;
+    this._list = null;
+}
+MenuListItem.prototype.setListParent = function(listParent) {
+    this._listParent = listParent;
+}
+
 function MenuListCtrlStatic() {
     var list = new Array();
     for(var i = 0; i < arguments.length; i++){
@@ -10,18 +16,28 @@ function MenuListCtrlStatic() {
     }
     return list;
 }
-function MenuListCtrl(len) {
-    this._list = new Array();
-    for(var i = 0; i < len; i++){
-        this._list.push(new MenuListItem(i,i));
-    }
+function MenuListCtrl() {
+    this._list = this.createList();
     return this;
 }
 MenuListCtrl.prototype.getList = function() {
     return this._list;
 }
+MenuListCtrl.prototype.createList = function() {
+    var list = new Array();
+    return list;
+}
 MenuListCtrl.prototype.insertItem = function(item) {
-    this._list.push(item);
+    if (item._listParent) {
+        item._listParent.push(item);
+    } else {
+        this._list.push(item);
+    }
+}
+MenuListCtrl.prototype.insertItemList = function(item) {
+    item._list = this.createList();
+    this.insertItem(item);
+    return item._list;
 }
 // MenuListCtrl._valueTypeList = MenuListCtrlStatic(
 //     new MenuListItem(WidgetKey._object,"对象"),

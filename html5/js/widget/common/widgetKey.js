@@ -1,8 +1,8 @@
 function WidgetKey() {
 }
 
-WidgetKey._panelToolBar = "panelFileEditor";
-WidgetKey._panelState = "panelFileEditor";
+WidgetKey._panelToolBar = "panelToolBar";
+WidgetKey._panelState = "panelState";
 WidgetKey._panelFileEditor = "panelFileEditor";
 WidgetKey._panelFileMould = "panelFileMould";
 WidgetKey._panelFileLink = "panelFileLink";

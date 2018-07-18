@@ -137,9 +137,9 @@ $(document).ready(function () {
     // $('#panelTest').load("../panel/panelTest.html", function () {
     //     panelTest.init();
     // });
-    panelFileMould.init();
-    panelFileLink.init();
-    panelFileEditor.init(panelFileMould);
+    panelFileMould.init(document.getElementById("panelFileMould"));
+    panelFileLink.init(document.getElementById("panelFileLink"));
+    panelFileEditor.init(document.getElementById("panelCenter"));
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
     $(document).bind('click', onClickDocument);

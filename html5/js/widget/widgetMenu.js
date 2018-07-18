@@ -44,6 +44,16 @@ WidgetMenu.onClickLi = function () {
         this._onClick(this._param);
     }
 }
+WidgetMenu.prototype.parseList = function (list, elementParen) {
+    var ul = this.addUl(elementParen);
+    for (var o in list) {
+        var menuListItem = list[o];
+        var li = this.addLi(ul, menuListItem._title, menuListItem._event, menuListItem._param);
+        if (menuListItem._list) {
+            this.parseList(menuListItem._list, li);
+        }
+    }
+}
 /*
  * 弹出菜单
  * menu：菜单
