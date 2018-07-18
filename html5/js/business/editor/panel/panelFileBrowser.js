@@ -4,23 +4,34 @@ function PanelFileBrowser() {
 }
 
 PanelFileBrowser.prototype.init = function () {
+    var rootElement = document.getElementById("panelFileBrowser");
+    this._divWhole = WidgetHtml.addDiv(rootElement);
+    this._divWhole.id = "whole";
+
+    this._divTool = WidgetHtml.addDiv(this._divWhole);
+
+    this._divFileBrowser = WidgetHtml.addDiv(this._divWhole);
+    this._divFileBrowser.id = "fileBrowser";
+
     this.initTool();
 
     var fileBrowser = document.getElementById("fileBrowser");
     this._widgetFileBrowser.createFileBrowser(fileBrowser);
 }
 PanelFileBrowser.prototype.initTool = function () {
-    this._menuLeftCreate = new WidgetMenu();
-    this._menuLeftCreate.createMenuWithHtml(document.body, "../../editor/menu/menuFileBrowserCreate.html");
+    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "创建";
+    jsonObjCtrl._valueList = new MenuListCtrl(0);
+    jsonObjCtrl._valueList.insertItem(new MenuListItem("1", PanelFileBrowser.saveAs, WidgetKey._extendJson));
+    jsonObjCtrl._valueList.insertItem(new MenuListItem("2", PanelFileBrowser.saveAs, WidgetKey._extendJsonMd));
+    var input = WidgetHtml.addInput(this._divTool, jsonObjCtrl, WidgetHtml._inputType._buttonMenu);
 
-    var createBtn = document.getElementById("createBtn");
-    createBtn._PanelFileBrowser = this;
-    $(createBtn).on("click", PanelFileBrowser.onClickCreateBtn);
+    this._widgetSearch.createSearch(this, this._divTool);
 
-    this._widgetSearch.createSearch(this, createBtn);
-}
-PanelFileBrowser.onClickCreateBtn = function () {
-    WidgetMenu.showMenu(this._PanelFileBrowser._menuLeftCreate, null, this._PanelFileBrowser);
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._valueList = JsonObjCtrl._fileBrowserTypeList;
+    jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
+    WidgetHtml.addSelect(this._divTool, jsonObjCtrl);
 }
 PanelFileBrowser.saveAs = function (jsonObjCtrl) {
     var widgetDialog = new WidgetDialog();

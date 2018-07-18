@@ -53,3 +53,8 @@ WidgetKey._enumTypeDefault = "enumTypeDefault";
 WidgetKey._enumList = "enumList";
 WidgetKey._enumType = "enumType";
 WidgetKey._enumParamList = "enumParamList";
+
+WidgetKey._animationClip = "AnimationClip";
+WidgetKey._audioClip = "AudioClip";
+WidgetKey._audioMixer = "AudioMixer";
+WidgetKey._font = "Font";

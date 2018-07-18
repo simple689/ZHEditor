@@ -2,26 +2,28 @@ function WidgetSearch() {
 }
 
 WidgetSearch._searchList = new Array();
-WidgetSearch.prototype.createSearch = function (panel, elementBrother) {
+WidgetSearch.prototype.createSearch = function (panel, elementParent) {
     this._panel = panel;
+    // $(elementBrother).after(this._searchText);
 
-    this._searchText = document.createElement("input");
-    $(elementBrother).after(this._searchText);
+    this._searchRoot = WidgetHtml.addSpan(elementParent);
+    this._searchRoot.classList.add("searchRoot");
+
+    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._onKeyUp = WidgetSearch.onKeyUpSearchText;
+    jsonObjCtrl._onFocus = WidgetSearch.onFocusSearchText;
+    this._searchText = WidgetHtml.addInput(this._searchRoot, jsonObjCtrl, WidgetHtml._inputType._textString);
     this._searchText._widgetSearch = this;
     this._searchText.classList.add("searchText");
-    $(this._searchText).on("keyup", WidgetSearch.onKeyUpSearchText);
-    $(this._searchText).on("focus", WidgetSearch.onFocusSearchText);
 
-    this._searchBtn = document.createElement("input");
-    $(this._searchText).after(this._searchBtn);
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "搜索";
+    jsonObjCtrl._onClick = WidgetSearch.onClickSearchBtn;
+    this._searchBtn = WidgetHtml.addInput(this._searchRoot, jsonObjCtrl, WidgetHtml._inputType._button);
     this._searchBtn._widgetSearch = this;
     this._searchBtn.classList.add("searchBtn");
-    $(this._searchBtn).on("click", WidgetSearch.onClickSearchBtn);
-    this._searchBtn.type = "button";
-    this._searchBtn.value = "搜索";
 
-    this._searchHistoryBox = document.createElement("div");
-    $(this._searchBtn).after(this._searchHistoryBox);
+    this._searchHistoryBox = WidgetHtml.addDiv(this._searchRoot);
     this._searchHistoryBox.classList.add("searchHistoryBox");
 
     this._searchHistory = document.createElement("ul");
@@ -170,8 +172,6 @@ WidgetSearch.showHistory = function (ctrl, searchValue) {
         }
         ctrl._searchHistoryIndex = 0;
         if (len > 0) {
-            ctrl._searchHistoryBox.style.left = "10px";
-            ctrl._searchHistoryBox.style.top = "10px";
             setElementDisplay(ctrl._searchHistoryBox, true);
         } else {
             setElementDisplay(ctrl._searchHistoryBox, false);

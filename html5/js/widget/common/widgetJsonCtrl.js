@@ -13,6 +13,8 @@ function JsonObjCtrl(exec, obj, isListParent, key) {
     this._onClick = null;
     this._onContextMenu = null;
     this._onChange = null;
+    this._onKeyUp = null;
+    this._onFocus = null;
 };
 function JsonListItem(key, keyShow) {
     this._key = key;
@@ -46,3 +48,9 @@ JsonObjCtrl._valueTypeList = JsonListCtrlStatic(
     new JsonListItem(WidgetKey._boolean,"真假"),
     new JsonListItem(WidgetKey._enum,"枚举"),
     new JsonListItem(WidgetKey._link,"链接"));
+
+JsonObjCtrl._fileBrowserTypeList = JsonListCtrlStatic(
+    new JsonListItem(WidgetKey._animationClip,"AnimationClip"),
+    new JsonListItem(WidgetKey._audioClip,"AudioClip"),
+    new JsonListItem(WidgetKey._audioMixer,"AudioMixer"),
+    new JsonListItem(WidgetKey._font,"Font"));

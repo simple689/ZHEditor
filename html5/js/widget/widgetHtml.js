@@ -90,6 +90,12 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     nodeInput.onclick = jsonObjCtrl._onClick;
     nodeInput.oncontextmenu = jsonObjCtrl._onContextMenu;
     nodeInput.onchange = WidgetHtml.onChangeInput;
+    if (jsonObjCtrl._onKeyUp) {
+        nodeInput.onkeyup = jsonObjCtrl._onKeyUp;
+    }
+    if (jsonObjCtrl._onFocus) {
+        nodeInput.onfocus = jsonObjCtrl._onFocus;
+    }
     nodeInput._inputType = inputType;
     switch (inputType) {
         case WidgetHtml._inputType._button : {

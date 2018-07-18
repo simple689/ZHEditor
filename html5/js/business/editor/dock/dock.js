@@ -132,9 +132,7 @@ $(document).ready(function () {
     $('#panelFixedBottom').load("../panel/panelState.html", function () {
         panelState.init();
     });
-    $('#panelFileBrowser').load("../panel/panelFileBrowser.html", function () {
-        panelFileBrowser.init();
-    });
+    panelFileBrowser.init();
     // panelView.init();
     // $('#panelTest').load("../panel/panelTest.html", function () {
     //     panelTest.init();

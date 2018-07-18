@@ -1,3 +1,7 @@
+.searchRoot {
+    position: relative;
+}
+
 .searchText {
 
 }
@@ -9,10 +13,9 @@
 .searchHistoryBox {
     z-index: 100;
     position: absolute;
-    left: 0px;
-    top: 0px;
-    color: lightgray;
+    left: 0;
     display: none;
+    color: lightgray;
 }
 
 .searchHistoryBox ul {
