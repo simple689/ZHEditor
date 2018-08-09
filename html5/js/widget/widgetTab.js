@@ -64,7 +64,8 @@ WidgetTab.prototype.addHistoryPage = function (historyItemFile) {
         }
         var value = fileList[key]
         var elementTabTitle = this.addTitle(value[WidgetKey._fileName]);
-        this.addContent(elementTabTitle, value[WidgetKey._fileContent], WidgetTab._addContentType.fileContent);
+        // this.addContent(elementTabTitle, value[WidgetKey._fileContent], WidgetTab._addContentType.fileContent);
+        this.addContent(elementTabTitle, value[WidgetKey._fileContent], WidgetTab._addContentType.fileJsonObj);
     }
 }
 WidgetTab.prototype.addTab = function (file) {

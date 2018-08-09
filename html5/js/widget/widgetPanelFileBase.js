@@ -16,7 +16,7 @@ WidgetPanelFileBase.prototype.handleFiles = function (files) {
         this._widgetTab.addTab(file);
     }
 }
-PanelFileMould.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
+WidgetPanelFileBase.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {
         case WidgetTab._onContextMenuType.tabTitle : {
             WidgetMenu.showMenu(this._menuRightTitle, e, ele);

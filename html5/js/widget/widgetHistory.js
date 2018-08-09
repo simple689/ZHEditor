@@ -25,11 +25,11 @@ WidgetHistory.init = function () {
     // }
 }
 WidgetHistory.clearAll = function () {
-    // WidgetHistory._localStorage.clearAll();
-    // WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
-    // WidgetHistory._localStorage.removeItem(WidgetKey._panelFileMould);
+    WidgetHistory._localStorage.clearAll();
+    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
+    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileMould);
     WidgetHistory._localStorage.removeItem(WidgetKey._panelFileBrowser);
-    // WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonMould);
+    WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonMould);
     alert("清空历史记录完毕！");
 }
 WidgetHistory.setItem = function (key, value) {
