@@ -42,3 +42,6 @@
 .widgetMenuNav li:hover > ul {
     display: block;
 }
+.widgetMenuNav .widgetMenuHide {
+    display:none;
+}

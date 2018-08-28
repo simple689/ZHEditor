@@ -10,7 +10,10 @@ PanelMenu.onClickCreateFile = function (fileExtend) {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, name);
     PanelFileBrowser.saveAs(jsonObjCtrl);
 }
-PanelMenu.onClickOpen = function () {
+PanelMenu.onClickOpenFile = function (fileExtend) {
+    var name = "新建文件_" + PanelMenu.createFileNum + fileExtend;
+    var jsonObjCtrl = new JsonObjCtrl(this, null, false, name);
+    PanelFileBrowser.open(jsonObjCtrl);
 }
 PanelMenu.onClickSave = function (panel) {
 }
