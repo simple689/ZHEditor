@@ -11,7 +11,9 @@ WidgetFileJson.prototype.initRoot = function () {
     var jsonMouldName = this._jsonObj[WidgetKey._jsonMould];
     if (!jsonMouldName) {
         jsonMouldName = this._elementTabTitle.innerHTML;
-        jsonMouldName = changeFileExtend(jsonMouldName, WidgetKey._extendJsonMd);
+        jsonMouldName = removeFileExtend(jsonMouldName);
+        jsonMouldName += "【配套生成】";
+        jsonMouldName += WidgetKey._extendJsonMd;
         this._jsonObj[WidgetKey._jsonMould] = jsonMouldName;
     }
     this._fileJsonMouldCtrl = new WidgetFileJsonMould();

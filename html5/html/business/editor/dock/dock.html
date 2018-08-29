@@ -12,7 +12,7 @@
     <script src="../../../../external/colorPicker/colors.js"></script>
     <script src="../../../../external/colorPicker/jqColor.js"></script>
     <script src="../../../../external/base64.js"></script>
-    <!-- [css] common -->
+    <!-- [css] base -->
     <link rel="stylesheet" href="../../../../css/common/base.css">
     <!-- [css] widget -->
     <link rel="stylesheet" href="../../../../css/widget/widgetDock/widgetDock.css">
@@ -33,20 +33,21 @@
     <link rel="stylesheet" href="../../../../css/widget/widgetTableHtml.css">
     <!-- [css] business -->
     <link rel="stylesheet" href="../../../../css/business/editor/panel/panelFileBrowser.css">
-    <!-- [js] common -->
-    <script src="../../../../js/widget/common/widgetKey.js"></script><!--必须放在前面-->
+    <!-- [js] base -->
+    <script src="../../../../js/widget/base/widgetKey.js"></script><!--必须放在前面-->
 
-    <script src="../../../../js/widget/common/widgetElement.js"></script>
-    <script src="../../../../js/widget/common/widgetJsonCtrl.js"></script>
-    <script src="../../../../js/widget/common/widgetLog.js"></script>
-    <script src="../../../../js/widget/common/widgetMenuCtrl.js"></script>
-    <script src="../../../../js/widget/common/widgetUtil.js"></script>
+    <script src="../../../../js/widget/base/widgetElement.js"></script>
+    <script src="../../../../js/widget/base/widgetJsonCtrl.js"></script>
+    <script src="../../../../js/widget/base/widgetLog.js"></script>
+    <script src="../../../../js/widget/base/widgetMenuCtrl.js"></script>
+    <script src="../../../../js/widget/base/widgetUser.js"></script>
+    <script src="../../../../js/widget/base/widgetUtil.js"></script>
     <!-- [js] widget -->
-    <script src="../../../../js/widget/widgetFile/common/widgetFileBase.js"></script>
-    <script src="../../../../js/widget/widgetFile/common/widgetFileOnChange.js"></script>
-    <script src="../../../../js/widget/widgetFile/common/widgetFileOnClick.js"></script>
-    <script src="../../../../js/widget/widgetFile/common/widgetFileOnContextMenu.js"></script>
-    <script src="../../../../js/widget/widgetFile/common/widgetFileUtil.js"></script>
+    <script src="../../../../js/widget/widgetFile/base/widgetFileBase.js"></script>
+    <script src="../../../../js/widget/widgetFile/base/widgetFileOnChange.js"></script>
+    <script src="../../../../js/widget/widgetFile/base/widgetFileOnClick.js"></script>
+    <script src="../../../../js/widget/widgetFile/base/widgetFileOnContextMenu.js"></script>
+    <script src="../../../../js/widget/widgetFile/base/widgetFileUtil.js"></script>
 
     <script src="../../../../js/widget/widgetFile/json/widgetFileJson.js"></script>
     <script src="../../../../js/widget/widgetFile/json/widgetFileJsonOnChange.js"></script>
@@ -91,7 +92,8 @@
     <script src="../../../../js/business/editor/panel/panelToolBar.js"></script>
     <!--<script src="../../../../js/business/editor/panel/panelView.js"></script>-->
 </head>
-<body onload="initWidgetDock()" onbeforeunload="onBeforeUnload()">
+<!--<body onload="initWidgetDock()" onbeforeunload="onBeforeUnload()">-->
+<body onbeforeunload="onBeforeUnload()">
 <div class="panelCenter" id="panelCenter"></div>
 
 <div class="panelFixed" id="panelFixedTop" style="height:60px;"></div>

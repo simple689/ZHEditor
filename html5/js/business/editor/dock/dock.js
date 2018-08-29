@@ -125,6 +125,8 @@ $(document).ready(function () {
     WidgetLog.init();
     WidgetHistory.init();
 
+    initWidgetDock();
+
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
         panelMenu.init();
         panelToolBar.init();

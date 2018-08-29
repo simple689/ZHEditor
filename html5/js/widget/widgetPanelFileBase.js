@@ -13,7 +13,7 @@ WidgetPanelFileBase.prototype.init = function (elementRoot) {
 WidgetPanelFileBase.prototype.handleFiles = function (files) {
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        this._widgetTab.addTab(file);
+        this._widgetTab.addTabWithFile(file);
     }
 }
 WidgetPanelFileBase.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
