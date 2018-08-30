@@ -55,9 +55,15 @@
                 <!--<li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelToolBar)">工具栏</li>-->
                 <!--<li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelState)">状态栏</li>-->
                 <!--<li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileEditor)">文件编辑</li>-->
-                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileMould)"><input type="checkbox"/>文件模版编辑</li>
-                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileLink)"><input type="checkbox"/>文件链接编辑</li>
-                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileBrowser)"><input type="checkbox"/>文件浏览器</li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileMould)">
+                    <input id='menuPanelFileMouldCheckbox' type="checkbox"/>文件模版编辑
+                </li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileLink)">
+                    <input id='menuPanelFileLinkCheckbox' type="checkbox"/>文件链接编辑
+                </li>
+                <li onclick="PanelMenu.onClickVisiblePanel(WidgetKey._panelFileBrowser)">
+                    <input id='menuPanelFileBrowserCheckbox' type="checkbox"/>文件浏览器
+                </li>
                 <span>------------------------------------------</span>
             </ul>
         </li>

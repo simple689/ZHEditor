@@ -15,6 +15,17 @@ PanelMenu.prototype.init = function () {
             break;
         }
     }
+    // 是否选中设置
+    this._menuPanelFileMouldCheckbox = document.getElementById("menuPanelFileMouldCheckbox");
+    this._menuPanelFileLinkCheckbox = document.getElementById("menuPanelFileLinkCheckbox");
+    this._menuPanelFileBrowserCheckbox = document.getElementById("menuPanelFileBrowserCheckbox");
+
+    var isVisible = getVisible(dockPanelFileMould);
+    this._menuPanelFileMouldCheckbox.checked = isVisible;
+    isVisible = getVisible(dockPanelFileLink);
+    this._menuPanelFileLinkCheckbox.checked = isVisible;
+    isVisible = getVisible(dockPanelFileBrowser);
+    this._menuPanelFileBrowserCheckbox.checked = isVisible;
 }
 PanelMenu.onClickCreateFile = function (fileExtend) {
     var createFileStr = "新建文件_";
@@ -191,16 +202,21 @@ PanelMenu.onClickPaste = function () {
 PanelMenu.onClickFind = function () {
 }
 PanelMenu.onClickVisiblePanel = function (panel) {
+    var isVisible = true;
     if (panel == WidgetKey._panelToolBar) {
     } else if (panel == WidgetKey._panelState) {
     } else if (panel == WidgetKey._panelFileEditor) {
     } else if (panel == WidgetKey._panelFileMould) {
-        changeVisible(dockPanelFileMould);
+        isVisible = changeVisible(dockPanelFileMould);
+        this._menuPanelFileMouldCheckbox.checked = isVisible;
     } else if (panel == WidgetKey._panelFileLink) {
-        changeVisible(dockPanelFileLink);
+        isVisible = changeVisible(dockPanelFileLink);
+        this._menuPanelFileLinkCheckbox.checked = isVisible;
     } else if (panel == WidgetKey._panelFileBrowser) {
-        changeVisible(dockPanelFileBrowser);
+        isVisible = changeVisible(dockPanelFileBrowser);
+        this._menuPanelFileBrowserCheckbox.checked = isVisible;
     }
+
 }
 PanelMenu.onClickHistoryClearAll = function () {
     WidgetHistory.clearAll();

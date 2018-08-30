@@ -105,8 +105,9 @@ function getVisible(panel) {
 }
 
 function changeVisible(panel) {
-    var isVisible = getVisible(panel);
-    panel.setVisible(!isVisible);
+    var isVisible = !getVisible(panel);
+    panel.setVisible(isVisible);
+    return isVisible;
 }
 // document
 //========
