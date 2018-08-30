@@ -18,23 +18,24 @@
                 </li>
                 <li class='widgetMenuNavHasSub'>保存当前
                     <ul>
-                        <li onclick="PanelMenu.onClickSave(WidgetKey._extendJson)">Json文件</li>
-                        <li onclick="PanelMenu.onClickSave(WidgetKey._extendJsonMd)">Json模版文件</li>
+                        <li onclick="PanelMenu.onClickSaveFileNow(WidgetKey._extendJson)">Json文件</li>
+                        <li onclick="PanelMenu.onClickSaveFileNow(WidgetKey._extendJsonMd)">Json模版文件</li>
                         <span>------------------------------------------</span>
                     </ul>
                 </li>
-                <li onclick="PanelMenu.onClickSaveAll()">保存所有</li>
+                <li onclick="PanelMenu.onClickSaveFileNowAll()">保存当前所有</li>
+                <li onclick="PanelMenu.onClickSaveFileAll()">保存所有</li>
                 <li class='widgetMenuNavHasSub'>下载当前
                     <ul>
-                        <li onclick="PanelMenu.onClickDownload(WidgetKey._extendJson)">Json文件</li>
-                        <li onclick="PanelMenu.onClickDownload(WidgetKey._extendJsonMd)">Json模版文件</li>
+                        <li onclick="PanelMenu.onClickDownloadFileNow(WidgetKey._extendJson)">Json文件</li>
+                        <li onclick="PanelMenu.onClickDownloadFileNow(WidgetKey._extendJsonMd)">Json模版文件</li>
                         <span>------------------------------------------</span>
                     </ul>
                 </li>
                 <span>------------------------------------------</span>
                 <li onclick="PanelMenu.onClickSetting()">设置</li>
-                <span id='menuFileExitSpan' class='widgetMenuHide'>------------------------------------------</span>
-                <li id='menuFileExit' class='widgetMenuHide' onclick="PanelMenu.onClickExit()">退出</li>
+                <span id='menuExitSpan' class='widgetMenuHide'>------------------------------------------</span>
+                <li id='menuExit' class='widgetMenuHide' onclick="PanelMenu.onClickExit()">退出</li>
             </ul>
         </li>
         <li class='widgetMenuNavHasSub'>编辑
