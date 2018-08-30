@@ -208,15 +208,14 @@ PanelMenu.onClickVisiblePanel = function (panel) {
     } else if (panel == WidgetKey._panelFileEditor) {
     } else if (panel == WidgetKey._panelFileMould) {
         isVisible = changeVisible(dockPanelFileMould);
-        this._menuPanelFileMouldCheckbox.checked = isVisible;
+        panelMenu._menuPanelFileMouldCheckbox.checked = isVisible;
     } else if (panel == WidgetKey._panelFileLink) {
         isVisible = changeVisible(dockPanelFileLink);
-        this._menuPanelFileLinkCheckbox.checked = isVisible;
+        panelMenu._menuPanelFileLinkCheckbox.checked = isVisible;
     } else if (panel == WidgetKey._panelFileBrowser) {
         isVisible = changeVisible(dockPanelFileBrowser);
-        this._menuPanelFileBrowserCheckbox.checked = isVisible;
+        panelMenu._menuPanelFileBrowserCheckbox.checked = isVisible;
     }
-
 }
 PanelMenu.onClickHistoryClearAll = function () {
     WidgetHistory.clearAll();
