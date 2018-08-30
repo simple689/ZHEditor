@@ -67,6 +67,6 @@ WidgetFile.isJson = function (fileStr) {
     } catch (exception) {
         isjson = false;
     }
-    WidgetLog.log("isjson = " + isjson);
+    // WidgetLog.log("isjson = " + isjson);
     return isjson;
 }

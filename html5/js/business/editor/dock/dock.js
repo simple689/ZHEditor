@@ -95,10 +95,19 @@ function onBeforeUnload() {
     saveDockLayout();
 }
 
-function setVisible(panel, sch) {
-    panel.setVisible(sch);
+function getVisible(panel) {
+    var com = panel._$hT._$hu;
+    var isVisible = true;
+    if (com.style.visibility == "hidden") {
+        isVisible = false;
+    }
+    return isVisible;
 }
 
+function changeVisible(panel) {
+    var isVisible = getVisible(panel);
+    panel.setVisible(!isVisible);
+}
 // document
 //========
 function onClickDocument() {

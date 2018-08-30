@@ -25,7 +25,7 @@ function getFileExtend(str) {
     var strNew = "";
     if (index != -1) {
         strNew = str.substr(index);
-        strNew = strNew.toLowerCase();
+        // strNew = strNew.toLowerCase();
     }
     return strNew;
 }

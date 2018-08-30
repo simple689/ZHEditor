@@ -75,7 +75,7 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                     WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
                 } else {
                     var strType = typeof(value);
-                    WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
+                    // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
                 }
             }
 
@@ -202,7 +202,7 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
             } else {
                 var strType = typeof(value);
                 jsonObjParent[key][WidgetKey._valueType] = strType;
-                WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
+                // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
             }
         }
     }

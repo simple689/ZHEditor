@@ -44,7 +44,7 @@ PanelMenu.onClickCreateFile = function (fileExtend) {
     }
     var name = createFileStr + createFileNum + fileExtend;
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, name);
-    widgetTab.addTabWithFileJsonObj(name, jsonObjCtrl);
+    widgetTab.addTabWithFileJsonObj(name, jsonObjCtrl._obj);
 }
 PanelMenu.onClickOpenFile = function (fileExtend) {
     openFile(fileExtend, PanelMenu.openedFile);
@@ -191,6 +191,16 @@ PanelMenu.onClickPaste = function () {
 PanelMenu.onClickFind = function () {
 }
 PanelMenu.onClickVisiblePanel = function (panel) {
+    if (panel == WidgetKey._panelToolBar) {
+    } else if (panel == WidgetKey._panelState) {
+    } else if (panel == WidgetKey._panelFileEditor) {
+    } else if (panel == WidgetKey._panelFileMould) {
+        changeVisible(dockPanelFileMould);
+    } else if (panel == WidgetKey._panelFileLink) {
+        changeVisible(dockPanelFileLink);
+    } else if (panel == WidgetKey._panelFileBrowser) {
+        changeVisible(dockPanelFileBrowser);
+    }
 }
 PanelMenu.onClickHistoryClearAll = function () {
     WidgetHistory.clearAll();

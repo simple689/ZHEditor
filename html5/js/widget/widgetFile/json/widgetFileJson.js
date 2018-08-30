@@ -8,7 +8,12 @@ WidgetFileJson.prototype.constructor = WidgetFileJson;
 WidgetFileJson.prototype.initRoot = function () {
     var foldItem = WidgetFileBase.prototype.initRoot.apply(this, arguments);
 
-    var jsonMouldName = this._jsonObj[WidgetKey._jsonMould];
+    var jsonMouldName = null;
+    if (this._jsonObj) {
+        jsonMouldName = this._jsonObj[WidgetKey._jsonMould];
+    } else {
+        this._jsonObj = {};
+    }
     if (!jsonMouldName) {
         jsonMouldName = this._elementTabTitle.innerHTML;
         jsonMouldName = removeFileExtend(jsonMouldName);
@@ -277,7 +282,7 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeOther = function (jsonObjMd, json
     } else if (valueTypeMd == WidgetKey._boolean) {
         WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
     } else {
-        WidgetLog.log("[" + valueTypeMd + "]" + keyParent + "->" + key + " = " + value);
+        // WidgetLog.log("[" + valueTypeMd + "]" + keyParent + "->" + key + " = " + value);
     }
     if (WidgetFileUtil.isAddBr(key)) {
         WidgetHtml.addBr(elementParent);
