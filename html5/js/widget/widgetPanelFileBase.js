@@ -10,9 +10,9 @@ WidgetPanelFileBase.prototype.init = function (elementRoot) {
     this._menuRightTitle = new WidgetMenu();
     this._menuRightContent = new WidgetMenu();
 }
-WidgetPanelFileBase.prototype.handleFiles = function (files) {
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
+WidgetPanelFileBase.prototype.handleFiles = function (fileList) {
+    for (var i = 0; i < fileList.length; i++) {
+        var file = fileList[i];
         this._widgetTab.addTabWithFile(file);
     }
 }

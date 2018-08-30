@@ -19,6 +19,7 @@ WidgetFileJson.prototype.initRoot = function () {
     this._fileJsonMouldCtrl = new WidgetFileJsonMould();
     var isNew = this._fileJsonMouldCtrl.getMould(jsonMouldName, this._jsonObj);
     if (isNew) { // 不存在模版
+        // todo
         //     this.readObject(this._jsonObj, "root", foldItem, false);
     } else { // 存在模版
         this.readMouldObject(this._fileJsonMouldCtrl._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);

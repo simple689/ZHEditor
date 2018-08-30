@@ -3,6 +3,7 @@ function PanelMenu() {
 
 PanelMenu.prototype.init = function () {
     // var panelMenu = document.getElementById("panelMenu");
+    // 根据用户使用设备调整按钮的可见性
     switch (WidgetUser._client) {
         case WidgetUser._clientType.appPc:
         case WidgetUser._clientType.appMobile: {
@@ -51,9 +52,25 @@ PanelMenu.onClickCreateFile = function (fileExtend) {
     widgetTab.addTabWithFileJsonObj(name, jsonObjCtrl);
 }
 PanelMenu.onClickOpenFile = function (fileExtend) {
-    var name = "新建文件_" + PanelMenu.createFileNum + fileExtend;
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, name);
-    PanelFileBrowser.open(jsonObjCtrl);
+    openFile(fileExtend, PanelMenu.openedFile);
+}
+PanelMenu.openedFile = function (e) {
+    var fileExtend = this._fileExtend;
+    var widgetTab = null;
+    if (fileExtend == WidgetKey._extendJson) {
+        widgetTab = panelFileEditor._widgetTab;
+    } else if (fileExtend == WidgetKey._extendJsonMd) {
+        widgetTab = panelFileMould._widgetTab;
+    }
+    if (!widgetTab) {
+        return;
+    }
+    //e.currentTarget.files 是一个数组，如果支持多个文件，则需要遍历
+    var fileList = e.currentTarget.files;
+    for (var i = 0; i < fileList.length; i++) {
+        var file = fileList[i];
+        widgetTab.addTabWithFile(file);
+    }
 }
 PanelMenu.onClickSave = function (panel) {
 }
@@ -66,12 +83,7 @@ PanelMenu.onClickSaveAsJson = function (jsonObjCtrl) {
 PanelMenu.onClickDownload = function (panel) {
 }
 PanelMenu.onClickDownloadJson = function (jsonObjCtrl) {
-    var name = jsonObjCtrl._exec._elementTabTitle.innerHTML;
-    var jsonStr = JSON.stringify(jsonObjCtrl._obj, null, 2); // 将字符串对象转换为JSON对象
-    var element = document.createElement("a");
-    element.setAttribute('href', 'data:text/text; base64,' + '77u/' + base64encode(utf16to8(jsonStr)));
-    element.setAttribute('download', name);
-    element.click();
+    downloadFileJson(jsonObjCtrl);
 }
 PanelMenu.onClickSetting = function () {
 }

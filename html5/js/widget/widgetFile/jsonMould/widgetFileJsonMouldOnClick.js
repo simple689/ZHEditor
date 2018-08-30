@@ -13,7 +13,7 @@ WidgetFileJsonMould.prototype.onClickSaveAs = function (e) {
 }
 WidgetFileJsonMould.prototype.onClickDownLoad = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
-    PanelFileBrowser.downLoad(jsonObjCtrl);
+    downloadFileJson(jsonObjCtrl);
 }
 WidgetFileJsonMould.prototype.onClickObjectAdd = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);

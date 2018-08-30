@@ -3,6 +3,7 @@
 var dock = null;
 var dockPanelFileMould = null;
 var dockPanelFileLink = null;
+// var dockPanelFileEditorMind = null;
 var dockPanelFileBrowser = null;
 // var dockPanelView = null;
 // var dockPanelTest = null;
@@ -22,7 +23,6 @@ function initWidgetDock() {
     loadDockLayout();
     initDockPanel();
     initDockLayout();
-    initPanel();
 }
 
 function loadDockLayout() {
@@ -125,7 +125,7 @@ $(document).ready(function () {
     WidgetLog.init();
     WidgetHistory.init();
 
-    initWidgetDock();
+    initPanel();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
         panelMenu.init();
