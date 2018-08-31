@@ -3,12 +3,12 @@ function PanelFileBrowser() {
 
 PanelFileBrowser.prototype.init = function () {
     var rootElement = document.getElementById("panelFileBrowser");
-    this._divWhole = WidgetHtml.addDiv(rootElement);
-    this._divWhole.id = "whole";
+    this._divMain = WidgetHtml.addDiv(rootElement);
+    this._divMain.id = "main";
 
-    this._divTool = WidgetHtml.addDiv(this._divWhole);
+    this._divTool = WidgetHtml.addDiv(this._divMain);
 
-    this._divFileBrowser = WidgetHtml.addDiv(this._divWhole);
+    this._divFileBrowser = WidgetHtml.addDiv(this._divMain);
     this._divFileBrowser.id = "fileBrowser";
 
     this.initTool();
@@ -54,5 +54,5 @@ PanelFileBrowser.prototype.initCreate = function () {
 }
 PanelFileBrowser.prototype.initFileBrowser = function () {
     this._widgetFileBrowser = new WidgetFileBrowser();
-    this._widgetFileBrowser.createFileBrowser(this._divFileBrowser);
+    this._widgetFileBrowser.create(this._divFileBrowser);
 }

@@ -23,6 +23,7 @@
 .widgetDialogHead {
     height: 30px;
     background: #666666;
+    padding-left: 10px;
     /*cursor: move;*/
 }
 

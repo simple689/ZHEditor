@@ -103,88 +103,15 @@ PanelMenu.onClickDownloadFileNow = function (fileExtend) {
 }
 PanelMenu.onClickSetting = function () {
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.setting);
+    widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.showDialogSetting);
 }
-PanelMenu.setting = function (widgetDialog) {
-    return;
-    var name = widgetDialog._jsonObjCtrl._key;
-    var elementTabTitle = widgetDialog._jsonObjCtrl._exec._elementTabTitle;
-    if (elementTabTitle) {
-        name = elementTabTitle.innerHTML;
-    }
-    var title = getFileTitle(name)
-    var extend = getFileExtend(name);
-    var widgetFileBrowser = new WidgetFileBrowser();
-
+PanelMenu.showDialogSetting = function (widgetDialog) {
+    // 标题
     var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelTitle");
-    jsonObjCtrl._keyShow = "另存为";
+    jsonObjCtrl._keyShow = "设置";
     var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
     label.style.textAlign = "center";
     label.style.lineHeight = "30px";
-
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFolder");
-    var path = "/" + WidgetKey._personalFoldShow + "/";
-    if (extend.length > 0) {
-        if (extend == WidgetKey._extendJson) {
-            path += WidgetKey._jsonShow;
-        } else if (extend == WidgetKey._extendJsonMd) {
-            path += WidgetKey._jsonMouldShow;
-        }
-        path += "/";
-    }
-    jsonObjCtrl._value = path;
-    var input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
-    widgetFileBrowser._nowFolderElement = input;
-    widgetDialog._inputFolder = input;
-    input.style.width = "500px";
-
-    WidgetHtml.addBr(widgetDialog._elementDialogContent);
-    WidgetHtml.addBr(widgetDialog._elementDialogContent);
-
-    widgetFileBrowser.createFileBrowser(widgetDialog._elementDialogContent);
-    widgetDialog._widgetFileBrowser = widgetFileBrowser;
-    widgetFileBrowser._divFileBrowser.style.height = "300px";
-    widgetFileBrowser._divFileBrowser.style.width = "600px";
-    widgetFileBrowser._divLeft.style.width = "200px";
-
-    WidgetHtml.addBr(widgetDialog._elementDialogContent);
-
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelFileName");
-    jsonObjCtrl._keyShow = "文件名：";
-    WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileName");
-    jsonObjCtrl._value = title;
-    input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
-    widgetDialog._inputFileName = input;
-    input.style.width = "300px";
-
-    WidgetHtml.addBr(widgetDialog._elementDialogContent);
-
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelFileExtend");
-    jsonObjCtrl._keyShow = "保存类型：";
-    WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileExtend");
-    jsonObjCtrl._value = extend;
-    input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
-    widgetDialog._inputFileExtend = input;
-    input.style.width = "300px";
-
-    WidgetHtml.addBr(widgetDialog._elementDialogContent);
-
-    var divButton = WidgetHtml.addDiv(widgetDialog._elementDialogContent);
-    divButton.style.float = "right";
-
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "buttonSave");
-    jsonObjCtrl._value = "保存";
-    jsonObjCtrl._onClick = PanelMenuCallback.onClickSaveAsButtonSave;
-    WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._inputType._button);
-
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "buttonCancel");
-    jsonObjCtrl._value = "取消";
-    jsonObjCtrl._onClick = PanelMenuCallback.onClickSaveAsButtonCancel;
-    WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._inputType._button);
-
-    widgetFileBrowser.refreshFileBrowserRightPath(path);
 };
 PanelMenu.onClickExit = function () {
     // todo
@@ -223,4 +150,57 @@ PanelMenu.onClickHistoryClearAll = function () {
 PanelMenu.onClickHistoryClear = function (item) {
 }
 PanelMenu.onClickHelp = function () {
+    var widgetDialog = new WidgetDialog();
+    widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.showDialogHelp);
 }
+PanelMenu.showDialogHelp = function (widgetDialog) {
+    // 标题
+    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelTitle");
+    jsonObjCtrl._keyShow = "帮助";
+    var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
+    label.style.textAlign = "center";
+    label.style.lineHeight = "30px";
+
+    //获取可见窗口大小
+    var bodyW = document.documentElement.clientWidth;
+    var bodyH = document.documentElement.clientHeight;
+
+    // // 左侧导航栏
+    // var divNav = WidgetHtml.addDiv(widgetDialog._elementDialogContent);
+    // divNav.style.width = bodyW * 0.2 + "px";
+    // divNav.style.height = bodyH * 0.8 + "px";
+    // divNav.style.float = "left";
+    // divNav.style.background = "red";
+    // // 右侧内容
+    // var divContent = WidgetHtml.addDiv(widgetDialog._elementDialogContent);
+    // divContent.style.width = bodyW * 0.6 + "px";
+    // divContent.style.height = bodyH * 0.8 + "px";
+    // divContent.style.float = "right";
+    // divContent.style.background = "yellow";
+
+    // $.get("content/essential.md", function(response, status, xhr){
+    //     $("#content").html(marked(response));
+    // });
+
+    // jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFolder");
+    // var path = "/" + WidgetKey._personalFoldShow + "/";
+    // jsonObjCtrl._value = path;
+    // var input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
+    // widgetMarkedDoc._nowFolderElement = input;
+    // widgetDialog._inputFolder = input;
+    // input.style.width = "500px";
+
+    // WidgetHtml.addBr(widgetDialog._elementDialogContent);
+    // WidgetHtml.addBr(widgetDialog._elementDialogContent);
+
+    var widgetMarkedDoc = new WidgetMarkedDoc();
+    widgetDialog._widgetMarkedDoc = widgetMarkedDoc;
+    widgetMarkedDoc.create(widgetDialog._elementDialogContent, '/doc/README.md');
+    widgetMarkedDoc._divMain.style.height = bodyH * 0.8 + "px";
+    widgetMarkedDoc._divMain.style.width = bodyW * 0.8 + "px";
+    widgetMarkedDoc._divLeft.style.width = bodyW * 0.2 + "px";
+
+    // WidgetHtml.addBr(widgetDialog._elementDialogContent);
+
+    // widgetMarkedDoc.refreshFileBrowserRightPath(path);
+};

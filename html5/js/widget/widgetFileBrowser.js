@@ -6,26 +6,26 @@ function WidgetFileBrowser() {
 
 WidgetFileBrowser._jsonFileBrowser = null;
 
-WidgetFileBrowser.prototype.createFileBrowser = function (elementParent) {
+WidgetFileBrowser.prototype.create = function (elementParent) {
     WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
     // WidgetLog.log(JSON.stringify(jsonObj, null, 2));
 
-    this._divFileBrowser = WidgetHtml.addDiv(elementParent);
-    this._divFileBrowser.classList.add("widgetFileBrowser");
+    this._divMain = WidgetHtml.addDiv(elementParent);
+    this._divMain.classList.add("widgetFileBrowserMain");
 
-    this._divLeft = WidgetHtml.addDiv(this._divFileBrowser);
+    this._divLeft = WidgetHtml.addDiv(this._divMain);
     this._divLeft.classList.add("widgetFileBrowserLeft");
 
-    this._divMiddle = WidgetHtml.addDiv(this._divFileBrowser);
+    this._divMiddle = WidgetHtml.addDiv(this._divMain);
     this._divMiddle.classList.add("widgetFileBrowserMiddle");
 
-    this._divRight = WidgetHtml.addDiv(this._divFileBrowser);
+    this._divRight = WidgetHtml.addDiv(this._divMain);
     this._divRight.classList.add("widgetFileBrowserRight");
 
-    this.initFileBrowser(this._divLeft, this._divMiddle, this._divRight);
+    this.init(this._divLeft, this._divMiddle, this._divRight);
 }
 
-WidgetFileBrowser.prototype.initFileBrowser = function (left, middle, right) {
+WidgetFileBrowser.prototype.init = function (left, middle, right) {
     middle.onmousedown = function (e) {
         var x = (e || event).clientX;
         middle.left = middle.offsetLeft;
@@ -46,10 +46,10 @@ WidgetFileBrowser.prototype.initFileBrowser = function (left, middle, right) {
         return false
     };
 
-    this.initFileBrowserLeft(left);
-    this.initFileBrowserRight(right);
+    this.initLeft(left);
+    this.initRight(right);
 };
-WidgetFileBrowser.prototype.initFileBrowserLeft = function (left) {
+WidgetFileBrowser.prototype.initLeft = function (left) {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, "root");
     jsonObjCtrl._keyShow = "全部文件";
     jsonObjCtrl._onContextMenu = WidgetFileJsonMould.onContextMenuRoot;
@@ -57,7 +57,7 @@ WidgetFileBrowser.prototype.initFileBrowserLeft = function (left) {
 
     this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser, "/", foldItem);
 };
-WidgetFileBrowser.prototype.initFileBrowserRight = function (right) {
+WidgetFileBrowser.prototype.initRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');
 };
 WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
@@ -90,9 +90,9 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
 
                 var element = WidgetHtml.addLabel(fold, jsonObjCtrl);
                 element._jsonObj = value;
-                element.classList.add("fileBrowserLeftFolderName");
+                element.classList.add("widgetFileBrowserLeftFolderName");
                 // element = WidgetHtml.addLabel(fold, this, pathChild, pathChild, WidgetFileBrowser.onClickFolderPath, null);
-                // element.classList.add("fileBrowserLeftFolderPath");
+                // element.classList.add("widgetFileBrowserLeftFolderPath");
                 WidgetHtml.addBr(fold);
                 if (isHasChild) {
                     fold = this._menuFoldCtrl.addFoldItem(fold);
@@ -106,7 +106,7 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
 }
 WidgetFileBrowser.prototype.refreshFileBrowserLeft = function () {
     removeElementChild(this._divLeft);
-    this.initFileBrowserLeft(this._divLeft);
+    this.initLeft(this._divLeft);
 
     var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(this._nowFolder);
     this.refreshFileBrowserRight(jsonObjFolder); // 记住当前选中文件夹，刷新
@@ -127,7 +127,7 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
                 // rightContent.innerHTML = path + key + extend;
                 rightContent.innerHTML = key + extend;
                 var flexItem = this._flexCtrl.addFlexItem(rightContent);
-                flexItem.classList.add("fileBrowserRightContent");
+                flexItem.classList.add("widgetFileBrowserRightContent");
             }
         }
     }
