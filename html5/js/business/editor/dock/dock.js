@@ -1,3 +1,4 @@
+var webRoot = "/html5"
 // dock
 //========
 var dock = null;

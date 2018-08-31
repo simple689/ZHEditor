@@ -21,7 +21,6 @@ WidgetMarkedDoc.prototype.create = function (elementParent, page) {
     this._currentPage = page;
     this._currentHash = '';
     this._renderedPage = '';
-    this._linkList = this._divLeft.querySelectorAll('a');
 
     this.init(this._divLeft, this._divMiddle, this._divRight);
 }
@@ -52,17 +51,22 @@ WidgetMarkedDoc.prototype.init = function (left, middle, right) {
 };
 WidgetMarkedDoc.prototype.initLeft = function (left) {
     $(left).load("../menu/menuHelp.html", function () {
-        // if (!window.Promise) {
-        //     window.Promise = ES6Promise;
-        // }
-        // if (!window.fetch) {
-        //     window.fetch = unfetch;
-        // }
-        window.addEventListener('hashchange', function (e) {
-            e.preventDefault();
-            // WidgetMarkedDoc.hashChange();
-        });
-        this._widgetMarkedDoc.hashChange();
+        if (!window.Promise) {
+            window.Promise = ES6Promise;
+        }
+        if (!window.fetch) {
+            window.fetch = unfetch;
+        }
+        var widgetMarkedDoc = this._widgetMarkedDoc;
+        widgetMarkedDoc._linkList = this.querySelectorAll('a');
+        widgetMarkedDoc._linkList.forEach(function(link) {
+            link._widgetMarkedDoc = this;
+            link.onclick = function () {
+                this._widgetMarkedDoc.hashChange();
+            }
+        }, widgetMarkedDoc);
+
+        widgetMarkedDoc.hashChange();
     });
 };
 WidgetMarkedDoc.prototype.initRight = function (right) {
@@ -102,7 +106,8 @@ WidgetMarkedDoc.prototype.fetchPage = function(page) {
     if (page === this._renderedPage) {
         return Promise.resolve();
     }
-    return fetch(page)
+    var widgetMarkedDoc = this;
+    return fetch(page, widgetMarkedDoc)
         .then(function (res) {
             if (!res.ok) {
                 throw new Error('Error ' + res.status + ': ' + res.statusText);
@@ -110,11 +115,11 @@ WidgetMarkedDoc.prototype.fetchPage = function(page) {
             return res.text();
         })
         .then(function (text) {
-            this._renderedPage = page;
-            this._divRightContent.innerHTML = marked(text);
-            this._divRightContent.scrollTop = 0;
+            widgetMarkedDoc._renderedPage = page;
+            widgetMarkedDoc._divRightContent.innerHTML = marked(text);
+            widgetMarkedDoc._divRightContent.scrollTop = 0;
         }).catch(function (e) {
-            this._divRightContent.innerHTML = '<p>Oops! There was a problem rendering the page.</p>'
+            widgetMarkedDoc._divRightContent.innerHTML = '<p>Oops! There was a problem rendering the page.</p>'
                 + '<p>' + e.message + '</p>';
         });
 }
