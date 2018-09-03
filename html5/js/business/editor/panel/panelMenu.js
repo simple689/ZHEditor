@@ -195,7 +195,7 @@ PanelMenu.showDialogHelp = function (widgetDialog) {
 
     var widgetMarkedDoc = new WidgetMarkedDoc();
     widgetDialog._widgetMarkedDoc = widgetMarkedDoc;
-    widgetMarkedDoc.create(widgetDialog._elementDialogContent, webRoot + '/doc/README.md');
+    widgetMarkedDoc.create(widgetDialog._elementDialogContent, webRoot + '/doc/', '/README.md');
     widgetMarkedDoc._divMain.style.height = bodyH * 0.8 + "px";
     widgetMarkedDoc._divMain.style.width = bodyW * 0.8 + "px";
     widgetMarkedDoc._divLeft.style.width = bodyW * 0.2 + "px";

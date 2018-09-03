@@ -4,7 +4,7 @@ function WidgetMarkedDoc() {
     // this._nowFolder = "/";
 }
 
-WidgetMarkedDoc.prototype.create = function (elementParent, page) {
+WidgetMarkedDoc.prototype.create = function (elementParent, pageRoot, page) {
     this._divMain = WidgetHtml.addDiv(elementParent);
     this._divMain.classList.add("widgetMarkedDocMain");
 
@@ -18,7 +18,9 @@ WidgetMarkedDoc.prototype.create = function (elementParent, page) {
     this._divRight = WidgetHtml.addDiv(this._divMain);
     this._divRight.classList.add("widgetMarkedDocRight");
 
+    this._currentPageRoot = pageRoot;
     this._currentPage = page;
+
     this._currentHash = '';
     this._renderedPage = '';
 
@@ -62,7 +64,7 @@ WidgetMarkedDoc.prototype.initLeft = function (left) {
         widgetMarkedDoc._linkList.forEach(function(link) {
             link._widgetMarkedDoc = this;
             link.onclick = function () {
-                this._widgetMarkedDoc.hashChange();
+                this._widgetMarkedDoc.hashChange(this.hash);
             }
         }, widgetMarkedDoc);
 
@@ -73,8 +75,12 @@ WidgetMarkedDoc.prototype.initRight = function (right) {
     this._divRightContent = WidgetHtml.addDiv(right);
     this._divRightContent.classList.add("widgetMarkedDocRightContent");
 };
-WidgetMarkedDoc.prototype.hashChange = function() {
-    var hash = location.hash.slice(1);
+WidgetMarkedDoc.prototype.hashChange = function(elementHash) {
+    var hash = elementHash;
+    if (elementHash) {
+        hash = elementHash.substr(1);
+    }
+    // var hash = location.hash.slice(1);
     if (!hash) {
         hash = 'README.md';
     }
@@ -89,9 +95,10 @@ WidgetMarkedDoc.prototype.hashChange = function() {
     } else {
         this._currentHash = uri[0];
     }
+    var widgetMarkedDoc = this;
     this.fetchPage(this._currentPage).then(function () {
-        WidgetMarkedDoc.fetchAnchor(this._currentHash)
-    });
+        widgetMarkedDoc.fetchAnchor(widgetMarkedDoc._currentHash)
+    }, widgetMarkedDoc);
 
     var url = '#/' + this._currentPage + (this._currentHash ? '#' + this._currentHash : '');
     var fullUrl = window.location.origin + '/' + url;
@@ -100,14 +107,15 @@ WidgetMarkedDoc.prototype.hashChange = function() {
         link.className = link.href === fullUrl ? 'selected' : '';
     });
 
-    history.replaceState('', document.title, url);
+    // history.replaceState('', document.title, url);
 }
 WidgetMarkedDoc.prototype.fetchPage = function(page) {
     if (page === this._renderedPage) {
         return Promise.resolve();
     }
     var widgetMarkedDoc = this;
-    return fetch(page, widgetMarkedDoc)
+    var fetchPage = this._currentPageRoot + page;
+    return fetch(fetchPage, widgetMarkedDoc)
         .then(function (res) {
             if (!res.ok) {
                 throw new Error('Error ' + res.status + ': ' + res.statusText);
@@ -123,12 +131,15 @@ WidgetMarkedDoc.prototype.fetchPage = function(page) {
                 + '<p>' + e.message + '</p>';
         });
 }
-WidgetMarkedDoc.fetchAnchor = function(anchor) {
+WidgetMarkedDoc.prototype.fetchAnchor = function(anchor) {
     if (!anchor) {
+        this._divRightContent.scrollTo(0, 0);
         return;
     }
     var hashElement = document.getElementById(anchor);
     if (hashElement) {
         hashElement.scrollIntoView();
     }
+    var y = this._divRightContent.scrollTop;
+    this._divRightContent.scrollTo(0, y);
 }
