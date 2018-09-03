@@ -1,0 +1,1 @@
+var confWebRoot = "/html5";

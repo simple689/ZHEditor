@@ -5,32 +5,17 @@ WidgetHistory._localStorage = null;
 
 WidgetHistory.init = function () {
     WidgetHistory._localStorage = window.localStorage;
-    if (WidgetHistory._localStorage) {
-        // WidgetLog.log('This browser supports localStorage');
-    } else {
-        WidgetLog.log('This browser does NOT support localStorage');
+    if (!WidgetHistory._localStorage) {
+        WidgetLog.log('This browser does not support localStorage');
     }
-    // localStorage.pageLoadCount = parseInt(localStorage.getItem("pageLoadCount")) + 1;//必须格式转换
-    // if(window.addEventListener){
-    //     window.addEventListener("localStorage", handle_storage, false);
-    // }else if(window.attachEvent){
-    //     window.attachEvent("onstorage", handle_storage);
-    // }
-    // function handle_storage(e){
-    //     if(!e){e=window.event;}
-    //     for (var i = 0; i < localStorage.length; i++) {
-    //         //key(i)获得相应的键，再用getItem()方法获得对应的值
-    //         document.write(localStorage.key(i)+ " : " + localStorage.getItem(localStorage.key(i)) + "<br>");
-    //     }
-    // }
 }
 WidgetHistory.clearAll = function () {
-    WidgetHistory._localStorage.clearAll();
-    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileEditor);//清除值
-    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileMould);
-    WidgetHistory._localStorage.removeItem(WidgetKey._panelFileBrowser);
-    WidgetHistory._localStorage.removeItem(WidgetKey._widgetFileJsonMould);
+    WidgetHistory._localStorage.clear();
     alert("清空历史记录完毕！");
+}
+WidgetHistory.clear = function (key, keyShow) {
+    WidgetHistory._localStorage.removeItem(key);//清除值
+    alert("清空【" + keyShow + "】的历史记录完毕！");
 }
 WidgetHistory.setItem = function (key, value) {
     WidgetHistory._localStorage.setItem(key, value);
@@ -39,7 +24,7 @@ WidgetHistory.getItem = function (key) {
     return WidgetHistory._localStorage.getItem(key);
 }
 WidgetHistory.addFile = function (fileName, fileContent, contentType, historyItemFile) {
-    var fileEditItem = WidgetHistory._localStorage.getItem(historyItemFile);
+    var fileEditItem = WidgetHistory.getItem(historyItemFile);
     if (!fileEditItem) {
         fileEditItem = '{"' + WidgetKey._fileList + '":[{"' + WidgetKey._fileName + '":"首页","' + WidgetKey._fileContent + '":"首页内容"}]}';
     }
@@ -68,7 +53,7 @@ WidgetHistory.addFile = function (fileName, fileContent, contentType, historyIte
 }
 WidgetHistory.delFile = function (elementTabTitle, historyItemFile) {
     var fileName = elementTabTitle.innerHTML;
-    var fileEditItem = WidgetHistory._localStorage.getItem(historyItemFile);
+    var fileEditItem = WidgetHistory.getItem(historyItemFile);
     if (!fileEditItem) {
         return;
     }
@@ -84,7 +69,7 @@ WidgetHistory.delFile = function (elementTabTitle, historyItemFile) {
     WidgetHistory.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
 WidgetHistory.getFile = function (historyItemFile) {
-    var fileEditItem = WidgetHistory._localStorage.getItem(historyItemFile);
+    var fileEditItem = WidgetHistory.getItem(historyItemFile);
     if (!fileEditItem) {
         return null;
     }
@@ -93,6 +78,7 @@ WidgetHistory.getFile = function (historyItemFile) {
     return fileList;
 }
 WidgetHistory.getFileBrowser = function () {
+    // todo 从服务器获取
     var item = WidgetHistory.getItem(WidgetKey._panelFileBrowser);
     var jsonObj = JSON.parse('{}');
     if (item) {
@@ -147,20 +133,24 @@ WidgetHistory.addFileBrowserFileList = function (jsonObj, key, extend) {
     WidgetHistory.addFileBrowserFile(list, key, extend);
 }
 WidgetHistory.getFileJsonMould = function (fileName) {
-    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
-    var jsonObj = JSON.parse('{}');
-    if (item) {
-        jsonObj = JSON.parse(item); // 通过parse获取json对应键值
-    }
-    return jsonObj[fileName];
+    // todo
+    var a = 0;
+    // var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
+    // var jsonObj = JSON.parse('{}');
+    // if (item) {
+    //     jsonObj = JSON.parse(item); // 通过parse获取json对应键值
+    // }
+    // return jsonObj[fileName];
 }
 WidgetHistory.setFileJsonMould = function (fileName, jsonMouldObj) {
-    var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
-    var jsonObj = JSON.parse('{}');
-    if (item) {
-        jsonObj = JSON.parse(item); // 通过parse获取json对应键值
-    }
-    jsonObj[fileName] = jsonMouldObj;
-    var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
-    WidgetHistory.setItem(WidgetKey._widgetFileJsonMould, jsonStr);
+    // todo
+    var a = 0;
+    // var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
+    // var jsonObj = JSON.parse('{}');
+    // if (item) {
+    //     jsonObj = JSON.parse(item); // 通过parse获取json对应键值
+    // }
+    // jsonObj[fileName] = jsonMouldObj;
+    // var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
+    // WidgetHistory.setItem(WidgetKey._widgetFileJsonMould, jsonStr);
 }

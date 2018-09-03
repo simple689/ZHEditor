@@ -147,7 +147,9 @@ PanelMenu.onClickVisiblePanel = function (panel) {
 PanelMenu.onClickHistoryClearAll = function () {
     WidgetHistory.clearAll();
 }
-PanelMenu.onClickHistoryClear = function (item) {
+PanelMenu.onClickHistoryClear = function (key) {
+    var element = window.event.target;
+    WidgetHistory.clear(key, element.innerHTML);
 }
 PanelMenu.onClickHelp = function () {
     var widgetDialog = new WidgetDialog();
@@ -165,42 +167,10 @@ PanelMenu.showDialogHelp = function (widgetDialog) {
     var bodyW = document.documentElement.clientWidth;
     var bodyH = document.documentElement.clientHeight;
 
-    // // 左侧导航栏
-    // var divNav = WidgetHtml.addDiv(widgetDialog._elementDialogContent);
-    // divNav.style.width = bodyW * 0.2 + "px";
-    // divNav.style.height = bodyH * 0.8 + "px";
-    // divNav.style.float = "left";
-    // divNav.style.background = "red";
-    // // 右侧内容
-    // var divContent = WidgetHtml.addDiv(widgetDialog._elementDialogContent);
-    // divContent.style.width = bodyW * 0.6 + "px";
-    // divContent.style.height = bodyH * 0.8 + "px";
-    // divContent.style.float = "right";
-    // divContent.style.background = "yellow";
-
-    // $.get("content/essential.md", function(response, status, xhr){
-    //     $("#content").html(marked(response));
-    // });
-
-    // jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFolder");
-    // var path = "/" + WidgetKey._personalFoldShow + "/";
-    // jsonObjCtrl._value = path;
-    // var input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
-    // widgetMarkedDoc._nowFolderElement = input;
-    // widgetDialog._inputFolder = input;
-    // input.style.width = "500px";
-
-    // WidgetHtml.addBr(widgetDialog._elementDialogContent);
-    // WidgetHtml.addBr(widgetDialog._elementDialogContent);
-
     var widgetMarkedDoc = new WidgetMarkedDoc();
     widgetDialog._widgetMarkedDoc = widgetMarkedDoc;
-    widgetMarkedDoc.create(widgetDialog._elementDialogContent, webRoot + '/doc/', '/README.md');
+    widgetMarkedDoc.create(widgetDialog._elementDialogContent, confWebRoot + '/doc/', '/README.md');
     widgetMarkedDoc._divMain.style.height = bodyH * 0.8 + "px";
     widgetMarkedDoc._divMain.style.width = bodyW * 0.8 + "px";
     widgetMarkedDoc._divLeft.style.width = bodyW * 0.2 + "px";
-
-    // WidgetHtml.addBr(widgetDialog._elementDialogContent);
-
-    // widgetMarkedDoc.refreshFileBrowserRightPath(path);
 };

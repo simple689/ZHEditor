@@ -7,7 +7,6 @@ WidgetKey._panelFileEditor = "panelFileEditor";
 WidgetKey._panelFileMould = "panelFileMould";
 WidgetKey._panelFileLink = "panelFileLink";
 WidgetKey._panelFileBrowser = "panelFileBrowser";
-WidgetKey._widgetFileJsonMould = "widgetFileJsonMould";
 
 WidgetKey._fileList = "fileList";
 WidgetKey._folderList = "folderList";

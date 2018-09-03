@@ -15,15 +15,17 @@ PanelFileBrowser.prototype.init = function () {
     this.initFileBrowser();
 }
 PanelFileBrowser.prototype.initTool = function () {
-    this.initCreate();
+    // todo 以后扩展
+    // this.initCreate();
 
     this._widgetSearch = new WidgetSearch();
     this._widgetSearch.createSearch(this, this._divTool);
 
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
-    jsonObjCtrl._valueList = JsonObjCtrl._fileBrowserTypeList;
-    jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
-    WidgetHtml.addSelect(this._divTool, jsonObjCtrl);
+    // todo 以后扩展
+    // var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    // jsonObjCtrl._valueList = JsonObjCtrl._fileBrowserTypeList;
+    // jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
+    // WidgetHtml.addSelect(this._divTool, jsonObjCtrl);
 }
 PanelFileBrowser.prototype.initCreate = function () {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
