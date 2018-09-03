@@ -1,7 +1,11 @@
 # coding:utf-8
+import os
 import socket
 from multiprocessing import Process
 
+# os.system('./kill.sh /venv/bin/python')
+os.system('./kill.sh staticWebServer.py')
+PORT = 6989
 HTML_ROOT_DIR = ""
 
 
@@ -27,7 +31,7 @@ def handle_client(client_socket):
 
 if __name__ == "__main__":
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(("", 6992))
+    # server_socket.bind(("", PORT))
     server_socket.listen(128)
 
     while True:
