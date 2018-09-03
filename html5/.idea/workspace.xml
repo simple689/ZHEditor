@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change afterPath="$PROJECT_DIR$/js/business/editor/dock/conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web/staticWebServer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/dock/dock.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/dock/dock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/base/widgetKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/base/widgetKey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHistory.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -842,12 +836,12 @@
       <workItem from="1535614790335" duration="9093000" />
       <workItem from="1535683324528" duration="11280000" />
       <workItem from="1535705938390" duration="6048000" />
-      <workItem from="1535944802305" duration="9782000" />
+      <workItem from="1535944802305" duration="10215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1002918000" />
+    <option name="totallyTimeSpent" value="1003351000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
