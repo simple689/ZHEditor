@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 search=$1
 #echo $search
