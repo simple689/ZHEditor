@@ -1,0 +1,25 @@
+【业务操作】
+1、创建数据表
+2、删除数据表
+3、插入数据
+4、删除数据
+5、改变数据
+6、查询数据
+
+【数据类型】
+
+【查询数据】
+1、排序
+2、分组
+
+【mysql 8.0】
+mysql 报错Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+起因：mysql8.0加密方式的原因报错。
+解决办法：
+执行指令
+mysql -u root -p
+123456
+use mysql;
+alter user 'root'@'localhost' identified with mysql_native_password by '123456';
+flush privileges;
+注意：123456是我自己连接数据库的密码哈
