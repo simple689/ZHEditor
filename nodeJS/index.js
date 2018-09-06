@@ -16,11 +16,10 @@ var httpObj = http.createServer(function(req, res) {
         console.log('进来了！');
         db.query('select * from news', function(err, data) {
             if (!err) {
-                res.write(JSON.stringify(data));
-                res.end();
-
                 // res.writeHead(200, {'Content-Type':'text/plain'});
                 // res.end('hello nodeJS 1');
+                res.write(JSON.stringify(data));
+                res.end();
             }
         });
     } else {
