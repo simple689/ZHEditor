@@ -5,8 +5,8 @@ PanelMenu.prototype.init = function () {
     // var panelMenu = document.getElementById("panelMenu");
     // 根据用户使用设备调整按钮的可见性
     switch (WidgetUser._client) {
-        case WidgetUser._clientType.appPc:
-        case WidgetUser._clientType.appMobile: {
+        case WidgetUser._enumClientType.appPc:
+        case WidgetUser._enumClientType.appMobile: {
             this._menuFileExitSpan = document.getElementById("menuExitSpan");
             this._menuFileExit = document.getElementById("menuExit");
 

@@ -33,7 +33,7 @@ PanelMenuCallback.loadedHtmlSaveAs = function (widgetDialog) {
         path += "/";
     }
     jsonObjCtrl._value = path;
-    var input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
+    var input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     widgetDialog._inputFolder = input;
     input.style.width = bodyW * 0.5 + "px";
 
@@ -59,7 +59,7 @@ PanelMenuCallback.loadedHtmlSaveAs = function (widgetDialog) {
     WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileName");
     jsonObjCtrl._value = title;
-    input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
+    input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     widgetDialog._inputFileName = input;
     input.style.width = bodyW * 0.3 + "px";
 
@@ -72,7 +72,7 @@ PanelMenuCallback.loadedHtmlSaveAs = function (widgetDialog) {
     WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileExtend");
     jsonObjCtrl._value = extend;
-    input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._inputType._textString);
+    input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     widgetDialog._inputFileExtend = input;
     input.style.width = bodyW * 0.3 + "px";
 
@@ -86,12 +86,12 @@ PanelMenuCallback.loadedHtmlSaveAs = function (widgetDialog) {
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "buttonSave");
     jsonObjCtrl._value = "保存";
     jsonObjCtrl._onClick = PanelMenuCallback.onClickSaveAsButtonSave;
-    WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._inputType._button);
+    WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "buttonCancel");
     jsonObjCtrl._value = "取消";
     jsonObjCtrl._onClick = PanelMenuCallback.onClickSaveAsButtonCancel;
-    WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._inputType._button);
+    WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     // 刷新
     widgetFileBrowser.refreshFileBrowserRightPath(path);

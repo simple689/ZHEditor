@@ -1,13 +1,13 @@
 function WidgetUser() {
 }
 
-WidgetUser._clientType = {
+WidgetUser._enumClientType = {
     webPC: 0,
     webMobile: 1,
     appPc: 2,
     appMobile: 3
 }
-WidgetUser._client = WidgetUser._clientType.webPC;
+WidgetUser._client = WidgetUser._enumClientType.webPC;
 WidgetUser.init = function () {
 
 }

@@ -2,8 +2,8 @@ WidgetFileJson.prototype.onChangeInput = function (e) {
     var inputType = e._inputType;
     var value = e.value;
     switch (inputType) {
-        case WidgetHtml._inputType._checkbox :
-        case WidgetHtml._inputType._radio : {
+        case WidgetHtml._enumInputType._checkbox :
+        case WidgetHtml._enumInputType._radio : {
             value = e.checked;
             break;
         }

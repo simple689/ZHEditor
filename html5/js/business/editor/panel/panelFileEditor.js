@@ -20,18 +20,18 @@ PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {
     var isShowDemo = false;
     if (isShowDemo) {
         WidgetHtml.addLabel(elementFileRoot, this, "demo", "demo", null, null);
-        WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType._textString, null, null, null);
-        WidgetHtml.addInput(elementFileRoot, this, 689, WidgetHtml._inputType._textNumber, null, null, null);
-        WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType._button, null, null, null);
-        WidgetHtml.addInput(elementFileRoot, this, false, WidgetHtml._inputType._checkbox, null, null, null);
-        WidgetHtml.addInput(elementFileRoot, this, false, WidgetHtml._inputType._radio, null, null, null);
-        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType._file, null, null, null);
-        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType._image, null, null, null);
-        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType._password, null, null, null);
-        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType._submit, null, null, null);
-        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._inputType._reset, null, null, null);
-        WidgetHtml.addInput(elementFileRoot, this, "#336699", WidgetHtml._inputType._color, null, null, null);
-        WidgetHtml.addInput(elementFileRoot, this, "rgba(0, 255, 0, 0.6)", WidgetHtml._inputType._color, null, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._enumInputType._textString, null, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, 689, WidgetHtml._enumInputType._textNumber, null, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._enumInputType._button, null, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, false, WidgetHtml._enumInputType._checkbox, null, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, false, WidgetHtml._enumInputType._radio, null, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._enumInputType._file, null, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._enumInputType._image, null, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._enumInputType._password, null, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._enumInputType._submit, null, null, null);
+        // WidgetHtml.addInput(elementFileRoot, this, "demo", WidgetHtml._enumInputType._reset, null, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "#336699", WidgetHtml._enumInputType._color, null, null, null);
+        WidgetHtml.addInput(elementFileRoot, this, "rgba(0, 255, 0, 0.6)", WidgetHtml._enumInputType._color, null, null, null);
         WidgetHtml.addSelect(elementFileRoot, this, "0123456", 6, null, null);
     }
 }

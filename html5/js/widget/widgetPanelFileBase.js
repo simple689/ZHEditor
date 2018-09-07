@@ -18,11 +18,11 @@ WidgetPanelFileBase.prototype.handleFiles = function (fileList) {
 }
 WidgetPanelFileBase.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {
     switch (onContextMenuType) {
-        case WidgetTab._onContextMenuType.tabTitle : {
+        case WidgetTab._enumOnContextMenuType.tabTitle : {
             WidgetMenu.showMenu(this._menuRightTitle, e, ele);
             break;
         }
-        case WidgetTab._onContextMenuType.tabTitle : {
+        case WidgetTab._enumOnContextMenuType.tabTitle : {
             WidgetMenu.showMenu(this._menuRightContent, e, ele);
             break;
         }

@@ -2,6 +2,22 @@ var mysql = require('mysql');
 var http = require('http');
 var fs = require('fs');
 
+var httpObj = http.createServer(function(req, res) {
+    console.log('req.url : ' + req.url); // 日志文件
+    //设置应答头信息
+    res.writeHead(200, {'Content-Type':'text/html'});
+    res.write('myurl?callback=?');
+    res.end();
+    console.log('进来了！');
+});
+httpObj.on('connection',()=>{
+    console.log("connection");
+});
+httpObj.listen(6989, '127.0.0.1', function() {
+    console.log('Server running at http://127.0.0.1:6989');
+})
+return;
+
 var db = mysql.createConnection({
     host : '127.0.0.1',
     port: '3306',

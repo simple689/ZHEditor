@@ -8,71 +8,16 @@ WidgetFileBrowser._jsonFileBrowser = null;
 
 WidgetFileBrowser.prototype.create = function (elementParent) {
     // 从服务器获取数据，如果失败，从历史获取数据
-    var ajax = new XMLHttpRequest(); // 创建对象
-    ajax._widgetFileBrowser = this;
-    ajax.onreadystatechange = function (ev) {
-        console.log("ajax._widgetFileBrowser : ", ajax._widgetFileBrowser);
-        // console.log("ajax : ", ajax.readyState);
-        // 存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
-        // 0: 请求未初始化
-        // 1: 服务器连接已建立
-        // 2: 请求已接收
-        // 3: 请求处理中
-        // 4: 请求已完成，且响应已就绪
-        if (ajax.readyState == 4) {
-            if (ajax.status == 200) {
-                var text = ajax.responseText;
-            } else if (ajax.status == 404) {
-                var text = ajax.responseText;
-            }
-        }
-    }
+    // var widgetHttpXHR = new WidgetHttpXHR();
+    // widgetHttpXHR.createRequest(this, null, null);
+    // var url = confHttpRoot + "";
+    // // widgetHttpXHR.sendRequestGet(url);
+    // // widgetHttpXHR.sendRequestGet(url + "?t=" + Math.random());
+    // widgetHttpXHR.sendRequestPost(url, "a");
+
+    var widgetHttpAJAX = new WidgetHttpAJAX();
     var url = confHttpRoot + "";
-
-
-    ajax.open("GET", url); // 请求
-    ajax.send(); // 请求
-    // 在上面的例子中，您可能得到的是缓存的结果。
-    // 为了避免这种情况，请向 URL 添加一个唯一的 ID：
-    // ajax.open("GET","demo_get.asp?t=" + Math.random(),true);
-    // ajax.send();
-    // 如果您希望通过 GET 方法发送信息，请向 URL 添加信息
-    // xmlhttp.open("GET","demo_get2.asp?fname=Bill&lname=Gates",true);
-    // xmlhttp.send();
-    // 以下情况，请使用 POST 请求：
-    // 无法使用缓存文件（更新服务器上的文件或数据库）
-    // 向服务器发送大量数据（POST 没有数据量限制）
-    // 发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
-    // ajax.open("POST", url); // 请求
-    // ajax.send(string); // 请求，string：仅用于 POST 请求
-    // POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：
-    // xmlhttp.open("POST","ajax_test.asp",true);
-    // xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    // xmlhttp.send("fname=Bill&lname=Gates");
-
-
-    //     success: function(str) {    //这里的json就是从后台获取的借口。
-    //         // var obj = this.data;
-    //         // // 现在就可以愉快的使用发送ajax请求时的参数啦
-    //         // alert(obj.widgetFileBrowser);
-    //
-    //
-    //         // console.log(str);
-    //         // var jsonD = JSON.parse(str);
-    //         // console.log(jsonD);
-    //         // for (var i = 0; i < jsonD.length; i++) {
-    //             // var oLi = document.createElement('li');
-    //             // oLi.innerHTML = "<h4>"+ jsonD[i].title +"</h4><p>"+ jsonD[i].content +"</p>" oUl.appendChild(oLi);
-    //         // }
-    //     },
-    //     error: function (req, err) {
-    //         console.log("error : " + err);
-    //         // var obj = this.data;
-    //         // // 现在就可以愉快的使用发送ajax请求时的参数啦
-    //         // alert(obj.widgetFileBrowser);
-    //     }
-    // });
-
+    widgetHttpAJAX.createRequest(url, null, this, null, null);
 
     WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
     // WidgetLog.log(JSON.stringify(jsonObj, null, 2));

@@ -36,7 +36,7 @@ WidgetHistory.addFile = function (fileName, fileContent, contentType, historyIte
         if (fileList[key][WidgetKey._fileName] == fileName) {
             isExist = true;
             var fileStr = fileContent;
-            if (contentType == WidgetTab._addContentType.fileJsonObj) {
+            if (contentType == WidgetTab._enumAddContentType.fileJsonObj) {
                 fileStr = JSON.stringify(fileContent);
             }
             fileList[key][WidgetKey._fileContent] = fileStr;

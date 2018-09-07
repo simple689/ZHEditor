@@ -68,11 +68,11 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
             } else {
                 if (typeof(value) == WidgetKey._string) {
-                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
+                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
                 } else if (typeof(value) == WidgetKey._number) {
-                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
+                    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textNumber);
                 } else if (typeof(value) == WidgetKey._boolean) {
-                    WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
+                    WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._enumInputType._checkbox);
                 } else {
                     var strType = typeof(value);
                     // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
@@ -129,7 +129,7 @@ WidgetFileJsonMould.changeSelectEnumDefault = function (element) {
 }
 WidgetFileJsonMould.prototype.refreshContent = function () {
     var widgetTab = this._elementTabTitle._widgetTab;
-    widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._addContentType.fileJsonObj);
+    widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 WidgetFileJsonMould.prototype.getMould = function (fileName, jsonObj) {
     var isNew = false;

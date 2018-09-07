@@ -1,7 +1,7 @@
 function WidgetHtml() {
 }
 
-WidgetHtml._inputType = {
+WidgetHtml._enumInputType = {
     _textString: 0,
     _textNumber: 1,
     _button: 2,
@@ -17,7 +17,7 @@ WidgetHtml._inputType = {
 }
 WidgetHtml.onClickInput = function (e) {
     switch (this._inputType) {
-        case WidgetHtml._inputType._buttonMenu : {
+        case WidgetHtml._enumInputType._buttonMenu : {
             var menu = new WidgetMenu();
             menu.createMenu(document.body);
             var list = this._jsonObjCtrl._valueList.getList();
@@ -29,10 +29,10 @@ WidgetHtml.onClickInput = function (e) {
 }
 WidgetHtml.onChangeInput = function (e) {
     switch (this._inputType) {
-        case WidgetHtml._inputType._textString : {
+        case WidgetHtml._enumInputType._textString : {
             break;
         }
-        case WidgetHtml._inputType._textNumber : {
+        case WidgetHtml._enumInputType._textNumber : {
             var valueOld = this.value;
             this.value = this.value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g, '');
             if (this.value != valueOld) {
@@ -40,7 +40,7 @@ WidgetHtml.onChangeInput = function (e) {
             }
             break;
         }
-        case WidgetHtml._inputType._color : {
+        case WidgetHtml._enumInputType._color : {
             this.style.background = this.value;
             break;
         }
@@ -93,20 +93,20 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     }
     nodeInput._inputType = inputType;
     switch (inputType) {
-        case WidgetHtml._inputType._button : {
+        case WidgetHtml._enumInputType._button : {
             nodeInput.classList.add("nodeInputButton");
             nodeInput.type = "button";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType._buttonMenu : {
+        case WidgetHtml._enumInputType._buttonMenu : {
             nodeInput.onclick = WidgetHtml.onClickInput;
             nodeInput.classList.add("nodeInputButtonMenu");
             nodeInput.type = "button";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType._checkbox : {
+        case WidgetHtml._enumInputType._checkbox : {
             nodeInput.classList.add("nodeInputCheckbox");
             nodeInput.type = "checkbox";
             if (jsonObjCtrl._value) {
@@ -116,7 +116,7 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
             }
             break;
         }
-        case WidgetHtml._inputType._radio : {
+        case WidgetHtml._enumInputType._radio : {
             nodeInput.classList.add("nodeInputRadio");
             nodeInput.type = "radio";
             if (jsonObjCtrl._value) {
@@ -126,37 +126,37 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
             }
             break;
         }
-        case WidgetHtml._inputType._file : {
+        case WidgetHtml._enumInputType._file : {
             nodeInput.classList.add("nodeInputFile");
             nodeInput.type = WidgetKey._file;
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType._image : {
+        case WidgetHtml._enumInputType._image : {
             nodeInput.classList.add("nodeInputImage");
             nodeInput.type = "image";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType._password : {
+        case WidgetHtml._enumInputType._password : {
             nodeInput.classList.add("nodeInputPassword");
             nodeInput.type = "password";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType._submit : {
+        case WidgetHtml._enumInputType._submit : {
             nodeInput.classList.add("nodeInputSubmit");
             nodeInput.type = "submit";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType._reset : {
+        case WidgetHtml._enumInputType._reset : {
             nodeInput.classList.add("nodeInputReset");
             nodeInput.type = "reset";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
-        case WidgetHtml._inputType._color : {
+        case WidgetHtml._enumInputType._color : {
             nodeInput.classList.add("nodeInputColor");
             nodeInput.value = jsonObjCtrl._value;
             nodeInput.style.background = jsonObjCtrl._value;

@@ -31,7 +31,7 @@ WidgetFileJson.prototype.initRoot = function () {
     }
 
     var elementTabTitle = panelFileMould._widgetTab.addTitle(jsonMouldName);
-    panelFileMould._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._addContentType.fileJsonObj);
+    panelFileMould._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
 //     for (var o in jsonObj) {
@@ -72,11 +72,11 @@ WidgetFileJson.prototype.initRoot = function () {
 //             jsonObjCtrl._onContextMenu = WidgetFileJson.onContextMenuInput;
 //             jsonObjCtrl._onChange = WidgetFileJson.onChangeInput;
 //             if (typeof(value) == WidgetKey._string) {
-//                 WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
+//                 WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
 //             } else if (typeof(value) == WidgetKey._number) {
-//                 WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
+//                 WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textNumber);
 //             } else if (typeof(value) == WidgetKey._boolean) {
-//                 WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
+//                 WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._enumInputType._checkbox);
 //             } else {
 //                 var strType = typeof(value);
 //                 WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
@@ -164,13 +164,13 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeArray = function (jsonObjMd, json
     // jsonObjCtrl._value = "添加成员";
     // jsonObjCtrl._objMd = jsonObjMd;
     // jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
-    // WidgetHtml.addInput(foldItem, jsonObjCtrl, WidgetHtml._inputType._button);
+    // WidgetHtml.addInput(foldItem, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
     jsonObjCtrl._value = "添加成员";
     jsonObjCtrl._objMd = jsonObjMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
-    WidgetHtml.addInput(foldItem._dt._div, jsonObjCtrl, WidgetHtml._inputType._button);
+    WidgetHtml.addInput(foldItem._dt._div, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     for (var keyMd in valueMd) {
         var valueItemMd = valueMd[keyMd];
@@ -247,13 +247,13 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeLink = function (jsonObjMd, jsonO
     jsonObjCtrl._value = value;
     jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuInput;
     jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
-    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
+    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
 
     jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
     jsonObjCtrl._value = "链接";
     jsonObjCtrl._objMd = valueMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickLink;
-    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._button);
+    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     WidgetHtml.addBr(elementParent);
 }
@@ -276,11 +276,11 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeOther = function (jsonObjMd, json
     jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuInput;
     jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
     if (valueTypeMd == WidgetKey._string) {
-        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textString);
+        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     } else if (valueTypeMd == WidgetKey._number) {
-        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._inputType._textNumber);
+        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textNumber);
     } else if (valueTypeMd == WidgetKey._boolean) {
-        WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._inputType._checkbox);
+        WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._enumInputType._checkbox);
     } else {
         // WidgetLog.log("[" + valueTypeMd + "]" + keyParent + "->" + key + " = " + value);
     }
@@ -346,5 +346,5 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
 }
 WidgetFileJson.prototype.refreshContent = function () {
     var widgetTab = this._elementTabTitle._widgetTab;
-    widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._addContentType.fileJsonObj);
+    widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }

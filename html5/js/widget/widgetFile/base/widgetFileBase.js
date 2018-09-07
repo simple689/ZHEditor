@@ -3,9 +3,9 @@ function WidgetFileBase() {
 
 WidgetFileBase.prototype.init = function (elementTabTitle, fileContent, contentType) {
     this._elementTabTitle = elementTabTitle;
-    if (contentType == WidgetTab._addContentType.fileContent) {
+    if (contentType == WidgetTab._enumAddContentType.fileContent) {
         this._jsonObj = JSON.parse(fileContent);
-    } else if (contentType == WidgetTab._addContentType.fileJsonObj) {
+    } else if (contentType == WidgetTab._enumAddContentType.fileJsonObj) {
         this._jsonObj = fileContent;
     }
     this.initRoot();

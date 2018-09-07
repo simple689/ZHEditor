@@ -52,7 +52,7 @@ PanelFileBrowser.prototype.initCreate = function () {
     menuListItem.setListParent(listSub);
     jsonObjCtrl._valueList.insertItem(menuListItem);
 
-    WidgetHtml.addInput(this._divTool, jsonObjCtrl, WidgetHtml._inputType._buttonMenu);
+    WidgetHtml.addInput(this._divTool, jsonObjCtrl, WidgetHtml._enumInputType._buttonMenu);
 }
 PanelFileBrowser.prototype.initFileBrowser = function () {
     this._widgetFileBrowser = new WidgetFileBrowser();
