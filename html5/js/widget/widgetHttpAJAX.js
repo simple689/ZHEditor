@@ -4,31 +4,30 @@ WidgetHttpAJAX._enumOpenType = {
     get: 0,
     post: 1
 }
+function jsonpCallback(data) {
+    // console.log(data.name);
+};
 WidgetHttpAJAX.prototype.createRequest = function (url, jsonObj, exec, funcSuccess, funcError) {
     $.ajax(url, {
-        // _exec : exec,
-        // _funcSuccess : funcSuccess,
-        // _funcError : funcError,
-        type: 'GET',
-        // type: 'POST',
+        _exec : exec,
+        _funcSuccess : funcSuccess,
+        _funcError : funcError,
         // data: jsonObj,
-        // data: {},
+        // type: 'GET',
+        // type: 'POST',
         dataType: 'jsonp',
-        // jsonp:"callback",
-        cache:false,
-        // crossDomain: true,
+        jsonp: 'jsonpCallback',
+        jsonpCallback: 'jsonpCallback',
+        // cache: false,
         // beforeSend: function(XHR) {
-        //     console.log("beforeSend");
+        //     console.log("[beforeSend]");
         // },
-        success: function(data, state) {
-            data = JSON.parse(data);
-            console.log("success");
-            // if(data && data.resultcode == '200'){
-            //     console.log(data.result.today);
-            // }
+        success: function(data, success, XHR) {
+            console.log("[success]");
+            console.log(data.name);
         },
-        error: function (XHR, err, e) {
-            console.log("[error]", err);
+        error: function (XHR, error, e) {
+            console.log("[error]", error);
             console.log("[error]", e);
         }
     });

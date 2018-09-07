@@ -1,30 +1,26 @@
 var mysql = require('mysql');
-var http = require('http');
 var fs = require('fs');
+var http = require('http');
+var url = require('url');   
+var querystring = require("querystring");
 
 var httpObj = http.createServer(function(req, res) {
-    console.log('req.url : ' + req.url); // 日志文件
-    //设置应答头信息
-    // res.writeHead(200, {'Content-Type':'text/html'});
-    res.writeHead(200, {'Content-Type':'application/json', 'charset':'utf8'});
-    // res.write('');
-    // res.ContentType="text/html; charset=utf-8";
-    // var callback = res.QueryString["callback"].ToString();
-    // res.Write(callback + "{ \"success\": [{ \"id\": 1, \"title\": \"title 1\" }, { \"id\": 2, \"title\": \"title 2\" }, { \"id\": 3, \"title\": \"title 3\"}] }");
-
-
-    var accounts = "a"; 
-    var jsoncallback = "jsoncallback"; 
-    res.ContentEncoding = System.Text.Encoding.UTF8; 
-    res.ContentType = "application/json";
-    htm = htm&(jsoncallback + "({"Success":"True","Content":"" + accounts  + ""})"); 
-
-
-    res.end();
+    console.log('req.url : ' + req.url);
+    var urlList = req.url.split('?');
+    var qs = querystring.parse(urlList[1]);
+    if (qs.jsonpCallback) { // 请求为携带jsonp方法的http请求
+        res.writeHead(200, {'Content-Type':'application/json;charset=utf-8'});
+        var data = {
+            "name": "Monkey"
+        };
+        data = JSON.stringify(data);
+        var callback = qs.jsonpCallback + '(' + data + ');';
+        res.end(callback);
+    } else {
+        res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});
+        res.end('Hell World\n');    
+    } 
     console.log('进来了！');
-});
-httpObj.on('connection',()=>{
-    console.log("connection");
 });
 httpObj.listen(6989, '127.0.0.1', function() {
     console.log('Server running at http://127.0.0.1:6989');
