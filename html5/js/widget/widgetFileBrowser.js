@@ -27,19 +27,18 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
 }
 WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
     WidgetFileBrowser._jsonFileBrowser = data;
-    // WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
-    // WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
     widgetFileBrowser.initDefault();
 }
 WidgetFileBrowser.ajaxErrorJsonFileBrowser = function (widgetFileBrowser, error, e) {
     WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
-    // WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
     widgetFileBrowser.initDefault();
 }
 WidgetFileBrowser.prototype.initDefault = function () {
+
     this.init(this._divLeft, this._divMiddle, this._divRight);
 }
 WidgetFileBrowser.prototype.init = function (left, middle, right) {
+    WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
     middle.onmousedown = function (e) {
         var x = (e || event).clientX;
         middle.left = middle.offsetLeft;
