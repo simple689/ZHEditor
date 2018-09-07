@@ -1,3 +1,8 @@
+// var widgetHttpXHR = new WidgetHttpXHR();
+// widgetHttpXHR.createRequest(this, null, null);
+// widgetHttpXHR.sendRequestGet(url);
+// widgetHttpXHR.sendRequestGet(url + "?t=" + Math.random());
+// widgetHttpXHR.sendRequestPost(url, "a");
 function WidgetHttpXHR() {
 }
 WidgetHttpXHR._enumOpenType = {

@@ -1,3 +1,4 @@
+// WidgetHttpAJAX.createRequest(url, null, this, null, null);
 function WidgetHttpAJAX() {
 }
 WidgetHttpAJAX._enumOpenType = {
@@ -5,14 +6,13 @@ WidgetHttpAJAX._enumOpenType = {
     post: 1
 }
 function jsonpCallback(data) {
-    // console.log(data.name);
 };
-WidgetHttpAJAX.prototype.createRequest = function (url, jsonObj, exec, funcSuccess, funcError) {
+WidgetHttpAJAX.createRequest = function (url, jsonObj, exec, funcSuccess, funcError) {
     $.ajax(url, {
         _exec : exec,
         _funcSuccess : funcSuccess,
         _funcError : funcError,
-        // data: jsonObj,
+        data: jsonObj,
         // type: 'GET',
         // type: 'POST',
         dataType: 'jsonp',
@@ -23,12 +23,13 @@ WidgetHttpAJAX.prototype.createRequest = function (url, jsonObj, exec, funcSucce
         //     console.log("[beforeSend]");
         // },
         success: function(data, success, XHR) {
-            console.log("[success]");
-            console.log(data.name);
+            WidgetLog.log("[ajax success]");
+            if (funcSuccess) funcSuccess(this._exec, data);
         },
         error: function (XHR, error, e) {
-            console.log("[error]", error);
-            console.log("[error]", e);
+            console.log("[ajax error]", error);
+            console.log("[ajax error]", e);
+            if (funcError) funcError(this._exec, error, e);
         }
     });
 }

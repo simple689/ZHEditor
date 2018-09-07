@@ -4,8 +4,9 @@
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/business/editor/dock/conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/dock/conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetHttpXHR.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHttpXHR.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -113,26 +114,26 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="8" />
-          <entry key="js" value="2120" />
+          <entry key="js" value="2292" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="8" />
-          <entry key="JavaScript" value="2120" />
+          <entry key="JavaScript" value="2292" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="24" />
+          <entry key="js" value="26" />
           <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="24" />
+          <entry key="JavaScript" value="26" />
           <entry key="TypeScript" value="2" />
         </counts>
       </usages-collector>
@@ -146,8 +147,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpXHR.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="76">
+              <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="28" selection-end-column="57" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,8 +159,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/base/widgetLog.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -164,8 +177,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/business/editor/dock/conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -173,8 +186,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="54">
+              <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -182,7 +195,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
+            <state relative-caret-position="331">
               <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
@@ -284,7 +297,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/business/editor/menu/menuFileBrowser.js" />
         <option value="$PROJECT_DIR$/html/business/editor/menu/menuFileBrowserCreate.html" />
         <option value="$PROJECT_DIR$/js/business/editor/menu/menuFileLink.js" />
         <option value="$PROJECT_DIR$/html/business/editor/menu/menuFileLinkContent.html" />
@@ -332,6 +344,7 @@
         <option value="$PROJECT_DIR$/js/widget/widgetHtml.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHttpRequest.js" />
         <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
+        <option value="$PROJECT_DIR$/js/widget/widgetHttpXHR.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/conf.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" />
@@ -866,12 +879,12 @@
       <workItem from="1536224008298" duration="3520000" />
       <workItem from="1536285191730" duration="2684000" />
       <workItem from="1536288253641" duration="14816000" />
-      <workItem from="1536321245684" duration="2253000" />
+      <workItem from="1536321245684" duration="3422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1027096000" />
+    <option name="totallyTimeSpent" value="1028265000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -892,7 +905,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.33873582" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.38573745" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
@@ -982,9 +995,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileEditorContent.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileLinkContent.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1214,13 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileOnChange.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1230,29 +1233,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/dock/conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        <state relative-caret-position="331">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpXHR.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="76">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="28" selection-end-column="57" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/base/widgetLog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

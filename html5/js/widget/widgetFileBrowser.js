@@ -7,21 +7,6 @@ function WidgetFileBrowser() {
 WidgetFileBrowser._jsonFileBrowser = null;
 
 WidgetFileBrowser.prototype.create = function (elementParent) {
-    // 从服务器获取数据，如果失败，从历史获取数据
-    // var widgetHttpXHR = new WidgetHttpXHR();
-    // widgetHttpXHR.createRequest(this, null, null);
-    // var url = confHttpRoot + "";
-    // // widgetHttpXHR.sendRequestGet(url);
-    // // widgetHttpXHR.sendRequestGet(url + "?t=" + Math.random());
-    // widgetHttpXHR.sendRequestPost(url, "a");
-
-    var widgetHttpAJAX = new WidgetHttpAJAX();
-    var url = confHttpRoot + "";
-    widgetHttpAJAX.createRequest(url, null, this, null, null);
-
-    WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
-    // WidgetLog.log(JSON.stringify(jsonObj, null, 2));
-
     this._divMain = WidgetHtml.addDiv(elementParent);
     this._divMain.classList.add("widgetFileBrowserMain");
 
@@ -34,9 +19,26 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     this._divRight = WidgetHtml.addDiv(this._divMain);
     this._divRight.classList.add("widgetFileBrowserRight");
 
+    // 从服务器获取数据，如果失败，从历史获取数据
+    var url = confHttpRoot + "";
+    var jsonData = {};
+    WidgetHttpAJAX.createRequest(url, jsonData, this,
+        WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
+}
+WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
+    WidgetFileBrowser._jsonFileBrowser = data;
+    // WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
+    // WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
+    widgetFileBrowser.initDefault();
+}
+WidgetFileBrowser.ajaxErrorJsonFileBrowser = function (widgetFileBrowser, error, e) {
+    WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
+    // WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
+    widgetFileBrowser.initDefault();
+}
+WidgetFileBrowser.prototype.initDefault = function () {
     this.init(this._divLeft, this._divMiddle, this._divRight);
 }
-
 WidgetFileBrowser.prototype.init = function (left, middle, right) {
     middle.onmousedown = function (e) {
         var x = (e || event).clientX;
