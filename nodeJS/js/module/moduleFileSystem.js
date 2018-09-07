@@ -1,5 +1,4 @@
-// var jsonObj = WidgetHistory.getFileBrowser();
-function ModuleFileBrowser() {
+function ModuleMysql() {
 }
 ModuleFileBrowser._enumOpenType = {
     get: 0,

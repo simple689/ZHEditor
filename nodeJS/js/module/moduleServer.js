@@ -1,12 +1,7 @@
-// var jsonObj = WidgetHistory.getFileBrowser();
-function ModuleFileBrowser() {
-}
-ModuleFileBrowser._enumOpenType = {
-    get: 0,
-    post: 1
+function ModuleServer() {
 }
 
-ModuleFileBrowser.getFileBrowser = function () {
+ModuleServer.getFileBrowser = function () {
     // todo 从数据库获取
     var item = WidgetHistory.getItem(WidgetKey._panelFileBrowser);
     var jsonObj = JSON.parse('{}');

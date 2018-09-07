@@ -4,6 +4,8 @@ var http = require('http');
 var url = require('url');   
 var querystring = require("querystring");
 
+const moduleServer = require('../../module/moduleServer.js');
+
 var httpObj = http.createServer(function(req, res) {
     console.log('req.url : ' + req.url);
     var urlList = req.url.split('?');
