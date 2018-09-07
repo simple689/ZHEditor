@@ -6,7 +6,7 @@ WidgetHttpAJAX._enumOpenType = {
     post: 1
 }
 function jsonpCallback(data) {
-};
+}
 WidgetHttpAJAX.createRequest = function (url, jsonObj, exec, funcSuccess, funcError) {
     $.ajax(url, {
         _exec : exec,

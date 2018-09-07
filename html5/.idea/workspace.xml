@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -110,13 +110,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="8" />
-          <entry key="js" value="2298" />
+          <entry key="js" value="2304" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="8" />
-          <entry key="JavaScript" value="2298" />
+          <entry key="JavaScript" value="2304" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -152,11 +152,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+            <state relative-caret-position="22">
+              <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -179,11 +179,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="345">
+              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -341,8 +341,8 @@
         <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetHttpXHR.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/conf.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" />
       </list>
     </option>
   </component>
@@ -874,12 +874,12 @@
       <workItem from="1536224008298" duration="3520000" />
       <workItem from="1536285191730" duration="2684000" />
       <workItem from="1536288253641" duration="14816000" />
-      <workItem from="1536321245684" duration="3482000" />
+      <workItem from="1536321245684" duration="3752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1028325000" />
+    <option name="totallyTimeSpent" value="1028595000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -900,7 +900,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.38573745" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.25121555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
@@ -1257,17 +1257,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+        <state relative-caret-position="345">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="22">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
