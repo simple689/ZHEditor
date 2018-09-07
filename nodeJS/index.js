@@ -5,8 +5,21 @@ var fs = require('fs');
 var httpObj = http.createServer(function(req, res) {
     console.log('req.url : ' + req.url); // 日志文件
     //设置应答头信息
-    res.writeHead(200, {'Content-Type':'text/html'});
-    res.write('myurl?callback=?');
+    // res.writeHead(200, {'Content-Type':'text/html'});
+    res.writeHead(200, {'Content-Type':'application/json', 'charset':'utf8'});
+    // res.write('');
+    // res.ContentType="text/html; charset=utf-8";
+    // var callback = res.QueryString["callback"].ToString();
+    // res.Write(callback + "{ \"success\": [{ \"id\": 1, \"title\": \"title 1\" }, { \"id\": 2, \"title\": \"title 2\" }, { \"id\": 3, \"title\": \"title 3\"}] }");
+
+
+    var accounts = "a"; 
+    var jsoncallback = "jsoncallback"; 
+    res.ContentEncoding = System.Text.Encoding.UTF8; 
+    res.ContentType = "application/json";
+    htm = htm&(jsoncallback + "({"Success":"True","Content":"" + accounts  + ""})"); 
+
+
     res.end();
     console.log('进来了！');
 });
