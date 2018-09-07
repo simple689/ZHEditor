@@ -21,7 +21,9 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
 
     // 从服务器获取数据，如果失败，从历史获取数据
     var url = confHttpRoot + "";
-    var jsonData = {};
+    var jsonData = {
+        "name": "Monkey"
+    };
     WidgetHttpAJAX.createRequest(url, jsonData, this,
         WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
 }
