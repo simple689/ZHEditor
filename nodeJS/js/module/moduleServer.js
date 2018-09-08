@@ -35,6 +35,7 @@ ModuleServer.routerHandleSuccess = function(structServer, jsonObj) {
         var callback = structServer.qs.jsonpCallback + '(' + jsonStr + ');';
         structServer.res.end(callback);
     } else {
+        console.log('[Server]Access-Control-Allow-Origin');
         structServer.res.setHeader('Access-Control-Allow-Origin', '*');
         structServer.res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});
         structServer.res.end(jsonStr);    

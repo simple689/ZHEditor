@@ -22,15 +22,16 @@ ModuleRouter.handle = function(structServer) {
                 console.log('got file named ' + name);
             });
 
+            jsonObj = {
+                "name": "file"
+            };
             var a = fields.path;
             var b = fields.file;
             var c = b[0];
             var d = JSON.parse(c);
             var e = d.module;
             // fs.readFile(fields.path[0], function(err, jsonObj) {
-                jsonObj = {
-                    "name": "file"
-                };
+                
                 // if (!jsonObj || err) {
                 //     return ryply({code:401,msg:"请上传身份证正面照片"});
                 // }
