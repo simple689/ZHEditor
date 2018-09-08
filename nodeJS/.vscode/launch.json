@@ -8,10 +8,11 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceFolder}/index.js"
-            "outFiles": [
-                "${workspaceFolder}/*.js"
-            ]
+            // "program": "${workspaceFolder}/index.js",
+            "program": "${workspaceFolder}/js/business/editor/index.js",
+            // "outFiles": [
+            //     "${workspaceFolder}/*.js"
+            // ]
         }
     ]
 }

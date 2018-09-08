@@ -22,9 +22,12 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     // 从服务器获取数据，如果失败，从历史获取数据
     var url = confHttpRoot + "";
     var jsonData = {
-        "name": "Monkey"
+        "module": "FileBrowser"
     };
     WidgetHttpAJAX.createRequest(url, jsonData, this,
+        WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
+
+    WidgetHttpAJAX.createFd(url, jsonData, this,
         WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
 }
 WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
@@ -36,7 +39,6 @@ WidgetFileBrowser.ajaxErrorJsonFileBrowser = function (widgetFileBrowser, error,
     widgetFileBrowser.initDefault();
 }
 WidgetFileBrowser.prototype.initDefault = function () {
-
     this.init(this._divLeft, this._divMiddle, this._divRight);
 }
 WidgetFileBrowser.prototype.init = function (left, middle, right) {
