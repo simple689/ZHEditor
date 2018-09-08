@@ -8,13 +8,13 @@ var httpObj = http.createServer(function(req, res) {
     console.log('req.url : ' + req.url);
     var urlList = req.url.split('?');
     var qs = querystring.parse(urlList[1]);
-    if (qs.jsonpCallback) { // 请求为携带jsonp方法的http请求
+    if (params.jsonpCallback) { // 请求为携带jsonp方法的http请求
         res.writeHead(200, {'Content-Type':'application/json;charset=utf-8'});
         var data = {
             "name": "Monkey"
         };
         data = JSON.stringify(data);
-        var callback = qs.jsonpCallback + '(' + data + ');';
+        var callback = params.jsonpCallback + '(' + data + ');';
         res.end(callback);
     } else {
         res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});

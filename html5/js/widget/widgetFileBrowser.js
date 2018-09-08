@@ -22,13 +22,16 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     // 从服务器获取数据，如果失败，从历史获取数据
     var url = confHttpRoot + "";
     var jsonData = {
+        "module": "aaa"
+    };
+    WidgetHttpAJAX.createPost(url, jsonData, this,
+        WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
+    jsonData = {
         "module": "FileBrowser"
     };
-    WidgetHttpAJAX.createRequest(url, jsonData, this,
+    WidgetHttpAJAX.createGetJsonp(url, jsonData, this,
         WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
 
-    WidgetHttpAJAX.createFd(url, jsonData, this,
-        WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
 }
 WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
     WidgetFileBrowser._jsonFileBrowser = data;

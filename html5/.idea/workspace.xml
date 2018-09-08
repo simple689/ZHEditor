@@ -5,14 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/business/editor/conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/business/editor/conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/business/editor/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/business/editor/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileSystem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -109,7 +103,7 @@
     <session id="-1152963513">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.24" value="1" />
@@ -121,27 +115,27 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="8" />
-          <entry key="js" value="2443" />
+          <entry key="js" value="2500" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="8" />
-          <entry key="JavaScript" value="2443" />
+          <entry key="JavaScript" value="2500" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
           <entry key="js" value="29" />
-          <entry key="ts" value="3" />
+          <entry key="ts" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="29" />
-          <entry key="TypeScript" value="3" />
+          <entry key="TypeScript" value="5" />
         </counts>
       </usages-collector>
     </session>
@@ -151,91 +145,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpXHR.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="28" selection-end-column="57" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/external/jquery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="27436" selection-start-line="1" selection-start-column="27436" selection-end-line="1" selection-end-column="27436" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="http://localhost:63342/html5/js/widget/widgetFileBrowser.js">
-          <provider selected="true" editor-type-id="httpFileEditor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/base/widgetLog.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/business/editor/dock/conf.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="99" column="1" lean-forward="true" selection-start-line="79" selection-end-line="99" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileOnChange.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="226">
+              <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -375,8 +289,8 @@
         <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetHttpXHR.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/conf.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
       </list>
     </option>
   </component>
@@ -806,12 +720,12 @@
       <workItem from="1536321245684" duration="5415000" />
       <workItem from="1536327531762" duration="21000" />
       <workItem from="1536328403065" duration="27000" />
-      <workItem from="1536379616469" duration="8096000" />
+      <workItem from="1536379616469" duration="11849000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1038402000" />
+    <option name="totallyTimeSpent" value="1042155000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -824,7 +738,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.19936457" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -832,7 +745,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.35494328" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" weight="0.39384118" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
@@ -855,7 +768,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.35494328" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.21393842" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
@@ -880,14 +793,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js</url>
-          <line>54</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1138,13 +1043,6 @@
     <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileBase.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="17306" column="93" lean-forward="true" selection-start-line="17306" selection-start-column="34" selection-end-line="17306" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/external/jsmind/js/jsmind.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -1211,16 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="http://localhost:63342/html5/js/widget/widgetFileBrowser.js">
-      <provider selected="true" editor-type-id="httpFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/external/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1228,10 +1116,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="5365" lean-forward="true" selection-start-line="5365" selection-end-line="5365" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="http://localhost:63342/html5/js/widget/widgetFileBrowser.js">
+      <provider selected="true" editor-type-id="httpFileEditor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
+        <state relative-caret-position="403">
+          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
         </state>
       </provider>
     </entry>

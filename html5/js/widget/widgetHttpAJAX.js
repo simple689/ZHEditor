@@ -7,7 +7,7 @@ WidgetHttpAJAX._enumOpenType = {
 }
 function jsonpCallback(data) {
 }
-WidgetHttpAJAX.createRequest = function (url, jsonObj, exec, funcSuccess, funcError) {
+WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcSuccess, funcError) {
     $.ajax({
         _exec : exec,
         _funcSuccess : funcSuccess,
@@ -34,13 +34,33 @@ WidgetHttpAJAX.createRequest = function (url, jsonObj, exec, funcSuccess, funcEr
         }
     });
 }
-WidgetHttpAJAX.createFd = function (url, jsonObj, exec, funcSuccess, funcError) {
+WidgetHttpAJAX.createPost = function (url, jsonObj, exec, funcSuccess, funcError) {
+    var jsonStr = JSON.stringify(jsonObj);
+    $.ajax({
+        _exec : exec,
+        _funcSuccess : funcSuccess,
+        _funcError : funcError,
+        url : url,
+        data : jsonStr,
+        type : "post",
+        cache: false,
+        success : function(data) {
+            WidgetLog.log("[ajax success]", data);
+            var jsonObj = JSON.parse(data);
+            WidgetLog.log(JSON.stringify(jsonObj, null, 2));
+        },
+        error: function (XHR, error, e) {
+            console.log("[ajax error]", error);
+            console.log("[ajax error]", e);
+        }
+    });
+}
+WidgetHttpAJAX.createFd = function (url, jsonObj, exec, funcSuccess, funcError) { // 暂时不用
     var formData = new FormData();
-    formData.append('path', "./test.json");
+    formData.append('path', "./");
+    formData.append('name', "test.json");
     var jsonStr = JSON.stringify(jsonObj);
     formData.append('file', jsonStr);
-    formData.append('originalFilename', "test.json");
-
     $.ajax({
         _exec : exec,
         _funcSuccess : funcSuccess,

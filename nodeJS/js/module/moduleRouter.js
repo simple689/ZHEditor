@@ -7,12 +7,12 @@ module.exports = ModuleRouter;
 
 ModuleRouter.handle = function(structServer) {
     var jsonObj = "success";
-    if (structServer.qs.module === "FileBrowser") {
+    if (structServer.params.module === "FileBrowser") {
         jsonObj = {
             "name": "Monkey"
         };
         structServer.funcSuccess(structServer, jsonObj);
-    } else {
+    } else if (structServer.params.module === "a") { // 暂时不用
         var form = new multiparty.Form();
         form.parse(structServer.req, function(err, fields, files) {
             Object.keys(fields).forEach(function(name) {
@@ -49,5 +49,10 @@ ModuleRouter.handle = function(structServer) {
             // })
             structServer.funcSuccess(structServer, jsonObj);
         });
+    } else {
+        jsonObj = {
+            "name": "aaa"
+        };
+        structServer.funcSuccess(structServer, jsonObj);
     }
 }
