@@ -8,26 +8,23 @@ function ModuleRouter() {
 module.exports = ModuleRouter;
 
 ModuleRouter.handle = function(structServer) {
+    structServer._jsonServer._module = structServer._jsonClient._module;
     var router = null;
-    if (structServer.params.module === "Mysql") {
+    if (structServer._jsonClient.module === "Mysql") {
         router = new ModuleMysql();
-    } else if (structServer.params.module === "FileSystem") {
+    } else if (structServer._jsonClient.module === "FileSystem") {
         router = new ModuleFileSystem();
-    } else if (structServer.params.module === "FormData") { // 暂时不用
+    } else if (structServer._jsonClient.module === "FormData") { // 暂时不用
         router = new ModuleFormData();
-    } else if (structServer.params.module === "FileBrowser") {
+    } else if (structServer._jsonClient.module === "FileBrowser") {
         router = new ModuleFileBrowser();
     } else {
-        var jsonObj = {
-            "module": "mismatch"
-        };
-        structServer.funcSuccess(structServer, jsonObj);
+        structServer._funcSuccess(structServer);
     }
     if (router) {
         router.handle(structServer);
     }
 }
-
 
 // var mysql = require('mysql');
 // var fs = require('fs');

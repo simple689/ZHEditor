@@ -6,15 +6,12 @@ function ModuleFormData() {
 module.exports = ModuleFormData;
 
 ModuleFormData.prototype.handle = function(structServer) {
-    var jsonObj = {
-        "module": "mismatch"
-    };
-    structServer.funcSuccess(structServer, jsonObj);
+    structServer._funcSuccess(structServer);
 }
 
     // var jsonObj = "success";
     // var form = new multiparty.Form();
-    // form.parse(structServer.req, function(err, fields, files) {
+    // form.parse(structServer._req, function(err, fields, files) {
     //     Object.keys(fields).forEach(function(name) {
     //         console.log('got field named ' + name);
     //     });
@@ -45,5 +42,5 @@ ModuleFormData.prototype.handle = function(structServer) {
     //     //         return reply({code:411,msg:"身份证正面照片格式不正确"});
     //     //     }
     //     // });
-    //     structServer.funcSuccess(structServer, jsonObj);
+    //     structServer._funcSuccess(structServer, jsonObj);
     // });

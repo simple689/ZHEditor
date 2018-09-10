@@ -12,15 +12,18 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
         console.log('[Server]req.url : ' + req.url);
         // var urls = req.url.split('?');
         var structServer = {
-            "server": this,
-            "req": req,
-            "res": res,
-            "params": null,
-            "funcSuccess": ModuleServer.routerHandleSuccess
+            "_server": this,
+            "_req": req,
+            "_res": res,
+            "_jsonClient": null,
+            "_jsonServer": {
+                "_module": "mismatch"
+            },
+            "_funcSuccess": ModuleServer.routerHandleSuccess
         };
         if (req.method === "GET") {
-            var params = url.parse(req.url, true).query;
-            structServer.params = params;
+            var jsonObj = url.parse(req.url, true).query;
+            structServer._jsonClient = jsonObj;
             ModuleRouter.handle(structServer);
         } else if (req.method === "POST") {
             var jsonStr = ""; // 暂存请求体信息
@@ -31,7 +34,7 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
             req.on('end', function() {
                 console.log("[Server]post jsonStr : ", jsonStr);
                 var jsonObj = JSON.parse(jsonStr); // 解析参数
-                structServer.params = jsonObj;
+                structServer._jsonClient = jsonObj;
                 ModuleRouter.handle(structServer);
             });
         }
@@ -40,16 +43,16 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
         console.log('[Server]running : http://' + httpCom + ':' + httpPort);
     })
 }
-ModuleServer.routerHandleSuccess = function(structServer, jsonObj) {
-    var jsonStr = JSON.stringify(jsonObj);
-    if (structServer.params.jsonpCallback) { // 请求为携带jsonp方法的http请求
-        structServer.res.writeHead(200, {'Content-Type':'application/json;charset=utf-8'});
-        var callback = structServer.params.jsonpCallback + '(' + jsonStr + ');';
-        structServer.res.end(callback);
+ModuleServer.routerHandleSuccess = function(structServer) {
+    var jsonStr = JSON.stringify(structServer._jsonServer);
+    if (structServer._jsonClient.jsonpCallback) { // 请求为携带jsonp方法的http请求
+        structServer._res.writeHead(200, {'Content-Type':'application/json;charset=utf-8'});
+        var callback = structServer._jsonClient.jsonpCallback + '(' + jsonStr + ');';
+        structServer._res.end(callback);
     } else {
         console.log('[Server]header : Access-Control-Allow-Origin');
-        structServer.res.setHeader('Access-Control-Allow-Origin', '*');
-        structServer.res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});
-        structServer.res.end(jsonStr);    
+        structServer._res.setHeader('Access-Control-Allow-Origin', '*');
+        structServer._res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});
+        structServer._res.end(jsonStr);    
     } 
 }

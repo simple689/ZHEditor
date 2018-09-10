@@ -5,11 +5,19 @@ function ModuleMysql() {
 module.exports = ModuleMysql;
 
 ModuleMysql.prototype.handle = function(structServer) {
-    var jsonObj = {
-        "module": "mismatch"
-    };
-    structServer.funcSuccess(structServer, jsonObj);
+    structServer._funcSuccess(structServer);
 }
+
+// // 从数据库拿数据
+// console.log('进来了！');
+// db.query('select * from news', function(err, data) {
+//     if (!err) {
+//         // res.writeHead(200, {'Content-Type':'text/plain'});
+//         // res.end('hello nodeJS 1');
+//         res.write(JSON.stringify(data));
+//         res.end();
+//     }
+// });
 
 // var db = mysql.createConnection({
 //     host : '127.0.0.1',
