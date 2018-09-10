@@ -64,7 +64,8 @@ WidgetMarkedDoc.prototype.initLeft = function (left) {
         widgetMarkedDoc._linkList.forEach(function(link) {
             link._widgetMarkedDoc = this;
             link.onclick = function () {
-                this._widgetMarkedDoc.hashChange(this.hash);
+                var hashStr = decodeURI(this.hash);
+                this._widgetMarkedDoc.hashChange(hashStr);
             }
         }, widgetMarkedDoc);
 
