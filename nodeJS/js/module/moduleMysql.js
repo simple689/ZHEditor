@@ -1,34 +1,15 @@
-// // function ModuleMysql() {
-// // }
-// // ModuleFileBrowser._enumOpenType = {
-// //     get: 0,
-// //     post: 1
-// // }
+var mysql = require('mysql');
 
-// // ModuleFileBrowser.getFileBrowser = function () {
-// //     // todo 从数据库获取
-// //     var item = WidgetHistory.getItem(WidgetKey._panelFileBrowser);
-// //     var jsonObj = JSON.parse('{}');
-// //     if (item) {
-// //         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
-// //     } else {
-// //         WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._jsonShow);
-// //         WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._jsonMouldShow);
-// //         WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._personalFoldShow);
+function ModuleMysql() {
+}
+module.exports = ModuleMysql;
 
-// //         WidgetHistory.addFileBrowserFolderList(jsonObj[WidgetKey._personalFoldShow], WidgetKey._jsonShow);
-// //         WidgetHistory.addFileBrowserFolderList(jsonObj[WidgetKey._personalFoldShow], WidgetKey._jsonMouldShow);
-
-// //         WidgetHistory.addFileBrowserFileList(jsonObj[WidgetKey._jsonShow], "demo", WidgetKey._extendJson);
-// //         WidgetHistory.addFileBrowserFileList(jsonObj[WidgetKey._jsonMouldShow], "demo", WidgetKey._extendJsonMd);
-
-// //         WidgetHistory.setFileBrowser(jsonObj);
-// //     }
-// //     return jsonObj;
-// // }
-
-
-
+ModuleMysql.prototype.handle = function(structServer) {
+    var jsonObj = {
+        "module": "mismatch"
+    };
+    structServer.funcSuccess(structServer, jsonObj);
+}
 
 // var db = mysql.createConnection({
 //     host : '127.0.0.1',
@@ -38,8 +19,6 @@
 //     database : 'ZHEditor'
 // });
 // db.connect();
-
-
 
 // // mysql
 // var table = 'node_user';
