@@ -36,7 +36,7 @@ ModuleMysql.prototype.add = function(structServer) {
     var table = structServer._jsonClient.table;
     var addSql = 'INSERT INTO ' + table +'(id,name,age) VALUES(0,?,?)';
     var addSql_Param = ['Wilson', 55];
-    db.query(addSql, addSql_Param, function(err, result) {
+    structServer._server._mysql.query(addSql, addSql_Param, function(err, result) {
         if (err) {
             console.log('[INSERT ERROR] - ', err.message);
             return;
