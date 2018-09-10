@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
       <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleServer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -726,12 +725,12 @@
       <workItem from="1536327531762" duration="21000" />
       <workItem from="1536328403065" duration="27000" />
       <workItem from="1536379616469" duration="11849000" />
-      <workItem from="1536543543919" duration="614000" />
+      <workItem from="1536543543919" duration="953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1042769000" />
+    <option name="totallyTimeSpent" value="1043108000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
