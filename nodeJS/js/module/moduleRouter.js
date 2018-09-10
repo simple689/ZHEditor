@@ -7,8 +7,12 @@ function ModuleRouter() {
 }
 module.exports = ModuleRouter;
 
+ModuleRouter.init = function(server) {
+    ModuleMysql.init(server);
+}
+
 ModuleRouter.handle = function(structServer) {
-    structServer._jsonServer._module = structServer._jsonClient._module;
+    structServer._jsonServer.module = structServer._jsonClient.module;
     var router = null;
     if (structServer._jsonClient.module === "Mysql") {
         router = new ModuleMysql();

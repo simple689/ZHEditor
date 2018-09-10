@@ -8,6 +8,7 @@ function ModuleServer() {
 module.exports = ModuleServer;
 
 ModuleServer.prototype.create = function(httpCom, httpPort) {
+    ModuleRouter.init(this);
     var httpObj = http.createServer(function(req, res) {
         console.log('[Server]req.url : ' + req.url);
         // var urls = req.url.split('?');
@@ -17,7 +18,7 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
             "_res": res,
             "_jsonClient": null,
             "_jsonServer": {
-                "_module": "mismatch"
+                "module": "mismatch"
             },
             "_funcSuccess": ModuleServer.routerHandleSuccess
         };
@@ -56,4 +57,3 @@ ModuleServer.routerHandleSuccess = function(structServer) {
         structServer._res.end(jsonStr);    
     } 
 }
-
