@@ -45,7 +45,7 @@ WidgetFileBrowser.prototype.initDefault = function () {
     this.init(this._divLeft, this._divMiddle, this._divRight);
 }
 WidgetFileBrowser.prototype.init = function (left, middle, right) {
-    WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
+    // WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
     middle.onmousedown = function (e) {
         var x = (e || event).clientX;
         middle.left = middle.offsetLeft;
