@@ -935,11 +935,14 @@ Renderer.prototype.html = function(html) {
 
 Renderer.prototype.heading = function(text, level, raw) {
   if (this.options.headerIds) {
+      var id = raw.toLowerCase().replace(/[^\w]+/g, '-'); // Add by Teddy
+      if (id === '-') {
+          id = raw;
+      }
     return '<h'
       + level
       + ' id="'
-      + this.options.headerPrefix
-      + raw.toLowerCase().replace(/[^\w]+/g, '-')
+      + id
       + '">'
       + text
       + '</h'
@@ -1041,7 +1044,8 @@ Renderer.prototype.link = function(href, title, text) {
   } catch (e) {
     return text;
   }
-  var out = '<a href="' + escape(href) + '"';
+  var hrefStr = decodeURI(href); // Add by Teddy
+  var out = '<a href="' + escape(hrefStr) + '"';
   if (title) {
     out += ' title="' + title + '"';
   }
