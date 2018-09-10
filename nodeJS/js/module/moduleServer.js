@@ -56,3 +56,4 @@ ModuleServer.routerHandleSuccess = function(structServer) {
         structServer._res.end(jsonStr);    
     } 
 }
+

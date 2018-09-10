@@ -8,6 +8,15 @@ ModuleMysql.prototype.handle = function(structServer) {
     structServer._funcSuccess(structServer);
 }
 
+// var db = mysql.createConnection({
+//     host : '127.0.0.1',
+//     port: '3306',
+//     user : 'teddy',
+//     password : '199068',
+//     database : 'ZHEditor'
+// });
+// db.connect();
+
 // // 从数据库拿数据
 // console.log('进来了！');
 // db.query('select * from news', function(err, data) {
@@ -18,15 +27,6 @@ ModuleMysql.prototype.handle = function(structServer) {
 //         res.end();
 //     }
 // });
-
-// var db = mysql.createConnection({
-//     host : '127.0.0.1',
-//     port: '3306',
-//     user : 'teddy',
-//     password : '199068',
-//     database : 'ZHEditor'
-// });
-// db.connect();
 
 // // mysql
 // var table = 'node_user';
