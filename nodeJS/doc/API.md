@@ -42,6 +42,8 @@
 | up       | 改 |
 | query    | 查 |
 
+http://127.0.0.1:6989/?module=mysql&func=query&table=node_user
+
 > 功能参数【特有】：
 
 | 参数名    | 类型      | 必填 | 默认值 | 说明      | 最低版本 |

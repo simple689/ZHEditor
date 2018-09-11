@@ -16,7 +16,7 @@ ModuleRouter.init = function(server) {
 
 ModuleRouter.handle = function(structServer) {
     var jsonClientStr = JSON.stringify(structServer._jsonClient);
-    console.log('[Server]jsonClient : ', jsonClientStr);
+    console.log('[server]jsonClient : ', jsonClientStr);
     if (structServer._jsonClient.module) {
         structServer._jsonServer.module = structServer._jsonClient.module;
     }

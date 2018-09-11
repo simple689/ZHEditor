@@ -10,11 +10,13 @@ function ModuleServer() {
 
 ModuleServer.prototype.create = function(httpCom, httpPort) {
     ModuleRouter.init(this);
-    var httpObj = http.createServer(function(req, res) {
+    var httpServer = new http.Server();
+    httpServer._moduleServer = this;
+    httpServer.on("request", function(req,res) {
         console.log('\n[Server]req.url : ' + req.url);
         // var urls = req.url.split('?');
         var structServer = {
-            "_server": this,
+            "_server": this._moduleServer,
             "_req": req,
             "_res": res,
             "_jsonClient": null,
@@ -41,7 +43,7 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
             });
         }
     });
-    httpObj.listen(httpPort, httpCom, function() {
+    httpServer.listen(httpPort, httpCom, function() {
         console.log('[Server]running : http://' + httpCom + ':' + httpPort);
     })
 }

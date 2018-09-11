@@ -14,6 +14,12 @@ ModuleMysql.init = function(server) {
         database : 'ZHEditor'
     });
     server._mysql.connect();
+
+    server._mysql.query('SELECT *', function (err, result) {
+        if (err)
+            console.log("[Mysql]error : ", err.message);
+        console.log("[Mysql]result : ", result);
+    });
 }
 ModuleMysql.exit = function(server) {
     server._mysql.end();
@@ -30,39 +36,51 @@ ModuleMysql.prototype.handle = function(structServer) {
     } else if (func === "query") {
         this.query(structServer);
     }
-    structServer._funcSuccess(structServer);
+    // structServer._funcSuccess(structServer);
+}
+// sql
+ModuleMysql.prototype.sql = function(structServer) {
+    // structServer._server._mysql.query(structServer._jsonClient._sql, addSql_Param, function(err, result) {
+    //     if (err) {
+    //         console.log('[INSERT ERROR] - ', err.message);
+    //         return;
+    //     }       
+    //     console.log('INSERT:', result);       
+    // });
+
+    // structServer._server._mysql.query()
 }
 // 增、删、改、查
 ModuleMysql.prototype.add = function(structServer) {
-    var table = structServer._jsonClient.table;
-    var sql = 'INSERT INTO ' + table + '(id,name,age) VALUES(0,?,?)';
+    // var table = structServer._jsonClient.table;
+    // var sql = 'INSERT INTO ' + table + '(id,name,age) VALUES(0,?,?)';
 
 
-    var addSql_Param = ['Wilson', 55];
-    structServer._server._mysql.query(sql, addSql_Param, function(err, result) {
-        if (err) {
-            console.log('[INSERT ERROR] - ', err.message);
-            return;
-        }       
-        console.log('INSERT:', result);       
-    });
+    // var addSql_Param = ['Wilson', 55];
+    // structServer._server._mysql.query(sql, addSql_Param, function(err, result) {
+    //     if (err) {
+    //         console.log('[INSERT ERROR] - ', err.message);
+    //         return;
+    //     }       
+    //     console.log('INSERT:', result);       
+    // });
 }
 ModuleMysql.prototype.del = function(structServer) {
-    var sql = 'DELETE FROM ' + table + 'WHERE ' + key + '=' + value;
+//     var sql = 'DELETE FROM ' + table + 'WHERE ' + key + '=' + value;
 
 
-db.query(userDelSql, function(err, result) {
-    if (err) {
-        console.log('[DELETE ERROR] - ', err.message);
-        return;
-    }       
-    console.log('-------------DELETE--------------');
-    console.log('DELETE affectedRows', result.affectedRows);
-    console.log('&&&&&&&&&&&&&&&&&'); 
-});
+// db.query(userDelSql, function(err, result) {
+//     if (err) {
+//         console.log('[DELETE ERROR] - ', err.message);
+//         return;
+//     }       
+//     console.log('-------------DELETE--------------');
+//     console.log('DELETE affectedRows', result.affectedRows);
+//     console.log('&&&&&&&&&&&&&&&&&'); 
+// });
 }
 ModuleMysql.prototype.up = function(structServer) {
-// var userModSql = 'UPDATE node_user SET name = ?,age = ? WHERE id = ?';
+//     var sql = 'UPDATE node_user SET name = ?,age = ? WHERE id = ?';
 // var userModSql_Params = ['Hello World',99,7];
 // db.query(userModSql, userModSql_Params, function(err, result) {
 //     if (err) {
@@ -75,39 +93,14 @@ ModuleMysql.prototype.up = function(structServer) {
 // });
 }
 ModuleMysql.prototype.query = function(structServer) {
-// var userGetSql = 'SELECT * FROM node_user';
-// db.query(userGetSql, function(err, result) {
-//     if (err) {
-//         console.log('[SELECT ERROR] - ', err.message);
-//         return;
-//     }       
-//     console.log('---------------SELECT----------------');
-//     console.log(result);       
-//     console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'); 
-// });
+    var sql = 'SELECT * FROM ' + structServer._jsonClient.table;
+    console.log("[Mysql]query : ", sql);
+    structServer._server._mysql.query(sql, function(err, result) {
+        if (err) {
+            console.log("[Mysql]error : ", err.message);
+            return;
+        }
+        console.log("[Mysql]result : ", result);
+        structServer._funcSuccess(structServer);
+    });
 }
-
-// db.query('select * from news', function(err, data) {
-//     if (!err) {
-//         // res.writeHead(200, {'Content-Type':'text/plain'});
-//         // res.end('hello nodeJS 1');
-//         res.write(JSON.stringify(data));
-//         res.end();
-//     }
-// });
-
-// var table = 'node_user';
-// db.query( 
-//     'SELECT * FROM ' + table, 
-//     function selectCb(err, result, fields) { 
-//         if (err) {
-//             console.log('%s', err)
-//             // throw err;
-//         } 
-//         if (result) {
-//             for (var i = 0; i < result.length; i++) {
-//                 console.log("%d\t%s\t%s", result[i].id, result[i].name, result[i].age);
-//             }
-//         }   
-//     } 
-// );
