@@ -75,6 +75,7 @@ WidgetMarkedDoc.prototype.initLeft = function (left) {
 WidgetMarkedDoc.prototype.initRight = function (right) {
     this._divRightContent = WidgetHtml.addDiv(right);
     this._divRightContent.classList.add("widgetMarkedDocRightContent");
+    this._divRightContent.classList.add("markdown-body");
 };
 WidgetMarkedDoc.prototype.hashChange = function(elementHash) {
     var hash = elementHash;
