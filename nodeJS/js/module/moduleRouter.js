@@ -36,3 +36,7 @@ ModuleRouter.handle = function(structServer) {
         router.handle(structServer);
     }
 }
+
+ModuleRouter.test = function() {
+    ModuleFileSystem.readDir('/res/fileBrowser');
+}

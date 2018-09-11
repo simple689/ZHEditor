@@ -9,6 +9,7 @@ function ModuleServer() {
 }
 
 ModuleServer.prototype.create = function(httpCom, httpPort) {
+    ModuleRouter.test();
     ModuleRouter.init(this);
     var httpServer = new http.Server();
     httpServer._moduleServer = this;
