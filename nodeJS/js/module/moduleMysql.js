@@ -38,59 +38,41 @@ ModuleMysql.prototype.handle = function(structServer) {
     }
     // structServer._funcSuccess(structServer);
 }
-// sql
-ModuleMysql.prototype.sql = function(structServer) {
-    // structServer._server._mysql.query(structServer._jsonClient._sql, addSql_Param, function(err, result) {
-    //     if (err) {
-    //         console.log('[INSERT ERROR] - ', err.message);
-    //         return;
-    //     }       
-    //     console.log('INSERT:', result);       
-    // });
-
-    // structServer._server._mysql.query()
-}
 // 增、删、改、查
 ModuleMysql.prototype.add = function(structServer) {
-    // var table = structServer._jsonClient.table;
-    // var sql = 'INSERT INTO ' + table + '(id,name,age) VALUES(0,?,?)';
-
-
-    // var addSql_Param = ['Wilson', 55];
-    // structServer._server._mysql.query(sql, addSql_Param, function(err, result) {
-    //     if (err) {
-    //         console.log('[INSERT ERROR] - ', err.message);
-    //         return;
-    //     }       
-    //     console.log('INSERT:', result);       
-    // });
+    var sql = 'INSERT INTO ' + structServer._jsonClient.table + '(id,name,age) VALUES(0,?,?)';
+    console.log("[Mysql]add : ", sql);
+    var sqlParam = ['Wilson', 55];
+    structServer._server._mysql.query(sql, sqlParam, function(err, result) {
+        if (err) {
+            console.log("[Mysql]error : ", err.message);
+            return;
+        }       
+        console.log("[Mysql]result : ", result);
+    });
 }
 ModuleMysql.prototype.del = function(structServer) {
-//     var sql = 'DELETE FROM ' + table + 'WHERE ' + key + '=' + value;
-
-
-// db.query(userDelSql, function(err, result) {
-//     if (err) {
-//         console.log('[DELETE ERROR] - ', err.message);
-//         return;
-//     }       
-//     console.log('-------------DELETE--------------');
-//     console.log('DELETE affectedRows', result.affectedRows);
-//     console.log('&&&&&&&&&&&&&&&&&'); 
-// });
+    var sql = 'DELETE FROM ' + structServer._jsonClient.table + 'WHERE ' + key + '=' + value;
+    console.log("[Mysql]del : ", sql);
+    structServer._server._mysql.query(sql, function(err, result) {
+        if (err) {
+            console.log("[Mysql]error : ", err.message);
+            return;
+        }       
+        console.log("[Mysql]result : ", result);
+    });
 }
 ModuleMysql.prototype.up = function(structServer) {
-//     var sql = 'UPDATE node_user SET name = ?,age = ? WHERE id = ?';
-// var userModSql_Params = ['Hello World',99,7];
-// db.query(userModSql, userModSql_Params, function(err, result) {
-//     if (err) {
-//         console.log('[UPDATE ERROR] - ', err.message);
-//         return;
-//     }       
-//     console.log('----------UPDATE-------------');
-//     console.log('UPDATE affectedRows', result.affectedRows);
-//     console.log('******************************');
-// });
+    var sql = 'UPDATE ' + structServer._jsonClient.table + 'SET name = ?,age = ? WHERE id = ?';
+    console.log("[Mysql]add : ", sql);
+    var sqlParam = ['Hello World',99,7];
+    structServer._server._mysql.query(sql, sqlParam, function(err, result) {
+        if (err) {
+            console.log("[Mysql]error : ", err.message);
+            return;
+        }       
+        console.log("[Mysql]result : ", result);
+    });
 }
 ModuleMysql.prototype.query = function(structServer) {
     var sql = 'SELECT * FROM ' + structServer._jsonClient.table;
