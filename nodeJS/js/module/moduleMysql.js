@@ -1,8 +1,9 @@
 var mysql = require('mysql');
 
+module.exports = ModuleMysql;
+
 function ModuleMysql() {
 }
-module.exports = ModuleMysql;
 
 ModuleMysql.init = function(server) {
     server._mysql = mysql.createConnection({

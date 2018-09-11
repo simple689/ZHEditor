@@ -3,14 +3,15 @@ var url = require('url');
 
 const ModuleRouter = require('./moduleRouter.js');
 
+module.exports = ModuleServer;
+
 function ModuleServer() {
 }
-module.exports = ModuleServer;
 
 ModuleServer.prototype.create = function(httpCom, httpPort) {
     ModuleRouter.init(this);
     var httpObj = http.createServer(function(req, res) {
-        console.log('[Server]req.url : ' + req.url);
+        console.log('\n[Server]req.url : ' + req.url);
         // var urls = req.url.split('?');
         var structServer = {
             "_server": this,
@@ -33,7 +34,7 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
                 // console.log("chunk : ", chunk);
             });
             req.on('end', function() {
-                console.log("[Server]post jsonStr : ", jsonStr);
+                // console.log("[Server]post jsonStr : ", jsonStr);
                 var jsonObj = JSON.parse(jsonStr); // 解析参数
                 structServer._jsonClient = jsonObj;
                 ModuleRouter.handle(structServer);
@@ -46,12 +47,13 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
 }
 ModuleServer.routerHandleSuccess = function(structServer) {
     var jsonStr = JSON.stringify(structServer._jsonServer);
+    console.log('[Server]jsonServer : ', jsonStr);
     if (structServer._jsonClient.jsonpCallback) { // 请求为携带jsonp方法的http请求
         structServer._res.writeHead(200, {'Content-Type':'application/json;charset=utf-8'});
         var callback = structServer._jsonClient.jsonpCallback + '(' + jsonStr + ');';
         structServer._res.end(callback);
     } else {
-        console.log('[Server]header : Access-Control-Allow-Origin');
+        // console.log('[Server]header : Access-Control-Allow-Origin');
         structServer._res.setHeader('Access-Control-Allow-Origin', '*');
         structServer._res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});
         structServer._res.end(jsonStr);    

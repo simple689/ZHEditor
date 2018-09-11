@@ -1,9 +1,10 @@
 var multiparty = require('multiparty');
 var fs = require('fs');
 
+module.exports = ModuleFormData;
+
 function ModuleFormData() {
 }
-module.exports = ModuleFormData;
 
 ModuleFormData.prototype.handle = function(structServer) {
     structServer._funcSuccess(structServer);

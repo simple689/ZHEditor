@@ -9,7 +9,18 @@
 <!-- /TOC -->
 
 # 模块接口
-module
+模块说明：
+| 参数 | 类型 |
+| -   | -:   |
+| module | string |
+
+参数说明【module】：
+| 赋值 | 功能 |
+| -   | -:   |
+| Mysql |  |
+| FileSystem |  |
+| FormData |  |
+| FileBrowser |  |
 
 ---
 [返回目录](#catalog)

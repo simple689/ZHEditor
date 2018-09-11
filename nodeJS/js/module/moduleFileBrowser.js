@@ -1,6 +1,7 @@
+module.exports = ModuleFileBrowser;
+
 function ModuleFileBrowser() {
 }
-module.exports = ModuleFileBrowser;
 
 ModuleFileBrowser.prototype.handle = function(structServer) {
     structServer._funcSuccess(structServer);

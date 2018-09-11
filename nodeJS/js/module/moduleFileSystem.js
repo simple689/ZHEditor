@@ -1,8 +1,9 @@
 var fs = require('fs');
 
+module.exports = ModuleFileSystem;
+
 function ModuleFileSystem() {
 }
-module.exports = ModuleFileSystem;
 
 ModuleFileSystem.prototype.handle = function(structServer) {
     // // 从文件拿数据
