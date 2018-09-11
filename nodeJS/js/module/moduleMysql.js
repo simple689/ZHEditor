@@ -20,14 +20,14 @@ ModuleMysql.exit = function(server) {
 }
 
 ModuleMysql.prototype.handle = function(structServer) {
-    var type = structServer._jsonClient.type;
-    if (type === "add") {
+    var func = structServer._jsonClient.func;
+    if (func === "add") {
         this.add(structServer);
-    } else if (type === "del") {
+    } else if (func === "del") {
         this.del(structServer);
-    } else if (type === "up") {
+    } else if (func === "up") {
         this.up(structServer);
-    } else if (type === "query") {
+    } else if (func === "query") {
         this.query(structServer);
     }
     structServer._funcSuccess(structServer);
