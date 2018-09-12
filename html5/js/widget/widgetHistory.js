@@ -88,11 +88,11 @@ WidgetHistory.getFileBrowser = function () {
         APIData.fileBrowser.addFolder(jsonObj, APIKey._jsonMouldShow);
         APIData.fileBrowser.addFolder(jsonObj, APIKey._personalFoldShow);
 
-        APIData.fileBrowser.addFolderList(jsonObj[APIKey._personalFoldShow], APIKey._jsonShow);
-        APIData.fileBrowser.addFolderList(jsonObj[APIKey._personalFoldShow], APIKey._jsonMouldShow);
+        APIData.fileBrowser.addFolder(jsonObj[APIKey._personalFoldShow], APIKey._jsonShow);
+        APIData.fileBrowser.addFolder(jsonObj[APIKey._personalFoldShow], APIKey._jsonMouldShow);
 
-        APIData.fileBrowser.addFileList(jsonObj[APIKey._jsonShow], "demo", APIKey._extendJson);
-        APIData.fileBrowser.addFileList(jsonObj[APIKey._jsonMouldShow], "demo", APIKey._extendJsonMd);
+        APIData.fileBrowser.addFile(jsonObj[APIKey._jsonShow], "demo.json", APIKey._extendJson);
+        APIData.fileBrowser.addFile(jsonObj[APIKey._jsonMouldShow], "demo.jsonMd", APIKey._extendJsonMd);
 
         WidgetHistory.setFileBrowser(jsonObj);
     }

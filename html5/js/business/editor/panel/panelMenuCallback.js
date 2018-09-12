@@ -107,7 +107,7 @@ PanelMenuCallback.onClickSaveAsButtonSave = function () {
     }
 
     var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(folder);
-    APIData.fileBrowser.addFileList(jsonObjFolder, fileName, extend);
+    APIData.fileBrowser.addFile(jsonObjFolder, fileName, extend);
     WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
 
     WidgetHistory.setFileJsonMould(folder + fileName + extend, widgetDialog._jsonObjCtrl._obj);

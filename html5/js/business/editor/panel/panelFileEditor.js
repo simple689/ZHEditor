@@ -39,10 +39,9 @@ PanelFileEditor.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
     var obj = WidgetFileBrowser._jsonFileBrowser[WidgetKey._json];
 
-    var title = getFileTitle(fileName);
     var extend = getFileExtend(fileName);
-    if (!WidgetHistory.existFileBrowserFile(obj, title, extend)) {
-        APIData.fileBrowser.addFileList(obj, title, extend);
+    if (!WidgetHistory.existFileBrowserFile(obj, fileName, extend)) {
+        APIData.fileBrowser.addFile(obj, fileName, extend);
         WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
     }
     panelFileBrowser._widgetFileBrowser.refreshFileBrowserRight(obj);
