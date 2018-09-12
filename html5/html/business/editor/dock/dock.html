@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="../../../../css/widget/widgetTab.css">
     <link rel="stylesheet" href="../../../../css/widget/widgetTableHtml.css">
     <link rel="stylesheet" href="../../../../css/widget/widgetUser.css">
+    <link rel="stylesheet" href="../../../../css/widget/widgetUserLogin.css">
     <!-- [css] business -->
     <link rel="stylesheet" href="../../../../css/business/editor/panel/panelFileBrowser.css">
     <!-- [js] API -->
@@ -92,10 +93,11 @@
     <script src="../../../../js/widget/widgetPanelFileBase.js"></script>
     <script src="../../../../js/widget/widgetSearch.js"></script>
     <script src="../../../../js/widget/widgetTab.js"></script>
+    <script src="../../../../js/widget/widgetUserLogin.js"></script>
 
     <!-- [js] business -->
     <script src="../../../../js/business/editor/dock/conf.js"></script>
-    <!--<script src="../../../../js/business/editor/dock/dock.js"></script>-->
+    <script src="../../../../js/business/editor/dock/dock.js"></script>
     <script src="../../../../js/business/editor/dock/util.js"></script>
     <script src="../../../../js/business/editor/menu/menuFileEditor.js"></script>
     <script src="../../../../js/business/editor/menu/menuFileMould.js"></script>
@@ -109,29 +111,23 @@
     <script src="../../../../js/business/editor/panel/panelToolBar.js"></script>
     <!--<script src="../../../../js/business/editor/panel/panelView.js"></script>-->
 </head>
+<body onload="initWidgetDock()" onbeforeunload="onBeforeUnload()">
+<div class="panelCenter" id="panelCenter"></div>
 
-<body>
-<div>
-    <iframe src="./a.html" width="100%" height="800px"></iframe>
-</div>
+<div class="panelFixed" id="panelFixedTop" style="height:60px;"></div>
+<div class="panelFixed" id="panelFixedBottom" style="height:27px;"></div>
+
+<div class="panelFloat" id="panelFileMould"></div>
+<div class="panelFloat" id="panelFileLink"></div>
+
+<!--<div class="panelFloat" id="panelFileEditorMind"></div>-->
+<!--<div class="panelFloat" id="panelFileMouldMind"></div>-->
+<!--<div class="panelFloat" id="panelFileLinkMind"></div>-->
+
+<div class="panelFloat" id="panelFileBrowser"></div>
+
+<!--<div class="panelFloat" id="panelTest"></div>-->
+<!--<div class="panelFloat" id="panelView"></div>-->
+
 </body>
-<!--<body onload="initWidgetDock()" onbeforeunload="onBeforeUnload()">-->
-<!--<div class="panelCenter" id="panelCenter"></div>-->
-
-<!--<div class="panelFixed" id="panelFixedTop" style="height:60px;"></div>-->
-<!--<div class="panelFixed" id="panelFixedBottom" style="height:27px;"></div>-->
-
-<!--<div class="panelFloat" id="panelFileMould"></div>-->
-<!--<div class="panelFloat" id="panelFileLink"></div>-->
-
-<!--&lt;!&ndash;<div class="panelFloat" id="panelFileEditorMind"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="panelFloat" id="panelFileMouldMind"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="panelFloat" id="panelFileLinkMind"></div>&ndash;&gt;-->
-
-<!--<div class="panelFloat" id="panelFileBrowser"></div>-->
-
-<!--&lt;!&ndash;<div class="panelFloat" id="panelTest"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="panelFloat" id="panelView"></div>&ndash;&gt;-->
-
-<!--</body>-->
 </html>
