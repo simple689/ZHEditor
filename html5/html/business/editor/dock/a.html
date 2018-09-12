@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="./a.css">
+    <style>
+        .container {
+            width: 310px;
+            margin: 100px auto;
+            background: red;
+        }
+        input {
+            display: block;
+            width: 290px;
+            line-height: 40px;
+            margin: 10px 0;
+            padding: 0 10px;
+            outline: none;
+            border: 1px solid #c8cccf;
+            border-radius: 4px;
+            color: #6a6f77;
+        }
+        #msg {
+            width: 100%;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+        }
+        a:link, a:visited, a:hover, a:active {
+            margin-left: 100px;
+            color: #0366D6;
+        }
+    </style>
+    <script type="text/javascript" src="./a.js"></script>
+</head>
+<body>
+<div class="container">
+    <input value="admin">
+    <input value="1234567890" type="password">
+    <div id="captcha" style="position: relative">
+        <canvas width="310" height="155" class="block"></canvas>
+        <div class="refreshIcon"></div>
+        <canvas width="62" height="155" class="block"></canvas>
+        <div class="sliderContainer">
+            <div class="sliderMask">
+                <div class="slider">
+                    <span class="sliderIcon"></span>
+                </div>
+            </div>
+            <span class="sliderText">向右滑动滑块填充拼图</span>
+        </div>
+    </div>
+    <div id="msg"></div>
+</div>
+
+<script type="text/javascript">
+    jigsaw.init(document.getElementById('captcha'), function () {
+        document.getElementById('msg').innerHTML = '登录成功！'
+    })
+</script>
+
+
+</body>
+</html>
