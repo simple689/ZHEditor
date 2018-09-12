@@ -3,6 +3,9 @@
 function APIKey() {
 }
 
+APIKey._module = "module";
+APIKey._func = "func";
+
 APIKey._fileList = "fileList";
 APIKey._folderList = "folderList";
 // WidgetKey._fileName = "fileName";
@@ -19,7 +22,6 @@ APIKey._extendJson = ".json";
 APIKey._extendJsonMd = ".jsonMd";
 
 APIKey._type = "type";
-APIKey._module = "module";
 APIKey._data = "data";
 // WidgetKey._title = "title";
 APIKey._extend = "extend";

@@ -3,6 +3,8 @@ function PanelMenu() {
 
 PanelMenu.prototype.init = function () {
     // var panelMenu = document.getElementById("panelMenu");
+    var panelMenuWidgetUser = document.getElementById("panelMenuWidgetUser");
+    WidgetUser.init(panelMenuWidgetUser);
     // 根据用户使用设备调整按钮的可见性
     switch (WidgetUser._client) {
         case WidgetUser._enumClientType.appPc:

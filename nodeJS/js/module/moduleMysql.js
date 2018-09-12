@@ -26,7 +26,7 @@ ModuleMysql.exit = function(server) {
 }
 
 ModuleMysql.prototype.handle = function(structServer) {
-    var func = structServer._jsonClient.func;
+    var func = structServer._jsonClient[APIKey._func];
     if (func === "add") {
         this.add(structServer);
     } else if (func === "del") {
