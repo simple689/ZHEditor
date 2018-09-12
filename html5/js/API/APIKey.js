@@ -19,6 +19,7 @@ APIKey._extendJson = ".json";
 APIKey._extendJsonMd = ".jsonMd";
 
 APIKey._type = "type";
+APIKey._module = "module";
 APIKey._data = "data";
 // WidgetKey._title = "title";
 APIKey._extend = "extend";
