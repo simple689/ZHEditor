@@ -29,7 +29,9 @@ WidgetUserLogin.prototype.create = function (elementParent) {
 }
 
 WidgetUserLogin.prototype.init = function () {
-    jigsaw.init(document.getElementById('captcha'), function () {
-        document.getElementById('msg').innerHTML = '登录成功！'
+    var widgetVerify = new WidgetVerify();
+    widgetVerify.create(this._divVerify, function () {
+        // document.getElementById('msg').innerHTML = '登录成功！'
+        console.log("verify ok");
     })
 };
