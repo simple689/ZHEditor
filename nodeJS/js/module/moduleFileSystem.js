@@ -1,7 +1,7 @@
-module.exports = ModuleFileSystem;
-
 var fs = require('fs');
 var path = require('path') 
+
+module.exports = ModuleFileSystem;
 
 function ModuleFileSystem() {
 }
@@ -23,17 +23,31 @@ ModuleFileSystem.prototype.handle = function(structServer) {
     structServer._funcSuccess(structServer);
 }
 
-ModuleFileSystem.getDirFiles = function(readPath) {
-    return ModuleFileSystem.getDirFilesFromRoot(ModuleFileSystem._runPath + readPath);
+// [demo] getDirFiles
+// ModuleFileSystem.getDirFiles(readPath, function(err, files) {
+//     if (err) {
+//         console.error(err);
+//         return;
+//     }
+//     files.forEach(function (file) {
+//         var filePath = readPath + '/' + file;
+//     });
+// });
+ModuleFileSystem.getDirFiles = function(readPath, callback) {
+    return ModuleFileSystem.getDirFilesFromRoot(ModuleFileSystem._runPath + readPath, callback);
 }
-ModuleFileSystem.getDirFilesFromRoot = function(readPath) {
-    fs.readdir(readPath, function (err, files) {
-        if (err) {
-            console.error(err);
-            return null;
-        }
-        return files;
+ModuleFileSystem.getDirFilesFromRoot = function(readPath, callback) {
+    var normalizePath = path.normalize(readPath);
+    fs.readdir(normalizePath, function (err, files) {
+        callback(err, files);
     });
+}
+ModuleFileSystem.getDirFilesSync = function(readPath) {
+    return ModuleFileSystem.getDirFilesFromRootSync(ModuleFileSystem._runPath + readPath);
+}
+ModuleFileSystem.getDirFilesFromRootSync = function(readPath) {
+    var normalizePath = path.normalize(readPath);
+    return fs.readdirSync(normalizePath);
 }
 ModuleFileSystem.getStat = function(readPath) {
     return ModuleFileSystem.getStatFromRoot(ModuleFileSystem._runPath + readPath);
@@ -47,10 +61,4 @@ ModuleFileSystem.isDir = function(stat) {
 }
 ModuleFileSystem.isFile = function(stat) {
     return stat.isFile();
-}
-
-ModuleFileSystem.a = function(readPath) {
-    files.forEach(function (file) {
-        var filePath = path.normalize(ModuleFileSystem._runPath + readPath + '/' + file);
-    });
 }

@@ -1,9 +1,9 @@
 const APIServer = require('../API/APIServer.js');
 
-const ModuleMysql = require('./moduleMysql.js');
-const ModuleFileSystem = require('./moduleFileSystem.js');
-const ModuleFormData = require('./moduleFormData.js');
-const ModuleFileBrowser = require('./moduleFileBrowser.js');
+const ModuleMysql = require('../module/moduleMysql.js');
+const ModuleFileSystem = require('../module/moduleFileSystem.js');
+const ModuleFormData = require('../module/moduleFormData.js');
+const ModuleFileBrowser = require('../module/moduleFileBrowser.js');
 
 module.exports = ModuleRouter;
 

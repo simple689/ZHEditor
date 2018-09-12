@@ -1,7 +1,10 @@
-module.exports = ModuleFileBrowser;
-
 const APIData = require('../API/APIData.js');
 const APIKey = require('../API/APIKey.js');
+
+const ModuleFileSystem = require('./moduleFileSystem.js');
+const Util = require('../base/util.js');
+
+module.exports = ModuleFileBrowser;
 
 function ModuleFileBrowser() {
 }
@@ -10,17 +13,26 @@ ModuleFileBrowser._jsonFileBroser = null;
 
 ModuleFileBrowser.init = function(server) {
     var jsonObj = {};
-    APIData.fileBrowser.addFolder(jsonObj, APIKey._jsonShow);
-    APIData.fileBrowser.addFolder(jsonObj, APIKey._jsonMouldShow);
+    ModuleFileBrowser.initDir(server._conf._pathResFileBrowser, jsonObj);
     APIData.fileBrowser.addFolder(jsonObj, APIKey._personalFoldShow);
-
-    APIData.fileBrowser.addFolderList(jsonObj[APIKey._personalFoldShow], APIKey._jsonShow);
-    APIData.fileBrowser.addFolderList(jsonObj[APIKey._personalFoldShow], APIKey._jsonMouldShow);
-
-    APIData.fileBrowser.addFileList(jsonObj[APIKey._jsonShow], "demo", APIKey._extendJson);
-    APIData.fileBrowser.addFileList(jsonObj[APIKey._jsonMouldShow], "demo", APIKey._extendJsonMd);
-
     ModuleFileBrowser._jsonFileBroser = jsonObj;
+}
+ModuleFileBrowser.initDir = function(readPath, jsonObj) {
+    var files = ModuleFileSystem.getDirFilesSync(readPath);
+    if (!files) {
+        return;
+    }
+    files.forEach(function (file) {
+        var filePath = readPath + '/' + file;
+        var stat = ModuleFileSystem.getStat(filePath);
+        if (ModuleFileSystem.isDir(stat)) {
+            var jsonObjFold = APIData.fileBrowser.addFolder(jsonObj, file);
+            ModuleFileBrowser.initDir(filePath, jsonObjFold);
+        } else if (ModuleFileSystem.isFile(stat)) {
+            var extend = Util.getFileExtend(file);
+            APIData.fileBrowser.addFile(jsonObj, file, extend);
+        }
+    });
 }
 
 ModuleFileBrowser.prototype.handle = function(structServer) {

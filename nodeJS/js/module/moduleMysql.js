@@ -1,6 +1,6 @@
-module.exports = ModuleMysql;
-
 var mysql = require('mysql');
+
+module.exports = ModuleMysql;
 
 function ModuleMysql() {
 }
