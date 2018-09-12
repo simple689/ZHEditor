@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
+      <change afterPath="$PROJECT_DIR$/js/API/APIData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/API/APIKey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/API/APIServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/APIServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/dock/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/dock/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelMenuCallback.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelMenuCallback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelToolBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelToolBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/base/widgetKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/base/widgetKey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnClick.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonOnClick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/widgetFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/widgetFile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileBrowser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileSystem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFormData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFormData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleServer.js" afterDir="false" />
     </list>
@@ -101,8 +122,8 @@
     <session id="-1152963513">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
-          <entry key="project.open.time.11" value="2" />
+          <entry key="project.closed" value="16" />
+          <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.15" value="1" />
@@ -111,28 +132,28 @@
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="63" />
-          <entry key="html" value="102" />
-          <entry key="js" value="2828" />
+          <entry key="html" value="112" />
+          <entry key="js" value="2941" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="63" />
-          <entry key="HTML" value="102" />
-          <entry key="JavaScript" value="2828" />
+          <entry key="HTML" value="112" />
+          <entry key="JavaScript" value="2941" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="9" />
           <entry key="html" value="5" />
-          <entry key="js" value="45" />
+          <entry key="js" value="51" />
           <entry key="ts" value="7" />
         </counts>
       </usages-collector>
@@ -140,7 +161,7 @@
         <counts>
           <entry key="CSS" value="9" />
           <entry key="HTML" value="5" />
-          <entry key="JavaScript" value="45" />
+          <entry key="JavaScript" value="51" />
           <entry key="TypeScript" value="7" />
         </counts>
       </usages-collector>
@@ -152,28 +173,60 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/widget/widgetMarkedDoc.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetMarkedDoc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="180">
               <caret line="107" column="19" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/external/marked/unfetch.umd.js">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+            <state relative-caret-position="280">
+              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/API/APIClient.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/base/widgetKey.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/API/APIKey.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/API/APIServer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -190,8 +243,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
+            <state relative-caret-position="213">
+              <caret line="35" column="75" lean-forward="true" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -199,7 +252,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/external/marked/github-markdown.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="240">
               <caret line="16" column="22" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="22" />
             </state>
           </provider>
@@ -218,21 +271,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>overflow</find>
-      <find>_divRight</find>
-      <find>_widgetFileJsonMould</find>
-      <find>window.event</find>
-      <find>window.localStorage</find>
-      <find>_localStorage</find>
-      <find>confWebRoot</find>
-      <find>= {</find>
-      <find>_addContentType</find>
-      <find>_clientType</find>
-      <find>_onContextMenuType</find>
-      <find>_inputType</find>
-      <find>WidgetHtml._inputType</find>
-      <find>._enumI</find>
-      <find>._enum</find>
       <find>: 0,</find>
       <find>switch</find>
       <find>createRequestAjax</find>
@@ -248,23 +286,23 @@
       <find>widgetMarkedDocRightContent</find>
       <find>_divRightContent</find>
       <find>forEach</find>
+      <find>addFileBrowserFolder</find>
+      <find>APIServer</find>
+      <find>APIData</find>
+      <find>WidgetHistory.addFileBrowserFolder</find>
+      <find>WidgetHistory.addFileBrowserFile</find>
+      <find>APIData.fileBrowserAddFolder</find>
+      <find>APIData.fileBrowserAddFile</find>
+      <find>WidgetKey._type</find>
+      <find>WidgetKey._folderList</find>
+      <find>WidgetKey._fileList</find>
+      <find>WidgetKey._extend</find>
+      <find>WidgetKey._folder</find>
+      <find>WidgetKey._jsonShow</find>
+      <find>WidgetKey._jsonMouldShow</find>
+      <find>WidgetKey._personalFoldShow</find>
     </findStrings>
     <replaceStrings>
-      <replace>_enumTypeDefault</replace>
-      <replace>enumTypeDefault</replace>
-      <replace>enumTypeDefaultMd</replace>
-      <replace>WidgetFileUtil.getExec</replace>
-      <replace>widgetMenuNav</replace>
-      <replace>htmlLoaded</replace>
-      <replace>widgetMenuNavHasSub</replace>
-      <replace>clearAll</replace>
-      <replace>createFile</replace>
-      <replace>loadedHtml</replace>
-      <replace>loadedHtmlSaveAs</replace>
-      <replace>_panelFileMould</replace>
-      <replace>panelFileMould</replace>
-      <replace>addTabWithFile</replace>
-      <replace>widgetFileBrowserRightContent</replace>
       <replace>widgetFileBrowserLeftFolderName</replace>
       <replace>widgetFileBrowserLeftFolderPath</replace>
       <replace>_div</replace>
@@ -280,6 +318,21 @@
       <replace>createRequestXHR</replace>
       <replace>_xhr</replace>
       <replace>_request</replace>
+      <replace>APIDataKey</replace>
+      <replace>APIData</replace>
+      <replace>APIKey</replace>
+      <replace>APIData.fileBrowserAddFolder</replace>
+      <replace>APIData.fileBrowserAddFile</replace>
+      <replace>APIData.fileBrowser.addFolder</replace>
+      <replace>APIData.fileBrowser.addFile</replace>
+      <replace>APIKey._type</replace>
+      <replace>APIKey._folderList</replace>
+      <replace>APIKey._fileList</replace>
+      <replace>APIKey._extend</replace>
+      <replace>APIKey._folder</replace>
+      <replace>APIKey._jsonShow</replace>
+      <replace>APIKey._jsonMouldShow</replace>
+      <replace>APIKey._personalFoldShow</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\Electron\ZHEditor\html5\js\widget\widgetDock</dir>
@@ -292,9 +345,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/css/widget/widgetSearch.css" />
-        <option value="$PROJECT_DIR$/js/widget/common/widgetKey.js" />
-        <option value="$PROJECT_DIR$/js/widget/common/widgetJsonCtrl.js" />
         <option value="$PROJECT_DIR$/js/widget/common/widgetMenuCtrl.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetMenu.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" />
@@ -318,10 +368,8 @@
         <option value="$USER_HOME$/Downloads/marked-master/docs/index的副本.html" />
         <option value="$PROJECT_DIR$/external/marked/unfetch.umd.js" />
         <option value="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" />
-        <option value="$PROJECT_DIR$/js/widget/base/widgetKey.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetHistory.js" />
         <option value="$PROJECT_DIR$/js/widget/base/widgetUser.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetTab.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHtml.js" />
@@ -332,7 +380,6 @@
         <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
         <option value="$PROJECT_DIR$/html/business/editor/menu/menuHelp.html" />
         <option value="$PROJECT_DIR$/external/marked/marked.js" />
-        <option value="$PROJECT_DIR$/js/API/APIServer.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/dock.js" />
         <option value="$PROJECT_DIR$/../nodeJS/doc/markdown 2.css" />
         <option value="$PROJECT_DIR$/../nodeJS/doc/markdown 3.css" />
@@ -340,9 +387,15 @@
         <option value="$PROJECT_DIR$/css/markdown 2.css" />
         <option value="$PROJECT_DIR$/css/markdown 3.css" />
         <option value="$PROJECT_DIR$/css/markdown.css" />
-        <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetMarkedDoc.js" />
         <option value="$PROJECT_DIR$/css/widget/widgetMarkedDoc.css" />
+        <option value="$PROJECT_DIR$/js/API/APIClient.js" />
+        <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
+        <option value="$PROJECT_DIR$/js/API/APIServer.js" />
+        <option value="$PROJECT_DIR$/js/API/APIData.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetHistory.js" />
+        <option value="$PROJECT_DIR$/js/widget/base/widgetKey.js" />
+        <option value="$PROJECT_DIR$/js/API/APIKey.js" />
       </list>
     </option>
   </component>
@@ -386,28 +439,6 @@
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
               <item name="html5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="html5" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-              <item name="marked" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
@@ -484,19 +515,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js/widget" />
-      <recent name="$PROJECT_DIR$/js/business/editor/dock" />
-      <recent name="$PROJECT_DIR$/external" />
-      <recent name="$PROJECT_DIR$/html/business/editor/menu" />
-      <recent name="$PROJECT_DIR$/css/widget" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/external/marked" />
       <recent name="$PROJECT_DIR$/html" />
       <recent name="$PROJECT_DIR$/external/jsmind" />
       <recent name="$PROJECT_DIR$/js/widget/base" />
       <recent name="F:\Electron\ZHEditor\html5\js\widget" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js/API" />
+      <recent name="$PROJECT_DIR$/js/widget" />
+      <recent name="$PROJECT_DIR$/js/business/editor/dock" />
+      <recent name="$PROJECT_DIR$/external" />
+      <recent name="$PROJECT_DIR$/html/business/editor/menu" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -828,11 +859,12 @@
       <workItem from="1536648976617" duration="916000" />
       <workItem from="1536651480108" duration="2006000" />
       <workItem from="1536666523697" duration="989000" />
+      <workItem from="1536718420163" duration="1826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1054373000" />
+    <option name="totallyTimeSpent" value="1056199000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -847,13 +879,13 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.22994652" visible="true" weight="0.24543288" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.22994652" visible="true" weight="0.24543288" />
       <window_info id="Favorites" order="1" sideWeight="0.5026738" side_tool="true" weight="0.24543288" />
       <window_info id="Structure" order="2" sideWeight="0.77005345" weight="0.24543288" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.39384118" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" weight="0.39384118" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
@@ -943,16 +975,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileBrowserCreate.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
@@ -1065,13 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="99" column="1" lean-forward="true" selection-start-line="79" selection-end-line="99" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/external/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1136,24 +1151,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/serverKey/serverKey.js" />
     <entry file="file://$PROJECT_DIR$/js/serverKey/serverKeyMysql.js" />
-    <entry file="file://$PROJECT_DIR$/js/widget/base/widgetKey.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/API/APIServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/API/APIClient.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../nodeJS/doc/markdown 3.css" />
@@ -1183,24 +1181,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/external/marked/github-markdown.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="240">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetMarkedDoc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
+        <state relative-caret-position="180">
           <caret line="107" column="19" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="35" column="75" lean-forward="true" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIClient.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/base/widgetKey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIKey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>

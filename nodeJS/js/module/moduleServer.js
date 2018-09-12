@@ -1,9 +1,9 @@
+module.exports = ModuleServer;
+
 var http = require('http');
 var url = require('url');
 
 const ModuleRouter = require('./moduleRouter.js');
-
-module.exports = ModuleServer;
 
 function ModuleServer() {
 }

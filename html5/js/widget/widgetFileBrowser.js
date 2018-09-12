@@ -86,11 +86,11 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
         if (typeof(value) == WidgetKey._object) {
             var pathChild = pathParent;
             var fold = elementParent;
-            var type = value[WidgetKey._type];
-            var folderList = value[WidgetKey._folderList];
+            var type = value[APIKey._type];
+            var folderList = value[APIKey._folderList];
             var isHasChild = false;
 
-            if (type == WidgetKey._folder) {
+            if (type == APIKey._folder) {
                 pathChild += key;
                 pathChild += "/";
                 value["path"] = pathChild;
@@ -137,12 +137,12 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
     if (typeof(jsonObj) == WidgetKey._object) {
         var path = jsonObj["path"];
 
-        var fileList = jsonObj[WidgetKey._fileList];
+        var fileList = jsonObj[APIKey._fileList];
         for (var o in fileList) {
             var key = o;
             var value = fileList[o];
             if (typeof(value) == WidgetKey._object) {
-                var extend = value[WidgetKey._extend];
+                var extend = value[APIKey._extend];
                 var rightContent = document.createElement("div");
                 // rightContent.innerHTML = path + key + extend;
                 rightContent.innerHTML = key + extend;
@@ -167,7 +167,7 @@ WidgetFileBrowser.prototype.refreshFileBrowserRightPath = function (path) {
 //                 var keyShow = value[WidgetKey._title];
 //                 if (item == keyShow) {
 //                     var folderListNew = folderList.slice(i + 1, folderList.length + 1);
-//                     var jsonObjNew = value[WidgetKey._folderList];
+//                     var jsonObjNew = value[APIKey._folderList];
 //                     return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
 //                 }
 //             }
@@ -190,7 +190,7 @@ WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) 
             var value = jsonObj[item];
             if (value) {
                 var folderListNew = folderList.slice(i + 1, folderList.length + 1);
-                var jsonObjNew = value[WidgetKey._folderList];
+                var jsonObjNew = value[APIKey._folderList];
                 return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
             }
         }

@@ -42,7 +42,7 @@ PanelFileEditor.prototype.loadedJson = function (fileReader) {
     var title = getFileTitle(fileName);
     var extend = getFileExtend(fileName);
     if (!WidgetHistory.existFileBrowserFile(obj, title, extend)) {
-        WidgetHistory.addFileBrowserFileList(obj, title, extend);
+        APIData.fileBrowser.addFileList(obj, title, extend);
         WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
     }
     panelFileBrowser._widgetFileBrowser.refreshFileBrowserRight(obj);

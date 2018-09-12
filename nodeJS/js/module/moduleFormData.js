@@ -1,7 +1,7 @@
+module.exports = ModuleFormData;
+
 var multiparty = require('multiparty');
 var fs = require('fs');
-
-module.exports = ModuleFormData;
 
 function ModuleFormData() {
 }

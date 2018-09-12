@@ -1,3 +1,5 @@
+module.exports = ModuleRouter;
+
 const APIServer = require('../API/APIServer.js');
 
 const ModuleMysql = require('./moduleMysql.js');
@@ -5,13 +7,12 @@ const ModuleFileSystem = require('./moduleFileSystem.js');
 const ModuleFormData = require('./moduleFormData.js');
 const ModuleFileBrowser = require('./moduleFileBrowser.js');
 
-module.exports = ModuleRouter;
-
 function ModuleRouter() {
 }
 
 ModuleRouter.init = function(server) {
     ModuleMysql.init(server);
+    ModuleFileBrowser.init(server);
 }
 
 ModuleRouter.handle = function(structServer) {

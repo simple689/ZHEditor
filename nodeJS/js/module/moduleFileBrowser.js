@@ -1,30 +1,28 @@
 module.exports = ModuleFileBrowser;
 
+const APIData = require('../API/APIData.js');
+const APIKey = require('../API/APIKey.js');
+
 function ModuleFileBrowser() {
+}
+
+ModuleFileBrowser._jsonFileBroser = null;
+
+ModuleFileBrowser.init = function(server) {
+    var jsonObj = {};
+    APIData.fileBrowser.addFolder(jsonObj, APIKey._jsonShow);
+    APIData.fileBrowser.addFolder(jsonObj, APIKey._jsonMouldShow);
+    APIData.fileBrowser.addFolder(jsonObj, APIKey._personalFoldShow);
+
+    APIData.fileBrowser.addFolderList(jsonObj[APIKey._personalFoldShow], APIKey._jsonShow);
+    APIData.fileBrowser.addFolderList(jsonObj[APIKey._personalFoldShow], APIKey._jsonMouldShow);
+
+    APIData.fileBrowser.addFileList(jsonObj[APIKey._jsonShow], "demo", APIKey._extendJson);
+    APIData.fileBrowser.addFileList(jsonObj[APIKey._jsonMouldShow], "demo", APIKey._extendJsonMd);
+
+    ModuleFileBrowser._jsonFileBroser = jsonObj;
 }
 
 ModuleFileBrowser.prototype.handle = function(structServer) {
     structServer._funcSuccess(structServer);
 }
-
-// ModuleFileBrowser.getFileBrowser = function () {
-//     // todo 从数据库获取
-//     var item = WidgetHistory.getItem(WidgetKey._panelFileBrowser);
-//     var jsonObj = JSON.parse('{}');
-//     if (item) {
-//         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
-//     } else {
-//         WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._jsonShow);
-//         WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._jsonMouldShow);
-//         WidgetHistory.addFileBrowserFolder(jsonObj, WidgetKey._personalFoldShow);
-
-//         WidgetHistory.addFileBrowserFolderList(jsonObj[WidgetKey._personalFoldShow], WidgetKey._jsonShow);
-//         WidgetHistory.addFileBrowserFolderList(jsonObj[WidgetKey._personalFoldShow], WidgetKey._jsonMouldShow);
-
-//         WidgetHistory.addFileBrowserFileList(jsonObj[WidgetKey._jsonShow], "demo", WidgetKey._extendJson);
-//         WidgetHistory.addFileBrowserFileList(jsonObj[WidgetKey._jsonMouldShow], "demo", WidgetKey._extendJsonMd);
-
-//         WidgetHistory.setFileBrowser(jsonObj);
-//     }
-//     return jsonObj;
-// }

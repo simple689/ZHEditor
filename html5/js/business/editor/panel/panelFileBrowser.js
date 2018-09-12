@@ -32,23 +32,23 @@ PanelFileBrowser.prototype.initCreate = function () {
     jsonObjCtrl._value = "创建";
     jsonObjCtrl._valueList = new MenuListCtrl();
 
-    var menuListItem = new MenuListItem("1", PanelFileBrowser.saveAs, WidgetKey._extendJson);
+    var menuListItem = new MenuListItem("1", PanelFileBrowser.saveAs, APIKey._extendJson);
     jsonObjCtrl._valueList.insertItem(menuListItem);
-    menuListItem = new MenuListItem("2", PanelFileBrowser.saveAs, WidgetKey._extendJsonMd);
+    menuListItem = new MenuListItem("2", PanelFileBrowser.saveAs, APIKey._extendJsonMd);
     jsonObjCtrl._valueList.insertItem(menuListItem);
 
-    menuListItem = new MenuListItem("3", PanelFileBrowser.saveAs, WidgetKey._extendJson);
+    menuListItem = new MenuListItem("3", PanelFileBrowser.saveAs, APIKey._extendJson);
     var listSub = jsonObjCtrl._valueList.insertItemList(menuListItem);
 
-    menuListItem = new MenuListItem("31", PanelFileBrowser.saveAs, WidgetKey._extendJson);
+    menuListItem = new MenuListItem("31", PanelFileBrowser.saveAs, APIKey._extendJson);
     menuListItem.setListParent(listSub);
     jsonObjCtrl._valueList.insertItem(menuListItem);
 
-    menuListItem = new MenuListItem("32", PanelFileBrowser.saveAs, WidgetKey._extendJson);
+    menuListItem = new MenuListItem("32", PanelFileBrowser.saveAs, APIKey._extendJson);
     menuListItem.setListParent(listSub);
     listSub = jsonObjCtrl._valueList.insertItemList(menuListItem);
 
-    menuListItem = new MenuListItem("321", PanelFileBrowser.saveAs, WidgetKey._extendJson);
+    menuListItem = new MenuListItem("321", PanelFileBrowser.saveAs, APIKey._extendJson);
     menuListItem.setListParent(listSub);
     jsonObjCtrl._valueList.insertItem(menuListItem);
 

@@ -1,7 +1,7 @@
+module.exports = ModuleFileSystem;
+
 var fs = require('fs');
 var path = require('path') 
-
-module.exports = ModuleFileSystem;
 
 function ModuleFileSystem() {
 }
@@ -35,16 +35,22 @@ ModuleFileSystem.getDirFilesFromRoot = function(readPath) {
         return files;
     });
 }
+ModuleFileSystem.getStat = function(readPath) {
+    return ModuleFileSystem.getStatFromRoot(ModuleFileSystem._runPath + readPath);
+}
+ModuleFileSystem.getStatFromRoot = function(readPath) {
+    var normalizePath = path.normalize(readPath);
+    return stat = fs.statSync(normalizePath);
+}
+ModuleFileSystem.isDir = function(stat) {
+    return stat.isDirectory();
+}
+ModuleFileSystem.isFile = function(stat) {
+    return stat.isFile();
+}
 
-ModuleFileSystem.isDir = function(readPath) {
+ModuleFileSystem.a = function(readPath) {
     files.forEach(function (file) {
         var filePath = path.normalize(ModuleFileSystem._runPath + readPath + '/' + file);
-        var stat = fs.statSync(filePath);
-        if (stat.isFile()) {
-            console.log(filePath + ' is: ' + 'file');
-        }
-        if (stat.isDirectory()) {
-            console.log(filePath + ' is: ' + 'dir');
-        }
     });
 }
