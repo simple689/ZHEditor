@@ -22,19 +22,18 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     // 从服务器获取数据，如果失败，从历史获取数据
     var url = confHttpRoot + "";
     var jsonData = {
-        "module": "aaa"
+        "module": APIServer._module._fileBrowser,
     };
-    WidgetHttpAJAX.createPost(url, jsonData, this,
-        WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
-    jsonData = {
-        "module": "FileBrowser"
-    };
+    // WidgetHttpAJAX.createPost(url, jsonData, this,
+    //     WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
     WidgetHttpAJAX.createGetJsonp(url, jsonData, this,
         WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
 
 }
 WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
-    WidgetFileBrowser._jsonFileBrowser = data;
+    if (data[APIKey._data]) {
+        WidgetFileBrowser._jsonFileBrowser = data[APIKey._data];
+    }
     widgetFileBrowser.initDefault();
 }
 WidgetFileBrowser.ajaxErrorJsonFileBrowser = function (widgetFileBrowser, error, e) {
@@ -45,7 +44,7 @@ WidgetFileBrowser.prototype.initDefault = function () {
     this.init(this._divLeft, this._divMiddle, this._divRight);
 }
 WidgetFileBrowser.prototype.init = function (left, middle, right) {
-    // WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
+    WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
     middle.onmousedown = function (e) {
         var x = (e || event).clientX;
         middle.left = middle.offsetLeft;

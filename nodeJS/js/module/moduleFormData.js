@@ -7,7 +7,7 @@ function ModuleFormData() {
 }
 
 ModuleFormData.prototype.handle = function(structServer) {
-    structServer._funcSuccess(structServer);
+    structServer._funcComplete(structServer);
 }
 
     // var jsonObj = "success";
@@ -43,5 +43,5 @@ ModuleFormData.prototype.handle = function(structServer) {
     //     //         return reply({code:411,msg:"身份证正面照片格式不正确"});
     //     //     }
     //     // });
-    //     structServer._funcSuccess(structServer, jsonObj);
+    //     structServer._funcComplete(structServer, jsonObj);
     // });

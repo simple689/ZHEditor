@@ -23,6 +23,12 @@ WidgetHistory.setItem = function (key, value) {
 WidgetHistory.getItem = function (key) {
     return WidgetHistory._localStorage.getItem(key);
 }
+WidgetHistory.existItem = function (key) {
+    if (WidgetHistory._localStorage.getItem(key)) {
+        return true;
+    }
+    return false;
+}
 WidgetHistory.addFile = function (fileName, fileContent, contentType, historyItemFile) {
     var fileEditItem = WidgetHistory.getItem(historyItemFile);
     if (!fileEditItem) {
@@ -78,7 +84,6 @@ WidgetHistory.getFile = function (historyItemFile) {
     return fileList;
 }
 WidgetHistory.getFileBrowser = function () {
-    // todo 从服务器获取
     var item = WidgetHistory.getItem(WidgetKey._panelFileBrowser);
     var jsonObj = JSON.parse('{}');
     if (item) {

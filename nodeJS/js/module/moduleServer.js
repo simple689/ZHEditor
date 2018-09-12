@@ -3,6 +3,7 @@ var url = require('url');
 
 module.exports = ModuleServer;
 
+const APIKey = require('../API/APIKey.js');
 const ModuleRouter = require('./moduleRouter.js');
 
 function ModuleServer() {
@@ -20,12 +21,12 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
             "_server": this._moduleServer,
             "_req": req,
             "_res": res,
-            "_jsonClient": null,
-            "_jsonServer": {
-                "module": "mismatch"
-            },
-            "_funcSuccess": ModuleServer.routerHandleSuccess
+            "_jsonClient": {},
+            "_jsonServer": {},
+            "_funcComplete": ModuleServer.routerHandleComplete
         };
+        structServer._jsonServer[APIKey._module] = "misMatch";
+
         if (req.method === "GET") {
             var jsonObj = url.parse(req.url, true).query;
             structServer._jsonClient = jsonObj;
@@ -48,7 +49,7 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
         console.log('[Server]running : http://' + httpCom + ':' + httpPort);
     })
 }
-ModuleServer.routerHandleSuccess = function(structServer) {
+ModuleServer.routerHandleComplete = function(structServer) {
     var jsonStr = JSON.stringify(structServer._jsonServer);
     console.log('[Server]jsonServer : ', jsonStr);
     if (structServer._jsonClient.jsonpCallback) { // 请求为携带jsonp方法的http请求

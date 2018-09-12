@@ -29,6 +29,9 @@ ModuleFileBrowser.initDir = function(readPath, jsonObj) {
             var jsonObjFold = APIData.fileBrowser.addFolder(jsonObj, file);
             ModuleFileBrowser.initDir(filePath, jsonObjFold);
         } else if (ModuleFileSystem.isFile(stat)) {
+            if (file === ".DS_Store") {
+                return;
+            }
             var extend = Util.getFileExtend(file);
             APIData.fileBrowser.addFile(jsonObj, file, extend);
         }
@@ -36,5 +39,6 @@ ModuleFileBrowser.initDir = function(readPath, jsonObj) {
 }
 
 ModuleFileBrowser.prototype.handle = function(structServer) {
-    structServer._funcSuccess(structServer);
+    structServer._jsonServer[APIKey._data] = ModuleFileBrowser._jsonFileBroser;
+    structServer._funcComplete(structServer);
 }

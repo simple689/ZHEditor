@@ -15,11 +15,11 @@ ModuleMysql.init = function(server) {
     });
     server._mysql.connect();
 
-    server._mysql.query('SELECT *', function (err, result) {
-        if (err)
-            console.log("[Mysql]error : ", err.message);
-        console.log("[Mysql]result : ", result);
-    });
+    // server._mysql.query('SELECT *', function (err, result) {
+    //     if (err)
+    //         console.log("[Mysql]error : ", err.message);
+    //     console.log("[Mysql]result : ", result);
+    // });
 }
 ModuleMysql.exit = function(server) {
     server._mysql.end();
@@ -36,7 +36,7 @@ ModuleMysql.prototype.handle = function(structServer) {
     } else if (func === "query") {
         this.query(structServer);
     }
-    // structServer._funcSuccess(structServer);
+    // structServer._funcComplete(structServer);
 }
 // 增、删、改、查
 ModuleMysql.prototype.add = function(structServer) {
@@ -83,6 +83,6 @@ ModuleMysql.prototype.query = function(structServer) {
             return;
         }
         console.log("[Mysql]result : ", result);
-        structServer._funcSuccess(structServer);
+        structServer._funcComplete(structServer);
     });
 }

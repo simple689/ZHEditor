@@ -20,7 +20,7 @@ ModuleFileSystem.prototype.handle = function(structServer) {
 //         res.end();
 //     }
 // });
-    structServer._funcSuccess(structServer);
+    structServer._funcComplete(structServer);
 }
 
 // [demo] getDirFiles

@@ -31,7 +31,7 @@ ModuleRouter.handle = function(structServer) {
     } else if (structServer._jsonClient.module === APIServer._module._fileBrowser) {
         router = new ModuleFileBrowser();
     } else {
-        structServer._funcSuccess(structServer);
+        structServer._funcComplete(structServer);
     }
     if (router) {
         router.handle(structServer);
