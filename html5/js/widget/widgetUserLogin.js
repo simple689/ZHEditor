@@ -1,7 +1,7 @@
-function WidgetMarkedDoc() {
+function WidgetUserLogin() {
 }
 
-WidgetMarkedDoc.prototype.create = function (elementParent, pageRoot, page) {
+WidgetUserLogin.prototype.create = function (elementParent, pageRoot, page) {
     this._divMain = WidgetHtml.addDiv(elementParent);
     this._divMain.classList.add("widgetMarkedDocMain");
 
@@ -24,7 +24,7 @@ WidgetMarkedDoc.prototype.create = function (elementParent, pageRoot, page) {
     this.init(this._divLeft, this._divMiddle, this._divRight);
 }
 
-WidgetMarkedDoc.prototype.init = function (left, middle, right) {
+WidgetUserLogin.prototype.init = function (left, middle, right) {
     middle.onmousedown = function (e) {
         var x = (e || event).clientX;
         middle.left = middle.offsetLeft;
@@ -48,7 +48,7 @@ WidgetMarkedDoc.prototype.init = function (left, middle, right) {
     this.initLeft(left);
     this.initRight(right);
 };
-WidgetMarkedDoc.prototype.initLeft = function (left) {
+WidgetUserLogin.prototype.initLeft = function (left) {
     $(left).load("../menu/menuHelp.html", function () {
         if (!window.Promise) {
             window.Promise = ES6Promise;
@@ -69,12 +69,12 @@ WidgetMarkedDoc.prototype.initLeft = function (left) {
         widgetMarkedDoc.hashChange();
     });
 };
-WidgetMarkedDoc.prototype.initRight = function (right) {
+WidgetUserLogin.prototype.initRight = function (right) {
     this._divRightContent = WidgetHtml.addDiv(right);
     this._divRightContent.classList.add("widgetMarkedDocRightContent");
     this._divRightContent.classList.add("markdown-body");
 };
-WidgetMarkedDoc.prototype.hashChange = function(elementHash) {
+WidgetUserLogin.prototype.hashChange = function(elementHash) {
     var hash = elementHash;
     if (elementHash) {
         hash = elementHash.substr(1);
@@ -108,7 +108,7 @@ WidgetMarkedDoc.prototype.hashChange = function(elementHash) {
 
     // history.replaceState('', document.title, url);
 }
-WidgetMarkedDoc.prototype.fetchPage = function(page) {
+WidgetUserLogin.prototype.fetchPage = function(page) {
     if (page === this._renderedPage) {
         return Promise.resolve();
     }
@@ -130,7 +130,7 @@ WidgetMarkedDoc.prototype.fetchPage = function(page) {
                 + '<p>' + e.message + '</p>';
         });
 }
-WidgetMarkedDoc.prototype.fetchAnchor = function(anchor) {
+WidgetUserLogin.prototype.fetchAnchor = function(anchor) {
     if (!anchor) {
         this._divRightContent.scrollTo(0, 0);
         return;
