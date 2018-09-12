@@ -80,46 +80,37 @@ WidgetFileBrowser.prototype.initRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');
 };
 WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
-    for (var key in jsonObj) {
-        var value = jsonObj[key];
+    var jsonObjFolderList = jsonObj[APIKey._folderList];
+    if (!jsonObjFolderList) {
+        return;
+    }
+    for (var key in jsonObjFolderList) {
+        var value = jsonObjFolderList[key];
+
         if (typeof(value) == WidgetKey._object) {
             var pathChild = pathParent;
             var fold = elementParent;
             var type = value[APIKey._type];
-            var folderList = value[APIKey._folderList];
-            var isHasChild = false;
 
             if (type == APIKey._folder) {
                 pathChild += key;
                 pathChild += "/";
                 value["path"] = pathChild;
 
-                if (folderList) {
-                    for (var i in folderList) {
-                        isHasChild = true;
-                        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
-                        fold = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);
-                        break;
-                    }
-                }
+                var jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+                fold = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);
 
-                var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+                jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
                 jsonObjCtrl._keyShow = key;
                 jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
-
                 var element = WidgetHtml.addLabel(fold, jsonObjCtrl);
-                element._jsonObj = value;
                 element.classList.add("widgetFileBrowserLeftFolderName");
                 // element = WidgetHtml.addLabel(fold, this, pathChild, pathChild, WidgetFileBrowser.onClickFolderPath, null);
                 // element.classList.add("widgetFileBrowserLeftFolderPath");
                 WidgetHtml.addBr(fold);
-                if (isHasChild) {
-                    fold = this._menuFoldCtrl.addFoldItem(fold);
-                }
+                fold = this._menuFoldCtrl.addFoldItem(fold);
             }
-            if (isHasChild) {
-                this.readFileBrowser(folderList, pathChild, fold);
-            }
+            this.readFileBrowser(value, pathChild, fold);
         }
     }
 }
@@ -136,15 +127,27 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
     if (typeof(jsonObj) == WidgetKey._object) {
         var path = jsonObj["path"];
 
+        var folderList = jsonObj[APIKey._folderList];
+        for (var o in folderList) {
+            var key = o;
+            var value = folderList[o];
+            if (typeof(value) == WidgetKey._object) {
+                var rightContent = document.createElement("div");
+                // rightContent.innerHTML = path + key;
+                rightContent.innerHTML = key;
+                var flexItem = this._flexCtrl.addFlexItem(rightContent);
+                flexItem.classList.add("widgetFileBrowserRightContent");
+            }
+        }
+
         var fileList = jsonObj[APIKey._fileList];
         for (var o in fileList) {
             var key = o;
             var value = fileList[o];
             if (typeof(value) == WidgetKey._object) {
-                var extend = value[APIKey._extend];
                 var rightContent = document.createElement("div");
-                // rightContent.innerHTML = path + key + extend;
-                rightContent.innerHTML = key + extend;
+                // rightContent.innerHTML = path + key;
+                rightContent.innerHTML = key;
                 var flexItem = this._flexCtrl.addFlexItem(rightContent);
                 flexItem.classList.add("widgetFileBrowserRightContent");
             }
@@ -201,13 +204,13 @@ WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) 
 }
 WidgetFileBrowser.onClickFolderName = function () {
     var widgetFileBrowser = this._jsonObjCtrl._exec;
-    widgetFileBrowser._nowFolder = this._jsonObj["path"];
-    widgetFileBrowser.refreshFileBrowserRight(this._jsonObj);
+    widgetFileBrowser._nowFolder = this._jsonObjCtrl._obj["path"];
+    widgetFileBrowser.refreshFileBrowserRight(this._jsonObjCtrl._obj);
     if (widgetFileBrowser._nowFolderElement) {
         widgetFileBrowser._nowFolderElement.value = widgetFileBrowser._nowFolder;
     }
 }
 WidgetFileBrowser.onClickFolderPath = function () {
     var widgetFileBrowser = this._jsonObjCtrl._exec;
-    widgetFileBrowser.refreshFileBrowserRight(this._jsonObj);
+    widgetFileBrowser.refreshFileBrowserRight(this._jsonObjCtrl._obj);
 }
