@@ -1,6 +1,20 @@
-// const APIKey = require('../API/APIKey.js');
-//
-// module.exports = APIData;
+(function () {
+    var root = typeof window === 'object' ? window : {};
+    var js_node = typeof process === 'object' && process.versions && process.versions.node;
+    if (js_node) {
+        root = global;
+    }
+
+    var js_require = typeof require === 'function';
+    if (js_require) {
+        root.APIKey = require('../API/APIKey.js');
+    }
+
+    var js_module = typeof module === 'object' && module.exports;
+    if (js_module) {
+        module.exports = APIData;
+    }
+})();
 
 function APIData() {
 }
