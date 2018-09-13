@@ -54,8 +54,8 @@ WidgetUser.showDialogLogin = function (widgetDialog) {
     var widgetUserLogin = new WidgetUserLogin();
     widgetDialog._widgetUserLogin = widgetUserLogin;
     widgetUserLogin.create(widgetDialog._elementDialogContent);
-    widgetUserLogin._divMain.style.height = bodyH * 0.8 + "px";
-    widgetUserLogin._divMain.style.width = bodyW * 0.8 + "px";
+    // widgetUserLogin._divMain.style.height = bodyH * 0.8 + "px";
+    // widgetUserLogin._divMain.style.width = bodyW * 0.8 + "px";
 };
 WidgetUser.onClickMenuLogout = function () {
 }

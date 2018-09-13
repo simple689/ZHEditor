@@ -10,6 +10,8 @@ function JsonObjCtrl(exec, obj, isListParent, key) {
     this._value = null;
     this._valueList = null;
 
+    this._placeholder = null;
+
     this._onClick = null;
     this._onContextMenu = null;
     this._onChange = null;

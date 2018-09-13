@@ -1,34 +1,14 @@
 .widgetUserLoginMain {
-    /*flex: 1;*/
-    /*display: flex;*/
-    /*display: -webkit-flex;*/
-    /*overflow: auto;*/
-
-    /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";*/
-    /*font-size: 16px;*/
-    /*line-height: 1.5;*/
-    /*word-wrap: break-word;*/
-    width: 310px;
-    margin: 100px auto;
-    background: red;
 }
+
 .widgetUserLoginMain input {
     display: block;
-    width: 290px;
-    line-height: 40px;
+    width: 300px;
+    line-height: 30px;
     margin: 10px 0;
-    padding: 0 10px;
-    outline: none;
-    border: 1px solid #c8cccf;
-    border-radius: 4px;
-    color: #6a6f77;
 }
-.widgetUserLoginMain a:link, a:visited, a:hover, a:active {
-    margin-left: 100px;
-    color: #0366D6;
-}
-.widgetUserLoginUserName {
 
+.widgetUserLoginUserName {
 }
 
 .widgetUserLoginUserPWD {
@@ -37,13 +17,6 @@
 .widgetUserLoginVerify {
     position: relative;
 }
-#msg {
-    width: 100%;
-    line-height: 40px;
-    font-size: 14px;
-    text-align: center;
-}
-
 
 .block {
     position: absolute;
@@ -107,6 +80,7 @@
 .sliderContainer_fail .sliderIcon {
     background-position: 0 -83px !important;
 }
+
 .sliderContainer_active .sliderText, .sliderContainer_success .sliderText, .sliderContainer_fail .sliderText {
     display: none;
 }
