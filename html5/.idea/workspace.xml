@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
+      <change afterPath="$PROJECT_DIR$/css/widget/widgetVerify.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/widget/widgetUserLogin.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/widget/widgetUserLogin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/widget/widgetVerify.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetVerify.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -117,21 +120,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="236" />
-          <entry key="html" value="423" />
-          <entry key="js" value="5366" />
+          <entry key="css" value="261" />
+          <entry key="html" value="426" />
+          <entry key="js" value="5503" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="236" />
-          <entry key="HTML" value="423" />
-          <entry key="JavaScript" value="5366" />
+          <entry key="CSS" value="261" />
+          <entry key="HTML" value="426" />
+          <entry key="JavaScript" value="5503" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="14" />
+          <entry key="css" value="15" />
           <entry key="html" value="13" />
           <entry key="js" value="93" />
           <entry key="png" value="3" />
@@ -140,7 +143,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="14" />
+          <entry key="CSS" value="15" />
           <entry key="HTML" value="13" />
           <entry key="Image" value="3" />
           <entry key="JavaScript" value="93" />
@@ -157,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetUserLogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-130">
-              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="116">
+              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -166,8 +169,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetVerify.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="107" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="144">
+              <caret line="96" selection-start-line="96" selection-end-line="96" />
             </state>
           </provider>
         </entry>
@@ -193,8 +196,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/external/jsmind/js/jsmind.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="1849" column="12" selection-start-line="1849" selection-start-column="12" selection-end-line="1849" selection-end-column="12" />
+            <state relative-caret-position="104">
+              <caret line="2292" column="12" selection-start-line="2292" selection-start-column="12" selection-end-line="2292" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -202,8 +205,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/widget/widgetUserLogin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="122" column="62" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="62" />
+            <state relative-caret-position="270">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/widget/widgetVerify.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-301">
+              <caret line="80" column="12" lean-forward="true" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -212,7 +224,7 @@
         <entry file="file://$PROJECT_DIR$/js/widget/base/widgetUser.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="65" column="39" lean-forward="true" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
+              <caret line="65" column="39" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -220,8 +232,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="97" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="221">
+              <caret line="37" column="71" lean-forward="true" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -239,27 +251,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>success</find>
-      <find>w</find>
-      <find>block</find>
-      <find>createElement</find>
-      <find>document.createElement</find>
-      <find>createCanvas</find>
-      <find>addClass</find>
-      <find>WidgetVerify.addClass</find>
-      <find>WidgetHtml.removeClass</find>
-      <find>classList.remove</find>
-      <find>classList</find>
-      <find>WidgetVerify.createElement</find>
-      <find>removeClass</find>
-      <find>slider</find>
-      <find>blockCtx</find>
-      <find>canvasBlockCtx</find>
-      <find>canvasCtx</find>
-      <find>this.canvas</find>
-      <find>this.slider</find>
-      <find>this.sliderText</find>
-      <find>this._</find>
       <find>this.elementParent</find>
       <find>this.img</find>
       <find>createImg</find>
@@ -269,24 +260,29 @@
       <find>_height</find>
       <find>getRandomImg</find>
       <find>getRandomNumberByRange</find>
+      <find>sum</find>
+      <find>square</find>
+      <find>reset</find>
+      <find>bindEvents</find>
+      <find>verify</find>
+      <find>canvasBlock</find>
+      <find>sliderContainer</find>
+      <find>sliderContainer_active</find>
+      <find>sliderMask</find>
+      <find>sliderBlock</find>
+      <find>sliderContainer_success</find>
+      <find>sliderIcon</find>
+      <find>sliderContainer_fail</find>
+      <find>sliderText</find>
+      <find>clean</find>
+      <find>WidgetVerify.L</find>
+      <find>WidgetVerify.l</find>
+      <find>WidgetVerify.r</find>
+      <find>WidgetVerify.PI</find>
+      <find>WidgetVerify.h</find>
+      <find>WidgetVerify.w</find>
     </findStrings>
     <replaceStrings>
-      <replace>APIData.fileBrowserAddFile</replace>
-      <replace>APIData.fileBrowser.addFolder</replace>
-      <replace>APIData.fileBrowser.addFile</replace>
-      <replace>APIKey._type</replace>
-      <replace>APIKey._folderList</replace>
-      <replace>APIKey._fileList</replace>
-      <replace>APIKey._extend</replace>
-      <replace>APIKey._folder</replace>
-      <replace>APIKey._jsonShow</replace>
-      <replace>APIKey._jsonMouldShow</replace>
-      <replace>APIKey._personalFoldShow</replace>
-      <replace>APIKey</replace>
-      <replace>WidgetUserLogin</replace>
-      <replace>_funcComplete</replace>
-      <replace>WidgetHtml.classAdd</replace>
-      <replace>WidgetHtml.classRemove</replace>
       <replace>WidgetHtml.createElement</replace>
       <replace>canvasBlock</replace>
       <replace>sliderBlock</replace>
@@ -301,6 +297,22 @@
       <replace>_width</replace>
       <replace>_height</replace>
       <replace>_h</replace>
+      <replace>WidgetVerifyCanvasBlock</replace>
+      <replace>WidgetVerifySliderContainer</replace>
+      <replace>WidgetVerifySliderContainer_active</replace>
+      <replace>WidgetVerifySliderMask</replace>
+      <replace>WidgetVerifySliderBlock</replace>
+      <replace>WidgetVerifySliderContainer_success</replace>
+      <replace>WidgetVerifySliderIcon</replace>
+      <replace>WidgetVerifySliderContainer_fail</replace>
+      <replace>WidgetVerifySliderText</replace>
+      <replace>bindEvent</replace>
+      <replace>WidgetVerify._L</replace>
+      <replace>WidgetVerify._l</replace>
+      <replace>WidgetVerify._r</replace>
+      <replace>WidgetVerify._PI</replace>
+      <replace>WidgetVerify._h</replace>
+      <replace>WidgetVerify._w</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\Electron\ZHEditor\html5\js\widget\widgetDock</dir>
@@ -313,7 +325,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetPanelFileBase.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/util.js" />
         <option value="$PROJECT_DIR$/js/widget/base/widgetLog.js" />
@@ -355,7 +366,6 @@
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" />
         <option value="$PROJECT_DIR$/html/business/editor/dock/a.css" />
         <option value="$PROJECT_DIR$/html/business/editor/dock/a.html" />
-        <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
         <option value="$PROJECT_DIR$/js/a.js" />
         <option value="$PROJECT_DIR$/js/widget/base/widgetJsonCtrl.js" />
         <option value="$PROJECT_DIR$/js/widget/base/widgetUser.js" />
@@ -363,6 +373,8 @@
         <option value="$PROJECT_DIR$/js/widget/base/widgetUtil.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHtml.js" />
         <option value="$PROJECT_DIR$/css/widget/widgetUserLogin.css" />
+        <option value="$PROJECT_DIR$/css/widget/widgetVerify.css" />
+        <option value="$PROJECT_DIR$/html/business/editor/dock/dock.html" />
         <option value="$PROJECT_DIR$/js/widget/widgetVerify.js" />
       </list>
     </option>
@@ -406,6 +418,17 @@
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
               <item name="html5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="html5" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="html5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="html5" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="html5" type="b2602c69:ProjectViewProjectNode" />
@@ -487,19 +510,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/css/widget" />
+      <recent name="$PROJECT_DIR$/js/widget" />
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$/js/API" />
+      <recent name="$PROJECT_DIR$/js/business/editor/dock" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/img/widget/widgetVerify" />
       <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/css/widget" />
       <recent name="$PROJECT_DIR$/external/marked" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js/widget" />
-      <recent name="$PROJECT_DIR$/css/widget" />
-      <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$/js/API" />
-      <recent name="$PROJECT_DIR$/js/business/editor/dock" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -838,12 +861,12 @@
       <workItem from="1536666523697" duration="989000" />
       <workItem from="1536718420163" duration="18653000" />
       <workItem from="1536759065884" duration="268000" />
-      <workItem from="1536805690743" duration="9798000" />
+      <workItem from="1536805690743" duration="11636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1083092000" />
+    <option name="totallyTimeSpent" value="1084930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -858,13 +881,13 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.22994652" visible="true" weight="0.21207307" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.22994652" visible="true" weight="0.21207307" />
       <window_info id="Favorites" order="1" sideWeight="0.5026738" side_tool="true" weight="0.24543288" />
       <window_info id="Structure" order="2" sideWeight="0.77005345" weight="0.24543288" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.39546192" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.39546192" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
@@ -889,6 +912,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/widgetVerify.js</url>
+          <line>75</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -954,7 +985,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../nodeJS/doc/markdown 3.css" />
     <entry file="file://$PROJECT_DIR$/../nodeJS/doc/markdown 2.css" />
     <entry file="file://$PROJECT_DIR$/../nodeJS/doc/markdown.css" />
     <entry file="file://$PROJECT_DIR$/css/markdown 2.css" />
@@ -1165,21 +1195,7 @@
     <entry file="file://$PROJECT_DIR$/js/widget/base/widgetUser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="65" column="39" lean-forward="true" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/external/jsmind/js/jsmind.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="1849" column="12" selection-start-line="1849" selection-start-column="12" selection-end-line="1849" selection-end-column="12" />
+          <caret line="65" column="39" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1197,17 +1213,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetUserLogin.js">
+    <entry file="file://$PROJECT_DIR$/external/jsmind/js/jsmind.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="104">
+          <caret line="2292" column="12" selection-start-line="2292" selection-start-column="12" selection-end-line="2292" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/widget/widgetUserLogin.css">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetUserLogin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="122" column="62" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="62" />
+        <state relative-caret-position="116">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1218,10 +1234,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="37" column="71" lean-forward="true" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/widget/widgetUserLogin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/widget/widgetVerify.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-301">
+          <caret line="80" column="12" lean-forward="true" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetVerify.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        <state relative-caret-position="144">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
         </state>
       </provider>
     </entry>

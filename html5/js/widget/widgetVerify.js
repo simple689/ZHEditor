@@ -1,30 +1,3 @@
-function draw(ctx, operation, x, y) {
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(x + l / 2, y);
-    ctx.arc(x + l / 2, y - r + 2, r, 0, 2 * PI);
-    ctx.lineTo(x + l / 2, y);
-    ctx.lineTo(x + l, y);
-    ctx.lineTo(x + l, y + l / 2);
-    ctx.arc(x + l + r - 2, y + l / 2, r, 0, 2 * PI);
-    ctx.lineTo(x + l, y + l / 2);
-    ctx.lineTo(x + l, y + l);
-    ctx.lineTo(x, y + l);
-    ctx.lineTo(x, y);
-    ctx.fillStyle = '#fff';
-    ctx[operation]();
-    ctx.beginPath();
-    ctx.arc(x, y + l / 2, r, 1.5 * PI, 0.5 * PI);
-    ctx.globalCompositeOperation = "xor";
-    ctx.fill();
-}
-function sum(x, y) {
-    return x + y;
-}
-function square(x) {
-    return x * x;
-}
-
 function WidgetVerify() {
 }
 WidgetVerify._w = 310; // canvas宽度
@@ -34,38 +7,39 @@ WidgetVerify._l = 42; // 滑块边长
 WidgetVerify._L = WidgetVerify._l + WidgetVerify._r * 2; // 滑块实际边长
 WidgetVerify._PI = Math.PI;
 
-WidgetVerify.prototype.create = function (elementParent, funcComplete) {
+WidgetVerify.prototype.create = function (elementParent, funcComplete, funcFail) {
     this._elementParent = elementParent;
     this._funcComplete = funcComplete;
+    this._funcFail = funcFail;
 
     this.initHtml();
     this.initImg();
     this.draw();
-    this.bindEvents();
+    this.bindEvent();
 }
 WidgetVerify.prototype.initHtml = function () {
     var canvas = WidgetHtml.createCanvas(WidgetVerify._w, WidgetVerify._h); // 画布
 
     var canvasBlock = canvas.cloneNode(true); // 滑块
-    canvasBlock.className = 'canvasBlock';
+    canvasBlock.className = 'WidgetVerifyCanvasBlock';
 
     var refreshIcon = WidgetHtml.createElement('div');
-    refreshIcon.className = 'refreshIcon';
+    refreshIcon.className = 'WidgetVerifyRefreshIcon';
 
     var sliderContainer = WidgetHtml.createElement('div');
-    sliderContainer.className = 'sliderContainer';
+    sliderContainer.className = 'WidgetVerifySliderContainer';
 
     var sliderMask = WidgetHtml.createElement('div');
-    sliderMask.className = 'sliderMask';
+    sliderMask.className = 'WidgetVerifySliderMask';
 
     var sliderBlock = WidgetHtml.createElement('div');
-    sliderBlock.className = 'sliderBlock';
+    sliderBlock.className = 'WidgetVerifySliderBlock';
 
     var sliderIcon = WidgetHtml.createElement('span');
-    sliderIcon.className = 'sliderIcon';
+    sliderIcon.className = 'WidgetVerifySliderIcon';
 
     var sliderText = WidgetHtml.createElement('span');
-    sliderText.className = 'sliderText';
+    sliderText.className = 'WidgetVerifySliderText';
     sliderText.innerHTML = '向右滑动滑块填充拼图';
 
     this._elementParent.appendChild(canvas);
@@ -93,26 +67,6 @@ WidgetVerify.prototype.initHtml = function () {
         _sliderText: sliderText
     })
 }
-WidgetVerify.createImg = function(exec, onload) {
-    var img = WidgetHtml.createElement('img');
-    img._exec = exec;
-    img.crossOrigin = "Anonymous";
-    img.onload = onload;
-    img.onerror = () => {
-        img.src = WidgetVerify.getRandomImg();
-    }
-    img.src = WidgetVerify.getRandomImg();
-    return img;
-}
-WidgetVerify.getRandomImg = function() {
-    url("/html5/img/widget/widgetVerify/imgVerify/imgVerify_" + WidgetVerify.getRandomNumberByRange(0, 100) + ".png")
-}
-WidgetVerify.getRandomImgWeb = function() {
-    return 'https://picsum.photos/300/150/?image=' + WidgetVerify.getRandomNumberByRange(0, 100);
-}
-WidgetVerify.getRandomNumberByRange = function(start, end) {
-    return Math.round(Math.random() * (end - start) + start);
-}
 WidgetVerify.prototype.initImg = function () {
     var img = WidgetVerify.createImg(this, function () {
         var widgetVerify = this._exec;
@@ -127,68 +81,115 @@ WidgetVerify.prototype.initImg = function () {
     });
     this._img = img;
 }
-WidgetVerify.prototype.draw = function () {
-    // 随机创建滑块的位置
-    this.x = WidgetVerify.getRandomNumberByRange(L + 10, w - (L + 10));
-    this.y = WidgetVerify.getRandomNumberByRange(10 + r * 2, h - (L + 10));
-    draw(this._canvasCtx, 'fill', this.x, this.y);
-    draw(this._canvasBlockCtx, 'clip', this.x, this.y);
+WidgetVerify.createImg = function(exec, onload) {
+    var img = WidgetHtml.createElement('img');
+    img._exec = exec;
+    img.crossOrigin = "Anonymous";
+    img.onload = onload;
+    img.onerror = () => {
+        img.src = WidgetVerify.getRandomImg();
+    };
+    img.src = WidgetVerify.getRandomImg();
+    return img;
 }
-WidgetVerify.prototype.clean = function () {
-    this._canvasCtx.clearRect(0, 0, w, h);
-    this._canvasBlockCtx.clearRect(0, 0, w, h);
-    this._canvasBlock.width = w;
+WidgetVerify.getRandomImg = function() {
+    return "/html5/img/widget/widgetVerify/imgVerify/imgVerify_" + WidgetVerify.getRandomNumberByRange(0, 100) + ".jpg";
 }
 
-WidgetVerify.prototype.bindEvents = function () {
-    this._elementParent.onselectstart = () =>
-    false
+WidgetVerify.getRandomImgWeb = function() {
+    return 'https://picsum.photos/300/150/?image=' + WidgetVerify.getRandomNumberByRange(0, 100);
+}
+WidgetVerify.getRandomNumberByRange = function(start, end) {
+    return Math.round(Math.random() * (end - start) + start);
+}
+WidgetVerify.prototype.draw = function () {
+    // 随机创建滑块的位置
+    this.x = WidgetVerify.getRandomNumberByRange(WidgetVerify._L + 10, WidgetVerify._w - (WidgetVerify._L + 10));
+    this.y = WidgetVerify.getRandomNumberByRange(10 + WidgetVerify._r * 2, WidgetVerify._h - (WidgetVerify._L + 10));
+    WidgetVerify.draw(this._canvasCtx, 'fill', this.x, this.y);
+    WidgetVerify.draw(this._canvasBlockCtx, 'clip', this.x, this.y);
+}
+WidgetVerify.draw = function(ctx, operation, x, y) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + WidgetVerify._l / 2, y);
+    ctx.arc(x + WidgetVerify._l / 2, y - WidgetVerify._r + 2, WidgetVerify._r, 0, 2 * WidgetVerify._PI);
+    ctx.lineTo(x + WidgetVerify._l / 2, y);
+    ctx.lineTo(x + WidgetVerify._l, y);
+    ctx.lineTo(x + WidgetVerify._l, y + WidgetVerify._l / 2);
+    ctx.arc(x + WidgetVerify._l + WidgetVerify._r - 2, y + WidgetVerify._l / 2, WidgetVerify._r, 0, 2 * WidgetVerify._PI);
+    ctx.lineTo(x + WidgetVerify._l, y + WidgetVerify._l / 2);
+    ctx.lineTo(x + WidgetVerify._l, y + WidgetVerify._l);
+    ctx.lineTo(x, y + WidgetVerify._l);
+    ctx.lineTo(x, y);
+    ctx.fillStyle = '#fff';
+    ctx[operation]();
+    ctx.beginPath();
+    ctx.arc(x, y + WidgetVerify._l / 2, WidgetVerify._r, 1.5 * WidgetVerify._PI, 0.5 * WidgetVerify._PI);
+    ctx.globalCompositeOperation = "xor";
+    ctx.fill();
+}
+WidgetVerify.prototype.bindEvent = function () {
+    this._elementParent.onselectstart = () => false;
     this._refreshIcon.onclick = () => {
         this.reset()
-    }
-    let originX, originY, trail = [], isMouseDown = false;
+    };
+    var originX, originY, trail = [], isMouseDown = false;
     this._sliderBlock.addEventListener('mousedown', function (e) {
         originX = e.x, originY = e.y;
         isMouseDown = true;
     });
     document.addEventListener('mousemove', (e) => {
-        if(!isMouseDown) return false;
+        if(!isMouseDown) {
+            return false;
+        }
         var moveX = e.x - originX;
         var moveY = e.y - originY;
-        if (moveX < 0 || moveX + 38 >= w) return false;
+        if (moveX < 0 || moveX + 38 >= WidgetVerify._w) {
+            return false;
+        }
         this._sliderBlock.style.left = moveX + 'px';
-        var blockLeft = (w - 40 - 20) / (w - 40) * moveX;
+        var blockLeft = (WidgetVerify._w - 40 - 20) / (WidgetVerify._w - 40) * moveX;
         this._canvasBlock.style.left = blockLeft + 'px';
 
-        WidgetHtml.classAdd(this._sliderContainer, 'sliderContainer_active');
+        WidgetHtml.classAdd(this._sliderContainer, 'WidgetVerifySliderContainer_active');
         this._sliderMask.style.width = moveX + 'px';
         trail.push(moveY);
     });
     document.addEventListener('mouseup', (e) => {
-        if(!isMouseDown) return false;
+        if(!isMouseDown) {
+            return false;
+        }
         isMouseDown = false;
-        if (e.x == originX) return false;
-        WidgetHtml.classRemove(this._sliderContainer, 'sliderContainer_active');
+        if (e.x == originX) {
+            return false;
+        }
+        WidgetHtml.classRemove(this._sliderContainer, 'WidgetVerifySliderContainer_active');
         this.trail = trail;
         const {spliced, TuringTest} = this.verify();
         if (spliced) {
             if (TuringTest) {
-                WidgetHtml.classAdd(this._sliderContainer, 'sliderContainer_success');
+                WidgetHtml.classAdd(this._sliderContainer, 'WidgetVerifySliderContainer_success');
                 this._funcComplete && this._funcComplete();
             } else {
-                WidgetHtml.classAdd(this._sliderContainer, 'sliderContainer_fail');
+                WidgetHtml.classAdd(this._sliderContainer, 'WidgetVerifySliderContainer_fail');
                 this.text.innerHTML = '再试一次';
                 this.reset();
             }
         } else {
-            WidgetHtml.classAdd(this._sliderContainer, 'sliderContainer_fail');
-            this.fail && this.fail();
+            WidgetHtml.classAdd(this._sliderContainer, 'WidgetVerifySliderContainer_fail');
+            this._funcFail && this._funcFail();
             setTimeout(() => {
                 this.reset();
-            },
-            1000);
+            }, 1000);
         }
     });
+}
+function sum(x, y) {
+    return x + y;
+}
+function square(x) {
+    return x * x;
 }
 WidgetVerify.prototype.verify = function () {
     var arr = this.trail; // 拖动时y轴的移动距离
@@ -202,11 +203,16 @@ WidgetVerify.prototype.verify = function () {
     }
 }
 WidgetVerify.prototype.reset = function () {
-    this._sliderContainer.className = 'sliderContainer';
+    this._sliderContainer.className = 'WidgetVerifySliderContainer';
     this._sliderBlock.style.left = 0;
     this._canvasBlock.style.left = 0;
     this._sliderMask.style.width = 0;
     this.clean();
     this._img.src = WidgetVerify.getRandomImg();
     this.draw();
+}
+WidgetVerify.prototype.clean = function () {
+    this._canvasCtx.clearRect(0, 0, WidgetVerify._w, WidgetVerify._h);
+    this._canvasBlockCtx.clearRect(0, 0, WidgetVerify._w, WidgetVerify._h);
+    this._canvasBlock.width = WidgetVerify._w;
 }

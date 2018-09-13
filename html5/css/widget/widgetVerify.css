@@ -1,0 +1,116 @@
+.WidgetVerifyCanvasBlock {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.WidgetVerifyRefreshIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    background: url("/html5/img/widget/widgetVerify/icon.png") 0 -437px;
+    background-size: 34px 471px;
+}
+
+.WidgetVerifySliderContainer {
+    position: relative;
+    text-align: center;
+    width: 310px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    background: #f7f9fa;
+    color: #45494c;
+    border: 1px solid #e4e7eb;
+}
+
+.WidgetVerifySliderContainer_active .WidgetVerifySliderMask {
+    height: 38px;
+    border-width: 1px;
+}
+
+.WidgetVerifySliderContainer_active .WidgetVerifySliderBlock {
+    height: 38px;
+    top: -1px;
+    border: 1px solid #1991FA;
+}
+
+.WidgetVerifySliderContainer_success .WidgetVerifySliderMask {
+    height: 38px;
+    border: 1px solid #52CCBA;
+    background-color: #D2F4EF;
+}
+
+.WidgetVerifySliderContainer_success .WidgetVerifySliderBlock {
+    height: 38px;
+    top: -1px;
+    border: 1px solid #52CCBA;
+    background-color: #52CCBA !important;
+}
+
+.WidgetVerifySliderContainer_success .WidgetVerifySliderIcon {
+    background-position: 0 0 !important;
+}
+
+.WidgetVerifySliderContainer_fail .WidgetVerifySliderMask {
+    height: 38px;
+    border: 1px solid #f57a7a;
+    background-color: #fce1e1;
+}
+
+.WidgetVerifySliderContainer_fail .WidgetVerifySliderBlock {
+    height: 38px;
+    top: -1px;
+    border: 1px solid #f57a7a;
+    background-color: #f57a7a !important;
+}
+
+.WidgetVerifySliderContainer_fail .WidgetVerifySliderIcon {
+    background-position: 0 -83px !important;
+}
+
+.WidgetVerifySliderContainer_active .WidgetVerifySliderText, .WidgetVerifySliderContainer_success .WidgetVerifySliderText, .WidgetVerifySliderContainer_fail .WidgetVerifySliderText {
+    display: none;
+}
+
+.WidgetVerifySliderMask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 40px;
+    border: 0 solid #1991FA;
+    background: #D1E9FE;
+}
+
+.WidgetVerifySliderBlock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background .2s linear;
+}
+
+.WidgetVerifySliderBlock:hover {
+    background: #1991FA;
+}
+
+.WidgetVerifySliderBlock:hover .WidgetVerifySliderIcon {
+    background-position: 0 -13px;
+}
+
+.WidgetVerifySliderIcon {
+    position: absolute;
+    top: 15px;
+    left: 13px;
+    width: 14px;
+    height: 10px;
+    background: url("/html5/img/widget/widgetVerify/icon.png") 0 -26px;
+    background-size: 34px 471px;
+}
