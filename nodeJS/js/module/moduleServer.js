@@ -5,6 +5,7 @@ module.exports = ModuleServer;
 
 const APIKey = require('../API/APIKey.js');
 const ModuleRouter = require('./moduleRouter.js');
+const base64 = require('hi-base64');
 
 function ModuleServer() {
 }
@@ -38,8 +39,9 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
                 // console.log("chunk : ", chunk);
             });
             req.on('end', function() {
-                // console.log("[Server]post jsonStr : ", jsonStr);
-                var jsonObj = JSON.parse(jsonStr); // 解析参数
+                var jsonStrNew = base64.decode(jsonStr);
+                // console.log("[Server]post jsonStr : ", jsonStrNew);
+                var jsonObj = JSON.parse(jsonStrNew); // 解析参数
                 structServer._jsonClient = jsonObj;
                 ModuleRouter.handle(structServer);
             });

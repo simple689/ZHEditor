@@ -7,7 +7,7 @@ WidgetHttpAJAX._enumOpenType = {
 }
 function jsonpCallback(data) {
 }
-WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcSuccess, funcError) {
+WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcSuccess, funcError) { // 明文，不安全
     $.ajax({
         _exec : exec,
         _funcSuccess : funcSuccess,
@@ -36,12 +36,13 @@ WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcSuccess, funcE
 }
 WidgetHttpAJAX.createPost = function (url, jsonObj, exec, funcSuccess, funcError) {
     var jsonStr = JSON.stringify(jsonObj);
+    var jsonStrNew = base64.encode(jsonStr);
     $.ajax({
         _exec : exec,
         _funcSuccess : funcSuccess,
         _funcError : funcError,
         url : url,
-        data : jsonStr,
+        data : jsonStrNew,
         type : "post",
         cache: false,
         success : function(data) {

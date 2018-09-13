@@ -24,10 +24,10 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     var jsonData = {
         "module": APIServer._module._fileBrowser,
     };
-    // WidgetHttpAJAX.createPost(url, jsonData, this,
-    //     WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
-    WidgetHttpAJAX.createGetJsonp(url, jsonData, this,
+    WidgetHttpAJAX.createPost(url, jsonData, this,
         WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
+    // WidgetHttpAJAX.createGetJsonp(url, jsonData, this,
+    //     WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
 }
 WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
     if (data[APIKey._data]) {
