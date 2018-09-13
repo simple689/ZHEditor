@@ -61,11 +61,14 @@ WidgetUser.onClickMenuLogout = function () {
 }
 WidgetUser.create = function () {
     var url = confHttpRoot;
+    var pwd = "123456";
+    pwd = sha1(pwd);
+
     var jsonData = {
         "module": APIServer._module._user,
         "func": APIServer._user._login,
         "name": "teddy",
-        "pwd": "123456",
+        "pwd": pwd,
     };
     WidgetHttpAJAX.createPost(url, jsonData, this,
         WidgetUser.ajaxSuccessJsonFileBrowser, WidgetUser.ajaxErrorJsonFileBrowser);
