@@ -29,9 +29,9 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     // WidgetHttpAJAX.createGetJsonp(url, jsonData, this,
     //     WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
 }
-WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
-    if (data[APIKey._data]) {
-        WidgetFileBrowser._jsonFileBrowser = data[APIKey._data];
+WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, jsonData) {
+    if (jsonData[APIKey._data]) {
+        WidgetFileBrowser._jsonFileBrowser = jsonData[APIKey._data];
     }
     widgetFileBrowser.initDefault();
 }

@@ -59,6 +59,10 @@ ModuleServer.routerHandleComplete = function(structServer) {
         var callback = structServer._jsonClient.jsonpCallback + '(' + jsonStr + ');';
         structServer._res.end(callback);
     } else {
+        if (structServer._req.method === "POST") {
+            var jsonStrNew = base64.encode(jsonStr);
+            jsonStr = jsonStrNew;
+        }
         // console.log('[Server]header : Access-Control-Allow-Origin');
         structServer._res.setHeader('Access-Control-Allow-Origin', '*');
         structServer._res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});

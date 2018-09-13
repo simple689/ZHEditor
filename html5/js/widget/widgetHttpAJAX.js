@@ -46,13 +46,16 @@ WidgetHttpAJAX.createPost = function (url, jsonObj, exec, funcSuccess, funcError
         type : "post",
         cache: false,
         success : function(data) {
-            WidgetLog.log("[ajax success]", data);
-            var jsonObj = JSON.parse(data);
+            //WidgetLog.log("[ajax success]", data);
+            var jsonStr = base64.decode(data);
+            var jsonObj = JSON.parse(jsonStr);
             WidgetLog.log(JSON.stringify(jsonObj, null, 2));
+            if (funcSuccess) funcSuccess(this._exec, jsonObj);
         },
         error: function (XHR, error, e) {
             // console.log("[ajax error]", error);
             // console.log("[ajax error]", e);
+            if (funcError) funcError(this._exec, error, e);
         }
     });
 }
