@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/base64.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/base64.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/API/APIData.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/APIData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -192,8 +186,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="9" selection-end-column="5" />
+            <state relative-caret-position="105">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -845,12 +839,12 @@
       <workItem from="1536718420163" duration="18653000" />
       <workItem from="1536759065884" duration="268000" />
       <workItem from="1536805690743" duration="12847000" />
-      <workItem from="1536833493504" duration="1648000" />
+      <workItem from="1536833493504" duration="1772000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1087789000" />
+    <option name="totallyTimeSpent" value="1087913000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -896,14 +890,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/API/APIData.js</url>
-          <line>5</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1265,8 +1251,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
