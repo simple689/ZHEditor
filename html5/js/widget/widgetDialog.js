@@ -4,42 +4,42 @@ function WidgetDialog() {
 WidgetDialog._dialogList = new Array();
 
 WidgetDialog.prototype.createDialog = function (elementParent) {
-    this._elementRoot = document.createElement("div");
+    this._elementRoot = WidgetHtml.createElement("div");
     elementParent.appendChild(this._elementRoot);
-    this._elementRoot.classList.add("widgetDialogRoot");
+    WidgetHtml.classAdd(this._elementRoot, "widgetDialogRoot");
     this._elementRoot._widgetDialog = this;
     WidgetDialog._dialogList.push(this);
 
-    this._elementMask = document.createElement("div");
+    this._elementMask = WidgetHtml.createElement("div");
     this._elementRoot.appendChild(this._elementMask);
-    this._elementMask.classList.add("widgetDialogMask");
+    WidgetHtml.classAdd(this._elementMask, "widgetDialogMask");
     this._elementMask._widgetDialog = this;
 
-    this._elementDialog = document.createElement("div");
+    this._elementDialog = WidgetHtml.createElement("div");
     this._elementRoot.appendChild(this._elementDialog);
-    this._elementDialog.classList.add("widgetDialog");
+    WidgetHtml.classAdd(this._elementDialog, "widgetDialog");
     this._elementDialog._widgetDialog = this;
 
-    this._elementDialogHead = document.createElement("div");
+    this._elementDialogHead = WidgetHtml.createElement("div");
     this._elementDialog.appendChild(this._elementDialogHead);
-    this._elementDialogHead.classList.add("widgetDialogHead");
+    WidgetHtml.classAdd(this._elementDialogHead, "widgetDialogHead");
     this._elementDialogHead._widgetDialog = this;
 
-    this._elementDialogClose = document.createElement("div");
+    this._elementDialogClose = WidgetHtml.createElement("div");
     this._elementDialogHead.appendChild(this._elementDialogClose);
-    this._elementDialogClose.classList.add("widgetDialogHeadButton");
+    WidgetHtml.classAdd(this._elementDialogClose, "widgetDialogHeadButton");
     this._elementDialogClose._widgetDialog = this;
     this._elementDialogClose.innerHTML = "X";
     this._elementDialogClose.onclick = WidgetDialog.onClickClose;
 
-    this._elementDialogContent = document.createElement("div");
+    this._elementDialogContent = WidgetHtml.createElement("div");
     this._elementDialog.appendChild(this._elementDialogContent);
-    this._elementDialogContent.classList.add("widgetDialogContent");
+    WidgetHtml.classAdd(this._elementDialogContent, "widgetDialogContent");
     this._elementDialogContent._widgetDialog = this;
 
-    // this._elementDialogButton = document.createElement("div");
+    // this._elementDialogButton = WidgetHtml.createElement("div");
     // this._elementDialog.appendChild(this._elementDialogButton);
-    // this._elementDialogButton.classList.add("widgetDialogButton");
+    // WidgetHtml.classAdd(this._elementDialogButton, "widgetDialogButton");
 }
 WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementParent, html, loadedHtml) {
     this.createDialog(elementParent);

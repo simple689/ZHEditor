@@ -3,11 +3,11 @@ function WidgetUserLogin() {
 
 WidgetUserLogin.prototype.create = function (elementParent) {
     this._divMain = WidgetHtml.addDiv(elementParent);
-    this._divMain.classList.add("widgetUserLoginMain");
+    WidgetHtml.classAdd(this._divMain, "widgetUserLoginMain");
 
     // userName
     this._divUserName = WidgetHtml.addDiv(this._divMain);
-    this._divUserName.classList.add("widgetUserLoginUserName");
+    WidgetHtml.classAdd(this._divUserName, "widgetUserLoginUserName");
 
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._keyShow = "用户名";
@@ -19,7 +19,7 @@ WidgetUserLogin.prototype.create = function (elementParent) {
 
     // userPWD
     this._divUserPWD = WidgetHtml.addDiv(this._divMain);
-    this._divUserPWD.classList.add("widgetUserLoginUserPWD");
+    WidgetHtml.classAdd(this._divUserPWD, "widgetUserLoginUserPWD");
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._keyShow = "密码";
@@ -30,11 +30,11 @@ WidgetUserLogin.prototype.create = function (elementParent) {
 
     // verify
     this._divVerify = WidgetHtml.addDiv(this._divMain);
-    this._divVerify.classList.add("widgetUserLoginVerify");
+    WidgetHtml.classAdd(this._divVerify, "widgetUserLoginVerify");
 
     // msg
     this._divMsg = WidgetHtml.addDiv(this._divMain);
-    this._divMsg.classList.add("widgetUserLoginMsg");
+    WidgetHtml.classAdd(this._divMsg, "widgetUserLoginMsg");
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._keyShow = "验证";

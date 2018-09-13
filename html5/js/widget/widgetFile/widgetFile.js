@@ -25,11 +25,10 @@ WidgetFile.readFile = function (file, elementTabTitle) {
     }
 }
 WidgetFile.readFileContent = function (fileContent, elementTabTitle, contentType) {
-    var elementFileRoot = document.createElement("div");
+    var elementFileRoot = WidgetHtml.createElement("div");
     elementTabTitle._elementTabContent.appendChild(elementFileRoot);
     elementTabTitle._elementFileRoot = elementFileRoot;
-    elementFileRoot.classList.add("widgetFileRoot");
-
+    WidgetHtml.classAdd(elementFileRoot, "widgetFileRoot");
     var extend = getFileExtend(elementTabTitle.innerHTML);
     if (extend == APIKey._extendJson) {
         elementTabTitle._fileCtrl = new WidgetFileJson();
@@ -44,8 +43,8 @@ WidgetFile.loadedJson = function () {
     this._elementTabTitle._widgetTab._panel.loadedJson(this);
 }
 WidgetFile.loadedImg = function () {
-    // var img = document.createElement("img");
-    // img.classList.add("obj");
+    // var img = WidgetHtml.createElement("img");
+    // WidgetHtml.classAdd(img, "obj");
     // img.file = file;
     // console.log(reader.result);
     // img.src = reader.result;

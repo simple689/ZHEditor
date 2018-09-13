@@ -5,9 +5,9 @@ function WidgetMenuFold() {
 }
 
 WidgetMenuFold.prototype.createMenuFold = function (elementParent, jsonObjCtrl) {
-    this._menuFold = document.createElement("div");
+    this._menuFold = WidgetHtml.createElement("div");
     elementParent.appendChild(this._menuFold);
-    this._menuFold.classList.add("widgetMenuFold");
+    WidgetHtml.classAdd(this._menuFold, "widgetMenuFold");
     var dd = this.addFoldAndItem(this._menuFold, jsonObjCtrl);
     return dd;
 }
@@ -17,10 +17,10 @@ WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, jsonObjCtrl) 
     return dd;
 }
 WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
-    var dl = document.createElement("dl");
+    var dl = WidgetHtml.createElement("dl");
     elementParent.appendChild(dl);
 
-    var dt = document.createElement("dt");
+    var dt = WidgetHtml.createElement("dt");
     dl.appendChild(dt);
     dt._dl = dl;
 
@@ -31,7 +31,7 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     jsonObjCtrlSub._onClick = WidgetMenuFold.onClickDt;
     jsonObjCtrlSub._onContextMenu = jsonObjCtrl._onContextMenu;
     var label = WidgetHtml.addLabel(dt, jsonObjCtrlSub);
-    label.classList.add("widgetMenuFoldLabel");
+    WidgetHtml.classAdd(label, "widgetMenuFoldLabel");
     label._dt = dt;
 
     dt._div = WidgetHtml.addDiv(dt);
@@ -39,7 +39,7 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     return dt;
 }
 WidgetMenuFold.prototype.addFoldItem = function (dt) {
-    var dd = document.createElement("dd");
+    var dd = WidgetHtml.createElement("dd");
     dt._dl.appendChild(dd);
     dd._dt = dt;
     dd.style.display = "block";

@@ -8,16 +8,16 @@ WidgetFileBrowser._jsonFileBrowser = null;
 
 WidgetFileBrowser.prototype.create = function (elementParent) {
     this._divMain = WidgetHtml.addDiv(elementParent);
-    this._divMain.classList.add("widgetFileBrowserMain");
+    WidgetHtml.classAdd(this._divMain, "widgetFileBrowserMain");
 
     this._divLeft = WidgetHtml.addDiv(this._divMain);
-    this._divLeft.classList.add("widgetFileBrowserLeft");
+    WidgetHtml.classAdd(this._divLeft, "widgetFileBrowserLeft");
 
     this._divMiddle = WidgetHtml.addDiv(this._divMain);
-    this._divMiddle.classList.add("widgetFileBrowserMiddle");
+    WidgetHtml.classAdd(this._divMiddle, "widgetFileBrowserMiddle");
 
     this._divRight = WidgetHtml.addDiv(this._divMain);
-    this._divRight.classList.add("widgetFileBrowserRight");
+    WidgetHtml.classAdd(this._divRight, "widgetFileBrowserRight");
 
     // 从服务器获取数据，如果失败，从历史获取数据
     var url = confHttpRoot;
@@ -103,9 +103,9 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 jsonObjCtrl._keyShow = key;
                 jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
                 var element = WidgetHtml.addLabel(fold, jsonObjCtrl);
-                element.classList.add("widgetFileBrowserLeftFolderName");
+                WidgetHtml.classAdd(element, "widgetFileBrowserLeftFolderName");
                 // element = WidgetHtml.addLabel(fold, this, pathChild, pathChild, WidgetFileBrowser.onClickFolderPath, null);
-                // element.classList.add("widgetFileBrowserLeftFolderPath");
+                // WidgetHtml.classAdd(element, "widgetFileBrowserLeftFolderPath");
                 WidgetHtml.addBr(fold);
                 fold = this._menuFoldCtrl.addFoldItem(fold);
             }
@@ -131,11 +131,11 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
             var key = o;
             var value = folderList[o];
             if (typeof(value) == WidgetKey._object) {
-                var rightContent = document.createElement("div");
+                var rightContent = WidgetHtml.createElement("div");
                 // rightContent.innerHTML = path + key;
                 rightContent.innerHTML = key;
                 var flexItem = this._flexCtrl.addFlexItem(rightContent);
-                flexItem.classList.add("widgetFileBrowserRightContent");
+                WidgetHtml.classAdd(flexItem, "widgetFileBrowserRightContent");
             }
         }
 
@@ -144,11 +144,11 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
             var key = o;
             var value = fileList[o];
             if (typeof(value) == WidgetKey._object) {
-                var rightContent = document.createElement("div");
+                var rightContent = WidgetHtml.createElement("div");
                 // rightContent.innerHTML = path + key;
                 rightContent.innerHTML = key;
                 var flexItem = this._flexCtrl.addFlexItem(rightContent);
-                flexItem.classList.add("widgetFileBrowserRightContent");
+                WidgetHtml.classAdd(flexItem, "widgetFileBrowserRightContent");
             }
         }
     }

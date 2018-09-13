@@ -18,7 +18,7 @@
     position: relative;
 }
 
-.block {
+.canvasBlock {
     position: absolute;
     left: 0;
     top: 0;
@@ -120,7 +120,7 @@
     left: 13px;
     width: 14px;
     height: 10px;
-    background: url(/html5/img/widget/widgetVerify/icon.png) 0 -26px;
+    background: url("/html5/img/widget/widgetVerify/icon.png") 0 -26px;
     background-size: 34px 471px;
 }
 
@@ -131,6 +131,6 @@
     width: 34px;
     height: 34px;
     cursor: pointer;
-    background: url(/html5/img/widget/widgetVerify/icon.png) 0 -437px;
+    background: url("/html5/img/widget/widgetVerify/icon.png") 0 -437px;
     background-size: 34px 471px;
 }

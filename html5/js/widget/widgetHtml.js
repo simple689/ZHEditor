@@ -15,6 +15,23 @@ WidgetHtml._enumInputType = {
     _reset: 10,
     _color: 11
 }
+
+WidgetHtml.createElement = function(tagName) {
+    return document.createElement(tagName);
+}
+WidgetHtml.createCanvas = function(width, height) {
+    var canvas = WidgetHtml.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    return canvas;
+}
+WidgetHtml.classAdd = function(tag, className) {
+    tag.classList.add(className);
+}
+WidgetHtml.classRemove = function(tag, className) {
+    tag.classList.remove(className);
+}
+
 WidgetHtml.onClickInput = function (e) {
     switch (this._inputType) {
         case WidgetHtml._enumInputType._buttonMenu : {
@@ -50,27 +67,27 @@ WidgetHtml.onChangeInput = function (e) {
     }
 }
 WidgetHtml.addBr = function (nodeParent) {
-    var nodeBr = document.createElement("br");
+    var nodeBr = WidgetHtml.createElement("br");
     nodeParent.appendChild(nodeBr);
-    nodeBr.classList.add("nodeBr");
+    WidgetHtml.classAdd(nodeBr, "nodeBr");
     return nodeBr;
 }
 WidgetHtml.addDiv = function (nodeParent) {
-    var nodeDiv = document.createElement("div");
+    var nodeDiv = WidgetHtml.createElement("div");
     nodeParent.appendChild(nodeDiv);
-    nodeDiv.classList.add("nodeDiv");
+    WidgetHtml.classAdd(nodeDiv, "nodeDiv");
     return nodeDiv;
 }
 WidgetHtml.addSpan = function (nodeParent) {
-    var nodeSpan = document.createElement("span");
+    var nodeSpan = WidgetHtml.createElement("span");
     nodeParent.appendChild(nodeSpan);
-    nodeSpan.classList.add("nodeSpan");
+    WidgetHtml.classAdd(nodeSpan, "nodeSpan");
     return nodeSpan;
 }
 WidgetHtml.addLabel = function (nodeParent, jsonObjCtrl) {
-    var nodeLabel = document.createElement("label");
+    var nodeLabel = WidgetHtml.createElement("label");
     nodeParent.appendChild(nodeLabel);
-    nodeLabel.classList.add("nodeLabel");
+    WidgetHtml.classAdd(nodeLabel, "nodeLabel");
     nodeLabel._jsonObjCtrl = jsonObjCtrl;
     nodeLabel.onclick = jsonObjCtrl._onClick;
     nodeLabel.oncontextmenu = jsonObjCtrl._onContextMenu;
@@ -78,9 +95,9 @@ WidgetHtml.addLabel = function (nodeParent, jsonObjCtrl) {
     return nodeLabel;
 }
 WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
-    var nodeInput = document.createElement("input");
+    var nodeInput = WidgetHtml.createElement("input");
     nodeParent.appendChild(nodeInput);
-    nodeInput.classList.add("nodeInput");
+    WidgetHtml.classAdd(nodeInput, "nodeInput");
     nodeInput._jsonObjCtrl = jsonObjCtrl;
     nodeInput.onclick = jsonObjCtrl._onClick;
     nodeInput.oncontextmenu = jsonObjCtrl._onContextMenu;
@@ -94,20 +111,20 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     nodeInput._inputType = inputType;
     switch (inputType) {
         case WidgetHtml._enumInputType._button : {
-            nodeInput.classList.add("nodeInputButton");
+            WidgetHtml.classAdd(nodeInput, "nodeInputButton");
             nodeInput.type = "button";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._enumInputType._buttonMenu : {
             nodeInput.onclick = WidgetHtml.onClickInput;
-            nodeInput.classList.add("nodeInputButtonMenu");
+            WidgetHtml.classAdd(nodeInput, "nodeInputButtonMenu");
             nodeInput.type = "button";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._enumInputType._checkbox : {
-            nodeInput.classList.add("nodeInputCheckbox");
+            WidgetHtml.classAdd(nodeInput, "nodeInputCheckbox");
             nodeInput.type = "checkbox";
             if (jsonObjCtrl._value) {
                 nodeInput.checked = true;
@@ -117,7 +134,7 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
             break;
         }
         case WidgetHtml._enumInputType._radio : {
-            nodeInput.classList.add("nodeInputRadio");
+            WidgetHtml.classAdd(nodeInput, "nodeInputRadio");
             nodeInput.type = "radio";
             if (jsonObjCtrl._value) {
                 nodeInput.checked = true;
@@ -127,37 +144,37 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
             break;
         }
         case WidgetHtml._enumInputType._file : {
-            nodeInput.classList.add("nodeInputFile");
+            WidgetHtml.classAdd(nodeInput, "nodeInputFile");
             nodeInput.type = WidgetKey._file;
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._enumInputType._image : {
-            nodeInput.classList.add("nodeInputImage");
+            WidgetHtml.classAdd(nodeInput, "nodeInputImage");
             nodeInput.type = "image";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._enumInputType._password : {
-            nodeInput.classList.add("nodeInputPassword");
+            WidgetHtml.classAdd(nodeInput, "nodeInputPassword");
             nodeInput.type = "password";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._enumInputType._submit : {
-            nodeInput.classList.add("nodeInputSubmit");
+            WidgetHtml.classAdd(nodeInput, "nodeInputSubmit");
             nodeInput.type = "submit";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._enumInputType._reset : {
-            nodeInput.classList.add("nodeInputReset");
+            WidgetHtml.classAdd(nodeInput, "nodeInputReset");
             nodeInput.type = "reset";
             nodeInput.value = jsonObjCtrl._value;
             break;
         }
         case WidgetHtml._enumInputType._color : {
-            nodeInput.classList.add("nodeInputColor");
+            WidgetHtml.classAdd(nodeInput, "nodeInputColor");
             nodeInput.value = jsonObjCtrl._value;
             nodeInput.style.background = jsonObjCtrl._value;
             $(nodeInput).colorPicker({
@@ -170,7 +187,7 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
             break;
         }
         default : {
-            nodeInput.classList.add("nodeInputDefault");
+            WidgetHtml.classAdd(nodeInput, "nodeInputDefault");
             nodeInput.value = jsonObjCtrl._value;
             nodeInput.placeholder = jsonObjCtrl._placeholder;
             break
@@ -179,16 +196,16 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     return nodeInput;
 }
 WidgetHtml.addSelect = function (nodeParent, jsonObjCtrl) {
-    var nodeSelect = document.createElement("select");
+    var nodeSelect = WidgetHtml.createElement("select");
     nodeParent.appendChild(nodeSelect);
-    nodeSelect.classList.add("nodeSelect");
+    WidgetHtml.classAdd(nodeSelect, "nodeSelect");
     nodeSelect._jsonObjCtrl = jsonObjCtrl;
     nodeSelect.oncontextmenu = jsonObjCtrl._onContextMenu;
     nodeSelect.onchange = jsonObjCtrl._onChange;
     for (var i = 0; i < jsonObjCtrl._valueList.length; i++) {
-        var nodeOption = document.createElement("option");
+        var nodeOption = WidgetHtml.createElement("option");
         nodeSelect.appendChild(nodeOption);
-        nodeOption.classList.add("nodeOption");
+        WidgetHtml.classAdd(nodeOption, "nodeOption");
 
         nodeOption.value = jsonObjCtrl._valueList[i]._key;
         nodeOption.innerHTML = jsonObjCtrl._valueList[i]._keyShow;

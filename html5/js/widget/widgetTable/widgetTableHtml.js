@@ -2,19 +2,19 @@ function WidgetTableHtml() {
 }
 
 WidgetTableHtml.addTable = function (nodeParent) {
-    var nodeTable = document.createElement("table");
+    var nodeTable = WidgetHtml.createElement("table");
     nodeParent.appendChild(nodeTable);
-    nodeTable.classList.add("nodeTable");
+    WidgetHtml.classAdd(nodeTable, "nodeTable");
     return nodeTable;
 }
 WidgetTableHtml.addRow = function (nodeTable) {
     var nodeRow = nodeTable.insertRow();
-    nodeRow.classList.add("nodeRow");
+    WidgetHtml.classAdd(nodeRow, "nodeRow");
     return nodeRow;
 }
 WidgetTableHtml.addCell = function (nodeRow) {
     var nodeCell = nodeRow.insertCell();
-    nodeCell.classList.add("nodeCell");
+    WidgetHtml.classAdd(nodeCell, "nodeCell");
     return nodeCell;
 }
 WidgetTableHtml.addLabel = function (nodeRow, key, keyShow) {

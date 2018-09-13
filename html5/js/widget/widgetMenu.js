@@ -12,9 +12,9 @@ function WidgetMenu() {
 WidgetMenu._menuList = new Array();
 WidgetMenu._menuPadding = 6;
 WidgetMenu.prototype.createMenu = function (elementParent) {
-    this._elementRoot = document.createElement("div");
+    this._elementRoot = WidgetHtml.createElement("div");
     elementParent.appendChild(this._elementRoot);
-    this._elementRoot.classList.add("widgetMenu");
+    WidgetHtml.classAdd(this._elementRoot, "widgetMenu");
     WidgetMenu._menuList.push(this);
 }
 WidgetMenu.prototype.createMenuWithHtml = function (elementParent, html) {
@@ -26,12 +26,12 @@ WidgetMenu.prototype.createMenuWithHtml = function (elementParent, html) {
     });
 }
 WidgetMenu.prototype.addUl = function (elementParent) {
-    var ul = document.createElement("ul");
+    var ul = WidgetHtml.createElement("ul");
     elementParent.appendChild(ul);
     return ul;
 }
 WidgetMenu.prototype.addLi = function (elementParent, title, onClick, param) {
-    var li = document.createElement("li");
+    var li = WidgetHtml.createElement("li");
     elementParent.appendChild(li);
     li.onclick = WidgetMenu.onClickLi;
     li._onClick = onClick;
@@ -69,15 +69,15 @@ WidgetMenu.showMenu = function (menu, e, exec) {
         var li = menuLiList[i];
         var ulList = li.getElementsByTagName("ul");
         if (ulList[0]) {
-            li.classList.add("sub"); // 为含有子菜单的li加上箭头
+            WidgetHtml.classAdd(li, "sub"); // 为含有子菜单的li加上箭头
         } else {
-            li.classList.add("checked");
+            WidgetHtml.classAdd(li, "checked");
         }
 
         li._menu = menu;
         li.onmouseenter = function () { // 鼠标移入
             var liThis = this;
-            liThis.classList.add("active");
+            WidgetHtml.classAdd(liThis, "active");
             WidgetMenu.hideMenuLi(liThis);
             var ulList = liThis.getElementsByTagName("ul");
             if (ulList[0]) {
@@ -89,7 +89,7 @@ WidgetMenu.showMenu = function (menu, e, exec) {
         };
         li.onmouseout = function () { // 鼠标移出
             var liThis = this;
-            liThis.classList.remove("active");
+            WidgetHtml.classRemove(liThis, "active");
         };
     }
     var menuUlList = menu._elementRoot.getElementsByTagName("ul");

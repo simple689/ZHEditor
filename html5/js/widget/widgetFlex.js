@@ -2,9 +2,9 @@ function WidgetFlex() {
 }
 
 WidgetFlex.prototype.createFlex = function (elementParent) {
-    this._flexContainer = document.createElement("div");
+    this._flexContainer = WidgetHtml.createElement("div");
     elementParent.appendChild(this._flexContainer);
-    this._flexContainer.classList.add("widgetFlexContainer");
+    WidgetHtml.classAdd(this._flexContainer, "widgetFlexContainer");
 
     this._flexItemList = new Array();
 }
@@ -24,9 +24,9 @@ WidgetFlex.prototype.setFlexAlignContent = function (flexAlignContent) {
     this._flexContainer.style.alignContent = flexAlignContent;
 }
 WidgetFlex.prototype.addFlexItem = function (element) {
-    var flexItem = document.createElement("div");
+    var flexItem = WidgetHtml.createElement("div");
     this._flexContainer.appendChild(flexItem);
-    flexItem.classList.add("widgetFlexItem");
+    WidgetHtml.classAdd(flexItem, "widgetFlexItem");
     this.setItemFlexOrder(flexItem, this._flexItemList.length);
     this._flexItemList.push(flexItem);
     if (element) {

@@ -3,17 +3,17 @@ function WidgetMarkedDoc() {
 
 WidgetMarkedDoc.prototype.create = function (elementParent, pageRoot, page) {
     this._divMain = WidgetHtml.addDiv(elementParent);
-    this._divMain.classList.add("widgetMarkedDocMain");
+    WidgetHtml.classAdd(this._divMain, "widgetMarkedDocMain");
 
     this._divLeft = WidgetHtml.addDiv(this._divMain);
     this._divLeft._widgetMarkedDoc = this;
-    this._divLeft.classList.add("widgetMarkedDocLeft");
+    WidgetHtml.classAdd(this._divLeft, "widgetMarkedDocLeft");
 
     this._divMiddle = WidgetHtml.addDiv(this._divMain);
-    this._divMiddle.classList.add("widgetMarkedDocMiddle");
+    WidgetHtml.classAdd(this._divMiddle, "widgetMarkedDocMiddle");
 
     this._divRight = WidgetHtml.addDiv(this._divMain);
-    this._divRight.classList.add("widgetMarkedDocRight");
+    WidgetHtml.classAdd(this._divRight, "widgetMarkedDocRight");
 
     this._currentPageRoot = pageRoot;
     this._currentPage = page;
@@ -71,8 +71,8 @@ WidgetMarkedDoc.prototype.initLeft = function (left) {
 };
 WidgetMarkedDoc.prototype.initRight = function (right) {
     this._divRightContent = WidgetHtml.addDiv(right);
-    this._divRightContent.classList.add("widgetMarkedDocRightContent");
-    this._divRightContent.classList.add("markdown-body");
+    WidgetHtml.classAdd(this._divRightContent, "widgetMarkedDocRightContent");
+    WidgetHtml.classAdd(this._divRightContent, "markdown-body");
 };
 WidgetMarkedDoc.prototype.hashChange = function(elementHash) {
     var hash = elementHash;

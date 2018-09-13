@@ -7,26 +7,26 @@ WidgetSearch.prototype.createSearch = function (panel, elementParent) {
     // $(elementBrother).after(this._searchText);
 
     this._searchRoot = WidgetHtml.addSpan(elementParent);
-    this._searchRoot.classList.add("searchRoot");
+    WidgetHtml.classAdd(this._searchRoot, "searchRoot");
 
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._onKeyUp = WidgetSearch.onKeyUpSearchText;
     jsonObjCtrl._onFocus = WidgetSearch.onFocusSearchText;
     this._searchText = WidgetHtml.addInput(this._searchRoot, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     this._searchText._widgetSearch = this;
-    this._searchText.classList.add("searchText");
+    WidgetHtml.classAdd(this._searchText, "searchText");
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "搜索";
     jsonObjCtrl._onClick = WidgetSearch.onClickSearchBtn;
     this._searchBtn = WidgetHtml.addInput(this._searchRoot, jsonObjCtrl, WidgetHtml._enumInputType._button);
     this._searchBtn._widgetSearch = this;
-    this._searchBtn.classList.add("searchBtn");
+    WidgetHtml.classAdd(this._searchBtn, "searchBtn");
 
     this._searchHistoryBox = WidgetHtml.addDiv(this._searchRoot);
-    this._searchHistoryBox.classList.add("searchHistoryBox");
+    WidgetHtml.classAdd(this._searchHistoryBox, "searchHistoryBox");
 
-    this._searchHistory = document.createElement("ul");
+    this._searchHistory = WidgetHtml.createElement("ul");
     this._searchHistoryBox.appendChild(this._searchHistory);
 
     this._searchHistoryIndex = 0;
@@ -87,23 +87,23 @@ WidgetSearch.onKeyUpSearchText = function (event) {
         setElementDisplay(ctrl._searchHistoryBox, false);
     } else if (key == 38) {
         var item = ctrl._searchHistoryItemList[ctrl._searchHistoryIndex];
-        item.classList.remove("choose");
+        WidgetHtml.classRemove(item, "choose");
         ctrl._searchHistoryIndex--;
         if (ctrl._searchHistoryIndex < 0) {
             ctrl._searchHistoryIndex = searchHistoryItemListLen - 1;
         }
         item = ctrl._searchHistoryItemList[ctrl._searchHistoryIndex];
-        item.classList.add("choose");
+        WidgetHtml.classAdd(item, "choose");
         setElementDisplay(ctrl._searchHistoryBox, true);
     } else if (key == 40) {
         var item = ctrl._searchHistoryItemList[ctrl._searchHistoryIndex];
-        item.classList.remove("choose");
+        WidgetHtml.classRemove(item, "choose");
         ctrl._searchHistoryIndex++;
         if (ctrl._searchHistoryIndex > searchHistoryItemListLen - 1) {
             ctrl._searchHistoryIndex = 0;
         }
         item = ctrl._searchHistoryItemList[ctrl._searchHistoryIndex];
-        item.classList.add("choose");
+        WidgetHtml.classAdd(item, "choose");
         setElementDisplay(ctrl._searchHistoryBox, true);
     } else {
         WidgetSearch.showHistory(ctrl, this.value);
@@ -123,11 +123,11 @@ WidgetSearch.onClickSearchHistoryItem = function () {
 }
 WidgetSearch.onMouseEnterSearchHistoryItem = function () {
     var liThis = this;
-    liThis.classList.add("active");
+    WidgetHtml.classAdd(liThis, "active");
 }
 WidgetSearch.onMouseOutSearchHistoryItem = function () {
     var liThis = this;
-    liThis.classList.remove("active");
+    WidgetHtml.classRemove(liThis, "active");
 }
 // 展示全部记录
 WidgetSearch.showHistory = function (ctrl, searchValue) {
@@ -159,7 +159,7 @@ WidgetSearch.showHistory = function (ctrl, searchValue) {
                 isAdd = true;
             }
             if (isAdd) {
-                var li = document.createElement("li");
+                var li = WidgetHtml.createElement("li");
                 ctrl._searchHistory.append(li);
                 li._widgetSearch = ctrl;
                 $(li).on("click", WidgetSearch.onClickSearchHistoryItem);

@@ -1,21 +1,9 @@
-var l = 42; // 滑块边长
-var r = 10; // 滑块半径
-var w = 310; // canvas宽度
-var h = 155; // canvas高度
-var PI = Math.PI;
-var L = l + r * 2; // 滑块实际边长
-
 function getRandomNumberByRange(start, end) {
     return Math.round(Math.random() * (end - start) + start);
 }
-function createCanvas(width, height) {
-    var canvas = createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-    return canvas;
-}
+
 function createImg(onload) {
-    var img = createElement('img');
+    var img = WidgetHtml.createElement('img');
     img.crossOrigin = "Anonymous";
     img.onload = onload;
     img.onerror = () => {
@@ -24,15 +12,7 @@ function createImg(onload) {
     img.src = getRandomImg();
     return img;
 }
-function createElement(tagName) {
-    return document.createElement(tagName);
-}
-function addClass(tag, className) {
-    tag.classList.add(className);
-}
-function removeClass(tag, className) {
-    tag.classList.remove(className);
-}
+
 function getRandomImg() {
     return 'https://picsum.photos/300/150/?image=' + getRandomNumberByRange(0, 100);
 }
@@ -65,51 +45,59 @@ function square(x) {
 
 function WidgetVerify() {
 }
+WidgetVerify._canvasWidth = 310; // canvas宽度
+WidgetVerify._canvasHeight = 155; // canvas高度
+var w = 310; // canvas宽度
+var h = 155; // canvas高度
+
+var l = 42; // 滑块边长
+var r = 10; // 滑块半径
+var PI = Math.PI;
+var L = l + r * 2; // 滑块实际边长
 
 WidgetVerify.prototype.create = function (elementParent, funcComplete) {
-    this.el = elementParent;
-    this.success = funcComplete;
+    this._elementParent = elementParent;
+    this._funcComplete = funcComplete;
 
-    this.init();
-}
-WidgetVerify.prototype.init = function () {
     this.initDOM();
     this.initImg();
     this.draw();
     this.bindEvents();
-};
+}
 WidgetVerify.prototype.initDOM = function () {
-    var canvas = createCanvas(w, h); // 画布
-    var block = canvas.cloneNode(true); // 滑块
-    var sliderContainer = createElement('div');
-    var refreshIcon = createElement('div');
-    var sliderMask = createElement('div');
-    var slider = createElement('div');
-    var sliderIcon = createElement('span');
-    var text = createElement('span');
+    var canvas = WidgetHtml.createCanvas(WidgetVerify._canvasWidth, WidgetVerify._canvasHeight); // 画布
+    var canvasBlock = canvas.cloneNode(true); // 滑块
 
-    block.className = 'block';
+    var sliderContainer = WidgetHtml.createElement('div');
+    var refreshIcon = WidgetHtml.createElement('div');
+    var sliderMask = WidgetHtml.createElement('div');
+    var slider = WidgetHtml.createElement('div');
+    var sliderIcon = WidgetHtml.createElement('span');
+    var text = WidgetHtml.createElement('span');
+
+    canvasBlock.className = 'canvasBlock';
+
     sliderContainer.className = 'sliderContainer';
     refreshIcon.className = 'refreshIcon';
     sliderMask.className = 'sliderMask';
     slider.className = 'slider';
     sliderIcon.className = 'sliderIcon';
-    text.innerHTML = '向右滑动滑块填充拼图';
     text.className = 'sliderText';
 
-    var el = this.el;
-    el.appendChild(canvas);
-    el.appendChild(refreshIcon);
-    el.appendChild(block);
+    text.innerHTML = '向右滑动滑块填充拼图';
+
+    this._elementParent.appendChild(canvas);
+    this._elementParent.appendChild(refreshIcon);
+    this._elementParent.appendChild(canvasBlock);
     slider.appendChild(sliderIcon);
     sliderMask.appendChild(slider);
     sliderContainer.appendChild(sliderMask);
     sliderContainer.appendChild(text);
-    el.appendChild(sliderContainer);
+    this._elementParent.appendChild(sliderContainer);
 
     Object.assign(this, {
         canvas,
-        block,
+        canvasBlock,
         sliderContainer,
         refreshIcon,
         slider,
@@ -117,17 +105,17 @@ WidgetVerify.prototype.initDOM = function () {
         sliderIcon,
         text,
         canvasCtx: canvas.getContext('2d'),
-        blockCtx: block.getContext('2d')
+        blockCtx: canvasBlock.getContext('2d')
     })
+    var a = 0;
 }
-
 WidgetVerify.prototype.initImg = function () {
     var img = createImg(() => {
         this.canvasCtx.drawImage(img, 0, 0, w, h);
         this.blockCtx.drawImage(img, 0, 0, w, h);
         var y = this.y - r * 2 + 2;
         var ImageData = this.blockCtx.getImageData(this.x, y, L, L);
-        this.block.width = L;
+        this.canvasBlock.width = L;
         this.blockCtx.putImageData(ImageData, 0, y);
     });
     this.img = img;
@@ -142,11 +130,11 @@ WidgetVerify.prototype.draw = function () {
 WidgetVerify.prototype.clean = function () {
     this.canvasCtx.clearRect(0, 0, w, h);
     this.blockCtx.clearRect(0, 0, w, h);
-    this.block.width = w;
+    this.canvasBlock.width = w;
 }
 
 WidgetVerify.prototype.bindEvents = function () {
-    this.el.onselectstart = () =>
+    this._elementParent.onselectstart = () =>
     false
     this.refreshIcon.onclick = () => {
         this.reset()
@@ -163,9 +151,9 @@ WidgetVerify.prototype.bindEvents = function () {
         if (moveX < 0 || moveX + 38 >= w) return false;
         this.slider.style.left = moveX + 'px';
         var blockLeft = (w - 40 - 20) / (w - 40) * moveX;
-        this.block.style.left = blockLeft + 'px';
+        this.canvasBlock.style.left = blockLeft + 'px';
 
-        addClass(this.sliderContainer, 'sliderContainer_active');
+        WidgetHtml.classAdd(this.sliderContainer, 'sliderContainer_active');
         this.sliderMask.style.width = moveX + 'px';
         trail.push(moveY);
     });
@@ -173,20 +161,20 @@ WidgetVerify.prototype.bindEvents = function () {
         if(!isMouseDown) return false;
         isMouseDown = false;
         if (e.x == originX) return false;
-        removeClass(this.sliderContainer, 'sliderContainer_active');
+        WidgetHtml.classRemove(this.sliderContainer, 'sliderContainer_active');
         this.trail = trail;
         const {spliced, TuringTest} = this.verify();
         if (spliced) {
             if (TuringTest) {
-                addClass(this.sliderContainer, 'sliderContainer_success');
-                this.success && this.success();
+                WidgetHtml.classAdd(this.sliderContainer, 'sliderContainer_success');
+                this._funcComplete && this._funcComplete();
             } else {
-                addClass(this.sliderContainer, 'sliderContainer_fail');
+                WidgetHtml.classAdd(this.sliderContainer, 'sliderContainer_fail');
                 this.text.innerHTML = '再试一次';
                 this.reset();
             }
         } else {
-            addClass(this.sliderContainer, 'sliderContainer_fail');
+            WidgetHtml.classAdd(this.sliderContainer, 'sliderContainer_fail');
             this.fail && this.fail();
             setTimeout(() => {
                 this.reset();
@@ -200,7 +188,7 @@ WidgetVerify.prototype.verify = function () {
     var average = arr.reduce(sum) / arr.length; // 平均值
     var deviations = arr.map(x => x - average); // 偏差数组
     var stddev = Math.sqrt(deviations.map(square).reduce(sum) / arr.length); // 标准差
-    var left = parseInt(this.block.style.left);
+    var left = parseInt(this.canvasBlock.style.left);
     return {
         spliced: Math.abs(left - this.x) < 10,
         TuringTest: average !== stddev, // 只是简单的验证拖动轨迹，相等时一般为0，表示可能非人为操作
@@ -209,7 +197,7 @@ WidgetVerify.prototype.verify = function () {
 WidgetVerify.prototype.reset = function () {
     this.sliderContainer.className = 'sliderContainer';
     this.slider.style.left = 0;
-    this.block.style.left = 0;
+    this.canvasBlock.style.left = 0;
     this.sliderMask.style.width = 0;
     this.clean();
     this.img.src = getRandomImg();

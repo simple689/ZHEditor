@@ -12,8 +12,8 @@ PanelMenu.prototype.init = function () {
             this._menuFileExitSpan = document.getElementById("menuExitSpan");
             this._menuFileExit = document.getElementById("menuExit");
 
-            this._menuFileExitSpan.classList.remove("widgetMenuHide");
-            this._menuFileExit.classList.remove("widgetMenuHide");
+            WidgetHtml.classRemove(this._menuFileExitSpan, "widgetMenuHide");
+            WidgetHtml.classRemove(this._menuFileExit, "widgetMenuHide");
             break;
         }
     }
