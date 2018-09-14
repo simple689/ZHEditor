@@ -1,7 +1,7 @@
 function WidgetVerify() {
 }
-WidgetVerify._w = 310; // canvas宽度
-WidgetVerify._h = 155; // canvas高度
+WidgetVerify._w = 300; // canvas宽度
+WidgetVerify._h = 150; // canvas高度
 WidgetVerify._r = 10; // 滑块半径
 WidgetVerify._l = 42; // 滑块边长
 WidgetVerify._L = WidgetVerify._l + WidgetVerify._r * 2; // 滑块实际边长
