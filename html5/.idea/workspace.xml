@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change beforePath="$PROJECT_DIR$/css/widget/widgetUserDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/widget/widgetUserDialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/base/widgetUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/base/widgetUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetUserDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetUserDialog.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -119,21 +122,21 @@
         <counts>
           <entry key="css" value="581" />
           <entry key="html" value="432" />
-          <entry key="js" value="6254" />
+          <entry key="js" value="6493" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="581" />
           <entry key="HTML" value="432" />
-          <entry key="JavaScript" value="6254" />
+          <entry key="JavaScript" value="6493" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="20" />
           <entry key="html" value="18" />
-          <entry key="js" value="123" />
+          <entry key="js" value="126" />
           <entry key="jsonMd" value="1" />
           <entry key="png" value="3" />
           <entry key="ts" value="9" />
@@ -144,7 +147,7 @@
           <entry key="CSS" value="20" />
           <entry key="HTML" value="18" />
           <entry key="Image" value="3" />
-          <entry key="JavaScript" value="123" />
+          <entry key="JavaScript" value="126" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="9" />
         </counts>
@@ -156,11 +159,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/base/widgetUser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+            <state relative-caret-position="307">
+              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="33" column="72" lean-forward="true" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/business/editor/dock/conf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -168,8 +189,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetUserDialog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="105" column="54" lean-forward="true" selection-start-line="105" selection-start-column="54" selection-end-line="105" selection-end-column="54" />
+            <state relative-caret-position="244">
+              <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -184,6 +205,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="654">
+              <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/widget/widgetVerify.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -192,7 +222,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/widget/widgetUserDialog.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -204,17 +234,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetHtml.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
+            <state relative-caret-position="2159">
               <caret line="189" column="60" selection-start-line="189" selection-start-column="44" selection-end-line="189" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/widget/widgetMarkedDoc.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="71" column="56" lean-forward="true" selection-start-line="71" selection-start-column="56" selection-end-line="73" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -224,15 +245,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
               <caret line="50" selection-start-line="50" selection-end-line="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/widget/widgetMarkedDoc.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="44" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -250,8 +262,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sliderIcon</find>
-      <find>sliderContainer_fail</find>
       <find>sliderText</find>
       <find>clean</find>
       <find>WidgetVerify.L</find>
@@ -280,6 +290,8 @@
       <find>_funcComplete</find>
       <find>funcComplete</find>
       <find>_widgetUserDialog</find>
+      <find>createPost</find>
+      <find>WidgetHttpAJAX</find>
     </findStrings>
     <replaceStrings>
       <replace>_canvasBlockCtx</replace>
@@ -366,15 +378,15 @@
         <option value="$PROJECT_DIR$/js/API/APIClient.js" />
         <option value="$PROJECT_DIR$/js/API/APIData.js" />
         <option value="$PROJECT_DIR$/js/widget/base/widgetUtil.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetUserLogin.js" />
         <option value="$PROJECT_DIR$/css/widget/widgetHtml.css" />
         <option value="$PROJECT_DIR$/css/widget/widgetVerify.css" />
-        <option value="$PROJECT_DIR$/js/widget/base/widgetUser.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetVerify.js" />
-        <option value="$PROJECT_DIR$/js/widget/widgetUserDialog.js" />
         <option value="$PROJECT_DIR$/css/widget/widgetUserDialog.css" />
+        <option value="$PROJECT_DIR$/js/widget/widgetUserDialog.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" />
+        <option value="$PROJECT_DIR$/js/widget/base/widgetUser.js" />
       </list>
     </option>
   </component>
@@ -890,12 +902,12 @@
       <workItem from="1536805690743" duration="12847000" />
       <workItem from="1536833493504" duration="2979000" />
       <workItem from="1536837025612" duration="778000" />
-      <workItem from="1536888513311" duration="10525000" />
+      <workItem from="1536888513311" duration="11791000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1100423000" />
+    <option name="totallyTimeSpent" value="1101689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -941,6 +953,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/widget/base/widgetUser.js</url>
+          <line>60</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1006,13 +1026,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-897">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/API/APIKey.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -1198,20 +1211,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetDialog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -1247,13 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHtml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="189" column="60" selection-start-line="189" selection-start-column="44" selection-end-line="189" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/widget/widgetHtml.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1268,17 +1260,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/base/widgetUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/external/marked/es6-promise.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="795" column="17" selection-start-line="795" selection-start-column="10" selection-end-line="795" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/widget/widgetUserDialog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHtml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2159">
+          <caret line="189" column="60" selection-start-line="189" selection-start-column="44" selection-end-line="189" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/business/editor/dock/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetUserDialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1289,17 +1302,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetUserDialog.js">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="105" column="54" lean-forward="true" selection-start-line="105" selection-start-column="54" selection-end-line="105" selection-end-column="54" />
+        <state relative-caret-position="654">
+          <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/widget/widgetUserDialog.css">
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="216">
+          <caret line="33" column="72" lean-forward="true" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/base/widgetUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
         </state>
       </provider>
     </entry>

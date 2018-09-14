@@ -20,23 +20,20 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     WidgetHtml.classAdd(this._divRight, "widgetFileBrowserRight");
 
     // 从服务器获取数据，如果失败，从历史获取数据
-    var url = confHttpRoot;
     var jsonData = {
         "module": APIServer._module._fileBrowser,
     };
-    WidgetHttpAJAX.createPost(url, jsonData, this,
-        WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
-    // WidgetHttpAJAX.createGetJsonp(url, jsonData, this,
-    //     WidgetFileBrowser.ajaxSuccessJsonFileBrowser, WidgetFileBrowser.ajaxErrorJsonFileBrowser);
+    WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
+    // WidgetHttpAJAX.createGetJsonp(url, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
 }
-WidgetFileBrowser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, jsonData) {
-    if (jsonData[APIKey._data]) {
-        WidgetFileBrowser._jsonFileBrowser = jsonData[APIKey._data];
+WidgetFileBrowser.ajaxCompleteJsonFileBrowser = function (widgetFileBrowser, e, jsonData) {
+    if (e) {
+        WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
+    } else {
+        if (jsonData[APIKey._data]) {
+            WidgetFileBrowser._jsonFileBrowser = jsonData[APIKey._data];
+        }
     }
-    widgetFileBrowser.initDefault();
-}
-WidgetFileBrowser.ajaxErrorJsonFileBrowser = function (widgetFileBrowser, error, e) {
-    WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
     widgetFileBrowser.initDefault();
 }
 WidgetFileBrowser.prototype.initDefault = function () {

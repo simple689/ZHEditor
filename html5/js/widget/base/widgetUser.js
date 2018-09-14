@@ -19,8 +19,6 @@ WidgetUser.init = function (elementParent) {
     } else {
         WidgetUser.initMenuLogin();
     }
-    // test
-    WidgetUser.test();
 }
 WidgetUser.initMenuLogin = function () {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
@@ -36,45 +34,37 @@ WidgetUser.initMenuLogout = function () {
     jsonObjCtrl._valueList.insertItem(new MenuListItem("退出", WidgetUser.onClickMenuLogout, APIKey._extendJsonMd));
     WidgetHtml.addInput(WidgetUser._elementParent, jsonObjCtrl, WidgetHtml._enumInputType._buttonMenu);
 }
-// 点击 menu
+// 点击事件 menu
 WidgetUser.onClickMenuLogin = function () {
     WidgetUser._widgetUserDialog = new WidgetUserDialog();
     WidgetUser._widgetUserDialog.createDialogLogin();
 }
 WidgetUser.onClickMenuLogout = function () {
 }
-// 点击
+// 点击事件
 WidgetUser.onClickLogin = function () {
-    // WidgetUser._widgetUserDialog.createDialogLogin();
+    var userName = WidgetUser._widgetUserDialog.getUserName();
+    var userPWD = WidgetUser._widgetUserDialog.getUserPWD();
+
+    var jsonData = {
+        "module": APIServer._module._user,
+        "func": APIServer._user._login,
+        "name": userName,
+        "pwd": userPWD,
+    };
+    WidgetHttpAJAX.createPost(null, jsonData, this, WidgetUser.ajaxCompleteLogin);
+}
+WidgetUser.ajaxCompleteLogin = function (widgetFileBrowser, e, jsonData) {
+    if (e) {
+    } else {
+        if (jsonData[APIKey._data]) {
+            WidgetFileBrowser._jsonFileBrowser = jsonData[APIKey._data];
+        }
+    }
 }
 WidgetUser.onClickForgetPWD = function () {
     // WidgetUser._widgetUserDialog.createDialogLogin();
 }
 WidgetUser.onClickRegister = function () {
     // WidgetUser._widgetUserDialog.createDialogLogin();
-}
-// test
-WidgetUser.test = function () {
-    var url = confHttpRoot;
-    var pwd = "123456";
-    pwd = sha1(pwd);
-
-    var jsonData = {
-        "module": APIServer._module._user,
-        "func": APIServer._user._login,
-        "name": "teddy",
-        "pwd": pwd,
-    };
-    WidgetHttpAJAX.createPost(url, jsonData, this,
-        WidgetUser.ajaxSuccessJsonFileBrowser, WidgetUser.ajaxErrorJsonFileBrowser);
-}
-WidgetUser.ajaxSuccessJsonFileBrowser = function (widgetFileBrowser, data) {
-    // if (data[APIKey._data]) {
-    //     WidgetFileBrowser._jsonFileBrowser = data[APIKey._data];
-    // }
-    // widgetFileBrowser.initDefault();
-}
-WidgetUser.ajaxErrorJsonFileBrowser = function (widgetFileBrowser, error, e) {
-    // WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
-    // widgetFileBrowser.initDefault();
 }

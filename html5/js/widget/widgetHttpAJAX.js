@@ -7,11 +7,10 @@ WidgetHttpAJAX._enumOpenType = {
 }
 function jsonpCallback(data) {
 }
-WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcSuccess, funcError) { // 明文，不安全
+WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcComplete) { // 明文，不安全
     $.ajax({
         _exec : exec,
-        _funcSuccess : funcSuccess,
-        _funcError : funcError,
+        _funcComplete : funcComplete,
         url : url,
         data: jsonObj,
         dataType: 'jsonp',
@@ -25,22 +24,24 @@ WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcSuccess, funcE
             WidgetLog.log("[ajax success]", data);
             // WidgetLog.log(JSON.stringify(data));
             // WidgetLog.log(JSON.stringify(data, null, 2));
-            if (funcSuccess) funcSuccess(this._exec, data);
+            if (funcComplete) funcComplete(this._exec, null, data);
         },
         error: function (XHR, error, e) {
             // console.log("[ajax error]", error);
             // console.log("[ajax error]", e);
-            if (funcError) funcError(this._exec, error, e);
+            if (funcComplete) funcComplete(this._exec, e, null);
         }
     });
 }
-WidgetHttpAJAX.createPost = function (url, jsonObj, exec, funcSuccess, funcError) {
+WidgetHttpAJAX.createPost = function (url, jsonObj, exec, funcComplete) {
+    if (!url) {
+        url = confHttpRoot;
+    }
     var jsonStr = JSON.stringify(jsonObj);
     var jsonStrNew = base64.encode(jsonStr);
     $.ajax({
         _exec : exec,
-        _funcSuccess : funcSuccess,
-        _funcError : funcError,
+        _funcComplete : funcComplete,
         url : url,
         data : jsonStrNew,
         type : "post",
@@ -50,16 +51,16 @@ WidgetHttpAJAX.createPost = function (url, jsonObj, exec, funcSuccess, funcError
             var jsonStr = base64.decode(data);
             var jsonObj = JSON.parse(jsonStr);
             WidgetLog.log(JSON.stringify(jsonObj, null, 2));
-            if (funcSuccess) funcSuccess(this._exec, jsonObj);
+            if (funcComplete) funcComplete(this._exec, null, jsonObj);
         },
         error: function (XHR, error, e) {
             // console.log("[ajax error]", error);
             // console.log("[ajax error]", e);
-            if (funcError) funcError(this._exec, error, e);
+            if (funcComplete) funcComplete(this._exec, e, null);
         }
     });
 }
-WidgetHttpAJAX.createFd = function (url, jsonObj, exec, funcSuccess, funcError) { // 暂时不用
+WidgetHttpAJAX.createFd = function (url, jsonObj, exec, funcComplete) { // 暂时不用
     var formData = new FormData();
     formData.append('path', "./");
     formData.append('name', "test.json");
@@ -67,8 +68,7 @@ WidgetHttpAJAX.createFd = function (url, jsonObj, exec, funcSuccess, funcError) 
     formData.append('file', jsonStr);
     $.ajax({
         _exec : exec,
-        _funcSuccess : funcSuccess,
-        _funcError : funcError,
+        _funcComplete : funcComplete,
         url : url,
         data : formData,
         type : "post",

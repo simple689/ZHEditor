@@ -119,3 +119,10 @@ WidgetUserDialog.prototype.initVerify = function () {
         console.log("verify fail");
     })
 };
+
+WidgetUserDialog.prototype.getUserName = function () {
+    return this._inputUserName.value;
+}
+WidgetUserDialog.prototype.getUserPWD = function () {
+    return sha1(this._inputUserPWD.value);
+}
