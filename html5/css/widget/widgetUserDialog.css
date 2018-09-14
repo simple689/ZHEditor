@@ -1,0 +1,40 @@
+.widgetUserDialogMain {
+    flex: 1;
+    display: flex;
+    display: -webkit-flex;
+    overflow: auto;
+}
+
+.widgetUserDialogMain input {
+    /*display: block;*/
+    /*width: 300px;*/
+    /*line-height: 30px;*/
+    /*margin: 10px 0;*/
+}
+
+.widgetUserDialogLeft {
+    overflow: auto;
+}
+
+.widgetUserDialogRight {
+    background: green;
+}
+
+.widgetUserDialogRightContent {
+    background: burlywood;
+    /*overflow: auto;*/
+    /*width: 100%;*/
+
+    /*padding: 5px 10px;*/
+    /*border: 1px solid #ddd;*/
+}
+
+.widgetUserDialogUserName {
+}
+
+.widgetUserDialogUserPWD {
+}
+
+.widgetUserDialogVerify {
+    /*position: relative;*/
+}

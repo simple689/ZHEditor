@@ -10,6 +10,7 @@ WidgetUser._enumClientType = {
 WidgetUser._client = WidgetUser._enumClientType.webPC;
 
 WidgetUser._jsonLoginCache = null;
+WidgetUser._widgetUserDialog = null;
 
 WidgetUser.init = function (elementParent) {
     WidgetUser._elementParent = elementParent;
@@ -36,27 +37,9 @@ WidgetUser.initMenuLogout = function () {
     WidgetHtml.addInput(WidgetUser._elementParent, jsonObjCtrl, WidgetHtml._enumInputType._buttonMenu);
 }
 WidgetUser.onClickMenuLogin = function () {
-    var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogWithHtml(null, document.body, null, WidgetUser.showDialogLogin);
+    WidgetUser._widgetUserDialog = new WidgetUserDialog();
+    WidgetUser._widgetUserDialog.createDialogLogin();
 }
-WidgetUser.showDialogLogin = function (widgetDialog) {
-    // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelTitle");
-    jsonObjCtrl._keyShow = "登录";
-    var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
-    label.style.textAlign = "center";
-    label.style.lineHeight = "30px";
-
-    //获取可见窗口大小
-    var bodyW = document.documentElement.clientWidth;
-    var bodyH = document.documentElement.clientHeight;
-
-    var widgetUserLogin = new WidgetUserLogin();
-    widgetDialog._widgetUserLogin = widgetUserLogin;
-    widgetUserLogin.create(widgetDialog._elementDialogContent);
-    // widgetUserLogin._divMain.style.height = bodyH * 0.8 + "px";
-    // widgetUserLogin._divMain.style.width = bodyW * 0.8 + "px";
-};
 WidgetUser.onClickMenuLogout = function () {
 }
 WidgetUser.create = function () {
