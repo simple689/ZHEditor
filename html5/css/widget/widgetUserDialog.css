@@ -30,7 +30,6 @@
 }
 
 .widgetUserLabelMsg {
-    background: red;
 }
 
 .widgetUserLabelUserName, .widgetUserLabelUserPWD {
@@ -45,7 +44,6 @@
 }
 
 .widgetUserDialogVerify {
-    background: red;
     width: 300px;
     position: relative;
 }
