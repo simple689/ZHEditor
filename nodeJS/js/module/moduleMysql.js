@@ -1,28 +1,32 @@
+const APIServer = require('../API/APIUtil.js');
+const APIData = require('../API/APIData.js');
+
 var mysql = require('mysql');
 
 module.exports = ModuleMysql;
 
 function ModuleMysql() {
 }
+ModuleMysql._db = null;
 
 ModuleMysql.init = function(server) {
-    server._mysql = mysql.createConnection({
+    var conf = server._conf;
+    ModuleMysql._db = mysql.createConnection({
         host : '127.0.0.1',
         port: '3306',
         user : 'teddy',
         password : '199068',
-        database : 'ZHEditor'
+        database : conf._mysql._db
     });
-    server._mysql.connect();
-
-    // server._mysql.query('SELECT *', function (err, result) {
+    ModuleMysql._db.connect();
+    // ModuleMysql._db.query('SELECT *', function (err, result) {
     //     if (err)
     //         console.log("[Mysql]error : ", err.message);
     //     console.log("[Mysql]result : ", result);
     // });
 }
 ModuleMysql.exit = function(server) {
-    server._mysql.end();
+    ModuleMysql._db.end();
 }
 
 ModuleMysql.prototype.handle = function(structServer) {
@@ -43,7 +47,7 @@ ModuleMysql.prototype.add = function(structServer) {
     var sql = 'INSERT INTO ' + structServer._jsonClient.table + '(id,name,age) VALUES(0,?,?)';
     console.log("[Mysql]add : ", sql);
     var sqlParam = ['Wilson', 55];
-    structServer._server._mysql.query(sql, sqlParam, function(err, result) {
+    ModuleMysql._db.query(sql, sqlParam, function(err, result) {
         if (err) {
             console.log("[Mysql]error : ", err.message);
             return;
@@ -54,7 +58,7 @@ ModuleMysql.prototype.add = function(structServer) {
 ModuleMysql.prototype.del = function(structServer) {
     var sql = 'DELETE FROM ' + structServer._jsonClient.table + 'WHERE ' + key + '=' + value;
     console.log("[Mysql]del : ", sql);
-    structServer._server._mysql.query(sql, function(err, result) {
+    ModuleMysql._db.query(sql, function(err, result) {
         if (err) {
             console.log("[Mysql]error : ", err.message);
             return;
@@ -66,7 +70,7 @@ ModuleMysql.prototype.up = function(structServer) {
     var sql = 'UPDATE ' + structServer._jsonClient.table + 'SET name = ?,age = ? WHERE id = ?';
     console.log("[Mysql]add : ", sql);
     var sqlParam = ['Hello World',99,7];
-    structServer._server._mysql.query(sql, sqlParam, function(err, result) {
+    ModuleMysql._db.query(sql, sqlParam, function(err, result) {
         if (err) {
             console.log("[Mysql]error : ", err.message);
             return;
@@ -76,13 +80,17 @@ ModuleMysql.prototype.up = function(structServer) {
 }
 ModuleMysql.prototype.query = function(structServer) {
     var sql = 'SELECT * FROM ' + structServer._jsonClient.table;
+    ModuleMysql.querySql(sql);
+}
+ModuleMysql.querySql = function(sql, exec) {
     console.log("[Mysql]query : ", sql);
-    structServer._server._mysql.query(sql, function(err, result) {
+    ModuleMysql._db.query(sql, function(err, result) {
         if (err) {
             console.log("[Mysql]error : ", err.message);
-            return;
         }
         console.log("[Mysql]result : ", result);
-        structServer._funcComplete(structServer);
+        if (exec && exec._funcComplete) {
+            exec._funcComplete(err, result);
+        }
     });
 }

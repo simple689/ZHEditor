@@ -1,5 +1,6 @@
-const APIUtil = require('../API/APIUtil.js');
+const APIServer = require('../API/APIServer.js');
 const APIData = require('../API/APIData.js');
+const APIUtil = require('../API/APIUtil.js');
 
 const ModuleMysql = require('./moduleMysql.js');
 const Util = require('../base/util.js');
@@ -27,8 +28,18 @@ ModuleUser.prototype.login = function(structServer) {
     var userName = jsonObj[APIData._userName];
     var userPWD = jsonObj[APIData._userPWD];
     // todo 读取数据库 未来加token
-    structServer._jsonServer[APIData._data] = {};
-    structServer._funcComplete(structServer);
+    var conf = structServer._server._conf;
+    var sql = "SELECT * FROM " + conf._mysqlTable._user + " WHERE " + conf._mysqlUser._name + " = '" + userName + "';";
+    // var sql = "SELECT * FROM " + conf._mysql._db + "." + conf._mysqlTable._user + " WHERE " + conf._mysqlUser._name + " = '" + userName + "';";
+    this._funcComplete = ModuleUser.dbCompleteLogin;
+    ModuleMysql.querySql(sql, this);
+}
+ModuleUser.dbCompleteLogin = function (err, result) {
+    if (err) {
+    } else {
+        // structServer._jsonServer[APIData._data] = {};
+        // structServer._funcComplete(structServer);
+    }
 }
 ModuleUser.prototype.forgetPWD = function(structServer) {
 }
