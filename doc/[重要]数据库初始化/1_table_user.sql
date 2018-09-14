@@ -24,6 +24,6 @@
 -- 查询
 -- ----------------------------
 -- SELECT * FROM `ZHEditor`.`user`;
-SELECT * FROM ZHEditor.user WHERE name = 'a';
+-- SELECT * FROM ZHEditor.user WHERE name = 'a';
 
 -- INSERT INTO `ZHEditor`.`user` (`name`, `pwd`) VALUES ('a', 'a');

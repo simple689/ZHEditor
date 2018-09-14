@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change beforePath="$PROJECT_DIR$/js/widget/base/widgetUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/base/widgetUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleUser.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -100,7 +100,7 @@
     <session id="-1152963513">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="1" />
@@ -897,12 +897,12 @@
       <workItem from="1536833493504" duration="2979000" />
       <workItem from="1536837025612" duration="778000" />
       <workItem from="1536888513311" duration="12430000" />
-      <workItem from="1536910835632" duration="1509000" />
+      <workItem from="1536910835632" duration="2106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1103837000" />
+    <option name="totallyTimeSpent" value="1104434000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -923,7 +923,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.2884927" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" weight="0.2884927" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />

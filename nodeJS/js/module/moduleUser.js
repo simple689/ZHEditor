@@ -31,14 +31,17 @@ ModuleUser.prototype.login = function(structServer) {
     var conf = structServer._server._conf;
     var sql = "SELECT * FROM " + conf._mysqlTable._user + " WHERE " + conf._mysqlUser._name + " = '" + userName + "';";
     // var sql = "SELECT * FROM " + conf._mysql._db + "." + conf._mysqlTable._user + " WHERE " + conf._mysqlUser._name + " = '" + userName + "';";
-    this._funcComplete = ModuleUser.dbCompleteLogin;
-    ModuleMysql.querySql(sql, this);
+    structServer._funcComplete = ModuleUser.dbCompleteLogin;
+    ModuleMysql.querySql(sql, structServer);
 }
-ModuleUser.dbCompleteLogin = function (err, result) {
+ModuleUser.dbCompleteLogin = function (err, result, structServer) {
     if (err) {
     } else {
+        // 登录成功
+        // 返回个人文件夹
+        
         // structServer._jsonServer[APIData._data] = {};
-        // structServer._funcComplete(structServer);
+        structServer._funcComplete(structServer);
     }
 }
 ModuleUser.prototype.forgetPWD = function(structServer) {

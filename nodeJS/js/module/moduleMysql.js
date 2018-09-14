@@ -82,15 +82,15 @@ ModuleMysql.prototype.query = function(structServer) {
     var sql = 'SELECT * FROM ' + structServer._jsonClient.table;
     ModuleMysql.querySql(sql);
 }
-ModuleMysql.querySql = function(sql, exec) {
+ModuleMysql.querySql = function(sql, structServer) {
     console.log("[Mysql]query : ", sql);
     ModuleMysql._db.query(sql, function(err, result) {
         if (err) {
             console.log("[Mysql]error : ", err.message);
         }
         console.log("[Mysql]result : ", result);
-        if (exec && exec._funcComplete) {
-            exec._funcComplete(err, result);
+        if (structServer && structServer._funcComplete) {
+            structServer._funcComplete(err, result, structServer);
         }
     });
 }
