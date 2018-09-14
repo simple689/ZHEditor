@@ -29,7 +29,7 @@ WidgetHttpAJAX.createGetJsonp = function (url, jsonObj, exec, funcComplete) { //
         error: function (XHR, error, e) {
             // console.log("[ajax error]", error);
             // console.log("[ajax error]", e);
-            if (funcComplete) funcComplete(this._exec, e, null);
+            if (funcComplete) funcComplete(this._exec, error, null);
         }
     });
 }
@@ -56,7 +56,7 @@ WidgetHttpAJAX.createPost = function (url, jsonObj, exec, funcComplete) {
         error: function (XHR, error, e) {
             // console.log("[ajax error]", error);
             // console.log("[ajax error]", e);
-            if (funcComplete) funcComplete(this._exec, e, null);
+            if (funcComplete) funcComplete(this._exec, error, null);
         }
     });
 }

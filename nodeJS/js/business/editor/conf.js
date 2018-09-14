@@ -3,7 +3,8 @@ module.exports = Conf;
 function Conf() {
 }
 
-Conf._httpCom = "127.0.0.1";
+// Conf._httpCom = "127.0.0.1";
+Conf._httpCom = "0.0.0.0";
 Conf._httpPort = "6989";
 
 Conf._pathRes = "/res";

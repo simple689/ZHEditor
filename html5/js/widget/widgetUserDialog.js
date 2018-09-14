@@ -7,7 +7,7 @@ WidgetUserDialog.prototype.createDialogLogin = function () {
 }
 WidgetUserDialog.showDialogLogin = function (widgetDialog) {
     // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelTitle");
+    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._keyShow = "用户名密码登录";
     var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
     label.style.textAlign = "center";

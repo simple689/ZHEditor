@@ -8,6 +8,7 @@ WidgetHistory.init = function () {
     if (!WidgetHistory._localStorage) {
         WidgetLog.log('This browser does not support localStorage');
     }
+    // WidgetHistory.clearAll();
 }
 WidgetHistory.clearAll = function () {
     WidgetHistory._localStorage.clear();
@@ -93,11 +94,12 @@ WidgetHistory.getFileBrowser = function () {
         APIUtil.fileBrowser.addFolder(jsonObj, APIData._jsonMouldShow);
         APIUtil.fileBrowser.addFolder(jsonObj, APIData._personalFoldShow);
 
-        APIUtil.fileBrowser.addFolder(jsonObj[APIData._personalFoldShow], APIData._jsonShow);
-        APIUtil.fileBrowser.addFolder(jsonObj[APIData._personalFoldShow], APIData._jsonMouldShow);
+        var jsonObjFolderList = jsonObj[APIData._folderList];
+        APIUtil.fileBrowser.addFolder(jsonObjFolderList[APIData._personalFoldShow], APIData._jsonShow);
+        APIUtil.fileBrowser.addFolder(jsonObjFolderList[APIData._personalFoldShow], APIData._jsonMouldShow);
 
-        APIUtil.fileBrowser.addFile(jsonObj[APIData._jsonShow], "demo.json", APIData._extendJson);
-        APIUtil.fileBrowser.addFile(jsonObj[APIData._jsonMouldShow], "demo.jsonMd", APIData._extendJsonMd);
+        APIUtil.fileBrowser.addFile(jsonObjFolderList[APIData._jsonShow], "demo.json", APIData._extendJson);
+        APIUtil.fileBrowser.addFile(jsonObjFolderList[APIData._jsonMouldShow], "demo.jsonMd", APIData._extendJsonMd);
 
         WidgetHistory.setFileBrowser(jsonObj);
     }

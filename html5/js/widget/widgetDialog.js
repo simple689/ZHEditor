@@ -54,7 +54,43 @@ WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementPare
     } else {
         WidgetDialog.loadedHtml(this, loadedHtml);
     }
+}
+WidgetDialog.prototype.createDialogOneInput = function (title, description, elementParent, funcComplete) {
+    this.createDialog(elementParent);
+    // 标题
+    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._keyShow = title;
+    var label = WidgetHtml.addLabel(this._elementDialogHead, jsonObjCtrl);
+    label.style.textAlign = "center";
+    label.style.lineHeight = "30px";
 
+    // 描述
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._keyShow = description;
+    WidgetHtml.addLabel(this._elementDialogContent, jsonObjCtrl);
+
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    this._input = WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
+
+    WidgetHtml.addBr(this._elementDialogContent);
+    // button
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "取消";
+    jsonObjCtrl._onClick = WidgetDialog.onClickCancel;
+    WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "确定";
+    jsonObjCtrl._onClick = WidgetDialog.onClickConfirm;
+    WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
+    WidgetDialog.loadedHtml(this, null);
+}
+WidgetDialog.onClickCancel = function () {
+    var a = 0;
+}
+WidgetDialog.onClickConfirm = function () {
+    var a = 0;
 }
 WidgetDialog.loadedHtml = function (widgetDialog, loadedHtml) {
     if (loadedHtml) {

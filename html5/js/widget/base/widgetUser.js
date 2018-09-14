@@ -53,8 +53,8 @@ WidgetUser.onClickLogin = function () {
     jsonData[APIData._userPWD] = userPWD;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetUser.ajaxCompleteLogin);
 }
-WidgetUser.ajaxCompleteLogin = function (widgetFileBrowser, e, jsonData) {
-    if (e) {
+WidgetUser.ajaxCompleteLogin = function (widgetFileBrowser, error, jsonData) {
+    if (error) {
     } else {
         if (jsonData[APIData._data]) {
             WidgetFileBrowser._jsonFileBrowser = jsonData[APIData._data];

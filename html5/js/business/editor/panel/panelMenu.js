@@ -109,7 +109,7 @@ PanelMenu.onClickSetting = function () {
 }
 PanelMenu.showDialogSetting = function (widgetDialog) {
     // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelTitle");
+    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._keyShow = "设置";
     var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
     label.style.textAlign = "center";
@@ -159,7 +159,7 @@ PanelMenu.onClickHelp = function () {
 }
 PanelMenu.showDialogHelp = function (widgetDialog) {
     // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelTitle");
+    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._keyShow = "帮助";
     var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
     label.style.textAlign = "center";
