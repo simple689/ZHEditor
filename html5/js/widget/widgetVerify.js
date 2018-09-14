@@ -7,9 +7,9 @@ WidgetVerify._l = 42; // 滑块边长
 WidgetVerify._L = WidgetVerify._l + WidgetVerify._r * 2; // 滑块实际边长
 WidgetVerify._PI = Math.PI;
 
-WidgetVerify.prototype.create = function (elementParent, funcComplete, funcFail) {
+WidgetVerify.prototype.create = function (elementParent, funcSuccess, funcFail) {
     this._elementParent = elementParent;
-    this._funcComplete = funcComplete;
+    this._funcSuccess = funcSuccess;
     this._funcFail = funcFail;
 
     this.initHtml();
@@ -170,7 +170,7 @@ WidgetVerify.prototype.bindEvent = function () {
         if (spliced) {
             if (TuringTest) {
                 WidgetHtml.classAdd(this._sliderContainer, 'WidgetVerifySliderContainer_success');
-                this._funcComplete && this._funcComplete();
+                this._funcSuccess && this._funcSuccess();
             } else {
                 WidgetHtml.classAdd(this._sliderContainer, 'WidgetVerifySliderContainer_fail');
                 this.text.innerHTML = '再试一次';

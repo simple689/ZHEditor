@@ -43,15 +43,23 @@ WidgetUserDialog.prototype.initDialogBase = function (elementParent) {
 WidgetUserDialog.prototype.initDialogLeft = function (elementParent) {
 }
 WidgetUserDialog.prototype.initDialogLogin = function (elementParent) {
-    // userName
+    // msg
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    this._labelMsg = WidgetHtml.addLabel(elementParent, jsonObjCtrl);
+    WidgetHtml.classAdd(this._labelMsg, "widgetUserLabelMsg");
+
+    // 结束换行
+    WidgetHtml.addBr(elementParent);
+
+    // userName
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._keyShow = "用户名";
     var labelUserName = WidgetHtml.addLabel(elementParent, jsonObjCtrl);
     WidgetHtml.classAdd(labelUserName, "widgetUserLabelUserName");
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._placeholder = "xxx@xxx.com";
-    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
+    this._inputUserName = WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._keyShow = "(邮箱)";
@@ -67,7 +75,7 @@ WidgetUserDialog.prototype.initDialogLogin = function (elementParent) {
     WidgetHtml.classAdd(labelUserPWD, "widgetUserLabelUserPWD");
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
-    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._password);
+    this._inputUserPWD = WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._password);
 
     // 结束换行
     WidgetHtml.addBr(elementParent);
@@ -80,23 +88,34 @@ WidgetUserDialog.prototype.initDialogLogin = function (elementParent) {
     // verify
     this._divVerify = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._divVerify, "widgetUserDialogVerify");
+    this.initVerify();
 
-    // // msg
-    // this._divMsg = WidgetHtml.addDiv(right);
-    // WidgetHtml.classAdd(this._divMsg, "widgetUserDialogMsg");
-    //
-    // jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
-    // jsonObjCtrl._keyShow = "验证";
-    // this._labelMsg = WidgetHtml.addLabel(this._divMsg, jsonObjCtrl);
+    // button
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "登录";
+    jsonObjCtrl._onClick = WidgetUser.onClickLogin;
+    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
-    this.init();
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "忘记密码？";
+    jsonObjCtrl._onClick = WidgetUser.onClickForgetPWD;
+    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl._value = "注册账号";
+    jsonObjCtrl._onClick = WidgetUser.onClickRegister;
+    WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
 }
 
-WidgetUserDialog.prototype.init = function () {
+WidgetUserDialog.prototype.initVerify = function () {
     var widgetVerify = new WidgetVerify();
     widgetVerify._exec = this;
     widgetVerify.create(this._divVerify, function () {
-        // this._exec._labelMsg.innerHTML = "验证成功！";
-        console.log("verify ok");
+        this._exec._labelMsg.innerHTML = "验证成功！";
+        console.log("verify success");
+    }, function () {
+        this._exec._labelMsg.innerHTML = "验证失败！";
+        console.log("verify fail");
     })
 };
