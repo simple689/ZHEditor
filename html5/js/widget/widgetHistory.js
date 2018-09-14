@@ -32,10 +32,10 @@ WidgetHistory.existItem = function (key) {
 WidgetHistory.addFile = function (fileName, fileContent, contentType, historyItemFile) {
     var fileEditItem = WidgetHistory.getItem(historyItemFile);
     if (!fileEditItem) {
-        fileEditItem = '{"' + APIKey._fileList + '":[{"' + WidgetKey._fileName + '":"首页","' + WidgetKey._fileContent + '":"首页内容"}]}';
+        fileEditItem = '{"' + APIData._fileList + '":[{"' + WidgetKey._fileName + '":"首页","' + WidgetKey._fileContent + '":"首页内容"}]}';
     }
     var fileEditJson = JSON.parse(fileEditItem);
-    var fileList = fileEditJson[APIKey._fileList];
+    var fileList = fileEditJson[APIData._fileList];
     var isExist = false;
     for (var o in fileList) {
         var key = o;
@@ -64,7 +64,7 @@ WidgetHistory.delFile = function (elementTabTitle, historyItemFile) {
         return;
     }
     var fileEditJson = JSON.parse(fileEditItem);
-    var fileList = fileEditJson[APIKey._fileList];
+    var fileList = fileEditJson[APIData._fileList];
     for (var o in fileList) {
         var key = o;
         if (fileList[key][WidgetKey._fileName] == fileName) {
@@ -80,7 +80,7 @@ WidgetHistory.getFile = function (historyItemFile) {
         return null;
     }
     var fileEditJson = JSON.parse(fileEditItem);
-    var fileList = fileEditJson[APIKey._fileList];
+    var fileList = fileEditJson[APIData._fileList];
     return fileList;
 }
 WidgetHistory.getFileBrowser = function () {
@@ -89,15 +89,15 @@ WidgetHistory.getFileBrowser = function () {
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     } else {
-        APIData.fileBrowser.addFolder(jsonObj, APIKey._jsonShow);
-        APIData.fileBrowser.addFolder(jsonObj, APIKey._jsonMouldShow);
-        APIData.fileBrowser.addFolder(jsonObj, APIKey._personalFoldShow);
+        APIUtil.fileBrowser.addFolder(jsonObj, APIData._jsonShow);
+        APIUtil.fileBrowser.addFolder(jsonObj, APIData._jsonMouldShow);
+        APIUtil.fileBrowser.addFolder(jsonObj, APIData._personalFoldShow);
 
-        APIData.fileBrowser.addFolder(jsonObj[APIKey._personalFoldShow], APIKey._jsonShow);
-        APIData.fileBrowser.addFolder(jsonObj[APIKey._personalFoldShow], APIKey._jsonMouldShow);
+        APIUtil.fileBrowser.addFolder(jsonObj[APIData._personalFoldShow], APIData._jsonShow);
+        APIUtil.fileBrowser.addFolder(jsonObj[APIData._personalFoldShow], APIData._jsonMouldShow);
 
-        APIData.fileBrowser.addFile(jsonObj[APIKey._jsonShow], "demo.json", APIKey._extendJson);
-        APIData.fileBrowser.addFile(jsonObj[APIKey._jsonMouldShow], "demo.jsonMd", APIKey._extendJsonMd);
+        APIUtil.fileBrowser.addFile(jsonObj[APIData._jsonShow], "demo.json", APIData._extendJson);
+        APIUtil.fileBrowser.addFile(jsonObj[APIData._jsonMouldShow], "demo.jsonMd", APIData._extendJsonMd);
 
         WidgetHistory.setFileBrowser(jsonObj);
     }
@@ -109,10 +109,10 @@ WidgetHistory.setFileBrowser = function (jsonObj) {
 }
 
 WidgetHistory.existFileBrowserFile = function (jsonObj, key, extend) {
-    var list = jsonObj[APIKey._fileList];
+    var list = jsonObj[APIData._fileList];
     for (var i in list) {
         var obj = list[i];
-        if (obj[WidgetKey._key] == key && obj[APIKey._extend] == extend) {
+        if (obj[WidgetKey._key] == key && obj[APIData._extend] == extend) {
             return true;
         }
     }

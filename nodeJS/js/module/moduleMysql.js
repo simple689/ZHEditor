@@ -26,14 +26,14 @@ ModuleMysql.exit = function(server) {
 }
 
 ModuleMysql.prototype.handle = function(structServer) {
-    var func = structServer._jsonClient[APIKey._func];
-    if (func === "add") {
+    var func = structServer._jsonClient[APIData._func];
+    if (func === APIServer._mysql._add) {
         this.add(structServer);
-    } else if (func === "del") {
+    } else if (func === APIServer._mysql._del) {
         this.del(structServer);
-    } else if (func === "up") {
+    } else if (func === APIServer._mysql._up) {
         this.up(structServer);
-    } else if (func === "query") {
+    } else if (func === APIServer._mysql._query) {
         this.query(structServer);
     }
     // structServer._funcComplete(structServer);

@@ -1,15 +1,4 @@
 (function () {
-    var root = typeof window === 'object' ? window : {};
-    var js_node = typeof process === 'object' && process.versions && process.versions.node;
-    if (js_node) {
-        root = global;
-    }
-
-    var js_require = typeof require === 'function';
-    if (js_require) {
-        root.APIKey = require('../API/APIKey.js');
-    }
-
     var js_module = typeof module === 'object' && module.exports;
     if (js_module) {
         module.exports = APIData;
@@ -19,27 +8,32 @@
 function APIData() {
 }
 
-APIData.fileBrowser = {};
+APIData._module = "module";
+APIData._func = "func";
 
-// fileBrowser
-APIData.fileBrowser.addFolder = function (jsonObj, key) {
-    var list = jsonObj[APIKey._folderList];
-    if (!list) {
-        jsonObj[APIKey._folderList] = {}
-        list = jsonObj[APIKey._folderList];
-    }
-    list[key] = {};
-    var obj = list[key];
-    obj[APIKey._type] = APIKey._folder;
-    return obj;
-}
-APIData.fileBrowser.addFile = function (jsonObj, key, extend) {
-    var list = jsonObj[APIKey._fileList];
-    if (!list) {
-        jsonObj[APIKey._fileList] = {}
-        list = jsonObj[APIKey._fileList];
-    }
-    list[key] = {};
-    var obj = list[key];
-    obj[APIKey._extend] = extend;
-}
+APIData._type = "type";
+APIData._data = "data";
+// WidgetKey._title = "title";
+APIData._extend = "extend";
+
+APIData._fileList = "fileList";
+APIData._folderList = "folderList";
+
+APIData._folder = "folder";
+// WidgetKey._file = "file";
+
+// WidgetKey._fileName = "fileName";
+// WidgetKey._fileContent = "fileContent";
+
+// WidgetKey._json = "json";
+APIData._jsonShow = "json";
+// WidgetKey._jsonMould = "jsonMould";
+APIData._jsonMouldShow = "json模版";
+// WidgetKey._personalFolder = "personalFolder";
+APIData._personalFoldShow = "个人文件夹";
+
+APIData._extendJson = ".json";
+APIData._extendJsonMd = ".jsonMd";
+
+APIData._userName = "userName";
+APIData._userPWD = "userPWD";

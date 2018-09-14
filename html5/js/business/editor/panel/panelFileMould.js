@@ -20,7 +20,7 @@ PanelFileMould.prototype.loadedJson = function (fileReader) {
 
     var extend = getFileExtend(fileName);
     if (!WidgetHistory.existFileBrowserFile(obj, fileName, extend)) {
-        APIData.fileBrowser.addFile(obj, fileName, extend);
+        APIUtil.fileBrowser.addFile(obj, fileName, extend);
         WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
     }
     panelFileBrowser.refreshFileBrowserRight(obj);

@@ -153,7 +153,7 @@ WidgetFileJson.prototype.onClickLink = function (e) {
     //         var value = jsonObj[item];
     //         if (value) {
     //             var folderListNew = folderList.slice(i + 1, folderList.length + 1);
-    //             var jsonObjNew = value[APIKey._folderList];
+    //             var jsonObjNew = value[APIData._folderList];
     //             return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
     //         }
     //     }

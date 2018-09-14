@@ -20,9 +20,8 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     WidgetHtml.classAdd(this._divRight, "widgetFileBrowserRight");
 
     // 从服务器获取数据，如果失败，从历史获取数据
-    var jsonData = {
-        "module": APIServer._module._fileBrowser,
-    };
+    var jsonData = {};
+    jsonData[APIData._module] = APIServer._module._fileBrowser;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
     // WidgetHttpAJAX.createGetJsonp(url, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
 }
@@ -30,8 +29,8 @@ WidgetFileBrowser.ajaxCompleteJsonFileBrowser = function (widgetFileBrowser, e, 
     if (e) {
         WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
     } else {
-        if (jsonData[APIKey._data]) {
-            WidgetFileBrowser._jsonFileBrowser = jsonData[APIKey._data];
+        if (jsonData[APIData._data]) {
+            WidgetFileBrowser._jsonFileBrowser = jsonData[APIData._data];
         }
     }
     widgetFileBrowser.initDefault();
@@ -76,7 +75,7 @@ WidgetFileBrowser.prototype.initRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');
 };
 WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, elementParent) {
-    var jsonObjFolderList = jsonObj[APIKey._folderList];
+    var jsonObjFolderList = jsonObj[APIData._folderList];
     if (!jsonObjFolderList) {
         return;
     }
@@ -86,9 +85,9 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
         if (typeof(value) == WidgetKey._object) {
             var pathChild = pathParent;
             var fold = elementParent;
-            var type = value[APIKey._type];
+            var type = value[APIData._type];
 
-            if (type == APIKey._folder) {
+            if (type == APIData._folder) {
                 pathChild += key;
                 pathChild += "/";
                 value["path"] = pathChild;
@@ -123,7 +122,7 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
     if (typeof(jsonObj) == WidgetKey._object) {
         var path = jsonObj["path"];
 
-        var folderList = jsonObj[APIKey._folderList];
+        var folderList = jsonObj[APIData._folderList];
         for (var o in folderList) {
             var key = o;
             var value = folderList[o];
@@ -136,7 +135,7 @@ WidgetFileBrowser.prototype.refreshFileBrowserRight = function (jsonObj) {
             }
         }
 
-        var fileList = jsonObj[APIKey._fileList];
+        var fileList = jsonObj[APIData._fileList];
         for (var o in fileList) {
             var key = o;
             var value = fileList[o];
@@ -165,7 +164,7 @@ WidgetFileBrowser.prototype.refreshFileBrowserRightPath = function (path) {
 //                 var keyShow = value[WidgetKey._title];
 //                 if (item == keyShow) {
 //                     var folderListNew = folderList.slice(i + 1, folderList.length + 1);
-//                     var jsonObjNew = value[APIKey._folderList];
+//                     var jsonObjNew = value[APIData._folderList];
 //                     return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
 //                 }
 //             }
@@ -188,7 +187,7 @@ WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) 
             var value = jsonObj[item];
             if (value) {
                 var folderListNew = folderList.slice(i + 1, folderList.length + 1);
-                var jsonObjNew = value[APIKey._folderList];
+                var jsonObjNew = value[APIData._folderList];
                 return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
             }
         }

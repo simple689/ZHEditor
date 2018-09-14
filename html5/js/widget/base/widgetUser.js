@@ -30,8 +30,8 @@ WidgetUser.initMenuLogout = function () {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "用户";
     jsonObjCtrl._valueList = new MenuListCtrl();
-    jsonObjCtrl._valueList.insertItem(new MenuListItem("个人中心", WidgetUser.onClickMenuLogout, APIKey._extendJson));
-    jsonObjCtrl._valueList.insertItem(new MenuListItem("退出", WidgetUser.onClickMenuLogout, APIKey._extendJsonMd));
+    jsonObjCtrl._valueList.insertItem(new MenuListItem("个人中心", WidgetUser.onClickMenuLogout, APIData._extendJson));
+    jsonObjCtrl._valueList.insertItem(new MenuListItem("退出", WidgetUser.onClickMenuLogout, APIData._extendJsonMd));
     WidgetHtml.addInput(WidgetUser._elementParent, jsonObjCtrl, WidgetHtml._enumInputType._buttonMenu);
 }
 // 点击事件 menu
@@ -46,19 +46,18 @@ WidgetUser.onClickLogin = function () {
     var userName = WidgetUser._widgetUserDialog.getUserName();
     var userPWD = WidgetUser._widgetUserDialog.getUserPWD();
 
-    var jsonData = {
-        "module": APIServer._module._user,
-        "func": APIServer._user._login,
-        "name": userName,
-        "pwd": userPWD,
-    };
+    var jsonData = {};
+    jsonData[APIData._module] = APIServer._module._user;
+    jsonData[APIData._func] = APIServer._user._login;
+    jsonData[APIData._module] = userName;
+    jsonData[APIData._module] = userPWD;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetUser.ajaxCompleteLogin);
 }
 WidgetUser.ajaxCompleteLogin = function (widgetFileBrowser, e, jsonData) {
     if (e) {
     } else {
-        if (jsonData[APIKey._data]) {
-            WidgetFileBrowser._jsonFileBrowser = jsonData[APIKey._data];
+        if (jsonData[APIData._data]) {
+            WidgetFileBrowser._jsonFileBrowser = jsonData[APIData._data];
         }
     }
 }

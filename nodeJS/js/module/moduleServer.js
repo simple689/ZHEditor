@@ -3,7 +3,7 @@ var url = require('url');
 
 module.exports = ModuleServer;
 
-const APIKey = require('../API/APIKey.js');
+const APIData = require('../API/APIData.js');
 const ModuleRouter = require('./moduleRouter.js');
 const base64 = require('hi-base64');
 
@@ -26,7 +26,7 @@ ModuleServer.prototype.create = function(httpCom, httpPort) {
             "_jsonServer": {},
             "_funcComplete": ModuleServer.routerHandleComplete
         };
-        structServer._jsonServer[APIKey._module] = "misMatch";
+        structServer._jsonServer[APIData._module] = "misMatch";
 
         if (req.method === "GET") {
             var jsonObj = url.parse(req.url, true).query;

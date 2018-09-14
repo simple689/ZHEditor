@@ -23,12 +23,12 @@ PanelMenuCallback.loadedHtmlSaveAs = function (widgetDialog) {
     var extend = getFileExtend(name);
 
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFolder");
-    var path = "/" + APIKey._personalFoldShow + "/";
+    var path = "/" + APIData._personalFoldShow + "/";
     if (extend.length > 0) {
-        if (extend == APIKey._extendJson) {
-            path += APIKey._jsonShow;
-        } else if (extend == APIKey._extendJsonMd) {
-            path += APIKey._jsonMouldShow;
+        if (extend == APIData._extendJson) {
+            path += APIData._jsonShow;
+        } else if (extend == APIData._extendJsonMd) {
+            path += APIData._jsonMouldShow;
         }
         path += "/";
     }
@@ -107,7 +107,7 @@ PanelMenuCallback.onClickSaveAsButtonSave = function () {
     }
 
     var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(folder);
-    APIData.fileBrowser.addFile(jsonObjFolder, fileName, extend);
+    APIUtil.fileBrowser.addFile(jsonObjFolder, fileName, extend);
     WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
 
     WidgetHistory.setFileJsonMould(folder + fileName + extend, widgetDialog._jsonObjCtrl._obj);

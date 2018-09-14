@@ -30,9 +30,9 @@ WidgetFile.readFileContent = function (fileContent, elementTabTitle, contentType
     elementTabTitle._elementFileRoot = elementFileRoot;
     WidgetHtml.classAdd(elementFileRoot, "widgetFileRoot");
     var extend = getFileExtend(elementTabTitle.innerHTML);
-    if (extend == APIKey._extendJson) {
+    if (extend == APIData._extendJson) {
         elementTabTitle._fileCtrl = new WidgetFileJson();
-    } else if (extend == APIKey._extendJsonMd) {
+    } else if (extend == APIData._extendJsonMd) {
         elementTabTitle._fileCtrl = new WidgetFileJsonMould();
     }
     elementTabTitle._fileCtrl.init(elementTabTitle, fileContent, contentType);

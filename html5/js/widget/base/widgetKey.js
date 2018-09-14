@@ -8,26 +8,26 @@ WidgetKey._panelFileMould = "panelFileMould";
 WidgetKey._panelFileLink = "panelFileLink";
 WidgetKey._panelFileBrowser = "panelFileBrowser";
 
-// APIKey._fileList = "fileList";
-// APIKey._folderList = "folderList";
+// APIData._fileList = "fileList";
+// APIData._folderList = "folderList";
 WidgetKey._fileName = "fileName";
 WidgetKey._fileContent = "fileContent";
 
 WidgetKey._json = "json";
-// APIKey._jsonShow = "json";
+// APIData._jsonShow = "json";
 WidgetKey._jsonMould = "jsonMould";
-// APIKey._jsonMouldShow = "json模版";
+// APIData._jsonMouldShow = "json模版";
 WidgetKey._personalFolder = "personalFolder";
-// APIKey._personalFoldShow = "个人文件夹";
+// APIData._personalFoldShow = "个人文件夹";
 
-// APIKey._extendJson = ".json";
-// APIKey._extendJsonMd = ".jsonMd";
+// APIData._extendJson = ".json";
+// APIData._extendJsonMd = ".jsonMd";
 
-// APIKey._type = "type";
+// APIData._type = "type";
 WidgetKey._title = "title";
-// APIKey._extend = "extend";
+// APIData._extend = "extend";
 
-// APIKey._folder = "folder";
+// APIData._folder = "folder";
 WidgetKey._file = "file";
 
 WidgetKey._key = "key";

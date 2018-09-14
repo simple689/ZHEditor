@@ -1,4 +1,4 @@
-const APIKey = require('../API/APIKey.js');
+const APIData = require('../API/APIData.js');
 const APIServer = require('../API/APIServer.js');
 
 const ModuleMysql = require('./moduleMysql.js');
@@ -19,9 +19,9 @@ ModuleRouter.init = function(server) {
 ModuleRouter.handle = function(structServer) {
     var jsonClientStr = JSON.stringify(structServer._jsonClient);
     console.log('[server]jsonClient : ', jsonClientStr);
-    var moduleStr = structServer._jsonClient[APIKey._module];
+    var moduleStr = structServer._jsonClient[APIData._module];
     if (moduleStr) {
-        structServer._jsonServer[APIKey._module] = moduleStr;
+        structServer._jsonServer[APIData._module] = moduleStr;
     }
     var router = null;
     if (moduleStr === APIServer._module._mysql) {
@@ -30,6 +30,8 @@ ModuleRouter.handle = function(structServer) {
         router = new ModuleFileSystem();
     } else if (moduleStr === APIServer._module._formData) { // 暂时不用
         router = new ModuleFormData();
+    } else if (moduleStr === APIServer._module._user) {
+        router = new ModuleUser();
     } else if (moduleStr === APIServer._module._fileBrowser) {
         router = new ModuleFileBrowser();
     } else {

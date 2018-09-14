@@ -27,3 +27,5 @@ APIServer._mysql._query = "query";
 
 // 功能 user
 APIServer._user._login = "login";
+APIServer._user._forgetPWD = "forgetPWD";
+APIServer._user._register = "register";
