@@ -1,0 +1,16 @@
+ssh
+ssh -p 26 teddy@192.168.1.6
+
+mysql
+
+
+http 80
+http://192.168.1.6:86/
+
+http 8080
+http://192.168.1.6:8086/
+
+Git
+
+Svn
+
