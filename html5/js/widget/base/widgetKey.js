@@ -56,3 +56,6 @@ WidgetKey._animationClip = "AnimationClip";
 WidgetKey._audioClip = "AudioClip";
 WidgetKey._audioMixer = "AudioMixer";
 WidgetKey._font = "Font";
+
+WidgetKey._cancel = "cancel";
+WidgetKey._confirm = "confirm";

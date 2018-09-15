@@ -70,10 +70,12 @@ WidgetDialog.prototype.createDialogOneInput = function (title, description, elem
     WidgetHtml.addLabel(this._elementDialogContent, jsonObjCtrl);
 
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
-    this._input = WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
+    this._oneInput = WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
 
     WidgetHtml.addBr(this._elementDialogContent);
     // button
+    this._funcComplete = funcComplete;
+
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "取消";
     jsonObjCtrl._onClick = WidgetDialog.onClickCancel;
@@ -87,10 +89,29 @@ WidgetDialog.prototype.createDialogOneInput = function (title, description, elem
     WidgetDialog.loadedHtml(this, null);
 }
 WidgetDialog.onClickCancel = function () {
-    var a = 0;
+    var exec = WidgetFileUtil.getExec(this);
+    if (!exec) {
+        return;
+    }
+    if (exec._funcComplete) {
+        exec._funcComplete(null, null);
+    }
+    exec.close();
 }
 WidgetDialog.onClickConfirm = function () {
-    var a = 0;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    if (!jsonObjCtrl) {
+        return;
+    }
+    var exec = jsonObjCtrl._exec;
+    if (!exec) {
+        return;
+    }
+    var value = exec._oneInput.value;
+    if (exec._funcComplete) {
+        exec._funcComplete(WidgetKey._confirm, value);
+    }
+    exec.close();
 }
 WidgetDialog.loadedHtml = function (widgetDialog, loadedHtml) {
     if (loadedHtml) {

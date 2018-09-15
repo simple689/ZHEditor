@@ -219,8 +219,10 @@ WidgetFileBrowser.onClickCreateDir = function () {
     var widgetDialog = new WidgetDialog();
     widgetDialog.createDialogOneInput("新建文件夹", "请输入文件夹名字：", document.body, WidgetFileBrowser.funcCompleteCreateDir);
 }
-WidgetFileBrowser.funcCompleteCreateDir = function () {
-    var a = 0;
+WidgetFileBrowser.funcCompleteCreateDir = function (confirm, value) {
+    if (confirm) {
+        var a = 0;
+    }
 }
 WidgetFileBrowser.onContextMenuRoot = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
