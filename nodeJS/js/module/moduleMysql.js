@@ -10,20 +10,29 @@ function ModuleMysql() {
 ModuleMysql._db = null;
 
 ModuleMysql.init = function(server) {
-    var conf = server._conf;
-    ModuleMysql._db = mysql.createConnection({
-        host : '127.0.0.1',
-        port: '3306',
-        user : 'teddy',
-        password : '199068',
-        database : conf._mysql._db
-    });
-    ModuleMysql._db.connect();
-    // ModuleMysql._db.query('SELECT *', function (err, result) {
-    //     if (err)
-    //         console.log("[Mysql]error : ", err.message);
-    //     console.log("[Mysql]result : ", result);
-    // });
+    try {
+        var conf = server._conf;
+        ModuleMysql._db = mysql.createConnection({
+            host : '127.0.0.1',
+            port: '3306',
+            user : 'teddy',
+            password : '199068',
+            database : conf._mysql._db
+        });
+        ModuleMysql._db.connect(function(e) {
+            if (e) {
+                ModuleMysql._db = null;
+                console.log("[Mysql]error : ", e);
+            }
+        });
+        // ModuleMysql._db.query('SELECT *', function (err, result) {
+        //     if (err)
+        //         console.log("[Mysql]error : ", err.message);
+        //     console.log("[Mysql]result : ", result);
+        // });
+    } catch(e) {
+        console.log("[Mysql]error : ", e);
+    }
 }
 ModuleMysql.exit = function(server) {
     ModuleMysql._db.end();
