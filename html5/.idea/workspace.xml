@@ -3,66 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/API/APIData.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/APIData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/API/APIServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/APIServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/base/widgetKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/base/widgetKey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileBase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetFileBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHistory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetMenuFold.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetMenuFold.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/API/APIData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/API/APIData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/js/business/editor/conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/business/editor/conf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFileSystem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleFormData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleFormData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleMysql.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skill/skill.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/attackSegment_hurtShake.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/attackSegment_hurtTargetSet.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/attackSegment_tx.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/baseStateDeal.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/cameraEffect.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/cameraMove.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/cameraShake.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/cancelDeal.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/coreQnode.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_action.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_attacksegment.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_child.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_hurttrace.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_qnode.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_search.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_sever.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/lib_sound.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/roleStatePrefilter.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/searchSpritePriority.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/soundContral.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/spriteTarget.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/trace.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json/skillLib/traceDiy.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skill/skill.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/attackSegment_hurtShake.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/attackSegment_hurtTargetSet.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/attackSegment_tx.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/baseStateDeal.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/cameraEffect.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/cameraMove.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/cameraShake.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/cancelDeal.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/coreQnode.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_action.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_attacksegment.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_child.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_hurttrace.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_qnode.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_search.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_sever.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/lib_sound.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/roleStatePrefilter.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/searchSpritePriority.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/soundContral.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/spriteTarget.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/trace.jsonMd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nodeJS/res/fileBrowser/资源商城/json模版/skillLib/traceDiy.jsonMd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS/js/module/moduleUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS/js/module/moduleUtil.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -167,13 +114,14 @@
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -220,8 +168,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-261">
-              <caret line="77" column="95" lean-forward="true" selection-start-line="77" selection-start-column="95" selection-end-line="77" selection-end-column="95" />
+            <state relative-caret-position="1155">
+              <caret line="77" column="95" selection-start-line="77" selection-start-column="95" selection-end-line="77" selection-end-column="95" />
             </state>
           </provider>
         </entry>
@@ -229,8 +177,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetMenuFold.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="106" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="255">
+              <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -238,7 +186,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/base/widgetKey.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
+            <state relative-caret-position="300">
               <caret line="20" column="20" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="20" />
             </state>
           </provider>
@@ -247,7 +195,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="375">
               <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
             </state>
           </provider>
@@ -256,7 +204,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/API/APIServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
+            <state relative-caret-position="555">
               <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
@@ -265,7 +213,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="255">
               <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
@@ -279,7 +227,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
+            <state relative-caret-position="1380">
               <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
             </state>
           </provider>
@@ -459,7 +407,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -607,6 +554,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -984,11 +932,12 @@
       <workItem from="1536929125244" duration="4934000" />
       <workItem from="1537003314920" duration="2565000" />
       <workItem from="1538031557651" duration="4640000" />
+      <workItem from="1538039432839" duration="688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1118056000" />
+    <option name="totallyTimeSpent" value="1118744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1323,16 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/API/APIClient.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/widget/widgetMenuFold.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1347,27 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/API/APIServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1375,24 +1293,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="77" column="95" selection-start-line="77" selection-start-column="95" selection-end-line="77" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/base/widgetKey.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="300">
           <caret line="20" column="20" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFileBrowser.js">
+    <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="77" column="95" lean-forward="true" selection-start-line="77" selection-start-column="95" selection-end-line="77" selection-end-column="95" />
+        <state relative-caret-position="375">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIClient.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHistory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetMenuFold.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="255">
+          <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
         </state>
       </provider>
     </entry>

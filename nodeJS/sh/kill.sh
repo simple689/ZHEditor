@@ -5,7 +5,7 @@ search=$1
 type=$2
 #echo $type
 
-# ps -ef | grep "$search" | grep python
+ps -ef | grep "$search" | grep python
 # ps -ef | grep "$search" | grep -v "$0" | grep -v "grep"
 idListStr=`ps -ef | grep "$search" | grep -v "$0" | grep -v "grep" | awk '{print $2}'`
 echo $idListStr
