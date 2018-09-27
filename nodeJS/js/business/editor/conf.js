@@ -8,7 +8,7 @@ Conf._httpCom = "0.0.0.0";
 Conf._httpPort = "6989";
 
 Conf._pathRes = "/res";
-Conf._pathResFileBrowser = Conf._pathRes + "/fileBrowser";
+Conf._pathResStore = Conf._pathRes + "/store";
 
 Conf._mysql = {};
 Conf._mysql._db = "ZHEditor";

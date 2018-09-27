@@ -6,7 +6,7 @@ function WidgetFileBrowser() {
 
 WidgetFileBrowser._jsonFileBrowser = null;
 
-WidgetFileBrowser.prototype.create = function (elementParent) {
+WidgetFileBrowser.prototype.create = function (elementParent, resType) {
     this._divMain = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._divMain, "widgetFileBrowserMain");
 
@@ -22,6 +22,7 @@ WidgetFileBrowser.prototype.create = function (elementParent) {
     // 从服务器获取数据，如果失败，从历史获取数据
     var jsonData = {};
     jsonData[APIData._module] = APIServer._module._fileBrowser;
+    jsonData[APIData._func] = resType;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
     // WidgetHttpAJAX.createGetJsonp(url, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
 }
@@ -65,11 +66,16 @@ WidgetFileBrowser.prototype.init = function (left, middle, right) {
 }
 WidgetFileBrowser.prototype.initLeft = function (left) {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, "root");
-    jsonObjCtrl._keyShow = "全部文件";
+    jsonObjCtrl._keyShow = WidgetKey._storeShow;
     jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
-    var foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl);
+    var foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, false);
+    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._store], "/", foldItem);
 
-    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser, "/", foldItem);
+    jsonObjCtrl = new JsonObjCtrl(this, null, false, "root");
+    jsonObjCtrl._keyShow = WidgetKey._personalShow;
+    jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
+    foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, true);
+    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._personal], "/", foldItem);
 }
 WidgetFileBrowser.prototype.initRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');

@@ -4,11 +4,11 @@
 function WidgetMenuFold() {
 }
 
-WidgetMenuFold.prototype.createMenuFold = function (elementParent, jsonObjCtrl) {
+WidgetMenuFold.prototype.createMenuFold = function (elementParent, jsonObjCtrl, isCheck) {
     this._menuFold = WidgetHtml.createElement("div");
     elementParent.appendChild(this._menuFold);
     WidgetHtml.classAdd(this._menuFold, "widgetMenuFold");
-    var dd = this.addFoldAndItem(this._menuFold, jsonObjCtrl, true);
+    var dd = this.addFoldAndItem(this._menuFold, jsonObjCtrl, isCheck);
     return dd;
 }
 WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, jsonObjCtrl, isCheck) {
@@ -103,8 +103,8 @@ WidgetMenuFold.onClickDt = function (e) {
     while (nextNode) {
         var tagName = nextNode.tagName;
         if (tagName == "DD") {
-            //展开和收齐的不同状态下更换小图标
-            WidgetMenuFold.setDdDisplay(nextNode, this, !nextNode._isCheck);
+            nextNode._isCheck = !nextNode._isCheck;
+            WidgetMenuFold.setDdDisplay(nextNode, this, nextNode._isCheck);
         } else if (tagName == "DT") {
             break;
         }

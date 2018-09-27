@@ -1,5 +1,6 @@
 const APIUtil = require('../API/APIUtil.js');
 const APIData = require('../API/APIData.js');
+const APIServer = require('../API/APIServer.js');
 
 const ModuleFileSystem = require('./moduleFileSystem.js');
 const Util = require('../base/util.js');
@@ -9,13 +10,15 @@ module.exports = ModuleFileBrowser;
 function ModuleFileBrowser() {
 }
 
-ModuleFileBrowser._jsonFileBroser = null;
+ModuleFileBrowser._jsonStore = null;
+ModuleFileBrowser._jsonPersonal = null;
 
 ModuleFileBrowser.init = function(server) {
-    var jsonObj = {};
-    ModuleFileBrowser.initDir(server._conf._pathResFileBrowser, jsonObj);
-    APIUtil.fileBrowser.addFolder(jsonObj, APIData._personalFoldShow);
-    ModuleFileBrowser._jsonFileBroser = jsonObj;
+    ModuleFileBrowser._jsonStore = {};
+    ModuleFileBrowser.initDir(server._conf._pathResStore, ModuleFileBrowser._jsonStore);
+
+    ModuleFileBrowser._jsonPersonal = {};
+    // APIUtil.fileBrowser.addFolder(ModuleFileBrowser._jsonPersonal, APIData._personalFoldShow);
 }
 ModuleFileBrowser.initDir = function(readPath, jsonObj) {
     var files = ModuleFileSystem.getDirFilesSync(readPath);
@@ -39,6 +42,17 @@ ModuleFileBrowser.initDir = function(readPath, jsonObj) {
 }
 
 ModuleFileBrowser.prototype.handle = function(structServer) {
-    structServer._jsonServer[APIData._data] = ModuleFileBrowser._jsonFileBroser;
+    structServer._jsonServer[APIData._data] = {};
+
+    var func = structServer._jsonClient[APIData._func];
+    if (func === APIServer._fileBroser._all) {
+        structServer._jsonServer[APIData._data][APIData._store] = ModuleFileBrowser._jsonStore;
+        structServer._jsonServer[APIData._data][APIData._personal] = ModuleFileBrowser._jsonPersonal;
+    } else if (func === APIServer._fileBroser._store) {
+        structServer._jsonServer[APIData._data][APIData._store] = ModuleFileBrowser._jsonStore;
+    } else if (func === APIServer._fileBroser._personal) {
+        structServer._jsonServer[APIData._data][APIData._personal] = ModuleFileBrowser._jsonPersonal;
+    }
+    
     structServer._funcComplete(structServer);
 }

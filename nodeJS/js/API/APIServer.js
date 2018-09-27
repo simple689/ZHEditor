@@ -11,6 +11,7 @@ function APIServer() {
 APIServer._module = {};
 APIServer._mysql = {};
 APIServer._user = {};
+APIServer._fileBroser = {};
 
 // 模块 module
 APIServer._module._mysql = "mysql";
@@ -29,3 +30,8 @@ APIServer._mysql._query = "query";
 APIServer._user._login = "login";
 APIServer._user._forgetPWD = "forgetPWD";
 APIServer._user._register = "register";
+
+// 功能 fileBroser
+APIServer._fileBroser._all = "all";
+APIServer._fileBroser._store = "store";
+APIServer._fileBroser._personal = "personal";

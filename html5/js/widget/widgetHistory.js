@@ -90,6 +90,7 @@ WidgetHistory.getFileBrowser = function () {
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
     } else {
+        // todo 修正
         APIUtil.fileBrowser.addFolder(jsonObj, APIData._jsonShow);
         APIUtil.fileBrowser.addFolder(jsonObj, APIData._jsonMouldShow);
         APIUtil.fileBrowser.addFolder(jsonObj, APIData._personalFoldShow);

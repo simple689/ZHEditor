@@ -56,5 +56,5 @@ PanelFileBrowser.prototype.initCreate = function () {
 }
 PanelFileBrowser.prototype.initFileBrowser = function () {
     this._widgetFileBrowser = new WidgetFileBrowser();
-    this._widgetFileBrowser.create(this._divFileBrowser);
+    this._widgetFileBrowser.create(this._divFileBrowser, APIServer._fileBroser._all);
 }

@@ -17,8 +17,9 @@ WidgetKey._json = "json";
 // APIData._jsonShow = "json";
 WidgetKey._jsonMould = "jsonMould";
 // APIData._jsonMouldShow = "json模版";
-WidgetKey._personalFolder = "personalFolder";
-// APIData._personalFoldShow = "个人文件夹";
+
+WidgetKey._storeShow = "商城";
+WidgetKey._personalShow = "个人文件夹";
 
 // APIData._extendJson = ".json";
 // APIData._extendJsonMd = ".jsonMd";

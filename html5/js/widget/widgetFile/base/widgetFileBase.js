@@ -17,6 +17,6 @@ WidgetFileBase.prototype.initRoot = function () {
     jsonObjCtrl._keyShow = "文件根节点";
     jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuRoot;
     this._menuFoldCtrl = new WidgetMenuFold();
-    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, jsonObjCtrl);
+    var foldItem = this._menuFoldCtrl.createMenuFold(elementFileRoot, jsonObjCtrl, true);
     return foldItem;
 }

@@ -29,11 +29,12 @@ APIData._folder = "folder";
 APIData._jsonShow = "json";
 // WidgetKey._jsonMould = "jsonMould";
 APIData._jsonMouldShow = "json模版";
-// WidgetKey._personalFolder = "personalFolder";
-APIData._personalFoldShow = "个人文件夹";
 
 APIData._extendJson = ".json";
 APIData._extendJsonMd = ".jsonMd";
 
 APIData._userName = "userName";
 APIData._userPWD = "userPWD";
+
+APIData._store = "store";
+APIData._personal = "personal";
