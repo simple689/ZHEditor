@@ -59,3 +59,6 @@ WidgetKey._font = "Font";
 
 WidgetKey._cancel = "cancel";
 WidgetKey._confirm = "confirm";
+
+WidgetKey._none = "none";
+WidgetKey._block = "block";

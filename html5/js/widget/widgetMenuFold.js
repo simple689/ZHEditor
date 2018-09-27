@@ -8,12 +8,12 @@ WidgetMenuFold.prototype.createMenuFold = function (elementParent, jsonObjCtrl) 
     this._menuFold = WidgetHtml.createElement("div");
     elementParent.appendChild(this._menuFold);
     WidgetHtml.classAdd(this._menuFold, "widgetMenuFold");
-    var dd = this.addFoldAndItem(this._menuFold, jsonObjCtrl);
+    var dd = this.addFoldAndItem(this._menuFold, jsonObjCtrl, true);
     return dd;
 }
-WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, jsonObjCtrl) {
+WidgetMenuFold.prototype.addFoldAndItem = function (elementParent, jsonObjCtrl, isCheck) {
     var dt = this.addFold(elementParent, jsonObjCtrl);
-    var dd = this.addFoldItem(dt);
+    var dd = this.addFoldItem(dt, isCheck);
     return dd;
 }
 WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
@@ -35,16 +35,41 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     label._dt = dt;
 
     dt._div = WidgetHtml.addDiv(dt);
-
+    dt._label = label;
     return dt;
 }
-WidgetMenuFold.prototype.addFoldItem = function (dt) {
+WidgetMenuFold.prototype.addFoldItem = function (dt, isCheck) {
     var dd = WidgetHtml.createElement("dd");
     dt._dl.appendChild(dd);
     dd._dt = dt;
-    dd.style.display = "block";
-    dd.isCheck = true;
+    dd._isCheck = isCheck;
+    if (isCheck) {
+        dd.style.display = WidgetKey._block;
+    } else {
+        dd.style.display = WidgetKey._none;
+    }
     return dd;
+}
+WidgetMenuFold.setDdDisplay = function (elementDd, elementLabel, isCheck) {
+    var tagName = elementDd.tagName;
+    if (tagName == "DD") {
+        var label = elementLabel;
+        if (!label) {
+            label = elementDd._dt._label;
+        }
+        //展开和收齐的不同状态下更换小图标
+        if (isCheck) {
+            elementDd.style.display = WidgetKey._block;
+            $(label).css(
+                "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
+            );
+        } else {
+            elementDd.style.display = WidgetKey._none;
+            $(label).css(
+                "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
+            );
+        }
+    }
 }
 WidgetMenuFold.onClickDt = function (e) {
     // // 与触发事件的对象相关的鼠标位置的XY坐标;
@@ -78,19 +103,8 @@ WidgetMenuFold.onClickDt = function (e) {
     while (nextNode) {
         var tagName = nextNode.tagName;
         if (tagName == "DD") {
-            nextNode.isCheck = !nextNode.isCheck;
             //展开和收齐的不同状态下更换小图标
-            if (nextNode.isCheck) {
-                nextNode.style.display = "block";
-                $(this).css(
-                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
-                );
-            } else {
-                nextNode.style.display = "none";
-                $(this).css(
-                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
-                );
-            }
+            WidgetMenuFold.setDdDisplay(nextNode, this, !nextNode._isCheck);
         } else if (tagName == "DT") {
             break;
         }

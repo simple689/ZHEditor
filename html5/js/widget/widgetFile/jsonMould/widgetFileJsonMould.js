@@ -30,7 +30,7 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuObject;
             }
 
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl);
+            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
             this.readObject(value, keyChild, foldItem, isList);
         } else {
             jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuLabel;

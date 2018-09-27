@@ -104,7 +104,12 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 // element = WidgetHtml.addLabel(fold, this, pathChild, pathChild, WidgetFileBrowser.onClickFolderPath, null);
                 // WidgetHtml.classAdd(element, "widgetFileBrowserLeftFolderPath");
                 WidgetHtml.addBr(fold);
-                fold = this._menuFoldCtrl.addFoldItem(fold);
+                // todo 记录展开状态
+                // if (key == "资源文件夹" || key == "json") {
+                //     fold = this._menuFoldCtrl.addFoldItem(fold, true);
+                // } else {
+                    fold = this._menuFoldCtrl.addFoldItem(fold, false);
+                // }
             }
             this.readFileBrowser(value, pathChild, fold);
         }

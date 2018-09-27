@@ -51,27 +51,3 @@ WidgetFlex.prototype.clearFlexItem = function () {
     removeElementChild(this._flexContainer);
     this._flexItemList.splice(0, this._flexItemList.length);
 }
-WidgetFlex.onClickDt = function () {
-    var nextNode = this.nextSibling;
-    while (nextNode) {
-        var tagName = nextNode.tagName;
-        if (tagName == "DD") {
-            nextNode.isCheck = !nextNode.isCheck;
-            //展开和收齐的不同状态下更换小图标
-            if (nextNode.isCheck) {
-                nextNode.style.display = "block";
-                $(this).css(
-                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
-                );
-            } else {
-                nextNode.style.display = "none";
-                $(this).css(
-                    "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
-                );
-            }
-        } else if (tagName == "DT") {
-            break;
-        }
-        nextNode = nextNode.nextSibling;
-    }
-}
