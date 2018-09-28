@@ -19,7 +19,7 @@ ModuleFileBrowser.init = function(server) {
     ModuleFileBrowser.initDir(server._conf._pathResStore, ModuleFileBrowser._jsonStore);
 
     ModuleFileBrowser._jsonPersonal = {};
-    // APIUtil.fileBrowser.addFolder(ModuleFileBrowser._jsonPersonal, APIData._personalFoldShow);
+    // APIUtil.fileBrowser.addFolder(ModuleFileBrowser._jsonPersonal, APIData._personalShow);
 }
 ModuleFileBrowser.initDir = function(readPath, jsonObj) {
     var files = ModuleFileSystem.getDirFilesSync(readPath);
@@ -47,12 +47,12 @@ ModuleFileBrowser.prototype.handle = function(structServer) {
 
     var func = structServer._jsonClient[APIData._func];
     if (func === APIServer._fileBroser._all) {
-        structServer._jsonServer[APIData._data][APIData._store] = ModuleFileBrowser._jsonStore;
-        structServer._jsonServer[APIData._data][APIData._personal] = ModuleFileBrowser._jsonPersonal;
+        structServer._jsonServer[APIData._data][APIData._storeShow] = ModuleFileBrowser._jsonStore;
+        structServer._jsonServer[APIData._data][APIData._personalShow] = ModuleFileBrowser._jsonPersonal;
     } else if (func === APIServer._fileBroser._store) {
-        structServer._jsonServer[APIData._data][APIData._store] = ModuleFileBrowser._jsonStore;
+        structServer._jsonServer[APIData._data][APIData._storeShow] = ModuleFileBrowser._jsonStore;
     } else if (func === APIServer._fileBroser._personal) {
-        structServer._jsonServer[APIData._data][APIData._personal] = ModuleFileBrowser._jsonPersonal;
+        structServer._jsonServer[APIData._data][APIData._personalShow] = ModuleFileBrowser._jsonPersonal;
     }
     
     structServer._funcComplete(structServer);

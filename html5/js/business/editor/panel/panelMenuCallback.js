@@ -23,7 +23,7 @@ PanelMenuCallback.loadedHtmlSaveAs = function (widgetDialog) {
     var extend = getFileExtend(name);
 
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFolder");
-    var path = "/" + APIData._personalFoldShow + "/";
+    var path = "/" + APIData._personalShowFoldShow + "/";
     if (extend.length > 0) {
         if (extend == APIData._extendJson) {
             path += APIData._jsonShow;

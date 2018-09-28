@@ -189,7 +189,9 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
         default : {
             WidgetHtml.classAdd(nodeInput, "nodeInputDefault");
             nodeInput.value = jsonObjCtrl._value;
-            nodeInput.placeholder = jsonObjCtrl._placeholder;
+            if (jsonObjCtrl._placeholder) {
+                nodeInput.placeholder = jsonObjCtrl._placeholder;
+            }
             break
         }
     }

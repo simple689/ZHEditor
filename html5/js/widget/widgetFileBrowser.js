@@ -65,17 +65,21 @@ WidgetFileBrowser.prototype.init = function (left, middle, right) {
     this.initRight(right);
 }
 WidgetFileBrowser.prototype.initLeft = function (left) {
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, "root");
-    jsonObjCtrl._keyShow = WidgetKey._storeShow;
+    var obj = {};
+    obj["path"] = "/" + APIData._storeShow;
+    var jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
+    jsonObjCtrl._keyShow = APIData._storeShow;
     jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
     var foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, false);
-    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._store], "/", foldItem);
+    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._storeShow], obj["path"], foldItem);
 
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, "root");
-    jsonObjCtrl._keyShow = WidgetKey._personalShow;
+    obj = {};
+    obj["path"] = "/" + APIData._personalShow;
+    jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
+    jsonObjCtrl._keyShow = APIData._personalShow;
     jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
     foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, true);
-    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._personal], "/", foldItem);
+    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._personalShow], obj["path"], foldItem);
 }
 WidgetFileBrowser.prototype.initRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');
@@ -94,8 +98,8 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
             var type = value[APIData._type];
 
             if (type == APIData._folder) {
-                pathChild += key;
                 pathChild += "/";
+                pathChild += key;
                 value["path"] = pathChild;
 
                 var jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
@@ -199,6 +203,9 @@ WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) 
             var value = jsonObj[item];
             if (value) {
                 var folderListNew = folderList.slice(i + 1, folderList.length + 1);
+                if (folderListNew.length == 0) {
+                    return value;
+                }
                 var jsonObjNew = value[APIData._folderList];
                 return WidgetFileBrowser.getJsonObjFolder(folderListNew, jsonObjNew, value);
             }
@@ -210,7 +217,9 @@ WidgetFileBrowser.getJsonObjFolder = function (folderList, jsonObj, jsonObjOrg) 
     return null;
 }
 WidgetFileBrowser.onClickFolderName = function () {
-    var widgetFileBrowser = this._jsonObjCtrl._exec;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    var widgetFileBrowser = jsonObjCtrl._exec;
+
     widgetFileBrowser._nowFolder = this._jsonObjCtrl._obj["path"];
     widgetFileBrowser.refreshFileBrowserRight(this._jsonObjCtrl._obj);
     if (widgetFileBrowser._nowFolderElement) {
@@ -218,47 +227,76 @@ WidgetFileBrowser.onClickFolderName = function () {
     }
 }
 WidgetFileBrowser.onClickFolderPath = function () {
-    var widgetFileBrowser = this._jsonObjCtrl._exec;
-    widgetFileBrowser.refreshFileBrowserRight(this._jsonObjCtrl._obj);
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    var widgetFileBrowser = jsonObjCtrl._exec;
+
+    widgetFileBrowser.refreshFileBrowserRight(jsonObjCtrl._obj);
 }
 WidgetFileBrowser.onClickRefreshDir = function () {
     // todo
-    var widgetFileBrowser = this._jsonObjCtrl._exec;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    var widgetFileBrowser = jsonObjCtrl._exec;
+
 }
 WidgetFileBrowser.onClickCreateDir = function () {
-    var widgetFileBrowser = WidgetFileUtil.getJsonObjCtrl(this)._exec;
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+
     var widgetDialog = new WidgetDialog();
     widgetDialog.createDialogOneInput("新建文件夹", "请输入文件夹名字：", document.body, WidgetFileBrowser.funcCompleteCreateDir);
+    widgetDialog._jsonObjCtrl = jsonObjCtrl;
 }
 WidgetFileBrowser.funcCompleteCreateDir = function (confirm, value) {
     if (confirm) {
-        var a = 0;
+        var jsonObjCtrl = this._jsonObjCtrl;
+        var widgetFileBrowser = jsonObjCtrl._exec;
+
+        var path = jsonObjCtrl._obj.path;
+        var isPersonal = path.indexOf(APIData._personalShow);
+        if (isPersonal != -1) {
+            var folderList = path.split("/");
+            var jsonObj = WidgetFileBrowser.getJsonObjFolder(folderList, WidgetFileBrowser._jsonFileBrowser, WidgetFileBrowser._jsonFileBrowser);
+            if (!jsonObj) {
+                return;
+            }
+            APIUtil.fileBrowser.addFolder(jsonObj, value);
+        }
+        widgetFileBrowser.refreshFileBrowserLeft();
     }
 }
 WidgetFileBrowser.onContextMenuRoot = function (e) {
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
     var menu = WidgetFileOnContextMenu.createMenu();
     var ul = menu.addUl(menu._elementRoot);
     var li = null;
+
     li = menu.addLi(ul, "刷新", WidgetFileBrowser.onClickRefreshDir, null);
+
+    if (jsonObjCtrl._keyShow == APIData._personalShow) {
+        li = menu.addLi(ul, "新建文件夹", WidgetFileBrowser.onClickCreateDir, null);
+    }
+
     var func = WidgetFileUtil.getExec(this).onContextMenuRoot;
     if (func) func(menu, ul);
     WidgetMenu.showMenu(menu, e, this);
     return false; // 取消右键点击的默认事件
 }
 WidgetFileBrowser.onContextMenuObject = function (e) {
-    var path = this._jsonObjCtrl._obj.path;
-    var isPersonal = path.indexOf(APIData._personalFoldShow);
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    var menu = WidgetFileOnContextMenu.createMenu();
+    var ul = menu.addUl(menu._elementRoot);
+    var li = null;
 
+    var path = jsonObjCtrl._obj.path;
+    var isPersonal = path.indexOf(APIData._personalShow);
     if (isPersonal != -1) {
-        var menu = WidgetFileOnContextMenu.createMenu();
-        var ul = menu.addUl(menu._elementRoot);
-        var li = null;
         li = menu.addLi(ul, "新建文件夹", WidgetFileBrowser.onClickCreateDir, null);
-
-        var func = WidgetFileUtil.getExec(this).onContextMenuObject;
-        if (func) func(menu, ul);
-        WidgetMenu.showMenu(menu, e, this);
-        return false; // 取消右键点击的默认事件
-    } else {
     }
+
+    if (!li) {
+        return false;
+    }
+    var func = WidgetFileUtil.getExec(this).onContextMenuObject;
+    if (func) func(menu, ul);
+    WidgetMenu.showMenu(menu, e, this);
+    return false; // 取消右键点击的默认事件
 }

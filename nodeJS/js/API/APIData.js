@@ -36,5 +36,5 @@ APIData._extendJsonMd = ".jsonMd";
 APIData._userName = "userName";
 APIData._userPWD = "userPWD";
 
-APIData._store = "store";
-APIData._personal = "personal";
+APIData._storeShow = "商城";
+APIData._personalShow = "个人文件夹";

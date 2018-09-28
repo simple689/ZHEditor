@@ -18,9 +18,6 @@ WidgetKey._json = "json";
 WidgetKey._jsonMould = "jsonMould";
 // APIData._jsonMouldShow = "json模版";
 
-WidgetKey._storeShow = "商城";
-WidgetKey._personalShow = "个人文件夹";
-
 // APIData._extendJson = ".json";
 // APIData._extendJsonMd = ".jsonMd";
 
