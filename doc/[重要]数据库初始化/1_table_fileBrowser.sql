@@ -1,0 +1,29 @@
+-- 数据库：ZHEditor
+-- 表：fileBrowser
+-- 表属性：
+-- id			自增主键
+-- name	名字，有unique的限制
+-- pwd		密码
+
+-- ----------------------------
+-- 删除表
+-- ----------------------------
+-- DROP TABLE IF EXISTS `ZHEditor`.`fileBrowser`;
+
+-- ----------------------------
+-- 创建表
+-- ----------------------------
+-- CREATE TABLE `ZHEditor`.`fileBrowser` (
+--   `id` INT NOT NULL AUTO_INCREMENT,
+--   `name` VARCHAR(45) DEFAULT NULL,
+--   `pwd` VARCHAR(45) DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- ) DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 查询
+-- ----------------------------
+-- SELECT * FROM `ZHEditor`.`fileBrowser`;
+-- SELECT * FROM ZHEditor.fileBrowser WHERE name = 'a';
+
+-- INSERT INTO `ZHEditor`.`fileBrowser` (`name`, `pwd`) VALUES ('a', 'a');

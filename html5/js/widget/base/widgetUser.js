@@ -51,14 +51,20 @@ WidgetUser.onClickLogin = function () {
     jsonData[APIData._func] = API._func._user._login;
     jsonData[APIData._userName] = userName;
     jsonData[APIData._userPWD] = userPWD;
-    WidgetHttpAJAX.createPost(null, jsonData, this, WidgetUser.ajaxCompleteLogin);
+    WidgetHttpAJAX.createPost(null, jsonData, WidgetUser._widgetUserDialog, WidgetUser.ajaxCompleteLogin);
 }
-WidgetUser.ajaxCompleteLogin = function (widgetFileBrowser, error, jsonData) {
+WidgetUser.ajaxCompleteLogin = function (widgetUserDialog, error, jsonData) {
     if (error) {
     } else {
-        if (jsonData[APIData._data]) {
-            WidgetFileBrowser._jsonFileBrowser = jsonData[APIData._data];
+        if (jsonData[APIData._token]) {
+            // WidgetFileBrowser._jsonFileBrowser = jsonData[APIData._data];
+            WidgetUser._jsonLoginCache = jsonData[APIData._token];
         }
+
+        if (widgetUserDialog._funcComplete) {
+            widgetUserDialog._funcComplete(widgetUserDialog._completeJsonObjCtrl);
+        }
+        widgetUserDialog._widgetDialog.close();
     }
 }
 WidgetUser.onClickForgetPWD = function () {

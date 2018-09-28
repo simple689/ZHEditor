@@ -243,6 +243,14 @@ WidgetFileBrowser.onClickRefreshDir = function () {
 WidgetFileBrowser.onClickCreateDir = function () {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
 
+    if (WidgetUser._jsonLoginCache) {
+        WidgetFileBrowser.createDir(jsonObjCtrl);
+    } else {
+        WidgetUser._widgetUserDialog = new WidgetUserDialog();
+        WidgetUser._widgetUserDialog.createDialogLogin(WidgetFileBrowser.createDir, jsonObjCtrl);
+    }
+}
+WidgetFileBrowser.createDir = function (jsonObjCtrl) {
     var widgetDialog = new WidgetDialog();
     widgetDialog.createDialogOneInput("新建文件夹", "请输入文件夹名字：", document.body, WidgetFileBrowser.funcCompleteCreateDir);
     widgetDialog._jsonObjCtrl = jsonObjCtrl;

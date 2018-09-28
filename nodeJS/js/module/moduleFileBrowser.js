@@ -76,5 +76,5 @@ ModuleFileBrowser.prototype.up = function(structServer) {
         ModuleFileBrowser._jsonPersonal = structServer._jsonClient[APIData._data];
     }
     // todo 存入数据库
-    
+    // 用户名
 }

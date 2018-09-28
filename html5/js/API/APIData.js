@@ -13,6 +13,7 @@ APIData._func = "func";
 
 APIData._type = "type";
 APIData._data = "data";
+APIData._token = "token";
 // WidgetKey._title = "title";
 APIData._extend = "extend";
 

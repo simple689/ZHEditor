@@ -14,6 +14,10 @@ Conf._mysql._db = "ZHEditor";
 
 Conf._mysqlTable = {};
 Conf._mysqlTable._user = "user";
+Conf._mysqlTable._fileBrowser = "fileBrowser";
 
 Conf._mysqlUser = {};
 Conf._mysqlUser._name = "name";
+
+Conf._mysqlFileBrowser = {};
+Conf._mysqlFileBrowser._name = "name";

@@ -1,6 +1,9 @@
 function WidgetUserDialog() {
 }
-WidgetUserDialog.prototype.createDialogLogin = function () {
+WidgetUserDialog.prototype.createDialogLogin = function (funcComplete, completeJsonObjCtrl) {
+    this._funcComplete = funcComplete;
+    this._completeJsonObjCtrl = completeJsonObjCtrl;
+
     this._widgetDialog = new WidgetDialog();
     this._widgetDialog._widgetUserDialog = this;
     this._widgetDialog.createDialogWithHtml(null, document.body, null, WidgetUserDialog.showDialogLogin);
