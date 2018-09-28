@@ -45,9 +45,9 @@ ModuleFileBrowser.prototype.handle = function(structServer) {
 
     var funcStr = structServer._jsonClient[APIData._func];
     if (funcStr === API._func._fileBrowser._query) {
-        this.query();
-    } else if (func === API._func._fileBrowser._up) {
-        this.up();
+        this.query(structServer);
+    } else if (funcStr === API._func._fileBrowser._up) {
+        this.up(structServer);
     }
 
     structServer._funcComplete(structServer);
@@ -55,24 +55,26 @@ ModuleFileBrowser.prototype.handle = function(structServer) {
 ModuleFileBrowser.prototype.query = function(structServer) {
     var typeStr = structServer._jsonClient[APIData._type];
 
-    if (typeStr === API._fileBrowser._all) {
+    if (typeStr === API._fileBrowser._type._all) {
         structServer._jsonServer[APIData._data][APIData._storeShow] = ModuleFileBrowser._jsonStore;
         structServer._jsonServer[APIData._data][APIData._personalShow] = ModuleFileBrowser._jsonPersonal;
-    } else if (typeStr === API._fileBrowser._store) {
+    } else if (typeStr === API._fileBrowser._type._store) {
         structServer._jsonServer[APIData._data][APIData._storeShow] = ModuleFileBrowser._jsonStore;
-    } else if (typeStr === API._fileBrowser._personal) {
+    } else if (typeStr === API._fileBrowser._type._personal) {
         structServer._jsonServer[APIData._data][APIData._personalShow] = ModuleFileBrowser._jsonPersonal;
     }
 }
 ModuleFileBrowser.prototype.up = function(structServer) {
     var typeStr = structServer._jsonClient[APIData._type];
 
-    if (typeStr === API._fileBrowser._all) {
+    if (typeStr === API._fileBrowser._type._all) {
         ModuleFileBrowser._jsonStore = structServer._jsonClient[APIData._data][APIData._storeShow];
         ModuleFileBrowser._jsonPersonal = structServer._jsonClient[APIData._data][APIData._personalShow];
-    } else if (typeStr === API._fileBrowser._store) {
-        ModuleFileBrowser._jsonStore = structServer._jsonClient[APIData._data][APIData._storeShow];
-    } else if (typeStr === API._fileBrowser._personal) {
-        ModuleFileBrowser._jsonPersonal = structServer._jsonClient[APIData._data][APIData._personalShow];
+    } else if (typeStr === API._fileBrowser._type._store) {
+        ModuleFileBrowser._jsonStore = structServer._jsonClient[APIData._data];
+    } else if (typeStr === API._fileBrowser._type._personal) {
+        ModuleFileBrowser._jsonPersonal = structServer._jsonClient[APIData._data];
     }
+    // todo 存入数据库
+    
 }

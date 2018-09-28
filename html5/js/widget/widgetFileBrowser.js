@@ -6,7 +6,7 @@ function WidgetFileBrowser() {
 
 WidgetFileBrowser._jsonFileBrowser = null;
 
-WidgetFileBrowser.prototype.create = function (elementParent, resType) {
+WidgetFileBrowser.prototype.create = function (elementParent, func, type) {
     this._divMain = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._divMain, "widgetFileBrowserMain");
 
@@ -21,8 +21,9 @@ WidgetFileBrowser.prototype.create = function (elementParent, resType) {
 
     // 从服务器获取数据，如果失败，从历史获取数据
     var jsonData = {};
-    jsonData[APIData._module] = APIServer._module._fileBrowser;
-    jsonData[APIData._func] = resType;
+    jsonData[APIData._module] = API._module._fileBrowser;
+    jsonData[APIData._func] = func;
+    jsonData[APIData._type] = type;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
     // WidgetHttpAJAX.createGetJsonp(url, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
 }
@@ -264,12 +265,14 @@ WidgetFileBrowser.funcCompleteCreateDir = function (confirm, value) {
         widgetFileBrowser.refreshFileBrowserLeft();
         // todo 发送给服务器
         var jsonData = {};
-        jsonData[APIData._module] = APIServer._module._fileBrowser;
-        jsonData[APIData._func] = resType;
-        WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
+        jsonData[APIData._module] = API._module._fileBrowser;
+        jsonData[APIData._func] = API._func._fileBrowser._up;
+        jsonData[APIData._type] = API._fileBrowser._type._personal;
+        jsonData[APIData._data] = WidgetFileBrowser._jsonFileBrowser[APIData._personalShow];
+        WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteCreateDir);
     }
 }
-WidgetFileBrowser.ajaxCompleteJsonFileBrowser = function (widgetFileBrowser, error, jsonData) {
+WidgetFileBrowser.ajaxCompleteCreateDir = function (widgetFileBrowser, error, jsonData) {
     if (error) {
         WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
     } else {

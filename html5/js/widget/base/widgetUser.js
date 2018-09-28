@@ -47,8 +47,8 @@ WidgetUser.onClickLogin = function () {
     var userPWD = WidgetUser._widgetUserDialog.getUserPWD();
 
     var jsonData = {};
-    jsonData[APIData._module] = APIServer._module._user;
-    jsonData[APIData._func] = APIServer._user._login;
+    jsonData[APIData._module] = API._module._user;
+    jsonData[APIData._func] = API._func._user._login;
     jsonData[APIData._userName] = userName;
     jsonData[APIData._userPWD] = userPWD;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetUser.ajaxCompleteLogin);
