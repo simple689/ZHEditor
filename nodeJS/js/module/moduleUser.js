@@ -1,6 +1,5 @@
-const APIClient = require('../API/APIClient.js');
+const API = require('../API/API.js');
 const APIData = require('../API/APIData.js');
-const APIServer = require('../API/APIServer.js');
 const APIUtil = require('../API/APIUtil.js');
 const Util = require('../base/util.js');
 
@@ -15,12 +14,12 @@ ModuleUser.init = function(server) {
 }
 
 ModuleUser.prototype.handle = function(structServer) {
-    var func = structServer._jsonClient[APIData._func];
-    if (func === APIServer._user._login) {
+    var funcStr = structServer._jsonClient[APIData._func];
+    if (funcStr === API._func._user._login) {
         this.login(structServer);
-    } else if (func === APIServer._user._forgetPWD) {
+    } else if (funcStr === API._func._user._forgetPWD) {
         this.forgetPWD(structServer);
-    } else if (func === APIServer._user._register) {
+    } else if (funcStr === API._func._user._register) {
         this.register(structServer);
     }
 }

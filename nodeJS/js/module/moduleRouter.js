@@ -1,6 +1,5 @@
-const APIClient = require('../API/APIClient.js');
+const API = require('../API/API.js');
 const APIData = require('../API/APIData.js');
-const APIServer = require('../API/APIServer.js');
 const APIUtil = require('../API/APIUtil.js');
 const Util = require('../base/util.js');
 
@@ -23,20 +22,21 @@ ModuleRouter.init = function(server) {
 ModuleRouter.handle = function(structServer) {
     var jsonClientStr = JSON.stringify(structServer._jsonClient);
     console.log('[server]jsonClient : ', jsonClientStr);
+
     var moduleStr = structServer._jsonClient[APIData._module];
     if (moduleStr) {
         structServer._jsonServer[APIData._module] = moduleStr;
     }
     var router = null;
-    if (moduleStr === APIServer._module._mysql) {
+    if (moduleStr === API._module._mysql) {
         router = new ModuleMysql();
-    } else if (moduleStr === APIServer._module._fileSystem) {
+    } else if (moduleStr === API._module._fileSystem) {
         router = new ModuleFileSystem();
-    } else if (moduleStr === APIServer._module._formData) { // 暂时不用
+    } else if (moduleStr === API._module._formData) { // 暂时不用
         router = new ModuleFormData();
-    } else if (moduleStr === APIServer._module._user) {
+    } else if (moduleStr === API._module._user) {
         router = new ModuleUser();
-    } else if (moduleStr === APIServer._module._fileBrowser) {
+    } else if (moduleStr === API._module._fileBrowser) {
         router = new ModuleFileBrowser();
     } else {
         structServer._funcComplete(structServer);

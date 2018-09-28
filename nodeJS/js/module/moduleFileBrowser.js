@@ -1,6 +1,5 @@
-const APIClient = require('../API/APIClient.js');
+const API = require('../API/API.js');
 const APIData = require('../API/APIData.js');
-const APIServer = require('../API/APIServer.js');
 const APIUtil = require('../API/APIUtil.js');
 const Util = require('../base/util.js');
 
@@ -19,7 +18,6 @@ ModuleFileBrowser.init = function(server) {
     ModuleFileBrowser.initDir(server._conf._pathResStore, ModuleFileBrowser._jsonStore);
 
     ModuleFileBrowser._jsonPersonal = {};
-    // APIUtil.fileBrowser.addFolder(ModuleFileBrowser._jsonPersonal, APIData._personalShow);
 }
 ModuleFileBrowser.initDir = function(readPath, jsonObj) {
     var files = ModuleFileSystem.getDirFilesSync(readPath);
@@ -45,15 +43,36 @@ ModuleFileBrowser.initDir = function(readPath, jsonObj) {
 ModuleFileBrowser.prototype.handle = function(structServer) {
     structServer._jsonServer[APIData._data] = {};
 
-    var func = structServer._jsonClient[APIData._func];
-    if (func === APIServer._fileBroser._all) {
+    var funcStr = structServer._jsonClient[APIData._func];
+    if (funcStr === API._func._fileBrowser._query) {
+        this.query();
+    } else if (func === API._func._fileBrowser._up) {
+        this.up();
+    }
+
+    structServer._funcComplete(structServer);
+}
+ModuleFileBrowser.prototype.query = function(structServer) {
+    var typeStr = structServer._jsonClient[APIData._type];
+
+    if (typeStr === API._fileBrowser._all) {
         structServer._jsonServer[APIData._data][APIData._storeShow] = ModuleFileBrowser._jsonStore;
         structServer._jsonServer[APIData._data][APIData._personalShow] = ModuleFileBrowser._jsonPersonal;
-    } else if (func === APIServer._fileBroser._store) {
+    } else if (typeStr === API._fileBrowser._store) {
         structServer._jsonServer[APIData._data][APIData._storeShow] = ModuleFileBrowser._jsonStore;
-    } else if (func === APIServer._fileBroser._personal) {
+    } else if (typeStr === API._fileBrowser._personal) {
         structServer._jsonServer[APIData._data][APIData._personalShow] = ModuleFileBrowser._jsonPersonal;
     }
-    
-    structServer._funcComplete(structServer);
+}
+ModuleFileBrowser.prototype.up = function(structServer) {
+    var typeStr = structServer._jsonClient[APIData._type];
+
+    if (typeStr === API._fileBrowser._all) {
+        ModuleFileBrowser._jsonStore = structServer._jsonClient[APIData._data][APIData._storeShow];
+        ModuleFileBrowser._jsonPersonal = structServer._jsonClient[APIData._data][APIData._personalShow];
+    } else if (typeStr === API._fileBrowser._store) {
+        ModuleFileBrowser._jsonStore = structServer._jsonClient[APIData._data][APIData._storeShow];
+    } else if (typeStr === API._fileBrowser._personal) {
+        ModuleFileBrowser._jsonPersonal = structServer._jsonClient[APIData._data][APIData._personalShow];
+    }
 }

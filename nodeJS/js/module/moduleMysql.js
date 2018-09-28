@@ -1,6 +1,5 @@
-const APIClient = require('../API/APIClient.js');
+const API = require('../API/API.js');
 const APIData = require('../API/APIData.js');
-const APIServer = require('../API/APIServer.js');
 const APIUtil = require('../API/APIUtil.js');
 const Util = require('../base/util.js');
 
@@ -42,14 +41,14 @@ ModuleMysql.exit = function(server) {
 }
 
 ModuleMysql.prototype.handle = function(structServer) {
-    var func = structServer._jsonClient[APIData._func];
-    if (func === APIServer._mysql._add) {
+    var funcStr = structServer._jsonClient[APIData._func];
+    if (funcStr === API._func._mysql._add) {
         this.add(structServer);
-    } else if (func === APIServer._mysql._del) {
+    } else if (funcStr === API._func._mysql._del) {
         this.del(structServer);
-    } else if (func === APIServer._mysql._up) {
+    } else if (funcStr === API._func._mysql._up) {
         this.up(structServer);
-    } else if (func === APIServer._mysql._query) {
+    } else if (funcStr === API._func._mysql._query) {
         this.query(structServer);
     }
     // structServer._funcComplete(structServer);

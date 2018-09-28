@@ -7,7 +7,8 @@ const APIData = require('../API/APIData.js');
 const ModuleRouter = require('./moduleRouter.js');
 const base64 = require('hi-base64');
 
-function ModuleServer() {
+function ModuleServer(conf) {
+    this._conf = conf;
 }
 
 ModuleServer.prototype.create = function(httpCom, httpPort) {
