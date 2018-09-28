@@ -21,3 +21,4 @@ Conf._mysqlUser._name = "name";
 
 Conf._mysqlFileBrowser = {};
 Conf._mysqlFileBrowser._name = "name";
+Conf._mysqlFileBrowser._personal = "personal";
