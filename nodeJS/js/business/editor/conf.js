@@ -17,8 +17,10 @@ Conf._mysqlTable._user = "user";
 Conf._mysqlTable._fileBrowser = "fileBrowser";
 
 Conf._mysqlUser = {};
+Conf._mysqlUser._id = "id";
 Conf._mysqlUser._name = "name";
 
 Conf._mysqlFileBrowser = {};
+Conf._mysqlFileBrowser._id = "id";
 Conf._mysqlFileBrowser._name = "name";
 Conf._mysqlFileBrowser._personal = "personal";

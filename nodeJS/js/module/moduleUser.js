@@ -29,11 +29,9 @@ ModuleUser.prototype.login = function(structServer) {
     var userPWD = jsonObj[APIData._userPWD];
     // todo 读取数据库 未来加token
     var conf = structServer._server._conf;
-    var sql = "SELECT * FROM " + conf._mysqlTable._user + " WHERE " + conf._mysqlUser._name + " = '" + userName + "';";
-    // var sql = "SELECT * FROM " + conf._mysql._db + "." + conf._mysqlTable._user + " WHERE " + conf._mysqlUser._name + " = '" + userName + "';";
-    structServer._funcCompleteFianl = structServer._funcComplete;
-    structServer._funcComplete = ModuleUser.dbCompleteLogin;
-    ModuleMysql.querySql(sql, structServer);
+    var sql = "SELECT * FROM " + conf._mysqlTable._user + 
+              " WHERE " + conf._mysqlUser._name + " = '" + userName + "';";
+    ModuleMysql.querySql(sql, structServer, ModuleUser.dbCompleteLogin);
 }
 ModuleUser.dbCompleteLogin = function (err, result, structServer) {
     if (err) {
@@ -42,8 +40,7 @@ ModuleUser.dbCompleteLogin = function (err, result, structServer) {
         // todo 返回数据
         structServer._jsonServer[APIData._token] = "123";
         // 返回个人文件夹
-        // structServer._funcComplete(structServer); 查询了数据库，所以不能用这个，要用下面那行
-        structServer._funcCompleteFianl(structServer);
+        structServer._funcComplete(structServer);
     }
 }
 ModuleUser.prototype.forgetPWD = function(structServer) {

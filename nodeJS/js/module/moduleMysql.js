@@ -51,57 +51,65 @@ ModuleMysql.prototype.handle = function(structServer) {
     } else if (funcStr === API._func._mysql._query) {
         this.query(structServer);
     }
-    // structServer._funcComplete(structServer);
 }
 // 增、删、改、查
 ModuleMysql.prototype.add = function(structServer) {
-    var sql = 'INSERT INTO ' + structServer._jsonClient.table + '(id,name,age) VALUES(0,?,?)';
-    console.log("[Mysql]add : ", sql);
+    var sql = 'INSERT INTO ' + structServer._jsonClient.table + 
+              '(id,name,age) VALUES(0,?,?)';
     var sqlParam = ['Wilson', 55];
-    ModuleMysql._db.query(sql, sqlParam, function(err, result) {
-        if (err) {
-            console.log("[Mysql]error : ", err.message);
-            return;
-        }       
-        console.log("[Mysql]result : ", result);
-    });
+    ModuleMysql.addSql(sql, sqlParam, structServer);
 }
 ModuleMysql.prototype.del = function(structServer) {
-    var sql = 'DELETE FROM ' + structServer._jsonClient.table + 'WHERE ' + key + '=' + value;
-    console.log("[Mysql]del : ", sql);
-    ModuleMysql._db.query(sql, function(err, result) {
-        if (err) {
-            console.log("[Mysql]error : ", err.message);
-            return;
-        }       
-        console.log("[Mysql]result : ", result);
-    });
+    var sql = 'DELETE FROM ' + structServer._jsonClient.table + 
+              'WHERE ' + key + '=' + value;
+    ModuleMysql.delSql(sql, structServer);
 }
 ModuleMysql.prototype.up = function(structServer) {
-    var sql = 'UPDATE ' + structServer._jsonClient.table + 'SET name = ?,age = ? WHERE id = ?';
-    console.log("[Mysql]add : ", sql);
-    var sqlParam = ['Hello World',99,7];
-    ModuleMysql._db.query(sql, sqlParam, function(err, result) {
-        if (err) {
-            console.log("[Mysql]error : ", err.message);
-            return;
-        }       
-        console.log("[Mysql]result : ", result);
-    });
+    var sql = 'UPDATE ' + structServer._jsonClient.table + 
+              'SET name = ?,age = ? WHERE id = ?';
+    var sqlParam = ['Hello World', 99, 7];
+    ModuleMysql.upSql(sql, sqlParam, structServer);
 }
 ModuleMysql.prototype.query = function(structServer) {
     var sql = 'SELECT * FROM ' + structServer._jsonClient.table;
-    ModuleMysql.querySql(sql);
+    ModuleMysql.querySql(sql, structServer);
 }
-ModuleMysql.querySql = function(sql, structServer) {
+
+ModuleMysql.addSql = function(sql, sqlParam, structServer, funcComplete) {
+    console.log("[Mysql]add : ", sql);
+    ModuleMysql._db.query(sql, sqlParam, function(err, result) {
+        ModuleMysql.complete(err, result, structServer, funcComplete);
+    });
+}
+ModuleMysql.delSql = function(sql, structServer, funcComplete) {
+    console.log("[Mysql]del : ", sql);
+    ModuleMysql._db.query(sql, function(err, result) {
+        ModuleMysql.complete(err, result, structServer, funcComplete);
+    });
+}
+ModuleMysql.upSql = function(sql, sqlParam, structServer, funcComplete) {
+    console.log("[Mysql]up : ", sql);
+    ModuleMysql._db.query(sql, sqlParam, function(err, result) {
+        ModuleMysql.complete(err, result, structServer, funcComplete);
+    });
+}
+ModuleMysql.querySql = function(sql, structServer, funcComplete) {
     console.log("[Mysql]query : ", sql);
     ModuleMysql._db.query(sql, function(err, result) {
-        if (err) {
-            console.log("[Mysql]error : ", err.message);
-        }
-        console.log("[Mysql]result : ", result);
+        ModuleMysql.complete(err, result, structServer, funcComplete);
+    });
+}
+
+ModuleMysql.complete = function(err, result, structServer, funcComplete) {
+    if (err) {
+        console.log("[Mysql]error : ", err.message);
+    }
+    console.log("[Mysql]result : ", result);
+    if (funcComplete) {
+        funcComplete(err, result, structServer);
+    } else {
         if (structServer && structServer._funcComplete) {
             structServer._funcComplete(err, result, structServer);
         }
-    });
+    }
 }

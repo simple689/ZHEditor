@@ -22,7 +22,13 @@
 -- ----------------------------
 -- 查询
 -- ----------------------------
--- SELECT * FROM `ZHEditor`.`fileBrowser`;
--- SELECT * FROM ZHEditor.fileBrowser WHERE name = 'a';
+SELECT * FROM `ZHEditor`.`fileBrowser`;
+-- SELECT * FROM ZHEditor.fileBrowser WHERE name = 'b';
+-- SELECT id FROM ZHEditor.fileBrowser WHERE name = 'b';
 
 -- INSERT INTO `ZHEditor`.`fileBrowser` (`name`, `personal`) VALUES ('a', 'a');
+-- INSERT INTO `ZHEditor`.`fileBrowser` (`name`, `personal`) VALUES ('b', 'b');
+-- UPDATE `ZHEditor`.`fileBrowser` SET personal = 'b' WHERE name = 'a'; 
+
+-- DELETE FROM `ZHEditor`.`fileBrowser` WHERE id = '8'; 
+-- DELETE FROM `ZHEditor`.`fileBrowser` WHERE name = 'a'; 
