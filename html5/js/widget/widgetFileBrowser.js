@@ -29,6 +29,8 @@ WidgetFileBrowser.prototype.create = function (elementParent, func, type) {
 }
 WidgetFileBrowser.ajaxCompleteJsonFileBrowser = function (widgetFileBrowser, error, jsonData) {
     if (error) {
+        // todo
+        return;
         WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
     } else {
         if (jsonData[APIData._data]) {

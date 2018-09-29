@@ -75,38 +75,38 @@ ModuleMysql.prototype.query = function(structServer) {
     ModuleMysql.querySql(sql, structServer);
 }
 
-ModuleMysql.addSql = function(sql, sqlParam, structServer, funcComplete) {
+ModuleMysql.addSql = function(sql, sqlParam, structServer, callback) {
     console.log("[Mysql]add : ", sql);
     ModuleMysql._db.query(sql, sqlParam, function(err, result) {
-        ModuleMysql.complete(err, result, structServer, funcComplete);
+        ModuleMysql.complete(err, result, structServer, callback);
     });
 }
-ModuleMysql.delSql = function(sql, structServer, funcComplete) {
+ModuleMysql.delSql = function(sql, structServer, callback) {
     console.log("[Mysql]del : ", sql);
     ModuleMysql._db.query(sql, function(err, result) {
-        ModuleMysql.complete(err, result, structServer, funcComplete);
+        ModuleMysql.complete(err, result, structServer, callback);
     });
 }
-ModuleMysql.upSql = function(sql, sqlParam, structServer, funcComplete) {
+ModuleMysql.upSql = function(sql, sqlParam, structServer, callback) {
     console.log("[Mysql]up : ", sql);
     ModuleMysql._db.query(sql, sqlParam, function(err, result) {
-        ModuleMysql.complete(err, result, structServer, funcComplete);
+        ModuleMysql.complete(err, result, structServer, callback);
     });
 }
-ModuleMysql.querySql = function(sql, structServer, funcComplete) {
+ModuleMysql.querySql = function(sql, structServer, callback) {
     console.log("[Mysql]query : ", sql);
     ModuleMysql._db.query(sql, function(err, result) {
-        ModuleMysql.complete(err, result, structServer, funcComplete);
+        ModuleMysql.complete(err, result, structServer, callback);
     });
 }
 
-ModuleMysql.complete = function(err, result, structServer, funcComplete) {
+ModuleMysql.complete = function(err, result, structServer, callback) {
     if (err) {
         console.log("[Mysql]error : ", err.message);
     }
     console.log("[Mysql]result : ", result);
-    if (funcComplete) {
-        funcComplete(err, result, structServer);
+    if (callback) {
+        callback(err, result, structServer);
     } else {
         if (structServer && structServer._funcComplete) {
             structServer._funcComplete(err, result, structServer);

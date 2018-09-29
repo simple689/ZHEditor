@@ -48,4 +48,5 @@ ModuleRouter.handle = function(structServer) {
 
 ModuleRouter.test = function() {
     // ModuleFileSystem.readDir('/res/fileBrowser');
+    // ModuleFileSystem.writeFile('/res/a', "aa");
 }

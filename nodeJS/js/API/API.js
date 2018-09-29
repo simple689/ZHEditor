@@ -26,6 +26,12 @@ API._func._mysql._del = "del";
 API._func._mysql._up = "up";
 API._func._mysql._query = "query";
 
+// 功能 fileSystem
+API._func._fileSystem = {};
+API._func._fileSystem._fileWrite = "fileWrite";
+API._func._fileSystem._fileRead = "fileRead";
+API._func._fileSystem._fileDel = "fileDel";
+
 // 功能 user
 API._func._user = {};
 API._func._user._login = "login";
