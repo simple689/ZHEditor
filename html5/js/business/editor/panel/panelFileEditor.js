@@ -8,7 +8,7 @@ PanelFileEditor.prototype.constructor = PanelFileEditor;
 PanelFileEditor.prototype.init = function (elementRoot) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
-    this._historyItem = WidgetKey._panelFileEditor;
+    this._historyItem = confPanelFileEditor;
     this._widgetTab.init(this._dropElement, this, "../../editor/home/homeFileEditor.html", this._historyItem);
 
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorTitle.html");

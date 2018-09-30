@@ -1,13 +1,6 @@
 function WidgetKey() {
 }
 
-WidgetKey._panelToolBar = "panelToolBar";
-WidgetKey._panelState = "panelState";
-WidgetKey._panelFileEditor = "panelFileEditor";
-WidgetKey._panelFileMould = "panelFileMould";
-WidgetKey._panelFileLink = "panelFileLink";
-WidgetKey._panelFileBrowser = "panelFileBrowser";
-
 // APIData._fileList = "fileList";
 // APIData._folderList = "folderList";
 WidgetKey._fileName = "fileName";

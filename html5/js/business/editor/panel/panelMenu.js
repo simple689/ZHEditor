@@ -132,16 +132,16 @@ PanelMenu.onClickFind = function () {
 }
 PanelMenu.onClickVisiblePanel = function (panel) {
     var isVisible = true;
-    if (panel == WidgetKey._panelToolBar) {
-    } else if (panel == WidgetKey._panelState) {
-    } else if (panel == WidgetKey._panelFileEditor) {
-    } else if (panel == WidgetKey._panelFileMould) {
+    if (panel == confPanelToolBar) {
+    } else if (panel == confPanelState) {
+    } else if (panel == confPanelFileEditor) {
+    } else if (panel == confPanelFileMould) {
         isVisible = changeDockPanelVisible(gDock._panelFileMould);
         gPanelMenu._menuPanelFileMouldCheckbox.checked = isVisible;
-    } else if (panel == WidgetKey._panelFileLink) {
+    } else if (panel == confPanelFileLink) {
         isVisible = changeDockPanelVisible(gDock._panelFileLink);
         gPanelMenu._menuPanelFileLinkCheckbox.checked = isVisible;
-    } else if (panel == WidgetKey._panelFileBrowser) {
+    } else if (panel == confPanelFileBrowser) {
         isVisible = changeDockPanelVisible(gDock._panelFileBrowser);
         gPanelMenu._menuPanelFileBrowserCheckbox.checked = isVisible;
     }

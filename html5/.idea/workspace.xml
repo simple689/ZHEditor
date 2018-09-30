@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change beforePath="$PROJECT_DIR$/js/business/editor/dock/dock.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/dock/dock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/panel/panelMenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/dock/conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/dock/conf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileLink.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelFileMould.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelState.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/business/editor/panel/panelToolBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/business/editor/panel/panelToolBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/base/widgetUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/base/widgetUtil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/widget/widgetMarkedDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetMarkedDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/base/widgetKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/base/widgetKey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/widget/widgetPanelFileBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/widget/widgetPanelFileBase.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -129,20 +130,20 @@
         <counts>
           <entry key="css" value="629" />
           <entry key="html" value="474" />
-          <entry key="js" value="8945" />
+          <entry key="js" value="8971" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="629" />
           <entry key="HTML" value="474" />
-          <entry key="JavaScript" value="8945" />
+          <entry key="JavaScript" value="8971" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="23" />
-          <entry key="html" value="22" />
+          <entry key="html" value="23" />
           <entry key="js" value="189" />
           <entry key="jsonMd" value="1" />
           <entry key="png" value="3" />
@@ -152,7 +153,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="23" />
-          <entry key="HTML" value="22" />
+          <entry key="HTML" value="23" />
           <entry key="Image" value="3" />
           <entry key="JavaScript" value="189" />
           <entry key="PLAIN_TEXT" value="1" />
@@ -169,8 +170,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+            <state relative-caret-position="142">
+              <caret line="117" column="25" lean-forward="true" selection-start-line="117" selection-start-column="25" selection-end-line="117" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -192,8 +193,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/business/editor/dock/conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -203,6 +204,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="119" column="73" lean-forward="true" selection-start-line="119" selection-start-column="73" selection-end-line="119" selection-end-column="73" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -220,14 +233,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>APIServer</find>
-      <find>API.</find>
-      <find>_jsonLoginCache</find>
-      <find>onClickCreateDir</find>
-      <find>_completeJsonObjCtrl</find>
-      <find>panelCenter</find>
-      <find>dockPanelFileMould</find>
-      <find>dockPanelFileLink</find>
       <find>dockPanel</find>
       <find>dockPanelFileBrowser</find>
       <find>dockLayoutKey</find>
@@ -248,16 +253,18 @@
       <find>panelFileBrowser</find>
       <find>gDockLayoutKey</find>
       <find>panelFixedTop</find>
-      <find>null</find>
       <find>document.getElementById</find>
+      <find>&quot;panelFixedTop&quot;</find>
+      <find>&quot;panelFileMould&quot;</find>
+      <find>WidgetKey._panelToolBar</find>
+      <find>WidgetKey._panelState</find>
+      <find>WidgetKey._panelFileEditor</find>
+      <find>WidgetKey._panelFileMould</find>
+      <find>WidgetKey._panelFileLink</find>
+      <find>WidgetKey._panelFileBrowser</find>
+      <find>null</find>
     </findStrings>
     <replaceStrings>
-      <replace>bindEvent</replace>
-      <replace>WidgetVerify._L</replace>
-      <replace>WidgetVerify._l</replace>
-      <replace>WidgetVerify._r</replace>
-      <replace>WidgetVerify._PI</replace>
-      <replace>WidgetVerify._h</replace>
       <replace>WidgetVerify._w</replace>
       <replace>WidgetUserDialog</replace>
       <replace>widgetUserDialog</replace>
@@ -282,6 +289,12 @@
       <replace>gPanelFileBrowser</replace>
       <replace>confDockLayoutKey</replace>
       <replace>getElementById</replace>
+      <replace>var confPanelToolBar</replace>
+      <replace>var confPanelState</replace>
+      <replace>var confPanelFileEditor</replace>
+      <replace>var confPanelFileMould</replace>
+      <replace>var confPanelFileLink</replace>
+      <replace>var confPanelFileBrowser</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\Electron\ZHEditor\html5\js\widget\widgetDock</dir>
@@ -342,8 +355,8 @@
         <option value="$PROJECT_DIR$/js/widget/base/widgetLog.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetHistory.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
-        <option value="$PROJECT_DIR$/js/business/editor/dock/conf.js" />
         <option value="$PROJECT_DIR$/js/widget/base/widgetUtil.js" />
+        <option value="$PROJECT_DIR$/js/business/editor/dock/conf.js" />
         <option value="$PROJECT_DIR$/js/business/editor/dock/dock.js" />
       </list>
     </option>
@@ -920,12 +933,12 @@
       <workItem from="1538121102174" duration="1373000" />
       <workItem from="1538126271321" duration="5880000" />
       <workItem from="1538206460256" duration="2875000" />
-      <workItem from="1538270589157" duration="4026000" />
+      <workItem from="1538270589157" duration="4432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1138489000" />
+    <option name="totallyTimeSpent" value="1138895000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -940,13 +953,13 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.22994652" visible="true" weight="0.21207307" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.22994652" visible="true" weight="0.21207307" />
       <window_info id="Favorites" order="1" sideWeight="0.5026738" side_tool="true" weight="0.24543288" />
       <window_info id="Structure" order="2" sideWeight="0.77005345" weight="0.24543288" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.14910859" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.30956239" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.30956239" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
@@ -1423,16 +1436,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="119" column="73" lean-forward="true" selection-start-line="119" selection-start-column="73" selection-end-line="119" selection-end-column="73" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1450,17 +1453,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/business/editor/dock/dock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="119" column="73" lean-forward="true" selection-start-line="119" selection-start-column="73" selection-end-line="119" selection-end-column="73" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/dock/conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/business/editor/dock/dock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+        <state relative-caret-position="142">
+          <caret line="117" column="25" lean-forward="true" selection-start-line="117" selection-start-column="25" selection-end-line="117" selection-end-column="25" />
         </state>
       </provider>
     </entry>

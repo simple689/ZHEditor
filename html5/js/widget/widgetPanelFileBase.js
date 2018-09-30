@@ -4,7 +4,7 @@ function WidgetPanelFileBase() {
 WidgetPanelFileBase.prototype.init = function (elementRoot) {
     this._dropElement = WidgetDrop.addDrop(elementRoot, this);
 
-    this._historyItem = WidgetKey._panelFileMould;
+    this._historyItem = confPanelFileMould;
     this._widgetTab = new WidgetTab();
 
     this._menuRightTitle = new WidgetMenu();

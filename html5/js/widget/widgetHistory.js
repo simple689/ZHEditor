@@ -80,7 +80,7 @@ WidgetHistory.getFile = function (historyItemFile) {
     return fileList;
 }
 WidgetHistory.getFileBrowser = function () {
-    var item = WidgetHistory.getItem(WidgetKey._panelFileBrowser);
+    var item = WidgetHistory.getItem(confPanelFileBrowser);
     var jsonObj = JSON.parse('{}');
     if (item) {
         jsonObj = JSON.parse(item); // 通过parse获取json对应键值
@@ -103,7 +103,7 @@ WidgetHistory.getFileBrowser = function () {
 }
 WidgetHistory.setFileBrowser = function (jsonObj) {
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
-    WidgetHistory.setItem(WidgetKey._panelFileBrowser, jsonStr);
+    WidgetHistory.setItem(confPanelFileBrowser, jsonStr);
 }
 
 WidgetHistory.existFileBrowserFile = function (jsonObj, key, extend) {

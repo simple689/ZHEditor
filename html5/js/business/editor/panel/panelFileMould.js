@@ -8,7 +8,7 @@ PanelFileMould.prototype.constructor = PanelFileMould;
 PanelFileMould.prototype.init = function (elementRoot) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
-    this._historyItem = WidgetKey._panelFileMould;
+    this._historyItem = confPanelFileMould;
     this._widgetTab.init(this._dropElement, this, "../../editor/home/homeFileMould.html", this._historyItem);
 
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldTitle.html");
