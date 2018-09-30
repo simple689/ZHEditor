@@ -2,7 +2,7 @@ function PanelToolBar() {
 }
 
 PanelToolBar.prototype.init = function () {
-    var panelToolBar = document.getElementById("panelToolBar");
+    var panelToolBar = getElementById("panelToolBar");
 
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "新建";

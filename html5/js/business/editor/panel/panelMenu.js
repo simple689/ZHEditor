@@ -2,15 +2,15 @@ function PanelMenu() {
 }
 
 PanelMenu.prototype.init = function () {
-    // var panelMenu = document.getElementById("panelMenu");
-    var panelMenuWidgetUser = document.getElementById("panelMenuWidgetUser");
+    // var panelMenu = getElementById("panelMenu");
+    var panelMenuWidgetUser = getElementById("panelMenuWidgetUser");
     WidgetUser.init(panelMenuWidgetUser);
     // 根据用户使用设备调整按钮的可见性
     switch (WidgetUser._client) {
         case WidgetUser._enumClientType.appPc:
         case WidgetUser._enumClientType.appMobile: {
-            this._menuFileExitSpan = document.getElementById("menuExitSpan");
-            this._menuFileExit = document.getElementById("menuExit");
+            this._menuFileExitSpan = getElementById("menuExitSpan");
+            this._menuFileExit = getElementById("menuExit");
 
             WidgetHtml.classRemove(this._menuFileExitSpan, "widgetMenuHide");
             WidgetHtml.classRemove(this._menuFileExit, "widgetMenuHide");
@@ -18,9 +18,9 @@ PanelMenu.prototype.init = function () {
         }
     }
     // 是否选中设置
-    this._menuPanelFileMouldCheckbox = document.getElementById("menuPanelFileMouldCheckbox");
-    this._menuPanelFileLinkCheckbox = document.getElementById("menuPanelFileLinkCheckbox");
-    this._menuPanelFileBrowserCheckbox = document.getElementById("menuPanelFileBrowserCheckbox");
+    this._menuPanelFileMouldCheckbox = getElementById("menuPanelFileMouldCheckbox");
+    this._menuPanelFileLinkCheckbox = getElementById("menuPanelFileLinkCheckbox");
+    this._menuPanelFileBrowserCheckbox = getElementById("menuPanelFileBrowserCheckbox");
 
     var isVisible = getDockPanelVisible(gDock._panelFileMould);
     this._menuPanelFileMouldCheckbox.checked = isVisible;

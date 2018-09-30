@@ -135,7 +135,7 @@ WidgetMarkedDoc.prototype.fetchAnchor = function(anchor) {
         this._divRightContent.scrollTo(0, 0);
         return;
     }
-    var hashElement = document.getElementById(anchor);
+    var hashElement = getElementById(anchor);
     if (hashElement) {
         hashElement.scrollIntoView();
     }

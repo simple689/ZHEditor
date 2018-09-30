@@ -2,7 +2,7 @@ function PanelFileBrowser() {
 }
 
 PanelFileBrowser.prototype.init = function (elementID) {
-    var rootElement = document.getElementById("panelFileBrowser");
+    var rootElement = getElementById("panelFileBrowser");
     this._divMain = WidgetHtml.addDiv(rootElement);
     this._divMain.id = "main";
 

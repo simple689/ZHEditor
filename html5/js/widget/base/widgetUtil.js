@@ -1,6 +1,7 @@
 function getElementById(id) {
     return document.getElementById(id);
 }
+
 function removeFileFolder(str) {
     var strNew = str;
     if (strNew == "\/") {

@@ -42,19 +42,19 @@ function saveDockLayout() {
 }
 
 function initDockPanel() {
-    gDock.addFixedPanel(document.getElementById("panelFixedTop"), DSXDFUtil.fixedTop);
-    gDock.addFixedPanel(document.getElementById("panelFixedBottom"), DSXDFUtil.fixedBottom);
+    gDock.addFixedPanel(getElementById("panelFixedTop"), DSXDFUtil.fixedTop);
+    gDock.addFixedPanel(getElementById("panelFixedBottom"), DSXDFUtil.fixedBottom);
 
     gDock._panelFileBrowser = gDock.createDFPanel("文件浏览器", "");
-    gDock._panelFileBrowser.addContentDiv(document.getElementById("panelFileBrowser"));
+    gDock._panelFileBrowser.addContentDiv(getElementById("panelFileBrowser"));
 
-    gDock.addFixedPanel(document.getElementById("panelFileEditor"), DSXDFUtil.fixedCenter);
+    gDock.addFixedPanel(getElementById("panelFileEditor"), DSXDFUtil.fixedCenter);
 
     gDock._panelFileMould = gDock.createDFPanel("文件模版", "");
-    gDock._panelFileMould.addContentDiv(document.getElementById("panelFileMould"));
+    gDock._panelFileMould.addContentDiv(getElementById("panelFileMould"));
 
     gDock._panelFileLink = gDock.createDFPanel("文件链接", "");
-    gDock._panelFileLink.addContentDiv(document.getElementById("panelFileLink"));
+    gDock._panelFileLink.addContentDiv(getElementById("panelFileLink"));
 }
 function initDockLayout() {
     gDock._panelFileMould.initLayout(0, 0, 300, 1, DSXDFPanel.dockLeft);
@@ -128,9 +128,9 @@ $(document).ready(function () {
     });
     gPanelFileBrowser.init();
 
-    gPanelFileMould.init(document.getElementById("panelFileMould"));
-    gPanelFileLink.init(document.getElementById("panelFileLink"));
-    gPanelFileEditor.init(document.getElementById("panelFileEditor"));
+    gPanelFileMould.init(getElementById("panelFileMould"));
+    gPanelFileLink.init(getElementById("panelFileLink"));
+    gPanelFileEditor.init(getElementById("panelFileEditor"));
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
     $(document).onclick = onClickDocument;
