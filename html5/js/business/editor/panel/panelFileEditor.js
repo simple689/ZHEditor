@@ -5,7 +5,7 @@ function PanelFileEditor() {
 PanelFileEditor.prototype = new WidgetPanelFileBase();
 PanelFileEditor.prototype.constructor = PanelFileEditor;
 
-PanelFileEditor.prototype.init = function (elementRoot) {
+PanelFileEditor.prototype.init = function (elementRootID) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = confPanelFileEditor;
@@ -14,6 +14,7 @@ PanelFileEditor.prototype.init = function (elementRoot) {
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorTitle.html");
     this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorContent.html");
 }
+
 PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {
     var homeFileEditor = getElementById("homeFileEditor");
     var elementFileRoot = homeFileEditor;
@@ -35,9 +36,10 @@ PanelFileEditor.prototype.loadedHtml = function (htmlRoot) {
         WidgetHtml.addSelect(elementFileRoot, this, "0123456", 6, null, null);
     }
 }
+
 PanelFileEditor.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
-    var obj = WidgetFileBrowser._jsonFileBrowser[WidgetKey._json];
+    var obj = WidgetFileBrowser._jsonFileBrowser[APIData._json];
 
     var extend = getFileExtend(fileName);
     if (!WidgetHistory.existFileBrowserFile(obj, fileName, extend)) {

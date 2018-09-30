@@ -1,9 +1,16 @@
 function PanelFileBrowser() {
+    WidgetPanelBase.call(this);
 }
 
-PanelFileBrowser.prototype.init = function (elementID) {
-    var rootElement = getElementById("panelFileBrowser");
-    this._divMain = WidgetHtml.addDiv(rootElement);
+PanelFileBrowser.prototype = new WidgetPanelBase();
+PanelFileBrowser.prototype.constructor = PanelFileBrowser;
+
+PanelFileBrowser.prototype.init = function (elementRootID) {
+    WidgetPanelBase.prototype.init.apply(this, arguments);
+
+    var elementRoot = getElementById(this._elementRootID);
+
+    this._divMain = WidgetHtml.addDiv(elementRoot);
     this._divMain.id = "main";
 
     this._divTool = WidgetHtml.addDiv(this._divMain);

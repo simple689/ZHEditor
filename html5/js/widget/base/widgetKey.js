@@ -6,14 +6,6 @@ function WidgetKey() {
 WidgetKey._fileName = "fileName";
 WidgetKey._fileContent = "fileContent";
 
-WidgetKey._json = "json";
-// APIData._jsonShow = "json";
-WidgetKey._jsonMould = "jsonMould";
-// APIData._jsonMouldShow = "json模版";
-
-// APIData._extendJson = ".json";
-// APIData._extendJsonMd = ".jsonMd";
-
 // APIData._type = "type";
 WidgetKey._title = "title";
 // APIData._extend = "extend";

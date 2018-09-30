@@ -1,7 +1,15 @@
 function WidgetPanelFileBase() {
+    WidgetPanelBase.call(this);
 }
 
-WidgetPanelFileBase.prototype.init = function (elementRoot) {
+WidgetPanelFileBase.prototype = new WidgetPanelBase();
+WidgetPanelFileBase.prototype.constructor = WidgetPanelFileBase;
+
+WidgetPanelFileBase.prototype.init = function (elementRootID) {
+    WidgetPanelBase.prototype.init.apply(this, arguments);
+
+    var elementRoot = getElementById(this._elementRootID);
+
     this._dropElement = WidgetDrop.addDrop(elementRoot, this);
 
     this._historyItem = confPanelFileMould;

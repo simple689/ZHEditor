@@ -1,34 +1,45 @@
 function PanelMenu() {
+    WidgetPanelBase.call(this);
 }
 
-PanelMenu.prototype.init = function () {
-    // var panelMenu = getElementById("panelMenu");
-    var panelMenuWidgetUser = getElementById("panelMenuWidgetUser");
-    WidgetUser.init(panelMenuWidgetUser);
+PanelMenu.prototype = new WidgetPanelBase();
+PanelMenu.prototype.constructor = PanelMenu;
+
+PanelMenu.prototype.init = function (elementRootID) {
+    WidgetPanelBase.prototype.init.apply(this, arguments);
+
+    var elementRoot = getElementById(this._elementRootID);
+
+    var widgetUserRoot = WidgetHtml.addDiv(elementRoot);
+    WidgetHtml.classAdd(widgetUserRoot, "widgetUser");
+    WidgetUser.init(widgetUserRoot);
+
     // 根据用户使用设备调整按钮的可见性
     switch (WidgetUser._client) {
         case WidgetUser._enumClientType.appPc:
         case WidgetUser._enumClientType.appMobile: {
-            this._menuFileExitSpan = getElementById("menuExitSpan");
-            this._menuFileExit = getElementById("menuExit");
+            this._fileExitSpan = getElementById("panelMenuExitSpan");
+            this._fileExit = getElementById("panelMenuExit");
 
-            WidgetHtml.classRemove(this._menuFileExitSpan, "widgetMenuHide");
-            WidgetHtml.classRemove(this._menuFileExit, "widgetMenuHide");
+            WidgetHtml.classRemove(this._fileExitSpan, "widgetMenuHide");
+            WidgetHtml.classRemove(this._fileExit, "widgetMenuHide");
             break;
         }
     }
     // 是否选中设置
-    this._menuPanelFileMouldCheckbox = getElementById("menuPanelFileMouldCheckbox");
-    this._menuPanelFileLinkCheckbox = getElementById("menuPanelFileLinkCheckbox");
-    this._menuPanelFileBrowserCheckbox = getElementById("menuPanelFileBrowserCheckbox");
+    this._panelFileBrowserCheckbox = getElementById("panelMenuPanelFileBrowserCheckbox");
+    this._panelFileMouldCheckbox = getElementById("panelMenuPanelFileMouldCheckbox");
+    this._panelFileLinkCheckbox = getElementById("panelMenuPanelFileLinkCheckbox");
 
-    var isVisible = getDockPanelVisible(gDock._panelFileMould);
-    this._menuPanelFileMouldCheckbox.checked = isVisible;
+    var isVisible = getDockPanelVisible(gDock._panelFileBrowser);
+    this._panelFileBrowserCheckbox.checked = isVisible;
+    isVisible = getDockPanelVisible(gDock._panelFileMould);
+    this._panelFileMouldCheckbox.checked = isVisible;
     isVisible = getDockPanelVisible(gDock._panelFileLink);
-    this._menuPanelFileLinkCheckbox.checked = isVisible;
-    isVisible = getDockPanelVisible(gDock._panelFileBrowser);
-    this._menuPanelFileBrowserCheckbox.checked = isVisible;
+    this._panelFileLinkCheckbox.checked = isVisible;
 }
+
+// onClickCreateFile
 PanelMenu.onClickCreateFile = function (fileExtend) {
     var createFileStr = "新建文件_";
     var createFileNum = 0;
@@ -59,6 +70,8 @@ PanelMenu.onClickCreateFile = function (fileExtend) {
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, name);
     widgetTab.addTabWithFileJsonObj(name, jsonObjCtrl._obj);
 }
+
+// onClickOpenFile
 PanelMenu.onClickOpenFile = function (fileExtend) {
     openFile(fileExtend, PanelMenu.openedFile);
 }
@@ -75,6 +88,8 @@ PanelMenu.openedFile = function (e) {
         widgetTab.addTabWithFile(file);
     }
 }
+
+// onClickSaveFile
 PanelMenu.onClickSaveFileNow = function (fileExtend) {
     var widgetTab = getFileWidgetTab(fileExtend);
     if (!widgetTab) {
@@ -90,6 +105,8 @@ PanelMenu.onClickSaveFileNowAll = function () {
 PanelMenu.onClickSaveFileAll = function () {
     // todo
 }
+
+// onClickDownloadFile
 PanelMenu.onClickDownloadFileNow = function (fileExtend) {
     var widgetTab = getFileWidgetTab(fileExtend);
     if (!widgetTab) {
@@ -103,6 +120,8 @@ PanelMenu.onClickDownloadFileNow = function (fileExtend) {
     // return e._jsonObjCtrl;
     // downloadFileJson(jsonObjCtrl);
 }
+
+// onClickSetting
 PanelMenu.onClickSetting = function () {
     var widgetDialog = new WidgetDialog();
     widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.showDialogSetting);
@@ -115,21 +134,37 @@ PanelMenu.showDialogSetting = function (widgetDialog) {
     label.style.textAlign = "center";
     label.style.lineHeight = "30px";
 };
+
+// onClickExit
 PanelMenu.onClickExit = function () {
     // todo
 }
+
+// onClickUndo
 PanelMenu.onClickUndo = function () {
 }
+
+// onClickRedo
 PanelMenu.onClickRedo = function () {
 }
+
+// onClickCut
 PanelMenu.onClickCut = function () {
 }
+
+// onClickCopy
 PanelMenu.onClickCopy = function () {
 }
+
+// onClickPaste
 PanelMenu.onClickPaste = function () {
 }
+
+// onClickFind
 PanelMenu.onClickFind = function () {
 }
+
+// onClickVisiblePanel
 PanelMenu.onClickVisiblePanel = function (panel) {
     var isVisible = true;
     if (panel == confPanelToolBar) {
@@ -137,15 +172,17 @@ PanelMenu.onClickVisiblePanel = function (panel) {
     } else if (panel == confPanelFileEditor) {
     } else if (panel == confPanelFileMould) {
         isVisible = changeDockPanelVisible(gDock._panelFileMould);
-        gPanelMenu._menuPanelFileMouldCheckbox.checked = isVisible;
+        gPanelMenu._panelFileMouldCheckbox.checked = isVisible;
     } else if (panel == confPanelFileLink) {
         isVisible = changeDockPanelVisible(gDock._panelFileLink);
-        gPanelMenu._menuPanelFileLinkCheckbox.checked = isVisible;
+        gPanelMenu._panelFileLinkCheckbox.checked = isVisible;
     } else if (panel == confPanelFileBrowser) {
         isVisible = changeDockPanelVisible(gDock._panelFileBrowser);
-        gPanelMenu._menuPanelFileBrowserCheckbox.checked = isVisible;
+        gPanelMenu._panelFileBrowserCheckbox.checked = isVisible;
     }
 }
+
+// onClickHistoryClear
 PanelMenu.onClickHistoryClearAll = function () {
     WidgetHistory.clearAll();
 }
@@ -153,6 +190,8 @@ PanelMenu.onClickHistoryClear = function (key) {
     var element = window.event.target;
     WidgetHistory.clear(key, element.innerHTML);
 }
+
+// onClickHelp
 PanelMenu.onClickHelp = function () {
     var widgetDialog = new WidgetDialog();
     widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.showDialogHelp);

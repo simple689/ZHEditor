@@ -5,7 +5,7 @@ function PanelFileMould() {
 PanelFileMould.prototype = new WidgetPanelFileBase();
 PanelFileMould.prototype.constructor = PanelFileMould;
 
-PanelFileMould.prototype.init = function (elementRoot) {
+PanelFileMould.prototype.init = function (elementRootID) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = confPanelFileMould;
@@ -14,9 +14,10 @@ PanelFileMould.prototype.init = function (elementRoot) {
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldTitle.html");
     this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldContent.html");
 }
+
 PanelFileMould.prototype.loadedJson = function (fileReader) {
     var fileName = fileReader._elementTabTitle.innerHTML;
-    var obj = WidgetFileBrowser._jsonFileBrowser[WidgetKey._jsonMould];
+    var obj = WidgetFileBrowser._jsonFileBrowser[APIData._jsonMould];
 
     var extend = getFileExtend(fileName);
     if (!WidgetHistory.existFileBrowserFile(obj, fileName, extend)) {

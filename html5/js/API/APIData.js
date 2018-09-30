@@ -26,9 +26,9 @@ APIData._folder = "folder";
 // WidgetKey._fileName = "fileName";
 // WidgetKey._fileContent = "fileContent";
 
-// WidgetKey._json = "json";
+APIData._json = "json";
 APIData._jsonShow = "json";
-// WidgetKey._jsonMould = "jsonMould";
+APIData._jsonMould = "jsonMould";
 APIData._jsonMouldShow = "json模版";
 
 APIData._extendJson = ".json";

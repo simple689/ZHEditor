@@ -42,19 +42,19 @@ function saveDockLayout() {
 }
 
 function initDockPanel() {
-    gDock.addFixedPanel(getElementById("panelFixedTop"), DSXDFUtil.fixedTop);
-    gDock.addFixedPanel(getElementById("panelFixedBottom"), DSXDFUtil.fixedBottom);
+    gDock.addFixedPanel(getElementById(confPanelFixedTop), DSXDFUtil.fixedTop);
+    gDock.addFixedPanel(getElementById(confPanelFixedBottom), DSXDFUtil.fixedBottom);
 
     gDock._panelFileBrowser = gDock.createDFPanel("文件浏览器", "");
-    gDock._panelFileBrowser.addContentDiv(getElementById("panelFileBrowser"));
+    gDock._panelFileBrowser.addContentDiv(getElementById(confPanelFileBrowser));
 
-    gDock.addFixedPanel(getElementById("panelFileEditor"), DSXDFUtil.fixedCenter);
+    gDock.addFixedPanel(getElementById(confPanelFileEditor), DSXDFUtil.fixedCenter);
 
     gDock._panelFileMould = gDock.createDFPanel("文件模版", "");
-    gDock._panelFileMould.addContentDiv(getElementById("panelFileMould"));
+    gDock._panelFileMould.addContentDiv(getElementById(confPanelFileMould));
 
     gDock._panelFileLink = gDock.createDFPanel("文件链接", "");
-    gDock._panelFileLink.addContentDiv(getElementById("panelFileLink"));
+    gDock._panelFileLink.addContentDiv(getElementById(confPanelFileLink));
 }
 function initDockLayout() {
     gDock._panelFileMould.initLayout(0, 0, 300, 1, DSXDFPanel.dockLeft);
@@ -120,17 +120,17 @@ $(document).ready(function () {
     initPanel();
 
     $('#panelFixedTop').load("../panel/panelMenu.html", function () {
-        gPanelMenu.init();
-        gPanelToolBar.init();
+        gPanelMenu.init(confPanelMenu);
+        gPanelToolBar.init(confPanelToolBar);
     });
     $('#panelFixedBottom').load("../panel/panelState.html", function () {
-        gPanelState.init();
+        gPanelState.init(confPanelState);
     });
-    gPanelFileBrowser.init();
+    gPanelFileBrowser.init(confPanelFileBrowser);
 
-    gPanelFileMould.init(getElementById("panelFileMould"));
-    gPanelFileLink.init(getElementById("panelFileLink"));
-    gPanelFileEditor.init(getElementById("panelFileEditor"));
+    gPanelFileMould.init(confPanelFileMould);
+    gPanelFileLink.init(confPanelFileLink);
+    gPanelFileEditor.init(confPanelFileEditor);
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
     $(document).onclick = onClickDocument;

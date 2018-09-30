@@ -10,7 +10,7 @@ WidgetFileJson.prototype.initRoot = function () {
 
     var jsonMouldName = null;
     if (this._jsonObj) {
-        jsonMouldName = this._jsonObj[WidgetKey._jsonMould];
+        jsonMouldName = this._jsonObj[APIData._jsonMould];
     } else {
         this._jsonObj = {};
     }
@@ -19,7 +19,7 @@ WidgetFileJson.prototype.initRoot = function () {
         jsonMouldName = removeFileExtend(jsonMouldName);
         jsonMouldName += "【配套生成】";
         jsonMouldName += APIData._extendJsonMd;
-        this._jsonObj[WidgetKey._jsonMould] = jsonMouldName;
+        this._jsonObj[APIData._jsonMould] = jsonMouldName;
     }
     this._fileJsonMouldCtrl = new WidgetFileJsonMould();
     var isNew = this._fileJsonMouldCtrl.getMould(jsonMouldName, this._jsonObj);
