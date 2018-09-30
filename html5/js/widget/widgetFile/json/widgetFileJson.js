@@ -30,8 +30,8 @@ WidgetFileJson.prototype.initRoot = function () {
         this.readMouldObject(this._fileJsonMouldCtrl._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
     }
 
-    var elementTabTitle = panelFileMould._widgetTab.addTitle(jsonMouldName);
-    panelFileMould._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
+    var elementTabTitle = gPanelFileMould._widgetTab.addTitle(jsonMouldName);
+    gPanelFileMould._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
 //     for (var o in jsonObj) {

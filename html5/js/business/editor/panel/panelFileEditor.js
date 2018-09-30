@@ -44,5 +44,5 @@ PanelFileEditor.prototype.loadedJson = function (fileReader) {
         APIUtil.fileBrowser.addFile(obj, fileName, extend);
         WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
     }
-    panelFileBrowser._widgetFileBrowser.refreshFileBrowserRight(obj);
+    gPanelFileBrowser._widgetFileBrowser.refreshFileBrowserRight(obj);
 }

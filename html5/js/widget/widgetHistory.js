@@ -24,12 +24,7 @@ WidgetHistory.setItem = function (key, value) {
 WidgetHistory.getItem = function (key) {
     return WidgetHistory._localStorage.getItem(key);
 }
-WidgetHistory.existItem = function (key) {
-    if (WidgetHistory._localStorage.getItem(key)) {
-        return true;
-    }
-    return false;
-}
+
 WidgetHistory.addFile = function (fileName, fileContent, contentType, historyItemFile) {
     var fileEditItem = WidgetHistory.getItem(historyItemFile);
     if (!fileEditItem) {

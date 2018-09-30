@@ -23,5 +23,5 @@ PanelFileMould.prototype.loadedJson = function (fileReader) {
         APIUtil.fileBrowser.addFile(obj, fileName, extend);
         WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
     }
-    panelFileBrowser.refreshFileBrowserRight(obj);
+    gPanelFileBrowser.refreshFileBrowserRight(obj);
 }

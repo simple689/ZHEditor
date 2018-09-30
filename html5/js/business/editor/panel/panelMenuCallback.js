@@ -112,7 +112,7 @@ PanelMenuCallback.onClickSaveAsButtonSave = function () {
 
     WidgetHistory.setFileJsonMould(folder + fileName + extend, widgetDialog._jsonObjCtrl._obj);
 
-    panelFileBrowser._widgetFileBrowser.refreshFileBrowserLeft();
+    gPanelFileBrowser._widgetFileBrowser.refreshFileBrowserLeft();
     widgetDialog.close();
 }
 PanelMenuCallback.onClickSaveAsButtonCancel = function () {

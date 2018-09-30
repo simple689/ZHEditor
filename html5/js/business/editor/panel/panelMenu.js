@@ -22,11 +22,11 @@ PanelMenu.prototype.init = function () {
     this._menuPanelFileLinkCheckbox = document.getElementById("menuPanelFileLinkCheckbox");
     this._menuPanelFileBrowserCheckbox = document.getElementById("menuPanelFileBrowserCheckbox");
 
-    var isVisible = getVisible(dockPanelFileMould);
+    var isVisible = getDockPanelVisible(gDock._panelFileMould);
     this._menuPanelFileMouldCheckbox.checked = isVisible;
-    isVisible = getVisible(dockPanelFileLink);
+    isVisible = getDockPanelVisible(gDock._panelFileLink);
     this._menuPanelFileLinkCheckbox.checked = isVisible;
-    isVisible = getVisible(dockPanelFileBrowser);
+    isVisible = getDockPanelVisible(gDock._panelFileBrowser);
     this._menuPanelFileBrowserCheckbox.checked = isVisible;
 }
 PanelMenu.onClickCreateFile = function (fileExtend) {
@@ -136,14 +136,14 @@ PanelMenu.onClickVisiblePanel = function (panel) {
     } else if (panel == WidgetKey._panelState) {
     } else if (panel == WidgetKey._panelFileEditor) {
     } else if (panel == WidgetKey._panelFileMould) {
-        isVisible = changeVisible(dockPanelFileMould);
-        panelMenu._menuPanelFileMouldCheckbox.checked = isVisible;
+        isVisible = changeDockPanelVisible(gDock._panelFileMould);
+        gPanelMenu._menuPanelFileMouldCheckbox.checked = isVisible;
     } else if (panel == WidgetKey._panelFileLink) {
-        isVisible = changeVisible(dockPanelFileLink);
-        panelMenu._menuPanelFileLinkCheckbox.checked = isVisible;
+        isVisible = changeDockPanelVisible(gDock._panelFileLink);
+        gPanelMenu._menuPanelFileLinkCheckbox.checked = isVisible;
     } else if (panel == WidgetKey._panelFileBrowser) {
-        isVisible = changeVisible(dockPanelFileBrowser);
-        panelMenu._menuPanelFileBrowserCheckbox.checked = isVisible;
+        isVisible = changeDockPanelVisible(gDock._panelFileBrowser);
+        gPanelMenu._menuPanelFileBrowserCheckbox.checked = isVisible;
     }
 }
 PanelMenu.onClickHistoryClearAll = function () {
