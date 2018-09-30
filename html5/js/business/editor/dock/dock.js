@@ -60,6 +60,7 @@ function initDockLayout() {
     gDock._panelFileMould.initLayout(0, 0, 300, 1, DSXDFPanel.dockLeft);
     gDock._panelFileMould.enableNormalHiddenButton(false);
 
+    gDock._panelFileLink.initLayout(0, 0, 300, 1, DSXDFPanel.dockRight);
     gDock._panelFileLink.enableNormalHiddenButton(false);
 
     gDock._panelFileBrowser.initLayout(0, 0, 1, 200, DSXDFPanel.dockBottom);
