@@ -108,6 +108,8 @@ function onContextMenuDocument() {
 
 function onResizeWindow() {
     // window.location.reload();
+    // window.history.go(0);
+    // initDockLayout();
     WidgetDialog.resizeWindow();
     return true;
 }
