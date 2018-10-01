@@ -11,10 +11,10 @@ PanelFileBrowser.prototype.init = function (elementParentID) {
     var elementParent = getElementById(this._elementParentID);
 
     this._divMain = WidgetHtml.addDiv(elementParent);
-    this._divMain.id = "main";
+    this._divMain.id = "panelFileBrowserMain";
     this._divTool = WidgetHtml.addDiv(this._divMain);
     this._divFileBrowser = WidgetHtml.addDiv(this._divMain);
-    this._divFileBrowser.id = "fileBrowser";
+    this._divFileBrowser.id = "panelFileBrowserBottom";
 
     this.initTool();
     this.initFileBrowser();
