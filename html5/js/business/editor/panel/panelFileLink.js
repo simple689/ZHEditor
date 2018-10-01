@@ -9,7 +9,7 @@ PanelFileLink.prototype.init = function (elementParentID) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = confPanelFileLink;
-    this._widgetTab.init(this._dropElement, this, "../../editor/home/homeFileLink.html", this._historyItem);
+    this._widgetTab.init(this._elementDrop, this, "../../editor/home/homeFileLink.html", this._historyItem);
 
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldTitle.html");
     this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldContent.html");

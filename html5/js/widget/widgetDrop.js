@@ -3,25 +3,26 @@ function WidgetDrop() {
 
 WidgetDrop._borderColorNormal = "rgba(102,102,102,0)";
 WidgetDrop._borderColorFocus = "rgba(102,102,102,1)";
-WidgetDrop.createDrop = function (elementParent, panel) {
+
+WidgetDrop.createDrop = function (elementParent, exec, callback) {
     var elementDrop = WidgetHtml.createElement("div");
     elementParent.appendChild(elementDrop);
-    this.addDrop(elementDrop, panel);
-    return elementDrop;
+    return WidgetDrop.addDrop(elementDrop, exec, callback);
 }
-WidgetDrop.addDrop = function (elementDrop, panel) {
-    WidgetHtml.classAdd(elementDrop, "widgetDrop");
-    elementDrop._panel = panel;
+WidgetDrop.addDrop = function (elementParent, exec, callback) {
+    WidgetHtml.classAdd(elementParent, "widgetDrop");
+    elementParent._exec = exec;
+    elementParent._callback = callback;
 
     // 拖拽的目标对象document监听drop并防止浏览器打开客户端的图片
     document.ondragover = WidgetDrop.onDragOverDocument;
     document.ondrop = WidgetDrop.onDropDocument;
-    elementDrop.ondragover = WidgetDrop.onDragOverItem;
-    elementDrop.ondragenter = WidgetDrop.onDragEnterItem;
-    elementDrop.ondragleave = WidgetDrop.onDragLeaveItem;
-    elementDrop.ondrop = WidgetDrop.onDropItem;
+    elementParent.ondragover = WidgetDrop.onDragOverItem;
+    elementParent.ondragenter = WidgetDrop.onDragEnterItem;
+    elementParent.ondragleave = WidgetDrop.onDragLeaveItem;
+    elementParent.ondrop = WidgetDrop.onDropItem;
 
-    return elementDrop;
+    return elementParent;
 }
 
 WidgetDrop.onDragOverDocument = function (e) {
@@ -49,5 +50,7 @@ WidgetDrop.onDropItem = function (e) {
     this.style.borderColor = WidgetDrop._borderColorNormal;
     e.stopPropagation();
     e.preventDefault();
-    this._panel.handleFiles(e.dataTransfer.files);
+    if (this._callback) {
+        this._callback(this._exec, e.dataTransfer.files);
+    }
 }

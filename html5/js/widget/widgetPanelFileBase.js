@@ -10,18 +10,17 @@ WidgetPanelFileBase.prototype.init = function (elementParentID) {
 
     var elementParent = getElementById(this._elementParentID);
 
-    this._dropElement = WidgetDrop.addDrop(elementParent, this);
+    this._elementDrop = WidgetDrop.addDrop(elementParent, this, WidgetPanelFileBase.handleFiles);
 
-    this._historyItem = confPanelFileMould;
     this._widgetTab = new WidgetTab();
 
     this._menuRightTitle = new WidgetMenu();
     this._menuRightContent = new WidgetMenu();
 }
-WidgetPanelFileBase.prototype.handleFiles = function (fileList) {
+WidgetPanelFileBase.handleFiles = function (exec, fileList) {
     for (var i = 0; i < fileList.length; i++) {
         var file = fileList[i];
-        this._widgetTab.addTabWithFile(file);
+        exec._widgetTab.addTabWithFile(file);
     }
 }
 WidgetPanelFileBase.prototype.tabOnContextMenu = function (ele, e, onContextMenuType) {

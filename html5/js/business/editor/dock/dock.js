@@ -131,9 +131,9 @@ $(document).ready(function () {
     });
     gPanelFileBrowser.init(confPanelFileBrowser);
 
+    gPanelFileEditor.init(confPanelFileEditor);
     gPanelFileMould.init(confPanelFileMould);
     gPanelFileLink.init(confPanelFileLink);
-    gPanelFileEditor.init(confPanelFileEditor);
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
     document.onclick = onClickDocument;
