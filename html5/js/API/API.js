@@ -43,3 +43,5 @@ API._fileBrowser._type = {};
 API._fileBrowser._type._all = "all";
 API._fileBrowser._type._store = "store";
 API._fileBrowser._type._personal = "personal";
+API._fileBrowser._type._stateMenuFold = "stateMenuFold";
+API._fileBrowser._type._stateFlex = "stateFlex";

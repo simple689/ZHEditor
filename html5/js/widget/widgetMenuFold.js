@@ -43,32 +43,36 @@ WidgetMenuFold.prototype.addFoldItem = function (dt, isCheck) {
     dt._dl.appendChild(dd);
     dd._dt = dt;
     dd._isCheck = isCheck;
-    if (isCheck) {
-        dd.style.display = WidgetKey._block;
-    } else {
-        dd.style.display = WidgetKey._none;
-    }
+    WidgetMenuFold.setDdCheck(dd, dt._label, isCheck);
     return dd;
 }
-WidgetMenuFold.setDdDisplay = function (elementDd, elementLabel, isCheck) {
+WidgetMenuFold.setDdCheck = function (elementDd, elementLabel, isCheck) {
     var tagName = elementDd.tagName;
     if (tagName == "DD") {
         var label = elementLabel;
         if (!label) {
             label = elementDd._dt._label;
         }
-        //展开和收齐的不同状态下更换小图标
-        if (isCheck) {
-            elementDd.style.display = WidgetKey._block;
-            $(label).css(
-                "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
-            );
-        } else {
-            elementDd.style.display = WidgetKey._none;
-            $(label).css(
-                "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
-            );
-        }
+        var exec = label._jsonObjCtrl._exec;
+        var path = label._jsonObjCtrl._obj["path"];
+        exec._jsonStateMenuFold[path] = isCheck;
+        WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonStore, WidgetFileBrowser._jsonPersonal, exec._widgetID, exec._jsonStateMenuFold, exec._jsonStateFlex);
+
+        WidgetMenuFold.setDdDisplay(elementDd, label, isCheck);
+    }
+}
+WidgetMenuFold.setDdDisplay = function (dd, label, isCheck) {
+    //展开和收齐的不同状态下更换小图标
+    if (isCheck) {
+        dd.style.display = WidgetKey._block;
+        $(label).css(
+            "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
+        );
+    } else {
+        dd.style.display = WidgetKey._none;
+        $(label).css(
+            "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
+        );
     }
 }
 WidgetMenuFold.onClickDt = function (e) {
@@ -104,7 +108,7 @@ WidgetMenuFold.onClickDt = function (e) {
         var tagName = nextNode.tagName;
         if (tagName == "DD") {
             nextNode._isCheck = !nextNode._isCheck;
-            WidgetMenuFold.setDdDisplay(nextNode, this, nextNode._isCheck);
+            WidgetMenuFold.setDdCheck(nextNode, this, nextNode._isCheck);
         } else if (tagName == "DT") {
             break;
         }

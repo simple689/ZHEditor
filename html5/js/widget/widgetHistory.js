@@ -26,7 +26,7 @@ WidgetHistory.getItem = function (key) {
 }
 
 // fileBrowser
-WidgetHistory.getFileBrowser = function () {
+WidgetHistory.getFileBrowser = function (widgetID) {
     var item = WidgetHistory.getItem(confPanelFileBrowser);
     var jsonObj = JSON.parse('{}');
     if (item) {
@@ -34,34 +34,41 @@ WidgetHistory.getFileBrowser = function () {
     } else {
         jsonObj[APIData._storeShow] = {};
         jsonObj[APIData._personalShow] = {};
+        jsonObj[APIData._widgetID] = {};
+        jsonObj[APIData._widgetID][widgetID] = {};
+        var jsonObjWidget = jsonObj[APIData._widgetID][widgetID];
+        jsonObjWidget[APIData._stateMenuFold] = {};
+        jsonObjWidget[APIData._stateFlex] = {};
+
         var jsonObjStore = jsonObj[APIData._storeShow];
-        var jsonObjPersonal = jsonObj[APIData._personalShow];
-
         var jsonObjStoreJson = APIUtil.fileBrowser.addFolder(jsonObjStore, APIData._jsonShow);
-        var jsonObjStoreJsonMould = APIUtil.fileBrowser.addFolder(jsonObjStore, APIData._jsonMouldShow);
-
-        APIUtil.fileBrowser.addFolder(jsonObjPersonal, APIData._jsonShow);
-
         APIUtil.fileBrowser.addFile(jsonObjStoreJson, "demo.json", APIData._extendJson);
+        var jsonObjStoreJsonMould = APIUtil.fileBrowser.addFolder(jsonObjStore, APIData._jsonMouldShow);
         APIUtil.fileBrowser.addFile(jsonObjStoreJsonMould, "demo.jsonMd", APIData._extendJsonMd);
 
-        WidgetHistory.setFileBrowser(jsonObj);
+        var jsonObjPersonal = jsonObj[APIData._personalShow];
+        APIUtil.fileBrowser.addFolder(jsonObjPersonal, APIData._jsonShow);
+
+        WidgetHistory.setFileBrowserWhole(jsonObj);
     }
     return jsonObj;
 }
-WidgetHistory.setFileBrowser = function (jsonObj) {
+WidgetHistory.setFileBrowserWhole = function (jsonObj) {
     var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
     WidgetHistory.setItem(confPanelFileBrowser, jsonStr);
 }
-WidgetHistory.existFileBrowserFile = function (jsonObj, key, extend) {
-    var list = jsonObj[APIData._fileList];
-    for (var i in list) {
-        var obj = list[i];
-        if (obj[WidgetKey._key] == key && obj[APIData._extend] == extend) {
-            return true;
-        }
-    }
-    return false;
+WidgetHistory.setFileBrowser = function (jsonObjStore, jsonObjPersonal, widgetID, jsonObjStateMenuFold, jsonObjStateFlex) {
+    var jsonObj = {};
+    jsonObj[APIData._storeShow] = jsonObjStore;
+    jsonObj[APIData._personalShow] = jsonObjPersonal;
+    jsonObj[APIData._widgetID] = {};
+    jsonObj[APIData._widgetID][widgetID] = {};
+    var jsonObjWidget = jsonObj[APIData._widgetID][widgetID];
+    jsonObjWidget[APIData._stateMenuFold] = jsonObjStateMenuFold;
+    jsonObjWidget[APIData._stateFlex] = jsonObjStateFlex;
+
+    var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
+    WidgetHistory.setItem(confPanelFileBrowser, jsonStr);
 }
 
 // file
@@ -140,4 +147,14 @@ WidgetHistory.setFileJsonMould = function (fileName, jsonMouldObj) {
     // jsonObj[fileName] = jsonMouldObj;
     // var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
     // WidgetHistory.setItem(WidgetKey._widgetFileJsonMould, jsonStr);
+}
+WidgetHistory.existFileBrowserFile = function (jsonObj, key, extend) {
+    var list = jsonObj[APIData._fileList];
+    for (var i in list) {
+        var obj = list[i];
+        if (obj[WidgetKey._key] == key && obj[APIData._extend] == extend) {
+            return true;
+        }
+    }
+    return false;
 }

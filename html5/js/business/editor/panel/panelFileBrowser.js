@@ -62,5 +62,5 @@ PanelFileBrowser.prototype.initCreate = function () { // todo 以后扩展
 }
 PanelFileBrowser.prototype.initFileBrowser = function () {
     this._widgetFileBrowser = new WidgetFileBrowser();
-    this._widgetFileBrowser.create(this._divFileBrowser, API._fileBrowser._type._all);
+    this._widgetFileBrowser.create(this._divFileBrowser, API._fileBrowser._type._all, confPanelFileBrowser);
 }

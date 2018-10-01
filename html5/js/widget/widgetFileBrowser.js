@@ -1,9 +1,10 @@
 function WidgetFileBrowser() {
 }
 
-WidgetFileBrowser._jsonFileBrowser = null;
+WidgetFileBrowser._jsonStore = null;
+WidgetFileBrowser._jsonPersonal = null;
 
-WidgetFileBrowser.prototype.create = function (elementParent, type) {
+WidgetFileBrowser.prototype.create = function (elementParent, type, widgetID) {
     this._divMain = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._divMain, "widgetFileBrowserMain");
 
@@ -16,8 +17,14 @@ WidgetFileBrowser.prototype.create = function (elementParent, type) {
     this._divRight = WidgetHtml.addDiv(this._divMain);
     WidgetHtml.classAdd(this._divRight, "widgetFileBrowserRight");
 
+    this._widgetID = widgetID;
+
     this._menuFoldCtrl = new WidgetMenuFold();
     this._flexCtrl = new WidgetFlex();
+
+    // todo 从服务器获取
+    this._jsonStateMenuFold = {};
+    this._jsonStateFlex = {};
     this._nowFolder = "/";
 
     // 从服务器获取数据，如果失败，从历史获取数据
@@ -25,14 +32,25 @@ WidgetFileBrowser.prototype.create = function (elementParent, type) {
     jsonData[APIData._module] = API._module._fileBrowser;
     jsonData[APIData._func] = API._func._fileBrowser._query;
     jsonData[APIData._type] = type;
+    jsonData[APIData._widgetID] = widgetID;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
 }
 WidgetFileBrowser.ajaxCompleteJsonFileBrowser = function (widgetFileBrowser, error, jsonData) {
+    var jsonObj = null;
     if (error) {
-        WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
+        jsonObj = WidgetHistory.getFileBrowser(widgetFileBrowser._widgetID);
     } else {
         if (jsonData[APIData._data]) {
-            WidgetFileBrowser._jsonFileBrowser = jsonData[APIData._data];
+            jsonObj = jsonData[APIData._data];
+        }
+    }
+    if (jsonObj) {
+        WidgetFileBrowser._jsonStore = jsonObj[APIData._storeShow];
+        WidgetFileBrowser._jsonPersonal = jsonObj[APIData._personalShow];
+        if (jsonObj[APIData._widgetID] && jsonObj[APIData._widgetID][widgetFileBrowser._widgetID]) {
+            var jsonObjWidget = jsonObj[APIData._widgetID][widgetFileBrowser._widgetID];
+            widgetFileBrowser._jsonStateMenuFold = jsonObjWidget[APIData._stateMenuFold];
+            widgetFileBrowser._jsonStateFlex = jsonObjWidget[APIData._stateFlex];
         }
     }
     widgetFileBrowser.init();
@@ -71,16 +89,18 @@ WidgetFileBrowser.prototype.initLeft = function (left) {
     var jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
     jsonObjCtrl._keyShow = APIData._storeShow;
     jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
-    var foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, false);
-    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._storeShow], obj["path"], foldItem);
+    var isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
+    var foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
+    this.readFileBrowser(WidgetFileBrowser._jsonStore, obj["path"], foldItem);
 
     obj = {};
     obj["path"] = "/" + APIData._personalShow;
     jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
     jsonObjCtrl._keyShow = APIData._personalShow;
     jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
-    foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, true);
-    this.readFileBrowser(WidgetFileBrowser._jsonFileBrowser[APIData._personalShow], obj["path"], foldItem);
+    isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
+    foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
+    this.readFileBrowser(WidgetFileBrowser._jsonPersonal, obj["path"], foldItem);
 }
 WidgetFileBrowser.prototype.initRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');
@@ -112,15 +132,12 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuObject;
                 var element = WidgetHtml.addLabel(fold, jsonObjCtrl);
                 WidgetHtml.classAdd(element, "widgetFileBrowserLeftFolderName");
-                // element = WidgetHtml.addLabel(fold, this, pathChild, pathChild, WidgetFileBrowser.onClickFolderPath, null);
-                // WidgetHtml.classAdd(element, "widgetFileBrowserLeftFolderPath");
                 WidgetHtml.addBr(fold);
-                // todo 记录展开状态
-                var isCheck = pathParent.indexOf(APIData._storeShow);
-                if (isCheck != -1) {
-                    fold = this._menuFoldCtrl.addFoldItem(fold, false);
-                } else {
+                // 展开状态
+                if (this._jsonStateMenuFold[pathChild]) {
                     fold = this._menuFoldCtrl.addFoldItem(fold, true);
+                } else {
+                    fold = this._menuFoldCtrl.addFoldItem(fold, false);
                 }
             }
             this.readFileBrowser(value, pathChild, fold);

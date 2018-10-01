@@ -150,7 +150,7 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     var widgetFileBrowser = new WidgetFileBrowser();
     widgetDialog._widgetFileBrowser = widgetFileBrowser;
     widgetFileBrowser._nowFolderElement = input;
-    widgetFileBrowser.create(widgetDialog._elementDialogContent);
+    widgetFileBrowser.create(widgetDialog._elementDialogContent, API._fileBrowser._type._all, "dialogSaveFile");
     widgetFileBrowser._divMain.style.height = bodyH * 0.8 + "px";
     widgetFileBrowser._divMain.style.width = bodyW * 0.8 + "px";
     widgetFileBrowser._divLeft.style.width = bodyW * 0.2 + "px";

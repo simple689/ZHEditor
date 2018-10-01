@@ -31,6 +31,7 @@ APIUtil.fileBrowser.addFolder = function (jsonObj, key) {
     list[key] = {};
     var obj = list[key];
     obj[APIData._type] = APIData._folder;
+    obj[APIData._isCheck] = false;
     return obj;
 }
 APIUtil.fileBrowser.addFile = function (jsonObj, key, extend) {
