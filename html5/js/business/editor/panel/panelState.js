@@ -5,12 +5,12 @@ function PanelState() {
 PanelState.prototype = new WidgetPanelBase();
 PanelState.prototype.constructor = PanelState;
 
-PanelState.prototype.init = function (elementRootID) {
+PanelState.prototype.init = function (elementParentID) {
     WidgetPanelBase.prototype.init.apply(this, arguments);
 
-    var elementRoot = getElementById(this._elementRootID);
+    var elementParent = getElementById(this._elementParentID);
 
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._keyShow = "信息";
-    WidgetHtml.addLabel(elementRoot, jsonObjCtrl);
+    WidgetHtml.addLabel(elementParent, jsonObjCtrl);
 }

@@ -4,19 +4,19 @@ function WidgetDialog() {
 WidgetDialog._dialogList = new Array();
 
 WidgetDialog.prototype.createDialog = function (elementParent) {
-    this._elementRoot = WidgetHtml.createElement("div");
-    elementParent.appendChild(this._elementRoot);
-    WidgetHtml.classAdd(this._elementRoot, "widgetDialogRoot");
-    this._elementRoot._widgetDialog = this;
+    this._elementParent = WidgetHtml.createElement("div");
+    elementParent.appendChild(this._elementParent);
+    WidgetHtml.classAdd(this._elementParent, "widgetDialogRoot");
+    this._elementParent._widgetDialog = this;
     WidgetDialog._dialogList.push(this);
 
     this._elementMask = WidgetHtml.createElement("div");
-    this._elementRoot.appendChild(this._elementMask);
+    this._elementParent.appendChild(this._elementMask);
     WidgetHtml.classAdd(this._elementMask, "widgetDialogMask");
     this._elementMask._widgetDialog = this;
 
     this._elementDialog = WidgetHtml.createElement("div");
-    this._elementRoot.appendChild(this._elementDialog);
+    this._elementParent.appendChild(this._elementDialog);
     WidgetHtml.classAdd(this._elementDialog, "widgetDialog");
     this._elementDialog._widgetDialog = this;
 
@@ -139,5 +139,5 @@ WidgetDialog.onClickClose = function () {
     this._widgetDialog.close();
 }
 WidgetDialog.prototype.close = function () {
-    this._elementRoot.remove();
+    this._elementParent.remove();
 }

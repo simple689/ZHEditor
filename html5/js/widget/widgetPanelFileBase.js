@@ -5,12 +5,12 @@ function WidgetPanelFileBase() {
 WidgetPanelFileBase.prototype = new WidgetPanelBase();
 WidgetPanelFileBase.prototype.constructor = WidgetPanelFileBase;
 
-WidgetPanelFileBase.prototype.init = function (elementRootID) {
+WidgetPanelFileBase.prototype.init = function (elementParentID) {
     WidgetPanelBase.prototype.init.apply(this, arguments);
 
-    var elementRoot = getElementById(this._elementRootID);
+    var elementParent = getElementById(this._elementParentID);
 
-    this._dropElement = WidgetDrop.addDrop(elementRoot, this);
+    this._dropElement = WidgetDrop.addDrop(elementParent, this);
 
     this._historyItem = confPanelFileMould;
     this._widgetTab = new WidgetTab();

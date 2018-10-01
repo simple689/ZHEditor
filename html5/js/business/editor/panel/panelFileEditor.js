@@ -5,7 +5,7 @@ function PanelFileEditor() {
 PanelFileEditor.prototype = new WidgetPanelFileBase();
 PanelFileEditor.prototype.constructor = PanelFileEditor;
 
-PanelFileEditor.prototype.init = function (elementRootID) {
+PanelFileEditor.prototype.init = function (elementParentID) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = confPanelFileEditor;

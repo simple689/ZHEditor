@@ -12,17 +12,17 @@ function WidgetMenu() {
 WidgetMenu._menuList = new Array();
 WidgetMenu._menuPadding = 6;
 WidgetMenu.prototype.createMenu = function (elementParent) {
-    this._elementRoot = WidgetHtml.createElement("div");
-    elementParent.appendChild(this._elementRoot);
-    WidgetHtml.classAdd(this._elementRoot, "widgetMenu");
+    this._elementParent = WidgetHtml.createElement("div");
+    elementParent.appendChild(this._elementParent);
+    WidgetHtml.classAdd(this._elementParent, "widgetMenu");
     WidgetMenu._menuList.push(this);
 }
 WidgetMenu.prototype.createMenuWithHtml = function (elementParent, html) {
     this.createMenu(elementParent);
-    if (!this._elementRoot) {
+    if (!this._elementParent) {
         return;
     }
-    $(this._elementRoot).load(html, function () {
+    $(this._elementParent).load(html, function () {
     });
 }
 WidgetMenu.prototype.addUl = function (elementParent) {
@@ -64,7 +64,7 @@ WidgetMenu.showMenu = function (menu, e, exec) {
     menu._exec = exec;
     WidgetMenu.hideMenuAll();
 
-    var menuLiList = menu._elementRoot.getElementsByTagName("li");
+    var menuLiList = menu._elementParent.getElementsByTagName("li");
     for (var i = 0; i < menuLiList.length; i++) {
         var li = menuLiList[i];
         var ulList = li.getElementsByTagName("ul");
@@ -92,7 +92,7 @@ WidgetMenu.showMenu = function (menu, e, exec) {
             WidgetHtml.classRemove(liThis, "active");
         };
     }
-    var menuUlList = menu._elementRoot.getElementsByTagName("ul");
+    var menuUlList = menu._elementParent.getElementsByTagName("ul");
     if (menuUlList[0]) {
         setUlPosition(menuUlList[0], null, e.clientX, e.clientY);
     }
@@ -104,7 +104,7 @@ WidgetMenu.hideMenuAll = function () {
     }
 }
 WidgetMenu.hideMenu = function (menu) {
-    var ulList = menu._elementRoot.getElementsByTagName("ul");
+    var ulList = menu._elementParent.getElementsByTagName("ul");
     for (var i = 0; i < ulList.length; i++) {
         setElementDisplay(ulList[i], false);
     }

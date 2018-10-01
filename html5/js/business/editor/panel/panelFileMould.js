@@ -5,7 +5,7 @@ function PanelFileMould() {
 PanelFileMould.prototype = new WidgetPanelFileBase();
 PanelFileMould.prototype.constructor = PanelFileMould;
 
-PanelFileMould.prototype.init = function (elementRootID) {
+PanelFileMould.prototype.init = function (elementParentID) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = confPanelFileMould;

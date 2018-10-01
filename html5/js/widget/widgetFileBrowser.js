@@ -1,12 +1,9 @@
 function WidgetFileBrowser() {
-    this._menuFoldCtrl = new WidgetMenuFold();
-    this._flexCtrl = new WidgetFlex();
-    this._nowFolder = "/";
 }
 
 WidgetFileBrowser._jsonFileBrowser = null;
 
-WidgetFileBrowser.prototype.create = function (elementParent, func, type) {
+WidgetFileBrowser.prototype.create = function (elementParent, type) {
     this._divMain = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._divMain, "widgetFileBrowserMain");
 
@@ -19,31 +16,32 @@ WidgetFileBrowser.prototype.create = function (elementParent, func, type) {
     this._divRight = WidgetHtml.addDiv(this._divMain);
     WidgetHtml.classAdd(this._divRight, "widgetFileBrowserRight");
 
+    this._menuFoldCtrl = new WidgetMenuFold();
+    this._flexCtrl = new WidgetFlex();
+    this._nowFolder = "/";
+
     // 从服务器获取数据，如果失败，从历史获取数据
     var jsonData = {};
     jsonData[APIData._module] = API._module._fileBrowser;
-    jsonData[APIData._func] = func;
+    jsonData[APIData._func] = API._func._fileBrowser._query;
     jsonData[APIData._type] = type;
     WidgetHttpAJAX.createPost(null, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
-    // WidgetHttpAJAX.createGetJsonp(url, jsonData, this, WidgetFileBrowser.ajaxCompleteJsonFileBrowser);
 }
 WidgetFileBrowser.ajaxCompleteJsonFileBrowser = function (widgetFileBrowser, error, jsonData) {
     if (error) {
-        // todo
-        return;
         WidgetFileBrowser._jsonFileBrowser = WidgetHistory.getFileBrowser();
     } else {
         if (jsonData[APIData._data]) {
             WidgetFileBrowser._jsonFileBrowser = jsonData[APIData._data];
         }
     }
-    widgetFileBrowser.initDefault();
+    widgetFileBrowser.init();
 }
-WidgetFileBrowser.prototype.initDefault = function () {
-    this.init(this._divLeft, this._divMiddle, this._divRight);
-}
-WidgetFileBrowser.prototype.init = function (left, middle, right) {
+WidgetFileBrowser.prototype.init = function () {
     // WidgetLog.log(JSON.stringify(WidgetFileBrowser._jsonFileBrowser, null, 2));
+    var left = this._divLeft;
+    var middle = this._divMiddle;
+    var right = this._divRight;
     middle.onmousedown = function (e) {
         var x = (e || event).clientX;
         middle.left = middle.offsetLeft;
@@ -53,7 +51,7 @@ WidgetFileBrowser.prototype.init = function (left, middle, right) {
             iT < 30 && (iT = 30);
             iT > maxT && (iT = maxT);
             middle.style.left = left.style.width = iT + "px";
-            return false
+            return false;
         };
         document.onmouseup = function () {
             document.onmousemove = null;
@@ -295,7 +293,7 @@ WidgetFileBrowser.ajaxCompleteCreateDir = function (widgetFileBrowser, error, js
 WidgetFileBrowser.onContextMenuRoot = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
 
     li = menu.addLi(ul, "刷新", WidgetFileBrowser.onClickRefreshDir, null);
@@ -312,7 +310,7 @@ WidgetFileBrowser.onContextMenuRoot = function (e) {
 WidgetFileBrowser.onContextMenuObject = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
 
     var path = jsonObjCtrl._obj.path;

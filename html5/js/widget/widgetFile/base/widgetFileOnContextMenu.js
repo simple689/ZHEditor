@@ -8,7 +8,7 @@ WidgetFileOnContextMenu.createMenu = function() {
 }
 WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
     li = menu.addLi(ul, "刷新", WidgetFileOnClick.onClickRefresh, null);
     li = menu.addLi(ul, "保存", WidgetFileOnClick.onClickSave, null);
@@ -21,7 +21,7 @@ WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
 }
 WidgetFileOnContextMenu.onContextMenuObject = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
     if (this._jsonObjCtrl._key == WidgetKey._ignore) {
         li = menu.addLi(ul, "暂无功能", null, null);
@@ -40,7 +40,7 @@ WidgetFileOnContextMenu.onContextMenuObject = function (e) {
 }
 WidgetFileOnContextMenu.onContextMenuList = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
     li = menu.addLi(ul, "列表中添加对象", WidgetFileOnClick.onClickListAdd, null);
     li = menu.addLi(ul, "列表中清空对象", WidgetFileOnClick.onClickListClear, null);
@@ -51,7 +51,7 @@ WidgetFileOnContextMenu.onContextMenuList = function (e) {
 }
 WidgetFileOnContextMenu.onContextMenuLabel = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
     if (this._jsonObjCtrl._isListParent) {
         li = menu.addLi(ul, "列表中删除此对象", WidgetFileOnClick.onClickListDel, null);
@@ -63,7 +63,7 @@ WidgetFileOnContextMenu.onContextMenuLabel = function (e) {
 }
 WidgetFileOnContextMenu.onContextMenuInput = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
     if (this._jsonObjCtrl._isListParent) {
         li = menu.addLi(ul, "列表中删除此对象", WidgetFileOnClick.onClickListDel, null);
@@ -75,7 +75,7 @@ WidgetFileOnContextMenu.onContextMenuInput = function (e) {
 }
 WidgetFileOnContextMenu.onContextMenuSelect = function (e) {
     var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementRoot);
+    var ul = menu.addUl(menu._elementParent);
     var li = null;
     var func = WidgetFileUtil.getExec(this).onContextMenuSelect;
     if (func) func(menu, ul);

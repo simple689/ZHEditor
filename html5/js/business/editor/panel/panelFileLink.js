@@ -5,7 +5,7 @@ function PanelFileLink() {
 PanelFileLink.prototype = new WidgetPanelFileBase();
 PanelFileLink.prototype.constructor = PanelFileLink;
 
-PanelFileLink.prototype.init = function (elementRootID) {
+PanelFileLink.prototype.init = function (elementParentID) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = confPanelFileLink;

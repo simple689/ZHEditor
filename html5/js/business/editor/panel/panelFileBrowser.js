@@ -5,16 +5,13 @@ function PanelFileBrowser() {
 PanelFileBrowser.prototype = new WidgetPanelBase();
 PanelFileBrowser.prototype.constructor = PanelFileBrowser;
 
-PanelFileBrowser.prototype.init = function (elementRootID) {
+PanelFileBrowser.prototype.init = function (elementParentID) {
     WidgetPanelBase.prototype.init.apply(this, arguments);
 
     var elementRoot = getElementById(this._elementRootID);
 
-    this._divMain = WidgetHtml.addDiv(elementRoot);
     this._divMain.id = "main";
-
     this._divTool = WidgetHtml.addDiv(this._divMain);
-
     this._divFileBrowser = WidgetHtml.addDiv(this._divMain);
     this._divFileBrowser.id = "fileBrowser";
 
@@ -25,6 +22,7 @@ PanelFileBrowser.prototype.initTool = function () {
     // todo 以后扩展
     // this.initCreate();
 
+    // todo 以后扩展
     this._widgetSearch = new WidgetSearch();
     this._widgetSearch.createSearch(this, this._divTool);
 
@@ -34,7 +32,7 @@ PanelFileBrowser.prototype.initTool = function () {
     // jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
     // WidgetHtml.addSelect(this._divTool, jsonObjCtrl);
 }
-PanelFileBrowser.prototype.initCreate = function () {
+PanelFileBrowser.prototype.initCreate = function () { // todo 以后扩展
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "创建";
     jsonObjCtrl._valueList = new MenuListCtrl();
@@ -63,5 +61,5 @@ PanelFileBrowser.prototype.initCreate = function () {
 }
 PanelFileBrowser.prototype.initFileBrowser = function () {
     this._widgetFileBrowser = new WidgetFileBrowser();
-    this._widgetFileBrowser.create(this._divFileBrowser, API._func._fileBrowser._query, API._fileBrowser._type._all);
+    this._widgetFileBrowser.create(this._divFileBrowser, API._fileBrowser._type._all);
 }

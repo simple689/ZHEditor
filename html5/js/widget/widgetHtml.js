@@ -38,7 +38,7 @@ WidgetHtml.onClickInput = function (e) {
             var menu = new WidgetMenu();
             menu.createMenu(document.body);
             var list = this._jsonObjCtrl._valueList.getList();
-            menu.parseList(list, menu._elementRoot);
+            menu.parseList(list, menu._elementParent);
             WidgetMenu.showMenu(menu, null, this._jsonObjCtrl._exec);
             break;
         }

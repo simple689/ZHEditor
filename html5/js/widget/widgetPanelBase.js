@@ -1,6 +1,6 @@
 function WidgetPanelBase() {
 }
 
-WidgetPanelBase.prototype.init = function (elementRootID) {
-    this._elementRootID = elementRootID;
+WidgetPanelBase.prototype.init = function (elementParentID) {
+    this._elementParentID = elementParentID;
 }
