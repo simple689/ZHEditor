@@ -107,6 +107,7 @@ function onContextMenuDocument() {
 }
 
 function onResizeWindow() {
+    // window.location.reload();
     WidgetDialog.resizeWindow();
     return true;
 }
@@ -133,8 +134,8 @@ $(document).ready(function () {
     gPanelFileEditor.init(confPanelFileEditor);
 
     // blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu
-    $(document).onclick = onClickDocument;
-    $(document).oncontextmenu = onContextMenuDocument;
+    document.onclick = onClickDocument;
+    document.oncontextmenu = onContextMenuDocument;
     window.onresize = onResizeWindow;
 
     console.log("[dock] end");
