@@ -8,8 +8,9 @@ PanelFileBrowser.prototype.constructor = PanelFileBrowser;
 PanelFileBrowser.prototype.init = function (elementParentID) {
     WidgetPanelBase.prototype.init.apply(this, arguments);
 
-    var elementRoot = getElementById(this._elementRootID);
+    var elementParent = getElementById(this._elementParentID);
 
+    this._divMain = WidgetHtml.addDiv(elementParent);
     this._divMain.id = "main";
     this._divTool = WidgetHtml.addDiv(this._divMain);
     this._divFileBrowser = WidgetHtml.addDiv(this._divMain);
