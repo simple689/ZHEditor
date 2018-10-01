@@ -22,7 +22,7 @@ WidgetFileBrowser.prototype.create = function (elementParent, type, widgetID) {
     this._menuFoldCtrl = new WidgetMenuFold();
     this._flexCtrl = new WidgetFlex();
 
-    // todo 从服务器获取
+    // 从服务器获取
     this._jsonStateMenuFold = {};
     this._jsonStateFlex = {};
     this._nowFolder = "/";

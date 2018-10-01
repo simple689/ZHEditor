@@ -5,8 +5,7 @@ function WidgetMenuFold() {
 }
 
 WidgetMenuFold.prototype.createMenuFold = function (elementParent, jsonObjCtrl, isCheck) {
-    this._menuFold = WidgetHtml.createElement("div");
-    elementParent.appendChild(this._menuFold);
+    this._menuFold = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._menuFold, "widgetMenuFold");
     var dd = this.addFoldAndItem(this._menuFold, jsonObjCtrl, isCheck);
     return dd;
@@ -22,9 +21,8 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
 
     var dt = WidgetHtml.createElement("dt");
     dl.appendChild(dt);
-    dt._dl = dl;
 
-    var jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, null, false, "");
+    var jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, null, false, null);
     jsonObjCtrlSub._keyShow = jsonObjCtrl._keyShow;
     jsonObjCtrlSub._value = jsonObjCtrl._value;
     jsonObjCtrlSub._obj = jsonObjCtrl._obj;
@@ -32,10 +30,12 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     jsonObjCtrlSub._onContextMenu = jsonObjCtrl._onContextMenu;
     var label = WidgetHtml.addLabel(dt, jsonObjCtrlSub);
     WidgetHtml.classAdd(label, "widgetMenuFoldLabel");
-    label._dt = dt;
 
-    dt._div = WidgetHtml.addDiv(dt);
+    dt._dl = dl;
     dt._label = label;
+    dt._divTool = WidgetHtml.addDiv(dt);
+
+    label._dt = dt;
     return dt;
 }
 WidgetMenuFold.prototype.addFoldItem = function (dt, isCheck) {
@@ -43,8 +43,22 @@ WidgetMenuFold.prototype.addFoldItem = function (dt, isCheck) {
     dt._dl.appendChild(dd);
     dd._dt = dt;
     dd._isCheck = isCheck;
-    WidgetMenuFold.setDdCheck(dd, dt._label, isCheck);
+    WidgetMenuFold.setDdDisplay(dd, dt._label, isCheck);
     return dd;
+}
+WidgetMenuFold.setDdDisplay = function (dd, label, isCheck) {
+    //展开和收齐的不同状态下更换小图标
+    if (isCheck) {
+        dd.style.display = WidgetKey._block;
+        $(label).css(
+            "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
+        );
+    } else {
+        dd.style.display = WidgetKey._none;
+        $(label).css(
+            "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
+        );
+    }
 }
 WidgetMenuFold.setDdCheck = function (elementDd, elementLabel, isCheck) {
     var tagName = elementDd.tagName;
@@ -59,20 +73,6 @@ WidgetMenuFold.setDdCheck = function (elementDd, elementLabel, isCheck) {
         WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonStore, WidgetFileBrowser._jsonPersonal, exec._widgetID, exec._jsonStateMenuFold, exec._jsonStateFlex);
 
         WidgetMenuFold.setDdDisplay(elementDd, label, isCheck);
-    }
-}
-WidgetMenuFold.setDdDisplay = function (dd, label, isCheck) {
-    //展开和收齐的不同状态下更换小图标
-    if (isCheck) {
-        dd.style.display = WidgetKey._block;
-        $(label).css(
-            "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
-        );
-    } else {
-        dd.style.display = WidgetKey._none;
-        $(label).css(
-            "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
-        );
     }
 }
 WidgetMenuFold.onClickDt = function (e) {

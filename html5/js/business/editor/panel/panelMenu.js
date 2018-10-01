@@ -127,7 +127,7 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     var title = getFileTitle(name)
     var extend = getFileExtend(name);
 
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFolder");
+    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     var path = "/" + APIData._personalShow + "/";
     if (extend.length > 0) {
         if (extend == APIData._extendJson) {
@@ -159,10 +159,10 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     WidgetHtml.addBr(widgetDialog._elementDialogContent);
 
     // 保存路径
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelFileName");
+    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._keyShow = "文件名：";
     WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileName");
+    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._value = title;
     input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     widgetDialog._inputFileName = input;
@@ -172,10 +172,10 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     WidgetHtml.addBr(widgetDialog._elementDialogContent);
 
     // 保存类型
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "labelFileExtend");
+    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._keyShow = "保存类型：";
     WidgetHtml.addLabel(widgetDialog._elementDialogContent, jsonObjCtrl);
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "inputFileExtend");
+    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._value = extend;
     input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     widgetDialog._inputFileExtend = input;
@@ -188,12 +188,12 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     var divButton = WidgetHtml.addDiv(widgetDialog._elementDialogContent);
     divButton.style.float = "right";
 
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "buttonSave");
+    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._value = "保存";
     jsonObjCtrl._onClick = PanelMenu.onClickSaveAsButtonSave;
     WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
-    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, "buttonCancel");
+    jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._value = "取消";
     jsonObjCtrl._onClick = PanelMenu.onClickSaveAsButtonCancel;
     WidgetHtml.addInput(divButton, jsonObjCtrl, WidgetHtml._enumInputType._button);

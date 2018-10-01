@@ -170,7 +170,7 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeArray = function (jsonObjMd, json
     jsonObjCtrl._value = "添加成员";
     jsonObjCtrl._objMd = jsonObjMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
-    WidgetHtml.addInput(foldItem._dt._div, jsonObjCtrl, WidgetHtml._enumInputType._button);
+    WidgetHtml.addInput(foldItem._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     for (var keyMd in valueMd) {
         var valueItemMd = valueMd[keyMd];
