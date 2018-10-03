@@ -27,8 +27,6 @@ function loadDockLayout() {
         var item = sessionStorage.getItem(confDockLayoutKey);
         if (item != null) {
             gDock.loadStatesFromKey(confDockLayoutKey);
-        } else {
-            sessionStorage.setItem(confDockLayoutKey, dockLayoutStr);
         }
     }
 }
