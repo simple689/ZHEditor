@@ -16,31 +16,32 @@ WidgetFileJson.prototype.initRoot = function () {
     }
     if (jsonMouldName) {
         // todo 打开已存在的模版
+        // todo 没有找到 选择模版 还是 生成模版
     } else {
+        // todo 选择模版 还是 生成模版
         // todo 生成模版
-        jsonMouldName = this._elementTabTitle._title;
+        jsonMouldName = this._elementTabContent._elementTabTitle._title;
         jsonMouldName = removeFileExtend(jsonMouldName);
         jsonMouldName += "【配套生成】";
         jsonMouldName += APIData._extendJsonMd;
         this._jsonObj[APIData._jsonMould] = jsonMouldName;
     }
-    return;
-    this._fileJsonMouldCtrl = new WidgetFileJsonMould();
-    var isNew = this._fileJsonMouldCtrl.getMould(jsonMouldName, this._jsonObj);
+    this._widgetFileJsonMould = new WidgetFileJsonMould();
+    var isNew = this._widgetFileJsonMould.getMould(jsonMouldName, this._jsonObj);
     if (isNew) { // 不存在模版
         // todo
         //     this.readObject(this._jsonObj, "root", foldItem, false);
     } else { // 存在模版
-        this.readMouldObject(this._fileJsonMouldCtrl._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
+        this.readMouldObject(this._widgetFileJsonMould._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
     }
 
     var elementTabTitle = gPanelFileMould._widgetTab.addTitle(jsonMouldName);
-    gPanelFileMould._widgetTab.addContent(elementTabTitle, this._fileJsonMouldCtrl._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
+    gPanelFileMould._widgetTab.addContent(elementTabTitle, this._widgetFileJsonMould._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
 //     for (var o in jsonObj) {
 //         var key = o;
-//         var isIgnore = this._fileJsonMouldCtrl.isMouldIgnore(key);
+//         var isIgnore = this._widgetFileJsonMould.isMouldIgnore(key);
 //         if (isIgnore) {
 //             continue;
 //         }

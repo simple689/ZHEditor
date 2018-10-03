@@ -132,6 +132,7 @@ WidgetFileJsonMould.prototype.refreshContent = function () {
     widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 WidgetFileJsonMould.prototype.getMould = function (fileName, jsonObj) {
+    // todo 已打开的是否有
     var isNew = false;
     this._fileName = fileName;
     this._jsonMouldObj = WidgetHistory.getFileJsonMould(this._fileName);
@@ -139,7 +140,6 @@ WidgetFileJsonMould.prototype.getMould = function (fileName, jsonObj) {
         this.initMould(jsonObj);
         isNew = true;
     }
-    WidgetHistory.setFileJsonMould(this._fileName, this._jsonMouldObj);
     // WidgetLog.log("========================================");
     // WidgetLog.log(JSON.stringify(this._jsonMouldObj, null, 2));
     // WidgetLog.log("========================================");

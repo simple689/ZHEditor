@@ -214,8 +214,6 @@ PanelMenu.onClickSaveAsButtonSave = function () {
     APIUtil.fileBrowser.addFile(jsonObjFolder, fileName, extend);
     WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
 
-    WidgetHistory.setFileJsonMould(folder + fileName + extend, widgetDialog._jsonObjCtrl._obj);
-
     gPanelFileBrowser._widgetFileBrowser.refreshFileBrowserLeft();
     widgetDialog.close();
 }

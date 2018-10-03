@@ -5,7 +5,6 @@ WidgetFileJson.prototype.onClickRefresh = function (e) {
 WidgetFileJson.prototype.onClickSave = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var title = jsonObjCtrl._exec._elementTabTitle._title;
-    WidgetHistory.setFileJsonMould(title, jsonObjCtrl._obj);
 }
 WidgetFileJson.prototype.onClickSaveAs = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);

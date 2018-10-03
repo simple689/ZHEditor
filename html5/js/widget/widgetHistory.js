@@ -126,28 +126,8 @@ WidgetHistory.getFile = function (historyItemFile) {
     var fileList = fileEditJson[APIData._fileList];
     return fileList;
 }
-WidgetHistory.getFileJsonMould = function (fileName) {
-    // todo
-    var a = 0;
-    // var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
-    // var jsonObj = JSON.parse('{}');
-    // if (item) {
-    //     jsonObj = JSON.parse(item); // 通过parse获取json对应键值
-    // }
-    // return jsonObj[fileName];
-}
-WidgetHistory.setFileJsonMould = function (fileName, jsonMouldObj) {
-    // todo
-    var a = 0;
-    // var item = WidgetHistory.getItem(WidgetKey._widgetFileJsonMould);
-    // var jsonObj = JSON.parse('{}');
-    // if (item) {
-    //     jsonObj = JSON.parse(item); // 通过parse获取json对应键值
-    // }
-    // jsonObj[fileName] = jsonMouldObj;
-    // var jsonStr = JSON.stringify(jsonObj); // 将字符串对象转换为JSON对象
-    // WidgetHistory.setItem(WidgetKey._widgetFileJsonMould, jsonStr);
-}
+
+
 WidgetHistory.existFileBrowserFile = function (jsonObj, key, extend) {
     var list = jsonObj[APIData._fileList];
     for (var i in list) {
