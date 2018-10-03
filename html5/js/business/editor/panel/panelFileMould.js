@@ -22,7 +22,7 @@ PanelFileMould.loadedHome = function (exec, htmlRoot) {
 }
 
 PanelFileMould.prototype.loadedJson = function (fileReader) {
-    var fileName = fileReader._elementTabTitle.innerHTML;
+    var fileName = fileReader._elementTabTitle._title;
     var obj = WidgetFileBrowser._jsonFileBrowser[APIData._jsonMould];
 
     var extend = getFileExtend(fileName);

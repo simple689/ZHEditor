@@ -21,5 +21,5 @@ PanelFileLink.loadedHome = function (exec, htmlRoot) {
 }
 
 PanelFileLink.prototype.loadedJson = function (fileReader) {
-    var fileName = fileReader._elementTabTitle.innerHTML;
+    var fileName = fileReader._elementTabTitle._title;
 }

@@ -101,7 +101,7 @@ WidgetHistory.addFile = function (fileName, fileContent, contentType, historyIte
     WidgetHistory.setItem(historyItemFile, JSON.stringify(fileEditJson)); //转变为字符串存储
 }
 WidgetHistory.delFile = function (elementTabTitle, historyItemFile) {
-    var fileName = elementTabTitle.innerHTML;
+    var fileName = elementTabTitle._title;
     var fileEditItem = WidgetHistory.getItem(historyItemFile);
     if (!fileEditItem) {
         return;
