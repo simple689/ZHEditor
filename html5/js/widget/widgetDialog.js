@@ -41,7 +41,7 @@ WidgetDialog.prototype.createDialog = function (elementParent) {
     // this._elementDialog.appendChild(this._elementDialogButton);
     // WidgetHtml.classAdd(this._elementDialogButton, "widgetDialogButton");
 }
-WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementParent, html, loadedHtml) {
+WidgetDialog.prototype.createDialogWithHtml = function (jsonObjCtrl, elementParent, html, loadedContent) {
     this.createDialog(elementParent);
     if (!this._elementDialogContent) {
         return;

@@ -9,10 +9,16 @@ PanelFileMould.prototype.init = function (elementParentID) {
     WidgetPanelFileBase.prototype.init.apply(this, arguments);
 
     this._historyItem = confPanelFileMould;
-    this._widgetTab.init(this._elementDrop, this, "../../editor/home/homeFileMould.html", this._historyItem);
+    this._widgetTab.init(this._elementDrop, this,
+                         "../../editor/home/homeFileMould.html", PanelFileMould.loadedHome,
+                         this._historyItem);
 
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldTitle.html");
     this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldContent.html");
+}
+
+PanelFileMould.loadedHome = function (exec, htmlRoot) {
+
 }
 
 PanelFileMould.prototype.loadedJson = function (fileReader) {

@@ -35,7 +35,5 @@ WidgetPanelFileBase.prototype.tabOnContextMenu = function (ele, e, onContextMenu
         }
     }
 }
-WidgetPanelFileBase.prototype.loadedHtml = function (htmlRoot) {
-}
 WidgetPanelFileBase.prototype.loadedJson = function (fileReader) {
 }

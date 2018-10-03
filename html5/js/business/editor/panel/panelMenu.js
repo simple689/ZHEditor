@@ -51,7 +51,7 @@ PanelMenu.onClickCreateFile = function (fileExtend) {
     var tabList = widgetTab._elementTabList;
     for (var i in tabList) {
         var item = tabList[i];
-        var title = item.innerHTML;
+        var title = item._title;
         var index = title.indexOf(createFileStr);
         if (index == 0) { //以''开头
             var titleList = title.split(createFileStr);

@@ -1,12 +1,6 @@
 function WidgetTab() {
-    this._elementTab = null;
 }
 
-WidgetTab._classWidgetTab = "widgetTab";
-WidgetTab._classWidgetTabTitleGroup = "widgetTabTitleGroup";
-WidgetTab._classWidgetTabContentGroup = "widgetTabContentGroup";
-WidgetTab._classWidgetTabTitle = "widgetTabTitle";
-WidgetTab._classWidgetTabContent = "widgetTabContent";
 WidgetTab._classIsActive = "isActive";
 
 WidgetTab._slideSpeed = 200;
@@ -21,17 +15,19 @@ WidgetTab._enumOnContextMenuType = {
     tabTitle: 0,
     tabContent: 1
 }
-WidgetTab.prototype.init = function (elementParent, panel, htmlHome, historyItemFile) {
+
+WidgetTab.prototype.init = function (elementParent, exec, htmlHome, callbackLoadedHome, historyItemFile) {
     this._elementTab = WidgetHtml.createElement("figure");
     elementParent.appendChild(this._elementTab);
-    WidgetHtml.classAdd(this._elementTab, WidgetTab._classWidgetTab);
+    WidgetHtml.classAdd(this._elementTab, "widgetTab");
     this._elementTab._widgetTab = this;
-    this._panel = panel;
 
     this.initTitleGroup();
     this.initContentGroup();
+
+    this._exec = exec;
     this._elementTabList = new Array();
-    this.addHomePage(htmlHome);
+    this.addHomePage(htmlHome, callbackLoadedHome);
     if (historyItemFile) {
         this.addHistoryPage(historyItemFile);
     }
@@ -39,18 +35,18 @@ WidgetTab.prototype.init = function (elementParent, panel, htmlHome, historyItem
 WidgetTab.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup = WidgetHtml.createElement("ul");
     this._elementTab.appendChild(this._elementTabTitleGroup);
-    WidgetHtml.classAdd(this._elementTabTitleGroup, WidgetTab._classWidgetTabTitleGroup);
+    WidgetHtml.classAdd(this._elementTabTitleGroup, "widgetTabTitleGroup");
     this._elementTabTitleGroup._widgetTab = this;
 }
 WidgetTab.prototype.initContentGroup = function () {
     this._elementTabContentGroup = WidgetHtml.createElement("div");
     this._elementTab.appendChild(this._elementTabContentGroup);
-    WidgetHtml.classAdd(this._elementTabContentGroup, WidgetTab._classWidgetTabContentGroup);
+    WidgetHtml.classAdd(this._elementTabContentGroup, "widgetTabContentGroup");
     this._elementTabContentGroup._widgetTab = this;
 }
-WidgetTab.prototype.addHomePage = function (html) {
+WidgetTab.prototype.addHomePage = function (html, callbackLoaded) {
     var elementTabTitle = this.addTitle("首页");
-    this.addContent(elementTabTitle, html, WidgetTab._enumAddContentType.html);
+    this.addContent(elementTabTitle, html, WidgetTab._enumAddContentType.html, callbackLoaded);
 }
 WidgetTab.prototype.addHistoryPage = function (historyItemFile) {
     var fileList = WidgetHistory.getFile(historyItemFile);
@@ -79,15 +75,16 @@ WidgetTab.prototype.addTabWithFileJsonObj = function (title, fileJsonObj) {
 WidgetTab.prototype.addTitle = function (title) {
     var elementTabTitle = WidgetHtml.createElement("li");
     this._elementTabTitleGroup.appendChild(elementTabTitle);
-    WidgetHtml.classAdd(elementTabTitle, WidgetTab._classWidgetTabTitle);
+    WidgetHtml.classAdd(elementTabTitle, "widgetTabTitle");
     elementTabTitle._widgetTab = this;
     elementTabTitle.onclick = WidgetTab.onClickTabTitle;
     elementTabTitle.oncontextmenu = WidgetTab.onContextMenuTabTitle;
     this.setActiveElement(elementTabTitle);
 
-    this._elementTabList.push(elementTabTitle);
-
+    elementTabTitle._title = title;
     elementTabTitle.innerHTML = title;
+
+    this._elementTabList.push(elementTabTitle);
     return elementTabTitle;
 }
 WidgetTab.prototype.closeTitle = function (elementTabTitle) {
@@ -107,35 +104,31 @@ WidgetTab.prototype.closeTitle = function (elementTabTitle) {
 
     WidgetHistory.delFile(elementTabTitle, this._panel._historyItem);
 }
-WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType) {
+WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType, callbackLoaded) {
     var elementTabContent = WidgetHtml.createElement("div");
     this._elementTabContentGroup.appendChild(elementTabContent);
-    WidgetHtml.classAdd(elementTabContent, WidgetTab._classWidgetTabContent);
-    elementTabContent._widgetTab = this;
+    WidgetHtml.classAdd(elementTabContent, "widgetTabContent");
+    elementTabContent._elementTabTitle = elementTabTitle;
+    elementTabContent._callbackLoaded = callbackLoaded;
     elementTabContent.onclick = WidgetTab.onClickTabContent;
     elementTabContent.oncontextmenu = WidgetTab.onContextMenuTabContent;
 
     elementTabTitle._elementTabContent = elementTabContent;
 
-    this.refreshContent(elementTabTitle, content, contentType);
+    this.refreshContent(elementTabContent, content, contentType);
 }
-WidgetTab.prototype.refreshContent = function (elementTabTitle, content, contentType) {
-    var elementTabContent = elementTabTitle._elementTabContent;
+WidgetTab.prototype.refreshContent = function (elementTabContent, content, contentType) {
+    var elementTabTitle = elementTabContent._elementTabTitle;
     removeElementChild(elementTabContent);
     if (contentType == WidgetTab._enumAddContentType.string) {
         elementTabContent.innerHTML = content;
     } else if (contentType == WidgetTab._enumAddContentType.html) {
-        var elementHtmlRoot = WidgetHtml.createElement("div");
-        elementTabContent.appendChild(elementHtmlRoot);
-        elementTabTitle._elementHtmlRoot = elementHtmlRoot;
-        WidgetHtml.classAdd(elementHtmlRoot, "htmlRoot");
-        elementHtmlRoot._elementTabTitle = elementTabTitle;
         if (content) {
-            $(elementHtmlRoot).load(content, function () {
-                WidgetTab.loadedHtml(this);
+            $(elementTabContent).load(content, function () {
+                WidgetTab.loadedContent(this);
             });
         } else {
-            WidgetTab.loadedHtml(elementHtmlRoot);
+            WidgetTab.loadedContent(elementTabContent);
         }
     } else if (contentType == WidgetTab._enumAddContentType.file) {
         this.addFile(content, elementTabTitle);
@@ -143,12 +136,13 @@ WidgetTab.prototype.refreshContent = function (elementTabTitle, content, content
         this.addFileContent(content, elementTabTitle, contentType);
     }
 }
-WidgetTab.loadedHtml = function (elementHtmlRoot) {
-    //判断是否为函数
-    try {
-        elementHtmlRoot[0]._elementTabTitle._widgetTab._panel.loadedHtml(elementHtmlRoot);
-    } catch (e) {
+WidgetTab.loadedContent = function (elementTabContent) {
+    if (elementTabContent._callbackLoaded) {
+        elementTabContent._callbackLoaded(elementTabContent._elementTabTitle._widgetTab._exec, elementTabContent);
     }
+}
+WidgetTab.prototype.getActiveElement = function () {
+    return this._elementActive;
 }
 WidgetTab.prototype.setActiveElement = function (elementActive) {
     this.hideActiveElement();
