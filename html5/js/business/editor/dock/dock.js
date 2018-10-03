@@ -28,16 +28,46 @@ function loadDockLayout() {
         if (item != null) {
             gDock.loadStatesFromKey(confDockLayoutKey);
         } else {
-            var dockLayoutStr = "";
             sessionStorage.setItem(confDockLayoutKey, dockLayoutStr);
         }
     }
 }
+function loadDockLayoutFromUser() {
+    var jsonData = {};
+    jsonData[APIData._module] = API._module._dock;
+    jsonData[APIData._func] = API._func._dock._layoutLoad;
+    WidgetHttpAJAX.createPost(null, jsonData, this, ajaxCompleteLayoutLoad);
+}
+function ajaxCompleteLayoutLoad(exec, error, jsonData) {
+    if (!error) {
+        if (jsonData[APIData._data]) {
+            var sessionStorage = window['sessionStorage'];
+            if (sessionStorage != null) {
+                sessionStorage.setItem(confDockLayoutKey, jsonData[APIData._data]);
+            }
+        }
+    }
+    loadDockLayout();
+}
 function saveDockLayout() {
     if (gDock != null) {
         gDock.saveStatesIntoKey(confDockLayoutKey);
-        // todo 发送给服务器
-        // var sessionStorage = window['sessionStorage'];
+        // 发送给服务器
+        var sessionStorage = window['sessionStorage'];
+        if (sessionStorage != null) {
+            var item = sessionStorage.getItem(confDockLayoutKey);
+
+            var jsonData = {};
+            jsonData[APIData._module] = API._module._dock;
+            jsonData[APIData._func] = API._func._dock._layoutSave;
+            jsonData[APIData._data] = item;
+            WidgetHttpAJAX.createPost(null, jsonData, this, ajaxCompleteLayoutSave);
+        }
+    }
+}
+function ajaxCompleteLayoutSave(exec, error, jsonData) {
+    if (error) {
+    } else {
     }
 }
 

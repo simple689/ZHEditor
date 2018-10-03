@@ -15,6 +15,7 @@ WidgetMenu.prototype.createMenu = function (elementParent) {
     this._elementParent = WidgetHtml.createElement("div");
     elementParent.appendChild(this._elementParent);
     WidgetHtml.classAdd(this._elementParent, "widgetMenu");
+
     WidgetMenu._menuList.push(this);
 }
 WidgetMenu.prototype.createMenuWithHtml = function (elementParent, html) {
@@ -30,27 +31,27 @@ WidgetMenu.prototype.addUl = function (elementParent) {
     elementParent.appendChild(ul);
     return ul;
 }
-WidgetMenu.prototype.addLi = function (elementParent, title, onClick, param) {
+WidgetMenu.prototype.addLi = function (elementParent, title, event, param) {
     var li = WidgetHtml.createElement("li");
     elementParent.appendChild(li);
     li.onclick = WidgetMenu.onClickLi;
-    li._onClick = onClick;
+    li._event = event;
     li._param = param;
     li.innerHTML = title;
     return li;
 }
 WidgetMenu.onClickLi = function () {
-    if (this._onClick) {
-        this._onClick(this._param);
+    if (this._event) {
+        this._event(this._param);
     }
 }
-WidgetMenu.prototype.parseList = function (list, elementParen) {
+WidgetMenu.prototype.parseList = function (elementParen, list) {
     var ul = this.addUl(elementParen);
     for (var o in list) {
         var menuListItem = list[o];
         var li = this.addLi(ul, menuListItem._title, menuListItem._event, menuListItem._param);
         if (menuListItem._list) {
-            this.parseList(menuListItem._list, li);
+            this.parseList(li, menuListItem._list);
         }
     }
 }
@@ -83,7 +84,7 @@ WidgetMenu.showMenu = function (menu, e, exec) {
             if (ulList[0]) {
                 var ulParent = getElementParentWithTag(liThis, "UL");
                 if (ulParent) {
-                    setUlPosition(ulList[0], ulParent, ulParent.offsetLeft + ulParent.offsetWidth, ulParent.offsetTop + liThis.offsetTop);
+                    WidgetMenu.setUlPosition(ulList[0], ulParent, ulParent.offsetLeft + ulParent.offsetWidth, ulParent.offsetTop + liThis.offsetTop);
                 }
             }
         };
@@ -94,7 +95,7 @@ WidgetMenu.showMenu = function (menu, e, exec) {
     }
     var menuUlList = menu._elementParent.getElementsByTagName("ul");
     if (menuUlList[0]) {
-        setUlPosition(menuUlList[0], null, e.clientX, e.clientY);
+        WidgetMenu.setUlPosition(menuUlList[0], null, e.clientX, e.clientY);
     }
     return false;
 }
@@ -116,7 +117,7 @@ WidgetMenu.hideMenuLi = function (li) {
         }
     }
 }
-function setUlPosition(ul, ulParent, left, top) {
+WidgetMenu.setUlPosition = function(ul, ulParent, left, top) {
     setElementDisplay(ul, true); // 显示菜单
 
     var leftCheck = left;

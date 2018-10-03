@@ -11,8 +11,8 @@ PanelFileLink.prototype.init = function (elementParentID) {
     this._historyItem = confPanelFileLink;
     this._widgetTab.init(this._elementDrop, this, "../../editor/home/homeFileLink.html", this._historyItem);
 
-    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldTitle.html");
-    this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldContent.html");
+    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileLinkTitle.html");
+    this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileLinkContent.html");
 }
 
 PanelFileLink.prototype.loadedJson = function (fileReader) {

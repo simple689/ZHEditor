@@ -6207,7 +6207,11 @@ DSXDFUtil.prototype.saveStatesIntoKey = function (_$rh, _$dX) {
     var _$pi = new _$4I("MyInfo");
     DSXDFUtil._$lG._$6e("tmp", _$pi);
     var st;
-    if (_$dX == 0) st = window['localStorage']; else st = window['sessionStorage'];
+    if (_$dX == 0) {
+        st = window['localStorage'];
+    } else {
+        st = window['sessionStorage'];
+    }
     if (st != null) {
         st.setItem(_$rh, _$pi._$1Y());
     }
@@ -6223,7 +6227,11 @@ DSXDFUtil.prototype.loadStatesFromString = function (_$rk) {
 }
 DSXDFUtil.prototype.loadStatesFromKey = function (_$rh, _$dX) {
     var vst;
-    if (_$dX == 0) vst = window['localStorage']; else vst = window['sessionStorage'];
+    if (_$dX == 0) {
+        vst = window['localStorage'];
+    } else {
+        vst = window['sessionStorage'];
+    }
     if (vst != null) {
         var _$t7 = vst.getItem(_$rh);
         if (_$t7 != null) {
