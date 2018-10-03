@@ -2,8 +2,8 @@ function WidgetSearch() {
 }
 
 WidgetSearch._searchList = new Array();
-WidgetSearch.prototype.createSearch = function (panel, elementParent) {
-    this._panel = panel;
+WidgetSearch.prototype.createSearch = function (exec, elementParent) {
+    this._exec = exec;
     // $(elementBrother).after(this._searchText);
 
     this._searchRoot = WidgetHtml.addSpan(elementParent);

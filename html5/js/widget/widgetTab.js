@@ -29,7 +29,7 @@ WidgetTab.prototype.init = function (elementParent, exec, htmlHome, callbackLoad
     this._elementTabList = new Array();
     this.addHomePage(htmlHome, callbackLoadedHome);
     if (historyItemFile) {
-        this.addHistoryPage(historyItemFile);
+        // this.addHistoryPage(historyItemFile);
     }
 }
 WidgetTab.prototype.initTitleGroup = function () {
@@ -102,7 +102,7 @@ WidgetTab.prototype.closeTitle = function (elementTabTitle) {
     this._elementTabContentGroup.removeChild(elementTabTitle._elementTabContent);
     this._elementTabTitleGroup.removeChild(elementTabTitle);
 
-    WidgetHistory.delFile(elementTabTitle, this._panel._historyItem);
+    WidgetHistory.delFile(elementTabTitle, this._exec._historyItem);
 }
 WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType, callbackLoaded) {
     var elementTabContent = WidgetHtml.createElement("div");
@@ -118,7 +118,6 @@ WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType
     this.refreshContent(elementTabContent, content, contentType);
 }
 WidgetTab.prototype.refreshContent = function (elementTabContent, content, contentType) {
-    var elementTabTitle = elementTabContent._elementTabTitle;
     removeElementChild(elementTabContent);
     if (contentType == WidgetTab._enumAddContentType.string) {
         elementTabContent.innerHTML = content;
@@ -131,9 +130,9 @@ WidgetTab.prototype.refreshContent = function (elementTabContent, content, conte
             WidgetTab.loadedContent(elementTabContent);
         }
     } else if (contentType == WidgetTab._enumAddContentType.file) {
-        this.addFile(content, elementTabTitle);
+        WidgetFile.readFile(content, elementTabContent);
     } else if (contentType == WidgetTab._enumAddContentType.fileContent || contentType == WidgetTab._enumAddContentType.fileJsonObj) {
-        this.addFileContent(content, elementTabTitle, contentType);
+        WidgetFile.readFileContent(content, elementTabContent, contentType);
     }
 }
 WidgetTab.loadedContent = function (elementTabContent) {
@@ -171,16 +170,10 @@ WidgetTab.onClickTabContent = function (e) {
     WidgetMenu.hideMenuAll();
 }
 WidgetTab.onContextMenuTabTitle = function (e) {
-    this._widgetTab._panel.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabTitle);
+    this._widgetTab._exec.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabTitle);
     return false; // 取消右键点击的默认事件
 }
 WidgetTab.onContextMenuTabContent = function (e) {
-    this._widgetTab._panel.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabContent);
+    this._widgetTab._exec.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabContent);
     return false; // 取消右键点击的默认事件
-}
-WidgetTab.prototype.addFile = function (file, elementTabTitle) {
-    WidgetFile.readFile(file, elementTabTitle);
-}
-WidgetTab.prototype.addFileContent = function (fileContent, elementTabTitle, contentType) {
-    WidgetFile.readFileContent(fileContent, elementTabTitle, contentType);
 }

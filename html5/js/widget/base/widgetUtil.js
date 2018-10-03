@@ -29,9 +29,11 @@ function getFileExtend(str) {
     var strNew = "";
     if (index != -1) {
         strNew = str.substr(index);
-        // strNew = strNew.toLowerCase();
     }
     return strNew;
+}
+function equalFileExtend(str, extend) {
+    return str.toLowerCase() == extend.toLowerCase();
 }
 function getFileTitle(str) {
     var strNew = removeFileFolder(str);
@@ -46,7 +48,7 @@ function openFile(fileExtend, onChange) {
     element.click();
 }
 function downloadFileJson(jsonObjCtrl) {
-    var name = jsonObjCtrl._exec._elementTabTitle.innerHTML;
+    var name = jsonObjCtrl._exec._elementTabTitle._title;
     var jsonStr = JSON.stringify(jsonObjCtrl._obj, null, 2); // 将字符串对象转换为JSON对象
     var element = WidgetHtml.createElement("a");
     // element.setAttribute('href', 'data:text/text; base64,' + '77u/' + base64encode(utf16to8(jsonStr))); // base64_old.js

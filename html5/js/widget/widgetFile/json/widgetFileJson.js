@@ -14,13 +14,17 @@ WidgetFileJson.prototype.initRoot = function () {
     } else {
         this._jsonObj = {};
     }
-    if (!jsonMouldName) {
-        jsonMouldName = this._elementTabTitle.innerHTML;
+    if (jsonMouldName) {
+        // todo 打开已存在的模版
+    } else {
+        // todo 生成模版
+        jsonMouldName = this._elementTabTitle._title;
         jsonMouldName = removeFileExtend(jsonMouldName);
         jsonMouldName += "【配套生成】";
         jsonMouldName += APIData._extendJsonMd;
         this._jsonObj[APIData._jsonMould] = jsonMouldName;
     }
+    return;
     this._fileJsonMouldCtrl = new WidgetFileJsonMould();
     var isNew = this._fileJsonMouldCtrl.getMould(jsonMouldName, this._jsonObj);
     if (isNew) { // 不存在模版

@@ -1,19 +1,12 @@
 function WidgetFile() {
 }
 
-WidgetFile.readFile = function (file, elementTabTitle) {
-    var fileNameList = file.name.split(".");
-    var extendIndex = fileNameList.length - 1;
-    var extend = "";
-    if (extendIndex >= 0) {
-        extend = fileNameList[extendIndex];
-        extend = extend.toLowerCase();
-    }
-
+WidgetFile.readFile = function (file, elementTabContent) {
     var reader = new FileReader();
-    reader._elementTabTitle = elementTabTitle;
+    reader._elementTabContent = elementTabContent;
 
-    if (file.type.match("application/json") || extend.match("json")) {
+    var extend = getFileExtend(file.name);
+    if (file.type.match("application/json") || equalFileExtend(extend, APIData._extendJson)) {
         reader.onload = WidgetFile.loadedJson;
         reader.readAsText(file);
     } else if (file.type.match(/image*/)) {
@@ -24,23 +17,25 @@ WidgetFile.readFile = function (file, elementTabTitle) {
         reader.readAsText(file);
     }
 }
-WidgetFile.readFileContent = function (fileContent, elementTabTitle, contentType) {
+WidgetFile.readFileContent = function (fileContent, elementTabContent, contentType) {
     var elementFileRoot = WidgetHtml.createElement("div");
-    elementTabTitle._elementTabContent.appendChild(elementFileRoot);
-    elementTabTitle._elementFileRoot = elementFileRoot;
+    elementTabContent.appendChild(elementFileRoot);
     WidgetHtml.classAdd(elementFileRoot, "widgetFileRoot");
-    var extend = getFileExtend(elementTabTitle.innerHTML);
-    if (extend == APIData._extendJson) {
-        elementTabTitle._fileCtrl = new WidgetFileJson();
-    } else if (extend == APIData._extendJsonMd) {
-        elementTabTitle._fileCtrl = new WidgetFileJsonMould();
+
+    elementTabContent._elementFileRoot = elementFileRoot;
+
+    var extend = getFileExtend(elementTabContent._elementTabTitle._title);
+    if (equalFileExtend(extend, APIData._extendJson)) {
+        elementTabContent._widgetFileBase = new WidgetFileJson();
+    } else if (equalFileExtend(extend, APIData._extendJsonMd)) {
+        elementTabContent._widgetFileBase = new WidgetFileJsonMould();
     }
-    elementTabTitle._fileCtrl.init(elementTabTitle, fileContent, contentType);
-    WidgetHistory.addFile(elementTabTitle.innerHTML, fileContent, contentType, elementTabTitle._widgetTab._panel._historyItem);
+    elementTabContent._widgetFileBase.init(elementTabContent, fileContent, contentType);
+    // WidgetHistory.addFile(elementTabContent._elementTabTitle._title, fileContent, contentType, elementTabContent._elementTabTitle._widgetTab._exec._historyItem);
 }
 WidgetFile.loadedJson = function () {
     WidgetFile.createFileJsonCtrl(this);
-    this._elementTabTitle._widgetTab._panel.loadedJson(this);
+    this._elementTabContent._elementTabTitle._widgetTab._exec.loadedJson(this);
 }
 WidgetFile.loadedImg = function () {
     // var img = WidgetHtml.createElement("img");
@@ -56,7 +51,7 @@ WidgetFile.loadedFile = function (e) {
 }
 WidgetFile.createFileJsonCtrl = function (fileReader) {
     // WidgetLog.log(fileReader.result);
-    WidgetFile.readFileContent(fileReader.result, fileReader._elementTabTitle, WidgetTab._enumAddContentType.fileContent);
+    WidgetFile.readFileContent(fileReader.result, fileReader._elementTabContent, WidgetTab._enumAddContentType.fileContent);
 }
 WidgetFile.isJson = function (fileStr) {
     var isjson = false;

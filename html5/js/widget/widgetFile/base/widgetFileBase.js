@@ -1,8 +1,8 @@
 function WidgetFileBase() {
 }
 
-WidgetFileBase.prototype.init = function (elementTabTitle, fileContent, contentType) {
-    this._elementTabTitle = elementTabTitle;
+WidgetFileBase.prototype.init = function (elementTabContent, fileContent, contentType) {
+    this._elementTabContent = elementTabContent;
     if (contentType == WidgetTab._enumAddContentType.fileContent) {
         this._jsonObj = JSON.parse(fileContent);
     } else if (contentType == WidgetTab._enumAddContentType.fileJsonObj) {
@@ -11,7 +11,7 @@ WidgetFileBase.prototype.init = function (elementTabTitle, fileContent, contentT
     this.initRoot();
 }
 WidgetFileBase.prototype.initRoot = function () {
-    var elementFileRoot = this._elementTabTitle._elementFileRoot;
+    var elementFileRoot = this._elementTabContent._elementFileRoot;
 
     var jsonObjCtrl = new JsonObjCtrl(this, this._jsonObj, false, null);
     jsonObjCtrl._keyShow = "文件根节点";

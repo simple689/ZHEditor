@@ -122,7 +122,7 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     var name = widgetDialog._jsonObjCtrl._key;
     var elementTabTitle = widgetDialog._jsonObjCtrl._exec._elementTabTitle;
     if (elementTabTitle) {
-        name = elementTabTitle.innerHTML;
+        name = elementTabTitle._title;
     }
     var title = getFileTitle(name)
     var extend = getFileExtend(name);
@@ -130,9 +130,9 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     var path = "/" + APIData._personalShow + "/";
     if (extend.length > 0) {
-        if (extend == APIData._extendJson) {
+        if (equalFileExtend(extend, APIData._extendJson)) {
             path += APIData._jsonShow;
-        } else if (extend == APIData._extendJsonMd) {
+        } else if (equalFileExtend(extend, APIData._extendJsonMd)) {
             path += APIData._jsonMouldShow;
         }
         path += "/";

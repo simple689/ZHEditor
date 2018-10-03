@@ -40,7 +40,7 @@ PanelFileEditor.loadedHome = function (exec, htmlRoot) {
 }
 
 PanelFileEditor.prototype.loadedJson = function (fileReader) {
-    var fileName = fileReader._elementTabTitle.innerHTML;
+    var fileName = fileReader._elementTabContent._elementTabTitle._title;
     var obj = WidgetFileBrowser._jsonFileBrowser[APIData._json];
 
     var extend = getFileExtend(fileName);
