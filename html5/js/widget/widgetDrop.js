@@ -5,8 +5,7 @@ WidgetDrop._borderColorNormal = "rgba(102,102,102,0)";
 WidgetDrop._borderColorFocus = "rgba(102,102,102,1)";
 
 WidgetDrop.createDrop = function (elementParent, exec, callback) {
-    var elementDrop = WidgetHtml.createElement("div");
-    elementParent.appendChild(elementDrop);
+    var elementDrop = WidgetHtml.addDiv(elementParent);
     return WidgetDrop.addDrop(elementDrop, exec, callback);
 }
 WidgetDrop.addDrop = function (elementParent, exec, callback) {

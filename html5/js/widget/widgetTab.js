@@ -39,8 +39,7 @@ WidgetTab.prototype.initTitleGroup = function () {
     this._elementTabTitleGroup._widgetTab = this;
 }
 WidgetTab.prototype.initContentGroup = function () {
-    this._elementTabContentGroup = WidgetHtml.createElement("div");
-    this._elementTab.appendChild(this._elementTabContentGroup);
+    this._elementTabContentGroup = WidgetHtml.addDiv(this._elementTab);
     WidgetHtml.classAdd(this._elementTabContentGroup, "widgetTabContentGroup");
     this._elementTabContentGroup._widgetTab = this;
 }
@@ -105,8 +104,7 @@ WidgetTab.prototype.closeTitle = function (elementTabTitle) {
     WidgetHistory.delFile(elementTabTitle, this._exec._historyItem);
 }
 WidgetTab.prototype.addContent = function (elementTabTitle, content, contentType, callbackLoaded) {
-    var elementTabContent = WidgetHtml.createElement("div");
-    this._elementTabContentGroup.appendChild(elementTabContent);
+    var elementTabContent = WidgetHtml.addDiv(this._elementTabContentGroup);
     WidgetHtml.classAdd(elementTabContent, "widgetTabContent");
     elementTabContent._elementTabTitle = elementTabTitle;
     elementTabContent._callbackLoaded = callbackLoaded;

@@ -18,8 +18,7 @@ WidgetFile.readFile = function (file, elementTabContent) {
     }
 }
 WidgetFile.readFileContent = function (fileContent, elementTabContent, contentType) {
-    var elementFileRoot = WidgetHtml.createElement("div");
-    elementTabContent.appendChild(elementFileRoot);
+    var elementFileRoot = WidgetHtml.addDiv(elementTabContent);
     WidgetHtml.classAdd(elementFileRoot, "widgetFileRoot");
 
     elementTabContent._elementFileRoot = elementFileRoot;

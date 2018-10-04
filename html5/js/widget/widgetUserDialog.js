@@ -1,7 +1,7 @@
 function WidgetUserDialog() {
 }
-WidgetUserDialog.prototype.createDialogLogin = function (funcComplete, completeJsonObjCtrl) {
-    this._funcComplete = funcComplete;
+WidgetUserDialog.prototype.createDialogLogin = function (callback, completeJsonObjCtrl) {
+    this._callback = callback;
     this._completeJsonObjCtrl = completeJsonObjCtrl;
 
     this._widgetDialog = new WidgetDialog();

@@ -12,8 +12,7 @@ function WidgetMenu() {
 WidgetMenu._menuList = new Array();
 WidgetMenu._menuPadding = 6;
 WidgetMenu.prototype.createMenu = function (elementParent) {
-    this._elementParent = WidgetHtml.createElement("div");
-    elementParent.appendChild(this._elementParent);
+    this._elementParent = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._elementParent, "widgetMenu");
 
     WidgetMenu._menuList.push(this);

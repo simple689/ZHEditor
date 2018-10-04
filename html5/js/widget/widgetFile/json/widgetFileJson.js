@@ -40,18 +40,31 @@ WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
     } else {
         // 弹框：选择模版 or 生成模版
         var widgetDialog = new WidgetDialog();
-        widgetDialog.createDialogChoiceList("json模版", "查找关联模版失败，请选择下列操作：", document.body, WidgetFileBrowser.funcCompleteCreateDir);
-        widgetDialog._jsonObjCtrl = jsonObjCtrl;
+        widgetDialog._callback = callback;
+        var choiceList = new Array();
+        choiceList.push(new ChoiceListItem("选择模版", WidgetFileJson.openMould));
+        choiceList.push(new ChoiceListItem("生成模版", WidgetFileJson.creatMould));
+        widgetDialog.createDialogChoiceList("json模版", "查找关联模版失败，请选择下列操作：", document.body, choiceList);
     }
 }
-WidgetFileJson.prototype.openMould = function (jsonMouldName) {
+WidgetFileJson.openMould = function (jsonMouldName) { // 弹文件选择框
+    var widgetDialog = new WidgetDialog();
+    widgetDialog.createDialogFileBrowser("json模版", "查找关联模版失败，请选择下列操作：", document.body);
+
+    widgetDialog.createDialogWithHtml("打开文件", document.body, null, PanelMenu.showDialogSaveFileNow);
+    if (this._callback) {
+        this._callback(true);
+    }
 }
-WidgetFileJson.prototype.creatMould = function (jsonMouldName) {
+WidgetFileJson.creatMould = function (jsonMouldName) {
     jsonMouldName = this._elementTabContent._elementTabTitle._title;
     jsonMouldName = removeFileExtend(jsonMouldName);
     jsonMouldName += "【配套生成】";
     jsonMouldName += APIData._extendJsonMd;
     this._jsonObj[APIData._jsonMould] = jsonMouldName;
+    if (this._callback) {
+        this._callback(true);
+    }
 }
 
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {

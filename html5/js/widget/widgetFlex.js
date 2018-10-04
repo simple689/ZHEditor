@@ -2,8 +2,7 @@ function WidgetFlex() {
 }
 
 WidgetFlex.prototype.createFlex = function (elementParent) {
-    this._flexContainer = WidgetHtml.createElement("div");
-    elementParent.appendChild(this._flexContainer);
+    this._flexContainer = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._flexContainer, "widgetFlexContainer");
 
     this._flexItemList = new Array();
@@ -24,8 +23,7 @@ WidgetFlex.prototype.setFlexAlignContent = function (flexAlignContent) {
     this._flexContainer.style.alignContent = flexAlignContent;
 }
 WidgetFlex.prototype.addFlexItem = function (element) {
-    var flexItem = WidgetHtml.createElement("div");
-    this._flexContainer.appendChild(flexItem);
+    var flexItem = WidgetHtml.addDiv(this._flexContainer);
     WidgetHtml.classAdd(flexItem, "widgetFlexItem");
     this.setItemFlexOrder(flexItem, this._flexItemList.length);
     this._flexItemList.push(flexItem);

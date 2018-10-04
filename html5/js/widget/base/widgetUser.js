@@ -61,8 +61,8 @@ WidgetUser.ajaxCompleteLogin = function (widgetUserDialog, error, jsonData) {
             WidgetUser._jsonLoginCache = jsonData[APIData._token];
         }
 
-        if (widgetUserDialog._funcComplete) {
-            widgetUserDialog._funcComplete(widgetUserDialog._completeJsonObjCtrl);
+        if (widgetUserDialog._callback) {
+            widgetUserDialog._callback(widgetUserDialog._completeJsonObjCtrl);
         }
         widgetUserDialog._widgetDialog.close();
     }
