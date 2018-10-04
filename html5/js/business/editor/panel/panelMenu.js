@@ -44,7 +44,7 @@ PanelMenu.onClickCreateFile = function (fileExtend) {
     var createFileStr = "新建文件_";
     var createFileNum = 0;
     // 获取打开了哪些文件，重新赋值createFileNum
-    var widgetTab = getFileWidgetTab(fileExtend);
+    var widgetTab = getWidgetTabWithExtend(fileExtend);
     if (!widgetTab) {
         return;
     }
@@ -77,7 +77,7 @@ PanelMenu.onClickOpenFile = function (fileExtend) {
 }
 PanelMenu.openedFile = function (e) {
     var fileExtend = this._fileExtend;
-    var widgetTab = getFileWidgetTab(fileExtend);
+    var widgetTab = getWidgetTabWithExtend(fileExtend);
     if (!widgetTab) {
         return;
     }
@@ -91,7 +91,8 @@ PanelMenu.openedFile = function (e) {
 
 // onClickSaveFile
 PanelMenu.onClickSaveFileNow = function (fileExtend) {
-    var widgetTab = getFileWidgetTab(fileExtend);
+    // 考虑link
+    var widgetTab = getWidgetTabWithExtend(fileExtend);
     if (!widgetTab) {
         return;
     }
@@ -223,7 +224,8 @@ PanelMenu.onClickSaveAsButtonCancel = function () {
 
 // onClickDownloadFile
 PanelMenu.onClickDownloadFileNow = function (fileExtend) {
-    var widgetTab = getFileWidgetTab(fileExtend);
+    // 考虑link
+    var widgetTab = getWidgetTabWithExtend(fileExtend);
     if (!widgetTab) {
         return;
     }

@@ -131,18 +131,60 @@ WidgetFileJsonMould.prototype.refreshContent = function () {
     var widgetTab = this._elementTabTitle._widgetTab;
     widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
+WidgetFileJsonMould.prototype.getMouldFromWidgetTab = function (fileName) {
+    // 已打开的是否存在
+    var widgetTab = getWidgetTab(confPanelFileMould);
+    if (widgetTab) {
+        var tabList = widgetTab._elementTabList;
+        for (var i in tabList) {
+            var item = tabList[i];
+            var title = item._title;
+            if (fileName == title) {
+                this._jsonMouldObj = item._elementTabContent._jsonMouldObj;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+WidgetFileJsonMould.prototype.getMouldFromFile = function (fileName) {
+    // 从文件获取
+    var widgetTab = getWidgetTab(confPanelFileMould);
+    if (widgetTab) {
+        var tabList = widgetTab._elementTabList;
+        for (var i in tabList) {
+            var item = tabList[i];
+            var title = item._title;
+            if (fileName == title) {
+                this._jsonMouldObj = item._elementTabContent._jsonMouldObj;
+                return true;
+            }
+        }
+    }
+    return false;
+}
 WidgetFileJsonMould.prototype.getMould = function (fileName, jsonObj) {
-    // todo 已打开的是否有
+    // todo 已打开的是否存在
     var isNew = false;
-    this._fileName = fileName;
-    this._jsonMouldObj = WidgetHistory.getFileJsonMould(this._fileName);
+    var widgetTab = getWidgetTab(confPanelFileMould);
+    if (widgetTab) {
+        var tabList = widgetTab._elementTabList;
+        for (var i in tabList) {
+            var item = tabList[i];
+            var title = item._title;
+            if (fileName == title) {
+                this._jsonMouldObj = item._elementTabContent._jsonMouldObj;
+                break;
+            }
+        }
+    }
     if (!this._jsonMouldObj) {
         this.initMould(jsonObj);
         isNew = true;
     }
-    // WidgetLog.log("========================================");
-    // WidgetLog.log(JSON.stringify(this._jsonMouldObj, null, 2));
-    // WidgetLog.log("========================================");
+    WidgetLog.log("========================================");
+    WidgetLog.log(JSON.stringify(this._jsonMouldObj, null, 2));
+    WidgetLog.log("========================================");
     return isNew;
 }
 WidgetFileJsonMould.prototype.initMould = function (jsonObj) {
