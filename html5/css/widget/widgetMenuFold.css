@@ -11,7 +11,7 @@
     margin-left: 15px;
 }
 
-.widgetMenuFoldLabel {
+.widgetMenuFoldLabelCheck {
     cursor: pointer;
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
@@ -19,6 +19,11 @@
     background: url(../../img/widget/widgetMenuFold/menuFold_arrowBottom.jpg) no-repeat left center;
     line-height: 27px;
 }
+
+.widgetMenuFoldLabelTitle {
+    cursor: pointer;
+}
+
 /*一级菜单加下边线*/
 .widgetMenuFold > dl > dt {
     /*display: none;*/

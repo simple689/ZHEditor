@@ -22,20 +22,24 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     var dt = WidgetHtml.createElement("dt");
     dl.appendChild(dt);
 
-    var jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, null, false, null);
+    var jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, jsonObjCtrl._obj, false, null);
+    jsonObjCtrlSub._onClick = WidgetMenuFold.onClickDt;
+    var labelCheck = WidgetHtml.addLabel(dt, jsonObjCtrlSub);
+    WidgetHtml.classAdd(labelCheck, "widgetMenuFoldLabelCheck");
+
+    jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, jsonObjCtrl._obj, false, null);
     jsonObjCtrlSub._keyShow = jsonObjCtrl._keyShow;
     jsonObjCtrlSub._value = jsonObjCtrl._value;
-    jsonObjCtrlSub._obj = jsonObjCtrl._obj;
-    jsonObjCtrlSub._onClick = WidgetMenuFold.onClickDt;
+    jsonObjCtrlSub._onClick = jsonObjCtrl._onClick;
     jsonObjCtrlSub._onContextMenu = jsonObjCtrl._onContextMenu;
-    var label = WidgetHtml.addLabel(dt, jsonObjCtrlSub);
-    WidgetHtml.classAdd(label, "widgetMenuFoldLabel");
+    var labelTitle = WidgetHtml.addLabel(dt, jsonObjCtrl);
+    WidgetHtml.classAdd(labelTitle, "widgetMenuFoldLabelTitle");
 
     dt._dl = dl;
-    dt._label = label;
+    dt._labelCheck = labelCheck;
     dt._divTool = WidgetHtml.addDiv(dt);
 
-    label._dt = dt;
+    labelCheck._dt = dt;
     return dt;
 }
 WidgetMenuFold.prototype.addFoldItem = function (dt, isCheck) {
@@ -43,19 +47,19 @@ WidgetMenuFold.prototype.addFoldItem = function (dt, isCheck) {
     dt._dl.appendChild(dd);
     dd._dt = dt;
     dd._isCheck = isCheck;
-    WidgetMenuFold.setDdDisplay(dd, dt._label, isCheck);
+    WidgetMenuFold.setDdDisplay(dd, dt._labelCheck, isCheck);
     return dd;
 }
-WidgetMenuFold.setDdDisplay = function (dd, label, isCheck) {
+WidgetMenuFold.setDdDisplay = function (dd, labelCheck, isCheck) {
     //展开和收齐的不同状态下更换小图标
     if (isCheck) {
         dd.style.display = WidgetKey._block;
-        $(label).css(
+        $(labelCheck).css(
             "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowBottom.jpg)"
         );
     } else {
         dd.style.display = WidgetKey._none;
-        $(label).css(
+        $(labelCheck).css(
             "background-image", "url(/html5/img/widget/widgetMenuFold/menuFold_arrowTop.jpg)"
         );
     }
@@ -63,16 +67,16 @@ WidgetMenuFold.setDdDisplay = function (dd, label, isCheck) {
 WidgetMenuFold.setDdCheck = function (elementDd, elementLabel, isCheck) {
     var tagName = elementDd.tagName;
     if (tagName == "DD") {
-        var label = elementLabel;
-        if (!label) {
-            label = elementDd._dt._label;
+        var labelCheck = elementLabel;
+        if (!labelCheck) {
+            labelCheck = elementDd._dt._labelCheck;
         }
-        var exec = label._jsonObjCtrl._exec;
-        var path = label._jsonObjCtrl._obj["path"];
+        var exec = labelCheck._jsonObjCtrl._exec;
+        var path = labelCheck._jsonObjCtrl._obj["path"];
         exec._jsonStateMenuFold[path] = isCheck;
         WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonStore, WidgetFileBrowser._jsonPersonal, exec._widgetID, exec._jsonStateMenuFold, exec._jsonStateFlex);
 
-        WidgetMenuFold.setDdDisplay(elementDd, label, isCheck);
+        WidgetMenuFold.setDdDisplay(elementDd, labelCheck, isCheck);
     }
 }
 WidgetMenuFold.onClickDt = function (e) {

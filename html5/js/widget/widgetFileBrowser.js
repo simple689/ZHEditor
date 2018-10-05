@@ -88,19 +88,21 @@ WidgetFileBrowser.prototype.initLeft = function (left) {
     obj["path"] = "/" + APIData._storeShow;
     var jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
     jsonObjCtrl._keyShow = APIData._storeShow;
+    jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
     jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
     var isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
-    var foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
-    this.readFileBrowser(WidgetFileBrowser._jsonStore, obj["path"], foldItem);
+    var dd = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
+    this.readFileBrowser(WidgetFileBrowser._jsonStore, obj["path"], dd);
 
     obj = {};
     obj["path"] = "/" + APIData._personalShow;
     jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
     jsonObjCtrl._keyShow = APIData._personalShow;
+    jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
     jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
     isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
-    foldItem = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
-    this.readFileBrowser(WidgetFileBrowser._jsonPersonal, obj["path"], foldItem);
+    dd = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
+    this.readFileBrowser(WidgetFileBrowser._jsonPersonal, obj["path"], dd);
 }
 WidgetFileBrowser.prototype.initRight = function (right) {
     this._flexCtrl.createFlex(right, '全部文件');
@@ -124,14 +126,11 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 value["path"] = pathChild;
 
                 var jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
-                fold = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);
-
-                jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
                 jsonObjCtrl._keyShow = key;
                 jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
                 jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuObject;
-                var element = WidgetHtml.addLabel(fold, jsonObjCtrl);
-                WidgetHtml.classAdd(element, "widgetFileBrowserLeftFolderName");
+                fold = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);
+
                 WidgetHtml.addBr(fold);
                 // 展开状态
                 if (this._jsonStateMenuFold[pathChild]) {

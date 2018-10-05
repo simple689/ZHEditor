@@ -6,7 +6,7 @@ function ChoiceListItem(title, callback) {
     this._title = title;
     this._callback = callback;
 };
-WidgetHtml._enumFileBrowserType = {
+WidgetDialog._enumFileBrowserType = {
     _open: 0,
     _save: 1
 }
@@ -273,8 +273,8 @@ WidgetDialog.onClickFileBrowserOpen = function () {
     if (extend.length <= 0) {
         extend = exec._elementInputFileExtend.value;
     }
-    var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(folder);
 
+    var a = folder + fileName + extend;
     if (exec._callback) {
         exec._callback(WidgetKey._ok, value);
     }
