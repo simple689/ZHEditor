@@ -98,7 +98,7 @@ PanelMenu.onClickSaveFileNow = function (fileExtend) {
     }
     // todo
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.showDialogSaveFileNow);
+    widgetDialog.createDialogFileBrowser(document.body, "另存为", PanelMenu.showDialogSaveFileNow);
 }
 PanelMenu.onClickSaveFileNowAll = function () {
     // todo
@@ -108,17 +108,6 @@ PanelMenu.onClickSaveFileAll = function () {
 }
 
 PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
-    // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
-    jsonObjCtrl._keyShow = "另存为";
-    var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
-    label.style.textAlign = "center";
-    label.style.lineHeight = "30px";
-
-    //获取可见窗口大小
-    var bodyW = document.documentElement.clientWidth;
-    var bodyH = document.documentElement.clientHeight;
-
     // 路径
     var name = widgetDialog._jsonObjCtrl._key;
     var elementTabTitle = widgetDialog._jsonObjCtrl._exec._elementTabTitle;
@@ -140,7 +129,7 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     }
     jsonObjCtrl._value = path;
     var input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
-    widgetDialog._inputFolder = input;
+    widgetDialog._elementInputFilePath = input;
     input.style.width = bodyW * 0.5 + "px";
 
     // 间隔
@@ -150,7 +139,7 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     // 文件浏览
     var widgetFileBrowser = new WidgetFileBrowser();
     widgetDialog._widgetFileBrowser = widgetFileBrowser;
-    widgetFileBrowser._nowFolderElement = input;
+    widgetFileBrowser._nowElementInputFilePath = input;
     widgetFileBrowser.create(widgetDialog._elementDialogContent, API._fileBrowser._type._all, "dialogSaveFile");
     widgetFileBrowser._divMain.style.height = bodyH * 0.8 + "px";
     widgetFileBrowser._divMain.style.width = bodyW * 0.8 + "px";
@@ -166,7 +155,7 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._value = title;
     input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
-    widgetDialog._inputFileName = input;
+    widgetDialog._elementInputFileTitle = input;
     input.style.width = bodyW * 0.3 + "px";
 
     // 间隔
@@ -179,7 +168,7 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
     jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
     jsonObjCtrl._value = extend;
     input = WidgetHtml.addInput(widgetDialog._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
-    widgetDialog._inputFileExtend = input;
+    widgetDialog._elementInputFileExtend = input;
     input.style.width = bodyW * 0.3 + "px";
 
     // 间隔
@@ -204,11 +193,11 @@ PanelMenu.showDialogSaveFileNow = function (widgetDialog) {
 };
 PanelMenu.onClickSaveAsButtonSave = function () {
     var widgetDialog = this._jsonObjCtrl._exec;
-    var folder = widgetDialog._inputFolder.value;
-    var fileName = widgetDialog._inputFileName.value;
+    var folder = widgetDialog._elementInputFilePath.value;
+    var fileName = widgetDialog._elementInputFileTitle.value;
     var extend = getFileExtend(fileName);
     if (extend.length <= 0) {
-        extend = widgetDialog._inputFileExtend.value;
+        extend = widgetDialog._elementInputFileExtend.value;
     }
 
     var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(folder);
@@ -241,15 +230,9 @@ PanelMenu.onClickDownloadFileNow = function (fileExtend) {
 // onClickSetting
 PanelMenu.onClickSetting = function () {
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.showDialogSetting);
+    widgetDialog.createDialogWithHtml(document.body, "设置", null, null, PanelMenu.showDialogSetting);
 }
 PanelMenu.showDialogSetting = function (widgetDialog) {
-    // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
-    jsonObjCtrl._keyShow = "设置";
-    var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
-    label.style.textAlign = "center";
-    label.style.lineHeight = "30px";
 };
 
 // onClickExit
@@ -311,17 +294,10 @@ PanelMenu.onClickHistoryClear = function (key) {
 // onClickHelp
 PanelMenu.onClickHelp = function () {
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogWithHtml(null, document.body, null, PanelMenu.showDialogHelp);
+    widgetDialog.createDialogWithHtml(document.body, "帮助", null, null, PanelMenu.showDialogHelp);
 }
 PanelMenu.showDialogHelp = function (widgetDialog) {
-    // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
-    jsonObjCtrl._keyShow = "帮助";
-    var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
-    label.style.textAlign = "center";
-    label.style.lineHeight = "30px";
-
-    //获取可见窗口大小
+    // 获取可见窗口大小
     var bodyW = document.documentElement.clientWidth;
     var bodyH = document.documentElement.clientHeight;
 

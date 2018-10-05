@@ -241,8 +241,8 @@ WidgetFileBrowser.onClickFolderName = function () {
 
     widgetFileBrowser._nowFolder = this._jsonObjCtrl._obj["path"];
     widgetFileBrowser.refreshFileBrowserRight(this._jsonObjCtrl._obj);
-    if (widgetFileBrowser._nowFolderElement) {
-        widgetFileBrowser._nowFolderElement.value = widgetFileBrowser._nowFolder;
+    if (widgetFileBrowser._nowElementInputFilePath) {
+        widgetFileBrowser._nowElementInputFilePath.value = widgetFileBrowser._nowFolder;
     }
 }
 WidgetFileBrowser.onClickFolderPath = function () {
@@ -269,7 +269,7 @@ WidgetFileBrowser.onClickCreateDir = function () {
 }
 WidgetFileBrowser.createDir = function (jsonObjCtrl) {
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogOneInput("新建文件夹", "请输入文件夹名字：", document.body, WidgetFileBrowser.callbackCreateDir);
+    widgetDialog.createDialogOneInput(document.body, "新建文件夹", "请输入文件夹名字：", WidgetFileBrowser.callbackCreateDir);
     widgetDialog._jsonObjCtrl = jsonObjCtrl;
 }
 WidgetFileBrowser.callbackCreateDir = function (confirm, value) {

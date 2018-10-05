@@ -6,17 +6,10 @@ WidgetUserDialog.prototype.createDialogLogin = function (callback, completeJsonO
 
     this._widgetDialog = new WidgetDialog();
     this._widgetDialog._widgetUserDialog = this;
-    this._widgetDialog.createDialogWithHtml(null, document.body, null, WidgetUserDialog.showDialogLogin);
+    this._widgetDialog.createDialogWithHtml(document.body, "用户名密码登录", null, null, WidgetUserDialog.showDialogLogin);
 }
 WidgetUserDialog.showDialogLogin = function (widgetDialog) {
-    // 标题
-    var jsonObjCtrl = new JsonObjCtrl(widgetDialog, null, false, null);
-    jsonObjCtrl._keyShow = "用户名密码登录";
-    var label = WidgetHtml.addLabel(widgetDialog._elementDialogHead, jsonObjCtrl);
-    label.style.textAlign = "center";
-    label.style.lineHeight = "30px";
-
-    //获取可见窗口大小
+    // 获取可见窗口大小
     var bodyW = document.documentElement.clientWidth;
     var bodyH = document.documentElement.clientHeight;
 

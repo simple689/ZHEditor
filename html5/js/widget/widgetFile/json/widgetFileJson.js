@@ -29,6 +29,8 @@ WidgetFileJson.callbackInitMould = function (isNew) {
     // gPanelFileMould._widgetTab.addContent(elementTabTitle, this._widgetFileJsonMould._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
+    WidgetFileJson.openMould("");
+    return;
     if (jsonMouldName) { // 打开已存在的模版
         if (this._widgetFileJsonMould.getMouldFromWidgetTab(jsonMouldName)) { // 从tab找到
             callback(false);
@@ -44,14 +46,13 @@ WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
         var choiceList = new Array();
         choiceList.push(new ChoiceListItem("选择模版", WidgetFileJson.openMould));
         choiceList.push(new ChoiceListItem("生成模版", WidgetFileJson.creatMould));
-        widgetDialog.createDialogChoiceList("json模版", "查找关联模版失败，请选择下列操作：", document.body, choiceList);
+        widgetDialog.createDialogChoiceList(document.body, "json模版", "查找关联模版失败，请选择下列操作：", choiceList);
     }
 }
 WidgetFileJson.openMould = function (jsonMouldName) { // 弹文件选择框
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogFileBrowser("json模版", "查找关联模版失败，请选择下列操作：", document.body);
-
-    widgetDialog.createDialogWithHtml("打开文件", document.body, null, PanelMenu.showDialogSaveFileNow);
+    widgetDialog.createDialogFileBrowser(document.body, "打开json模版", null);
+    return;
     if (this._callback) {
         this._callback(true);
     }
