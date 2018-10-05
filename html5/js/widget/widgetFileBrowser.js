@@ -271,8 +271,8 @@ WidgetFileBrowser.createDir = function (jsonObjCtrl) {
     widgetDialog.createDialogOneInput(document.body, "新建文件夹", "请输入文件夹名字：", WidgetFileBrowser.callbackCreateDir);
     widgetDialog._jsonObjCtrl = jsonObjCtrl;
 }
-WidgetFileBrowser.callbackCreateDir = function (confirm, value) {
-    if (confirm) {
+WidgetFileBrowser.callbackCreateDir = function (ok, value) {
+    if (ok) {
         var jsonObjCtrl = this._jsonObjCtrl;
         var widgetFileBrowser = jsonObjCtrl._exec;
 

@@ -11,7 +11,7 @@ WidgetDialog._enumFileBrowserType = {
     _save: 1
 }
 
-WidgetDialog.prototype.createDialog = function (elementParent, title, callback) {
+WidgetDialog.prototype.createDialog = function (elementParent, title, callback, callbackLoadedHtml) {
     this._elementParent = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._elementParent, "widgetDialogRoot");
     this._elementParent._widgetDialog = this;
@@ -47,10 +47,11 @@ WidgetDialog.prototype.createDialog = function (elementParent, title, callback) 
     label.style.lineHeight = "30px";
 
     this._callback = callback;
+    this._callbackLoadedHtml = callbackLoadedHtml;
 }
 WidgetDialog.loadedHtml = function (widgetDialog) {
-    if (widgetDialog._callback) {
-        widgetDialog._callback(widgetDialog);
+    if (widgetDialog._callbackLoadedHtml) {
+        widgetDialog._callbackLoadedHtml(widgetDialog);
     }
     WidgetDialog.autoCenter(widgetDialog._elementDialog);
 }
@@ -85,8 +86,8 @@ WidgetDialog.onClickCancel = function () {
         exec.close();
     }
 }
-WidgetDialog.prototype.createDialogWithHtml = function (elementParent, title, jsonObjCtrl, html, callback) {
-    this.createDialog(elementParent, title, callback);
+WidgetDialog.prototype.createDialogWithHtml = function (elementParent, title, jsonObjCtrl, html, callbackLoadedHtml) {
+    this.createDialog(elementParent, title, null, callbackLoadedHtml);
     if (!this._elementDialogContent) {
         return;
     }
@@ -100,7 +101,7 @@ WidgetDialog.prototype.createDialogWithHtml = function (elementParent, title, js
     }
 }
 WidgetDialog.prototype.createDialogOneInput = function (elementParent, title, description, callback) {
-    this.createDialog(elementParent, title, callback);
+    this.createDialog(elementParent, title, callback, null);
 
     // 描述
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
@@ -127,8 +128,8 @@ WidgetDialog.prototype.createDialogOneInput = function (elementParent, title, de
 
     WidgetDialog.loadedHtml(this);
 }
-WidgetDialog.prototype.createDialogChoiceList = function (elementParent, title, description, choiceList) {
-    this.createDialog(elementParent, title);
+WidgetDialog.prototype.createDialogChoiceList = function (elementParent, title, description, choiceList, callback) {
+    this.createDialog(elementParent, title, callback, null);
 
     // 描述
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
@@ -150,7 +151,7 @@ WidgetDialog.prototype.createDialogChoiceList = function (elementParent, title, 
     WidgetDialog.loadedHtml(this);
 }
 WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title, jsonObjCtrl, fileBrowserType, callback) {
-    this.createDialog(elementParent, title);
+    this.createDialog(elementParent, title, callback, null);
     this._jsonObjCtrl = jsonObjCtrl;
     // 获取可见窗口大小
     var bodyW = document.documentElement.clientWidth;
@@ -274,7 +275,7 @@ WidgetDialog.onClickFileBrowserOpen = function () {
         extend = exec._elementInputFileExtend.value;
     }
 
-    var a = folder + fileName + extend;
+    var value = folder + fileName + extend;
     if (exec._callback) {
         exec._callback(WidgetKey._ok, value);
     }

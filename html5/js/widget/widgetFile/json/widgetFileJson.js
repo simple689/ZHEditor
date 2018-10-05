@@ -5,6 +5,12 @@ function WidgetFileJson() {
 WidgetFileJson.prototype = new WidgetFileBase();
 WidgetFileJson.prototype.constructor = WidgetFileJson;
 
+WidgetFileJson._enumInitMouldType = {
+    _tab: 0,
+    _file: 1,
+    _json: 2
+}
+
 WidgetFileJson.prototype.initRoot = function () {
     var foldItem = WidgetFileBase.prototype.initRoot.apply(this, arguments);
 
@@ -17,54 +23,69 @@ WidgetFileJson.prototype.initRoot = function () {
     this._widgetFileJsonMould = new WidgetFileJsonMould();
     this.initMould(jsonMouldName, WidgetFileJson.callbackInitMould);
 }
-WidgetFileJson.callbackInitMould = function (isNew) {
-    if (isNew) { // 不存在模版
-        // todo
-        //     this.readObject(this._jsonObj, "root", foldItem, false);
-    } else { // 存在模版
-        // this.readMouldObject(this._widgetFileJsonMould._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
-    }
+WidgetFileJson.callbackInitMould = function (initMouldType) {
+    // 如果已经在tab存在，直接取值
+    // 如果从文件打开，附加到tab，通过jsonMd创建json
+    // 如果从零开始，通过json创建jsonMd，附加到tab，通过jsonMd创建json
+    if (initMouldType == WidgetFileJson._enumInitMouldType._tab) {
 
+    } else if (initMouldType == WidgetFileJson._enumInitMouldType._file) {
+
+    } else if (initMouldType == WidgetFileJson._enumInitMouldType._json) {
+
+    }
+    // this.readObject(this._jsonObj, "root", foldItem, false);
+    // this.readMouldObject(this._widgetFileJsonMould._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
     // var elementTabTitle = gPanelFileMould._widgetTab.addTitle(jsonMouldName);
     // gPanelFileMould._widgetTab.addContent(elementTabTitle, this._widgetFileJsonMould._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
-    WidgetFileJson.openMould("");
-    return;
     if (jsonMouldName) { // 打开已存在的模版
         if (this._widgetFileJsonMould.getMouldFromWidgetTab(jsonMouldName)) { // 从tab找到
-            callback(false);
+            callback(WidgetFileJson._enumInitMouldType._tab);
         } else if (this._widgetFileJsonMould.getMouldFromFile(jsonMouldName)) { // 从file找到
-            callback(true);
+            callback(WidgetFileJson._enumInitMouldType._file);
         } else { // 没有找到
             this.initMould(null, callback);
         }
     } else {
         // 弹框：选择模版 or 生成模版
         var widgetDialog = new WidgetDialog();
-        widgetDialog._callback = callback;
+        widgetDialog._exec = this;
         var choiceList = new Array();
         choiceList.push(new ChoiceListItem("选择模版", WidgetFileJson.openMould));
         choiceList.push(new ChoiceListItem("生成模版", WidgetFileJson.creatMould));
-        widgetDialog.createDialogChoiceList(document.body, "json模版", "查找关联模版失败，请选择下列操作：", choiceList);
+        widgetDialog.createDialogChoiceList(document.body, "json模版", "查找关联模版失败，请选择下列操作：", choiceList, callback);
     }
 }
-WidgetFileJson.openMould = function (jsonMouldName) { // 弹文件选择框
+WidgetFileJson.openMould = function () { // 弹文件选择框
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogFileBrowser(document.body, "打开json模版", null, WidgetDialog._enumFileBrowserType._open);
-    return;
-    if (this._callback) {
-        this._callback(true);
+    widgetDialog.createDialogFileBrowser(document.body, "打开json模版", null, WidgetDialog._enumFileBrowserType._open, WidgetFileJson.callbackOpenMould);
+}
+WidgetFileJson.callbackOpenMould = function (ok, value) {
+    if (ok) {
+        if (this._callback) {
+            this._callback(WidgetFileJson._enumInitMouldType._file);
+        }
     }
 }
-WidgetFileJson.creatMould = function (jsonMouldName) {
-    jsonMouldName = this._elementTabContent._elementTabTitle._title;
+WidgetFileJson.creatMould = function () {
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    if (!jsonObjCtrl) {
+        return;
+    }
+    var exec = jsonObjCtrl._exec;
+    if (!exec) {
+        return;
+    }
+    var widgetFileJson = exec._exec;
+    var jsonMouldName = widgetFileJson._elementTabContent._elementTabTitle._title;
     jsonMouldName = removeFileExtend(jsonMouldName);
     jsonMouldName += "【配套生成】";
     jsonMouldName += APIData._extendJsonMd;
-    this._jsonObj[APIData._jsonMould] = jsonMouldName;
-    if (this._callback) {
-        this._callback(true);
+    widgetFileJson._jsonObj[APIData._jsonMould] = jsonMouldName;
+    if (exec._callback) {
+        exec._callback(WidgetFileJson._enumInitMouldType._json);
     }
 }
 
