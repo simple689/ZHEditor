@@ -2,13 +2,16 @@ function WidgetDialog() {
 }
 
 WidgetDialog._dialogList = new Array();
-
 function ChoiceListItem(title, callback) {
     this._title = title;
     this._callback = callback;
 };
+WidgetHtml._enumFileBrowserType = {
+    _open: 0,
+    _save: 1
+}
 
-WidgetDialog.prototype.createDialog = function (elementParent, title) {
+WidgetDialog.prototype.createDialog = function (elementParent, title, callback) {
     this._elementParent = WidgetHtml.addDiv(elementParent);
     WidgetHtml.classAdd(this._elementParent, "widgetDialogRoot");
     this._elementParent._widgetDialog = this;
@@ -30,7 +33,7 @@ WidgetDialog.prototype.createDialog = function (elementParent, title) {
     WidgetHtml.classAdd(this._elementDialogClose, "widgetDialogHeadButton");
     this._elementDialogClose._widgetDialog = this;
     this._elementDialogClose.innerHTML = "X";
-    this._elementDialogClose.onclick = WidgetDialog.onClickClose;
+    this._elementDialogClose.onclick = WidgetDialog.onClickCancel;
 
     this._elementDialogContent = WidgetHtml.addDiv(this._elementDialog);
     WidgetHtml.classAdd(this._elementDialogContent, "widgetDialogContent");
@@ -42,10 +45,12 @@ WidgetDialog.prototype.createDialog = function (elementParent, title) {
     var label = WidgetHtml.addLabel(this._elementDialogHead, jsonObjCtrl);
     label.style.textAlign = "center";
     label.style.lineHeight = "30px";
+
+    this._callback = callback;
 }
-WidgetDialog.loadedHtml = function (widgetDialog, callback) {
-    if (callback) {
-        callback(widgetDialog);
+WidgetDialog.loadedHtml = function (widgetDialog) {
+    if (widgetDialog._callback) {
+        widgetDialog._callback(widgetDialog);
     }
     WidgetDialog.autoCenter(widgetDialog._elementDialog);
 }
@@ -65,29 +70,37 @@ WidgetDialog.resizeWindow = function () {
         WidgetDialog.autoCenter(WidgetDialog._dialogList[i]._elementDialog);
     }
 };
-WidgetDialog.onClickClose = function () {
-    this._widgetDialog.close();
-}
 WidgetDialog.prototype.close = function () {
     this._elementParent.remove();
 }
+WidgetDialog.onClickCancel = function () {
+    var exec = WidgetFileUtil.getExec(this);
+    if (!exec) {
+        exec = this._widgetDialog;
+    }
+    if (exec) {
+        if (exec._callback) {
+            exec._callback(null, null);
+        }
+        exec.close();
+    }
+}
 WidgetDialog.prototype.createDialogWithHtml = function (elementParent, title, jsonObjCtrl, html, callback) {
-    this.createDialog(elementParent, title);
+    this.createDialog(elementParent, title, callback);
     if (!this._elementDialogContent) {
         return;
     }
     this._jsonObjCtrl = jsonObjCtrl;
     if (html) {
         $(this._elementDialogContent).load(html, function () {
-            WidgetDialog.loadedHtml(this._widgetDialog, callback);
+            WidgetDialog.loadedHtml(this._widgetDialog);
         });
     } else {
-        WidgetDialog.loadedHtml(this, callback);
+        WidgetDialog.loadedHtml(this);
     }
 }
 WidgetDialog.prototype.createDialogOneInput = function (elementParent, title, description, callback) {
-    this.createDialog(elementParent, title);
-    this._callback = callback;
+    this.createDialog(elementParent, title, callback);
 
     // 描述
     var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
@@ -103,7 +116,7 @@ WidgetDialog.prototype.createDialogOneInput = function (elementParent, title, de
     // button
     jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrl._value = "取消";
-    jsonObjCtrl._onClick = WidgetDialog.onClickOneInputCancel;
+    jsonObjCtrl._onClick = WidgetDialog.onClickCancel;
     WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     // button
@@ -112,7 +125,7 @@ WidgetDialog.prototype.createDialogOneInput = function (elementParent, title, de
     jsonObjCtrl._onClick = WidgetDialog.onClickOneInputConfirm;
     WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
-    WidgetDialog.loadedHtml(this, null);
+    WidgetDialog.loadedHtml(this);
 }
 WidgetDialog.prototype.createDialogChoiceList = function (elementParent, title, description, choiceList) {
     this.createDialog(elementParent, title);
@@ -134,9 +147,9 @@ WidgetDialog.prototype.createDialogChoiceList = function (elementParent, title, 
         WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
     }
 
-    WidgetDialog.loadedHtml(this, null);
+    WidgetDialog.loadedHtml(this);
 }
-WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title, jsonObjCtrl) {
+WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title, jsonObjCtrl, fileBrowserType, callback) {
     this.createDialog(elementParent, title);
     this._jsonObjCtrl = jsonObjCtrl;
     // 获取可见窗口大小
@@ -152,7 +165,7 @@ WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title,
         if (elementTabTitle) {
             name = elementTabTitle._title;
         }
-        fileTitle = getFileTitle(name)
+        fileTitle = getFileTitle(name);
         fileExtend = getFileExtend(name);
         filePath = "/" + APIData._personalShow + "/";
     }
@@ -208,31 +221,26 @@ WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title,
     divButton.style.float = "right";
 
     jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
-    jsonObjCtrlSub._value = "保存";
-    jsonObjCtrlSub._onClick = PanelMenu.onClickSaveAsButtonSave;
+    if (fileBrowserType == WidgetDialog._enumFileBrowserType._open) {
+        jsonObjCtrlSub._value = "打开";
+        jsonObjCtrlSub._onClick = WidgetDialog.onClickFileBrowserOpen;
+    } else if (fileBrowserType == WidgetDialog._enumFileBrowserType._save) {
+        jsonObjCtrlSub._value = "保存";
+        jsonObjCtrlSub._onClick = WidgetDialog.onClickFileBrowserSave;
+    }
     WidgetHtml.addInput(divButton, jsonObjCtrlSub, WidgetHtml._enumInputType._button);
 
     jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
     jsonObjCtrlSub._value = "取消";
-    jsonObjCtrlSub._onClick = PanelMenu.onClickSaveAsButtonCancel;
+    jsonObjCtrlSub._onClick = WidgetDialog.onClickCancel;
     WidgetHtml.addInput(divButton, jsonObjCtrlSub, WidgetHtml._enumInputType._button);
 
     // 刷新
     // widgetFileBrowser.refreshFileBrowserRightPath(filePath);
 
-    WidgetDialog.loadedHtml(this, null);
+    WidgetDialog.loadedHtml(this);
 }
 
-WidgetDialog.onClickOneInputCancel = function () {
-    var exec = WidgetFileUtil.getExec(this);
-    if (!exec) {
-        return;
-    }
-    if (exec._callback) {
-        exec._callback(null, null);
-    }
-    exec.close();
-}
 WidgetDialog.onClickOneInputConfirm = function () {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
     if (!jsonObjCtrl) {
@@ -244,7 +252,58 @@ WidgetDialog.onClickOneInputConfirm = function () {
     }
     var value = exec._oneInput.value;
     if (exec._callback) {
-        exec._callback(WidgetKey._confirm, value);
+        exec._callback(WidgetKey._ok, value);
+    }
+    exec.close();
+}
+
+WidgetDialog.onClickFileBrowserOpen = function () {
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    if (!jsonObjCtrl) {
+        return;
+    }
+    var exec = jsonObjCtrl._exec;
+    if (!exec) {
+        return;
+    }
+
+    var folder = exec._elementInputFilePath.value;
+    var fileName = exec._elementInputFileTitle.value;
+    var extend = getFileExtend(fileName);
+    if (extend.length <= 0) {
+        extend = exec._elementInputFileExtend.value;
+    }
+    var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(folder);
+
+    if (exec._callback) {
+        exec._callback(WidgetKey._ok, value);
+    }
+    exec.close();
+}
+WidgetDialog.onClickFileBrowserSave = function () {
+    var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
+    if (!jsonObjCtrl) {
+        return;
+    }
+    var exec = jsonObjCtrl._exec;
+    if (!exec) {
+        return;
+    }
+
+    var folder = exec._elementInputFilePath.value;
+    var fileName = exec._elementInputFileTitle.value;
+    var extend = getFileExtend(fileName);
+    if (extend.length <= 0) {
+        extend = exec._elementInputFileExtend.value;
+    }
+    var jsonObjFolder = WidgetFileBrowser.getJsonObjPath(folder);
+    APIUtil.fileBrowser.addFile(jsonObjFolder, fileName, extend);
+    WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonFileBrowser);
+
+    gPanelFileBrowser._widgetFileBrowser.refreshFileBrowserLeft();
+
+    if (exec._callback) {
+        exec._callback(WidgetKey._ok, value);
     }
     exec.close();
 }

@@ -51,7 +51,7 @@ WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
 }
 WidgetFileJson.openMould = function (jsonMouldName) { // 弹文件选择框
     var widgetDialog = new WidgetDialog();
-    widgetDialog.createDialogFileBrowser(document.body, "打开json模版", null);
+    widgetDialog.createDialogFileBrowser(document.body, "打开json模版", null, WidgetDialog._enumFileBrowserType._open);
     return;
     if (this._callback) {
         this._callback(true);

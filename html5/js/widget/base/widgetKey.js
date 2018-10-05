@@ -40,8 +40,8 @@ WidgetKey._audioClip = "AudioClip";
 WidgetKey._audioMixer = "AudioMixer";
 WidgetKey._font = "Font";
 
+WidgetKey._ok = "ok";
 WidgetKey._cancel = "cancel";
-WidgetKey._confirm = "confirm";
 
 WidgetKey._none = "none";
 WidgetKey._block = "block";
