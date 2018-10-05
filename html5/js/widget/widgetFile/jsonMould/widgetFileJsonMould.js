@@ -4,6 +4,12 @@ function WidgetFileJsonMould() {
 WidgetFileJsonMould.prototype = new WidgetFileBase();
 WidgetFileJsonMould.prototype.constructor = WidgetFileJsonMould;
 
+WidgetFileJsonMould._enumParentType = {
+    _base: 0,
+    _list: 1,
+    _listItem: 2
+}
+
 WidgetFileJsonMould.prototype.initRoot = function () {
     var foldItem = WidgetFileBase.prototype.initRoot.apply(this, arguments);
     this.readObject(this._jsonObj, "root", foldItem, false);
@@ -131,8 +137,9 @@ WidgetFileJsonMould.prototype.refreshContent = function () {
     var widgetTab = this._elementTabTitle._widgetTab;
     widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
+
 WidgetFileJsonMould.prototype.getMouldFromWidgetTab = function (fileName) {
-    // 已打开的是否存在
+    // 从tab获取
     var widgetTab = getWidgetTab(confPanelFileMould);
     if (widgetTab) {
         var tabList = widgetTab._elementTabList;
@@ -148,56 +155,31 @@ WidgetFileJsonMould.prototype.getMouldFromWidgetTab = function (fileName) {
     return false;
 }
 WidgetFileJsonMould.prototype.getMouldFromFile = function (fileName) {
-    // 从文件获取
-    var widgetTab = getWidgetTab(confPanelFileMould);
-    if (widgetTab) {
-        var tabList = widgetTab._elementTabList;
-        for (var i in tabList) {
-            var item = tabList[i];
-            var title = item._title;
-            if (fileName == title) {
-                this._jsonMouldObj = item._elementTabContent._jsonMouldObj;
-                return true;
-            }
-        }
-    }
+    // 从文件打开 todo
     return false;
 }
-WidgetFileJsonMould.prototype.getMould = function (fileName, jsonObj) {
-    // todo 已打开的是否存在
-    var isNew = false;
-    var widgetTab = getWidgetTab(confPanelFileMould);
-    if (widgetTab) {
-        var tabList = widgetTab._elementTabList;
-        for (var i in tabList) {
-            var item = tabList[i];
-            var title = item._title;
-            if (fileName == title) {
-                this._jsonMouldObj = item._elementTabContent._jsonMouldObj;
-                break;
-            }
-        }
-    }
-    if (!this._jsonMouldObj) {
-        this.initMould(jsonObj);
-        isNew = true;
-    }
+WidgetFileJsonMould.prototype.getMouldFromJson = function (jsonObj) {
+    // 从json创建 todo
+    this.createMould(jsonObj);
     WidgetLog.log("========================================");
     WidgetLog.log(JSON.stringify(this._jsonMouldObj, null, 2));
     WidgetLog.log("========================================");
-    return isNew;
+    return true;
 }
-WidgetFileJsonMould.prototype.initMould = function (jsonObj) {
+WidgetFileJsonMould.prototype.createMould = function (jsonObj) {
     this._jsonMouldObj = {};
     this._jsonMouldObj[WidgetKey._ignore] = {};
     this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList] = new Array();
     this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList].push("$");
 
     this._jsonMouldObj[WidgetKey._file] = {};
-    this.createMould(jsonObj, this._jsonMouldObj, "", this._jsonMouldObj[WidgetKey._file]);
+    this.createMouldFile(jsonObj, this._jsonMouldObj, "", this._jsonMouldObj[WidgetKey._file], WidgetFileJsonMould._enumParentType._base);
 }
-WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, keyParent, jsonObjParent, isListParent) {
+WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj, keyParent, jsonMouldObjParent, parentType) {
     for (var o in jsonObj) {
+        if (o == APIData._jsonMould) {
+            continue;
+        }
         var key = o;
 
         var isIgnore = false;
@@ -214,37 +196,68 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj, jsonMouldObj, key
         }
 
         var value = jsonObj[key];
-        // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
-        jsonObjParent[key] = {};
-        jsonObjParent[key][WidgetKey._showTitle] = key;
-        if (typeof(value) == WidgetKey._object) {
-            var keyChild = keyParent;
-            keyChild += "->";
-            keyChild += key;
-            keyChild += "->";
+        var keyChild = keyParent;
+        keyChild += "->";
+        keyChild += key;
+        keyChild += "->";
+        var childType = WidgetFileJsonMould._enumParentType._base;
 
-            var isList = false;
-            if (Array.isArray(value)) {
-                isList = true;
-                jsonObjParent[key][WidgetKey._valueType] = WidgetKey._array;
-                jsonObjParent[key][WidgetKey._value] = new Array();
+        if (parentType == WidgetFileJsonMould._enumParentType._base) {
+            jsonMouldObjParent[key] = {};
+            jsonMouldObjParent[key][WidgetKey._showTitle] = key;
+            if (typeof(value) == WidgetKey._object) {
+                if (Array.isArray(value)) {
+                    childType = WidgetFileJsonMould._enumParentType._list;
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._array;
+                    jsonMouldObjParent[key][WidgetKey._value] = {};
+                } else {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._object;
+                    jsonMouldObjParent[key][WidgetKey._value] = {};
+                }
+
+                this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjParent[key][WidgetKey._value], childType);
             } else {
-                jsonObjParent[key][WidgetKey._valueType] = WidgetKey._object;
-                jsonObjParent[key][WidgetKey._value] = {};
+                if (typeof(value) == WidgetKey._string) {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._string;
+                } else if (typeof(value) == WidgetKey._number) {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._number;
+                } else if (typeof(value) == WidgetKey._boolean) {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._boolean;
+                } else {
+                    var strType = typeof(value);
+                    jsonMouldObjParent[key][WidgetKey._valueType] = strType;
+                    // WidgetLog.log("[" + typeof(value) + "]" + keyChild + " = " + value);
+                }
             }
+        } else if (parentType == WidgetFileJsonMould._enumParentType._list) {
+            childType = WidgetFileJsonMould._enumParentType._listItem;
+            this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjParent, childType);
+        } else if (parentType == WidgetFileJsonMould._enumParentType._listItem) {
+            jsonMouldObjParent[key] = {};
+            jsonMouldObjParent[key][WidgetKey._showTitle] = key;
+            if (typeof(value) == WidgetKey._object) {
+                if (Array.isArray(value)) {
+                    childType = WidgetFileJsonMould._enumParentType._list;
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._array;
+                    jsonMouldObjParent[key][WidgetKey._value] = {};
+                } else {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._object;
+                    jsonMouldObjParent[key][WidgetKey._value] = {};
+                }
 
-            this.createMould(value, jsonMouldObj, keyChild, jsonObjParent[key][WidgetKey._value], isList);
-        } else {
-            if (typeof(value) == WidgetKey._string) {
-                jsonObjParent[key][WidgetKey._valueType] = WidgetKey._string;
-            } else if (typeof(value) == WidgetKey._number) {
-                jsonObjParent[key][WidgetKey._valueType] = WidgetKey._number;
-            } else if (typeof(value) == WidgetKey._boolean) {
-                jsonObjParent[key][WidgetKey._valueType] = WidgetKey._boolean;
+                this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjParent[key][WidgetKey._value], childType);
             } else {
-                var strType = typeof(value);
-                jsonObjParent[key][WidgetKey._valueType] = strType;
-                // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
+                if (typeof(value) == WidgetKey._string) {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._string;
+                } else if (typeof(value) == WidgetKey._number) {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._number;
+                } else if (typeof(value) == WidgetKey._boolean) {
+                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._boolean;
+                } else {
+                    var strType = typeof(value);
+                    jsonMouldObjParent[key][WidgetKey._valueType] = strType;
+                    // WidgetLog.log("[" + typeof(value) + "]" + keyChild + " = " + value);
+                }
             }
         }
     }

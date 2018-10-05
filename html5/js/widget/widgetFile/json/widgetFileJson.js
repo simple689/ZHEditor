@@ -24,23 +24,29 @@ WidgetFileJson.prototype.initRoot = function () {
     this.initMould(jsonMouldName, WidgetFileJson.callbackInitMould);
 }
 WidgetFileJson.callbackInitMould = function (initMouldType) {
-    // 如果已经在tab存在，直接取值
-    // 如果从文件打开，附加到tab，通过jsonMd创建json
-    // 如果从零开始，通过json创建jsonMd，附加到tab，通过jsonMd创建json
+    // 从tab获取，直接取值
+    // 从文件打开，附加到tab，通过jsonMd创建json
+    // 从json创建，通过json创建jsonMd，附加到tab，通过jsonMd创建json
     if (initMouldType == WidgetFileJson._enumInitMouldType._tab) {
 
-    } else if (initMouldType == WidgetFileJson._enumInitMouldType._file) {
+    } else {
+        if (initMouldType == WidgetFileJson._enumInitMouldType._file) {
 
-    } else if (initMouldType == WidgetFileJson._enumInitMouldType._json) {
+        } else if (initMouldType == WidgetFileJson._enumInitMouldType._json) {
 
+        }
+        var widgetFileJson = this._exec;
+        if (widgetFileJson._widgetFileJsonMould.getMouldFromJson(widgetFileJson._jsonObj)) { // 从file找到
+            var elementTabTitle = gPanelFileMould._widgetTab.addTitle(widgetFileJson._jsonObj[APIData._jsonMould]);
+            gPanelFileMould._widgetTab.addContent(elementTabTitle, widgetFileJson._widgetFileJsonMould._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
+        }
     }
     // this.readObject(this._jsonObj, "root", foldItem, false);
     // this.readMouldObject(this._widgetFileJsonMould._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
-    // var elementTabTitle = gPanelFileMould._widgetTab.addTitle(jsonMouldName);
-    // gPanelFileMould._widgetTab.addContent(elementTabTitle, this._widgetFileJsonMould._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
     if (jsonMouldName) { // 打开已存在的模版
+        this._jsonObj[APIData._jsonMould] = jsonMouldName;
         if (this._widgetFileJsonMould.getMouldFromWidgetTab(jsonMouldName)) { // 从tab找到
             callback(WidgetFileJson._enumInitMouldType._tab);
         } else if (this._widgetFileJsonMould.getMouldFromFile(jsonMouldName)) { // 从file找到
@@ -59,11 +65,18 @@ WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
     }
 }
 WidgetFileJson.openMould = function () { // 弹文件选择框
+    var exec = WidgetFileUtil.getExec(this);
+    if (!exec) {
+        return;
+    }
     var widgetDialog = new WidgetDialog();
+    widgetDialog._exec = exec;
     widgetDialog.createDialogFileBrowser(document.body, "打开json模版", null, WidgetDialog._enumFileBrowserType._open, WidgetFileJson.callbackOpenMould);
 }
 WidgetFileJson.callbackOpenMould = function (ok, value) {
     if (ok) {
+        var widgetFileJson = this._exec._exec;
+        widgetFileJson._jsonObj[APIData._jsonMould] = value;
         if (this._callback) {
             this._callback(WidgetFileJson._enumInitMouldType._file);
         }
