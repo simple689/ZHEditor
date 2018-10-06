@@ -51,19 +51,23 @@ WidgetFileJsonMould.prototype.onClickObjectAdd = function (e) {
                     jsonObj[WidgetKey._value] = {};
                 }
             } else if (valueType == WidgetKey._array) {
-                var jsonObjValue = jsonObj[WidgetKey._value];
-                var isHasObj = false;
-                if (jsonObjValue) {
-                    for (var i in jsonObjValue) {
-                        isHasObj = true;
-                        break;
-                    }
-                } else {
+                // var jsonObjValue = jsonObj[WidgetKey._value];
+                // var isHasObj = false;
+                // if (jsonObjValue) {
+                //     for (var i in jsonObjValue) {
+                //         isHasObj = true;
+                //         break;
+                //     }
+                // } else {
+                //     jsonObj[WidgetKey._value] = {};
+                // }
+                // if (isHasObj) {
+                //     alert("当前 值类型 为 列表，只能存在一个对象作为此列表的模版！");
+                //     return;
+                // }
+
+                if (!jsonObj[WidgetKey._value]) {
                     jsonObj[WidgetKey._value] = {};
-                }
-                if (isHasObj) {
-                    alert("当前 值类型 为 列表，只能存在一个对象作为此列表的模版！");
-                    return;
                 }
             } else if (valueType == WidgetKey._enum) {
                 alert("当前 Key 的值类型是 枚举，此节点不支持添加对象!");

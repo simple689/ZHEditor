@@ -72,10 +72,17 @@ WidgetMenuFold.setDdCheck = function (elementDd, elementLabel, isCheck) {
             labelCheck = elementDd._dt._labelCheck;
         }
         var exec = labelCheck._jsonObjCtrl._exec;
-        var path = labelCheck._jsonObjCtrl._obj["path"];
-        exec._jsonStateMenuFold[path] = isCheck;
-        WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonStore, WidgetFileBrowser._jsonPersonal, exec._widgetID, exec._jsonStateMenuFold, exec._jsonStateFlex);
-
+        var execType = exec.constructor.name;
+        if (execType == WidgetFileBrowser.name) {
+            if (exec._jsonStateMenuFold) {
+                var path = labelCheck._jsonObjCtrl._obj["path"];
+                exec._jsonStateMenuFold[path] = isCheck;
+                WidgetHistory.setFileBrowser(WidgetFileBrowser._jsonStore, WidgetFileBrowser._jsonPersonal, exec._widgetID, exec._jsonStateMenuFold, exec._jsonStateFlex);
+            }
+        } else if (execType == WidgetFileJsonMould.name) {
+            // todo 记录状态
+            var a = 0;
+        }
         WidgetMenuFold.setDdDisplay(elementDd, labelCheck, isCheck);
     }
 }

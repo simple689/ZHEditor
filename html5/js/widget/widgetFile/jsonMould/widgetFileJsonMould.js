@@ -133,8 +133,8 @@ WidgetFileJsonMould.changeSelectEnumDefault = function (element) {
     jsonObjCtrl._exec.refreshContent();
 }
 WidgetFileJsonMould.prototype.refreshContent = function () {
-    var widgetTab = this._elementTabTitle._widgetTab;
-    widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
+    var widgetTab = this._elementTabContent._elementTabTitle._widgetTab;
+    widgetTab.refreshContent(this._elementTabContent, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 WidgetFileJsonMould.prototype.isMouldIgnore = function (key) {
     for (var i in this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList]) {

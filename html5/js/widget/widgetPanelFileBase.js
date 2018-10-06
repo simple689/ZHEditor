@@ -29,7 +29,7 @@ WidgetPanelFileBase.prototype.tabOnContextMenu = function (ele, e, onContextMenu
             WidgetMenu.showMenu(this._menuRightTitle, e, ele);
             break;
         }
-        case WidgetTab._enumOnContextMenuType.tabTitle : {
+        case WidgetTab._enumOnContextMenuType.tabContent : {
             WidgetMenu.showMenu(this._menuRightContent, e, ele);
             break;
         }

@@ -168,10 +168,14 @@ WidgetTab.onClickTabContent = function (e) {
     WidgetMenu.hideMenuAll();
 }
 WidgetTab.onContextMenuTabTitle = function (e) {
-    this._widgetTab._exec.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabTitle);
+    if (this._widgetTab && this._widgetTab._exec) {
+        this._widgetTab._exec.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabTitle);
+    }
     return false; // 取消右键点击的默认事件
 }
 WidgetTab.onContextMenuTabContent = function (e) {
-    this._widgetTab._exec.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabContent);
+    if (this._elementTabTitle && this._elementTabTitle._widgetTab && this._elementTabTitle._widgetTab._exec) {
+        this._elementTabTitle._widgetTab._exec.tabOnContextMenu(this, e, WidgetTab._enumOnContextMenuType.tabContent);
+    }
     return false; // 取消右键点击的默认事件
 }
