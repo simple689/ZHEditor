@@ -1,4 +1,4 @@
-WidgetFileJsonMould.prototype.onChangeInput = function (e) {
+WidgetFileJsonMould.onChangeInput = function (e) {
     var inputType = e._inputType;
     var value = e.value;
     switch (inputType) {
@@ -13,12 +13,12 @@ WidgetFileJsonMould.prototype.onChangeInput = function (e) {
     jsonObj[jsonObjCtrl._key] = value;
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJsonMould.prototype.onChangeSelect = function (e) {
+WidgetFileJsonMould.onChangeSelect = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var key = jsonObjCtrl._key;
     if (key == WidgetKey._valueType) {
-        WidgetFileJsonMould.changeSelectValueType(this);
+        WidgetFileJsonMould.changeSelectValueType(e);
     } else if (key == WidgetKey._enumTypeDefault) {
-        WidgetFileJsonMould.changeSelectEnumDefault(this);
+        WidgetFileJsonMould.changeSelectEnumDefault(e);
     }
 }

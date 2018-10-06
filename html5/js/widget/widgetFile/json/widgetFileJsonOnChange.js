@@ -1,4 +1,4 @@
-WidgetFileJson.prototype.onChangeInput = function (e) {
+WidgetFileJson.onChangeInput = function (e) {
     var inputType = e._inputType;
     var value = e.value;
     switch (inputType) {
@@ -13,7 +13,7 @@ WidgetFileJson.prototype.onChangeInput = function (e) {
     jsonObj[jsonObjCtrl._key] = value;
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJson.prototype.onChangeSelect = function (e) {
+WidgetFileJson.onChangeSelect = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     var key = jsonObjCtrl._key;

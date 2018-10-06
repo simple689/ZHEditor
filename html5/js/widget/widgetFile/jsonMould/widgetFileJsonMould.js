@@ -106,8 +106,7 @@ WidgetFileJsonMould.changeSelectValueType = function (element) {
             return;
         }
     }
-    var value = element.value;
-    jsonObj[WidgetKey._valueType] = value;
+    jsonObj[WidgetKey._valueType] = element.value;
     var jsonObjValueType = jsonObj[WidgetKey._valueType];
     if (jsonObjValueType == WidgetKey._object || jsonObjValueType == WidgetKey._array) {
         jsonObj[WidgetKey._value] = {};
@@ -168,7 +167,7 @@ WidgetFileJsonMould.prototype.getMouldFromFile = function (fileName) {
     return false;
 }
 WidgetFileJsonMould.prototype.getMouldFromJson = function (jsonObj) {
-    // 从json创建 todo
+    // 从json创建 todo 枚举未完
     this.createMould(jsonObj);
     WidgetLog.log("========================================");
     WidgetLog.log(JSON.stringify(this._jsonMouldObj, null, 2));
@@ -239,6 +238,7 @@ WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj,
                 }
                 this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjChild, jsonMouldObjParent[key], childType);
             } else {
+                // todo 枚举类型未完
                 if (typeof(value) == WidgetKey._string) {
                     if (key == WidgetKey._enumType) {
                         jsonMouldObjGrandParent[WidgetKey._valueType] = WidgetKey._enum;
