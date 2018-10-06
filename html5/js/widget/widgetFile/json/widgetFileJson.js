@@ -12,7 +12,7 @@ WidgetFileJson._enumInitMouldType = {
 }
 
 WidgetFileJson.prototype.initRoot = function () {
-    var foldItem = WidgetFileBase.prototype.initRoot.apply(this, arguments);
+    this._rootFoldItem = WidgetFileBase.prototype.initRoot.apply(this, arguments);
 
     var jsonMouldName = null;
     if (this._jsonObj) {
@@ -22,27 +22,6 @@ WidgetFileJson.prototype.initRoot = function () {
     }
     this._widgetFileJsonMould = new WidgetFileJsonMould();
     this.initMould(jsonMouldName, WidgetFileJson.callbackInitMould);
-}
-WidgetFileJson.callbackInitMould = function (initMouldType) {
-    // 从tab获取，直接取值
-    // 从文件打开，附加到tab，通过jsonMd创建json
-    // 从json创建，通过json创建jsonMd，附加到tab，通过jsonMd创建json
-    if (initMouldType == WidgetFileJson._enumInitMouldType._tab) {
-
-    } else {
-        if (initMouldType == WidgetFileJson._enumInitMouldType._file) {
-
-        } else if (initMouldType == WidgetFileJson._enumInitMouldType._json) {
-
-        }
-        var widgetFileJson = this._exec;
-        if (widgetFileJson._widgetFileJsonMould.getMouldFromJson(widgetFileJson._jsonObj)) { // 从file找到
-            var elementTabTitle = gPanelFileMould._widgetTab.addTitle(widgetFileJson._jsonObj[APIData._jsonMould]);
-            gPanelFileMould._widgetTab.addContent(elementTabTitle, widgetFileJson._widgetFileJsonMould._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
-        }
-    }
-    // this.readObject(this._jsonObj, "root", foldItem, false);
-    // this.readMouldObject(this._widgetFileJsonMould._jsonMouldObj[WidgetKey._file], this._jsonObj, "root", foldItem, false);
 }
 WidgetFileJson.prototype.initMould = function (jsonMouldName, callback) {
     if (jsonMouldName) { // 打开已存在的模版
@@ -103,6 +82,28 @@ WidgetFileJson.creatMould = function () {
         exec._callback(WidgetFileJson._enumInitMouldType._json);
     }
     exec.close();
+}
+WidgetFileJson.callbackInitMould = function (initMouldType) {
+    // 从tab获取，直接取值，通过jsonMd创建json
+    // 从文件打开，附加到tab，通过jsonMd创建json
+    // 从json创建，通过json创建jsonMd，附加到tab，通过jsonMd创建json
+    var widgetFileJson = this._exec;
+    if (initMouldType == WidgetFileJson._enumInitMouldType._tab) {
+
+    } else {
+        if (initMouldType == WidgetFileJson._enumInitMouldType._file) {
+
+        } else if (initMouldType == WidgetFileJson._enumInitMouldType._json) {
+            if (widgetFileJson._widgetFileJsonMould.getMouldFromJson(widgetFileJson._jsonObj)) { // 通过json创建jsonMd
+                // 附加到tab
+                var elementTabTitle = gPanelFileMould._widgetTab.addTitle(widgetFileJson._jsonObj[APIData._jsonMould]);
+                gPanelFileMould._widgetTab.addContent(elementTabTitle, widgetFileJson._widgetFileJsonMould._jsonMouldObj, WidgetTab._enumAddContentType.fileJsonObj);
+            }
+        }
+    }
+    // 通过jsonMd创建json
+    // this.readObject(this._jsonObj, "root", foldItem, false);
+    widgetFileJson.readMouldObject(widgetFileJson._widgetFileJsonMould._jsonMouldObj[WidgetKey._file], widgetFileJson._jsonObj, "root", widgetFileJson._rootFoldItem, false);
 }
 
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
