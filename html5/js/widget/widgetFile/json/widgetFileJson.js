@@ -172,12 +172,27 @@ WidgetFileJson.prototype.readMouldObject = function (jsonObjMd, jsonObj, keyPare
         }
     }
 }
-WidgetFileJson.prototype.readObjectList = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent) {
+WidgetFileJson.prototype.readObjectList = function (jsonObjMd, jsonObjMdParent, jsonObj, keyParent, elementParent, isListParent) {
     for (var key in jsonObj) {
         // this.readMouldObjectKey(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
         // todo 加节点
+        var value = jsonObj[key];
+        var jsonObjCtrl = new JsonObjCtrl(this, value, isListParent, key);
+        jsonObjCtrl._keyShow = jsonObjMdParent[WidgetKey._showTitle];
+        if (isListParent) {
+            jsonObjCtrl._keyShow += "_";
+            var keyShow = parseInt(key) + 1;
+            jsonObjCtrl._keyShow += keyShow;
+        }
+        var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
+
+        var keyChild = keyParent;
+        keyChild += "->";
+        keyChild += key;
+        keyChild += "->";
+
         for (var keyMd in jsonObjMd) {
-            this.readMouldObjectKey(jsonObjMd[keyMd], jsonObj[key], keyParent, elementParent, isListParent, keyMd);
+            this.readMouldObjectKey(jsonObjMd[keyMd], value, keyChild, foldItem, isListParent, keyMd);
         }
     }
 }
@@ -254,7 +269,7 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeArray = function (jsonObjMd, json
     //     this.readObjectList(valueItemMd, value, keyParent, foldItem, true);
     //     break;
     // }
-    this.readObjectList(valueMd, value, keyParent, foldItem, true);
+    this.readObjectList(valueMd, jsonObjMd, value, keyParent, foldItem, true);
 }
 WidgetFileJson.prototype.readMouldObjectKeyTypeEnum = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key) {
     var valueMd = jsonObjMd[WidgetKey._value];
