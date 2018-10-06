@@ -75,11 +75,13 @@ WidgetFileJson.openMould = function () { // 弹文件选择框
 }
 WidgetFileJson.callbackOpenMould = function (ok, value) {
     if (ok) {
-        var widgetFileJson = this._exec._exec;
+        var widgetDialog = this._exec;
+        var widgetFileJson = widgetDialog._exec;
         widgetFileJson._jsonObj[APIData._jsonMould] = value;
-        if (this._callback) {
-            this._callback(WidgetFileJson._enumInitMouldType._file);
+        if (widgetDialog._callback) {
+            widgetDialog._callback(WidgetFileJson._enumInitMouldType._file);
         }
+        widgetDialog.close();
     }
 }
 WidgetFileJson.creatMould = function () {
@@ -100,6 +102,7 @@ WidgetFileJson.creatMould = function () {
     if (exec._callback) {
         exec._callback(WidgetFileJson._enumInitMouldType._json);
     }
+    exec.close();
 }
 
 // WidgetFileJson.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {

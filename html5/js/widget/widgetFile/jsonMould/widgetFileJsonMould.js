@@ -6,8 +6,7 @@ WidgetFileJsonMould.prototype.constructor = WidgetFileJsonMould;
 
 WidgetFileJsonMould._enumParentType = {
     _base: 0,
-    _list: 1,
-    _listItem: 2
+    _list: 1
 }
 
 WidgetFileJsonMould.prototype.initRoot = function () {
@@ -15,11 +14,11 @@ WidgetFileJsonMould.prototype.initRoot = function () {
     this.readObject(this._jsonObj, "root", foldItem, false);
 }
 WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
-    // WidgetLog.log(keyParent);
     for (var o in jsonObj) {
         var key = o;
         var keyShow = WidgetFileUtil.getKeyShow(key);
         var value = jsonObj[key];
+
         var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
         jsonObjCtrl._keyShow = keyShow;
         if (typeof(value) == WidgetKey._object) {
@@ -137,7 +136,17 @@ WidgetFileJsonMould.prototype.refreshContent = function () {
     var widgetTab = this._elementTabTitle._widgetTab;
     widgetTab.refreshContent(this._elementTabTitle, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
+WidgetFileJsonMould.prototype.isMouldIgnore = function (key) {
+    for (var i in this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList]) {
+        var isStart = key[i].indexOf("$");
+        if (isStart == 0) {
+            return true;
+        }
+    }
+    return false;
+}
 
+// 获取mould
 WidgetFileJsonMould.prototype.getMouldFromWidgetTab = function (fileName) {
     // 从tab获取
     var widgetTab = getWidgetTab(confPanelFileMould);
@@ -166,6 +175,7 @@ WidgetFileJsonMould.prototype.getMouldFromJson = function (jsonObj) {
     WidgetLog.log("========================================");
     return true;
 }
+// 创建mould
 WidgetFileJsonMould.prototype.createMould = function (jsonObj) {
     this._jsonMouldObj = {};
     this._jsonMouldObj[WidgetKey._ignore] = {};
@@ -173,9 +183,9 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj) {
     this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList].push("$");
 
     this._jsonMouldObj[WidgetKey._file] = {};
-    this.createMouldFile(jsonObj, this._jsonMouldObj, "", this._jsonMouldObj[WidgetKey._file], WidgetFileJsonMould._enumParentType._base);
+    this.createMouldFile(jsonObj, this._jsonMouldObj, "root", this._jsonMouldObj[WidgetKey._file], this._jsonMouldObj, WidgetFileJsonMould._enumParentType._base);
 }
-WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj, keyParent, jsonMouldObjParent, parentType) {
+WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj, keyParent, jsonMouldObjParent, jsonMouldObjGrandParent, parentType) {
     for (var o in jsonObj) {
         if (o == APIData._jsonMould) {
             continue;
@@ -206,19 +216,36 @@ WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj,
             jsonMouldObjParent[key] = {};
             jsonMouldObjParent[key][WidgetKey._showTitle] = key;
             if (typeof(value) == WidgetKey._object) {
+                jsonMouldObjParent[key][WidgetKey._valueType] = "";
+                jsonMouldObjParent[key][WidgetKey._value] = {};
+                var jsonMouldObjChild = jsonMouldObjParent[key][WidgetKey._value];
+
                 if (Array.isArray(value)) {
                     childType = WidgetFileJsonMould._enumParentType._list;
                     jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._array;
-                    jsonMouldObjParent[key][WidgetKey._value] = {};
                 } else {
-                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._object;
-                    jsonMouldObjParent[key][WidgetKey._value] = {};
+                    var isHave = key.toLowerCase().indexOf("type");
+                    if (isHave != -1) {
+                        jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._enum;
+                    } else {
+                        jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._object;
+                    }
+                    if (key == WidgetKey._enumParamList) {
+                        delete jsonMouldObjParent[key][WidgetKey._showTitle];
+                        delete jsonMouldObjParent[key][WidgetKey._valueType];
+                        delete jsonMouldObjParent[key][WidgetKey._value];
+                        jsonMouldObjChild = jsonMouldObjParent[key];
+                    }
                 }
-
-                this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjParent[key][WidgetKey._value], childType);
+                this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjChild, jsonMouldObjParent[key], childType);
             } else {
                 if (typeof(value) == WidgetKey._string) {
-                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._string;
+                    if (key == WidgetKey._enumType) {
+                        jsonMouldObjGrandParent[WidgetKey._valueType] = WidgetKey._enum;
+                        delete jsonMouldObjParent[key];
+                    } else {
+                        jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._string;
+                    }
                 } else if (typeof(value) == WidgetKey._number) {
                     jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._number;
                 } else if (typeof(value) == WidgetKey._boolean) {
@@ -226,48 +253,11 @@ WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj,
                 } else {
                     var strType = typeof(value);
                     jsonMouldObjParent[key][WidgetKey._valueType] = strType;
-                    // WidgetLog.log("[" + typeof(value) + "]" + keyChild + " = " + value);
+                    // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
                 }
             }
         } else if (parentType == WidgetFileJsonMould._enumParentType._list) {
-            childType = WidgetFileJsonMould._enumParentType._listItem;
-            this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjParent, childType);
-        } else if (parentType == WidgetFileJsonMould._enumParentType._listItem) {
-            jsonMouldObjParent[key] = {};
-            jsonMouldObjParent[key][WidgetKey._showTitle] = key;
-            if (typeof(value) == WidgetKey._object) {
-                if (Array.isArray(value)) {
-                    childType = WidgetFileJsonMould._enumParentType._list;
-                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._array;
-                    jsonMouldObjParent[key][WidgetKey._value] = {};
-                } else {
-                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._object;
-                    jsonMouldObjParent[key][WidgetKey._value] = {};
-                }
-
-                this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjParent[key][WidgetKey._value], childType);
-            } else {
-                if (typeof(value) == WidgetKey._string) {
-                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._string;
-                } else if (typeof(value) == WidgetKey._number) {
-                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._number;
-                } else if (typeof(value) == WidgetKey._boolean) {
-                    jsonMouldObjParent[key][WidgetKey._valueType] = WidgetKey._boolean;
-                } else {
-                    var strType = typeof(value);
-                    jsonMouldObjParent[key][WidgetKey._valueType] = strType;
-                    // WidgetLog.log("[" + typeof(value) + "]" + keyChild + " = " + value);
-                }
-            }
+            this.createMouldFile(value, jsonMouldObj, keyChild, jsonMouldObjParent, jsonMouldObjGrandParent, childType);
         }
     }
-}
-WidgetFileJsonMould.prototype.isMouldIgnore = function (key) {
-    for (var i in this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList]) {
-        var isStart = key[i].indexOf("$");
-        if (isStart == 0) {
-            return true;
-        }
-    }
-    return false;
 }
