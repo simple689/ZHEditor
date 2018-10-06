@@ -99,7 +99,7 @@
     <session id="-1152963513">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="41" />
+          <entry key="project.closed" value="42" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="5" />
@@ -166,8 +166,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="180" column="46" selection-start-line="180" selection-start-column="46" selection-end-line="180" selection-end-column="46" />
+            <state relative-caret-position="126">
+              <caret line="179" column="74" lean-forward="true" selection-start-line="179" selection-start-column="74" selection-end-line="179" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -266,7 +266,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>widgetMenuFoldLabel</find>
       <find>widgetMenuFoldLabelCheck</find>
       <find>widgetFileBrowserLeftFolderName</find>
       <find>createDialogOneInput</find>
@@ -296,6 +295,7 @@
       <find>onChangeSelect</find>
       <find>请输入添加</find>
       <find>readMouldObject</find>
+      <find>readObjectList</find>
     </findStrings>
     <replaceStrings>
       <replace>_elementTabContent</replace>
@@ -918,12 +918,12 @@
       <workItem from="1538701801814" duration="9531000" />
       <workItem from="1538722116350" duration="3109000" />
       <workItem from="1538743035340" duration="5348000" />
-      <workItem from="1538788709132" duration="15860000" />
+      <workItem from="1538788709132" duration="15894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1218077000" />
+    <option name="totallyTimeSpent" value="1218111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -944,7 +944,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.1488" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49375" visible="true" weight="0.3648" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" weight="0.3648" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3296" />
@@ -1170,12 +1170,6 @@
           <line>85</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="270" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js</url>
-          <line>175</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="280" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1549,8 +1543,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="180" column="46" selection-start-line="180" selection-start-column="46" selection-end-line="180" selection-end-column="46" />
+        <state relative-caret-position="126">
+          <caret line="179" column="74" lean-forward="true" selection-start-line="179" selection-start-column="74" selection-end-line="179" selection-end-column="74" />
         </state>
       </provider>
     </entry>
