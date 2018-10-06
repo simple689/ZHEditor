@@ -174,7 +174,11 @@ WidgetFileJson.prototype.readMouldObject = function (jsonObjMd, jsonObj, keyPare
 }
 WidgetFileJson.prototype.readObjectList = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent) {
     for (var key in jsonObj) {
-        this.readMouldObjectKey(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
+        // this.readMouldObjectKey(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
+        // todo 加节点
+        for (var keyMd in jsonObjMd) {
+            this.readMouldObjectKey(jsonObjMd[keyMd], jsonObj[key], keyParent, elementParent, isListParent, keyMd);
+        }
     }
 }
 WidgetFileJson.prototype.readMouldObjectKey = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key) {
@@ -245,11 +249,12 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeArray = function (jsonObjMd, json
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
     WidgetHtml.addInput(foldItem._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
-    for (var keyMd in valueMd) {
-        var valueItemMd = valueMd[keyMd];
-        this.readObjectList(valueItemMd, value, keyParent, foldItem, true);
-        break;
-    }
+    // for (var keyMd in valueMd) {
+    //     var valueItemMd = valueMd[keyMd];
+    //     this.readObjectList(valueItemMd, value, keyParent, foldItem, true);
+    //     break;
+    // }
+    this.readObjectList(valueMd, value, keyParent, foldItem, true);
 }
 WidgetFileJson.prototype.readMouldObjectKeyTypeEnum = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key) {
     var valueMd = jsonObjMd[WidgetKey._value];
