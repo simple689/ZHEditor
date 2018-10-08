@@ -14,7 +14,7 @@ PanelFileMould.prototype.init = function (elementParentID) {
                          this._historyItem);
 
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldTitle.html");
-    this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldContent.html");
+    this._menuRightContent.createMenuWithHtml(document.body, null);
 }
 
 PanelFileMould.loadedHome = function (exec, htmlRoot) {

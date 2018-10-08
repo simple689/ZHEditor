@@ -22,8 +22,10 @@ WidgetMenu.prototype.createMenuWithHtml = function (elementParent, html) {
     if (!this._elementParent) {
         return;
     }
-    $(this._elementParent).load(html, function () {
-    });
+    if (html) {
+        $(this._elementParent).load(html, function () {
+        });
+    }
 }
 WidgetMenu.prototype.addUl = function (elementParent) {
     var ul = WidgetHtml.createElement("ul");

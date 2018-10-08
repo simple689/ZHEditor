@@ -14,7 +14,7 @@ PanelFileLink.prototype.init = function (elementParentID) {
                          this._historyItem);
 
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileLinkTitle.html");
-    this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileLinkContent.html");
+    this._menuRightContent.createMenuWithHtml(document.body, null);
 }
 
 PanelFileLink.loadedHome = function (exec, htmlRoot) {

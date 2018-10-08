@@ -14,7 +14,7 @@ PanelFileEditor.prototype.init = function (elementParentID) {
                          this._historyItem);
 
     this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorTitle.html");
-    this._menuRightContent.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorContent.html");
+    this._menuRightContent.createMenuWithHtml(document.body, null);
 }
 
 PanelFileEditor.loadedHome = function (exec, htmlRoot) {
