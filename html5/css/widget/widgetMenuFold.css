@@ -9,7 +9,7 @@
 /*所有菜单项设置统一样式*/
 .widgetMenuFold dt {
     height: 27px;
-    background: dimgray;
+    /*background: dimgray;*/
 }
 
 .widgetMenuFold dt div {
@@ -17,7 +17,7 @@
 }
 
 .widgetMenuFold dt:hover, dt:focus {
-    background-color: #a7a7a7;
+    /*background-color: #a7a7a7;*/
     color: #fff;
 }
 
@@ -42,12 +42,16 @@
     margin-left: 15px;
 }
 
+.widgetMenuFoldDdItem {
+    height: 27px;
+}
+
 .widgetMenuFoldDdItem .widgetMenuFoldDdItemTool {
     display: none;
 }
 
 .widgetMenuFoldDdItem:hover {
-    background-color: #a7a7a7;
+    /*background-color: #a7a7a7;*/
     color: #fff;
 }
 

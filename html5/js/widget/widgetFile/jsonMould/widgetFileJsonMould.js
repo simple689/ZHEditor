@@ -84,9 +84,9 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 }
             }
 
-            if (WidgetFileUtil.isAddBr(key)) {
+            // if (WidgetFileUtil.isAddBr(key)) {
                 WidgetHtml.addBr(elementParent);
-            }
+            // }
         }
     }
 }
@@ -108,7 +108,7 @@ WidgetFileJsonMould.changeSelectValueType = function (element) {
     }
     jsonObj[WidgetKey._valueType] = element.value;
     var jsonObjValueType = jsonObj[WidgetKey._valueType];
-    if (jsonObjValueType == WidgetKey._object || jsonObjValueType == WidgetKey._array) {
+    if (jsonObjValueType == WidgetKey._object || jsonObjValueType == WidgetKey._objectHorizon || jsonObjValueType == WidgetKey._array) {
         jsonObj[WidgetKey._value] = {};
     } else if (jsonObjValueType == WidgetKey._enum) {
         jsonObj[WidgetKey._value] = {};

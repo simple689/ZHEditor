@@ -28,13 +28,6 @@ WidgetFileUtil.getKeyShow = function (key) {
     }
     return keyShow;
 }
-WidgetFileUtil.isAddBr = function (key) {
-    var isAdd = true;
-    if (key == 'x' || key == 'y' || key == 'z') {
-        isAdd = false;
-    }
-    return isAdd;
-}
 WidgetFileUtil.getJsonObjCtrl = function (e) {
     if (e._menu) {
         return e._menu._exec._jsonObjCtrl;

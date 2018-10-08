@@ -44,6 +44,7 @@ JsonListCtrl.prototype.insertItem = function(item) {
 }
 JsonObjCtrl._valueTypeList = JsonListCtrlStatic(
     new JsonListItem(WidgetKey._object,"对象"),
+    new JsonListItem(WidgetKey._objectHorizon,"对象（水平排列）"),
     new JsonListItem(WidgetKey._array,"列表"),
     new JsonListItem(WidgetKey._string,"字符串"),
     new JsonListItem(WidgetKey._number,"数字"),

@@ -23,6 +23,7 @@ WidgetKey._valueType = "valueType";
 WidgetKey._value = "value";
 
 WidgetKey._object = "object";
+WidgetKey._objectHorizon = "objectHorizon";
 WidgetKey._array = "array";
 WidgetKey._string = "string";
 WidgetKey._number = "number";

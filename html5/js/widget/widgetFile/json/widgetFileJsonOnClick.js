@@ -1,20 +1,20 @@
-WidgetFileJson.prototype.onClickRefresh = function (e) {
+WidgetFileJson.onClickRefresh = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJson.prototype.onClickSave = function (e) {
+WidgetFileJson.onClickSave = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var title = jsonObjCtrl._exec._elementTabTitle._title;
 }
-WidgetFileJson.prototype.onClickSaveAs = function (e) {
+WidgetFileJson.onClickSaveAs = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     PanelFileBrowser.saveAs(jsonObjCtrl);
 }
-WidgetFileJson.prototype.onClickDownLoad = function (e) {
+WidgetFileJson.onClickDownLoad = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     PanelFileBrowser.downLoad(jsonObjCtrl);
 }
-WidgetFileJson.prototype.onClickObjectAdd = function (e) {
+WidgetFileJson.onClickObjectAdd = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObjKey = jsonObjCtrl._key;
     var jsonObjValue = jsonObjCtrl._value;
@@ -47,6 +47,10 @@ WidgetFileJson.prototype.onClickObjectAdd = function (e) {
         var jsonObjValue = jsonObj;
         if (valueType) {
             if (valueType == WidgetKey._object) {
+                if (!jsonObj[WidgetKey._value]) {
+                    jsonObj[WidgetKey._value] = {};
+                }
+            } else if (valueType == WidgetKey._objectHorizon) {
                 if (!jsonObj[WidgetKey._value]) {
                     jsonObj[WidgetKey._value] = {};
                 }
@@ -95,7 +99,7 @@ WidgetFileJson.prototype.onClickObjectAdd = function (e) {
     }
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJson.prototype.onClickObjectDel = function (e) {
+WidgetFileJson.onClickObjectDel = function (e) {
     if (!confirm("确定要 “删除对象” 吗？")) { //利用对话框返回的值 （true 或者 false）
         return;
     }
@@ -104,23 +108,23 @@ WidgetFileJson.prototype.onClickObjectDel = function (e) {
     delete jsonObj[jsonObjCtrl._key];
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJson.prototype.onClickListAdd = function (e) {
+WidgetFileJson.onClickListAdd = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     WidgetFileJson.listAdd(jsonObjCtrl);
 }
-WidgetFileJson.prototype.onClickListDel = function (e) {
+WidgetFileJson.onClickListDel = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._obj;
     jsonObj.splice(jsonObjCtrl._key, 1);
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJson.prototype.onClickListClear = function (e) {
+WidgetFileJson.onClickListClear = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var jsonObj = jsonObjCtrl._value;
     jsonObj.splice(0, jsonObj.length);
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJson.prototype.onClickRenameKey = function (e) {
+WidgetFileJson.onClickRenameKey = function (e) {
     var keyNew = prompt("请输入 Key 的新名字 ：");
     if (!keyNew) {
         return;
@@ -136,11 +140,11 @@ WidgetFileJson.prototype.onClickRenameKey = function (e) {
     delete jsonObj[jsonObjCtrl._key];
     jsonObjCtrl._exec.refreshContent();
 }
-WidgetFileJson.prototype.onClickListToolAdd = function (e) {
+WidgetFileJson.onClickListToolAdd = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     WidgetFileJson.listAdd(jsonObjCtrl);
 }
-WidgetFileJson.prototype.onClickLink = function (e) {
+WidgetFileJson.onClickLink = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
     var file = jsonObjCtrl._objMd[WidgetKey._file];
     var key = jsonObjCtrl._objMd[WidgetKey._key];

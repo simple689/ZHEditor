@@ -207,6 +207,8 @@ WidgetFileJson.prototype.readMouldObjectKey = function (jsonObjMd, jsonObj, keyP
     var valueTypeMd = jsonObjMd[WidgetKey._valueType];
     if (valueTypeMd == WidgetKey._object) {
         this.readMouldObjectKeyTypeObject(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
+    } else if (valueTypeMd == WidgetKey._objectHorizon) {
+        this.readMouldObjectKeyTypeObject(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
     } else if (valueTypeMd == WidgetKey._array) {
         this.readMouldObjectKeyTypeArray(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
     } else if (valueTypeMd == WidgetKey._enum) {
@@ -395,17 +397,17 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeOther = function (jsonObjMd, json
         // WidgetLog.log("[" + valueTypeMd + "]" + keyParent + "->" + key + " = " + value);
     }
 
-    jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
-    jsonObjCtrl._value = "复制Key：";
-    jsonObjCtrl._objMd = valueMd;
-    jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;
-    WidgetHtml.addInput(foldDdItem._elementTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
-
-
-    if (WidgetFileUtil.isAddBr(key)) {
+    // if (WidgetFileUtil.isAddBr(key)) {
         // WidgetHtml.addBr(elementParent);
-        return elementParent;
-    }
+
+        // jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+        // jsonObjCtrl._value = "复制Key：";
+        // jsonObjCtrl._objMd = valueMd;
+        // jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;
+        // WidgetHtml.addInput(foldDdItem._elementTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
+        //
+        // return elementParent;
+    // }
     return foldDdItem;
 }
 
@@ -431,6 +433,12 @@ WidgetFileJson.a = function (jsonObjMd, jsonObj, key) {
     var valueTypeMd = jsonObjMd[WidgetKey._valueType];
     var valueMd = jsonObjMd[WidgetKey._value];
     if (valueTypeMd == WidgetKey._object) {
+        jsonObj[key] = {};
+        for (var oItemMd in valueMd) {
+            var valueItemMd = valueMd[oItemMd];
+            WidgetFileJson.a(valueItemMd, jsonObj[key], oItemMd);
+        }
+    } else if (valueTypeMd == WidgetKey._objectHorizon) {
         jsonObj[key] = {};
         for (var oItemMd in valueMd) {
             var valueItemMd = valueMd[oItemMd];

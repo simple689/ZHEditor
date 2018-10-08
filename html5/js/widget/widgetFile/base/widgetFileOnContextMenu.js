@@ -14,71 +14,24 @@ WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
     // li = menu.addLi(ul, "保存", WidgetFileOnClick.onClickSave, null);
     // li = menu.addLi(ul, "另存为", WidgetFileOnClick.onClickSaveAs, null);
     // li = menu.addLi(ul, "下载", WidgetFileOnClick.onClickDownLoad, null);
-    // var func = WidgetFileUtil.getExec(this).onContextMenuRoot;
+    // var func = WidgetFileUtil.getExec(this).constructor.onContextMenuRoot;
     // if (func) func(menu, ul);
     // WidgetMenu.showMenu(menu, e, this);
     // return false; // 取消右键点击的默认事件
 }
-WidgetFileOnContextMenu.onContextMenuObject = function (e) {
-    var menu = WidgetFileOnContextMenu.createMenu();
-    var ul = menu.addUl(menu._elementParent);
-    var li = null;
-    if (this._jsonObjCtrl._key == WidgetKey._ignore) {
-        li = menu.addLi(ul, "暂无功能", null, null);
-    } else if (this._jsonObjCtrl._isListParent) {
-        li = menu.addLi(ul, "添加对象", WidgetFileOnClick.onClickObjectAdd, null);
-        li = menu.addLi(ul, "列表中删除此对象", WidgetFileOnClick.onClickListDel, null);
-    } else {
-        li = menu.addLi(ul, "重命名Key", WidgetFileOnClick.onClickRenameKey, null);
-        li = menu.addLi(ul, "添加对象", WidgetFileOnClick.onClickObjectAdd, null);
-        li = menu.addLi(ul, "删除对象", WidgetFileOnClick.onClickObjectDel, null);
-    }
-    var func = WidgetFileUtil.getExec(this).onContextMenuObject;
-    if (func) func(menu, ul);
-    WidgetMenu.showMenu(menu, e, this);
-    return false; // 取消右键点击的默认事件
-}
-WidgetFileOnContextMenu.onContextMenuList = function (e) {
-    // var menu = WidgetFileOnContextMenu.createMenu();
-    // var ul = menu.addUl(menu._elementParent);
-    // var li = null;
-    // // li = menu.addLi(ul, "列表中添加对象", WidgetFileOnClick.onClickListAdd, null);
-    // // li = menu.addLi(ul, "列表中清空对象", WidgetFileOnClick.onClickListClear, null);
-    // var func = WidgetFileUtil.getExec(this).onContextMenuList;
-    // if (func) func(menu, ul);
-    // WidgetMenu.showMenu(menu, e, this);
-    // return false; // 取消右键点击的默认事件
-}
-WidgetFileOnContextMenu.onContextMenuLabel = function (e) {
-    // var menu = WidgetFileOnContextMenu.createMenu();
-    // var ul = menu.addUl(menu._elementParent);
-    // var li = null;
-    // // if (this._jsonObjCtrl._isListParent) {
-    // //     li = menu.addLi(ul, "列表中删除此对象", WidgetFileOnClick.onClickListDel, null);
-    // // }
-    // var func = WidgetFileUtil.getExec(this).onContextMenuLabel;
-    // if (func) func(menu, ul);
-    // WidgetMenu.showMenu(menu, e, this);
-    // return false; // 取消右键点击的默认事件
-}
-WidgetFileOnContextMenu.onContextMenuInput = function (e) {
-    // var menu = WidgetFileOnContextMenu.createMenu();
-    // var ul = menu.addUl(menu._elementParent);
-    // var li = null;
-    // // if (this._jsonObjCtrl._isListParent) {
-    // //     li = menu.addLi(ul, "列表中删除此对象", WidgetFileOnClick.onClickListDel, null);
-    // // }
-    // var func = WidgetFileUtil.getExec(this).onContextMenuInput;
-    // if (func) func(menu, ul);
-    // WidgetMenu.showMenu(menu, e, this);
-    // return false; // 取消右键点击的默认事件
-}
-WidgetFileOnContextMenu.onContextMenuSelect = function (e) {
-    // var menu = WidgetFileOnContextMenu.createMenu();
-    // var ul = menu.addUl(menu._elementParent);
-    // var li = null;
-    // var func = WidgetFileUtil.getExec(this).onContextMenuSelect;
-    // if (func) func(menu, ul);
-    // WidgetMenu.showMenu(menu, e, this);
-    // return false; // 取消右键点击的默认事件
-}
+
+// li = menu.addLi(ul, "编辑显示Key", null, null);
+// li = menu.addLi(ul, "值类型", null, null);
+//
+// var ul_0 = menu.addUl(li);
+// li = menu.addLi(ul_0, "字符串", null, null);
+// li = menu.addLi(ul_0, "数字", null, null);
+// var ul_0_0 = menu.addUl(li);
+// li = menu.addLi(ul_0_0, "整数", null, null);
+// li = menu.addLi(ul_0_0, "小数", null, null);
+//
+// li = menu.addLi(ul_0, "按钮", null, null);
+// li = menu.addLi(ul_0, "真假", null, null);
+// li = menu.addLi(ul_0, "单选", null, null);
+// li = menu.addLi(ul_0, "文件", null, null);
+// li = menu.addLi(ul_0, "颜色", null, null);
