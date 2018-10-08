@@ -13,7 +13,7 @@ PanelFileLink.prototype.init = function (elementParentID) {
                          "../../editor/home/homeFileLink.html", PanelFileLink.loadedHome,
                          this._historyItem);
 
-    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileTitleOnClick.html");
+    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileLinkTitle.html");
     this._menuRightContent.createMenuWithHtml(document.body, null);
 }
 

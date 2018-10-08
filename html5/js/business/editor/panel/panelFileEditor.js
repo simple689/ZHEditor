@@ -13,7 +13,7 @@ PanelFileEditor.prototype.init = function (elementParentID) {
                          "../../editor/home/homeFileEditor.html", PanelFileEditor.loadedHome,
                          this._historyItem);
 
-    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileTitleOnClick.html");
+    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileEditorTitle.html");
     this._menuRightContent.createMenuWithHtml(document.body, null);
 }
 
