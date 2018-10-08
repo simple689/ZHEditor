@@ -13,7 +13,7 @@ PanelFileMould.prototype.init = function (elementParentID) {
                          "../../editor/home/homeFileMould.html", PanelFileMould.loadedHome,
                          this._historyItem);
 
-    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileMouldTitle.html");
+    this._menuRightTitle.createMenuWithHtml(document.body, "../../editor/menu/menuFileTitleOnClick.html");
     this._menuRightContent.createMenuWithHtml(document.body, null);
 }
 
