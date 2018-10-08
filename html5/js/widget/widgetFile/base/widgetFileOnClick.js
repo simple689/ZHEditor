@@ -51,6 +51,14 @@ WidgetFileOnClick.onClickListToolAdd = function (e) {
     var func = WidgetFileUtil.getExec(this).onClickListToolAdd;
     if (func) func(this);
 }
+WidgetFileOnClick.onClickListToolClear = function (e) {
+    var func = WidgetFileUtil.getExec(this).onClickListToolClear;
+    if (func) func(this);
+}
+WidgetFileOnClick.onClickListToolDel = function (e) {
+    var func = WidgetFileUtil.getExec(this).onClickListToolDel;
+    if (func) func(this);
+}
 WidgetFileOnClick.onClickLink = function (e) {
     var func = WidgetFileUtil.getExec(this).onClickLink;
     if (func) func(this);

@@ -147,7 +147,7 @@ WidgetTab.prototype.setActiveElement = function (elementActive) {
     this.showActiveElement();
 }
 WidgetTab.prototype.hideActiveElement = function () {
-    if (this._elementActive && this._elementActive.classList.contains(WidgetTab._classIsActive)) {
+    if (this._elementActive && WidgetHtml.classContains(this._elementActive, WidgetTab._classIsActive)) {
         WidgetHtml.classRemove(this._elementActive, WidgetTab._classIsActive);
         // $(this._elementActive._elementTabContent).hide();
         $(this._elementActive._elementTabContent).slideUp(WidgetTab._slideSpeed);
@@ -159,7 +159,7 @@ WidgetTab.prototype.showActiveElement = function () {
     $(this._elementActive._elementTabContent).slideDown(WidgetTab._slideSpeed);
 }
 WidgetTab.onClickTabTitle = function (e) {
-    if (!this.classList.contains(WidgetTab._classIsActive)) {
+    if (!WidgetHtml.classContains(this.classList, WidgetTab._classIsActive)) {
         this._widgetTab.setActiveElement(this);
     }
     WidgetMenu.hideMenuAll();

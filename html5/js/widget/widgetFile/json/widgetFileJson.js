@@ -161,6 +161,7 @@ WidgetFileJson.callbackInitMould = function (initMouldType) {
 //     }
 // }
 WidgetFileJson.prototype.readMouldObject = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent) {
+    var foldDdItem = elementParent;
     for (var keyMd in jsonObjMd) {
         var valueMd = jsonObjMd[keyMd];
         if (typeof(valueMd) == WidgetKey._object) {
@@ -168,13 +169,12 @@ WidgetFileJson.prototype.readMouldObject = function (jsonObjMd, jsonObj, keyPare
             keyChild += "->";
             keyChild += keyMd;
             keyChild += "->";
-            this.readMouldObjectKey(valueMd, jsonObj, keyChild, elementParent, isListParent, keyMd);
+            foldDdItem = this.readMouldObjectKey(valueMd, jsonObj, keyChild, foldDdItem, isListParent, keyMd);
         }
     }
 }
 WidgetFileJson.prototype.readObjectList = function (jsonObjMd, jsonObjMdParent, jsonObj, keyParent, elementParent, isListParent) {
     for (var key in jsonObj) {
-        // this.readMouldObjectKey(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
         // todo 加节点
         var value = jsonObj[key];
         var jsonObjCtrl = new JsonObjCtrl(this, value, isListParent, key);
@@ -186,13 +186,20 @@ WidgetFileJson.prototype.readObjectList = function (jsonObjMd, jsonObjMdParent, 
         }
         var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
 
+        jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+        jsonObjCtrl._value = "删除该成员";
+        jsonObjCtrl._objMd = jsonObjMd;
+        jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;
+        WidgetHtml.addInput(foldItem._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
         var keyChild = keyParent;
         keyChild += "->";
         keyChild += key;
         keyChild += "->";
 
+        var foldDdItem = foldItem;
         for (var keyMd in jsonObjMd) {
-            this.readMouldObjectKey(jsonObjMd[keyMd], value, keyChild, foldItem, isListParent, keyMd);
+            foldDdItem = this.readMouldObjectKey(jsonObjMd[keyMd], value, keyChild, foldDdItem, isListParent, keyMd);
         }
     }
 }
@@ -207,8 +214,9 @@ WidgetFileJson.prototype.readMouldObjectKey = function (jsonObjMd, jsonObj, keyP
     } else if (valueTypeMd == WidgetKey._link) {
         this.readMouldObjectKeyTypeLink(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
     } else {
-        this.readMouldObjectKeyTypeOther(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
+        return this.readMouldObjectKeyTypeOther(jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key);
     }
+    return elementParent;
 }
 WidgetFileJson.prototype.readMouldObjectKeyTypeObject = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key) {
     var valueMd = jsonObjMd[WidgetKey._value];
@@ -228,9 +236,10 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeObject = function (jsonObjMd, jso
     jsonObjCtrl._objMd = jsonObjMd;
     var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
 
+    var foldDdItem = foldItem;
     for (var keyMd in valueMd) {
         var valueItemMd = valueMd[keyMd];
-        this.readMouldObjectKey(valueItemMd, value, keyParent, foldItem, false, keyMd);
+        foldDdItem = this.readMouldObjectKey(valueItemMd, value, keyParent, foldDdItem, false, keyMd);
     }
 }
 WidgetFileJson.prototype.readMouldObjectKeyTypeArray = function (jsonObjMd, jsonObj, keyParent, elementParent, isListParent, key) {
@@ -247,21 +256,16 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeArray = function (jsonObjMd, json
     jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuList;
     var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
 
-    // jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
-    // jsonObjCtrl._keyShow = "列表工具";
-    // jsonObjCtrl._objMd = jsonObjMd;
-    // WidgetHtml.addLabel(foldItem, jsonObjCtrl);
-    //
-    // jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
-    // jsonObjCtrl._value = "添加成员";
-    // jsonObjCtrl._objMd = jsonObjMd;
-    // jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
-    // WidgetHtml.addInput(foldItem, jsonObjCtrl, WidgetHtml._enumInputType._button);
-
     jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
-    jsonObjCtrl._value = "添加成员";
+    jsonObjCtrl._value = "添加列表成员";
     jsonObjCtrl._objMd = jsonObjMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
+    WidgetHtml.addInput(foldItem._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+    jsonObjCtrl._value = "清空列表成员";
+    jsonObjCtrl._objMd = jsonObjMd;
+    jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolClear;
     WidgetHtml.addInput(foldItem._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     // for (var keyMd in valueMd) {
@@ -316,10 +320,11 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeEnum = function (jsonObjMd, jsonO
     WidgetHtml.addBr(foldItem);
 
     var jsonEnumParamList = enumList[enumType][WidgetKey._enumParamList];
+    var foldDdItem = foldItem;
     if (jsonEnumParamList) {
         for (var oItemMd in jsonEnumParamList) {
             var valueItemMd = jsonEnumParamList[oItemMd];
-            this.readMouldObjectKey(valueItemMd, value[WidgetKey._enumParamList], keyParent, foldItem, false, oItemMd);
+            foldDdItem = this.readMouldObjectKey(valueItemMd, value[WidgetKey._enumParamList], keyParent, foldDdItem, false, oItemMd);
         }
     }
 }
@@ -358,28 +363,50 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeOther = function (jsonObjMd, json
         jsonObj[key] = "";
         value = jsonObj[key];
     }
+
+    var foldDdItem = elementParent;
+    if (!WidgetHtml.classContains(foldDdItem, "widgetMenuFoldDdItem")) {
+        foldDdItem = WidgetHtml.addDiv(elementParent);
+        WidgetHtml.classAdd(foldDdItem, "widgetMenuFoldDdItem");
+
+        foldDdItem._elementContent = WidgetHtml.addSpan(foldDdItem);
+
+        foldDdItem._elementTool = WidgetHtml.addSpan(foldDdItem);
+        WidgetHtml.classAdd(foldDdItem._elementTool, "widgetMenuFoldDdItemTool");
+    }
+
     var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     jsonObjCtrl._objMd = jsonObjMd;
     jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuLabel;
-    WidgetHtml.addLabel(elementParent, jsonObjCtrl);
+    WidgetHtml.addLabel(foldDdItem._elementContent, jsonObjCtrl);
 
     jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
     jsonObjCtrl._value = value;
     jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuInput;
     jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
     if (valueTypeMd == WidgetKey._string) {
-        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
+        WidgetHtml.addInput(foldDdItem._elementContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     } else if (valueTypeMd == WidgetKey._number) {
-        WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textNumber);
+        WidgetHtml.addInput(foldDdItem._elementContent, jsonObjCtrl, WidgetHtml._enumInputType._textNumber);
     } else if (valueTypeMd == WidgetKey._boolean) {
-        WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._enumInputType._checkbox);
+        WidgetHtml.addInput(foldDdItem._elementContent, jsonObj, WidgetHtml._enumInputType._checkbox);
     } else {
         // WidgetLog.log("[" + valueTypeMd + "]" + keyParent + "->" + key + " = " + value);
     }
+
+    jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+    jsonObjCtrl._value = "复制Key：";
+    jsonObjCtrl._objMd = valueMd;
+    jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;
+    WidgetHtml.addInput(foldDdItem._elementTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
+
     if (WidgetFileUtil.isAddBr(key)) {
-        WidgetHtml.addBr(elementParent);
+        // WidgetHtml.addBr(elementParent);
+        return elementParent;
     }
+    return foldDdItem;
 }
 
 

@@ -31,6 +31,9 @@ WidgetHtml.classAdd = function(tag, className) {
 WidgetHtml.classRemove = function(tag, className) {
     tag.classList.remove(className);
 }
+WidgetHtml.classContains = function(tag, className) {
+    tag.classList.contains(className);
+}
 
 WidgetHtml.onClickInput = function (e) {
     switch (this._inputType) {
