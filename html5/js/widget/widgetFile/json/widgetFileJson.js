@@ -400,15 +400,15 @@ WidgetFileJson.prototype.readMouldObjectKeyTypeOther = function (jsonObjMd, json
     // if (WidgetFileUtil.isAddBr(key)) {
         // WidgetHtml.addBr(elementParent);
 
-        // jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
-        // jsonObjCtrl._value = "复制Key：";
-        // jsonObjCtrl._objMd = valueMd;
-        // jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;
-        // WidgetHtml.addInput(foldDdItem._elementTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
-        //
-        // return elementParent;
+        jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+        jsonObjCtrl._value = "复制Key：";
+        jsonObjCtrl._objMd = valueMd;
+        jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;
+        WidgetHtml.addInput(foldDdItem._elementTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
+        return elementParent;
     // }
-    return foldDdItem;
+    // return foldDdItem;
 }
 
 
