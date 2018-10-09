@@ -1,8 +1,7 @@
-function JsonObjCtrl(exec, obj, isListParent, key) {
+function JsonObjCtrl(exec, obj, key) {
     this._exec = exec;
     this._obj = obj;
     this._objMd = null;
-    this._isListParent = isListParent;
 
     this._key = key;
     this._keyShow = null;
@@ -13,7 +12,6 @@ function JsonObjCtrl(exec, obj, isListParent, key) {
     this._placeholder = null;
 
     this._onClick = null;
-    this._onContextMenu = null;
     this._onChange = null;
     this._onKeyUp = null;
     this._onFocus = null;

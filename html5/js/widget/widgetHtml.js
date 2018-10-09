@@ -93,7 +93,6 @@ WidgetHtml.addLabel = function (nodeParent, jsonObjCtrl) {
     WidgetHtml.classAdd(nodeLabel, "nodeLabel");
     nodeLabel._jsonObjCtrl = jsonObjCtrl;
     nodeLabel.onclick = jsonObjCtrl._onClick;
-    nodeLabel.oncontextmenu = jsonObjCtrl._onContextMenu;
     nodeLabel.innerHTML = jsonObjCtrl._keyShow;
     return nodeLabel;
 }
@@ -103,7 +102,6 @@ WidgetHtml.addInput = function (nodeParent, jsonObjCtrl, inputType) {
     WidgetHtml.classAdd(nodeInput, "nodeInput");
     nodeInput._jsonObjCtrl = jsonObjCtrl;
     nodeInput.onclick = jsonObjCtrl._onClick;
-    nodeInput.oncontextmenu = jsonObjCtrl._onContextMenu;
     nodeInput.onchange = WidgetHtml.onChangeInput;
     if (jsonObjCtrl._onKeyUp) {
         nodeInput.onkeyup = jsonObjCtrl._onKeyUp;
@@ -205,7 +203,6 @@ WidgetHtml.addSelect = function (nodeParent, jsonObjCtrl) {
     nodeParent.appendChild(nodeSelect);
     WidgetHtml.classAdd(nodeSelect, "nodeSelect");
     nodeSelect._jsonObjCtrl = jsonObjCtrl;
-    nodeSelect.oncontextmenu = jsonObjCtrl._onContextMenu;
     nodeSelect.onchange = jsonObjCtrl._onChange;
     for (var i = 0; i < jsonObjCtrl._valueList.length; i++) {
         var nodeOption = WidgetHtml.createElement("option");

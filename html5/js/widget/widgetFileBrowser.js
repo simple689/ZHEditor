@@ -89,7 +89,6 @@ WidgetFileBrowser.prototype.initLeft = function (left) {
     var jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
     jsonObjCtrl._keyShow = APIData._storeShow;
     jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
-    jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
     var isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
     var dd = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
     this.readFileBrowser(WidgetFileBrowser._jsonStore, obj["path"], dd);
@@ -99,7 +98,6 @@ WidgetFileBrowser.prototype.initLeft = function (left) {
     jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
     jsonObjCtrl._keyShow = APIData._personalShow;
     jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
-    jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuRoot;
     isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
     dd = this._menuFoldCtrl.createMenuFold(left, jsonObjCtrl, isCheck);
     this.readFileBrowser(WidgetFileBrowser._jsonPersonal, obj["path"], dd);
@@ -117,7 +115,7 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
 
         if (typeof(value) == WidgetKey._object) {
             var pathChild = pathParent;
-            var fold = elementParent;
+            var dd = elementParent;
             var type = value[APIData._type];
 
             if (type == APIData._folder) {
@@ -128,18 +126,17 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 var jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
                 jsonObjCtrl._keyShow = key;
                 jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
-                jsonObjCtrl._onContextMenu = WidgetFileBrowser.onContextMenuObject;
-                fold = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);
+                var dt = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);
 
-                WidgetHtml.addBr(fold);
+                WidgetHtml.addBr(dt);
                 // 展开状态
                 if (this._jsonStateMenuFold[pathChild]) {
-                    fold = this._menuFoldCtrl.addFoldItem(fold, true);
+                    dd = this._menuFoldCtrl.addFoldItem(dt, true);
                 } else {
-                    fold = this._menuFoldCtrl.addFoldItem(fold, false);
+                    dd = this._menuFoldCtrl.addFoldItem(dt, false);
                 }
             }
-            this.readFileBrowser(value, pathChild, fold);
+            this.readFileBrowser(value, pathChild, dd);
         }
     }
 }

@@ -10,8 +10,8 @@ WidgetFileJsonMould._enumParentType = {
 }
 
 WidgetFileJsonMould.prototype.initRoot = function () {
-    var foldItem = WidgetFileBase.prototype.initRoot.apply(this, arguments);
-    this.readObject(this._jsonObj, "root", foldItem, false);
+    var dd = WidgetFileBase.prototype.initRoot.apply(this, arguments);
+    this.readObject(this._jsonObj, "", dd, false);
 }
 WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, elementParent, isListParent) {
     for (var o in jsonObj) {
@@ -30,25 +30,19 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
             var isList = false;
             if (Array.isArray(value)) {
                 isList = true;
-                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuList;
-            } else {
-                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuObject;
             }
 
-            var foldItem = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
-            this.readObject(value, keyChild, foldItem, isList);
+            var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
+            this.readObject(value, keyChild, dd, isList);
         } else {
-            jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuLabel;
             WidgetHtml.addLabel(elementParent, jsonObjCtrl);
             jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
             jsonObjCtrl._value = value;
-            jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuInput;
             jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
 
             if (key == WidgetKey._valueType) {
                 jsonObjCtrl._value = value;
                 jsonObjCtrl._valueList = JsonObjCtrl._valueTypeList;
-                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
@@ -67,7 +61,6 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
                 }
                 jsonObjCtrl._value = enumTypeDefault;
                 jsonObjCtrl._valueList = jsonListCtrl.getList();
-                jsonObjCtrl._onContextMenu = WidgetFileOnContextMenu.onContextMenuSelect;
                 jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
@@ -182,7 +175,7 @@ WidgetFileJsonMould.prototype.createMould = function (jsonObj) {
     this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList].push("$");
 
     this._jsonMouldObj[WidgetKey._file] = {};
-    this.createMouldFile(jsonObj, this._jsonMouldObj, "root", this._jsonMouldObj[WidgetKey._file], this._jsonMouldObj, WidgetFileJsonMould._enumParentType._base);
+    this.createMouldFile(jsonObj, this._jsonMouldObj, "", this._jsonMouldObj[WidgetKey._file], this._jsonMouldObj, WidgetFileJsonMould._enumParentType._base);
 }
 WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj, keyParent, jsonMouldObjParent, jsonMouldObjGrandParent, parentType) {
     for (var o in jsonObj) {

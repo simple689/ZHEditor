@@ -1,24 +1,24 @@
-function WidgetFileOnContextMenu() {
-}
-
-WidgetFileOnContextMenu.createMenu = function() {
-    var menu = new WidgetMenu();
-    menu.createMenu(document.body);
-    return menu;
-}
-WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
-    // var menu = WidgetFileOnContextMenu.createMenu();
-    // var ul = menu.addUl(menu._elementParent);
-    // var li = null;
-    // li = menu.addLi(ul, "刷新", WidgetFileOnClick.onClickRefresh, null);
-    // li = menu.addLi(ul, "保存", WidgetFileOnClick.onClickSave, null);
-    // li = menu.addLi(ul, "另存为", WidgetFileOnClick.onClickSaveAs, null);
-    // li = menu.addLi(ul, "下载", WidgetFileOnClick.onClickDownLoad, null);
-    // var func = WidgetFileUtil.getExec(this).constructor.onContextMenuRoot;
-    // if (func) func(menu, ul);
-    // WidgetMenu.showMenu(menu, e, this);
-    // return false; // 取消右键点击的默认事件
-}
+// function WidgetFileOnContextMenu() {
+// }
+//
+// WidgetFileOnContextMenu.createMenu = function() {
+//     var menu = new WidgetMenu();
+//     menu.createMenu(document.body);
+//     return menu;
+// }
+// WidgetFileOnContextMenu.onContextMenuRoot = function (e) {
+//     // var menu = WidgetFileOnContextMenu.createMenu();
+//     // var ul = menu.addUl(menu._elementParent);
+//     // var li = null;
+//     // li = menu.addLi(ul, "刷新", WidgetFileOnClick.onClickRefresh, null);
+//     // li = menu.addLi(ul, "保存", WidgetFileOnClick.onClickSave, null);
+//     // li = menu.addLi(ul, "另存为", WidgetFileOnClick.onClickSaveAs, null);
+//     // li = menu.addLi(ul, "下载", WidgetFileOnClick.onClickDownLoad, null);
+//     // var func = WidgetFileUtil.getExec(this).constructor.onContextMenuRoot;
+//     // if (func) func(menu, ul);
+//     // WidgetMenu.showMenu(menu, e, this);
+//     // return false; // 取消右键点击的默认事件
+// }
 
 // li = menu.addLi(ul, "编辑显示Key", null, null);
 // li = menu.addLi(ul, "值类型", null, null);

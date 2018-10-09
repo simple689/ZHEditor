@@ -31,7 +31,6 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     jsonObjCtrlSub._keyShow = jsonObjCtrl._keyShow;
     jsonObjCtrlSub._value = jsonObjCtrl._value;
     jsonObjCtrlSub._onClick = jsonObjCtrl._onClick;
-    jsonObjCtrlSub._onContextMenu = jsonObjCtrl._onContextMenu;
     var labelTitle = WidgetHtml.addLabel(dt, jsonObjCtrl);
     WidgetHtml.classAdd(labelTitle, "widgetMenuFoldLabelTitle");
 
