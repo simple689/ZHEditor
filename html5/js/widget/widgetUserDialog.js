@@ -40,7 +40,7 @@ WidgetUserDialog.prototype.initDialogLeft = function (elementParent) {
 }
 WidgetUserDialog.prototype.initDialogLogin = function (elementParent) {
     // msg
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     this._labelMsg = WidgetHtml.addLabel(elementParent, jsonObjCtrl);
     WidgetHtml.classAdd(this._labelMsg, "widgetUserLabelMsg");
 
@@ -48,16 +48,16 @@ WidgetUserDialog.prototype.initDialogLogin = function (elementParent) {
     WidgetHtml.addBr(elementParent);
 
     // userName
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._keyShow = "用户名";
     var labelUserName = WidgetHtml.addLabel(elementParent, jsonObjCtrl);
     WidgetHtml.classAdd(labelUserName, "widgetUserLabelUserName");
 
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._placeholder = "xxx@xxx.com";
     this._inputUserName = WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
 
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._keyShow = "(邮箱)";
     WidgetHtml.addLabel(elementParent, jsonObjCtrl);
 
@@ -65,12 +65,12 @@ WidgetUserDialog.prototype.initDialogLogin = function (elementParent) {
     WidgetHtml.addBr(elementParent);
 
     // userPWD
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._keyShow = "密码";
     var labelUserPWD = WidgetHtml.addLabel(elementParent, jsonObjCtrl);
     WidgetHtml.classAdd(labelUserPWD, "widgetUserLabelUserPWD");
 
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     this._inputUserPWD = WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._password);
 
     // 结束换行
@@ -87,17 +87,17 @@ WidgetUserDialog.prototype.initDialogLogin = function (elementParent) {
     this.initVerify();
 
     // button
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "登录";
     jsonObjCtrl._onClick = WidgetUser.onClickLogin;
     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "忘记密码？";
     jsonObjCtrl._onClick = WidgetUser.onClickForgetPWD;
     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "注册账号";
     jsonObjCtrl._onClick = WidgetUser.onClickRegister;
     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);

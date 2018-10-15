@@ -86,7 +86,7 @@ WidgetFileBrowser.prototype.init = function () {
 WidgetFileBrowser.prototype.initLeft = function (left) {
     var obj = {};
     obj["path"] = "/" + APIData._storeShow;
-    var jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, obj, null);
     jsonObjCtrl._keyShow = APIData._storeShow;
     jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
     var isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
@@ -95,7 +95,7 @@ WidgetFileBrowser.prototype.initLeft = function (left) {
 
     obj = {};
     obj["path"] = "/" + APIData._personalShow;
-    jsonObjCtrl = new JsonObjCtrl(this, obj, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, obj, null);
     jsonObjCtrl._keyShow = APIData._personalShow;
     jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
     isCheck = this._jsonStateMenuFold[obj["path"]]; // 展开状态
@@ -123,7 +123,7 @@ WidgetFileBrowser.prototype.readFileBrowser = function (jsonObj, pathParent, ele
                 pathChild += key;
                 value["path"] = pathChild;
 
-                var jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+                var jsonObjCtrl = new JsonObjCtrl(this, value, key);
                 jsonObjCtrl._keyShow = key;
                 jsonObjCtrl._onClick = WidgetFileBrowser.onClickFolderName;
                 var dt = this._menuFoldCtrl.addFold(elementParent, jsonObjCtrl);

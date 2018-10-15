@@ -13,7 +13,7 @@ WidgetFileBase.prototype.init = function (elementTabContent, fileContent, conten
 WidgetFileBase.prototype.initRoot = function () {
     var elementFileRoot = this._elementTabContent._elementFileRoot;
 
-    var jsonObjCtrl = new JsonObjCtrl(this, this._jsonObj, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, this._jsonObj, null);
     jsonObjCtrl._keyShow = "文件根节点";
     this._menuFoldCtrl = new WidgetMenuFold();
     var dd = this._menuFoldCtrl.createMenuFold(elementFileRoot, jsonObjCtrl, true);

@@ -40,7 +40,7 @@ WidgetDialog.prototype.createDialog = function (elementParent, title, callback, 
     this._elementDialogContent._widgetDialog = this;
 
     // 标题
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._keyShow = title;
     var label = WidgetHtml.addLabel(this._elementDialogHead, jsonObjCtrl);
     label.style.textAlign = "center";
@@ -104,24 +104,24 @@ WidgetDialog.prototype.createDialogOneInput = function (elementParent, title, de
     this.createDialog(elementParent, title, callback, null);
 
     // 描述
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._keyShow = description;
     WidgetHtml.addLabel(this._elementDialogContent, jsonObjCtrl);
 
     // 输入框
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     this._oneInput = WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
 
     WidgetHtml.addBr(this._elementDialogContent);
 
     // button
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "取消";
     jsonObjCtrl._onClick = WidgetDialog.onClickCancel;
     WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
     // button
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "确定";
     jsonObjCtrl._onClick = WidgetDialog.onClickOneInputConfirm;
     WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
@@ -132,7 +132,7 @@ WidgetDialog.prototype.createDialogChoiceList = function (elementParent, title, 
     this.createDialog(elementParent, title, callback, null);
 
     // 描述
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._keyShow = description;
     WidgetHtml.addLabel(this._elementDialogContent, jsonObjCtrl);
 
@@ -142,7 +142,7 @@ WidgetDialog.prototype.createDialogChoiceList = function (elementParent, title, 
     // button
     for (var i in choiceList) {
         var item = choiceList[i];
-        jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+        jsonObjCtrl = new JsonObjCtrl(this, null, null);
         jsonObjCtrl._value = item._title;
         jsonObjCtrl._onClick = item._callback;
         WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrl, WidgetHtml._enumInputType._button);
@@ -172,7 +172,7 @@ WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title,
     }
 
     // 路径
-    var jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrlSub = new JsonObjCtrl(this, null, null);
     jsonObjCtrlSub._value = filePath;
     this._elementInputFilePath = WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrlSub, WidgetHtml._enumInputType._textString);
     this._elementInputFilePath.style.width = bodyW * 0.5 + "px";
@@ -194,10 +194,10 @@ WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title,
     WidgetHtml.addBr(this._elementDialogContent);
 
     // 文件名
-    jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrlSub = new JsonObjCtrl(this, null, null);
     jsonObjCtrlSub._keyShow = "文件名：";
     WidgetHtml.addLabel(this._elementDialogContent, jsonObjCtrlSub);
-    jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrlSub = new JsonObjCtrl(this, null, null);
     jsonObjCtrlSub._value = fileTitle;
     this._elementInputFileTitle = WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrlSub, WidgetHtml._enumInputType._textString);
     this._elementInputFileTitle.style.width = bodyW * 0.3 + "px";
@@ -206,10 +206,10 @@ WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title,
     WidgetHtml.addBr(this._elementDialogContent);
 
     // 类型 todo 未来做成下拉框
-    jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrlSub = new JsonObjCtrl(this, null, null);
     jsonObjCtrlSub._keyShow = "文件类型：";
     WidgetHtml.addLabel(this._elementDialogContent, jsonObjCtrlSub);
-    jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrlSub = new JsonObjCtrl(this, null, null);
     jsonObjCtrlSub._value = fileExtend;
     this._elementInputFileExtend = WidgetHtml.addInput(this._elementDialogContent, jsonObjCtrlSub, WidgetHtml._enumInputType._textString);
     this._elementInputFileExtend.style.width = bodyW * 0.3 + "px";
@@ -221,7 +221,7 @@ WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title,
     var divButton = WidgetHtml.addDiv(this._elementDialogContent);
     divButton.style.float = "right";
 
-    jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrlSub = new JsonObjCtrl(this, null, null);
     if (fileBrowserType == WidgetDialog._enumFileBrowserType._open) {
         jsonObjCtrlSub._value = "打开";
         jsonObjCtrlSub._onClick = WidgetDialog.onClickFileBrowserOpen;
@@ -231,7 +231,7 @@ WidgetDialog.prototype.createDialogFileBrowser = function (elementParent, title,
     }
     WidgetHtml.addInput(divButton, jsonObjCtrlSub, WidgetHtml._enumInputType._button);
 
-    jsonObjCtrlSub = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrlSub = new JsonObjCtrl(this, null, null);
     jsonObjCtrlSub._value = "取消";
     jsonObjCtrlSub._onClick = WidgetDialog.onClickCancel;
     WidgetHtml.addInput(divButton, jsonObjCtrlSub, WidgetHtml._enumInputType._button);

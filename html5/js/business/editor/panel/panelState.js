@@ -10,7 +10,7 @@ PanelState.prototype.init = function (elementParentID) {
 
     var elementParent = getElementById(this._elementParentID);
 
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._keyShow = "信息";
     WidgetHtml.addLabel(elementParent, jsonObjCtrl);
 }

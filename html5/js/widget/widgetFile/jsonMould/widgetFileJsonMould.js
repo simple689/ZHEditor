@@ -19,7 +19,7 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
         var keyShow = WidgetFileUtil.getKeyShow(key);
         var value = jsonObj[key];
 
-        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+        var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
         jsonObjCtrl._keyShow = keyShow;
         if (typeof(value) == WidgetKey._object) {
             var keyChild = keyParent;
@@ -27,16 +27,28 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
             keyChild += key;
 
             jsonObjCtrl._value = value;
+
+            var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
+
             var isList = false;
             if (Array.isArray(value)) {
                 isList = true;
+
+                jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
+                jsonObjCtrl._value = "添加列表成员";
+                jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
+                WidgetHtml.addInput(dd._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
+
+                jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
+                jsonObjCtrl._value = "清空列表成员";
+                jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolClear;
+                WidgetHtml.addInput(dd._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
             }
 
-            var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
             this.readObject(value, keyChild, dd, isList);
         } else {
             WidgetHtml.addLabel(elementParent, jsonObjCtrl);
-            jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+            jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
             jsonObjCtrl._value = value;
             jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
 
@@ -129,8 +141,9 @@ WidgetFileJsonMould.prototype.refreshContent = function () {
     widgetTab.refreshContent(this._elementTabContent, this._jsonObj, WidgetTab._enumAddContentType.fileJsonObj);
 }
 WidgetFileJsonMould.prototype.isMouldIgnore = function (key) {
-    for (var i in this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList]) {
-        var isStart = key[i].indexOf("$");
+    for (var ignoreIndex in this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList]) {
+        var ignoreValue = this._jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList][ignoreIndex];
+        var isStart = key.indexOf(ignoreValue);
         if (isStart == 0) {
             return true;
         }
@@ -184,16 +197,7 @@ WidgetFileJsonMould.prototype.createMouldFile = function (jsonObj, jsonMouldObj,
         }
         var key = o;
 
-        var isIgnore = false;
-        for (var ignoreIndex in jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList]) {
-            var ignoreValue = jsonMouldObj[WidgetKey._ignore][WidgetKey._beginList][ignoreIndex];
-            var isStart = key.indexOf(ignoreValue);
-            if (isStart == 0) {
-                isIgnore = true;
-                break;
-            }
-        }
-        if (isIgnore) {
+        if (this.isMouldIgnore(key)) {
             continue;
         }
 

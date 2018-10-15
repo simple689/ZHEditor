@@ -143,7 +143,7 @@ WidgetFileJson.prototype.readMouldKeyTypeObject = function (jsonObjMd, jsonObj, 
         jsonObj[key] = {};
         value = jsonObj[key];
     }
-    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     if (isListParent) {
         jsonObjCtrl._keyShow += "_";
@@ -166,7 +166,7 @@ WidgetFileJson.prototype.readMouldKeyTypeObjectHorizon = function (jsonObjMd, js
         jsonObj[key] = {};
         value = jsonObj[key];
     }
-    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     if (isListParent) {
         jsonObjCtrl._keyShow += "_";
@@ -189,19 +189,19 @@ WidgetFileJson.prototype.readMouldKeyTypeArray = function (jsonObjMd, jsonObj, k
         jsonObj[key] = new Array();
         value = jsonObj[key];
     }
-    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     jsonObjCtrl._value = value;
     jsonObjCtrl._objMd = jsonObjMd;
     var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._value = "添加列表成员";
     jsonObjCtrl._objMd = jsonObjMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
     WidgetHtml.addInput(dd._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, false, key);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._value = "清空列表成员";
     jsonObjCtrl._objMd = jsonObjMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolClear;
@@ -209,13 +209,13 @@ WidgetFileJson.prototype.readMouldKeyTypeArray = function (jsonObjMd, jsonObj, k
 
     for (var key in value) {
         var valueItem = value[key];
-        var jsonObjCtrl = new JsonObjCtrl(this, value, true, key);
+        var jsonObjCtrl = new JsonObjCtrl(this, value, key);
         jsonObjCtrl._keyShow = valueMd[WidgetKey._showTitle] + "_";
         var keyShowIndex = parseInt(key) + 1;
         jsonObjCtrl._keyShow += keyShowIndex;
         var ddItem = this._menuFoldCtrl.addFoldAndItem(dd, jsonObjCtrl, true);
 
-        jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+        jsonObjCtrl = new JsonObjCtrl(this, value, key);
         jsonObjCtrl._value = "删除该成员";
         jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;
         WidgetHtml.addInput(ddItem._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
@@ -238,17 +238,17 @@ WidgetFileJson.prototype.readMouldKeyTypeEnum = function (jsonObjMd, jsonObj, ke
         jsonObj[key] = {};
         value = jsonObj[key];
     }
-    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     jsonObjCtrl._value = value;
     jsonObjCtrl._objMd = jsonObjMd;
     var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     WidgetHtml.addLabel(dd, jsonObjCtrl);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     jsonObjCtrl._objMd = jsonObjMd;
 
@@ -289,17 +289,17 @@ WidgetFileJson.prototype.readMouldKeyTypeLink = function (jsonObjMd, jsonObj, ke
         jsonObj[key] = "";
         value = jsonObj[key];
     }
-    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     jsonObjCtrl._objMd = jsonObjMd;
     WidgetHtml.addLabel(elementParent, jsonObjCtrl);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._value = value;
     jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._value = "链接";
     jsonObjCtrl._objMd = valueMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickLink;
@@ -327,12 +327,12 @@ WidgetFileJson.prototype.readMouldKeyTypeOther = function (jsonObjMd, jsonObj, k
         WidgetHtml.classAdd(foldItemDetail._elementTool, "widgetMenuFoldDdItemTool");
     }
 
-    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    var jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._keyShow = jsonObjMd[WidgetKey._showTitle];
     jsonObjCtrl._objMd = jsonObjMd;
     WidgetHtml.addLabel(foldItemDetail._elementContent, jsonObjCtrl);
 
-    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, isListParent, key);
+    jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
     jsonObjCtrl._value = value;
     jsonObjCtrl._onChange = WidgetFileOnChange.onChangeInput;
     if (valueTypeMd == WidgetKey._string) {
@@ -348,7 +348,7 @@ WidgetFileJson.prototype.readMouldKeyTypeOther = function (jsonObjMd, jsonObj, k
     // if (WidgetFileUtil.isAddBr(key)) {
     // WidgetHtml.addBr(elementParent);
 
-    jsonObjCtrl = new JsonObjCtrl(this, value, false, key);
+    jsonObjCtrl = new JsonObjCtrl(this, value, key);
     jsonObjCtrl._value = "复制Key：";
     jsonObjCtrl._objMd = valueMd;
     jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolDel;

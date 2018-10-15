@@ -28,13 +28,13 @@ PanelFileBrowser.prototype.initTool = function () {
     this._widgetSearch.createSearch(this, this._divTool);
 
     // todo 以后扩展
-    // var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    // var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     // jsonObjCtrl._valueList = JsonObjCtrl._fileBrowserTypeList;
     // jsonObjCtrl._onChange = WidgetFileOnChange.onChangeSelect;
     // WidgetHtml.addSelect(this._divTool, jsonObjCtrl);
 }
 PanelFileBrowser.prototype.initCreate = function () { // todo 以后扩展
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "创建";
     jsonObjCtrl._valueList = new MenuListCtrl();
 

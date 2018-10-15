@@ -22,12 +22,12 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     var dt = WidgetHtml.createElement("dt");
     dl.appendChild(dt);
 
-    var jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, jsonObjCtrl._obj, false, null);
+    var jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, jsonObjCtrl._obj, null);
     jsonObjCtrlSub._onClick = WidgetMenuFold.onClickDt;
     var labelCheck = WidgetHtml.addLabel(dt, jsonObjCtrlSub);
     WidgetHtml.classAdd(labelCheck, "widgetMenuFoldLabelCheck");
 
-    jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, jsonObjCtrl._obj, false, null);
+    jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, jsonObjCtrl._obj, null);
     jsonObjCtrlSub._keyShow = jsonObjCtrl._keyShow;
     jsonObjCtrlSub._value = jsonObjCtrl._value;
     jsonObjCtrlSub._onClick = jsonObjCtrl._onClick;

@@ -21,13 +21,13 @@ WidgetUser.init = function (elementParent) {
     }
 }
 WidgetUser.initMenuLogin = function () {
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "登录";
     jsonObjCtrl._onClick = WidgetUser.onClickMenuLogin;
     WidgetHtml.addInput(WidgetUser._elementParent, jsonObjCtrl, WidgetHtml._enumInputType._button);
 }
 WidgetUser.initMenuLogout = function () {
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "用户";
     jsonObjCtrl._valueList = new MenuListCtrl();
     jsonObjCtrl._valueList.insertItem(new MenuListItem("个人中心", WidgetUser.onClickMenuLogout, APIData._extendJson));

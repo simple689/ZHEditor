@@ -9,14 +9,14 @@ WidgetSearch.prototype.createSearch = function (exec, elementParent) {
     this._searchRoot = WidgetHtml.addSpan(elementParent);
     WidgetHtml.classAdd(this._searchRoot, "searchRoot");
 
-    var jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    var jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._onKeyUp = WidgetSearch.onKeyUpSearchText;
     jsonObjCtrl._onFocus = WidgetSearch.onFocusSearchText;
     this._searchText = WidgetHtml.addInput(this._searchRoot, jsonObjCtrl, WidgetHtml._enumInputType._textString);
     this._searchText._widgetSearch = this;
     WidgetHtml.classAdd(this._searchText, "searchText");
 
-    jsonObjCtrl = new JsonObjCtrl(this, null, false, null);
+    jsonObjCtrl = new JsonObjCtrl(this, null, null);
     jsonObjCtrl._value = "搜索";
     jsonObjCtrl._onClick = WidgetSearch.onClickSearchBtn;
     this._searchBtn = WidgetHtml.addInput(this._searchRoot, jsonObjCtrl, WidgetHtml._enumInputType._button);
