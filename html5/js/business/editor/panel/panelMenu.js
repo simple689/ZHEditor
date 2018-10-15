@@ -219,11 +219,6 @@ PanelMenu.onClickDownloadFileNow = function (fileExtend) {
         return;
     }
     // todo
-    // var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
-    // if (e._menu) {
-    //     return e._menu._exec._jsonObjCtrl;
-    // }
-    // return e._jsonObjCtrl;
     // downloadFileJson(jsonObjCtrl);
 }
 

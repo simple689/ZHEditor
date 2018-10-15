@@ -305,7 +305,7 @@ WidgetFileBrowser.ajaxCompleteCreateDir = function (widgetFileBrowser, error, js
 }
 WidgetFileBrowser.onContextMenuRoot = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
-    var menu = WidgetFileOnContextMenu.createMenu();
+    var menu = WidgetFileMenu.createMenu();
     var ul = menu.addUl(menu._elementParent);
     var li = null;
 
@@ -322,7 +322,7 @@ WidgetFileBrowser.onContextMenuRoot = function (e) {
 }
 WidgetFileBrowser.onContextMenuObject = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
-    var menu = WidgetFileOnContextMenu.createMenu();
+    var menu = WidgetFileMenu.createMenu();
     var ul = menu.addUl(menu._elementParent);
     var li = null;
 

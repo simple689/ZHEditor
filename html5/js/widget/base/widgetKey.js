@@ -25,6 +25,7 @@ WidgetKey._value = "value";
 WidgetKey._object = "object";
 WidgetKey._objectHorizon = "objectHorizon";
 WidgetKey._array = "array";
+WidgetKey._arrayItem = "arrayItem";
 WidgetKey._string = "string";
 WidgetKey._number = "number";
 WidgetKey._boolean = "boolean";

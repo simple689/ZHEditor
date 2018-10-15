@@ -28,25 +28,18 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
 
             jsonObjCtrl._value = value;
 
-            var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
-
             var isList = false;
             if (Array.isArray(value)) {
                 isList = true;
-
-                jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
-                jsonObjCtrl._value = "添加列表成员";
-                jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolAdd;
-                WidgetHtml.addInput(dd._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
-
-                jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
-                jsonObjCtrl._value = "清空列表成员";
-                jsonObjCtrl._onClick = WidgetFileOnClick.onClickListToolClear;
-                WidgetHtml.addInput(dd._dt._divTool, jsonObjCtrl, WidgetHtml._enumInputType._button);
+                jsonObjCtrl._type = WidgetKey._array;
             }
-
+            jsonObjCtrl._onMouseEnter = WidgetFileMenu.onMenu;
+            var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
             this.readObject(value, keyChild, dd, isList);
         } else {
+            var valueType = typeof(value);
+            jsonObjCtrl._onMouseEnter = WidgetFileMenu.onMenu;
+            jsonObjCtrl._type = valueType;
             WidgetHtml.addLabel(elementParent, jsonObjCtrl);
             jsonObjCtrl = new JsonObjCtrl(this, jsonObj, key);
             jsonObjCtrl._value = value;
@@ -77,14 +70,13 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
 
                 WidgetHtml.addSelect(elementParent, jsonObjCtrl);
             } else {
-                if (typeof(value) == WidgetKey._string) {
+                if (valueType == WidgetKey._string) {
                     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textString);
-                } else if (typeof(value) == WidgetKey._number) {
+                } else if (valueType == WidgetKey._number) {
                     WidgetHtml.addInput(elementParent, jsonObjCtrl, WidgetHtml._enumInputType._textNumber);
-                } else if (typeof(value) == WidgetKey._boolean) {
+                } else if (valueType == WidgetKey._boolean) {
                     WidgetHtml.addInput(elementParent, jsonObj, WidgetHtml._enumInputType._checkbox);
                 } else {
-                    var strType = typeof(value);
                     // WidgetLog.log("[" + typeof(value) + "]" + keyParent + "->" + key + " = " + value);
                 }
             }

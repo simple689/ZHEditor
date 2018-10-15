@@ -31,6 +31,8 @@ WidgetFileUtil.getKeyShow = function (key) {
 WidgetFileUtil.getJsonObjCtrl = function (e) {
     if (e._menu) {
         return e._menu._exec._jsonObjCtrl;
+    } else if (e._labelCheck) {
+        return e._labelCheck._jsonObjCtrl;
     }
     return e._jsonObjCtrl;
 }

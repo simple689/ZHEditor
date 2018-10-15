@@ -8,21 +8,12 @@
 
 /*所有菜单项设置统一样式*/
 .widgetMenuFold dt {
-    height: 27px;
     /*background: dimgray;*/
-}
-
-.widgetMenuFold dt div {
-    display: none;
 }
 
 .widgetMenuFold dt:hover, dt:focus {
     /*background-color: #a7a7a7;*/
     color: #fff;
-}
-
-.widgetMenuFold dt:hover div {
-    display: inline;
 }
 
 .widgetMenuFoldLabelCheck {
@@ -42,19 +33,7 @@
     margin-left: 15px;
 }
 
-.widgetMenuFoldDdItem {
-    height: 27px;
-}
-
-.widgetMenuFoldDdItem .widgetMenuFoldDdItemTool {
-    display: none;
-}
-
-.widgetMenuFoldDdItem:hover {
+.widgetMenuFold dd:hover dd:focus {
     /*background-color: #a7a7a7;*/
     color: #fff;
-}
-
-.widgetMenuFoldDdItem:hover .widgetMenuFoldDdItemTool {
-    display: inline;
 }

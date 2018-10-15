@@ -1,10 +1,13 @@
 function JsonObjCtrl(exec, obj, key) {
     this._exec = exec;
+
     this._obj = obj;
     this._objMd = null;
 
     this._key = key;
     this._keyShow = null;
+
+    this._type = WidgetKey._none;
 
     this._value = null;
     this._valueList = null;
@@ -15,6 +18,7 @@ function JsonObjCtrl(exec, obj, key) {
     this._onChange = null;
     this._onKeyUp = null;
     this._onFocus = null;
+    this._onMouseEnter = null;
 };
 function JsonListItem(key, keyShow) {
     this._key = key;

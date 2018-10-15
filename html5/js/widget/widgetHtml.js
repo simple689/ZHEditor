@@ -93,6 +93,7 @@ WidgetHtml.addLabel = function (nodeParent, jsonObjCtrl) {
     WidgetHtml.classAdd(nodeLabel, "nodeLabel");
     nodeLabel._jsonObjCtrl = jsonObjCtrl;
     nodeLabel.onclick = jsonObjCtrl._onClick;
+    nodeLabel.onmouseenter = jsonObjCtrl._onMouseEnter;
     nodeLabel.innerHTML = jsonObjCtrl._keyShow;
     return nodeLabel;
 }

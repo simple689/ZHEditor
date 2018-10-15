@@ -27,7 +27,7 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
     var labelCheck = WidgetHtml.addLabel(dt, jsonObjCtrlSub);
     WidgetHtml.classAdd(labelCheck, "widgetMenuFoldLabelCheck");
 
-    jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, jsonObjCtrl._obj, null);
+    jsonObjCtrlSub = new JsonObjCtrl(jsonObjCtrl._exec, null, null);
     jsonObjCtrlSub._keyShow = jsonObjCtrl._keyShow;
     jsonObjCtrlSub._value = jsonObjCtrl._value;
     jsonObjCtrlSub._onClick = jsonObjCtrl._onClick;
@@ -36,8 +36,7 @@ WidgetMenuFold.prototype.addFold = function (elementParent, jsonObjCtrl) {
 
     dt._dl = dl;
     dt._labelCheck = labelCheck;
-    dt._divTool = WidgetHtml.addDiv(dt);
-
+    dt.onmouseenter = jsonObjCtrl._onMouseEnter;
     labelCheck._dt = dt;
     return dt;
 }
