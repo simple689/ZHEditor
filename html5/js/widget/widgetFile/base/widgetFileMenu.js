@@ -10,33 +10,35 @@ WidgetFileMenu.onMenu = function (e) {
     // console.log(this);
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(this);
     var type = jsonObjCtrl._type;
-    if (type == WidgetKey._none) {
+    if (type == WidgetKey._none || WidgetFileUtil.isKeyMenuNone(jsonObjCtrl._key)) {
+        WidgetMenu.hideMenuAll();
         return false;
     }
 
     var menu = WidgetFileMenu.createMenu();
     var ul = menu.addUl(menu._elementParent);
     var li = null;
-    if (type == WidgetKey._array) {
+    if (type == WidgetKey._object) {
+        li = menu.addLi(ul, "复制Key：", WidgetFileOnClick.onClickListToolDel, jsonObjCtrl);
+    } else if (type == WidgetKey._array) {
+        li = menu.addLi(ul, "复制Key：", WidgetFileOnClick.onClickListToolDel, jsonObjCtrl);
+
         li = menu.addLi(ul, "添加列表成员", WidgetFileOnClick.onClickListToolAdd, jsonObjCtrl);
         li = menu.addLi(ul, "清空列表成员", WidgetFileOnClick.onClickListToolClear, jsonObjCtrl);
     } else if (type == WidgetKey._arrayItem) {
         li = menu.addLi(ul, "删除该成员", WidgetFileOnClick.onClickListToolDel, jsonObjCtrl);
-    } else {
-        li = menu.addLi(ul, "复制Key：", WidgetFileOnClick.onClickListToolDel, jsonObjCtrl);
-
-        if (type == WidgetKey._string) {
-
-        } else if (type == WidgetKey._number) {
-
-        } else if (type == WidgetKey._boolean) {
-
-        }
     }
 
     var func = WidgetFileUtil.getExec(this).constructor.onMenu;
-    if (func) func(menu, ul);
-    WidgetMenu.showMenu(menu, e, this);
+    var liSub = null;
+    if (func) {
+        liSub = func(menu, ul, jsonObjCtrl);
+    }
+    if (li || liSub) {
+        WidgetMenu.showMenu(menu, e, this);
+    } else {
+        WidgetMenu.hideMenuAll();
+    }
     return false; // 取消右键点击的默认事件
 }
 // li = menu.addLi(ul, "刷新", WidgetFileOnClick.onClickRefresh, null);

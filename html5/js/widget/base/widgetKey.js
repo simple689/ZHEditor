@@ -37,6 +37,9 @@ WidgetKey._enumList = "enumList";
 WidgetKey._enumType = "enumType";
 WidgetKey._enumParamList = "enumParamList";
 
+WidgetKey._linkFile = "linkFile";
+WidgetKey._linkKey = "linkKey";
+
 WidgetKey._animationClip = "AnimationClip";
 WidgetKey._audioClip = "AudioClip";
 WidgetKey._audioMixer = "AudioMixer";

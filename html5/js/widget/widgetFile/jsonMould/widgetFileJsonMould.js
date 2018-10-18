@@ -32,6 +32,8 @@ WidgetFileJsonMould.prototype.readObject = function (jsonObj, keyParent, element
             if (Array.isArray(value)) {
                 isList = true;
                 jsonObjCtrl._type = WidgetKey._array;
+            } else {
+                jsonObjCtrl._type = WidgetKey._object;
             }
             jsonObjCtrl._onMouseEnter = WidgetFileMenu.onMenu;
             var dd = this._menuFoldCtrl.addFoldAndItem(elementParent, jsonObjCtrl, true);
@@ -114,8 +116,8 @@ WidgetFileJsonMould.changeSelectValueType = function (element) {
     } else if (jsonObjValueType == WidgetKey._link) {
         jsonObj[WidgetKey._value] = {};
         jsonObjValue = jsonObj[WidgetKey._value];
-        jsonObjValue[WidgetKey._file] = "";
-        jsonObjValue[WidgetKey._key] = "";
+        jsonObjValue[WidgetKey._linkFile] = "";
+        jsonObjValue[WidgetKey._linkKey] = "";
     } else {
         delete jsonObj[WidgetKey._value];
     }

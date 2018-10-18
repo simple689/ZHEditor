@@ -146,12 +146,12 @@ WidgetFileJson.onClickListToolAdd = function (e) {
 }
 WidgetFileJson.onClickLink = function (e) {
     var jsonObjCtrl = WidgetFileUtil.getJsonObjCtrl(e);
-    var file = jsonObjCtrl._objMd[WidgetKey._file];
-    var key = jsonObjCtrl._objMd[WidgetKey._key];
+    var linkFile = jsonObjCtrl._objMd[WidgetKey._linkFile];
+    var linkKey = jsonObjCtrl._objMd[WidgetKey._linkKey];
 
-    // var keyList = key.split("@");
-    // for (var i = 0; i < keyList.length; i++) {
-    //     var item = keyList[i];
+    // var linkKeyList = linkKey.split("@");
+    // for (var i = 0; i < linkKeyList.length; i++) {
+    //     var item = linkKeyList[i];
     //     if (item.length > 0) {
     //         var value = jsonObj[item];
     //         if (value) {
