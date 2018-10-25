@@ -10,8 +10,8 @@ var resPath = "res/"
 // var resPath = "res.asar/"
 // var asarDir = fs.readdirSync('res.asar')
 
-// var indexHtml = "index.html"
 var indexHtml = "html/business/editor/dock/dock.html"
+// var indexHtml = "test/test.html"
 
 function createWindow () {
   // var displayList = electron.screen.getAllDisplays()
