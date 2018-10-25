@@ -6,7 +6,10 @@
     <!-- [config] -->
     <!--<link rel="manifest" href="../../../../config/site.webmanifest">-->
     <!-- [external] -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="../../../../external/jquery.js"></script>
+    <script>if (window.module) module = window.module;</script>
+
     <script src="../../../../external/base64.js"></script>
     <script src="../../../../external/md5.js"></script>
     <script src="../../../../external/sha1.js"></script>
@@ -48,8 +51,8 @@
     <link rel="stylesheet" href="../../../../css/business/editor/panel/panelFileBrowser.css">
     <!-- [js] API -->
     <script src="../../../../js/API/API.js"></script>
-    <script src="../../../../js/API/APIUtil.js"></script>
     <script src="../../../../js/API/APIData.js"></script>
+    <script src="../../../../js/API/APIUtil.js"></script>
     <!-- [js] base -->
     <script src="../../../../js/widget/base/widgetKey.js"></script><!--必须放在前面-->
 

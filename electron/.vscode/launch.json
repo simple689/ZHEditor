@@ -15,7 +15,8 @@
                 "."
                 // "--enable-logging"
             ],
-            "protocol": "inspector" //添加默认的协议是legacy，这个协议导致不进入断点
+            "protocol": "inspector", //添加默认的协议是legacy，这个协议导致不进入断点
+            "address": "localhost"
         }
     ]
 }

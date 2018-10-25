@@ -224,5 +224,4 @@
                 (options.secure ? '; secure' : '');
         }
     };
-// })(jQuery, this);
-});
+})(jQuery, this);

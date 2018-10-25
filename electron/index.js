@@ -10,8 +10,8 @@ var resPath = "res/"
 // var resPath = "res.asar/"
 // var asarDir = fs.readdirSync('res.asar')
 
-var indexHtml = "index.html"
-// var indexHtml = "html/business/editor/dock/dock.html"
+// var indexHtml = "index.html"
+var indexHtml = "html/business/editor/dock/dock.html"
 
 function createWindow () {
   // var displayList = electron.screen.getAllDisplays()
@@ -64,3 +64,6 @@ app.on('activate', () => {
 })
 
 // 主进程代码
+// global.CrawlService = require('./res/test');
+// global.CrawlService.start();
+// global.APIData = require('./res/js/API/APIData.js');

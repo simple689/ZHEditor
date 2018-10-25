@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
       <change beforePath="$PROJECT_DIR$/../electron/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/external/colorPicker/jqColor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/external/colorPicker/jqColor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/html/business/editor/dock/dock.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/js/API/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/API/API.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/js/API/APIData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/API/APIData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/js/API/APIUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/API/APIUtil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/js/business/editor/dock/dock.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/business/editor/dock/dock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/js/widget/widgetHttpAJAX.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/widget/widgetHttpAJAX.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -103,13 +109,13 @@
     <session id="-1152963513">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="51" />
+          <entry key="project.closed" value="53" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="6" />
           <entry key="project.open.time.13" value="10" />
           <entry key="project.open.time.14" value="4" />
-          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="4" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.19" value="2" />
@@ -122,7 +128,7 @@
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="52" />
+          <entry key="project.opened" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -147,7 +153,7 @@
           <entry key="gif" value="3" />
           <entry key="html" value="74" />
           <entry key="jpg" value="3" />
-          <entry key="js" value="442" />
+          <entry key="js" value="446" />
           <entry key="jsonMd" value="1" />
           <entry key="png" value="5" />
           <entry key="ts" value="10" />
@@ -158,7 +164,7 @@
           <entry key="CSS" value="35" />
           <entry key="HTML" value="74" />
           <entry key="Image" value="11" />
-          <entry key="JavaScript" value="444" />
+          <entry key="JavaScript" value="448" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="10" />
         </counts>
@@ -188,11 +194,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldMenu.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
               <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/external/base64.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -237,8 +279,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>widgetMenuFoldLabelTool</find>
-      <find>z-index</find>
       <find>$(</find>
       <find>WidgetFileJsonMould.prototype.readObject</find>
       <find>_isList</find>
@@ -267,6 +307,8 @@
       <find>WidgetKey._array</find>
       <find>valueType</find>
       <find>WidgetKey._file</find>
+      <find>base64</find>
+      <find>(function</find>
     </findStrings>
     <replaceStrings>
       <replace>_exec</replace>
@@ -311,8 +353,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/API/APIUtil.js" />
-        <option value="$PROJECT_DIR$/js/API/APIData.js" />
         <option value="$PROJECT_DIR$/js/business/editor/panel/panelFileBrowser.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetDrop.js" />
         <option value="$PROJECT_DIR$/html/business/editor/home/homeFileLink.html" />
@@ -362,6 +402,8 @@
         <option value="$PROJECT_DIR$/js/widget/widgetFile/base/widgetFileMenu.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/json/widgetFileJsonMenu.js" />
         <option value="$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldMenu.js" />
+        <option value="$PROJECT_DIR$/js/widget/widgetHttpAJAX.js" />
+        <option value="$PROJECT_DIR$/external/base64.js" />
       </list>
     </option>
   </component>
@@ -398,6 +440,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -494,7 +537,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -898,11 +940,13 @@
       <workItem from="1539850253173" duration="2585000" />
       <workItem from="1539856139083" duration="112000" />
       <workItem from="1540441240097" duration="578000" />
+      <workItem from="1540450192774" duration="168000" />
+      <workItem from="1540451225437" duration="1592000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1256728000" />
+    <option name="totallyTimeSpent" value="1258488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1137,6 +1181,24 @@
           <line>28</line>
           <option name="timeStamp" value="286" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/API/APIUtil.js</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="288" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/external/base64.js</url>
+          <line>389</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="289" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/external/base64.js</url>
+          <line>391</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -1203,22 +1265,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/widget/base/widgetUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetPanelFileBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileEditorContent.html" />
-    <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileLinkContent.html" />
     <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuFileMouldContent.html" />
     <entry file="file://$PROJECT_DIR$/html/business/editor/menu/menuHelp.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1473,6 +1519,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/base64.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
         </state>
       </provider>
     </entry>

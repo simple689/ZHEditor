@@ -1,6 +1,4 @@
 // dock
-var $ = jQuery = require('../../../../external/jquery.js');
-
 var gDock = null;
 
 var gPanelMenu = null;
