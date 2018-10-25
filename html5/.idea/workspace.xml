@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89022afe-4b94-4c19-b155-06cbc0c27310" name="默认的" comment="默认的">
-      <change beforePath="$PROJECT_DIR$/../electron/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/.vscode/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../electron/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/res/external/colorPicker/jqColor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/external/colorPicker/jqColor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/res/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/html/business/editor/dock/dock.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../electron/res/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/res/js/API/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/API/API.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/res/js/API/APIData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/API/APIData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/res/js/API/APIUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/API/APIUtil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/res/js/business/editor/dock/dock.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/business/editor/dock/dock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../electron/res/js/widget/widgetHttpAJAX.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/js/widget/widgetHttpAJAX.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/res/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/res/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/business/editor/dock/dock.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/business/editor/dock/dock.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/API/APIUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/API/APIUtil.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -109,7 +103,7 @@
     <session id="-1152963513">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="53" />
+          <entry key="project.closed" value="54" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="6" />
@@ -118,7 +112,7 @@
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="4" />
           <entry key="project.open.time.17" value="2" />
-          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
@@ -128,7 +122,7 @@
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="54" />
+          <entry key="project.opened" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -215,26 +209,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
+            <state relative-caret-position="630">
               <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/external/base64.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
+            <state relative-caret-position="100">
+              <caret line="391" column="4" selection-start-line="391" selection-start-column="4" selection-end-line="391" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -440,7 +434,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -537,6 +530,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -942,11 +936,12 @@
       <workItem from="1540441240097" duration="578000" />
       <workItem from="1540450192774" duration="168000" />
       <workItem from="1540451225437" duration="1592000" />
+      <workItem from="1540471327965" duration="92000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1258488000" />
+    <option name="totallyTimeSpent" value="1258580000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1180,24 +1175,6 @@
           <url>file://$PROJECT_DIR$/js/business/editor/menu/menuFileTitleOnClick.js</url>
           <line>28</line>
           <option name="timeStamp" value="286" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/API/APIUtil.js</url>
-          <line>1</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="288" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/external/base64.js</url>
-          <line>389</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="289" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/external/base64.js</url>
-          <line>391</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="290" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1494,6 +1471,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/widget/base/widgetKey.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1515,20 +1506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetFile/jsonMould/widgetFileJsonMouldMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/API/APIData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1536,17 +1513,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/widget/widgetHttpAJAX.js">
+    <entry file="file://$PROJECT_DIR$/external/base64.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        <state relative-caret-position="100">
+          <caret line="391" column="4" selection-start-line="391" selection-start-column="4" selection-end-line="391" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/external/base64.js">
+    <entry file="file://$PROJECT_DIR$/js/API/APIUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
         </state>
       </provider>
     </entry>

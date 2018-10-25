@@ -65,5 +65,3 @@ app.on('activate', () => {
 
 // 主进程代码
 // global.CrawlService = require('./res/test');
-// global.CrawlService.start();
-// global.APIData = require('./res/js/API/APIData.js');
