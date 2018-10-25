@@ -16,6 +16,8 @@ APIData._data = "data";
 APIData._token = "token";
 // WidgetKey._title = "title";
 APIData._extend = "extend";
+APIData._isCheck = "isCheck";
+APIData._widgetID = "widgetID";
 
 APIData._fileList = "fileList";
 APIData._folderList = "folderList";
@@ -26,9 +28,9 @@ APIData._folder = "folder";
 // WidgetKey._fileName = "fileName";
 // WidgetKey._fileContent = "fileContent";
 
-// WidgetKey._json = "json";
+APIData._json = "json";
 APIData._jsonShow = "json";
-// WidgetKey._jsonMould = "jsonMould";
+APIData._jsonMould = "jsonMould";
 APIData._jsonMouldShow = "json模版";
 
 APIData._extendJson = ".json";
@@ -39,3 +41,5 @@ APIData._userPWD = "userPWD";
 
 APIData._storeShow = "商城";
 APIData._personalShow = "个人文件夹";
+APIData._stateMenuFold = "stateMenuFold";
+APIData._stateFlex = "stateFlex";

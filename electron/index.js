@@ -32,7 +32,7 @@ function createWindow () {
   win = new BrowserWindow({ x: winBounds.x, y: winBounds.y, width: winBounds.width, height: winBounds.height }) // 创建浏览器窗口
   win.maximize() // todo 记住上次窗口位置大小
 
-  win.webContents.openDevTools() // 打开开发者工具
+  // win.webContents.openDevTools() // 打开开发者工具
   win.loadFile(resPath + indexHtml) // 然后加载应用的 index.html
   win.on('closed', () => { // 当 window 被关闭，这个事件会被触发
     // 取消引用 window 对象，如果你的应用支持多窗口的话

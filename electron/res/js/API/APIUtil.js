@@ -7,8 +7,11 @@
 
     var js_require = typeof require === 'function';
     if (js_require) {
-        var jsPath = document.scripts;
-        jsPath = jsPath[jsPath.length - 1].src.substring(7, jsPath[jsPath.length - 1].src.lastIndexOf("/") + 1);
+        var jsPath = "";
+        if (global.document) {
+            jsPath = document.scripts;
+            jsPath = jsPath[jsPath.length - 1].src.substring(7, jsPath[jsPath.length - 1].src.lastIndexOf("/") + 1);
+        }
         console.log(jsPath);        
         root.APIData = require(jsPath + './APIData.js');
     }

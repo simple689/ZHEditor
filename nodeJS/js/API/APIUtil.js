@@ -7,7 +7,13 @@
 
     var js_require = typeof require === 'function';
     if (js_require) {
-        root.APIData = require('./APIData.js');
+        var jsPath = "";
+        if (global.document) {
+            jsPath = document.scripts;
+            jsPath = jsPath[jsPath.length - 1].src.substring(7, jsPath[jsPath.length - 1].src.lastIndexOf("/") + 1);
+        }
+        console.log(jsPath);        
+        root.APIData = require(jsPath + './APIData.js');
     }
 
     var js_module = typeof module === 'object' && module.exports;
@@ -31,6 +37,7 @@ APIUtil.fileBrowser.addFolder = function (jsonObj, key) {
     list[key] = {};
     var obj = list[key];
     obj[APIData._type] = APIData._folder;
+    obj[APIData._isCheck] = false;
     return obj;
 }
 APIUtil.fileBrowser.addFile = function (jsonObj, key, extend) {

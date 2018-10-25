@@ -14,6 +14,7 @@ API._module._mysql = "mysql";
 API._module._fileSystem = "fileSystem";
 API._module._formData = "formData";
 API._module._user = "user";
+API._module._dock = "dock";
 API._module._fileBrowser = "fileBrowser";
 
 // 功能类 func
@@ -38,6 +39,11 @@ API._func._user._login = "login";
 API._func._user._forgetPWD = "forgetPWD";
 API._func._user._register = "register";
 
+// 功能 dock
+API._func._dock = {};
+API._func._dock._layoutLoad = "layoutLoad";
+API._func._dock._layoutSave = "layoutSave";
+
 // 功能 fileBrowser
 API._func._fileBrowser = {};
 API._func._fileBrowser._query = "query";
@@ -49,3 +55,5 @@ API._fileBrowser._type = {};
 API._fileBrowser._type._all = "all";
 API._fileBrowser._type._store = "store";
 API._fileBrowser._type._personal = "personal";
+API._fileBrowser._type._stateMenuFold = "stateMenuFold";
+API._fileBrowser._type._stateFlex = "stateFlex";
