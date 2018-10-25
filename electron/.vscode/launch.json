@@ -8,8 +8,13 @@
             "type": "node",
             "request": "launch",
             "name": "electron",
+            "cwd": "${workspaceRoot}",
             "program": "${workspaceFolder}/index.js",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron", 
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+            "runtimeArgs": [
+                "."
+                // "--enable-logging"
+            ],
             "protocol": "inspector" //添加默认的协议是legacy，这个协议导致不进入断点
         }
     ]

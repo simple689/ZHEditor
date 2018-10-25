@@ -1,13 +1,18 @@
 const electron = require('electron')
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 let win
+var resPath = "res/"
+// var resPath = "res.asar/"
+// var asarDir = fs.readdirSync('res.asar')
+// var asarFile = fs.readFileSync(resPath + 'index.html')
+// require(resPath + 'dir/module.js')
 
 function createWindow () {
   win = new BrowserWindow({ width: 800, height: 600 }) // 创建浏览器窗口
-  var appPath = app.getAppPath()
-  win.loadFile('index.html') // 然后加载应用的 index.html
   // win.webContents.openDevTools() // 打开开发者工具
+  win.loadFile(resPath + 'index.html') // 然后加载应用的 index.html
   win.on('closed', () => { // 当 window 被关闭，这个事件会被触发
     // 取消引用 window 对象，如果你的应用支持多窗口的话
     // 通常会把多个 window 对象存放在一个数组里面
