@@ -3,11 +3,10 @@ const { app, BrowserWindow } = require('electron')
 const fs = require('fs')
 
 let win
+// webpack
 var resPath = "res/"
 // var resPath = "res.asar/"
 // var asarDir = fs.readdirSync('res.asar')
-// var asarFile = fs.readFileSync(resPath + 'index.html')
-// require(resPath + 'dir/module.js')
 
 function createWindow () {
   win = new BrowserWindow({ width: 800, height: 600 }) // 创建浏览器窗口
