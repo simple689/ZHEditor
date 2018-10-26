@@ -12,7 +12,7 @@
             jsPath = document.scripts;
             jsPath = jsPath[jsPath.length - 1].src.substring(7, jsPath[jsPath.length - 1].src.lastIndexOf("/") + 1);
         }
-        console.log(jsPath);        
+        // console.log(jsPath);
         root.APIData = require(jsPath + './APIData.js');
     }
 
