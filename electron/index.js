@@ -11,7 +11,7 @@ var resPath = "res/"
 // var asarDir = fs.readdirSync('res.asar')
 
 var indexHtml = "html/business/editor/dock/dock.html"
-// var indexHtml = "test/test.html"
+// indexHtml = "test/test.html"
 
 function createWindow () {
   // var displayList = electron.screen.getAllDisplays()
@@ -64,4 +64,4 @@ app.on('activate', () => {
 })
 
 // 主进程代码
-// global.CrawlService = require('./res/test');
+global.Test = require('./res/test/test');
