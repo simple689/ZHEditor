@@ -7,7 +7,8 @@
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="./external/jquery.js"></script>
     <script>if (window.module) module = window.module;</script>
-  
+
+
   </head>
   <body>
     <h1>Hello World!</h1>
@@ -15,4 +16,7 @@
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
   </body>
+  <script>
+    require('./test.js')
+  </script>
 </html>

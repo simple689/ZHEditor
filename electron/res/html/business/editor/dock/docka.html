@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>编辑器</title>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="../../../../external/jquery.js"></script>
+    <script>if (window.module) module = window.module;</script>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+</body>
+
+<script>
+    require('../../../../test/test.js')
+</script>
+
+<!-- [js] API -->
+<script>
+    require('../../../../js/API/API.js')
+    require('../../../../js/API/APIData.js')
+    require('../../../../js/API/APIUtil.js')
+</script>
+<!-- [js] base -->
+<script>
+    require('../../../../js/widget/base/widgetKey.js')
+    require('../../../../js/widget/base/widgetElement.js')
+    require('../../../../js/widget/base/widgetJsonCtrl.js')
+    require('../../../../js/widget/base/widgetLog.js')
+    require('../../../../js/widget/base/widgetMenuCtrl.js')
+    require('../../../../js/widget/base/widgetUser.js')
+    require('../../../../js/widget/base/widgetUtil.js')
+</script>
+<!-- [js] widget -->
+<script>
+    require('../../../../js/widget/widgetFile/base/widgetFileBase.js')
+    require('../../../../js/widget/widgetFile/base/widgetFileMenu.js')
+    require('../../../../js/widget/widgetFile/base/widgetFileOnChange.js')
+    require('../../../../js/widget/widgetFile/base/widgetFileOnClick.js')
+    require('../../../../js/widget/widgetFile/base/widgetFileUtil.js')
+
+    require('../../../../js/widget/widgetFile/json/widgetFileJson.js')
+    require('../../../../js/widget/widgetFile/json/widgetFileJsonMenu.js')
+    require('../../../../js/widget/widgetFile/json/widgetFileJsonOnChange.js')
+    require('../../../../js/widget/widgetFile/json/widgetFileJsonOnClick.js')
+
+    require('../../../../js/widget/widgetFile/jsonMould/widgetFileJsonMould.js')
+    require('../../../../js/widget/widgetFile/jsonMould/widgetFileJsonMouldMenu.js')
+    require('../../../../js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnChange.js')
+    require('../../../../js/widget/widgetFile/jsonMould/widgetFileJsonMouldOnClick.js')
+
+    require('../../../../js/widget/widgetFile/widgetFile.js')
+
+    require('../../../../js/widget/widgetTable/widgetTable.js')
+    require('../../../../js/widget/widgetTable/widgetTableHtml.js')
+    require('../../../../js/widget/widgetTable/widgetTableRow.js')
+
+    require('../../../../js/widget/widgetDialog.js')
+    require('../../../../js/widget/widgetDock.js')
+    require('../../../../js/widget/widgetDrop.js')
+    require('../../../../js/widget/widgetFileBrowser.js')
+    require('../../../../js/widget/widgetFlex.js')
+    require('../../../../js/widget/widgetHistory.js')
+    require('../../../../js/widget/widgetHtml.js')
+    require('../../../../js/widget/widgetHttpAJAX.js')
+    require('../../../../js/widget/widgetHttpXHR.js')
+    require('../../../../js/widget/widgetMarkedDoc.js')
+    require('../../../../js/widget/widgetMenu.js')
+    require('../../../../js/widget/widgetMenuFold.js')
+    require('../../../../js/widget/widgetPanelBase.js')
+    require('../../../../js/widget/widgetPanelFileBase.js')
+    require('../../../../js/widget/widgetSearch.js')
+    require('../../../../js/widget/widgetTab.js')
+    require('../../../../js/widget/widgetUserDialog.js')
+    require('../../../../js/widget/widgetVerify.js')
+</script>
+
+<!-- [js] business -->
+<script>
+    require('../../../../js/business/editor/dock/conf.js')
+    require('../../../../js/business/editor/dock/dock.js')
+    require('../../../../js/business/editor/dock/util.js')
+    require('../../../../js/business/editor/menu/menuFileBrowser.js')
+    require('../../../../js/business/editor/menu/menuFileTitleOnClick.js')
+    require('../../../../js/business/editor/panel/panelFileBrowser.js')
+    require('../../../../js/business/editor/panel/panelFileEditor.js')
+    require('../../../../js/business/editor/panel/panelFileLink.js')
+    require('../../../../js/business/editor/panel/panelFileMould.js')
+    require('../../../../js/business/editor/panel/panelMenu.js')
+    require('../../../../js/business/editor/panel/panelState.js')
+    require('../../../../js/business/editor/panel/panelToolBar.js')
+</script>
+
+</html>

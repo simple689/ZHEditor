@@ -11,7 +11,6 @@ var resPath = "res/"
 // var asarDir = fs.readdirSync('res.asar')
 
 var indexHtml = "html/business/editor/dock/dock.html"
-// var indexHtml = "html/business/editor/dock/docka.html"
 // indexHtml = "test/test.html"
 
 function createWindow () {
@@ -33,7 +32,7 @@ function createWindow () {
   win = new BrowserWindow({ x: winBounds.x, y: winBounds.y, width: winBounds.width, height: winBounds.height }) // 创建浏览器窗口
   win.maximize() // todo 记住上次窗口位置大小
 
-  // win.webContents.openDevTools() // 打开开发者工具
+  win.webContents.openDevTools() // 打开开发者工具
   // win.loadFile(resPath + indexHtml) // 然后加载应用的 index.html
   win.loadURL(`file://${__dirname}/${resPath}/${indexHtml}`)
   win.on('closed', () => { // 当 window 被关闭，这个事件会被触发
