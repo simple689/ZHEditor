@@ -7,16 +7,32 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "electron",
+            "name": "Debug Main Process",
             "cwd": "${workspaceRoot}",
-            "program": "${workspaceFolder}/index.js",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+            "windows": {
+                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+            },
             "runtimeArgs": [
                 "."
                 // "--enable-logging"
             ],
-            "protocol": "inspector", //添加默认的协议是legacy，这个协议导致不进入断点
-            "address": "localhost"
+            "program": "${workspaceFolder}/main.js",
+            "protocol": "inspector" //添加默认的协议是legacy，这个协议导致不进入断点
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Debug Renderer Process",
+            "webRoot": "${workspaceRoot}",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+            "windows": {
+                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+            },
+            "runtimeArgs": [
+                "${workspaceRoot}/main.js",
+                "--remote-debugging-port=9222"
+            ]
         }
     ]
 }

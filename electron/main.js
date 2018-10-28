@@ -11,6 +11,7 @@ var resPath = "res/"
 // var asarDir = fs.readdirSync('res.asar')
 
 var indexHtml = "html/business/editor/dock/dock.html"
+// var indexHtml = "html/business/editor/dock/docka.html"
 // indexHtml = "test/test.html"
 
 function createWindow () {
@@ -33,7 +34,8 @@ function createWindow () {
   win.maximize() // todo 记住上次窗口位置大小
 
   // win.webContents.openDevTools() // 打开开发者工具
-  win.loadFile(resPath + indexHtml) // 然后加载应用的 index.html
+  // win.loadFile(resPath + indexHtml) // 然后加载应用的 index.html
+  win.loadURL(`file://${__dirname}/${resPath}/${indexHtml}`)
   win.on('closed', () => { // 当 window 被关闭，这个事件会被触发
     // 取消引用 window 对象，如果你的应用支持多窗口的话
     // 通常会把多个 window 对象存放在一个数组里面
@@ -64,4 +66,4 @@ app.on('activate', () => {
 })
 
 // 主进程代码
-global.Test = require('./res/test/test');
+// global.Test = require('./res/test/test');
