@@ -1,6 +1,9 @@
 const electron = require('electron')
 const { app, BrowserWindow } = require('electron')
 const fs = require('fs')
+const path = require('path')
+
+const EditorFileSystem = require('./editorFileSystem.js')
 
 let win
 
@@ -65,4 +68,47 @@ app.on('activate', () => {
 })
 
 // 主进程代码
+var pathUserData = app.getPath("userData");
+
+var dirRes = "res";
+var dirConfig = "config";
+
+var fileExe = "exe";
+
+var extendConfig = ".config";
+
+var pathConfig = path.join(pathUserData, dirRes, dirConfig);
+EditorFileSystem.mkdirs(pathConfig, function() {
+  var filePathExeConfig = path.join(pathConfig, fileExe, extendConfig);
+  EditorFileSystem.readFile(filePathExeConfig, function(err, data) {
+    if (!err) {
+      console.log(data);
+    }
+  });
+  // var data = "test";
+  // EditorFileSystem.writeFile(filePathExeConfig, data, function(err) {
+  //   if (!err) {
+  //     console.log("write ok!");
+  //   }
+  // })
+});
+
+
 // global.Test = require('./res/test/test');
+
+// fs.readFile(_path, 'utf8', function (err, data) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(data);
+//   }
+// });
+// fs.writeFile(_path, "electron + Javascript", function (err) {
+//   if (!err) {
+//     console.log("写入成功！")
+//   }
+// })
+// var a = fs.readdirSync(__dirname);
+// var stat = fs.statSync(filePath);
+// var isDir = stat.isDirectory();
+// var isFile = stat.isFile();

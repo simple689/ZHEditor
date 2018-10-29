@@ -15,6 +15,7 @@
             },
             "runtimeArgs": [
                 "."
+                // "--debug"
                 // "--enable-logging"
             ],
             "program": "${workspaceFolder}/main.js",
